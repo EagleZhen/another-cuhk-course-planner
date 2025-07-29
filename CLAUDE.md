@@ -28,6 +28,7 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 - **📝 Comprehensive course details**: Description, enrollment requirements, academic career, grading basis, components
 - **🏛️ Academic metadata**: Campus, academic group/organization information
 - **🗓️ Raw date preservation**: Complete date ranges per meeting (e.g., "9/1, 16/1, 23/1")
+- **🎯 Section status tracking**: Real-time enrollment status (Open, Closed, Waitlisted) per section
 - **📊 Structured JSON export**: Web-app ready nested format with comprehensive metadata
 - **🔄 Intelligent retry logic**: Exponential backoff for failed attempts
 - **📁 Organized output**: All files saved to `tests/output/` with descriptive names
@@ -157,6 +158,7 @@ json_file = scraper.export_to_json(results)
             "schedule": [
               {
                 "section": "--LEC (8192)",
+                "status": "Open",
                 "meetings": [
                   {
                     "time": "Th 1:30PM - 2:15PM",
@@ -180,6 +182,7 @@ json_file = scraper.export_to_json(results)
               },
               {
                 "section": "-L01-LAB (5726)",
+                "status": "Open",
                 "meetings": [
                   {
                     "time": "Th 3:30PM - 5:15PM",

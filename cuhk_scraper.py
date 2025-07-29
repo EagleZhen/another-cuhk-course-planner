@@ -453,6 +453,20 @@ class CuhkScraper:
         units_elem = soup.find('span', {'id': 'uc_course_lbl_units'})
         return self._clean_text(units_elem.get_text()) if units_elem else ""
     
+    def _parse_status_from_image(self, img_src: str) -> str:
+        """Parse enrollment status from status icon image source"""
+        if not img_src:
+            return "Unknown"
+        
+        if "class_open.gif" in img_src:
+            return "Open"
+        elif "class_closed.gif" in img_src:
+            return "Closed"  
+        elif "class_wait.gif" in img_src:
+            return "Waitlisted"
+        else:
+            return "Unknown"
+    
     def _extract_additional_course_details(self, soup: BeautifulSoup, course: Course) -> None:
         """Extract additional course details from the course page"""
         # Course description
@@ -531,10 +545,19 @@ class CuhkScraper:
                     if not section or '(' not in section or ')' not in section:
                         continue
                     
+                    # Extract status info from status icon (second cell)
+                    status = "Unknown"
+                    if len(cells) >= 2:
+                        status_img = cells[1].find('img')
+                        if status_img:
+                            img_src = status_img.get('src', '')
+                            status = self._parse_status_from_image(img_src)
+                    
                     # Initialize section if not seen before
                     if section not in sections_data:
                         sections_data[section] = {
                             'section': section,
+                            'status': status,
                             'meetings': []
                         }
                     
