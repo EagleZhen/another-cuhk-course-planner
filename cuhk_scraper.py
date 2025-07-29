@@ -496,10 +496,11 @@ class CuhkScraper:
             course.academic_org = self._clean_text(org_elem.get_text())
     
     def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
-        """Parse term info when no dropdown is available - preserve raw data structure"""
+        """Parse term info when no dropdown is available - nest meetings under sections"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        schedule_data = []
+        # Group meetings by section to reflect merged cell structure
+        sections_data = {}
         instructors = set()
         
         # Look for any schedule tables
@@ -512,6 +513,18 @@ class CuhkScraper:
                     if len(cells) >= 3:
                         # Extract section info (may be empty for single term courses)  
                         section = self._clean_text(cells[0].get_text()) if len(cells) > 0 else ""
+                        
+                        # Skip if section doesn't look like a valid section identifier
+                        # Valid sections should contain parentheses (e.g., "--LEC (8192)", "-L01-LAB (5726)")
+                        if not section or '(' not in section or ')' not in section:
+                            continue
+                        
+                        # Initialize section if not seen before
+                        if section not in sections_data:
+                            sections_data[section] = {
+                                'section': section,
+                                'meetings': []
+                            }
                         
                         # Extract schedule info from nested table
                         meet_table = cells[2].find('table')
@@ -533,14 +546,16 @@ class CuhkScraper:
                                         instructors.add(instructor)
                                     
                                     if days_times and dates:
-                                        # Each row becomes one entry - preserve raw data
-                                        schedule_data.append({
-                                            'section': section,
+                                        # Each row becomes one meeting under this section
+                                        sections_data[section]['meetings'].append({
                                             'time': days_times,
                                             'location': room,
                                             'instructor': instructor,
                                             'dates': dates
                                         })
+        
+        # Convert to list format for JSON serialization
+        schedule_data = list(sections_data.values())
         
         if schedule_data or instructors:
             return TermInfo(
@@ -553,10 +568,11 @@ class CuhkScraper:
         return None
     
     def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
-        """Parse term-specific information from HTML - preserve raw data structure"""
+        """Parse term-specific information from HTML - nest meetings under sections"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        schedule_data = []
+        # Group meetings by section to reflect merged cell structure
+        sections_data = {}
         instructors = set()
         
         # Find the schedule table
@@ -569,6 +585,18 @@ class CuhkScraper:
                 if len(cells) >= 3:
                     # Extract section info
                     section = self._clean_text(cells[0].get_text())
+                    
+                    # Skip if section doesn't look like a valid section identifier
+                    # Valid sections should contain parentheses (e.g., "--LEC (8192)", "-L01-LAB (5726)")
+                    if not section or '(' not in section or ')' not in section:
+                        continue
+                    
+                    # Initialize section if not seen before
+                    if section not in sections_data:
+                        sections_data[section] = {
+                            'section': section,
+                            'meetings': []
+                        }
                     
                     # Extract meeting info from nested table
                     meet_table = cells[2].find('table')
@@ -590,14 +618,16 @@ class CuhkScraper:
                                     instructors.add(instructor)
                                 
                                 if days_times and dates:
-                                    # Each row becomes one entry - preserve raw data
-                                    schedule_data.append({
-                                        'section': section,
+                                    # Each row becomes one meeting under this section
+                                    sections_data[section]['meetings'].append({
                                         'time': days_times,
                                         'location': room,
                                         'instructor': instructor,
                                         'dates': dates
                                     })
+        
+        # Convert to list format for JSON serialization
+        schedule_data = list(sections_data.values())
         
         # Create term info even if no schedule (course might not be offered this term)
         return TermInfo(
