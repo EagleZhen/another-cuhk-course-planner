@@ -496,11 +496,10 @@ class CuhkScraper:
             course.academic_org = self._clean_text(org_elem.get_text())
     
     def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
-        """Parse term info when no dropdown is available"""
+        """Parse term info when no dropdown is available - preserve raw data structure"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        # Use same approach as _parse_term_info for consistency
-        sections_data = {}
+        schedule_data = []
         instructors = set()
         
         # Look for any schedule tables
@@ -534,36 +533,14 @@ class CuhkScraper:
                                         instructors.add(instructor)
                                     
                                     if days_times and dates:
-                                        # Create a unique key for this section
-                                        section_key = f"{section}|{days_times}|{room}|{instructor}"
-                                        
-                                        if section_key not in sections_data:
-                                            sections_data[section_key] = {
-                                                'section': section,
-                                                'time': days_times,
-                                                'location': room,
-                                                'instructor': instructor,
-                                                'dates': []
-                                            }
-                                        
-                                        # Add dates to the list
-                                        date_parts = [d.strip() for d in dates.split(',') if d.strip()]
-                                        sections_data[section_key]['dates'].extend(date_parts)
-        
-        # Convert sections_data to final schedule format with merged dates
-        schedule_data = []
-        for section_info in sections_data.values():
-            # Remove duplicates and preserve order
-            unique_dates = list(dict.fromkeys(section_info['dates']))
-            merged_dates = ', '.join(unique_dates)
-            
-            schedule_data.append({
-                'section': section_info['section'],
-                'time': section_info['time'],
-                'location': section_info['location'],
-                'instructor': section_info['instructor'],
-                'dates': merged_dates
-            })
+                                        # Each row becomes one entry - preserve raw data
+                                        schedule_data.append({
+                                            'section': section,
+                                            'time': days_times,
+                                            'location': room,
+                                            'instructor': instructor,
+                                            'dates': dates
+                                        })
         
         if schedule_data or instructors:
             return TermInfo(
@@ -576,11 +553,10 @@ class CuhkScraper:
         return None
     
     def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
-        """Parse term-specific information from HTML"""
+        """Parse term-specific information from HTML - preserve raw data structure"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        # Use a dictionary to group by section, then merge dates
-        sections_data = {}
+        schedule_data = []
         instructors = set()
         
         # Find the schedule table
@@ -614,38 +590,14 @@ class CuhkScraper:
                                     instructors.add(instructor)
                                 
                                 if days_times and dates:
-                                    # Create a unique key for this section based on section, time, location, instructor
-                                    section_key = f"{section}|{days_times}|{room}|{instructor}"
-                                    
-                                    if section_key not in sections_data:
-                                        sections_data[section_key] = {
-                                            'section': section,
-                                            'time': days_times,
-                                            'location': room,
-                                            'instructor': instructor,
-                                            'dates': []
-                                        }
-                                    
-                                    # Add dates to the list (split by comma and strip)
-                                    date_parts = [d.strip() for d in dates.split(',') if d.strip()]
-                                    # Debug logging (uncomment if needed for troubleshooting)
-                                    # self.logger.info(f"Adding dates for {section_key}: {date_parts}")
-                                    sections_data[section_key]['dates'].extend(date_parts)
-        
-        # Convert sections_data to final schedule format with merged dates
-        schedule_data = []
-        for section_info in sections_data.values():
-            # Remove duplicates and sort dates
-            unique_dates = list(dict.fromkeys(section_info['dates']))  # Preserve order while removing duplicates
-            merged_dates = ', '.join(unique_dates)
-            
-            schedule_data.append({
-                'section': section_info['section'],
-                'time': section_info['time'],
-                'location': section_info['location'],
-                'instructor': section_info['instructor'],
-                'dates': merged_dates
-            })
+                                    # Each row becomes one entry - preserve raw data
+                                    schedule_data.append({
+                                        'section': section,
+                                        'time': days_times,
+                                        'location': room,
+                                        'instructor': instructor,
+                                        'dates': dates
+                                    })
         
         # Create term info even if no schedule (course might not be offered this term)
         return TermInfo(
