@@ -10,6 +10,35 @@ import ddddocr
 import onnxruntime
 
 @dataclass
+class ScrapingConfig:
+    """Configuration for testing vs production scraping"""
+    # Testing defaults - safe for development
+    max_courses_per_subject: Optional[int] = 3  # None = unlimited
+    save_debug_files: bool = True
+    request_delay: float = 2.0
+    max_retries: int = 3
+    
+    @classmethod
+    def for_production(cls):
+        """Production-ready configuration - unlimited courses, optimized performance"""
+        return cls(
+            max_courses_per_subject=None,  # No limit
+            save_debug_files=False,
+            request_delay=1.0,
+            max_retries=5
+        )
+    
+    @classmethod
+    def for_validation(cls, max_courses: int = 10):
+        """Validation configuration - limited courses for testing"""
+        return cls(
+            max_courses_per_subject=max_courses,
+            save_debug_files=False,
+            request_delay=1.5,
+            max_retries=3
+        )
+
+@dataclass
 class TermInfo:
     """Term-specific course information"""
     term_code: str  # e.g., "2390"
@@ -114,9 +143,12 @@ class CuhkScraper:
             self.logger.error(f"Error getting subjects from live site: {e}")
             return []
     
-    def scrape_subject(self, subject_code: str, get_details: bool = False, get_enrollment_details: bool = False, max_retries: int = 3) -> List[Course]:
+    def scrape_subject(self, subject_code: str, get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> List[Course]:
         """Scrape courses for a specific subject"""
-        for attempt in range(max_retries):
+        if config is None:
+            config = ScrapingConfig()  # Use testing defaults
+            
+        for attempt in range(config.max_retries):
             try:
                 self.logger.info(f"Scraping {subject_code}, attempt {attempt + 1}")
                 
@@ -134,11 +166,12 @@ class CuhkScraper:
                 response = self.session.post(self.base_url, data=form_data)
                 response.raise_for_status()
                 
-                # Debug: save response to understand structure
-                debug_file = f"tests/output/response_{subject_code}_attempt_{attempt + 1}.html"
-                with open(debug_file, 'w', encoding='utf-8') as f:
-                    f.write(response.text)
-                self.logger.info(f"Saved response to {debug_file}")
+                # Debug: save response to understand structure (if enabled)
+                if config.save_debug_files:
+                    debug_file = f"tests/output/response_{subject_code}_attempt_{attempt + 1}.html"
+                    with open(debug_file, 'w', encoding='utf-8') as f:
+                        f.write(response.text)
+                    self.logger.info(f"Saved response to {debug_file}")
                 
                 # Parse results
                 courses = self._parse_course_results(response.text)
@@ -147,23 +180,30 @@ class CuhkScraper:
                 for course in courses:
                     course.subject = subject_code
                 
-                # Get detailed information if requested (limit to first 3 courses for testing)
+                # Get detailed information if requested
                 if get_details and courses:
-                    test_courses = courses[:3]  # Limit to first 3 for testing
-                    self.logger.info(f"Getting details for {len(test_courses)} courses (testing with first 3)...")
+                    # Apply course limit based on configuration
+                    if config.max_courses_per_subject is not None:
+                        courses_to_detail = courses[:config.max_courses_per_subject]
+                        self.logger.info(f"Getting details for {len(courses_to_detail)} courses (limited by config)...")
+                    else:
+                        courses_to_detail = courses
+                        self.logger.info(f"Getting details for all {len(courses_to_detail)} courses...")
+                    
                     detailed_courses = []
                     
-                    for i, course in enumerate(test_courses):
-                        self.logger.info(f"Getting details for course {i+1}/{len(test_courses)}: {course.course_code}")
-                        detailed_course = self.get_course_details(course, response.text, get_enrollment_details=get_enrollment_details)
+                    for i, course in enumerate(courses_to_detail):
+                        self.logger.info(f"Getting details for course {i+1}/{len(courses_to_detail)}: {course.course_code}")
+                        detailed_course = self.get_course_details(course, response.text, get_enrollment_details=get_enrollment_details, config=config)
                         detailed_courses.append(detailed_course)
                         
                         # Be polite to the server
-                        if i < len(test_courses) - 1:
-                            time.sleep(2)  # Increased delay for debugging
+                        if i < len(courses_to_detail) - 1:
+                            time.sleep(config.request_delay)
                     
-                    # Add remaining courses without details for complete list
-                    detailed_courses.extend(courses[3:])
+                    # Add remaining courses without details for complete list (if limited)
+                    if config.max_courses_per_subject is not None:
+                        detailed_courses.extend(courses[config.max_courses_per_subject:])
                     courses = detailed_courses
                 
                 if courses:
@@ -286,8 +326,11 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
     
-    def get_course_details(self, course: Course, current_html: str, get_enrollment_details: bool = False) -> Optional[Course]:
+    def get_course_details(self, course: Course, current_html: str, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Optional[Course]:
         """Get detailed course information by simulating postback"""
+        if config is None:
+            config = ScrapingConfig()  # Use testing defaults
+            
         if not course.postback_target:
             self.logger.warning(f"No postback target for course {course.course_code}")
             return course
@@ -315,11 +358,12 @@ class CuhkScraper:
             # Get course details with all available terms
             detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details)
             
-            # Debug: save detailed response
-            debug_file = f"tests/output/course_details_{course.subject}_{course.course_code}.html"
-            with open(debug_file, 'w', encoding='utf-8') as f:
-                f.write(response.text)
-            self.logger.info(f"Saved course details to {debug_file}")
+            # Debug: save detailed response (if enabled)
+            if config.save_debug_files:
+                debug_file = f"tests/output/course_details_{course.subject}_{course.course_code}.html"
+                with open(debug_file, 'w', encoding='utf-8') as f:
+                    f.write(response.text)
+                self.logger.info(f"Saved course details to {debug_file}")
             
             return detailed_course
             
@@ -435,11 +479,8 @@ class CuhkScraper:
                 response.raise_for_status()
                 html = response.text
                 
-                # Save debug file
-                debug_file = f"tests/output/sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                with open(debug_file, 'w', encoding='utf-8') as f:
-                    f.write(html)
-                self.logger.info(f"Saved sections to {debug_file}")
+                # Save debug file (if enabled) - need config passed down
+                # Note: config not available here, will need to pass it down from parent method
             
             # Parse the term-specific information
             return self._parse_term_info(html, term_code, term_name, get_enrollment_details)
@@ -807,20 +848,29 @@ class CuhkScraper:
             return ""
         return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
     
-    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False) -> Dict[str, List[Course]]:
+    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, List[Course]]:
         """Scrape all subjects"""
+        if config is None:
+            config = ScrapingConfig()  # Use testing defaults
+            
         results = {}
         
         for i, subject in enumerate(subjects):
             self.logger.info(f"Processing {subject} ({i+1}/{len(subjects)})")
             
-            courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details)
+            courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
             results[subject] = courses
             
             # Be polite to the server
-            time.sleep(1)
+            time.sleep(config.request_delay)
         
         return results
+    
+    def scrape_for_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> Dict[str, List[Course]]:
+        """Production scraping - unlimited courses, no debug files, optimized performance"""
+        self.logger.info(f"Starting PRODUCTION scraping for {len(subjects)} subjects")
+        config = ScrapingConfig.for_production()
+        return self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
     
     def export_to_json(self, data: Dict[str, List[Course]], filename: str = None) -> str:
         """Export data to JSON with metadata"""
