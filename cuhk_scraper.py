@@ -499,22 +499,30 @@ class CuhkScraper:
         """Parse term info when no dropdown is available"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        # Try to extract whatever schedule information is available
-        schedule_data = []
+        # Use same approach as _parse_term_info for consistency
+        sections_data = {}
         instructors = set()
         
         # Look for any schedule tables
         for table in soup.find_all('table'):
             if 'gv_sched' in str(table.get('id', '')):
-                rows = table.find_all('tr', class_='normalGridViewRowStyle')
+                # Get both normal and alternating row styles
+                rows = table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
                 for row in rows:
                     cells = row.find_all('td')
                     if len(cells) >= 3:
+                        # Extract section info (may be empty for single term courses)  
+                        section = self._clean_text(cells[0].get_text()) if len(cells) > 0 else ""
+                        
                         # Extract schedule info from nested table
                         meet_table = cells[2].find('table')
                         if meet_table:
-                            meet_rows = meet_table.find_all('tr')[1:]  # Skip header
-                            for meet_row in meet_rows:
+                            # Note: These nested tables don't have headers, all rows are data
+                            meet_rows = meet_table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
+                            # Debug logging (uncomment if needed for troubleshooting)
+                            # self.logger.info(f"Found {len(meet_rows)} meet rows for section {section}")
+                            for i, meet_row in enumerate(meet_rows):
+                                # self.logger.info(f"Meet row {i}: class={meet_row.get('class')}")
                                 meet_cells = meet_row.find_all('td')
                                 if len(meet_cells) >= 4:
                                     days_times = self._clean_text(meet_cells[0].get_text())
@@ -525,14 +533,37 @@ class CuhkScraper:
                                     if instructor and instructor != 'TBA':
                                         instructors.add(instructor)
                                     
-                                    if days_times:
-                                        schedule_data.append({
-                                            'section': '',
-                                            'time': days_times,
-                                            'location': room,
-                                            'instructor': instructor,
-                                            'dates': dates
-                                        })
+                                    if days_times and dates:
+                                        # Create a unique key for this section
+                                        section_key = f"{section}|{days_times}|{room}|{instructor}"
+                                        
+                                        if section_key not in sections_data:
+                                            sections_data[section_key] = {
+                                                'section': section,
+                                                'time': days_times,
+                                                'location': room,
+                                                'instructor': instructor,
+                                                'dates': []
+                                            }
+                                        
+                                        # Add dates to the list
+                                        date_parts = [d.strip() for d in dates.split(',') if d.strip()]
+                                        sections_data[section_key]['dates'].extend(date_parts)
+        
+        # Convert sections_data to final schedule format with merged dates
+        schedule_data = []
+        for section_info in sections_data.values():
+            # Remove duplicates and preserve order
+            unique_dates = list(dict.fromkeys(section_info['dates']))
+            merged_dates = ', '.join(unique_dates)
+            
+            schedule_data.append({
+                'section': section_info['section'],
+                'time': section_info['time'],
+                'location': section_info['location'],
+                'instructor': section_info['instructor'],
+                'dates': merged_dates
+            })
         
         if schedule_data or instructors:
             return TermInfo(
@@ -548,13 +579,15 @@ class CuhkScraper:
         """Parse term-specific information from HTML"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        schedule_data = []
+        # Use a dictionary to group by section, then merge dates
+        sections_data = {}
         instructors = set()
         
         # Find the schedule table
         schedule_table = soup.find('table', {'id': lambda x: x and 'gv_sched' in x})
         if schedule_table:
-            rows = schedule_table.find_all('tr', class_='normalGridViewRowStyle')
+            # Get both normal and alternating row styles
+            rows = schedule_table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
             for row in rows:
                 cells = row.find_all('td')
                 if len(cells) >= 3:
@@ -564,8 +597,12 @@ class CuhkScraper:
                     # Extract meeting info from nested table
                     meet_table = cells[2].find('table')
                     if meet_table:
-                        meet_rows = meet_table.find_all('tr')[1:]  # Skip header
-                        for meet_row in meet_rows:
+                        # Note: These nested tables don't have headers, all rows are data
+                        meet_rows = meet_table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
+                        # Debug logging (uncomment if needed for troubleshooting)
+                        # self.logger.info(f"Found {len(meet_rows)} meet rows for section {section}")
+                        for i, meet_row in enumerate(meet_rows):
+                            # self.logger.info(f"Meet row {i}: class={meet_row.get('class')}")
                             meet_cells = meet_row.find_all('td')
                             if len(meet_cells) >= 4:
                                 days_times = self._clean_text(meet_cells[0].get_text())
@@ -576,14 +613,39 @@ class CuhkScraper:
                                 if instructor and instructor != 'TBA':
                                     instructors.add(instructor)
                                 
-                                if days_times:
-                                    schedule_data.append({
-                                        'section': section,
-                                        'time': days_times,
-                                        'location': room,
-                                        'instructor': instructor,
-                                        'dates': dates
-                                    })
+                                if days_times and dates:
+                                    # Create a unique key for this section based on section, time, location, instructor
+                                    section_key = f"{section}|{days_times}|{room}|{instructor}"
+                                    
+                                    if section_key not in sections_data:
+                                        sections_data[section_key] = {
+                                            'section': section,
+                                            'time': days_times,
+                                            'location': room,
+                                            'instructor': instructor,
+                                            'dates': []
+                                        }
+                                    
+                                    # Add dates to the list (split by comma and strip)
+                                    date_parts = [d.strip() for d in dates.split(',') if d.strip()]
+                                    # Debug logging (uncomment if needed for troubleshooting)
+                                    # self.logger.info(f"Adding dates for {section_key}: {date_parts}")
+                                    sections_data[section_key]['dates'].extend(date_parts)
+        
+        # Convert sections_data to final schedule format with merged dates
+        schedule_data = []
+        for section_info in sections_data.values():
+            # Remove duplicates and sort dates
+            unique_dates = list(dict.fromkeys(section_info['dates']))  # Preserve order while removing duplicates
+            merged_dates = ', '.join(unique_dates)
+            
+            schedule_data.append({
+                'section': section_info['section'],
+                'time': section_info['time'],
+                'location': section_info['location'],
+                'instructor': section_info['instructor'],
+                'dates': merged_dates
+            })
         
         # Create term info even if no schedule (course might not be offered this term)
         return TermInfo(
