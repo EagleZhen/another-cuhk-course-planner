@@ -648,7 +648,7 @@ class CuhkScraper:
                         self.logger.info(f"Getting enrollment details for section: {section_name}")
                         
                         # Click into section to get detailed enrollment data
-                        section_details = self._get_section_enrollment_details(postback_target, html)
+                        section_details = self._get_section_enrollment_details(postback_target, html, section_name)
                         if section_details:
                             sections_data[section_name] = section_details
                             # Add instructors from this section
@@ -662,7 +662,7 @@ class CuhkScraper:
         schedule_data = list(sections_data.values())
         return schedule_data, instructors
 
-    def _get_section_enrollment_details(self, postback_target: str, current_html: str) -> Optional[dict]:
+    def _get_section_enrollment_details(self, postback_target: str, current_html: str, section_name: str) -> Optional[dict]:
         """Click into a section to get detailed enrollment information"""
         try:
             # Extract postback parameters from the JavaScript call
@@ -698,7 +698,7 @@ class CuhkScraper:
                 class_details_html = response.text
                 
                 # Parse the class details page
-                return self._parse_class_details(class_details_html)
+                return self._parse_class_details(class_details_html, section_name)
                 
         except Exception as e:
             self.logger.error(f"Error getting section enrollment details: {e}")
@@ -706,7 +706,7 @@ class CuhkScraper:
         
         return None
 
-    def _parse_class_details(self, html: str) -> Optional[dict]:
+    def _parse_class_details(self, html: str, section_name: str) -> Optional[dict]:
         """Parse class details page to extract section info with enrollment data"""
         soup = BeautifulSoup(html, 'html.parser')
         
@@ -729,14 +729,7 @@ class CuhkScraper:
                     }
                     meetings.append(meeting)
         
-        # Get section name from class number span
-        section_name = "Unknown Section"
-        class_nbr_elem = soup.find('span', {'id': 'uc_class_lbl_class_nbr'})
-        if class_nbr_elem:
-            class_nbr = self._clean_text(class_nbr_elem.get_text())
-            # Try to find the section pattern in the original HTML or construct it
-            section_name = f"({class_nbr})"  # Simplified - you might want to get the full section name
-        
+        # Use the original section name from the schedule page
         return {
             'section': section_name,
             'meetings': meetings,
