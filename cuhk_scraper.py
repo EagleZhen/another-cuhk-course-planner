@@ -114,7 +114,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting subjects from live site: {e}")
             return []
     
-    def scrape_subject(self, subject_code: str, get_details: bool = False, max_retries: int = 3) -> List[Course]:
+    def scrape_subject(self, subject_code: str, get_details: bool = False, get_enrollment_details: bool = False, max_retries: int = 3) -> List[Course]:
         """Scrape courses for a specific subject"""
         for attempt in range(max_retries):
             try:
@@ -155,7 +155,7 @@ class CuhkScraper:
                     
                     for i, course in enumerate(test_courses):
                         self.logger.info(f"Getting details for course {i+1}/{len(test_courses)}: {course.course_code}")
-                        detailed_course = self.get_course_details(course, response.text)
+                        detailed_course = self.get_course_details(course, response.text, get_enrollment_details=get_enrollment_details)
                         detailed_courses.append(detailed_course)
                         
                         # Be polite to the server
@@ -286,7 +286,7 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
     
-    def get_course_details(self, course: Course, current_html: str) -> Optional[Course]:
+    def get_course_details(self, course: Course, current_html: str, get_enrollment_details: bool = False) -> Optional[Course]:
         """Get detailed course information by simulating postback"""
         if not course.postback_target:
             self.logger.warning(f"No postback target for course {course.course_code}")
@@ -313,7 +313,7 @@ class CuhkScraper:
             response.raise_for_status()
             
             # Get course details with all available terms
-            detailed_course = self._get_course_details_with_term_selection(response.text, course)
+            detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details)
             
             # Debug: save detailed response
             debug_file = f"tests/output/course_details_{course.subject}_{course.course_code}.html"
@@ -327,7 +327,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting course details for {course.course_code}: {e}")
             return course
     
-    def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
+    def _get_course_details_with_term_selection(self, html: str, base_course: Course, get_enrollment_details: bool = False) -> Course:
         """Get course details for all available terms"""
         soup = BeautifulSoup(html, 'html.parser')
         
@@ -362,7 +362,7 @@ class CuhkScraper:
         for i, (term_code, term_name) in enumerate(available_terms):
             try:
                 self.logger.info(f"Scraping term {i+1}/{len(available_terms)}: {term_name} for {base_course.course_code}")
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
+                term_info = self._scrape_term_details(html, base_course, term_code, term_name, get_enrollment_details=get_enrollment_details)
                 if term_info:
                     all_term_info.append(term_info)
                 
@@ -380,7 +380,7 @@ class CuhkScraper:
                        f"Terms={len(all_term_info)}")
         return base_course
     
-    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str) -> Optional[TermInfo]:
+    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
         """Scrape details for a specific term"""
         try:
             soup = BeautifulSoup(html, 'html.parser')
@@ -442,7 +442,7 @@ class CuhkScraper:
                 self.logger.info(f"Saved sections to {debug_file}")
             
             # Parse the term-specific information
-            return self._parse_term_info(html, term_code, term_name)
+            return self._parse_term_info(html, term_code, term_name, get_enrollment_details)
             
         except Exception as e:
             self.logger.error(f"Error scraping term {term_name}: {e}")
@@ -593,9 +593,14 @@ class CuhkScraper:
         schedule_data = list(sections_data.values())
         return schedule_data, instructors
 
-    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term") -> Optional[TermInfo]:
+    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term", get_enrollment_details: bool = False) -> Optional[TermInfo]:
         """Create TermInfo from HTML with optional term metadata"""
-        schedule_data, instructors = self._parse_schedule_from_html(html)
+        if get_enrollment_details:
+            # Use detailed section parsing with enrollment data
+            schedule_data, instructors = self._parse_schedule_with_enrollment_details(html)
+        else:
+            # Use current fast parsing method
+            schedule_data, instructors = self._parse_schedule_from_html(html)
         
         if schedule_data or instructors:
             return TermInfo(
@@ -607,13 +612,200 @@ class CuhkScraper:
         
         return None
 
+    def _parse_schedule_with_enrollment_details(self, html: str) -> tuple[list[dict], set[str]]:
+        """Parse schedule with detailed enrollment data by clicking into each section"""
+        soup = BeautifulSoup(html, 'html.parser')
+        sections_data = {}
+        instructors = set()
+        
+        # Find schedule tables to extract section links
+        schedule_tables = []
+        schedule_table = soup.find('table', {'id': lambda x: x and 'gv_sched' in x})
+        if schedule_table:
+            schedule_tables.append(schedule_table)
+        else:
+            # Fallback: search all tables for schedule tables
+            for table in soup.find_all('table'):
+                if 'gv_sched' in str(table.get('id', '')):
+                    schedule_tables.append(table)
+        
+        for table in schedule_tables:
+            # Get section rows
+            rows = table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) >= 2:
+                    # Look for section link in first cell
+                    section_link = cells[0].find('a')
+                    if section_link:
+                        section_name = self._clean_text(section_link.get_text())
+                        postback_target = section_link.get('href', '')
+                        
+                        # Skip if section doesn't look valid
+                        if not section_name or '(' not in section_name or ')' not in section_name:
+                            continue
+                        
+                        self.logger.info(f"Getting enrollment details for section: {section_name}")
+                        
+                        # Click into section to get detailed enrollment data
+                        section_details = self._get_section_enrollment_details(postback_target, html)
+                        if section_details:
+                            sections_data[section_name] = section_details
+                            # Add instructors from this section
+                            if 'meetings' in section_details:
+                                for meeting in section_details['meetings']:
+                                    instructor = meeting.get('instructor', '')
+                                    if instructor and instructor != 'TBA':
+                                        instructors.add(instructor)
+        
+        # Convert to list format for JSON serialization
+        schedule_data = list(sections_data.values())
+        return schedule_data, instructors
+
+    def _get_section_enrollment_details(self, postback_target: str, current_html: str) -> Optional[dict]:
+        """Click into a section to get detailed enrollment information"""
+        try:
+            # Extract postback parameters from the JavaScript call
+            if 'javascript:__doPostBack(' in postback_target:
+                # Parse the postback parameters
+                # Format: javascript:__doPostBack('uc_course$gv_sched$ctl02$lkbtn_class_section','')
+                start = postback_target.find("'") + 1
+                end = postback_target.find("'", start)
+                event_target = postback_target[start:end] if start > 0 and end > start else ''
+                
+                if not event_target:
+                    self.logger.warning(f"Could not parse postback target: {postback_target}")
+                    return None
+                
+                # Prepare form data for postback
+                soup = BeautifulSoup(current_html, 'html.parser')
+                form_data = {}
+                
+                # Extract all hidden form fields
+                for input_elem in soup.find_all('input', {'type': 'hidden'}):
+                    name = input_elem.get('name')
+                    value = input_elem.get('value', '')
+                    if name:
+                        form_data[name] = value
+                
+                # Set postback parameters
+                form_data['__EVENTTARGET'] = event_target
+                form_data['__EVENTARGUMENT'] = ''
+                
+                # Submit the postback to get class details
+                response = self.session.post(self.base_url, data=form_data)
+                response.raise_for_status()
+                class_details_html = response.text
+                
+                # Parse the class details page
+                return self._parse_class_details(class_details_html)
+                
+        except Exception as e:
+            self.logger.error(f"Error getting section enrollment details: {e}")
+            return None
+        
+        return None
+
+    def _parse_class_details(self, html: str) -> Optional[dict]:
+        """Parse class details page to extract section info with enrollment data"""
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Extract class availability information
+        availability = self._parse_class_availability(soup)
+        
+        # Extract meeting information
+        meetings = []
+        meeting_table = soup.find('table', {'id': 'uc_class_gv_meet'})
+        if meeting_table:
+            rows = meeting_table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) >= 4:
+                    meeting = {
+                        'time': self._clean_text(cells[0].get_text()),
+                        'location': self._clean_text(cells[1].get_text()),
+                        'instructor': self._clean_text(cells[2].get_text()),
+                        'dates': self._clean_text(cells[3].get_text())
+                    }
+                    meetings.append(meeting)
+        
+        # Get section name from class number span
+        section_name = "Unknown Section"
+        class_nbr_elem = soup.find('span', {'id': 'uc_class_lbl_class_nbr'})
+        if class_nbr_elem:
+            class_nbr = self._clean_text(class_nbr_elem.get_text())
+            # Try to find the section pattern in the original HTML or construct it
+            section_name = f"({class_nbr})"  # Simplified - you might want to get the full section name
+        
+        return {
+            'section': section_name,
+            'meetings': meetings,
+            'availability': availability
+        }
+
+    def _parse_class_availability(self, soup: BeautifulSoup) -> dict:
+        """Parse class availability information from class details page"""
+        availability = {
+            'capacity': '',
+            'enrolled': '',
+            'waitlist_capacity': '',
+            'waitlist_total': '',
+            'available_seats': '',
+            'status': 'Unknown'
+        }
+        
+        try:
+            # Class Capacity
+            capacity_elem = soup.find('span', {'id': 'uc_class_lbl_enrl_cap'})
+            if capacity_elem:
+                availability['capacity'] = self._clean_text(capacity_elem.get_text())
+            
+            # Enrollment Total
+            enrolled_elem = soup.find('span', {'id': 'uc_class_lbl_enrl_tot'})
+            if enrolled_elem:
+                availability['enrolled'] = self._clean_text(enrolled_elem.get_text())
+            
+            # Wait List Capacity
+            wait_cap_elem = soup.find('span', {'id': 'uc_class_lbl_wait_cap'})
+            if wait_cap_elem:
+                availability['waitlist_capacity'] = self._clean_text(wait_cap_elem.get_text())
+            
+            # Wait List Total
+            wait_tot_elem = soup.find('span', {'id': 'uc_class_lbl_wait_tot'})
+            if wait_tot_elem:
+                availability['waitlist_total'] = self._clean_text(wait_tot_elem.get_text())
+            
+            # Available Seats
+            available_elem = soup.find('span', {'id': 'uc_class_lbl_available_seat'})
+            if available_elem:
+                availability['available_seats'] = self._clean_text(available_elem.get_text())
+            
+            # Determine status based on availability
+            try:
+                available_seats = int(availability['available_seats']) if availability['available_seats'] else 0
+                waitlist_total = int(availability['waitlist_total']) if availability['waitlist_total'] else 0
+                
+                if available_seats > 0:
+                    availability['status'] = 'Open'
+                elif waitlist_total > 0:
+                    availability['status'] = 'Waitlisted'
+                else:
+                    availability['status'] = 'Closed'
+            except (ValueError, TypeError):
+                availability['status'] = 'Unknown'
+                
+        except Exception as e:
+            self.logger.error(f"Error parsing class availability: {e}")
+        
+        return availability
+
     def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
         """Parse term info when no dropdown is available"""
         return self._create_term_info(html)
     
-    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
+    def _parse_term_info(self, html: str, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
         """Parse term-specific information from HTML"""
-        return self._create_term_info(html, term_code, term_name)
+        return self._create_term_info(html, term_code, term_name, get_enrollment_details)
     
     
     def _clean_text(self, text: str) -> str:
@@ -622,14 +814,14 @@ class CuhkScraper:
             return ""
         return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
     
-    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False) -> Dict[str, List[Course]]:
+    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False) -> Dict[str, List[Course]]:
         """Scrape all subjects"""
         results = {}
         
         for i, subject in enumerate(subjects):
             self.logger.info(f"Processing {subject} ({i+1}/{len(subjects)})")
             
-            courses = self.scrape_subject(subject, get_details=get_details)
+            courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details)
             results[subject] = courses
             
             # Be polite to the server
