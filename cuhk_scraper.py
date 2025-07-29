@@ -22,9 +22,13 @@ class Course:
     capacity: str
     enrolled: str
     waitlist: str
+    postback_target: str = ""  # For getting detailed info
     
     def to_dict(self) -> Dict:
-        return asdict(self)
+        data = asdict(self)
+        # Remove postback_target from exported data
+        data.pop('postback_target', None)
+        return data
 
 class CuhkScraper:
     """Simplified CUHK course scraper"""
@@ -89,7 +93,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting subjects from live site: {e}")
             return []
     
-    def scrape_subject(self, subject_code: str, max_retries: int = 3) -> List[Course]:
+    def scrape_subject(self, subject_code: str, get_details: bool = False, max_retries: int = 3) -> List[Course]:
         """Scrape courses for a specific subject"""
         for attempt in range(max_retries):
             try:
@@ -121,6 +125,25 @@ class CuhkScraper:
                 # Set the subject for all courses
                 for course in courses:
                     course.subject = subject_code
+                
+                # Get detailed information if requested (limit to first 3 courses for testing)
+                if get_details and courses:
+                    test_courses = courses[:3]  # Limit to first 3 for testing
+                    self.logger.info(f"Getting details for {len(test_courses)} courses (testing with first 3)...")
+                    detailed_courses = []
+                    
+                    for i, course in enumerate(test_courses):
+                        self.logger.info(f"Getting details for course {i+1}/{len(test_courses)}: {course.course_code}")
+                        detailed_course = self.get_course_details(course, response.text)
+                        detailed_courses.append(detailed_course)
+                        
+                        # Be polite to the server
+                        if i < len(test_courses) - 1:
+                            time.sleep(2)  # Increased delay for debugging
+                    
+                    # Add remaining courses without details for complete list
+                    detailed_courses.extend(courses[3:])
+                    courses = detailed_courses
                 
                 if courses:
                     self.logger.info(f"Found {len(courses)} courses for {subject_code}")
@@ -178,7 +201,7 @@ class CuhkScraper:
         
         return form_data
     
-    def _parse_course_results(self, html: str) -> List[Course]:
+    def _parse_course_results(self, html: str, get_details: bool = False) -> List[Course]:
         """Parse course results from HTML response"""
         soup = BeautifulSoup(html, 'html.parser')
         courses = []
@@ -210,7 +233,17 @@ class CuhkScraper:
                         course_code = self._clean_text(course_nbr_link.get_text())
                         title = self._clean_text(course_title_link.get_text())
                         
-                        # Create course with basic info (we'll get details later if needed)
+                        # Get the postback target for this course (for details later)
+                        postback_target = None
+                        href = course_nbr_link.get('href', '')
+                        if "__doPostBack(" in href:
+                            # Extract target from href like: javascript:__doPostBack('gv_detail$ctl02$lbtn_course_nbr','')
+                            start = href.find("'") + 1
+                            end = href.find("'", start)
+                            if start > 0 and end > start:
+                                postback_target = href[start:end]
+                        
+                        # Create course with basic info
                         course = Course(
                             subject="",  # Will be set by caller
                             course_code=course_code,
@@ -224,6 +257,10 @@ class CuhkScraper:
                             waitlist=""
                         )
                         
+                        # Store postback target for potential detail retrieval
+                        if postback_target:
+                            course.postback_target = postback_target
+                        
                         courses.append(course)
                         
             except Exception as e:
@@ -233,20 +270,144 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
     
+    def get_course_details(self, course: Course, current_html: str) -> Optional[Course]:
+        """Get detailed course information by simulating postback"""
+        if not course.postback_target:
+            self.logger.warning(f"No postback target for course {course.course_code}")
+            return course
+        
+        try:
+            # Parse the current page to get form data
+            soup = BeautifulSoup(current_html, 'html.parser')
+            form_data = {}
+            
+            # Get all hidden form fields
+            for input_elem in soup.find_all('input', {'type': 'hidden'}):
+                name = input_elem.get('name')
+                value = input_elem.get('value', '')
+                if name:
+                    form_data[name] = value
+            
+            # Set postback data
+            form_data['__EVENTTARGET'] = course.postback_target
+            form_data['__EVENTARGUMENT'] = ''
+            
+            # Submit the postback
+            response = self.session.post(self.base_url, data=form_data)
+            response.raise_for_status()
+            
+            # Parse course details from response
+            detailed_course = self._parse_course_details(response.text, course)
+            
+            # Debug: save detailed response
+            debug_file = f"tests/output/course_details_{course.subject}_{course.course_code}.html"
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write(response.text)
+            self.logger.info(f"Saved course details to {debug_file}")
+            
+            return detailed_course
+            
+        except Exception as e:
+            self.logger.error(f"Error getting course details for {course.course_code}: {e}")
+            return course
+    
+    def _parse_course_details(self, html: str, base_course: Course) -> Course:
+        """Parse detailed course information from detail page"""
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Create a copy of the base course
+        detailed_course = Course(
+            subject=base_course.subject,
+            course_code=base_course.course_code,
+            title=base_course.title,
+            credits="",
+            semester="",
+            schedule="",
+            instructor="",
+            capacity="",
+            enrolled="",
+            waitlist="",
+            postback_target=base_course.postback_target
+        )
+        
+        try:
+            # Extract units/credits from uc_course_lbl_units
+            units_elem = soup.find('span', {'id': 'uc_course_lbl_units'})
+            if units_elem:
+                detailed_course.credits = self._clean_text(units_elem.get_text())
+            
+            # Extract semester from course schedule table
+            term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
+            if term_select:
+                selected_option = term_select.find('option', {'selected': 'selected'})
+                if selected_option:
+                    detailed_course.semester = self._clean_text(selected_option.get_text())
+            
+            # Extract schedule information from the course schedule table
+            schedule_table = soup.find('table', {'id': lambda x: x and 'gv_sched' in x})
+            if schedule_table:
+                schedule_info = []
+                instructor_info = set()
+                
+                rows = schedule_table.find_all('tr', class_='normalGridViewRowStyle')
+                for row in rows:
+                    cells = row.find_all('td')
+                    if len(cells) >= 3:
+                        # Extract section info
+                        section_cell = cells[0]
+                        section = self._clean_text(section_cell.get_text())
+                        
+                        # Extract meeting info from nested table
+                        meet_table = cells[2].find('table')
+                        if meet_table:
+                            meet_rows = meet_table.find_all('tr')[1:]  # Skip header
+                            for meet_row in meet_rows:
+                                meet_cells = meet_row.find_all('td')
+                                if len(meet_cells) >= 4:
+                                    days_times = self._clean_text(meet_cells[0].get_text())
+                                    room = self._clean_text(meet_cells[1].get_text())
+                                    instructor = self._clean_text(meet_cells[2].get_text())
+                                    dates = self._clean_text(meet_cells[3].get_text())
+                                    
+                                    if instructor and instructor != 'TBA':
+                                        instructor_info.add(instructor)
+                                    
+                                    if days_times:
+                                        schedule_entry = f"{section}: {days_times}"
+                                        if room:
+                                            schedule_entry += f" @ {room}"
+                                        schedule_info.append(schedule_entry)
+                
+                # Set instructor and schedule
+                if instructor_info:
+                    detailed_course.instructor = ", ".join(sorted(instructor_info))
+                if schedule_info:
+                    detailed_course.schedule = "; ".join(schedule_info)
+            
+            self.logger.info(f"Extracted details for {detailed_course.course_code}: "
+                           f"Credits={detailed_course.credits}, "
+                           f"Semester={detailed_course.semester}, "
+                           f"Instructor={detailed_course.instructor}")
+            
+        except Exception as e:
+            self.logger.warning(f"Error parsing course details: {e}")
+        
+        return detailed_course
+    
     def _clean_text(self, text: str) -> str:
         """Clean and normalize text content"""
         if not text:
             return ""
         return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
     
-    def scrape_all_subjects(self, subjects: List[str]) -> Dict[str, List[Course]]:
+    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False) -> Dict[str, List[Course]]:
         """Scrape all subjects"""
         results = {}
         
         for i, subject in enumerate(subjects):
             self.logger.info(f"Processing {subject} ({i+1}/{len(subjects)})")
             
-            courses = self.scrape_subject(subject)
+            courses = self.scrape_subject(subject, get_details=get_details)
             results[subject] = courses
             
             # Be polite to the server
@@ -299,12 +460,14 @@ def main():
     
     print(f"Found {len(subjects)} subjects: {subjects[:10]}...")  # Show first 10
     
-    # Test with just CSCI first
+    # Test with just CSCI first, and get details for the first few courses
     test_subjects = ["CSCI"] if "CSCI" in subjects else [subjects[0]]
     print(f"Testing with subjects: {test_subjects}")
     
     try:
-        results = scraper.scrape_all_subjects(test_subjects)
+        # Test with course details enabled
+        print("Testing with course details enabled...")
+        results = scraper.scrape_all_subjects(test_subjects, get_details=True)
         
         # Export results
         json_file = scraper.export_to_json(results)
