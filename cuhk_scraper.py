@@ -109,8 +109,18 @@ class CuhkScraper:
                 response = self.session.post(self.base_url, data=form_data)
                 response.raise_for_status()
                 
+                # Debug: save response to understand structure
+                debug_file = f"tests/output/response_{subject_code}_attempt_{attempt + 1}.html"
+                with open(debug_file, 'w', encoding='utf-8') as f:
+                    f.write(response.text)
+                self.logger.info(f"Saved response to {debug_file}")
+                
                 # Parse results
                 courses = self._parse_course_results(response.text)
+                
+                # Set the subject for all courses
+                for course in courses:
+                    course.subject = subject_code
                 
                 if courses:
                     self.logger.info(f"Found {len(courses)} courses for {subject_code}")
@@ -173,55 +183,54 @@ class CuhkScraper:
         soup = BeautifulSoup(html, 'html.parser')
         courses = []
         
-        # Look for the results table
-        # This is a placeholder - you'll need to inspect the actual results page
-        # to understand the table structure
+        # Look for the specific course results table
+        course_table = soup.find('table', {'id': 'gv_detail'})
         
-        tables = soup.find_all('table')
+        if not course_table:
+            self.logger.warning("Could not find course results table (gv_detail)")
+            return []
         
-        for table in tables:
-            # Look for table with course data
-            rows = table.find_all('tr')
-            
-            if len(rows) < 2:  # Skip tables with no data rows
-                continue
-            
-            # Check if this looks like a course table
-            header_row = rows[0]
-            header_cells = header_row.find_all(['th', 'td'])
-            
-            # Simple heuristic: look for tables with multiple columns
-            if len(header_cells) < 5:
-                continue
-            
-            # Parse data rows
-            for row in rows[1:]:
-                cells = row.find_all(['td', 'th'])
+        # Get all course rows, skip header
+        rows = course_table.find_all('tr')
+        if len(rows) < 2:
+            self.logger.warning("No course data rows found")
+            return []
+        
+        # Skip header row, parse data rows
+        for row in rows[1:]:
+            try:
+                cells = row.find_all('td')
                 
-                if len(cells) >= 5:  # Minimum expected columns
-                    try:
-                        # Extract course data - adjust indices based on actual table structure
+                if len(cells) >= 2:  # Should have at least course number and title
+                    # Extract course number and title from the links
+                    course_nbr_link = row.find('a', {'id': lambda x: x and 'lbtn_course_nbr' in x})
+                    course_title_link = row.find('a', {'id': lambda x: x and 'lbtn_course_title' in x})
+                    
+                    if course_nbr_link and course_title_link:
+                        course_code = self._clean_text(course_nbr_link.get_text())
+                        title = self._clean_text(course_title_link.get_text())
+                        
+                        # Create course with basic info (we'll get details later if needed)
                         course = Course(
-                            subject=self._clean_text(cells[0].get_text()) if len(cells) > 0 else "",
-                            course_code=self._clean_text(cells[1].get_text()) if len(cells) > 1 else "",
-                            title=self._clean_text(cells[2].get_text()) if len(cells) > 2 else "",
-                            credits=self._clean_text(cells[3].get_text()) if len(cells) > 3 else "",
-                            semester=self._clean_text(cells[4].get_text()) if len(cells) > 4 else "",
-                            schedule=self._clean_text(cells[5].get_text()) if len(cells) > 5 else "",
-                            instructor=self._clean_text(cells[6].get_text()) if len(cells) > 6 else "",
-                            capacity=self._clean_text(cells[7].get_text()) if len(cells) > 7 else "",
-                            enrolled=self._clean_text(cells[8].get_text()) if len(cells) > 8 else "",
-                            waitlist=self._clean_text(cells[9].get_text()) if len(cells) > 9 else ""
+                            subject="",  # Will be set by caller
+                            course_code=course_code,
+                            title=title,
+                            credits="",
+                            semester="",
+                            schedule="",
+                            instructor="",
+                            capacity="",
+                            enrolled="",
+                            waitlist=""
                         )
                         
-                        # Only add if it has meaningful data
-                        if course.course_code and course.title:
-                            courses.append(course)
-                            
-                    except Exception as e:
-                        self.logger.warning(f"Error parsing course row: {e}")
-                        continue
+                        courses.append(course)
+                        
+            except Exception as e:
+                self.logger.warning(f"Error parsing course row: {e}")
+                continue
         
+        self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
     
     def _clean_text(self, text: str) -> str:
@@ -249,7 +258,7 @@ class CuhkScraper:
         """Export data to JSON with metadata"""
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"cuhk_courses_{timestamp}.json"
+            filename = f"tests/output/cuhk_courses_{timestamp}.json"
         
         # Structure for web app consumption
         json_data = {
