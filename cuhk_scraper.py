@@ -495,91 +495,31 @@ class CuhkScraper:
         if org_elem:
             course.academic_org = self._clean_text(org_elem.get_text())
     
-    def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
-        """Parse term info when no dropdown is available - nest meetings under sections"""
+    def _parse_schedule_from_html(self, html: str) -> tuple[list[dict], set[str]]:
+        """Extract schedule data and instructors from HTML - shared parsing logic"""
         soup = BeautifulSoup(html, 'html.parser')
         
         # Group meetings by section to reflect merged cell structure
         sections_data = {}
         instructors = set()
         
-        # Look for any schedule tables
-        for table in soup.find_all('table'):
-            if 'gv_sched' in str(table.get('id', '')):
-                # Get both normal and alternating row styles
-                rows = table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
-                for row in rows:
-                    cells = row.find_all('td')
-                    if len(cells) >= 3:
-                        # Extract section info (may be empty for single term courses)  
-                        section = self._clean_text(cells[0].get_text()) if len(cells) > 0 else ""
-                        
-                        # Skip if section doesn't look like a valid section identifier
-                        # Valid sections should contain parentheses (e.g., "--LEC (8192)", "-L01-LAB (5726)")
-                        if not section or '(' not in section or ')' not in section:
-                            continue
-                        
-                        # Initialize section if not seen before
-                        if section not in sections_data:
-                            sections_data[section] = {
-                                'section': section,
-                                'meetings': []
-                            }
-                        
-                        # Extract schedule info from nested table
-                        meet_table = cells[2].find('table')
-                        if meet_table:
-                            # Note: These nested tables don't have headers, all rows are data
-                            meet_rows = meet_table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
-                            # Debug logging (uncomment if needed for troubleshooting)
-                            # self.logger.info(f"Found {len(meet_rows)} meet rows for section {section}")
-                            for i, meet_row in enumerate(meet_rows):
-                                # self.logger.info(f"Meet row {i}: class={meet_row.get('class')}")
-                                meet_cells = meet_row.find_all('td')
-                                if len(meet_cells) >= 4:
-                                    days_times = self._clean_text(meet_cells[0].get_text())
-                                    room = self._clean_text(meet_cells[1].get_text())
-                                    instructor = self._clean_text(meet_cells[2].get_text())
-                                    dates = self._clean_text(meet_cells[3].get_text())
-                                    
-                                    if instructor and instructor != 'TBA':
-                                        instructors.add(instructor)
-                                    
-                                    if days_times and dates:
-                                        # Each row becomes one meeting under this section
-                                        sections_data[section]['meetings'].append({
-                                            'time': days_times,
-                                            'location': room,
-                                            'instructor': instructor,
-                                            'dates': dates
-                                        })
+        # Find schedule tables (handle both specific ID and general search)
+        schedule_tables = []
         
-        # Convert to list format for JSON serialization
-        schedule_data = list(sections_data.values())
-        
-        if schedule_data or instructors:
-            return TermInfo(
-                term_code="",
-                term_name="Unknown Term",
-                schedule=schedule_data,
-                instructor=list(sorted(instructors))
-            )
-        
-        return None
-    
-    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
-        """Parse term-specific information from HTML - nest meetings under sections"""
-        soup = BeautifulSoup(html, 'html.parser')
-        
-        # Group meetings by section to reflect merged cell structure
-        sections_data = {}
-        instructors = set()
-        
-        # Find the schedule table
+        # First try to find by specific ID pattern
         schedule_table = soup.find('table', {'id': lambda x: x and 'gv_sched' in x})
         if schedule_table:
+            schedule_tables.append(schedule_table)
+        else:
+            # Fallback: search all tables for schedule tables
+            for table in soup.find_all('table'):
+                if 'gv_sched' in str(table.get('id', '')):
+                    schedule_tables.append(table)
+        
+        # Parse each schedule table
+        for table in schedule_tables:
             # Get both normal and alternating row styles
-            rows = schedule_table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
+            rows = table.find_all('tr', class_=['normalGridViewRowStyle', 'normalGridViewAlternatingRowStyle'])
             for row in rows:
                 cells = row.find_all('td')
                 if len(cells) >= 3:
@@ -628,14 +568,29 @@ class CuhkScraper:
         
         # Convert to list format for JSON serialization
         schedule_data = list(sections_data.values())
+        return schedule_data, instructors
+
+    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term") -> Optional[TermInfo]:
+        """Create TermInfo from HTML with optional term metadata"""
+        schedule_data, instructors = self._parse_schedule_from_html(html)
         
-        # Create term info even if no schedule (course might not be offered this term)
-        return TermInfo(
-            term_code=term_code,
-            term_name=term_name,
-            schedule=schedule_data,
-            instructor=list(sorted(instructors))
-        )
+        if schedule_data or instructors:
+            return TermInfo(
+                term_code=term_code,
+                term_name=term_name,
+                schedule=schedule_data,
+                instructor=list(sorted(instructors))
+            )
+        
+        return None
+
+    def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
+        """Parse term info when no dropdown is available"""
+        return self._create_term_info(html)
+    
+    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
+        """Parse term-specific information from HTML"""
+        return self._create_term_info(html, term_code, term_name)
     
     
     def _clean_text(self, text: str) -> str:
