@@ -292,12 +292,12 @@ class CuhkScraper:
             form_data['__EVENTTARGET'] = course.postback_target
             form_data['__EVENTARGUMENT'] = ''
             
-            # Submit the postback
+            # Submit the postback to get course details page
             response = self.session.post(self.base_url, data=form_data)
             response.raise_for_status()
             
-            # Parse course details from response
-            detailed_course = self._parse_course_details(response.text, course)
+            # Now try to get 2025-26 term data if available
+            detailed_course = self._get_course_details_with_term_selection(response.text, course)
             
             # Debug: save detailed response
             debug_file = f"tests/output/course_details_{course.subject}_{course.course_code}.html"
@@ -310,6 +310,107 @@ class CuhkScraper:
         except Exception as e:
             self.logger.error(f"Error getting course details for {course.course_code}: {e}")
             return course
+    
+    def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
+        """Get course details with term selection (prefer 2025-26)"""
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Check for term dropdown
+        term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
+        if not term_select:
+            self.logger.info(f"No term dropdown found for {base_course.course_code}, using current data")
+            return self._parse_course_details(html, base_course)
+        
+        # Find 2025-26 terms (prefer Term 1, then Term 2)
+        target_terms = ['2025-26 Term 1', '2025-26 Term 2']
+        selected_term_value = None
+        selected_term_text = None
+        
+        for target_term in target_terms:
+            option = term_select.find('option', string=lambda text: text and target_term in text)
+            if option:
+                selected_term_value = option.get('value')
+                selected_term_text = option.get_text().strip()
+                self.logger.info(f"Found {target_term} for {base_course.course_code}: {selected_term_value}")
+                break
+        
+        # If no 2025-26 terms found, use current selection
+        if not selected_term_value:
+            selected_option = term_select.find('option', {'selected': 'selected'})
+            if selected_option:
+                selected_term_value = selected_option.get('value')
+                selected_term_text = selected_option.get_text().strip()
+                self.logger.info(f"Using current term for {base_course.course_code}: {selected_term_text}")
+            else:
+                self.logger.warning(f"No term options found for {base_course.course_code}")
+                return self._parse_course_details(html, base_course)
+        
+        # If we need to change the term, submit the form to update
+        if not term_select.find('option', {'selected': 'selected', 'value': selected_term_value}):
+            try:
+                self.logger.info(f"Switching to {selected_term_text} for {base_course.course_code}")
+                
+                # Extract form data for term change
+                form_data = {}
+                for input_elem in soup.find_all('input', {'type': 'hidden'}):
+                    name = input_elem.get('name')
+                    value = input_elem.get('value', '')
+                    if name:
+                        form_data[name] = value
+                
+                # Update term selection
+                form_data['uc_course$ddl_class_term'] = selected_term_value
+                form_data['__EVENTTARGET'] = 'uc_course$ddl_class_term'
+                form_data['__EVENTARGUMENT'] = ''
+                
+                # Submit term change
+                response = self.session.post(self.base_url, data=form_data)
+                response.raise_for_status()
+                html = response.text
+                soup = BeautifulSoup(html, 'html.parser')
+                
+                time.sleep(1)  # Be polite to server
+                
+            except Exception as e:
+                self.logger.warning(f"Failed to change term for {base_course.course_code}: {e}")
+        
+        # Now click "Show sections" button to get detailed schedule
+        try:
+            show_sections_btn = soup.find('input', {'id': 'uc_course_btn_class_section'})
+            if show_sections_btn:
+                self.logger.info(f"Clicking 'Show sections' for {base_course.course_code}")
+                
+                # Extract form data for show sections
+                form_data = {}
+                for input_elem in soup.find_all('input', {'type': 'hidden'}):
+                    name = input_elem.get('name')
+                    value = input_elem.get('value', '')
+                    if name:
+                        form_data[name] = value
+                
+                # Set the show sections postback
+                form_data['uc_course$btn_class_section'] = 'Show sections'
+                if selected_term_value:
+                    form_data['uc_course$ddl_class_term'] = selected_term_value
+                
+                # Submit show sections
+                response = self.session.post(self.base_url, data=form_data)
+                response.raise_for_status()
+                html = response.text
+                
+                # Save the final response with sections
+                debug_file = f"tests/output/course_sections_{base_course.subject}_{base_course.course_code}_{selected_term_text.replace(' ', '_').replace('-', '_')}.html"
+                with open(debug_file, 'w', encoding='utf-8') as f:
+                    f.write(html)
+                self.logger.info(f"Saved course sections to {debug_file}")
+                
+                time.sleep(1)  # Be polite to server
+                
+        except Exception as e:
+            self.logger.warning(f"Failed to show sections for {base_course.course_code}: {e}")
+        
+        # Parse the final course details
+        return self._parse_course_details(html, base_course)
     
     def _parse_course_details(self, html: str, base_course: Course) -> Course:
         """Parse detailed course information from detail page"""
