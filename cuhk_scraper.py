@@ -210,12 +210,12 @@ class CuhkScraper:
                     self.logger.info(f"Found {len(courses)} courses for {subject_code}")
                     return courses
                 
-                if attempt < max_retries - 1:
+                if attempt < config.max_retries - 1:
                     time.sleep(2 ** attempt)  # Exponential backoff
                     
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
-                if attempt < max_retries - 1:
+                if attempt < config.max_retries - 1:
                     time.sleep(2 ** attempt)
         
         return []
@@ -899,7 +899,7 @@ class CuhkScraper:
     
 
 def main():
-    """Main function"""
+    """Main function - demonstrates both testing and production usage"""
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s'
@@ -917,14 +917,18 @@ def main():
     
     print(f"Found {len(subjects)} subjects: {subjects[:10]}...")  # Show first 10
     
-    # Test with just CSCI first, and get details for the first few courses
+    # Test with just CSCI first
     test_subjects = ["CSCI"] if "CSCI" in subjects else [subjects[0]]
     print(f"Testing with subjects: {test_subjects}")
     
     try:
-        # Test with course details enabled
-        print("Testing with course details enabled...")
-        results = scraper.scrape_all_subjects(test_subjects, get_details=True)
+        print("\n=== TESTING MODE (default) ===")
+        print("- Limited to 3 courses per subject")
+        print("- Debug files enabled")
+        print("- 2.0s delays between requests")
+        
+        # Testing mode (default behavior)
+        results = scraper.scrape_all_subjects(test_subjects, get_details=True, get_enrollment_details=True)
         
         # Export results
         json_file = scraper.export_to_json(results)
@@ -933,6 +937,13 @@ def main():
         # Show summary
         total_courses = sum(len(courses) for courses in results.values())
         print(f"Total courses scraped: {total_courses}")
+        
+        print("\n=== PRODUCTION MODE EXAMPLE ===")
+        print("To run in production mode for all subjects:")
+        print("results = scraper.scrape_for_production(subjects)")
+        print("- OR -")
+        print("config = ScrapingConfig.for_production()")
+        print("results = scraper.scrape_all_subjects(subjects, get_details=True, get_enrollment_details=True, config=config)")
         
     except KeyboardInterrupt:
         print("\nScraping interrupted")
