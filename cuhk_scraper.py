@@ -10,24 +10,35 @@ import ddddocr
 import onnxruntime
 
 @dataclass
+class TermInfo:
+    """Term-specific course information"""
+    term_code: str  # e.g., "2390"
+    term_name: str  # e.g., "2025-26 Term 2"
+    schedule: List[Dict[str, str]]  # List of sections with time/location/instructor
+    instructor: List[str]  # List of instructors
+    capacity: str = ""
+    enrolled: str = ""
+    waitlist: str = ""
+    
+    def to_dict(self) -> Dict:
+        return asdict(self)
+
+@dataclass
 class Course:
-    """Course data structure"""
+    """Course data structure with multiple terms support"""
     subject: str
     course_code: str
     title: str
     credits: str
-    semester: str
-    schedule: str
-    instructor: str
-    capacity: str
-    enrolled: str
-    waitlist: str
+    terms: List[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
     
     def to_dict(self) -> Dict:
         data = asdict(self)
         # Remove postback_target from exported data
         data.pop('postback_target', None)
+        # Convert terms to dict format
+        data['terms'] = [term.to_dict() for term in self.terms]
         return data
 
 class CuhkScraper:
@@ -249,12 +260,7 @@ class CuhkScraper:
                             course_code=course_code,
                             title=title,
                             credits="",
-                            semester="",
-                            schedule="",
-                            instructor="",
-                            capacity="",
-                            enrolled="",
-                            waitlist=""
+                            terms=[]  # Will be populated with term details
                         )
                         
                         # Store postback target for potential detail retrieval
@@ -312,43 +318,68 @@ class CuhkScraper:
             return course
     
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
-        """Get course details with term selection (prefer 2025-26)"""
+        """Get course details for all available terms"""
         soup = BeautifulSoup(html, 'html.parser')
+        
+        # Extract basic course info first
+        base_course.credits = self._extract_credits(soup)
         
         # Check for term dropdown
         term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
         if not term_select:
             self.logger.info(f"No term dropdown found for {base_course.course_code}, using current data")
-            return self._parse_course_details(html, base_course)
+            # Create a single term with available data
+            current_term = self._parse_current_term_info(html)
+            if current_term:
+                base_course.terms = [current_term]
+            return base_course
         
-        # Find 2025-26 terms (prefer Term 1, then Term 2)
-        target_terms = ['2025-26 Term 1', '2025-26 Term 2']
-        selected_term_value = None
-        selected_term_text = None
+        # Get all available terms from dropdown
+        available_terms = []
+        for option in term_select.find_all('option'):
+            term_code = option.get('value', '').strip()
+            term_name = option.get_text().strip()
+            if term_code and term_name:
+                available_terms.append((term_code, term_name))
         
-        for target_term in target_terms:
-            option = term_select.find('option', string=lambda text: text and target_term in text)
-            if option:
-                selected_term_value = option.get('value')
-                selected_term_text = option.get_text().strip()
-                self.logger.info(f"Found {target_term} for {base_course.course_code}: {selected_term_value}")
-                break
+        self.logger.info(f"Found {len(available_terms)} terms for {base_course.course_code}: {[name for _, name in available_terms]}")
         
-        # If no 2025-26 terms found, use current selection
-        if not selected_term_value:
-            selected_option = term_select.find('option', {'selected': 'selected'})
-            if selected_option:
-                selected_term_value = selected_option.get('value')
-                selected_term_text = selected_option.get_text().strip()
-                self.logger.info(f"Using current term for {base_course.course_code}: {selected_term_text}")
-            else:
-                self.logger.warning(f"No term options found for {base_course.course_code}")
-                return self._parse_course_details(html, base_course)
-        
-        # If we need to change the term, submit the form to update
-        if not term_select.find('option', {'selected': 'selected', 'value': selected_term_value}):
+        # Scrape details for each term
+        all_term_info = []
+        for i, (term_code, term_name) in enumerate(available_terms):
             try:
-                self.logger.info(f"Switching to {selected_term_text} for {base_course.course_code}")
+                self.logger.info(f"Scraping term {i+1}/{len(available_terms)}: {term_name} for {base_course.course_code}")
+                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
+                if term_info:
+                    all_term_info.append(term_info)
+                
+                # Be polite to server between terms
+                if i < len(available_terms) - 1:
+                    time.sleep(1)
+                    
+            except Exception as e:
+                self.logger.warning(f"Failed to scrape {term_name} for {base_course.course_code}: {e}")
+                continue
+        
+        base_course.terms = all_term_info
+        self.logger.info(f"Extracted details for {base_course.course_code}: "
+                       f"Credits={base_course.credits}, "
+                       f"Terms={len(all_term_info)}")
+        return base_course
+    
+    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str) -> Optional[TermInfo]:
+        """Scrape details for a specific term"""
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+            
+            # Check if this term is already selected
+            term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
+            current_selected = term_select.find('option', {'selected': 'selected'})
+            is_current_term = current_selected and current_selected.get('value') == term_code
+            
+            # If not current term, switch to it
+            if not is_current_term:
+                self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
                 
                 # Extract form data for term change
                 form_data = {}
@@ -359,7 +390,7 @@ class CuhkScraper:
                         form_data[name] = value
                 
                 # Update term selection
-                form_data['uc_course$ddl_class_term'] = selected_term_value
+                form_data['uc_course$ddl_class_term'] = term_code
                 form_data['__EVENTTARGET'] = 'uc_course$ddl_class_term'
                 form_data['__EVENTARGUMENT'] = ''
                 
@@ -368,17 +399,11 @@ class CuhkScraper:
                 response.raise_for_status()
                 html = response.text
                 soup = BeautifulSoup(html, 'html.parser')
-                
-                time.sleep(1)  # Be polite to server
-                
-            except Exception as e:
-                self.logger.warning(f"Failed to change term for {base_course.course_code}: {e}")
-        
-        # Now click "Show sections" button to get detailed schedule
-        try:
+            
+            # Click "Show sections" to get detailed schedule
             show_sections_btn = soup.find('input', {'id': 'uc_course_btn_class_section'})
             if show_sections_btn:
-                self.logger.info(f"Clicking 'Show sections' for {base_course.course_code}")
+                self.logger.info(f"Getting sections for {term_name}")
                 
                 # Extract form data for show sections
                 form_data = {}
@@ -390,75 +415,47 @@ class CuhkScraper:
                 
                 # Set the show sections postback
                 form_data['uc_course$btn_class_section'] = 'Show sections'
-                if selected_term_value:
-                    form_data['uc_course$ddl_class_term'] = selected_term_value
+                form_data['uc_course$ddl_class_term'] = term_code
                 
                 # Submit show sections
                 response = self.session.post(self.base_url, data=form_data)
                 response.raise_for_status()
                 html = response.text
                 
-                # Save the final response with sections
-                debug_file = f"tests/output/course_sections_{base_course.subject}_{base_course.course_code}_{selected_term_text.replace(' ', '_').replace('-', '_')}.html"
+                # Save debug file
+                debug_file = f"tests/output/sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
                 with open(debug_file, 'w', encoding='utf-8') as f:
                     f.write(html)
-                self.logger.info(f"Saved course sections to {debug_file}")
-                
-                time.sleep(1)  # Be polite to server
-                
+                self.logger.info(f"Saved sections to {debug_file}")
+            
+            # Parse the term-specific information
+            return self._parse_term_info(html, term_code, term_name)
+            
         except Exception as e:
-            self.logger.warning(f"Failed to show sections for {base_course.course_code}: {e}")
-        
-        # Parse the final course details
-        return self._parse_course_details(html, base_course)
+            self.logger.error(f"Error scraping term {term_name}: {e}")
+            return None
     
-    def _parse_course_details(self, html: str, base_course: Course) -> Course:
-        """Parse detailed course information from detail page"""
+    def _extract_credits(self, soup: BeautifulSoup) -> str:
+        """Extract credits/units from course details"""
+        units_elem = soup.find('span', {'id': 'uc_course_lbl_units'})
+        return self._clean_text(units_elem.get_text()) if units_elem else ""
+    
+    def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
+        """Parse term info when no dropdown is available"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        # Create a copy of the base course
-        detailed_course = Course(
-            subject=base_course.subject,
-            course_code=base_course.course_code,
-            title=base_course.title,
-            credits="",
-            semester="",
-            schedule="",
-            instructor="",
-            capacity="",
-            enrolled="",
-            waitlist="",
-            postback_target=base_course.postback_target
-        )
+        # Try to extract whatever schedule information is available
+        schedule_data = []
+        instructors = set()
         
-        try:
-            # Extract units/credits from uc_course_lbl_units
-            units_elem = soup.find('span', {'id': 'uc_course_lbl_units'})
-            if units_elem:
-                detailed_course.credits = self._clean_text(units_elem.get_text())
-            
-            # Extract semester from course schedule table
-            term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
-            if term_select:
-                selected_option = term_select.find('option', {'selected': 'selected'})
-                if selected_option:
-                    detailed_course.semester = self._clean_text(selected_option.get_text())
-            
-            # Extract schedule information from the course schedule table
-            schedule_table = soup.find('table', {'id': lambda x: x and 'gv_sched' in x})
-            if schedule_table:
-                schedule_info = []
-                instructor_info = set()
-                
-                rows = schedule_table.find_all('tr', class_='normalGridViewRowStyle')
+        # Look for any schedule tables
+        for table in soup.find_all('table'):
+            if 'gv_sched' in str(table.get('id', '')):
+                rows = table.find_all('tr', class_='normalGridViewRowStyle')
                 for row in rows:
                     cells = row.find_all('td')
                     if len(cells) >= 3:
-                        # Extract section info
-                        section_cell = cells[0]
-                        section = self._clean_text(section_cell.get_text())
-                        
-                        # Extract meeting info from nested table
+                        # Extract schedule info from nested table
                         meet_table = cells[2].find('table')
                         if meet_table:
                             meet_rows = meet_table.find_all('tr')[1:]  # Skip header
@@ -471,29 +468,79 @@ class CuhkScraper:
                                     dates = self._clean_text(meet_cells[3].get_text())
                                     
                                     if instructor and instructor != 'TBA':
-                                        instructor_info.add(instructor)
+                                        instructors.add(instructor)
                                     
                                     if days_times:
-                                        schedule_entry = f"{section}: {days_times}"
-                                        if room:
-                                            schedule_entry += f" @ {room}"
-                                        schedule_info.append(schedule_entry)
-                
-                # Set instructor and schedule
-                if instructor_info:
-                    detailed_course.instructor = ", ".join(sorted(instructor_info))
-                if schedule_info:
-                    detailed_course.schedule = "; ".join(schedule_info)
-            
-            self.logger.info(f"Extracted details for {detailed_course.course_code}: "
-                           f"Credits={detailed_course.credits}, "
-                           f"Semester={detailed_course.semester}, "
-                           f"Instructor={detailed_course.instructor}")
-            
-        except Exception as e:
-            self.logger.warning(f"Error parsing course details: {e}")
+                                        schedule_data.append({
+                                            'section': '',
+                                            'time': days_times,
+                                            'location': room,
+                                            'instructor': instructor,
+                                            'dates': dates
+                                        })
         
-        return detailed_course
+        if schedule_data or instructors:
+            return TermInfo(
+                term_code="",
+                term_name="Unknown Term",
+                schedule=schedule_data,
+                instructor=list(sorted(instructors))
+            )
+        
+        return None
+    
+    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
+        """Parse term-specific information from HTML"""
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        schedule_data = []
+        instructors = set()
+        
+        # Find the schedule table
+        schedule_table = soup.find('table', {'id': lambda x: x and 'gv_sched' in x})
+        if schedule_table:
+            rows = schedule_table.find_all('tr', class_='normalGridViewRowStyle')
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) >= 3:
+                    # Extract section info
+                    section = self._clean_text(cells[0].get_text())
+                    
+                    # Extract meeting info from nested table
+                    meet_table = cells[2].find('table')
+                    if meet_table:
+                        meet_rows = meet_table.find_all('tr')[1:]  # Skip header
+                        for meet_row in meet_rows:
+                            meet_cells = meet_row.find_all('td')
+                            if len(meet_cells) >= 4:
+                                days_times = self._clean_text(meet_cells[0].get_text())
+                                room = self._clean_text(meet_cells[1].get_text())
+                                instructor = self._clean_text(meet_cells[2].get_text())
+                                dates = self._clean_text(meet_cells[3].get_text())
+                                
+                                if instructor and instructor != 'TBA':
+                                    instructors.add(instructor)
+                                
+                                if days_times:
+                                    schedule_data.append({
+                                        'section': section,
+                                        'time': days_times,
+                                        'location': room,
+                                        'instructor': instructor,
+                                        'dates': dates
+                                    })
+        
+        # Create term info even if no schedule (course might not be offered this term)
+        return TermInfo(
+            term_code=term_code,
+            term_name=term_name,
+            schedule=schedule_data,
+            instructor=list(sorted(instructors))
+        )
+    
+    def _parse_course_details(self, html: str, base_course: Course) -> Course:
+        """Legacy method - now redirects to new multi-term parsing"""
+        return self._get_course_details_with_term_selection(html, base_course)
     
     def _clean_text(self, text: str) -> str:
         """Clean and normalize text content"""
