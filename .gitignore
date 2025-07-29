@@ -11,7 +11,6 @@ ENV/
 
 # Project-specific ignores
 tests/output/*.html
-tests/output/*.json
 
 # OS-specific
 .DS_Store
