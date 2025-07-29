@@ -33,6 +33,16 @@ class Course:
     terms: List[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
     
+    # Additional course details
+    description: str = ""
+    enrollment_requirement: str = ""
+    academic_career: str = ""  # e.g., "Undergraduate"
+    grading_basis: str = ""    # e.g., "Graded"
+    component: str = ""        # e.g., "Lecture\nInteractive Tutorial"
+    campus: str = ""           # e.g., "Main Campus"
+    academic_group: str = ""   # e.g., "Dept of Computer Sci & Engg"
+    academic_org: str = ""     # e.g., "Dept of Computer Sci & Engg"
+    
     def to_dict(self) -> Dict:
         data = asdict(self)
         # Remove postback_target from exported data
@@ -324,6 +334,9 @@ class CuhkScraper:
         # Extract basic course info first
         base_course.credits = self._extract_credits(soup)
         
+        # Extract additional course details
+        self._extract_additional_course_details(soup, base_course)
+        
         # Check for term dropdown
         term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
         if not term_select:
@@ -439,6 +452,48 @@ class CuhkScraper:
         """Extract credits/units from course details"""
         units_elem = soup.find('span', {'id': 'uc_course_lbl_units'})
         return self._clean_text(units_elem.get_text()) if units_elem else ""
+    
+    def _extract_additional_course_details(self, soup: BeautifulSoup, course: Course) -> None:
+        """Extract additional course details from the course page"""
+        # Course description
+        desc_elem = soup.find('span', {'id': 'uc_course_lbl_crse_descrlong'})
+        if desc_elem:
+            course.description = self._clean_text(desc_elem.get_text())
+        
+        # Enrollment requirement
+        enroll_elem = soup.find('td', {'id': 'uc_course_tc_enrl_requirement'})
+        if enroll_elem:
+            course.enrollment_requirement = self._clean_text(enroll_elem.get_text())
+        
+        # Academic career (Undergraduate/Graduate)
+        career_elem = soup.find('span', {'id': 'uc_course_lbl_acad_career'})
+        if career_elem:
+            course.academic_career = self._clean_text(career_elem.get_text())
+        
+        # Grading basis
+        grading_elem = soup.find('span', {'id': 'uc_course_lbl_grading_basis'})
+        if grading_elem:
+            course.grading_basis = self._clean_text(grading_elem.get_text())
+        
+        # Component (Lecture, Tutorial, etc.)
+        component_elem = soup.find('span', {'id': 'uc_course_lbl_component'})
+        if component_elem:
+            course.component = self._clean_text(component_elem.get_text())
+        
+        # Campus
+        campus_elem = soup.find('span', {'id': 'uc_course_lbl_campus'})
+        if campus_elem:
+            course.campus = self._clean_text(campus_elem.get_text())
+        
+        # Academic group
+        group_elem = soup.find('span', {'id': 'uc_course_lbl_acad_group'})
+        if group_elem:
+            course.academic_group = self._clean_text(group_elem.get_text())
+        
+        # Academic organization
+        org_elem = soup.find('span', {'id': 'uc_course_lbl_acad_org'})
+        if org_elem:
+            course.academic_org = self._clean_text(org_elem.get_text())
     
     def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
         """Parse term info when no dropdown is available"""
