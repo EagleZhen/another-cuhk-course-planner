@@ -302,7 +302,7 @@ class CuhkScraper:
             response = self.session.post(self.base_url, data=form_data)
             response.raise_for_status()
             
-            # Now try to get 2025-26 term data if available
+            # Get course details with all available terms
             detailed_course = self._get_course_details_with_term_selection(response.text, course)
             
             # Debug: save detailed response
@@ -538,9 +538,6 @@ class CuhkScraper:
             instructor=list(sorted(instructors))
         )
     
-    def _parse_course_details(self, html: str, base_course: Course) -> Course:
-        """Legacy method - now redirects to new multi-term parsing"""
-        return self._get_course_details_with_term_selection(html, base_course)
     
     def _clean_text(self, text: str) -> str:
         """Clean and normalize text content"""
