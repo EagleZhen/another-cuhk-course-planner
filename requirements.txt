@@ -2,8 +2,7 @@
 requests>=2.31.0
 
 # OCR for captcha solving
-pytesseract>=0.3.10
-Pillow>=10.0.0
+ddddocr>=1.4.11
 
 # HTML parsing (for implementing the scraping logic)
 beautifulsoup4>=4.12.0
