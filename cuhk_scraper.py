@@ -6,7 +6,8 @@ from dataclasses import dataclass, asdict
 from datetime import datetime
 import time
 import logging
-import easyocr
+import ddddocr
+import onnxruntime
 
 @dataclass
 class Course:
@@ -32,7 +33,10 @@ class CuhkScraper:
         self.session = requests.Session()
         self.logger = logging.getLogger(__name__)
         self.base_url = "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
-        self.ocr_reader = easyocr.Reader(['en'], gpu=False)
+        
+        # Suppress ONNX warnings
+        onnxruntime.set_default_logger_severity(3)
+        self.ocr = ddddocr.DdddOcr()
         
         # Browser headers
         self.session.headers.update({
@@ -43,36 +47,33 @@ class CuhkScraper:
         })
     
     def _solve_captcha(self, image_bytes: bytes) -> Optional[str]:
-        """Solve captcha using EasyOCR"""
+        """Solve captcha using ddddocr"""
         try:
-            results = self.ocr_reader.readtext(image_bytes, detail=1)
-            if results:
-                text = results[0][1].strip().upper()
-                confidence = results[0][2]
-                
-                # Validate captcha format (4 alphanumeric characters)
-                if len(text) == 4 and text.isalnum() and confidence > 0.5:
-                    self.logger.info(f"Captcha solved: {text} (confidence: {confidence:.2f})")
-                    return text
-                else:
-                    self.logger.warning(f"Invalid captcha format: {text} (confidence: {confidence:.2f})")
+            text = self.ocr.classification(image_bytes).strip().upper()
+            
+            # Validate captcha format (4 alphanumeric characters)
+            if len(text) == 4 and text.isalnum():
+                self.logger.info(f"Captcha solved: {text}")
+                return text
+            else:
+                self.logger.warning(f"Invalid captcha format: {text}")
             
         except Exception as e:
             self.logger.error(f"Captcha solving failed: {e}")
         
         return None
     
-    def get_subjects_from_html(self, html_file: str) -> List[str]:
-        """Extract subject codes from saved HTML file"""
+    def get_subjects_from_live_site(self) -> List[str]:
+        """Extract subject codes from live website"""
         try:
-            with open(html_file, 'r', encoding='utf-8') as f:
-                content = f.read()
+            response = self.session.get(self.base_url)
+            response.raise_for_status()
             
-            soup = BeautifulSoup(content, 'html.parser')
+            soup = BeautifulSoup(response.text, 'html.parser')
             select = soup.find('select', {'name': 'ddl_subject'})
             
             if not select:
-                self.logger.error("Could not find subject dropdown")
+                self.logger.error("Could not find subject dropdown on live site")
                 return []
             
             subjects = []
@@ -81,11 +82,11 @@ class CuhkScraper:
                 if value:  # Skip empty option
                     subjects.append(value)
             
-            self.logger.info(f"Found {len(subjects)} subjects")
+            self.logger.info(f"Found {len(subjects)} subjects from live site")
             return subjects
             
         except Exception as e:
-            self.logger.error(f"Error reading HTML file: {e}")
+            self.logger.error(f"Error getting subjects from live site: {e}")
             return []
     
     def scrape_subject(self, subject_code: str, max_retries: int = 3) -> List[Course]:
@@ -279,12 +280,12 @@ def main():
     
     scraper = CuhkScraper()
     
-    # Extract subjects from saved HTML
-    html_file = "sample-webpages/Browse Course Catalog.html"
-    subjects = scraper.get_subjects_from_html(html_file)
+    # Get subjects from live website
+    print("Getting subjects from live website...")
+    subjects = scraper.get_subjects_from_live_site()
     
     if not subjects:
-        print("Could not extract subjects from HTML file")
+        print("Could not get subjects from live website")
         return
     
     print(f"Found {len(subjects)} subjects: {subjects[:10]}...")  # Show first 10
