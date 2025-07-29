@@ -17,6 +17,8 @@ class ScrapingConfig:
     save_debug_files: bool = True
     request_delay: float = 2.0
     max_retries: int = 3
+    output_mode: str = "single_file"  # "single_file" or "per_subject"
+    output_directory: str = "tests/output"  # testing default
     
     @classmethod
     def for_production(cls):
@@ -25,7 +27,9 @@ class ScrapingConfig:
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,
             request_delay=1.0,
-            max_retries=5
+            max_retries=5,
+            output_mode="per_subject",  # Per-subject files for production
+            output_directory="data"     # Production data directory
         )
     
     @classmethod
@@ -35,7 +39,9 @@ class ScrapingConfig:
             max_courses_per_subject=max_courses,
             save_debug_files=False,
             request_delay=1.5,
-            max_retries=3
+            max_retries=3,
+            output_mode="single_file",  # Keep single file for validation
+            output_directory="tests/output"
         )
 
 @dataclass
@@ -872,18 +878,44 @@ class CuhkScraper:
         config = ScrapingConfig.for_production()
         return self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
     
-    def export_to_json(self, data: Dict[str, List[Course]], filename: str = None) -> str:
-        """Export data to JSON with metadata"""
+    def scrape_and_export_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> str:
+        """Complete production workflow: scrape + export to per-subject files in /data"""
+        config = ScrapingConfig.for_production()
+        self.logger.info(f"Starting PRODUCTION scraping and export for {len(subjects)} subjects")
+        self.logger.info(f"Output: per-subject files in {config.output_directory}/")
+        
+        results = self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
+        export_summary = self.export_to_json(results, config=config)
+        
+        return export_summary
+    
+    def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: str = None) -> str:
+        """Export data to JSON with metadata, supporting both single file and per-subject modes"""
+        if config is None:
+            config = ScrapingConfig()  # Use testing defaults
+        
+        # Ensure output directory exists
+        import os
+        os.makedirs(config.output_directory, exist_ok=True)
+        
+        if config.output_mode == "per_subject":
+            return self._export_per_subject(data, config)
+        else:
+            return self._export_single_file(data, config, filename)
+    
+    def _export_single_file(self, data: Dict[str, List[Course]], config: ScrapingConfig, filename: str = None) -> str:
+        """Export all data to a single JSON file"""
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"tests/output/cuhk_courses_{timestamp}.json"
+            filename = f"{config.output_directory}/cuhk_courses_{timestamp}.json"
         
         # Structure for web app consumption
         json_data = {
             "metadata": {
                 "scraped_at": datetime.now().isoformat(),
                 "total_subjects": len(data),
-                "total_courses": sum(len(courses) for courses in data.values())
+                "total_courses": sum(len(courses) for courses in data.values()),
+                "output_mode": "single_file"
             },
             "subjects": {}
         }
@@ -896,6 +928,37 @@ class CuhkScraper:
         
         self.logger.info(f"Exported to {filename}")
         return filename
+    
+    def _export_per_subject(self, data: Dict[str, List[Course]], config: ScrapingConfig) -> str:
+        """Export each subject to its own JSON file"""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        exported_files = []
+        
+        for subject, courses in data.items():
+            # Create per-subject JSON structure
+            subject_data = {
+                "metadata": {
+                    "scraped_at": datetime.now().isoformat(),
+                    "subject": subject,
+                    "total_courses": len(courses),
+                    "output_mode": "per_subject"
+                },
+                "courses": [course.to_dict() for course in courses]
+            }
+            
+            # Create filename with subject prefix
+            filename = f"{config.output_directory}/{subject}_{timestamp}.json"
+            
+            with open(filename, 'w', encoding='utf-8') as f:
+                json.dump(subject_data, f, ensure_ascii=False, indent=2)
+            
+            exported_files.append(filename)
+            self.logger.info(f"Exported {subject} ({len(courses)} courses) to {filename}")
+        
+        # Return summary of exported files
+        summary = f"Exported {len(data)} subjects to {len(exported_files)} files in {config.output_directory}/"
+        self.logger.info(summary)
+        return summary
     
 
 def main():
@@ -930,7 +993,7 @@ def main():
         # Testing mode (default behavior)
         results = scraper.scrape_all_subjects(test_subjects, get_details=True, get_enrollment_details=True)
         
-        # Export results
+        # Export results with default config (single file, tests/output)
         json_file = scraper.export_to_json(results)
         print(f"Results exported to {json_file}")
         
@@ -938,12 +1001,19 @@ def main():
         total_courses = sum(len(courses) for courses in results.values())
         print(f"Total courses scraped: {total_courses}")
         
-        print("\n=== PRODUCTION MODE EXAMPLE ===")
-        print("To run in production mode for all subjects:")
-        print("results = scraper.scrape_for_production(subjects)")
-        print("- OR -")
-        print("config = ScrapingConfig.for_production()")
-        print("results = scraper.scrape_all_subjects(subjects, get_details=True, get_enrollment_details=True, config=config)")
+        print("\n=== PRODUCTION MODE EXAMPLES ===")
+        print("For complete production workflow (recommended):")
+        print("  summary = scraper.scrape_and_export_production(subjects)")
+        print("  # Creates per-subject files in /data/ directory")
+        print()
+        print("For production scraping only:")
+        print("  results = scraper.scrape_for_production(subjects)")
+        print("  summary = scraper.export_to_json(results, ScrapingConfig.for_production())")
+        print()
+        print("Per-subject files enable:")
+        print("  - Fault tolerance (keep completed subjects if scraping fails)")
+        print("  - Incremental updates (update individual subjects)")
+        print("  - Better web app performance (load subjects on-demand)")
         
     except KeyboardInterrupt:
         print("\nScraping interrupted")
