@@ -1,0 +1,8 @@
+# Core HTTP and web scraping
+requests>=2.31.0
+
+# OCR for captcha solving
+easyocr>=1.7.0
+
+# HTML parsing (for implementing the scraping logic)
+beautifulsoup4>=4.12.0
