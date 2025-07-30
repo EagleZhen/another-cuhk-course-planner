@@ -1,0 +1,47 @@
+{
+  "scraping_log": {
+    "created_at": "2025-07-29T19:03:54.846027",
+    "last_updated": "2025-07-29T19:27:35.215971",
+    "total_subjects": 2,
+    "completed": 2,
+    "failed": 1,
+    "skipped": 0,
+    "subjects": {
+      "CSCI": {
+        "status": "completed",
+        "last_scraped": "2025-07-29T19:04:00.369444",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "tests/output/CSCI_20250729_190411.json",
+        "duration_minutes": 0.09,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": 1
+        },
+        "retry_count": 0
+      },
+      "AIST": {
+        "status": "completed",
+        "last_scraped": "2025-07-29T19:04:09.827529",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "tests/output/AIST_20250729_190411.json",
+        "duration_minutes": 0.12,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": 1
+        },
+        "retry_count": 0
+      },
+      "TEST_FAILED": {
+        "status": "failed",
+        "last_attempt": "2025-07-29T19:27:35.215945",
+        "error": "Simulated failure for testing",
+        "retry_count": 1,
+        "courses_scraped": 0
+      }
+    }
+  }
+}

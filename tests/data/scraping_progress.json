@@ -1,0 +1,40 @@
+{
+  "scraping_log": {
+    "created_at": "2025-07-29T19:04:11.871074",
+    "last_updated": "2025-07-29T19:27:35.214472",
+    "total_subjects": 2,
+    "completed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "subjects": {
+      "CSCI": {
+        "status": "completed",
+        "last_scraped": "2025-07-29T19:24:01.332827",
+        "courses_count": 83,
+        "courses_scraped": 83,
+        "output_file": "data/CSCI_20250729_192735.json",
+        "duration_minutes": 19.82,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "AIST": {
+        "status": "completed",
+        "last_scraped": "2025-07-29T19:27:34.158900",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/AIST_20250729_192735.json",
+        "duration_minutes": 3.53,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      }
+    }
+  }
+}
