@@ -23,6 +23,7 @@ class ScrapingConfig:
     track_progress: bool = False  # Progress tracking for production
     progress_file: str = "scraping_progress.json"  # Progress log filename
     skip_recent_hours: int = 24  # Skip subjects scraped within N hours
+    progress_update_interval: int = 60  # Save progress every N seconds
     
     @classmethod
     def for_production(cls):
@@ -36,7 +37,8 @@ class ScrapingConfig:
             output_directory="data",     # Production data directory
             track_progress=True,         # Enable progress tracking
             progress_file="data/scraping_progress.json",
-            skip_recent_hours=24
+            skip_recent_hours=24,
+            progress_update_interval=60  # 1-minute periodic saves
         )
     
     @classmethod
@@ -172,10 +174,43 @@ class ScrapingProgressTracker:
             "started_at": datetime.now().isoformat(),
             "estimated_courses": estimated_courses,
             "courses_scraped": 0,
+            "completed_courses": [],  # Track completed course codes
+            "last_course_completed": "",
+            "last_progress_update": datetime.now().isoformat(),
             "retry_count": subjects.get(subject, {}).get("retry_count", 0)
         }
         self._save_progress()
         self.logger.info(f"Started scraping {subject}")
+    
+    def update_course_progress(self, subject: str, course_code: str, total_courses_scraped: int):
+        """Update progress for a specific course completion"""
+        subjects = self.progress_data["scraping_log"]["subjects"]
+        if subject in subjects and subjects[subject].get("status") == "in_progress":
+            subject_data = subjects[subject]
+            subject_data["courses_scraped"] = total_courses_scraped
+            subject_data["last_course_completed"] = course_code
+            subject_data["last_progress_update"] = datetime.now().isoformat()
+            
+            # Add to completed courses list if not already there
+            completed_courses = subject_data.get("completed_courses", [])
+            if course_code not in completed_courses:
+                completed_courses.append(course_code)
+                subject_data["completed_courses"] = completed_courses
+            
+            self.logger.debug(f"Updated {subject} progress: {total_courses_scraped} courses, last: {course_code}")
+    
+    def should_save_periodic_progress(self, last_save_time: float, interval_seconds: int) -> bool:
+        """Check if it's time for a periodic progress save"""
+        return time.time() - last_save_time >= interval_seconds
+    
+    def save_periodic_progress(self, force: bool = False):
+        """Save progress periodically (called during long operations)"""
+        if force:
+            self._save_progress()
+            self.logger.debug("Forced periodic progress save")
+        else:
+            self._save_progress()
+            self.logger.debug("Periodic progress save")
     
     def complete_subject(self, subject: str, courses_count: int, output_file: str, duration_minutes: float, config_info: Dict):
         """Mark subject as completed"""
@@ -250,6 +285,33 @@ class ScrapingProgressTracker:
         """Get list of failed subjects for retry"""
         subjects = self.progress_data["scraping_log"]["subjects"]
         return [subject for subject, data in subjects.items() if data.get("status") == "failed"]
+    
+    def get_remaining_courses_for_subject(self, subject: str, all_course_codes: List[str]) -> List[str]:
+        """Get list of courses that still need to be scraped for a subject"""
+        subjects = self.progress_data["scraping_log"]["subjects"]
+        if subject not in subjects:
+            return all_course_codes
+        
+        subject_data = subjects[subject]
+        if subject_data.get("status") == "completed":
+            return []  # Subject already completed
+        
+        completed_courses = subject_data.get("completed_courses", [])
+        return [course for course in all_course_codes if course not in completed_courses]
+    
+    def get_progress_percentage(self, subject: str) -> float:
+        """Get completion percentage for a subject"""
+        subjects = self.progress_data["scraping_log"]["subjects"]
+        if subject not in subjects:
+            return 0.0
+        
+        subject_data = subjects[subject]
+        courses_scraped = subject_data.get("courses_scraped", 0)
+        estimated_courses = subject_data.get("estimated_courses", 0)
+        
+        if estimated_courses > 0:
+            return min(100.0, (courses_scraped / estimated_courses) * 100)
+        return 0.0
     
     def print_summary(self):
         """Print current progress summary"""
@@ -370,6 +432,10 @@ class CuhkScraper:
                 for course in courses:
                     course.subject = subject_code
                 
+                # Mark subject as started in progress tracker with course count estimate
+                if self.progress_tracker and config.track_progress:
+                    self.progress_tracker.start_subject(subject_code, len(courses))
+                
                 # Get detailed information if requested
                 if get_details and courses:
                     # Apply course limit based on configuration
@@ -381,11 +447,23 @@ class CuhkScraper:
                         self.logger.info(f"Getting details for all {len(courses_to_detail)} courses...")
                     
                     detailed_courses = []
+                    last_progress_save = time.time()  # Track last periodic save
                     
                     for i, course in enumerate(courses_to_detail):
                         self.logger.info(f"Getting details for course {i+1}/{len(courses_to_detail)}: {course.course_code}")
                         detailed_course = self.get_course_details(course, response.text, get_enrollment_details=get_enrollment_details, config=config)
                         detailed_courses.append(detailed_course)
+                        
+                        # Update course-level progress tracking
+                        if self.progress_tracker and config.track_progress:
+                            courses_completed = i + 1
+                            self.progress_tracker.update_course_progress(subject_code, course.course_code, courses_completed)
+                            
+                            # Periodic progress save based on interval
+                            if self.progress_tracker.should_save_periodic_progress(last_progress_save, config.progress_update_interval):
+                                self.progress_tracker.save_periodic_progress()
+                                last_progress_save = time.time()
+                                self.logger.info(f"Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed")
                         
                         # Be polite to the server
                         if i < len(courses_to_detail) - 1:
@@ -1063,10 +1141,6 @@ class CuhkScraper:
             start_time = time.time()
             
             try:
-                # Mark subject as started in progress tracker
-                if self.progress_tracker:
-                    self.progress_tracker.start_subject(subject)
-                
                 courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
                 results[subject] = courses
                 
