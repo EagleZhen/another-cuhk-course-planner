@@ -22,7 +22,7 @@ class ScrapingConfig:
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
     progress_file: str = "scraping_progress.json"  # Progress log filename
-    skip_recent_hours: int = 24  # Skip subjects scraped within N hours
+    skip_recent_hours: float = 24  # Skip subjects scraped within N hours
     progress_update_interval: int = 60  # Save progress every N seconds
     
     @classmethod
@@ -59,11 +59,7 @@ class TermInfo:
     """Term-specific course information"""
     term_code: str  # e.g., "2390"
     term_name: str  # e.g., "2025-26 Term 2"
-    schedule: List[Dict[str, str]]  # List of sections with time/location/instructor
-    instructor: List[str]  # List of instructors
-    capacity: str = ""
-    enrolled: str = ""
-    waitlist: str = ""
+    schedule: List[Dict]  # List of sections with detailed availability/meetings
     
     def to_dict(self) -> Dict:
         return asdict(self)
@@ -143,7 +139,7 @@ class ScrapingProgressTracker:
         except Exception as e:
             self.logger.error(f"Could not save progress: {e}")
     
-    def should_skip_subject(self, subject: str, skip_recent_hours: int) -> bool:
+    def should_skip_subject(self, subject: str, skip_recent_hours: float) -> bool:
         """Check if subject was recently scraped and should be skipped"""
         subjects = self.progress_data["scraping_log"]["subjects"]
         
@@ -911,12 +907,12 @@ class CuhkScraper:
             # Use current fast parsing method
             schedule_data, instructors = self._parse_schedule_from_html(html)
         
-        if schedule_data or instructors:
+        # Always create TermInfo if we have term codes/names (even with empty schedule)
+        if term_code or term_name != "Unknown Term" or schedule_data:
             return TermInfo(
                 term_code=term_code,
                 term_name=term_name,
-                schedule=schedule_data,
-                instructor=list(sorted(instructors))
+                schedule=schedule_data or []
             )
         
         return None
