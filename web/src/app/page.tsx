@@ -49,6 +49,37 @@ export default function Home() {
       startMinute: 30,
       endMinute: 15,
       color: 'bg-purple-500'
+    },
+    // Add a conflicting course for testing
+    {
+      id: '4',
+      courseCode: 'FINA2020',
+      section: '--LEC (7845)',
+      title: 'Corporate Finance',
+      time: 'Tu 14:30 - 16:15',
+      location: 'Lee Shau Kee Building 101',
+      instructor: 'Prof. CHAN',
+      day: 1, // Tuesday (conflicts with CSCI1530)
+      startHour: 14,
+      endHour: 16,
+      startMinute: 30,
+      endMinute: 15,
+      color: 'bg-red-500'
+    },
+    {
+      id: '5',
+      courseCode: 'PHYS1001',
+      section: '--LEC (9123)',
+      title: 'General Physics I',
+      time: 'Tu 15:00 - 16:30',
+      location: 'Science Centre LT1',
+      instructor: 'Dr. LI',
+      day: 1, // Tuesday (also conflicts!)
+      startHour: 15,
+      endHour: 16,
+      startMinute: 0,
+      endMinute: 30,
+      color: 'bg-orange-500'
     }
   ]
 

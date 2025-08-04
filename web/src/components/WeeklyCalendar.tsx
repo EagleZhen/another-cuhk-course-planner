@@ -30,6 +30,89 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   const hours = Array.from({ length: 10 }, (_, i) => 9 + i) // 9:00 to 18:00
 
+  // Group overlapping events for smart stacking
+  const groupOverlappingEvents = (dayEvents: CalendarEvent[]) => {
+    const groups: CalendarEvent[][] = []
+    const processed = new Set<string>()
+
+    for (const event of dayEvents) {
+      if (processed.has(event.id)) continue
+
+      const group = [event]
+      processed.add(event.id)
+
+      // Find overlapping events
+      for (const otherEvent of dayEvents) {
+        if (processed.has(otherEvent.id)) continue
+
+        if (eventsOverlap(event, otherEvent)) {
+          group.push(otherEvent)
+          processed.add(otherEvent.id)
+        }
+      }
+
+      groups.push(group)
+    }
+
+    return groups
+  }
+
+  // Check if two events overlap in time
+  const eventsOverlap = (event1: CalendarEvent, event2: CalendarEvent) => {
+    const start1 = event1.startHour * 60 + event1.startMinute
+    const end1 = event1.endHour * 60 + event1.endMinute
+    const start2 = event2.startHour * 60 + event2.startMinute
+    const end2 = event2.endHour * 60 + event2.endMinute
+
+    return start1 < end2 && start2 < end1
+  }
+
+  // Render event content based on available space and priority
+  const renderEventContent = (event: CalendarEvent, height: number, isPrimary: boolean, conflictCount: number) => {
+    // Determine what information to show based on height and priority
+    if (height >= 60) {
+      // Large card - show all info
+      return (
+        <>
+          <div className="font-semibold text-xs leading-tight truncate">
+            {event.courseCode}
+          </div>
+          <div className="text-[10px] leading-tight truncate opacity-90">
+            {event.time.split(' ').slice(1).join(' ')} {/* Remove day prefix */}
+          </div>
+          <div className="text-[10px] leading-tight truncate opacity-80">
+            {event.section.split(' ')[0]} {/* Just section type */}
+          </div>
+          <div className="text-[9px] leading-tight truncate opacity-70">
+            {event.location.length > 15 ? event.location.substring(0, 15) + '...' : event.location}
+          </div>
+        </>
+      )
+    } else if (height >= 36) {
+      // Medium card - essential info
+      return (
+        <>
+          <div className="font-semibold text-xs leading-tight truncate">
+            {event.courseCode}
+          </div>
+          <div className="text-[10px] leading-tight truncate opacity-90">
+            {event.time.split(' ').slice(1, 2).join(' ')} {/* Just start time */}
+          </div>
+          <div className="text-[10px] leading-tight truncate opacity-80">
+            {event.section.split(' ')[0]}
+          </div>
+        </>
+      )
+    } else {
+      // Small card - minimal info
+      return (
+        <div className="font-semibold text-xs leading-tight truncate">
+          {event.courseCode}
+        </div>
+      )
+    }
+  }
+
   // Parse time string to get hour and minute
   const parseTime = (timeStr: string) => {
     // Handle formats like "Mo 14:30 - 15:15" or "Th 1:30PM - 2:15PM"
@@ -130,39 +213,43 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                     />
                   ))}
                   
-                  {/* Events */}
-                  {dayEvents.map(event => (
-                    <div
-                      key={event.id}
-                      style={{
-                        ...getEventStyle(event),
-                        top: `${((event.startHour - 9) * 48 + (event.startMinute / 60) * 48) + 48}px`, // Adjusted for header
-                        height: `${((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)}px`
-                      }}
-                      className={`
-                        ${event.color} 
-                        rounded-sm p-1 text-xs text-white shadow-sm
-                        hover:shadow-md transition-shadow cursor-pointer
-                        ${event.hasConflict ? 'ring-2 ring-yellow-400' : ''}
-                        overflow-hidden
-                      `}
-                    >
-                      <div className="font-semibold text-xs leading-tight truncate">
-                        {event.courseCode}
-                      </div>
-                      <div className="opacity-90 text-[10px] leading-tight truncate">
-                        {event.section}
-                      </div>
-                      <div className="opacity-80 text-[10px] leading-tight truncate">
-                        {event.location}
-                      </div>
-                      {event.hasConflict && (
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full flex items-center justify-center">
-                          <span className="text-yellow-900 text-[8px]">⚠</span>
+                  {/* Events - Simplified for debugging */}
+                  {dayEvents.map((event, eventIndex) => {
+                    const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
+                    const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
+                    
+                    console.log(`Event ${event.courseCode}: top=${cardTop}px, height=${cardHeight}px, startHour=${event.startHour}, endHour=${event.endHour}`)
+                    
+                    return (
+                      <div
+                        key={event.id}
+                        style={{
+                          position: 'absolute',
+                          top: `${cardTop}px`,
+                          height: `${cardHeight}px`,
+                          left: '4px',
+                          right: '4px',
+                          zIndex: 10
+                        }}
+                        className={`
+                          ${event.color} 
+                          rounded-sm p-1 text-xs text-white shadow-md
+                          hover:shadow-lg transition-all cursor-pointer
+                          overflow-hidden
+                        `}
+                      >
+                        <div className="font-semibold text-xs leading-tight truncate">
+                          {event.courseCode}
                         </div>
-                      )}
-                    </div>
-                  ))}
+                        <div className="text-[10px] leading-tight truncate opacity-90">
+                          {event.time.split(' ').slice(1).join(' ')}
+                        </div>
+                        <div className="text-[10px] leading-tight truncate opacity-80">
+                          {event.section.replace('--', '')} {/* Remove leading dashes */}
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             )
