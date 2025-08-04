@@ -23,7 +23,7 @@ class ScrapingConfig:
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
-    progress_file: str = "scraping_progress.json"  # Progress log filename
+    progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename
     skip_recent_hours: float = 24  # Skip subjects scraped within N hours
     progress_update_interval: int = 60  # Save progress every N seconds
     
@@ -131,8 +131,10 @@ class ScrapingProgressTracker:
     def _save_progress(self):
         """Save current progress to file"""
         try:
-            # Ensure directory exists
-            os.makedirs(os.path.dirname(self.progress_file), exist_ok=True)
+            # Ensure directory exists (only if there's a directory path)
+            dir_path = os.path.dirname(self.progress_file)
+            if dir_path:  # Only create directory if path contains a directory
+                os.makedirs(dir_path, exist_ok=True)
             
             self.progress_data["scraping_log"]["last_updated"] = datetime.now().isoformat()
             

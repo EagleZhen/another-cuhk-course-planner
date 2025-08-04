@@ -1,0 +1,68 @@
+{
+  "scraping_log": {
+    "created_at": "2025-08-03T23:46:30.225589",
+    "last_updated": "2025-08-04T00:25:06.749290",
+    "total_subjects": 4,
+    "completed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "subjects": {
+      "CSCI": {
+        "status": "completed",
+        "last_scraped": "2025-08-03T23:59:10.543750",
+        "courses_count": 83,
+        "courses_scraped": 83,
+        "output_file": "tests/output/CSCI_20250804_002506.json",
+        "duration_minutes": 12.67,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "AIST": {
+        "status": "completed",
+        "last_scraped": "2025-08-04T00:01:20.181384",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "tests/output/AIST_20250804_002506.json",
+        "duration_minutes": 2.13,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FINA": {
+        "status": "completed",
+        "last_scraped": "2025-08-04T00:13:45.564612",
+        "courses_count": 162,
+        "courses_scraped": 162,
+        "output_file": "tests/output/FINA_20250804_002506.json",
+        "duration_minutes": 12.39,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHYS": {
+        "status": "completed",
+        "last_scraped": "2025-08-04T00:25:04.688600",
+        "courses_count": 100,
+        "courses_scraped": 100,
+        "output_file": "tests/output/PHYS_20250804_002506.json",
+        "duration_minutes": 11.29,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      }
+    }
+  }
+}
