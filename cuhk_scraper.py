@@ -620,7 +620,7 @@ class CuhkScraper:
             response.raise_for_status()
             
             # Get course details with all available terms
-            detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details)
+            detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details, config=config)
             
             # Debug: save detailed response (if enabled)
             if config.save_debug_files:
@@ -635,7 +635,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting course details for {course.course_code}: {e}")
             return course
     
-    def _get_course_details_with_term_selection(self, html: str, base_course: Course, get_enrollment_details: bool = False) -> Course:
+    def _get_course_details_with_term_selection(self, html: str, base_course: Course, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Course:
         """Get course details for all available terms"""
         soup = BeautifulSoup(html, 'html.parser')
         
@@ -650,7 +650,7 @@ class CuhkScraper:
         if not term_select:
             self.logger.info(f"No term dropdown found for {base_course.course_code}, using current data")
             # Create a single term with available data
-            current_term = self._parse_current_term_info(html)
+            current_term = self._parse_current_term_info(html, config, base_course.course_code, base_course.subject)
             if current_term:
                 base_course.terms = [current_term]
             return base_course
@@ -670,7 +670,7 @@ class CuhkScraper:
         for i, (term_code, term_name) in enumerate(available_terms):
             try:
                 self.logger.info(f"Scraping term {i+1}/{len(available_terms)}: {term_name} for {base_course.course_code}")
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name, get_enrollment_details=get_enrollment_details)
+                term_info = self._scrape_term_details(html, base_course, term_code, term_name, get_enrollment_details=get_enrollment_details, config=config)
                 if term_info:
                     all_term_info.append(term_info)
                 
@@ -688,7 +688,7 @@ class CuhkScraper:
                        f"Terms={len(all_term_info)}")
         return base_course
     
-    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
+    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Optional[TermInfo]:
         """Scrape details for a specific term"""
         try:
             soup = BeautifulSoup(html, 'html.parser')
@@ -721,33 +721,50 @@ class CuhkScraper:
                 html = response.text
                 soup = BeautifulSoup(html, 'html.parser')
             
-            # Click "Show sections" to get detailed schedule
+            # Check "Show sections" button - click only if enabled
             show_sections_btn = soup.find('input', {'id': 'uc_course_btn_class_section'})
             if show_sections_btn:
-                self.logger.info(f"Getting sections for {term_name}")
+                # Check if button is disabled
+                is_disabled = show_sections_btn.get('disabled') is not None
                 
-                # Extract form data for show sections
-                form_data = {}
-                for input_elem in soup.find_all('input', {'type': 'hidden'}):
-                    name = input_elem.get('name')
-                    value = input_elem.get('value', '')
-                    if name:
-                        form_data[name] = value
-                
-                # Set the show sections postback
-                form_data['uc_course$btn_class_section'] = 'Show sections'
-                form_data['uc_course$ddl_class_term'] = term_code
-                
-                # Submit show sections
-                response = self.session.post(self.base_url, data=form_data)
-                response.raise_for_status()
-                html = response.text
-                
-                # Save debug file (if enabled) - need config passed down
-                # Note: config not available here, will need to pass it down from parent method
+                if not is_disabled:
+                    self.logger.info(f"Clicking 'Show sections' for {term_name}")
+                    
+                    # Extract form data for show sections
+                    form_data = {}
+                    for input_elem in soup.find_all('input', {'type': 'hidden'}):
+                        name = input_elem.get('name')
+                        value = input_elem.get('value', '')
+                        if name:
+                            form_data[name] = value
+                    
+                    # Set the show sections postback
+                    form_data['uc_course$btn_class_section'] = 'Show sections'
+                    form_data['uc_course$ddl_class_term'] = term_code
+                    
+                    # Submit show sections
+                    response = self.session.post(self.base_url, data=form_data)
+                    response.raise_for_status()
+                    html = response.text
+                    
+                    # Save debug file for sections HTML (if enabled)
+                    if config and config.save_debug_files:
+                        debug_file = f"tests/output/sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
+                        with open(debug_file, 'w', encoding='utf-8') as f:
+                            f.write(html)
+                        self.logger.info(f"Saved sections debug file: {debug_file}")
+                else:
+                    self.logger.info(f"'Show sections' button disabled for {term_name} - sections should already be visible")
+                    
+                    # Save debug file for current page (sections should be already visible)
+                    if config and config.save_debug_files:
+                        debug_file = f"tests/output/sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
+                        with open(debug_file, 'w', encoding='utf-8') as f:
+                            f.write(html)
+                        self.logger.info(f"Saved sections debug file: {debug_file}")
             
             # Parse the term-specific information
-            return self._parse_term_info(html, term_code, term_name, get_enrollment_details)
+            return self._parse_term_info(html, term_code, term_name, get_enrollment_details, config, base_course.course_code, base_course.subject)
             
         except Exception as e:
             self.logger.error(f"Error scraping term {term_name}: {e}")
@@ -898,11 +915,11 @@ class CuhkScraper:
         schedule_data = list(sections_data.values())
         return schedule_data, instructors
 
-    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term", get_enrollment_details: bool = False) -> Optional[TermInfo]:
+    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term", get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[TermInfo]:
         """Create TermInfo from HTML with optional term metadata"""
         if get_enrollment_details:
             # Use detailed section parsing with enrollment data
-            schedule_data, instructors = self._parse_schedule_with_enrollment_details(html)
+            schedule_data, instructors = self._parse_schedule_with_enrollment_details(html, config, course_code, subject)
         else:
             # Use current fast parsing method
             schedule_data, instructors = self._parse_schedule_from_html(html)
@@ -917,7 +934,7 @@ class CuhkScraper:
         
         return None
 
-    def _parse_schedule_with_enrollment_details(self, html: str) -> tuple[list[dict], set[str]]:
+    def _parse_schedule_with_enrollment_details(self, html: str, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> tuple[list[dict], set[str]]:
         """Parse schedule with detailed enrollment data by clicking into each section"""
         soup = BeautifulSoup(html, 'html.parser')
         sections_data = {}
@@ -953,7 +970,7 @@ class CuhkScraper:
                         self.logger.info(f"Getting enrollment details for section: {section_name}")
                         
                         # Click into section to get detailed enrollment data
-                        section_details = self._get_section_enrollment_details(postback_target, html, section_name)
+                        section_details = self._get_section_enrollment_details(postback_target, html, section_name, config, course_code, subject)
                         if section_details:
                             sections_data[section_name] = section_details
                             # Add instructors from this section
@@ -967,7 +984,7 @@ class CuhkScraper:
         schedule_data = list(sections_data.values())
         return schedule_data, instructors
 
-    def _get_section_enrollment_details(self, postback_target: str, current_html: str, section_name: str) -> Optional[dict]:
+    def _get_section_enrollment_details(self, postback_target: str, current_html: str, section_name: str, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[dict]:
         """Click into a section to get detailed enrollment information"""
         try:
             # Extract postback parameters from the JavaScript call
@@ -1001,6 +1018,15 @@ class CuhkScraper:
                 response = self.session.post(self.base_url, data=form_data)
                 response.raise_for_status()
                 class_details_html = response.text
+                
+                # Save debug file for class details HTML (if enabled)
+                if config and config.save_debug_files:
+                    # Clean section name for filename
+                    clean_section = section_name.replace('(', '').replace(')', '').replace(' ', '_').replace('-', '')
+                    debug_file = f"tests/output/class_details_{subject}_{course_code}_{clean_section}.html"
+                    with open(debug_file, 'w', encoding='utf-8') as f:
+                        f.write(class_details_html)
+                    self.logger.info(f"Saved class details debug file: {debug_file}")
                 
                 # Parse the class details page
                 return self._parse_class_details(class_details_html, section_name)
@@ -1097,13 +1123,13 @@ class CuhkScraper:
         
         return availability
 
-    def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
+    def _parse_current_term_info(self, html: str, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[TermInfo]:
         """Parse term info when no dropdown is available"""
-        return self._create_term_info(html)
+        return self._create_term_info(html, config=config, course_code=course_code, subject=subject)
     
-    def _parse_term_info(self, html: str, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
+    def _parse_term_info(self, html: str, term_code: str, term_name: str, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[TermInfo]:
         """Parse term-specific information from HTML"""
-        return self._create_term_info(html, term_code, term_name, get_enrollment_details)
+        return self._create_term_info(html, term_code, term_name, get_enrollment_details, config, course_code, subject)
     
     
     def _clean_text(self, text: str) -> str:
