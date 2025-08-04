@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -44,7 +44,6 @@ interface CourseData {
 
 export default function CourseSearch() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [searchResults, setSearchResults] = useState<Course[]>([])
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<Course[]>([])
 
@@ -69,7 +68,6 @@ export default function CourseSearch() {
         }
 
         setAllCourses(allCoursesData)
-        setSearchResults(allCoursesData.slice(0, 10)) // Show first 10 by default
       } catch (error) {
         console.error('Failed to load course data:', error)
       } finally {
@@ -80,16 +78,19 @@ export default function CourseSearch() {
     loadCourseData()
   }, [])
 
-  // Search function
-  const handleSearch = () => {
+  // Real-time search with useMemo for performance
+  const searchResults = useMemo(() => {
     if (!searchTerm.trim()) {
-      setSearchResults(allCourses.slice(0, 10))
-      return
+      return allCourses.slice(0, 10) // Show first 10 by default
     }
 
+    const searchLower = searchTerm.toLowerCase()
     const filtered = allCourses.filter(course => {
-      const searchLower = searchTerm.toLowerCase()
+      // Create full course code without space for searching
+      const fullCourseCode = `${course.subject}${course.course_code}`.toLowerCase()
+      
       return (
+        fullCourseCode.includes(searchLower) ||
         course.course_code.toLowerCase().includes(searchLower) ||
         course.title.toLowerCase().includes(searchLower) ||
         course.subject.toLowerCase().includes(searchLower) ||
@@ -103,30 +104,20 @@ export default function CourseSearch() {
       )
     })
 
-    setSearchResults(filtered.slice(0, 20)) // Limit to 20 results
-  }
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSearch()
-    }
-  }
+    return filtered.slice(0, 20) // Limit to 20 results
+  }, [searchTerm, allCourses])
 
   return (
     <div className="space-y-4">
       {/* Search Input */}
-      <div className="flex gap-2">
+      <div className="w-full">
         <Input
           type="text"
-          placeholder="Search courses (e.g., CSCI, Software Engineering, CHEONG Chi Hong)"
+          placeholder="Search courses (e.g., CSCI3100, Software Engineering, CHEONG Chi Hong)"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyPress={handleKeyPress}
-          className="flex-1"
+          className="w-full"
         />
-        <Button onClick={handleSearch} disabled={loading}>
-          {loading ? 'Loading...' : 'Search'}
-        </Button>
       </div>
 
       {/* Search Results */}
@@ -176,7 +167,7 @@ function CourseCard({ course }: { course: Course }) {
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <CardTitle className="text-lg">
-              {course.subject} {course.course_code}
+              {course.subject}{course.course_code}
             </CardTitle>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
