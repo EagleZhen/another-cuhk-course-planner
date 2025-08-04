@@ -66,7 +66,7 @@ export default function Home() {
         </div>
 
         {/* Main Content - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {/* Left Column - Course Search */}
           <div className="space-y-6">
             <Card>
@@ -104,9 +104,11 @@ export default function Home() {
             </Card>
           </div>
 
-          {/* Right Column - Calendar */}
-          <div className="h-[600px]">
-            <WeeklyCalendar events={sampleEvents} />
+          {/* Right Column - Calendar (spans 2 columns) */}
+          <div className="lg:col-span-2">
+            <div className="h-[700px]">
+              <WeeklyCalendar events={sampleEvents} />
+            </div>
           </div>
         </div>
       </div>
