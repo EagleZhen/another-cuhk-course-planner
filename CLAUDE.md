@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a CUHK Course Planner web application designed to solve the problem of outdated course data in existing planners. The project consists of two main components:
 
-1. **Advanced Course Data Scraper** (`cuhk_scraper.py`): ✅ **PRODUCTION READY** - Comprehensive Python-based web scraper with multi-term support and detailed course information extraction
+1. **Advanced Course Data Scraper** (`cuhk_scraper.py`): ⚠️ **NEEDS UPDATING** - Comprehensive Python-based web scraper with multi-term support. Currently experiencing issues due to CUHK website changes.
 2. **Web Interface**: React + Tailwind CSS frontend for course planning (to be implemented)
 
 ## Architecture
@@ -19,18 +19,18 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 - **Pure live scraping**: No file dependencies, all data fetched from live website
 - Course data source: `http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx`
 
-### Advanced Features ✅ PRODUCTION READY
+### Advanced Features ⚠️ PARTIALLY WORKING
 - **🔐 ddddocr captcha solving**: Reliable 4-character alphanumeric captcha recognition (~95% success rate)
 - **🌐 Live subject extraction**: Dynamically gets all 263+ subjects from website dropdown
 - **🎯 ASP.NET postback simulation**: Handles JavaScript `__doPostBack` for detailed course pages
 - **📅 Multi-term scraping**: Automatically discovers and scrapes all available terms per course
-- **🏫 Hierarchical schedule parsing**: Sections with nested meetings reflecting website structure
-- **📝 Comprehensive course details**: Description, enrollment requirements, academic career, grading basis, components
-- **🏛️ Academic metadata**: Campus, academic group/organization information
-- **🗓️ Raw date preservation**: Complete date ranges per meeting (e.g., "9/1, 16/1, 23/1")
-- **🎯 Section status tracking**: Real-time enrollment status (Open, Closed, Waitlisted) per section
-- **📈 Hybrid enrollment details**: Optional detailed enrollment data (capacity, enrolled, available seats, waitlist)
-- **🔗 Section-level postbacks**: Clicks into individual sections for precise enrollment information
+- **❌ Hierarchical schedule parsing**: BROKEN - Website HTML structure changed, schedule extraction not working
+- **✅ Comprehensive course details**: Description, enrollment requirements, academic career, grading basis, components
+- **✅ Academic metadata**: Campus, academic group/organization information
+- **❌ Raw date preservation**: BROKEN - No schedule data being extracted
+- **❌ Section status tracking**: BROKEN - Cannot access section information
+- **❌ Hybrid enrollment details**: BROKEN - Section parsing required for enrollment data
+- **❌ Section-level postbacks**: BROKEN - Cannot find section links in current HTML structure
 - **📊 Structured JSON export**: Web-app ready nested format with comprehensive metadata
 - **🔄 Intelligent retry logic**: Exponential backoff for failed attempts
 - **📁 Organized output**: All files saved to `tests/output/` with descriptive names
@@ -77,7 +77,7 @@ ddddocr>=1.4.11  # Reliable captcha OCR
 beautifulsoup4>=4.12.0
 ```
 
-### Running the Advanced Scraper ✅ PRODUCTION READY
+### Running the Advanced Scraper ⚠️ SCHEDULE PARSING BROKEN
 ```python
 scraper = CuhkScraper()
 
@@ -101,38 +101,42 @@ json_file = scraper.export_to_json(results)
 # Output: tests/output/cuhk_courses_YYYYMMDD_HHMMSS.json
 ```
 
-### Current Performance Metrics
-- **CSCI subject**: 83 courses successfully scraped
-- **Multi-term support**: CSCI 1020 extracted 2 terms (2024-25 Term 2, 2025-26 Term 2)
-- **Captcha success rate**: ~95% (with intelligent retry logic)
-- **Processing time**: 
-  - Basic approach: ~2 seconds per course without details
-  - Standard approach: ~3-5 seconds per course with details
-  - **Hybrid approach**: ~4-7 seconds per course with enrollment details (only 1.3x slower)
-- **Structured output**: Complete JSON with separated schedule components
-- **Debug files**: Comprehensive HTML saves for troubleshooting
+### Current Status ⚠️ PARTIALLY BROKEN
+- **Basic course info**: ✅ Working - Course codes, titles, descriptions extracted correctly
+- **CSCI subject**: 83 courses found but **schedules are empty**
+- **Schedule extraction**: ❌ BROKEN - HTML structure changed, cannot find `gv_detail` table
+- **Captcha success rate**: ✅ ~95% (with intelligent retry logic)
+- **Course details**: ✅ Working - Academic info, requirements, credits extracted
+- **JSON structure**: ✅ Clean structure implemented (no redundant fields)
+- **Progress tracking**: ✅ Implemented with periodic saves and crash recovery
 
-### Hybrid Approach Performance ✅ PRODUCTION READY
-- **Performance impact**: Only **1.3x slower** than standard approach
-- **Data enhancement**: Precise enrollment numbers (capacity: 50, enrolled: 36, available: 14)
-- **Status accuracy**: Real-time availability vs icon-based status
-- **Recommendation**: **Use hybrid approach as default** for data-rich applications
-- **Utilization insights**: Aggregate enrollment statistics (36% utilization rate in CSCI sample)
+### Known Issues 🚨 CRITICAL
+- **HTML Structure Changed**: CUHK website updated, `gv_detail` table not found
+- **No Schedule Data**: All courses return empty schedules due to parsing failure
+- **Section Parsing Broken**: Cannot access "Show sections" functionality
+- **Debug Analysis Needed**: Current HTML structure requires investigation
+
+### Recent Improvements ✅ COMPLETED
+- **🧹 Clean JSON Structure**: Removed redundant term-level fields (instructor, capacity, enrolled, waitlist)
+- **📈 Progress Tracking**: Added ScrapingProgressTracker with 1-minute periodic saves
+- **🔄 Crash Recovery**: Resume functionality for long scraping sessions
+- **📊 Per-subject exports**: Fault-tolerant file structure
+- **🛠️ Enhanced debugging**: Better error handling and HTML structure analysis
 
 ## Development Notes
 
-### Advanced Scraping Flow ✅ PRODUCTION READY
-1. **Live subject extraction**: GET main page → extract all 263+ subjects from dropdown
-2. **Form preparation**: Extract ASP.NET ViewState and hidden fields  
-3. **Captcha solving**: GET captcha image → ddddocr recognition → validate format
-4. **Course search**: POST form with subject + captcha → get results page
-5. **Basic parsing**: Extract course codes/titles from `gv_detail` table
-6. **🆕 Detail extraction**: For each course:
-   - Simulate `__doPostBack` to get detailed course page
-   - Discover all available terms from dropdown (2024-25, 2025-26, etc.)
-   - Switch to each term and click "Show sections"
-   - Parse detailed schedule, instructors, and section information
-7. **🆕 Multi-term JSON export**: Structure comprehensive data with all terms
+### Advanced Scraping Flow ⚠️ PARTIALLY WORKING
+1. **Live subject extraction**: ✅ GET main page → extract all 263+ subjects from dropdown
+2. **Form preparation**: ✅ Extract ASP.NET ViewState and hidden fields  
+3. **Captcha solving**: ✅ GET captcha image → ddddocr recognition → validate format
+4. **Course search**: ❌ POST form with subject + captcha → **`gv_detail` table not found**
+5. **Basic parsing**: ❌ Extract course codes/titles from `gv_detail` table → **TABLE MISSING**
+6. **Detail extraction**: ⚠️ For courses found:
+   - ✅ Simulate `__doPostBack` to get detailed course page
+   - ✅ Extract course metadata (title, description, requirements)
+   - ❌ Discover terms from dropdown → **"Show sections" buttons disabled**
+   - ❌ Parse schedule data → **No schedule tables found**
+7. **JSON export**: ✅ Structure data with clean format (courses with empty schedules)
 
 ### Project Structure
 ```
@@ -141,17 +145,20 @@ json_file = scraper.export_to_json(results)
 ├── requirements.txt          # ✅ Minimal dependencies  
 ├── tests/
 │   ├── output/               # ✅ All generated files
-│   │   ├── cuhk_courses_*.json         # Final structured data
+│   │   ├── cuhk_courses_*.json         # Final structured data (schedules empty)
 │   │   ├── response_*.html            # Debug: main search results  
 │   │   ├── course_details_*.html      # Debug: course detail pages
-│   │   └── sections_*_*.html          # Debug: term-specific sections
+│   │   └── sections_*_*.html          # Debug: term-specific sections (none generated)
 │   ├── sample-captchas/      # Test captcha images
-│   ├── sample-webpages/      # Reference HTML files
-│   └── test_*.py            # OCR comparison tests
+│   ├── sample-webpages/      # Reference HTML files (working structure)
+│   ├── data/                 # Historical working data (July 2025)
+│   ├── test_*.py            # Testing scripts
+│   ├── test_live_scraping.py # Live scraping verification script
+│   └── analyze_html_structure.py # HTML structure analysis tool
 └── venv/                    # Virtual environment
 ```
 
-### Enhanced Nested Data Format ✅ PRODUCTION READY
+### Current JSON Output Format ⚠️ SCHEDULES EMPTY
 ```json
 {
   "metadata": {
@@ -254,21 +261,42 @@ json_file = scraper.export_to_json(results)
 }
 ```
 
-### Next Steps for Complete System
-1. **🚀 Build React frontend**: Use structured JSON data for interactive course planning ⭐ **PRIORITY**
-2. **📊 Full-scale data collection**: Scale to all 263 subjects with detailed multi-term data (optional)
-3. **⚡ Performance optimization**: Add concurrent scraping for faster large-scale collection (optional)
-4. **🔄 Automated updates**: Schedule regular data refresh for course planning app (optional)
-5. **🌐 Deploy web application**: Host the complete course planner for public use
+## 🚨 URGENT: Fix Schedule Parsing 
 
-### Current Architecture Benefits
-- **🎯 Production ready**: Comprehensive scraper handles all edge cases with robust validation
-- **📱 Frontend optimized**: Hierarchical JSON structure perfect for React components
+### Current Critical Issues
+1. **HTML Structure Changed**: CUHK website updated HTML structure, breaking core parsing functionality
+2. **Missing `gv_detail` Table**: Course listing table not found in current HTML
+3. **No Schedule Extraction**: All courses return empty schedules 
+4. **Disabled Show Sections**: Buttons are disabled, preventing access to schedule data
+
+### Required Fixes ⭐ HIGHEST PRIORITY
+1. **🔍 HTML Structure Analysis**: Use `analyze_html_structure.py` to investigate current website structure
+2. **🛠️ Update Table Selectors**: Find new table IDs/classes for course listings and schedules  
+3. **🔧 Fix Parsing Logic**: Update BeautifulSoup selectors to match new HTML elements
+4. **✅ Test Schedule Extraction**: Verify sections and meetings are parsed correctly
+5. **📋 Update Sample Files**: Save new working HTML samples for future reference
+
+### Investigation Tools Created
+- **`test_live_scraping.py`**: Live scraping verification script
+- **`analyze_html_structure.py`**: HTML structure analysis tool
+- **Debug files in `tests/output/`**: Recent HTML captures for analysis
+
+### Next Steps for Complete System (After Fixing)
+1. **🚨 Fix schedule parsing**: Critical blocking issue ⭐ **HIGHEST PRIORITY** 
+2. **🚀 Build React frontend**: Use structured JSON data for interactive course planning
+3. **📊 Full-scale data collection**: Scale to all 263 subjects with detailed multi-term data
+4. **⚡ Performance optimization**: Add concurrent scraping for faster large-scale collection  
+5. **🔄 Automated updates**: Schedule regular data refresh for course planning app
+6. **🌐 Deploy web application**: Host the complete course planner for public use
+
+### Current Architecture Benefits (Still Valid)
+- **✅ Clean JSON structure**: Single source of truth, no redundant fields 
+- **✅ Progress tracking**: Crash recovery with periodic saves
+- **✅ Fault tolerance**: Per-subject exports prevent total data loss
+- **📱 Frontend ready**: Hierarchical JSON structure perfect for React components
 - **🔮 Future proof**: Multi-term support handles academic year transitions seamlessly
-- **🛠️ Maintainable**: Refactored shared parsing logic eliminates code duplication
-- **📊 Data integrity**: Raw data preservation with complete date ranges and meeting details
-- **🔍 Exception detection ready**: Easy to identify variations in same sections across meetings
-- **📈 Scalable**: Can easily extend to capacity/enrollment tracking per term
+- **🛠️ Maintainable**: Clean architecture with proper error handling
+- **📈 Scalable**: Can easily extend once parsing is fixed
 
 ### Recent Improvements ✅ COMPLETED
 - **🗓️ Complete date extraction**: Fixed missing first date rows (e.g., "9/1, 16/1, 23/1") by properly parsing both normal and alternating HTML row styles
