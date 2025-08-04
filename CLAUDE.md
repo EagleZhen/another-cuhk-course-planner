@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a CUHK Course Planner web application designed to solve the problem of outdated course data in existing planners. The project consists of two main components:
 
 1. **Advanced Course Data Scraper** (`cuhk_scraper.py`): ✅ **PRODUCTION READY** - Comprehensive Python-based web scraper with multi-term support and detailed course information extraction.
-2. **Web Interface**: React + Tailwind CSS frontend for course planning (to be implemented)
+2. **Web Interface**: ⚡ **READY FOR DEVELOPMENT** - Next.js + Tailwind CSS frontend with progressive loading and performance optimization
 
 ## Architecture
 
@@ -518,3 +518,258 @@ The scraper is fully functional and has been successfully tested with multi-subj
 **Performance**: Excellent (2-4 seconds per course, ~20-30 minutes for full dataset)
 **Reliability**: Very good (95%+ success rate, robust error handling)
 **Maintainability**: Good (clean separation of concerns, context management)
+
+## 🌐 Frontend Development Plan
+
+### Current Development Status: ⚡ **READY FOR IMPLEMENTATION**
+The scraper is production-ready for core subjects (CSCI, AIST, FINA, PHYS) with complete data. Strategic decision made to build UI first and iterate on scraper based on actual usage patterns.
+
+### 🎯 **MVP Features & Priorities**
+
+#### **Core MVP Features (First Implementation)**
+1. **📚 Course Search**: Search by course name, course code, instructor name
+2. **🛒 Shopping Cart System**: Add courses to cart with visual toggle controls
+3. **📅 Calendar View**: Weekly schedule with conflict detection and visual cues
+4. **📚 Multi-term Support**: Plan for different terms (Term 1, Term 2, summer) simultaneously
+5. **🔗 Shareable URLs**: Encode schedule state for bookmarking and sharing
+
+#### **Advanced Features (Future Iterations)**
+1. **🤖 Smart Scheduling**: Generate conflict-free combinations based on course priorities
+2. **📊 Enhanced Filtering**: By time slots, instructors, course requirements
+3. **💾 Persistent Storage**: Save schedules locally or with accounts
+4. **📱 PWA Features**: Offline capability, mobile app-like experience
+
+### 🏗️ **Technical Architecture**
+
+#### **Frontend Stack Decision: Next.js + Tailwind + shadcn/ui**
+- **Next.js 14 (App Router)**: Static generation, server components, optimal performance
+- **Tailwind CSS**: User has experience, lightweight bundle (~10-20KB)
+- **shadcn/ui**: Copy-paste components, zero runtime cost, rapid development
+- **Fuse.js**: Lightweight fuzzy search (~2KB)
+- **React Query**: Data fetching and caching (future enhancement)
+
+#### **Performance-First Design Principles**
+**Key Insight**: Data loading strategy has 10x more impact than UI framework choice
+
+**Performance Budget:**
+- Initial load: <3 seconds on 3G
+- Search results: <200ms response time
+- Calendar render: <100ms for week view
+- Total bundle size: <500KB
+
+#### **Data Loading Strategy: Progressive + Smart Caching**
+
+**Current Data Reality:**
+- **~0.5MB per subject** (CSCI, AIST, FINA, PHYS tested)
+- **263 total subjects = ~130MB** (too large for bulk loading)
+- **Students typically use 3-5 subjects** (major + electives)
+
+**Solution: Three-Tier Loading Strategy**
+```typescript
+// Tier 1: Lightweight Search Index (~50KB) - Instant load
+interface SearchIndex {
+  [courseCode: string]: {
+    title: string;
+    subject: string;
+    instructors: string[];
+    terms: string[];
+    popularity: number; // For smart pre-loading
+  }
+}
+
+// Tier 2: Popular Subjects (~1.5MB) - Pre-loaded
+const POPULAR_SUBJECTS = ['CSCI', 'ECON', 'ENGL', 'MATH', 'PHYS'];
+
+// Tier 3: On-Demand Loading - Load when searched
+const loadSubject = async (subject: string) => {
+  if (!cache.has(subject)) {
+    const data = await fetch(`/data/${subject}.json`);
+    cache.set(subject, data);
+  }
+}
+```
+
+#### **Component Architecture**
+```
+app/
+├── page.tsx                     # Landing: term selector + popular subjects
+├── [term]/
+│   └── page.tsx                # Main planner for selected term
+├── components/
+│   ├── search/
+│   │   ├── CourseSearch.tsx    # Search input with Fuse.js
+│   │   ├── SearchResults.tsx   # Paginated results (max 50 visible)
+│   │   └── SearchIndex.tsx     # Lightweight search data loader
+│   ├── cart/
+│   │   ├── ShoppingCart.tsx    # Selected courses sidebar
+│   │   ├── CourseCard.tsx      # Course display with section selection
+│   │   └── ConflictBadge.tsx   # Visual conflict indicators
+│   ├── calendar/
+│   │   ├── WeeklyCalendar.tsx  # Main schedule view
+│   │   ├── TimeSlot.tsx        # Individual time block component  
+│   │   └── ConflictOverlay.tsx # Overlay for conflicting courses
+│   └── shared/
+│       ├── TermSelector.tsx    # "2025-26 Term 1" dropdown
+│       └── LoadingSpinner.tsx  # Loading states
+├── lib/
+│   ├── data/
+│   │   ├── courseLoader.ts     # Progressive data loading logic
+│   │   ├── searchIndex.ts      # Search functionality
+│   │   └── cache.ts            # Browser caching strategy
+│   ├── scheduling/
+│   │   ├── conflictDetection.ts # Time overlap algorithms
+│   │   ├── timeParser.ts       # Parse "Th 1:30PM - 2:15PM" format
+│   │   └── scheduleGenerator.ts # Future: smart combination generation
+│   ├── state/
+│   │   ├── cartState.ts        # Shopping cart management
+│   │   ├── urlState.ts         # Shareable URL encoding/decoding
+│   │   └── termState.ts        # Multi-term state management
+└── public/
+    └── data/                   # Static JSON files from scraper
+        ├── search-index.json   # Lightweight search data
+        ├── CSCI_YYYYMMDD.json # Subject data files
+        ├── AIST_YYYYMMDD.json
+        └── ...
+```
+
+### 📊 **Data Flow Architecture**
+
+#### **User Journey & Data Loading**
+1. **Landing Page**: Load search index (50KB) + popular subjects (1.5MB)
+2. **Term Selection**: Filter available courses by selected term
+3. **Course Search**: Search in loaded subjects, load additional subjects on-demand
+4. **Add to Cart**: Select specific section for the chosen term
+5. **Calendar View**: Render selected courses with real-time conflict detection  
+6. **URL Generation**: Encode cart state for sharing/bookmarking
+
+#### **Conflict Detection Algorithm**
+```typescript
+interface TimeSlot {
+  day: 'Mo' | 'Tu' | 'We' | 'Th' | 'Fr' | 'Sa' | 'Su';
+  startTime: string; // "13:30"
+  endTime: string;   // "14:15"
+  dates: string[];   // ["8/1", "15/1", "22/1"]
+}
+
+const detectConflicts = (courses: SelectedCourse[]): ConflictGroup[] => {
+  // Compare time slots across selected courses
+  // Handle date-specific conflicts (e.g., exam conflicts)
+  // Return grouped conflicts for visual rendering
+}
+```
+
+#### **JSON Data Structure Optimization**
+The scraper's current JSON format is perfect for frontend consumption:
+```json
+{
+  "courses": [
+    {
+      "subject": "CSCI",
+      "course_code": "1020", 
+      "title": "Hands-on Introduction to C++",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6161)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 404", 
+                  "instructor": "Dr. CHEONG Chi Hong",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0", 
+                "status": "Open"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 🚀 **Implementation Roadmap**
+
+#### **Phase 1: Core MVP (Week 1-2)**
+- [ ] Next.js project setup with Tailwind + shadcn/ui
+- [ ] Search index generation from existing JSON files
+- [ ] Basic course search with Fuse.js
+- [ ] Course display cards with section information
+- [ ] Simple shopping cart functionality
+
+#### **Phase 2: Calendar & Conflicts (Week 3)**
+- [ ] Weekly calendar component with time slots
+- [ ] Time parsing logic for course meetings
+- [ ] Basic conflict detection algorithm
+- [ ] Visual conflict indicators and warnings
+- [ ] Multi-term selector and state management
+
+#### **Phase 3: Polish & Sharing (Week 4)**
+- [ ] URL state encoding for shareable schedules
+- [ ] Mobile-responsive design optimization
+- [ ] Loading states and error handling
+- [ ] Performance optimization and bundle analysis
+- [ ] Basic deployment to eaglezhen.com/cuhk-course-planner
+
+#### **Phase 4: Advanced Features (Future)**
+- [ ] Smart schedule generation (conflict-free combinations)
+- [ ] Enhanced filtering and sorting options
+- [ ] PWA features (offline capability, mobile app)
+- [ ] User accounts and saved schedules
+- [ ] Real-time data updates (background scraping)
+
+### 🎯 **Success Metrics**
+- **Performance**: <3s initial load, <200ms search response
+- **Usability**: Students can build conflict-free schedule in <5 minutes
+- **Adoption**: Positive feedback from CUHK student community
+- **Technical**: Zero critical accessibility issues, mobile-first design
+
+### 💡 **Technical Decisions & Rationale**
+
+#### **Why Progressive Loading vs. Bulk Loading?**
+- **User behavior**: Students focus on 3-5 subjects, not all 263
+- **Performance**: 5MB initial load vs 50KB + on-demand loading
+- **Data costs**: Important for students on limited mobile data
+- **Memory**: Prevents crashes on older mobile devices
+
+#### **Why Static JSON vs. API?**  
+- **Simplicity**: No backend infrastructure needed for MVP
+- **Performance**: CDN cacheable, instant responses
+- **Cost**: Zero server costs, just static hosting
+- **Reliability**: No database dependencies or API rate limits
+
+#### **Why shadcn/ui vs. MUI?**
+- **Bundle size**: ~20KB vs ~300KB runtime overhead
+- **Customization**: Full control over components vs theme constraints
+- **Learning curve**: Builds on user's existing Tailwind knowledge
+- **Performance**: Zero runtime cost vs component library overhead
+
+### 🔄 **Data Update Strategy**
+
+#### **MVP: Manual Weekly Updates**
+- Re-run scraper for popular subjects weekly
+- Deploy updated JSON files to CDN/static hosting
+- Simple versioning in search index for cache invalidation
+
+#### **Future: Automated Pipeline**
+- GitHub Actions scheduled scraping (2x per week)
+- Automated deployment on data changes
+- Progressive data updates (only changed subjects)
+- Background service worker updates for active users
+
+### 📱 **Mobile-First Considerations**
+- **Touch targets**: Minimum 44px for buttons and interactive elements
+- **Swipe gestures**: Calendar navigation, course card interactions
+- **Simplified views**: Collapsible sections, progressive disclosure
+- **Offline capability**: Cache selected schedules locally
+- **Data efficiency**: Progressive loading prevents excessive mobile data usage
+
+This comprehensive plan provides a clear roadmap from MVP to advanced features while maintaining focus on performance and user experience.
