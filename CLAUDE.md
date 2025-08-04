@@ -552,10 +552,10 @@ The scraper is production-ready for core subjects (CSCI, AIST, FINA, PHYS) with 
 **Key Insight**: Data loading strategy has 10x more impact than UI framework choice
 
 **Performance Budget:**
-- Initial load: <3 seconds on 3G
-- Search results: <200ms response time
-- Calendar render: <100ms for week view
-- Total bundle size: <500KB
+- Initial load: < 3 seconds on 3G
+- Search results: < 200ms response time
+- Calendar render: < 100ms for week view
+- Total bundle size: < 500KB
 
 #### **Data Loading Strategy: Progressive + Smart Caching**
 
