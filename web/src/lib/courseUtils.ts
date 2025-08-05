@@ -39,21 +39,47 @@ export interface ConflictZone {
 }
 
 /**
- * Parse time string like "Mo 14:30 - 15:15" into structured time range
+ * Parse time string like "Mo 14:30 - 15:15" or "Th 1:30PM - 2:15PM" into structured time range
  */
 export function parseTimeRange(timeStr: string): TimeRange | null {
   const dayMatch = timeStr.match(/(Mo|Tu|We|Th|Fr)/)
-  const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
   
-  if (!dayMatch || !timeMatch) return null
+  if (!dayMatch) return null
   
-  return {
-    day: dayMatch[1],
-    startHour: parseInt(timeMatch[1]),
-    startMinute: parseInt(timeMatch[2]),
-    endHour: parseInt(timeMatch[3]),
-    endMinute: parseInt(timeMatch[4])
+  // Try 12-hour format first (e.g., "1:30PM - 2:15PM")
+  const timeMatch12 = timeStr.match(/(\d{1,2}):(\d{2})(AM|PM)\s*-\s*(\d{1,2}):(\d{2})(AM|PM)/)
+  if (timeMatch12) {
+    let startHour = parseInt(timeMatch12[1])
+    let endHour = parseInt(timeMatch12[4])
+    
+    // Convert to 24-hour format
+    if (timeMatch12[3] === 'PM' && startHour !== 12) startHour += 12
+    if (timeMatch12[3] === 'AM' && startHour === 12) startHour = 0
+    if (timeMatch12[6] === 'PM' && endHour !== 12) endHour += 12
+    if (timeMatch12[6] === 'AM' && endHour === 12) endHour = 0
+    
+    return {
+      day: dayMatch[1],
+      startHour,
+      startMinute: parseInt(timeMatch12[2]),
+      endHour,
+      endMinute: parseInt(timeMatch12[5])
+    }
   }
+  
+  // Fallback to 24-hour format (e.g., "14:30 - 15:15")
+  const timeMatch24 = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
+  if (timeMatch24) {
+    return {
+      day: dayMatch[1],
+      startHour: parseInt(timeMatch24[1]),
+      startMinute: parseInt(timeMatch24[2]),
+      endHour: parseInt(timeMatch24[3]),
+      endMinute: parseInt(timeMatch24[4])
+    }
+  }
+  
+  return null
 }
 
 /**
