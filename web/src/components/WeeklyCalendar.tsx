@@ -1,25 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { groupOverlappingEvents, getConflictZones, eventsOverlap, type CalendarEvent } from '@/lib/courseUtils'
 
-interface CalendarEvent {
-  id: string
-  courseCode: string
-  section: string
-  title: string
-  time: string
-  location: string
-  instructor: string
-  day: number // 0=Monday, 1=Tuesday, etc.
-  startHour: number
-  endHour: number
-  startMinute: number
-  endMinute: number
-  color: string
-  hasConflict?: boolean
-}
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
@@ -30,7 +14,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   const hours = Array.from({ length: 10 }, (_, i) => 9 + i) // 9:00 to 18:00
 
-  // Detect conflicts and mark events
+  // Detect conflicts and mark events - using shared utility
   const detectConflicts = (events: CalendarEvent[]) => {
     return events.map(event => {
       const hasConflict = events.some(otherEvent => 
@@ -42,167 +26,6 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
     })
   }
 
-  // Calculate conflict zones for background highlighting
-  const getConflictZones = (dayEvents: CalendarEvent[]) => {
-    const zones: { startHour: number, endHour: number, startMinute: number, endMinute: number }[] = []
-    const eventGroups = groupOverlappingEvents(dayEvents)
-    
-    eventGroups.forEach(group => {
-      if (group.length > 1) {
-        // Find the time range that covers all conflicting events
-        const minStart = Math.min(...group.map(e => e.startHour * 60 + e.startMinute))
-        const maxEnd = Math.max(...group.map(e => e.endHour * 60 + e.endMinute))
-        
-        zones.push({
-          startHour: Math.floor(minStart / 60),
-          startMinute: minStart % 60,
-          endHour: Math.floor(maxEnd / 60),
-          endMinute: maxEnd % 60
-        })
-      }
-    })
-    
-    return zones
-  }
-
-  // Group overlapping events for smart stacking
-  const groupOverlappingEvents = (dayEvents: CalendarEvent[]) => {
-    const groups: CalendarEvent[][] = []
-    const processed = new Set<string>()
-
-    for (const event of dayEvents) {
-      if (processed.has(event.id)) continue
-
-      const group = [event]
-      processed.add(event.id)
-
-      // Find overlapping events
-      for (const otherEvent of dayEvents) {
-        if (processed.has(otherEvent.id)) continue
-
-        if (eventsOverlap(event, otherEvent)) {
-          group.push(otherEvent)
-          processed.add(otherEvent.id)
-        }
-      }
-
-      groups.push(group)
-    }
-
-    return groups
-  }
-
-  // Check if two events overlap in time
-  const eventsOverlap = (event1: CalendarEvent, event2: CalendarEvent) => {
-    const start1 = event1.startHour * 60 + event1.startMinute
-    const end1 = event1.endHour * 60 + event1.endMinute
-    const start2 = event2.startHour * 60 + event2.startMinute
-    const end2 = event2.endHour * 60 + event2.endMinute
-
-    return start1 < end2 && start2 < end1
-  }
-
-  // Render event content based on available space and priority
-  const renderEventContent = (event: CalendarEvent, height: number, isPrimary: boolean, conflictCount: number) => {
-    // Determine what information to show based on height and priority
-    if (height >= 60) {
-      // Large card - show all info
-      return (
-        <>
-          <div className="font-semibold text-xs leading-tight truncate">
-            {event.courseCode}
-          </div>
-          <div className="text-[10px] leading-tight truncate opacity-90">
-            {event.time.split(' ').slice(1).join(' ')} {/* Remove day prefix */}
-          </div>
-          <div className="text-[10px] leading-tight truncate opacity-80">
-            {event.section.split(' ')[0]} {/* Just section type */}
-          </div>
-          <div className="text-[9px] leading-tight truncate opacity-70">
-            {event.location.length > 15 ? event.location.substring(0, 15) + '...' : event.location}
-          </div>
-        </>
-      )
-    } else if (height >= 36) {
-      // Medium card - essential info
-      return (
-        <>
-          <div className="font-semibold text-xs leading-tight truncate">
-            {event.courseCode}
-          </div>
-          <div className="text-[10px] leading-tight truncate opacity-90">
-            {event.time.split(' ').slice(1, 2).join(' ')} {/* Just start time */}
-          </div>
-          <div className="text-[10px] leading-tight truncate opacity-80">
-            {event.section.split(' ')[0]}
-          </div>
-        </>
-      )
-    } else {
-      // Small card - minimal info
-      return (
-        <div className="font-semibold text-xs leading-tight truncate">
-          {event.courseCode}
-        </div>
-      )
-    }
-  }
-
-  // Parse time string to get hour and minute
-  const parseTime = (timeStr: string) => {
-    // Handle formats like "Mo 14:30 - 15:15" or "Th 1:30PM - 2:15PM"
-    const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})(?:AM|PM)?/i)
-    if (timeMatch) {
-      let hour = parseInt(timeMatch[1])
-      const minute = parseInt(timeMatch[2])
-      
-      // Handle PM times
-      if (timeStr.includes('PM') && hour !== 12) {
-        hour += 12
-      } else if (timeStr.includes('AM') && hour === 12) {
-        hour = 0
-      }
-      
-      return { hour, minute }
-    }
-    return { hour: 9, minute: 0 }
-  }
-
-  // Get day index from time string
-  const getDayIndex = (timeStr: string) => {
-    const dayMap: { [key: string]: number } = {
-      'Mo': 0, 'Tu': 1, 'We': 2, 'Th': 3, 'Fr': 4,
-      'Monday': 0, 'Tuesday': 1, 'Wednesday': 2, 'Thursday': 3, 'Friday': 4
-    }
-    
-    for (const [key, index] of Object.entries(dayMap)) {
-      if (timeStr.includes(key)) {
-        return index
-      }
-    }
-    return 0 // Default to Monday
-  }
-
-  // Calculate position and height for calendar events
-  const getEventStyle = (event: CalendarEvent) => {
-    const startHour = event.startHour
-    const startMinute = event.startMinute
-    const endHour = event.endHour
-    const endMinute = event.endMinute
-    
-    // Calculate position from 9:00 AM
-    const startPosition = ((startHour - 9) * 60 + startMinute) / 60
-    const duration = ((endHour - startHour) * 60 + (endMinute - startMinute)) / 60
-    
-    return {
-      top: `${startPosition * 60}px`, // 60px per hour
-      height: `${duration * 60}px`,
-      left: '4px',
-      right: '4px',
-      position: 'absolute' as const,
-      zIndex: 10
-    }
-  }
 
   return (
     <Card className="h-full flex flex-col">
