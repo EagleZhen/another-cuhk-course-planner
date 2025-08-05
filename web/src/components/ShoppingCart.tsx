@@ -54,12 +54,18 @@ export default function ShoppingCart({
             {selectedCourses.length} courses
           </Badge>
         </div>
-        {conflictCount > 0 && (
-          <div className="flex items-center gap-2 text-sm text-red-600">
-            <AlertTriangle className="w-4 h-4" />
-            <span>{conflictCount} conflict{conflictCount > 1 ? 's' : ''} found</span>
-          </div>
-        )}
+        <div className="flex items-center gap-2 text-sm min-h-[20px]">
+          {conflictCount > 0 ? (
+            <div className="flex items-center gap-2 text-red-600">
+              <AlertTriangle className="w-4 h-4" />
+              <span>{conflictCount} conflict{conflictCount > 1 ? 's' : ''} found</span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 text-green-600">
+              <span className="text-xs opacity-70">No conflicts</span>
+            </div>
+          )}
+        </div>
       </CardHeader>
       
       <CardContent className="space-y-3">

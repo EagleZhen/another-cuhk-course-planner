@@ -286,7 +286,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                             position: 'absolute',
                             top: `${cardTop}px`,
                             height: `${cardHeight}px`,
-                            left: '8px',
+                            left: '3px',
                             right: '8px',
                             zIndex: 10
                           }}

@@ -42,10 +42,37 @@ interface CourseData {
   courses: Course[]
 }
 
-export default function CourseSearch() {
+interface SelectedCourse {
+  id: string
+  subject: string
+  courseCode: string
+  title: string
+  section: string
+  time: string
+  location: string
+  instructor: string
+  credits: string
+  color: string
+  isVisible: boolean
+  hasConflict: boolean
+}
+
+interface CourseSearchProps {
+  onAddCourse: (course: Course) => void
+  selectedCourses: SelectedCourse[]
+}
+
+export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<Course[]>([])
+
+  // Helper function to check if course is already added
+  const isCourseAdded = (course: Course) => {
+    return selectedCourses.some(selected => 
+      selected.subject === course.subject && selected.courseCode === course.course_code
+    )
+  }
 
   // Load course data on component mount
   useEffect(() => {
@@ -137,7 +164,12 @@ export default function CourseSearch() {
               {searchTerm && ` matching "${searchTerm}"`}
             </div>
             {searchResults.map((course, index) => (
-              <CourseCard key={`${course.subject}-${course.course_code}-${index}`} course={course} />
+              <CourseCard 
+                key={`${course.subject}-${course.course_code}-${index}`} 
+                course={course}
+                onAddCourse={onAddCourse}
+                isAdded={isCourseAdded(course)}
+              />
             ))}
           </>
         )}
@@ -146,7 +178,11 @@ export default function CourseSearch() {
   )
 }
 
-function CourseCard({ course }: { course: Course }) {
+function CourseCard({ course, onAddCourse, isAdded }: { 
+  course: Course
+  onAddCourse: (course: Course) => void
+  isAdded: boolean
+}) {
   const [expanded, setExpanded] = useState(false)
 
   // Get unique instructors from all terms
@@ -181,14 +217,24 @@ function CourseCard({ course }: { course: Course }) {
               ))}
             </div>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setExpanded(!expanded)}
-            className="ml-2"
-          >
-            {expanded ? 'Hide' : 'Show'} Details
-          </Button>
+          <div className="flex items-center gap-2 ml-2">
+            <Button
+              variant={isAdded ? "secondary" : "default"}
+              size="sm"
+              onClick={() => onAddCourse(course)}
+              disabled={isAdded}
+              className="min-w-[80px]"
+            >
+              {isAdded ? "Added ✓" : "Add"}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded ? 'Hide' : 'Show'} Details
+            </Button>
+          </div>
         </div>
       </CardHeader>
 

@@ -1,14 +1,61 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
+// Helper function to calculate initial conflicts (outside component to avoid re-renders)
+const calculateInitialConflicts = (courses: any[]) => {
+  const visibleCourses = courses.filter(course => course.isVisible)
+  
+  return courses.map(course => {
+    if (!course.isVisible) {
+      return { ...course, hasConflict: false }
+    }
+    
+    const parseTimeRange = (timeStr: string) => {
+      const dayMatch = timeStr.match(/(Mo|Tu|We|Th|Fr)/)
+      const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
+      
+      if (!dayMatch || !timeMatch) return null
+      return {
+        day: dayMatch[1],
+        startHour: parseInt(timeMatch[1]),
+        startMinute: parseInt(timeMatch[2]),
+        endHour: parseInt(timeMatch[3]),
+        endMinute: parseInt(timeMatch[4])
+      }
+    }
+
+    const coursesOverlap = (course1: any, course2: any) => {
+      if (!course1 || !course2 || course1.day !== course2.day) return false
+      
+      const start1 = course1.startHour * 60 + course1.startMinute
+      const end1 = course1.endHour * 60 + course1.endMinute
+      const start2 = course2.startHour * 60 + course2.startMinute
+      const end2 = course2.endHour * 60 + course2.endMinute
+      
+      return start1 < end2 && start2 < end1
+    }
+    
+    const hasConflict = visibleCourses.some(other => {
+      if (other.id === course.id) return false
+      
+      const courseTime = parseTimeRange(course.time)
+      const otherTime = parseTimeRange(other.time)
+      
+      return coursesOverlap(courseTime, otherTime)
+    })
+    
+    return { ...course, hasConflict }
+  })
+}
+
 export default function Home() {
-  // Sample shopping cart courses
-  const [selectedCourses, setSelectedCourses] = useState([
+  // Sample shopping cart courses with initial conflict calculation
+  const initialCourses = [
     {
       id: '1',
       subject: 'CSCI',
@@ -51,7 +98,9 @@ export default function Home() {
       isVisible: false,
       hasConflict: true
     }
-  ])
+  ]
+
+  const [selectedCourses, setSelectedCourses] = useState(() => calculateInitialConflicts(initialCourses))
 
   // Helper function to parse time from string like "Mo 14:30 - 15:15"
   const parseTime = (timeStr: string) => {
@@ -76,6 +125,60 @@ export default function Home() {
     return 0
   }
 
+
+  // Helper function to detect conflicts between visible courses
+  const detectConflicts = useCallback((courses: typeof selectedCourses) => {
+    // Helper to parse time range - moved inside to avoid dependency issues
+    const parseTimeRange = (timeStr: string) => {
+      const dayMatch = timeStr.match(/(Mo|Tu|We|Th|Fr)/)
+      const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
+      
+      if (!dayMatch || !timeMatch) return null
+      return {
+        day: dayMatch[1],
+        startHour: parseInt(timeMatch[1]),
+        startMinute: parseInt(timeMatch[2]),
+        endHour: parseInt(timeMatch[3]),
+        endMinute: parseInt(timeMatch[4])
+      }
+    }
+
+    // Helper to check overlap - moved inside to avoid dependency issues
+    const coursesOverlap = (course1: any, course2: any) => {
+      if (!course1 || !course2 || course1.day !== course2.day) return false
+      
+      const start1 = course1.startHour * 60 + course1.startMinute
+      const end1 = course1.endHour * 60 + course1.endMinute
+      const start2 = course2.startHour * 60 + course2.startMinute
+      const end2 = course2.endHour * 60 + course2.endMinute
+      
+      return start1 < end2 && start2 < end1
+    }
+
+    const visibleCourses = courses.filter(course => course.isVisible)
+    
+    return courses.map(course => {
+      if (!course.isVisible) {
+        // Hidden courses don't have conflicts
+        return { ...course, hasConflict: false }
+      }
+      
+      // Check if this visible course conflicts with other visible courses
+      const hasConflict = visibleCourses.some(other => {
+        if (other.id === course.id) return false // Don't compare with self
+        
+        // Parse time ranges for conflict detection
+        const courseTime = parseTimeRange(course.time)
+        const otherTime = parseTimeRange(other.time)
+        
+        // Check for day and time overlap
+        return coursesOverlap(courseTime, otherTime)
+      })
+      
+      return { ...course, hasConflict }
+    })
+  }, [])
+
   // Convert selected courses to calendar events (only visible ones)
   const calendarEvents = selectedCourses
     .filter(course => course.isVisible)
@@ -95,19 +198,69 @@ export default function Home() {
       }
     })
 
-  // Debug calendar events
-  console.log('Calendar events:', calendarEvents)
+  // Remove useEffect - conflicts will be calculated when state changes
 
   const handleToggleVisibility = (courseId: string) => {
-    setSelectedCourses(prev => prev.map(course => 
-      course.id === courseId 
-        ? { ...course, isVisible: !course.isVisible }
-        : course
-    ))
+    setSelectedCourses(prev => {
+      // Toggle visibility
+      const updatedCourses = prev.map(course => 
+        course.id === courseId 
+          ? { ...course, isVisible: !course.isVisible }
+          : course
+      )
+      
+      // Recalculate conflicts based on new visibility states
+      return detectConflicts(updatedCourses)
+    })
   }
 
   const handleRemoveCourse = (courseId: string) => {
-    setSelectedCourses(prev => prev.filter(course => course.id !== courseId))
+    setSelectedCourses(prev => {
+      const filteredCourses = prev.filter(course => course.id !== courseId)
+      // Recalculate conflicts after removing course
+      return detectConflicts(filteredCourses)
+    })
+  }
+
+  const handleAddCourse = (course: any) => {
+    // Check if course is already added
+    const isAlreadyAdded = selectedCourses.some(existing => 
+      existing.subject === course.subject && existing.courseCode === course.course_code
+    )
+    
+    if (isAlreadyAdded) {
+      return // Course already added, do nothing
+    }
+    
+    // Generate a unique ID and random color for the new course
+    const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-red-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500']
+    const randomColor = colors[Math.floor(Math.random() * colors.length)]
+    
+    // Get the first available term and section for initial display
+    const firstTerm = course.terms?.[0]
+    const firstSection = firstTerm?.schedule?.[0]
+    const firstMeeting = firstSection?.meetings?.[0]
+    
+    const newCourse = {
+      id: `${course.subject}${course.course_code}_${Date.now()}`, // Unique ID
+      subject: course.subject,
+      courseCode: course.course_code,
+      title: course.title,
+      section: firstSection?.section || '--LEC',
+      time: firstMeeting?.time || 'TBD',
+      location: firstMeeting?.location || 'TBD',
+      instructor: firstMeeting?.instructor || 'TBD',
+      credits: course.credits || '3.0',
+      color: randomColor,
+      isVisible: true,
+      hasConflict: false // Will be calculated later by conflict detection
+    }
+    
+    setSelectedCourses(prev => {
+      const updatedCourses = [...prev, newCourse]
+      // Recalculate conflicts when adding new course
+      return detectConflicts(updatedCourses)
+    })
   }
 
 
@@ -169,7 +322,10 @@ export default function Home() {
               </div>
             </CardHeader>
             <CardContent>
-              <CourseSearch />
+              <CourseSearch 
+                onAddCourse={handleAddCourse}
+                selectedCourses={selectedCourses}
+              />
             </CardContent>
           </Card>
         </div>
