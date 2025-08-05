@@ -213,7 +213,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
         </div>
       </CardHeader>
       <CardContent className="flex-1 p-4">
-        <div className="grid grid-cols-6 gap-1 h-full min-h-[500px]">
+        <div className="grid grid-cols-6 gap-1 h-full min-h-[580px]">
           {/* Time column */}
           <div className="flex flex-col w-16 flex-shrink-0">
             <div className="h-12 flex items-center justify-center text-sm font-medium text-gray-500 border-b">
@@ -314,7 +314,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                       return group.map((event, stackIndex) => {
                         const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
                         const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
-                        const stackOffset = stackIndex * 12 // 12px offset per stack level - more visible
+                        const stackOffset = stackIndex * 16 // 16px offset per stack level - even more visible
                         const isTopCard = stackIndex === 0
                         
                         return (
@@ -325,7 +325,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                               top: `${cardTop}px`,
                               height: `${cardHeight}px`,
                               left: `${8 + stackOffset}px`,
-                              right: `${8 + (group.length - 1 - stackIndex) * 12}px`,
+                              right: `${8 + (group.length - 1 - stackIndex) * 16}px`,
                               zIndex: 20 + stackIndex // Conflicted events float higher
                             }}
                             className={`

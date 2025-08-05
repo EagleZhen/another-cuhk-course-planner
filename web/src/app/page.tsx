@@ -1,87 +1,115 @@
+'use client'
+
+import { useState } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
+import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function Home() {
-  // Sample calendar events for testing
-  const sampleEvents = [
+  // Sample shopping cart courses
+  const [selectedCourses, setSelectedCourses] = useState([
     {
       id: '1',
-      courseCode: 'CSCI3100',
-      section: '--LEC (8192)',
+      subject: 'CSCI',
+      courseCode: '3100',
       title: 'Software Engineering',
+      section: '--LEC (8192)',
       time: 'Mo 14:30 - 15:15',
       location: 'Mong Man Wai Bldg 404',
       instructor: 'Prof. WONG',
-      day: 0, // Monday
-      startHour: 14,
-      endHour: 15,
-      startMinute: 30,
-      endMinute: 15,
-      color: 'bg-blue-500'
+      credits: '3.0',
+      color: 'bg-blue-500',
+      isVisible: true,
+      hasConflict: false
     },
-    {
-      id: '2',
-      courseCode: 'CSCI1530',
-      section: '--LEC (8193)',
-      title: 'Computer Principles',
-      time: 'Tu 14:30 - 16:15',
-      location: 'Science Centre LG23',
-      instructor: 'Dr. CHEONG',
-      day: 1, // Tuesday
-      startHour: 14,
-      endHour: 16,
-      startMinute: 30,
-      endMinute: 15,
-      color: 'bg-green-500'
-    },
-    {
-      id: '3',
-      courseCode: 'CSCI1020',
-      section: '--LEC (8192)',
-      title: 'Hands-on Introduction to C++',
-      time: 'Th 13:30 - 14:15',
-      location: 'William M W Mong Eng Bldg 404',
-      instructor: 'Dr. CHEONG Chi Hong',
-      day: 3, // Thursday
-      startHour: 13,
-      endHour: 14,
-      startMinute: 30,
-      endMinute: 15,
-      color: 'bg-purple-500'
-    },
-    // Add a conflicting course for testing
     {
       id: '4',
-      courseCode: 'FINA2020',
-      section: '--LEC (7845)',
+      subject: 'FINA',
+      courseCode: '2020', 
       title: 'Corporate Finance',
+      section: '--LEC (7845)',
       time: 'Tu 14:30 - 16:15',
       location: 'Lee Shau Kee Building 101',
       instructor: 'Prof. CHAN',
-      day: 1, // Tuesday (conflicts with CSCI1530)
-      startHour: 14,
-      endHour: 16,
-      startMinute: 30,
-      endMinute: 15,
-      color: 'bg-gray-500'
+      credits: '3.0',
+      color: 'bg-gray-500',
+      isVisible: true,
+      hasConflict: true
     },
     {
       id: '5',
-      courseCode: 'PHYS1001',
-      section: '--LEC (9123)',
+      subject: 'PHYS',
+      courseCode: '1001',
       title: 'General Physics I',
+      section: '--LEC (9123)', 
       time: 'Tu 15:00 - 16:30',
       location: 'Science Centre LT1',
       instructor: 'Dr. LI',
-      day: 1, // Tuesday (also conflicts!)
-      startHour: 15,
-      endHour: 16,
-      startMinute: 0,
-      endMinute: 30,
-      color: 'bg-pink-500'
+      credits: '3.0',
+      color: 'bg-pink-500',
+      isVisible: false,
+      hasConflict: true
     }
-  ]
+  ])
+
+  // Helper function to parse time from string like "Mo 14:30 - 15:15"
+  const parseTime = (timeStr: string) => {
+    const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
+    if (timeMatch) {
+      return {
+        startHour: parseInt(timeMatch[1]),
+        startMinute: parseInt(timeMatch[2]),
+        endHour: parseInt(timeMatch[3]),
+        endMinute: parseInt(timeMatch[4])
+      }
+    }
+    return { startHour: 9, startMinute: 0, endHour: 10, endMinute: 0 }
+  }
+
+  const parseDay = (timeStr: string) => {
+    if (timeStr.includes('Mo')) return 0
+    if (timeStr.includes('Tu')) return 1  
+    if (timeStr.includes('We')) return 2
+    if (timeStr.includes('Th')) return 3
+    if (timeStr.includes('Fr')) return 4
+    return 0
+  }
+
+  // Convert selected courses to calendar events (only visible ones)
+  const calendarEvents = selectedCourses
+    .filter(course => course.isVisible)
+    .map(course => {
+      const timeInfo = parseTime(course.time)
+      return {
+        id: course.id,
+        courseCode: `${course.subject}${course.courseCode}`,
+        section: course.section,
+        title: course.title,
+        time: course.time,
+        location: course.location,
+        instructor: course.instructor,
+        day: parseDay(course.time),
+        ...timeInfo,
+        color: course.color
+      }
+    })
+
+  // Debug calendar events
+  console.log('Calendar events:', calendarEvents)
+
+  const handleToggleVisibility = (courseId: string) => {
+    setSelectedCourses(prev => prev.map(course => 
+      course.id === courseId 
+        ? { ...course, isVisible: !course.isVisible }
+        : course
+    ))
+  }
+
+  const handleRemoveCourse = (courseId: string) => {
+    setSelectedCourses(prev => prev.filter(course => course.id !== courseId))
+  }
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -96,51 +124,54 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Main Content - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {/* Left Column - Course Search */}
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Search Courses</CardTitle>
-                <CardDescription>
-                  Search by course code, title, or instructor name
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <CourseSearch />
-              </CardContent>
-            </Card>
+        {/* Top Section - Calendar + Shopping Cart */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8">
+          {/* Calendar (3/4 width - more space) */}
+          <div className="lg:col-span-3">
+            <div className="h-[650px]">
+              <WeeklyCalendar events={calendarEvents} />
+            </div>
+          </div>
 
-            {/* Available Subjects */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Available Subjects</CardTitle>
-                <CardDescription>
-                  Currently loaded course data from these subjects
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-3">
+          {/* Shopping Cart (1/4 width - more compact) */}
+          <div>
+            <ShoppingCart 
+              selectedCourses={selectedCourses}
+              onToggleVisibility={handleToggleVisibility}
+              onRemoveCourse={handleRemoveCourse}
+            />
+          </div>
+        </div>
+
+        {/* Bottom Section - Course Search (Full Width) */}
+        <div className="max-w-7xl mx-auto">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle>Search & Add Courses</CardTitle>
+                  <CardDescription>
+                    Search by course code, title, or instructor name. Click to add courses to your schedule.
+                  </CardDescription>
+                </div>
+                
+                {/* Available Subjects - Compact */}
+                <div className="flex gap-2 flex-wrap">
                   {['CSCI', 'AIST', 'PHYS', 'FINA'].map((subject) => (
                     <div
                       key={subject}
-                      className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg text-center font-medium"
+                      className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium"
                     >
                       {subject}
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Right Column - Calendar (spans 2 columns) */}
-          <div className="lg:col-span-2">
-            <div className="h-[700px]">
-              <WeeklyCalendar events={sampleEvents} />
-            </div>
-          </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <CourseSearch />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
