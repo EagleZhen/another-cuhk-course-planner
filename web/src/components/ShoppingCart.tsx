@@ -3,21 +3,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, Settings, AlertTriangle } from 'lucide-react'
+import { Eye, EyeOff, Trash2, AlertTriangle } from 'lucide-react'
 import { type Course } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   selectedCourses: Course[]
   onToggleVisibility: (courseId: string) => void
   onRemoveCourse: (courseId: string) => void
-  onEditCourse?: (courseId: string) => void
 }
 
 export default function ShoppingCart({ 
   selectedCourses, 
   onToggleVisibility, 
-  onRemoveCourse,
-  onEditCourse 
+  onRemoveCourse
 }: ShoppingCartProps) {
   const visibleCourses = selectedCourses.filter(course => course.isVisible)
   const conflictCount = selectedCourses.filter(course => course.hasConflict).length
@@ -31,184 +29,118 @@ export default function ShoppingCart({
   }
 
   return (
-    <Card className="h-fit">
-      <CardHeader className="pb-3">
+    <Card className="h-[650px] flex flex-col">
+      <CardHeader className="pb-2 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg">My Schedule</CardTitle>
-          <Badge variant="secondary" className="text-sm">
-            {selectedCourses.length} courses
-          </Badge>
-        </div>
-        <div className="flex items-center gap-2 text-sm min-h-[20px]">
-          {conflictCount > 0 ? (
-            <div className="flex items-center gap-2 text-red-600">
-              <AlertTriangle className="w-4 h-4" />
-              <span>{conflictCount} conflict{conflictCount > 1 ? 's' : ''} found</span>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2 text-green-600">
-              <span className="text-xs opacity-70">No conflicts</span>
-            </div>
-          )}
+          <CardTitle className="text-base">My Schedule</CardTitle>
+          <div className="flex items-center gap-2">
+            {conflictCount > 0 && (
+              <AlertTriangle className="w-3 h-3 text-red-500" />
+            )}
+            <Badge variant="secondary" className="text-xs">
+              {selectedCourses.length}
+            </Badge>
+          </div>
         </div>
       </CardHeader>
       
-      <CardContent className="space-y-3">
+      <CardContent className="flex-1 overflow-hidden p-3">
         {selectedCourses.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
-            <div className="text-4xl mb-2">📚</div>
-            <p>No courses selected</p>
-            <p className="text-sm">Search and add courses to get started</p>
+            <div className="text-2xl mb-2">📚</div>
+            <p className="text-sm">No courses selected</p>
+            <p className="text-xs opacity-70">Add courses to get started</p>
           </div>
         ) : (
-          selectedCourses.map((course) => (
-            <div
-              key={course.id}
-              className={`
-                border rounded-lg p-3 transition-all
-                ${course.hasConflict 
-                  ? 'border-red-200 bg-red-50' 
-                  : 'border-gray-200 bg-white'
-                }
-                ${!course.isVisible ? 'opacity-60' : ''}
-              `}
-            >
-              {/* Course Header */}
-              <div className="flex items-start justify-between mb-2">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-sm">
+          <div className="space-y-2 overflow-y-auto h-full pr-1">
+            {selectedCourses.map((course) => (
+              <div
+                key={course.id}
+                className={`
+                  border rounded p-2 transition-all
+                  ${course.hasConflict 
+                    ? 'border-red-200 bg-red-50' 
+                    : 'border-gray-200 bg-white'
+                  }
+                  ${!course.isVisible ? 'opacity-60' : ''}
+                `}
+              >
+                {/* Compact Course Info */}
+                <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center gap-2 flex-1 min-w-0">
+                    <div 
+                      className={`w-2 h-2 rounded-full ${course.color} flex-shrink-0`}
+                    />
+                    <span className="font-semibold text-xs">
                       {course.subject}{course.courseCode}
                     </span>
                     {course.hasConflict && (
-                      <AlertTriangle className="w-3 h-3 text-red-500" />
+                      <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0" />
                     )}
                   </div>
-                  <p className="text-xs text-gray-600 truncate">
-                    {course.title}
-                  </p>
-                </div>
-                
-                {/* Color indicator */}
-                <div 
-                  className={`w-3 h-3 rounded-full ${course.color} flex-shrink-0`}
-                />
-              </div>
-
-              {/* Course Details */}
-              <div className="space-y-1 mb-3">
-                <p className="text-xs text-gray-700">
-                  <span className="font-medium">{course.section.replace('--', '')}</span>
-                </p>
-                <p className="text-xs text-gray-600">
-                  {course.time}
-                </p>
-                <p className="text-xs text-gray-500 truncate">
-                  {course.location}
-                </p>
-                {course.instructor && (
-                  <p className="text-xs text-gray-500 truncate">
-                    {course.instructor}
-                  </p>
-                )}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => handleToggleVisibility(course.id)}
-                    className="h-7 px-2 text-xs"
-                  >
-                    {course.isVisible ? (
-                      <>
-                        <Eye className="w-3 h-3 mr-1" />
-                        Hide
-                      </>
-                    ) : (
-                      <>
-                        <EyeOff className="w-3 h-3 mr-1" />
-                        Show
-                      </>
-                    )}
-                  </Button>
                   
-                  {onEditCourse && (
+                  {/* Quick Actions */}
+                  <div className="flex items-center gap-1 flex-shrink-0">
                     <Button
                       variant="ghost"
                       size="sm"
-                      onClick={() => onEditCourse(course.id)}
-                      className="h-7 px-2 text-xs"
+                      onClick={() => handleToggleVisibility(course.id)}
+                      className="h-5 w-5 p-0"
+                      title={course.isVisible ? 'Hide' : 'Show'}
                     >
-                      <Settings className="w-3 h-3 mr-1" />
-                      Edit
+                      {course.isVisible ? (
+                        <Eye className="w-3 h-3" />
+                      ) : (
+                        <EyeOff className="w-3 h-3" />
+                      )}
                     </Button>
-                  )}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handleRemoveCourse(course.id)}
+                      className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
+                      title="Remove"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                    </Button>
+                  </div>
                 </div>
 
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleRemoveCourse(course.id)}
-                  className="h-7 px-2 text-xs text-red-600 hover:text-red-700 hover:bg-red-50"
-                >
-                  <Trash2 className="w-3 h-3" />
-                </Button>
-              </div>
-            </div>
-          ))
-        )}
+                {/* Course Title */}
+                <p className="text-xs text-gray-600 truncate mb-1 pl-4">
+                  {course.title}
+                  <span className="mx-1">•</span>
+                  {course.credits} credits
+                </p>
 
-        {/* Conflict Resolution Actions */}
-        {conflictCount > 0 && (
-          <div className="border-t pt-3 mt-4">
-            <div className="flex flex-col gap-2">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="w-full text-xs"
-                disabled // Future feature
-              >
-                🔧 Auto-Resolve Conflicts
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="w-full text-xs"
-                disabled // Future feature
-              >
-                📋 View Conflict Details
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Schedule Summary */}
-        {selectedCourses.length > 0 && (
-          <div className="border-t pt-3 mt-4">
-            <div className="text-xs text-gray-600 space-y-1">
-              <div className="flex justify-between">
-                <span>Total courses:</span>
-                <span className="font-medium">{selectedCourses.length}</span>
+                {/* Essential Info - Single Line */}
+                <div className="text-xs text-gray-500 pl-4">
+                  <span className="font-medium">{course.section.replace('--', '')}</span>
+                  <span className="mx-1">•</span>
+                  <span>{course.time}</span>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span>Visible on calendar:</span>
-                <span className="font-medium">{visibleCourses.length}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Total credits:</span>
-                <span className="font-medium">
-                  {selectedCourses.reduce((sum, course) => 
-                    sum + parseFloat(course.credits || '0'), 0
-                  ).toFixed(1)}
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         )}
       </CardContent>
+      
+      {/* Schedule Summary - Outside scrollable area */}
+      {selectedCourses.length > 0 && (
+        <div className="border-t px-3 py-2 flex-shrink-0">
+          <div className="flex justify-between text-xs text-gray-600">
+            <span>{visibleCourses.length}/{selectedCourses.length} visible</span>
+            <span>
+              {selectedCourses.reduce((sum, course) => 
+                sum + parseFloat(course.credits || '0'), 0
+              ).toFixed(1)} credits
+            </span>
+            {conflictCount > 0 && (
+              <span className="text-red-500">{conflictCount} conflicts</span>
+            )}
+          </div>
+        </div>
+      )}
     </Card>
   )
 }

@@ -104,19 +104,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            CUHK Course Planner
-          </h1>
-          <p className="text-lg text-gray-600">
-            Plan your courses with up-to-date schedule information
-          </p>
-        </div>
+      <div className="container mx-auto px-4 py-4">
 
         {/* Top Section - Calendar + Shopping Cart */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
             <div className="h-[650px]">
