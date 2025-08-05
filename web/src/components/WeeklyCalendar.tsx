@@ -266,7 +266,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                           right: '0px', // Extend past right border  
                           zIndex: 1 // Behind course cards
                         }}
-                        className="bg-red-400/85 border-4 border-red-500/85 rounded-sm bg-radial"
+                        className="bg-red-400/85 border-2 border-red-500/85 rounded-sm bg-radial"
                       />
                     )
                   })}

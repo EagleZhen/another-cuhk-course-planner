@@ -71,12 +71,20 @@ export default function ShoppingCart({
                     <div 
                       className={`w-2 h-2 rounded-full ${course.color} flex-shrink-0`}
                     />
-                    <span className="font-semibold text-xs">
-                      {course.subject}{course.courseCode}
+                    <div className="flex items-center gap-1">
+                      <span className="font-semibold text-xs">
+                        {course.subject}{course.courseCode}
+                      </span>
+                    </div>
+                    {/* Always reserve space for conflict indicator to prevent layout shifts */}
+                    <div className="w-3 h-3 flex-shrink-0">
+                      {course.hasConflict && (
+                        <AlertTriangle className="w-3 h-3 text-red-500" />
+                      )}
+                    </div>
+                    <span className="text-[12px] text-gray-500 font-medium">
+                      {course.credits} credits
                     </span>
-                    {course.hasConflict && (
-                      <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0" />
-                    )}
                   </div>
                   
                   {/* Quick Actions */}
@@ -109,8 +117,6 @@ export default function ShoppingCart({
                 {/* Course Title */}
                 <p className="text-xs text-gray-600 truncate mb-1 pl-4">
                   {course.title}
-                  <span className="mx-1">•</span>
-                  {course.credits} credits
                 </p>
 
                 {/* Essential Info - Single Line */}
