@@ -30,6 +30,18 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   const hours = Array.from({ length: 10 }, (_, i) => 9 + i) // 9:00 to 18:00
 
+  // Detect conflicts and mark events
+  const detectConflicts = (events: CalendarEvent[]) => {
+    return events.map(event => {
+      const hasConflict = events.some(otherEvent => 
+        otherEvent.id !== event.id && 
+        otherEvent.day === event.day && 
+        eventsOverlap(event, otherEvent)
+      )
+      return { ...event, hasConflict }
+    })
+  }
+
   // Group overlapping events for smart stacking
   const groupOverlappingEvents = (dayEvents: CalendarEvent[]) => {
     const groups: CalendarEvent[][] = []
@@ -195,7 +207,8 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
 
           {/* Day columns */}
           {days.map((day, dayIndex) => {
-            const dayEvents = events.filter(event => event.day === dayIndex)
+            const dayEvents = detectConflicts(events.filter(event => event.day === dayIndex))
+            const eventGroups = groupOverlappingEvents(dayEvents)
             
             return (
               <div key={day} className="flex flex-col relative min-w-0 flex-1">
@@ -213,42 +226,100 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                     />
                   ))}
                   
-                  {/* Events - Simplified for debugging */}
-                  {dayEvents.map((event, eventIndex) => {
-                    const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
-                    const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
-                    
-                    console.log(`Event ${event.courseCode}: top=${cardTop}px, height=${cardHeight}px, startHour=${event.startHour}, endHour=${event.endHour}`)
-                    
-                    return (
-                      <div
-                        key={event.id}
-                        style={{
-                          position: 'absolute',
-                          top: `${cardTop}px`,
-                          height: `${cardHeight}px`,
-                          left: '4px',
-                          right: '4px',
-                          zIndex: 10
-                        }}
-                        className={`
-                          ${event.color} 
-                          rounded-sm p-1 text-xs text-white shadow-md
-                          hover:shadow-lg transition-all cursor-pointer
-                          overflow-hidden
-                        `}
-                      >
-                        <div className="font-semibold text-xs leading-tight truncate">
-                          {event.courseCode}
+                  {/* Event Groups with Smart Stacking */}
+                  {eventGroups.map((group, groupIndex) => {
+                    if (group.length === 1) {
+                      // Single event - no conflict
+                      const event = group[0]
+                      const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
+                      const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
+                      
+                      return (
+                        <div
+                          key={event.id}
+                          style={{
+                            position: 'absolute',
+                            top: `${cardTop}px`,
+                            height: `${cardHeight}px`,
+                            left: '4px',
+                            right: '4px',
+                            zIndex: 10
+                          }}
+                          className={`
+                            ${event.color} 
+                            rounded-sm p-1 text-xs text-white shadow-md
+                            hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer
+                            overflow-hidden
+                          `}
+                          onClick={() => console.log('Course details:', event.courseCode)}
+                        >
+                          <div className="font-semibold text-xs leading-tight truncate">
+                            {event.courseCode}
+                          </div>
+                          <div className="text-[10px] leading-tight truncate opacity-90">
+                            {event.time.split(' ').slice(1).join(' ')}
+                          </div>
+                          <div className="text-[10px] leading-tight truncate opacity-80">
+                            {event.section.replace('--', '')}
+                          </div>
                         </div>
-                        <div className="text-[10px] leading-tight truncate opacity-90">
-                          {event.time.split(' ').slice(1).join(' ')}
-                        </div>
-                        <div className="text-[10px] leading-tight truncate opacity-80">
-                          {event.section.replace('--', '')} {/* Remove leading dashes */}
-                        </div>
-                      </div>
-                    )
+                      )
+                    } else {
+                      // Multiple events - conflict stacking
+                      return group.map((event, stackIndex) => {
+                        const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
+                        const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
+                        const stackOffset = stackIndex * 12 // 12px offset per stack level - more visible
+                        const isTopCard = stackIndex === 0
+                        
+                        return (
+                          <div
+                            key={event.id}
+                            style={{
+                              position: 'absolute',
+                              top: `${cardTop}px`,
+                              height: `${cardHeight}px`,
+                              left: `${4 + stackOffset}px`,
+                              right: `${4 + (group.length - 1 - stackIndex) * 6}px`,
+                              zIndex: 20 + stackIndex // Conflicted events float higher
+                            }}
+                            className={`
+                              ${event.color} 
+                              rounded-sm p-1 text-xs text-white shadow-lg
+                              hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer
+                              overflow-hidden
+                              border-2 border-amber-400
+                              ${isTopCard ? 'ring-1 ring-amber-300/50' : ''}
+                            `}
+                            onClick={() => console.log('Conflict details:', event.courseCode, 'vs', group.filter(e => e.id !== event.id).map(e => e.courseCode))}
+                          >
+                            {/* Warning icon for conflict */}
+                            <div className="absolute top-0.5 right-0.5 text-amber-200 text-[8px]">
+                              ⚠️
+                            </div>
+                            
+                            <div className="font-semibold text-xs leading-tight truncate pr-3">
+                              {event.courseCode}
+                            </div>
+                            <div className="text-[10px] leading-tight truncate opacity-90">
+                              {event.time.split(' ').slice(1).join(' ')}
+                            </div>
+                            {cardHeight > 36 && (
+                              <div className="text-[10px] leading-tight truncate opacity-80">
+                                {event.section.replace('--', '')}
+                              </div>
+                            )}
+                            
+                            {/* Conflict count indicator for top card */}
+                            {isTopCard && group.length > 2 && (
+                              <div className="absolute bottom-0.5 right-0.5 bg-amber-500 text-white text-[8px] px-1 rounded">
+                                +{group.length - 1}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })
+                    }
                   })}
                 </div>
               </div>
