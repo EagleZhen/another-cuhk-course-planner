@@ -42,6 +42,29 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
     })
   }
 
+  // Calculate conflict zones for background highlighting
+  const getConflictZones = (dayEvents: CalendarEvent[]) => {
+    const zones: { startHour: number, endHour: number, startMinute: number, endMinute: number }[] = []
+    const eventGroups = groupOverlappingEvents(dayEvents)
+    
+    eventGroups.forEach(group => {
+      if (group.length > 1) {
+        // Find the time range that covers all conflicting events
+        const minStart = Math.min(...group.map(e => e.startHour * 60 + e.startMinute))
+        const maxEnd = Math.max(...group.map(e => e.endHour * 60 + e.endMinute))
+        
+        zones.push({
+          startHour: Math.floor(minStart / 60),
+          startMinute: minStart % 60,
+          endHour: Math.floor(maxEnd / 60),
+          endMinute: maxEnd % 60
+        })
+      }
+    })
+    
+    return zones
+  }
+
   // Group overlapping events for smart stacking
   const groupOverlappingEvents = (dayEvents: CalendarEvent[]) => {
     const groups: CalendarEvent[][] = []
@@ -209,6 +232,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
           {days.map((day, dayIndex) => {
             const dayEvents = detectConflicts(events.filter(event => event.day === dayIndex))
             const eventGroups = groupOverlappingEvents(dayEvents)
+            const conflictZones = getConflictZones(dayEvents)
             
             return (
               <div key={day} className="flex flex-col relative min-w-0 flex-1">
@@ -226,8 +250,29 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                     />
                   ))}
                   
+                  {/* Conflict Zone Backgrounds */}
+                  {conflictZones.map((zone, zoneIndex) => {
+                    const zoneTop = ((zone.startHour - 9) * 48 + (zone.startMinute / 60) * 48)
+                    const zoneHeight = ((zone.endHour - zone.startHour) * 48 + ((zone.endMinute - zone.startMinute) / 60) * 48)
+                    
+                    return (
+                      <div
+                        key={`conflict-zone-${zoneIndex}`}
+                        style={{
+                          position: 'absolute',
+                          top: `${zoneTop}px`,
+                          height: `${zoneHeight}px`,
+                          left: '-5px', // Extend past left border
+                          right: '0px', // Extend past right border  
+                          zIndex: 1 // Behind course cards
+                        }}
+                        className="bg-red-400/85 border-4 border-red-500/85 rounded-sm bg-radial"
+                      />
+                    )
+                  })}
+                  
                   {/* Event Groups with Smart Stacking */}
-                  {eventGroups.map((group, groupIndex) => {
+                  {eventGroups.map((group) => {
                     if (group.length === 1) {
                       // Single event - no conflict
                       const event = group[0]
@@ -241,8 +286,8 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                             position: 'absolute',
                             top: `${cardTop}px`,
                             height: `${cardHeight}px`,
-                            left: '4px',
-                            right: '4px',
+                            left: '8px',
+                            right: '8px',
                             zIndex: 10
                           }}
                           className={`
@@ -279,8 +324,8 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                               position: 'absolute',
                               top: `${cardTop}px`,
                               height: `${cardHeight}px`,
-                              left: `${4 + stackOffset}px`,
-                              right: `${4 + (group.length - 1 - stackIndex) * 6}px`,
+                              left: `${8 + stackOffset}px`,
+                              right: `${8 + (group.length - 1 - stackIndex) * 12}px`,
                               zIndex: 20 + stackIndex // Conflicted events float higher
                             }}
                             className={`
@@ -288,13 +333,11 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                               rounded-sm p-1 text-xs text-white shadow-lg
                               hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer
                               overflow-hidden
-                              border-2 border-amber-400
-                              ${isTopCard ? 'ring-1 ring-amber-300/50' : ''}
                             `}
                             onClick={() => console.log('Conflict details:', event.courseCode, 'vs', group.filter(e => e.id !== event.id).map(e => e.courseCode))}
                           >
-                            {/* Warning icon for conflict */}
-                            <div className="absolute top-0.5 right-0.5 text-amber-200 text-[8px]">
+                            {/* Warning sign for conflict */}
+                            <div className="absolute top-0.5 right-0.5 text-yellow-300 text-[10px] drop-shadow-sm">
                               ⚠️
                             </div>
                             
@@ -312,7 +355,7 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
                             
                             {/* Conflict count indicator for top card */}
                             {isTopCard && group.length > 2 && (
-                              <div className="absolute bottom-0.5 right-0.5 bg-amber-500 text-white text-[8px] px-1 rounded">
+                              <div className="absolute bottom-0.5 right-0.5 bg-red-500 text-white text-[8px] px-1 rounded font-medium">
                                 +{group.length - 1}
                               </div>
                             )}

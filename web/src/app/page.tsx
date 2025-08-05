@@ -64,7 +64,7 @@ export default function Home() {
       endHour: 16,
       startMinute: 30,
       endMinute: 15,
-      color: 'bg-red-500'
+      color: 'bg-gray-500'
     },
     {
       id: '5',
@@ -79,7 +79,7 @@ export default function Home() {
       endHour: 16,
       startMinute: 0,
       endMinute: 30,
-      color: 'bg-orange-500'
+      color: 'bg-pink-500'
     }
   ]
 
