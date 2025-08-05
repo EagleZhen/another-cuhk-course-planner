@@ -8,6 +8,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { detectConflicts, coursesToCalendarEvents, transformScrapedCourse, type Course, type ScrapedCourse } from '@/lib/courseUtils'
 
 export default function Home() {
+  // Available terms
+  const availableTerms = [
+    "2025-26 Term 1",
+    "2025-26 Term 2", 
+    "2025-26 Term 3",
+    "2025-26 Term 4",
+    "2025-26 Summer Session"
+  ]
+  
+  // Current term state
+  const [currentTerm, setCurrentTerm] = useState("2025-26 Term 2")
+  
   // Sample shopping cart courses
   const initialCourses: Course[] = [
     {
@@ -58,6 +70,13 @@ export default function Home() {
 
   // Convert selected courses to calendar events using utility
   const calendarEvents = coursesToCalendarEvents(selectedCourses)
+
+  // Handle term change - clear shopping cart since courses may not be available in new term
+  const handleTermChange = (newTerm: string) => {
+    setCurrentTerm(newTerm)
+    // Clear shopping cart when term changes since course availability may differ
+    setSelectedCourses([])
+  }
 
   const handleToggleVisibility = (courseId: string) => {
     setSelectedCourses(prev => {
@@ -111,7 +130,12 @@ export default function Home() {
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
             <div className="h-[650px]">
-              <WeeklyCalendar events={calendarEvents} />
+              <WeeklyCalendar 
+                events={calendarEvents} 
+                selectedTerm={currentTerm}
+                availableTerms={availableTerms}
+                onTermChange={handleTermChange}
+              />
             </div>
           </div>
 
@@ -154,6 +178,7 @@ export default function Home() {
               <CourseSearch 
                 onAddCourse={handleAddCourse}
                 selectedCourses={selectedCourses}
+                currentTerm={currentTerm}
               />
             </CardContent>
           </Card>

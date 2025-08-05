@@ -1,16 +1,25 @@
 'use client'
 
+import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { ChevronDown } from 'lucide-react'
 import { groupOverlappingEvents, getConflictZones, eventsOverlap, type CalendarEvent } from '@/lib/courseUtils'
 
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
   selectedTerm?: string
+  availableTerms?: string[]
+  onTermChange?: (term: string) => void
 }
 
-export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2" }: WeeklyCalendarProps) {
+export default function WeeklyCalendar({ 
+  events, 
+  selectedTerm = "2025-26 Term 2", 
+  availableTerms = ["2025-26 Term 2"],
+  onTermChange 
+}: WeeklyCalendarProps) {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   const hours = Array.from({ length: 10 }, (_, i) => 9 + i) // 9:00 to 18:00
 
@@ -32,7 +41,11 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
       <CardHeader className="pb-3 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle>Weekly Schedule</CardTitle>
-          <Badge variant="outline">{selectedTerm}</Badge>
+          <TermSelector 
+            selectedTerm={selectedTerm}
+            availableTerms={availableTerms}
+            onTermChange={onTermChange}
+          />
         </div>
       </CardHeader>
       <CardContent className="flex-1 p-4">
@@ -194,5 +207,63 @@ export default function WeeklyCalendar({ events, selectedTerm = "2025-26 Term 2"
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+// Term Selector Component
+function TermSelector({ 
+  selectedTerm, 
+  availableTerms, 
+  onTermChange 
+}: {
+  selectedTerm: string
+  availableTerms: string[]
+  onTermChange?: (term: string) => void
+}) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="relative">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-2"
+      >
+        <span className="text-sm">{selectedTerm}</span>
+        <ChevronDown className="w-3 h-3" />
+      </Button>
+      
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 z-10" 
+            onClick={() => setIsOpen(false)}
+          />
+          
+          {/* Dropdown */}
+          <div className="absolute right-0 top-full mt-1 z-20 bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
+            <div className="py-1">
+              {availableTerms.map(term => (
+                <button
+                  key={term}
+                  type="button"
+                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
+                    term === selectedTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
+                  }`}
+                  onClick={() => {
+                    onTermChange?.(term)
+                    setIsOpen(false)
+                  }}
+                >
+                  {term}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   )
 }

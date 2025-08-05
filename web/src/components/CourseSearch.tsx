@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
+import { parseSectionTypes, isCourseEnrollmentComplete } from '@/lib/courseUtils'
 
 interface Course {
   subject: string
@@ -60,12 +62,14 @@ interface SelectedCourse {
 interface CourseSearchProps {
   onAddCourse: (course: Course) => void
   selectedCourses: SelectedCourse[]
+  currentTerm: string
 }
 
-export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSearchProps) {
+export default function CourseSearch({ onAddCourse, selectedCourses, currentTerm }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<Course[]>([])
+  const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
 
   // Helper function to check if course is already added
   const isCourseAdded = (course: Course) => {
@@ -105,14 +109,19 @@ export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSea
     loadCourseData()
   }, [])
 
-  // Real-time search with useMemo for performance
+  // Real-time search with useMemo for performance, filtered by current term
   const searchResults = useMemo(() => {
+    // First filter by term - only show courses available in current term
+    const termFilteredCourses = allCourses.filter(course => 
+      course.terms.some(term => term.term_name === currentTerm)
+    )
+    
     if (!searchTerm.trim()) {
-      return allCourses.slice(0, 10) // Show first 10 by default
+      return termFilteredCourses.slice(0, 10) // Show first 10 by default
     }
 
     const searchLower = searchTerm.toLowerCase()
-    const filtered = allCourses.filter(course => {
+    const filtered = termFilteredCourses.filter(course => {
       // Create full course code without space for searching
       const fullCourseCode = `${course.subject}${course.course_code}`.toLowerCase()
       
@@ -132,12 +141,12 @@ export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSea
     })
 
     return filtered.slice(0, 20) // Limit to 20 results
-  }, [searchTerm, allCourses])
+  }, [searchTerm, allCourses, currentTerm])
 
   return (
     <div className="space-y-4">
-      {/* Search Input */}
-      <div className="w-full">
+      {/* Search Input with Term Filter Hint */}
+      <div className="w-full space-y-2">
         <Input
           type="text"
           placeholder="Search courses (e.g., CSCI3100, Software Engineering, CHEONG Chi Hong)"
@@ -145,6 +154,10 @@ export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSea
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full"
         />
+        <div className="flex items-center gap-2 text-xs text-gray-600">
+          <Info className="w-3 h-3" />
+          <span>Showing courses available in <strong>{currentTerm}</strong></span>
+        </div>
       </div>
 
       {/* Search Results */}
@@ -167,6 +180,24 @@ export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSea
               <CourseCard 
                 key={`${course.subject}-${course.course_code}-${index}`} 
                 course={course}
+                currentTerm={currentTerm}
+                selectedSections={selectedSections}
+                onSectionToggle={(courseKey, sectionType, sectionId) => {
+                  setSelectedSections(prev => {
+                    const newMap = new Map(prev)
+                    const selectionKey = `${courseKey}_${sectionType}`
+                    
+                    if (newMap.get(selectionKey) === sectionId) {
+                      // Remove selection
+                      newMap.delete(selectionKey)
+                    } else {
+                      // Set new selection (replaces any existing selection for this type)
+                      newMap.set(selectionKey, sectionId)
+                    }
+                    
+                    return newMap
+                  })
+                }}
                 onAddCourse={onAddCourse}
                 isAdded={isCourseAdded(course)}
               />
@@ -178,24 +209,33 @@ export default function CourseSearch({ onAddCourse, selectedCourses }: CourseSea
   )
 }
 
-function CourseCard({ course, onAddCourse, isAdded }: { 
+function CourseCard({ 
+  course, 
+  currentTerm, 
+  selectedSections, 
+  onSectionToggle, 
+  onAddCourse, 
+  isAdded 
+}: { 
   course: Course
+  currentTerm: string
+  selectedSections: Map<string, string>
+  onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
   onAddCourse: (course: Course) => void
   isAdded: boolean
 }) {
   const [expanded, setExpanded] = useState(false)
+  const courseKey = `${course.subject}${course.course_code}`
+  const sectionTypes = parseSectionTypes(course, currentTerm)
+  const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, selectedSections)
 
-  // Get unique instructors from all terms
+  // Get unique instructors from current term
+  const currentTermData = course.terms.find(term => term.term_name === currentTerm)
   const instructors = Array.from(new Set(
-    course.terms.flatMap(term =>
-      term.schedule.flatMap(section =>
-        section.meetings.map(meeting => meeting.instructor)
-      )
-    )
+    currentTermData?.schedule.flatMap(section =>
+      section.meetings.map(meeting => meeting.instructor)
+    ) || []
   )).filter(Boolean)
-
-  // Get available terms
-  const termNames = course.terms.map(term => term.term_name)
 
   return (
     <Card className="hover:shadow-md transition-shadow">
@@ -210,29 +250,30 @@ function CourseCard({ course, onAddCourse, isAdded }: {
             </CardDescription>
             <div className="flex items-center gap-2 mt-2">
               <Badge variant="secondary">{course.credits} credits</Badge>
-              {termNames.map(term => (
-                <Badge key={term} variant="outline" className="text-xs">
-                  {term}
-                </Badge>
-              ))}
+              <Badge variant="outline" className="text-xs">
+                {currentTerm}
+              </Badge>
             </div>
           </div>
           <div className="flex items-center gap-2 ml-2">
             <Button
-              variant={isAdded ? "secondary" : "default"}
+              variant={isEnrollmentComplete ? "default" : "secondary"}
               size="sm"
-              onClick={() => onAddCourse(course)}
-              disabled={isAdded}
+              onClick={() => isEnrollmentComplete && onAddCourse(course)}
+              disabled={!isEnrollmentComplete || isAdded}
               className="min-w-[80px]"
+              title={!isEnrollmentComplete ? "Select one section from each type to add course" : isAdded ? "Already added" : "Add course to cart"}
             >
-              {isAdded ? "Added ✓" : "Add"}
+              {isAdded ? "Added ✓" : isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
             </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setExpanded(!expanded)}
+              className="w-8 h-8 p-0"
+              title={expanded ? "Hide sections" : "Show sections"}
             >
-              {expanded ? 'Hide' : 'Show'} Details
+              {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </Button>
           </div>
         </div>
@@ -241,68 +282,102 @@ function CourseCard({ course, onAddCourse, isAdded }: {
       {expanded && (
         <CardContent className="pt-0">
           <div className="space-y-4">
-            {/* Description */}
-            {course.description && (
-              <div>
-                <h4 className="font-semibold text-sm text-gray-700 mb-1">Description</h4>
-                <p className="text-sm text-gray-600">{course.description}</p>
-              </div>
-            )}
-
-            {/* Instructors */}
-            {instructors.length > 0 && (
-              <div>
-                <h4 className="font-semibold text-sm text-gray-700 mb-1">Instructors</h4>
-                <div className="flex flex-wrap gap-1">
-                  {instructors.map(instructor => (
-                    <Badge key={instructor} variant="outline" className="text-xs">
-                      {instructor}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Schedule Preview */}
-            <div>
-              <h4 className="font-semibold text-sm text-gray-700 mb-2">Schedule Preview</h4>
-              {course.terms.slice(0, 1).map(term => (
-                <div key={term.term_code} className="space-y-2">
-                  <div className="text-sm font-medium text-blue-600">{term.term_name}</div>
-                  {term.schedule.slice(0, 2).map((section, idx) => (
-                    <div key={idx} className="text-sm bg-gray-50 p-2 rounded">
-                      <div className="font-medium">{section.section}</div>
-                      {section.meetings.slice(0, 1).map((meeting, midx) => (
-                        <div key={midx} className="text-xs text-gray-600 mt-1">
-                          {meeting.time} • {meeting.location}
+            {/* Section Selection */}
+            {sectionTypes.map(typeGroup => (
+              <div key={typeGroup.type}>
+                <h4 className="flex items-center gap-2 font-medium text-sm text-gray-700 mb-2">
+                  <span>{typeGroup.icon}</span>
+                  <span>{typeGroup.displayName}</span>
+                  <Badge variant="outline" className="text-xs">
+                    Pick 1
+                  </Badge>
+                </h4>
+                
+                <div className="space-y-1">
+                  {typeGroup.sections.map(section => {
+                    const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
+                    const meeting = section.meetings[0] // Show first meeting
+                    
+                    return (
+                      <div 
+                        key={section.id}
+                        className={`flex items-center justify-between p-2 rounded border transition-all ${
+                          isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <div className={`w-3 h-3 rounded-full border-2 ${
+                            isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                          }`} />
+                          <span className="font-mono text-sm font-medium">{section.section}</span>
+                          <span className="text-sm text-gray-600 truncate">
+                            {meeting?.time || 'TBD'}
+                          </span>
+                          <span className="text-sm text-gray-500 truncate">
+                            {meeting?.instructor || 'TBD'}
+                          </span>
                         </div>
-                      ))}
-                      <div className="text-xs mt-1">
-                        <Badge
-                          variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
-                          className="text-xs"
-                        >
-                          {section.availability.status} ({section.availability.available_seats} seats)
-                        </Badge>
+                        
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <Badge 
+                            variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
+                            className="text-xs"
+                          >
+                            {section.availability.available_seats}/{section.availability.capacity}
+                          </Badge>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
+                            className="w-6 h-6 p-0"
+                            title={isSelected ? "Remove selection" : "Select this section"}
+                          >
+                            {isSelected ? (
+                              <X className="w-3 h-3 text-red-500" />
+                            ) : (
+                              <Plus className="w-3 h-3 text-gray-500" />
+                            )}
+                          </Button>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                  {term.schedule.length > 2 && (
-                    <div className="text-xs text-gray-500">
-                      ... and {term.schedule.length - 2} more section{term.schedule.length - 2 !== 1 ? 's' : ''}
-                    </div>
-                  )}
+                    )
+                  })}
                 </div>
-              ))}
-            </div>
-
-            {/* Enrollment Requirements */}
-            {course.enrollment_requirement && (
-              <div>
-                <h4 className="font-semibold text-sm text-gray-700 mb-1">Prerequisites</h4>
-                <p className="text-sm text-gray-600">{course.enrollment_requirement}</p>
               </div>
-            )}
+            ))}
+
+            {/* Course Details */}
+            <div className="border-t pt-4 space-y-3">
+              {/* Description */}
+              {course.description && (
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Description</h4>
+                  <p className="text-sm text-gray-600">{course.description}</p>
+                </div>
+              )}
+
+              {/* Instructors */}
+              {instructors.length > 0 && (
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Instructors</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {instructors.map(instructor => (
+                      <Badge key={instructor} variant="outline" className="text-xs">
+                        {instructor}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Prerequisites */}
+              {course.enrollment_requirement && (
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Prerequisites</h4>
+                  <p className="text-sm text-gray-600">{course.enrollment_requirement}</p>
+                </div>
+              )}
+            </div>
           </div>
         </CardContent>
       )}

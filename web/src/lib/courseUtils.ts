@@ -218,6 +218,173 @@ export interface ScrapedCourse {
   }>
 }
 
+// Interface for section type grouping
+export interface SectionTypeGroup {
+  type: string // 'LEC', 'TUT', 'LAB', etc.
+  displayName: string // 'Lecture', 'Tutorial', 'Laboratory'
+  icon: string // '📚', '📝', '🧪'
+  sections: Section[]
+}
+
+export interface Section {
+  id: string
+  section: string
+  meetings: Meeting[]
+  availability: {
+    capacity: string
+    enrolled: string
+    status: string
+    available_seats: string
+  }
+}
+
+export interface Meeting {
+  time: string
+  location: string
+  instructor: string
+  dates: string
+}
+
+/**
+ * Parse section types from course data for a specific term
+ */
+export function parseSectionTypes(course: any, termName: string): SectionTypeGroup[] {
+  const term = course.terms?.find((t: any) => t.term_name === termName)
+  if (!term?.schedule) return []
+  
+  // Group sections by type prefix
+  const groups = new Map<string, Section[]>()
+  
+  term.schedule.forEach((section: any) => {
+    // Parse section type from various formats:
+    // --LEC (6161) -> LEC
+    // -L01-LAB (8040) -> LAB  
+    // -T01-TUT (5455) -> TUT
+    // LEC A -> LEC
+    let type = 'OTHER'
+    
+    const sectionStr = section.section
+    
+    // Pattern 1: --TYPE or -XXX-TYPE
+    const dashTypeMatch = sectionStr.match(/-+(?:[A-Z]\d+-)?(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)
+    if (dashTypeMatch) {
+      type = dashTypeMatch[1]
+    } 
+    // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
+    else {
+      const startTypeMatch = sectionStr.match(/^(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)
+      if (startTypeMatch) {
+        type = startTypeMatch[1]
+      }
+    }
+    
+    if (!groups.has(type)) {
+      groups.set(type, [])
+    }
+    
+    groups.get(type)!.push({
+      id: `${course.subject}${course.course_code}_${section.section}`,
+      section: section.section,
+      meetings: section.meetings || [],
+      availability: section.availability || {
+        capacity: '0',
+        enrolled: '0', 
+        status: 'Unknown',
+        available_seats: '0'
+      }
+    })
+  })
+  
+  // Convert to SectionTypeGroup array
+  return Array.from(groups.entries()).map(([type, sections]) => ({
+    type,
+    displayName: getSectionTypeName(type),
+    icon: getSectionTypeIcon(type),
+    sections
+  }))
+}
+
+/**
+ * Get display name for section type
+ */
+export function getSectionTypeName(type: string): string {
+  const names: Record<string, string> = {
+    'LEC': 'Lecture',
+    'TUT': 'Tutorial',
+    'LAB': 'Laboratory', 
+    'EXR': 'Exercise',
+    'SEM': 'Seminar',
+    'PRJ': 'Project',
+    'WKS': 'Workshop',
+    'PRA': 'Practical',
+    'FLD': 'Field Work'
+  }
+  return names[type] || type
+}
+
+/**
+ * Get icon for section type
+ */
+export function getSectionTypeIcon(type: string): string {
+  const icons: Record<string, string> = {
+    'LEC': '📚',
+    'TUT': '📝',
+    'LAB': '🧪',
+    'EXR': '💪',
+    'SEM': '🗣️',
+    'PRJ': '🛠️',
+    'WKS': '👥',
+    'PRA': '⚙️',
+    'FLD': '🌍'
+  }
+  return icons[type] || '📋'
+}
+
+/**
+ * Check if a course enrollment is complete (has all required section types selected)
+ */
+export function isCourseEnrollmentComplete(
+  course: any, 
+  termName: string, 
+  selectedSections: Map<string, string>
+): boolean {
+  const sectionTypes = parseSectionTypes(course, termName)
+  const courseKey = `${course.subject}${course.course_code}`
+  
+  // Check if we have a selection for each section type
+  return sectionTypes.every(typeGroup => {
+    const selectionKey = `${courseKey}_${typeGroup.type}`
+    return selectedSections.has(selectionKey)
+  })
+}
+
+/**
+ * Get selected sections for a course enrollment
+ */
+export function getSelectedSectionsForCourse(
+  course: any,
+  termName: string,
+  selectedSections: Map<string, string>
+): Section[] {
+  const sectionTypes = parseSectionTypes(course, termName)
+  const courseKey = `${course.subject}${course.course_code}`
+  const result: Section[] = []
+  
+  sectionTypes.forEach(typeGroup => {
+    const selectionKey = `${courseKey}_${typeGroup.type}`
+    const selectedSectionId = selectedSections.get(selectionKey)
+    
+    if (selectedSectionId) {
+      const section = typeGroup.sections.find(s => s.id === selectedSectionId)
+      if (section) {
+        result.push(section)
+      }
+    }
+  })
+  
+  return result
+}
+
 /**
  * Transform course data from scraper format to internal format
  */
