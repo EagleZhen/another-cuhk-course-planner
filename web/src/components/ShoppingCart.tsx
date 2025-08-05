@@ -1,28 +1,13 @@
 'use client'
 
-import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, Settings, AlertTriangle } from 'lucide-react'
-
-interface SelectedCourse {
-  id: string
-  subject: string
-  courseCode: string
-  title: string
-  section: string
-  time: string
-  location: string
-  instructor: string
-  credits: string
-  color: string
-  isVisible: boolean
-  hasConflict: boolean
-}
+import { type Course } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
-  selectedCourses: SelectedCourse[]
+  selectedCourses: Course[]
   onToggleVisibility: (courseId: string) => void
   onRemoveCourse: (courseId: string) => void
   onEditCourse?: (courseId: string) => void
