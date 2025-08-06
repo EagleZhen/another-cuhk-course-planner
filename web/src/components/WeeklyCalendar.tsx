@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Eye, EyeOff } from 'lucide-react'
 import { groupOverlappingEvents, getConflictZones, eventsOverlap, type CalendarEvent } from '@/lib/courseUtils'
 
 
@@ -12,13 +12,15 @@ interface WeeklyCalendarProps {
   selectedTerm?: string
   availableTerms?: string[]
   onTermChange?: (term: string) => void
+  onToggleVisibility?: (enrollmentId: string) => void
 }
 
 export default function WeeklyCalendar({ 
   events, 
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
-  onTermChange 
+  onTermChange,
+  onToggleVisibility
 }: WeeklyCalendarProps) {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   
@@ -188,14 +190,30 @@ export default function WeeklyCalendar({
                               ${event.color} 
                               rounded-sm p-1 text-xs text-white shadow-lg
                               hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer
-                              overflow-hidden
+                              overflow-hidden group
                             `}
                             onClick={() => console.log('Conflict details:', event.courseCode, 'vs', group.filter(e => e.id !== event.id).map(e => e.courseCode))}
                           >
-                            {/* Warning sign for conflict */}
-                            <div className="absolute top-0.5 right-0.5 text-yellow-300 text-[10px] drop-shadow-sm">
-                              ⚠️
-                            </div>
+                            {/* Toggle visibility button for conflict - only shown on hover */}
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                if (onToggleVisibility && event.enrollmentId) {
+                                  // Use the actual enrollment ID from the event
+                                  onToggleVisibility(event.enrollmentId)
+                                }
+                              }}
+                              className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                              title={event.isVisible ? 'Hide course' : 'Show course'}
+                            >
+                              {event.isVisible ? (
+                                <Eye className="w-2.5 h-2.5 text-white" />
+                              ) : (
+                                <EyeOff className="w-2.5 h-2.5 text-white" />
+                              )}
+                            </Button>
                             
                             <div className="font-semibold text-xs leading-tight truncate pr-3">
                               {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}

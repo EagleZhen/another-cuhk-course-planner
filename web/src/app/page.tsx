@@ -99,7 +99,8 @@ export default function Home() {
             credits: enrollment.course.credits || '3.0',
             color: enrollment.color, // Consistent color per enrollment
             isVisible: true, // Always visible if enrollment is visible
-            hasConflict: false // Will be calculated by detectConflicts
+            hasConflict: false, // Will be calculated by detectConflicts
+            enrollmentId: enrollment.courseId // Add enrollment ID for toggle functionality
           }
           events.push(event)
         })
@@ -195,6 +196,7 @@ export default function Home() {
                 selectedTerm={currentTerm}
                 availableTerms={availableTerms}
                 onTermChange={handleTermChange}
+                onToggleVisibility={handleToggleVisibility}
               />
             </div>
           </div>

@@ -21,6 +21,7 @@ export interface Course {
   color: string
   isVisible: boolean
   hasConflict: boolean
+  enrollmentId?: string // Optional enrollment ID for toggle functionality
 }
 
 export interface CalendarEvent extends Course {
