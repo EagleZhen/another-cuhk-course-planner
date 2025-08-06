@@ -134,19 +134,48 @@ export default function ShoppingCart({
                   </p>
 
                   {/* Selected Sections */}
-                  <div className="space-y-1">
-                    {enrollment.selectedSections.map((section, index) => {
-                      const meeting = section.meetings[0]
-                      return (
-                        <div key={section.id} className="flex items-center justify-between text-xs bg-gray-50 rounded px-2 py-1">
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono font-medium">{section.section}</span>
-                            <span className="text-gray-600">{meeting?.time || 'TBD'}</span>
-                          </div>
-                          <span className="text-gray-500">{meeting?.instructor || 'TBD'}</span>
+                  <div className="space-y-2">
+                    {enrollment.selectedSections.map((section) => (
+                      <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
+                        {/* Section header */}
+                        <div className="text-xs font-mono font-medium text-gray-800 mb-1">
+                          {section.section}
                         </div>
-                      )
-                    })}
+                        
+                        {/* All meetings for this section */}
+                        <div className="space-y-0.5">
+                          {section.meetings.map((meeting, meetingIndex) => {
+                            // Format time: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
+                            let formattedTime = meeting?.time || 'TBD'
+                            if (formattedTime !== 'TBD') {
+                              formattedTime = formattedTime
+                                .replace(/(\d{1,2}):(\d{2})PM/g, (match, h, m) => {
+                                  const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
+                                  return `${hour}:${m}`
+                                })
+                                .replace(/(\d{1,2}):(\d{2})AM/g, (match, h, m) => {
+                                  const hour = parseInt(h) === 12 ? 0 : parseInt(h)
+                                  return `${hour.toString().padStart(2, '0')}:${m}`
+                                })
+                                .replace(' - ', '-')
+                            }
+                            
+                            // Format instructor: "Professor" → "Prof.", "Dr." stays "Dr."
+                            let formattedInstructor = meeting?.instructor || 'TBD'
+                            if (formattedInstructor !== 'TBD') {
+                              formattedInstructor = formattedInstructor.replace('Professor ', 'Prof. ')
+                            }
+                            
+                            return (
+                              <div key={meetingIndex} className="flex items-center justify-between text-xs text-gray-600">
+                                <span className="font-medium">{formattedTime}</span>
+                                <span className="text-gray-500 truncate ml-2 text-right">{formattedInstructor}</span>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )

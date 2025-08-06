@@ -138,7 +138,10 @@ export default function WeeklyCalendar({
                             {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
                           <div className="text-[10px] leading-tight truncate opacity-90">
-                            {event.time.split(' ').slice(1).join(' ')}
+                            {event.time}
+                          </div>
+                          <div className="text-[9px] leading-tight truncate opacity-80">
+                            {event.instructor}
                           </div>
                         </div>
                       )
