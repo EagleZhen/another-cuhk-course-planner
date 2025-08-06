@@ -76,13 +76,64 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 - **Storage Cleanup**: Automatic removal of empty schedules to maintain clean localStorage
 - **Deterministic Colors**: Hash-based assignment ensures same colors across browser sessions
 
-### 🔄 **Future Enhancement Opportunities**
+### 🔄 **Next Development Phase: Section Cycling System**
 
-#### **1. Advanced User Features** (Enhancement Priority)
-- **Section Cycling Interface**: Allow users to swap selected sections within existing enrollments
-- **Intelligent Conflict Resolution**: Step-by-step wizard for resolving scheduling conflicts
-- **Schedule Optimization Engine**: AI-powered suggestions for optimal section combinations
-- **Advanced Search Filters**: Filter by instructor, time slots, location, or availability
+#### **🎯 Section Alternatives & Conflict Resolution** (In Design Phase - August 2025)
+
+**Feature Overview**: Intelligent section cycling system allowing users to easily switch between alternative sections directly from the calendar interface, with cached alternatives and visual conflict resolution.
+
+**Core Design Principles**:
+- **Same-Type Alternatives Only**: Clicking a LEC section shows only alternative LEC sections (intuitive 1:1 replacement)
+- **Cached Performance**: Section alternatives pre-computed and stored at enrollment time (no database lookups during interaction)
+- **Click-to-Toggle**: Click section to show ghosts, click again or elsewhere to hide (consistent interaction pattern)
+- **Natural Conflict Emphasis**: Conflict-free alternatives emphasized through absence of red conflict zones (elegant visual design)
+
+**Enhanced Data Architecture**:
+```typescript
+interface CourseEnrollment {
+  courseId: string
+  course: ScrapedCourse
+  selectedSections: Section[]
+  sectionAlternatives: Map<string, Section[]>  // NEW: Cached alternatives by section type
+  enrollmentDate: Date
+  color: string
+  isVisible: boolean
+}
+```
+
+**Interaction Flow Design**:
+```typescript
+1. User clicks calendar section → Show selected state + ghost alternatives
+2. Ghost sections render with visual distinction (opacity, dashed borders)
+3. Conflict-free ghosts naturally emphasized (no red conflict zones)
+4. Click ghost alternative → Switch to new section, hide ghosts
+5. Click elsewhere → Hide ghosts, return to normal state
+```
+
+**Visual Design System**:
+```typescript
+// Current selected section
+className="bg-blue-500 border-2 border-blue-700 shadow-lg scale-105"
+
+// Ghost alternatives
+className="bg-blue-200 border-2 border-dashed border-blue-400 opacity-75"
+
+// Natural conflict emphasis through absence of diagonal stripes
+// No additional styling needed - clean visual hierarchy
+```
+
+**Performance Strategy**:
+- **Enrollment-Time Caching**: Alternatives computed when course is added to shopping cart
+- **Zero-Lookup Interaction**: All alternatives available in CourseEnrollment data structure
+- **Memory-Efficient**: Only store alternatives for enrolled courses, not entire course database
+
+#### **🚀 Future Enhancement Opportunities**
+
+#### **1. Advanced User Features** (Post Section-Cycling)
+- **Multi-Section Optimization**: AI-powered suggestions for optimal LEC+TUT+LAB combinations
+- **Intelligent Conflict Resolution**: Step-by-step wizard for resolving complex multi-course conflicts  
+- **Schedule Optimization Engine**: Analyze all possible combinations and suggest conflict-free schedules
+- **Advanced Search Filters**: Filter by instructor, time slots, location, or seat availability
 
 #### **2. Export & Sharing Platform** (Medium Priority)
 - **URL State Encoding**: Shareable schedule links with compressed course+term data
@@ -224,6 +275,12 @@ useEffect(() => {
 - **Hover State Management**: Sophisticated event handling for visibility controls and visual feedback
 - **Selection State Tracking**: Auto-clearing selections with timeout-based UX patterns
 - **DOM Manipulation Optimization**: useRef-based scrolling with proper cleanup and memory management
+
+#### **4. Section Cycling Innovation** (Design Phase)
+- **Cached Alternative System**: Pre-computed section alternatives stored at enrollment time for zero-latency interactions
+- **Same-Type Logic**: Intuitive 1:1 replacement model (LEC→LEC, TUT→TUT, LAB→LAB) for predictable user experience
+- **Ghost Visualization**: Semi-transparent dashed-border alternatives with natural conflict emphasis through visual absence
+- **Click-Toggle Pattern**: Consistent interaction model with existing calendar click behaviors and proper state management
 
 #### **2. Enterprise Storage Patterns**
 - **Per-Term Isolation**: Separate localStorage namespaces preventing cross-term data contamination
@@ -367,6 +424,34 @@ User Expands Course → Parse Section Types → Display by Type → User Selects
 - **Conflicts only apply to visible courses** (hidden courses don't conflict)
 - **No intra-course conflicts** (sections within same course don't conflict)
 - **Visual feedback through red zones** (background highlighting)
+
+### **Section Cycling Implementation Guidelines** (Next Development Phase)
+
+#### **Data Model Requirements**
+- **Cache alternatives at enrollment**: Pre-compute all same-type alternatives when adding course to cart
+- **Store per section type**: Map structure with section type as key, alternatives array as value
+- **Include availability data**: Cache enrollment status for ghost section rendering decisions
+
+#### **Interaction State Management**
+```typescript
+// Required state additions
+const [selectedSectionForCycling, setSelectedSectionForCycling] = useState<string | null>(null)
+
+// Ghost section rendering logic
+const shouldShowGhosts = (sectionId: string) => selectedSectionForCycling === sectionId
+const getGhostSections = (enrollment: CourseEnrollment, sectionType: string) => 
+  enrollment.sectionAlternatives.get(sectionType) || []
+```
+
+#### **Performance Considerations**
+- **Lazy ghost rendering**: Only render ghost sections when selected state is active
+- **Event delegation**: Use single click handler with event bubbling for ghost interactions
+- **Memory cleanup**: Clear ghost section references when switching terms
+
+#### **Visual Hierarchy Rules**
+- **Selected section priority**: Higher z-index, enhanced borders, scale effects
+- **Ghost transparency**: 75% opacity with dashed borders for clear distinction
+- **Conflict visualization**: Let existing conflict system handle ghost section conflicts naturally
 
 ### **Data Consistency**
 - **Use courseUtils.ts for all course operations** (single source of truth)
