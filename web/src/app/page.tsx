@@ -1,11 +1,45 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { detectConflicts, coursesToCalendarEvents, getSelectedSectionsForCourse, type Course, type ScrapedCourse, type CourseEnrollment } from '@/lib/courseUtils'
+
+// Deterministic color assignment based on course code
+function getDeterministicColor(courseCode: string): string {
+  // Expanded color palette with 25 distinct colors for better distribution
+  // Avoiding red tones (reserved for conflicts) and very light colors (poor contrast)
+  const colors = [
+    // Blues
+    'bg-blue-500', 'bg-blue-600', 'bg-sky-500', 'bg-cyan-500', 'bg-cyan-600',
+    // Greens  
+    'bg-green-500', 'bg-green-600', 'bg-emerald-500', 'bg-teal-500', 'bg-teal-600',
+    // Purples
+    'bg-purple-500', 'bg-purple-600', 'bg-violet-500', 'bg-indigo-500', 'bg-indigo-600',
+    // Warm colors
+    'bg-yellow-500', 'bg-amber-500', 'bg-orange-500', 'bg-pink-500', 'bg-rose-500',
+    // Earth tones
+    'bg-stone-500', 'bg-gray-600', 'bg-slate-600', 'bg-zinc-600', 'bg-neutral-600'
+  ]
+  
+  // Improved hash function with better distribution
+  let hash = 0
+  const prime = 31 // Use prime number for better distribution
+  
+  for (let i = 0; i < courseCode.length; i++) {
+    const char = courseCode.charCodeAt(i)
+    hash = (hash * prime + char) % 2147483647 // Use large prime modulus
+  }
+  
+  // Additional mixing to reduce clustering
+  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
+  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
+  hash = (hash >>> 16) ^ hash
+  
+  return colors[Math.abs(hash) % colors.length]
+}
 
 export default function Home() {
   // Available terms
@@ -20,55 +54,47 @@ export default function Home() {
   // Current term state
   const [currentTerm, setCurrentTerm] = useState("2025-26 Term 1")
   
-  // Sample shopping cart courses
-  const initialCourses: Course[] = [
-    {
-      id: '1',
-      subject: 'CSCI',
-      courseCode: '3100',
-      title: 'Software Engineering',
-      section: '--LEC (8192)',
-      time: 'Mo 14:30 - 15:15',
-      location: 'Mong Man Wai Bldg 404',
-      instructor: 'Prof. WONG',
-      credits: '3.0',
-      color: 'bg-blue-500',
-      isVisible: true,
-      hasConflict: false
-    },
-    {
-      id: '4',
-      subject: 'FINA',
-      courseCode: '2020', 
-      title: 'Corporate Finance',
-      section: '--LEC (7845)',
-      time: 'Tu 14:30 - 16:15',
-      location: 'Lee Shau Kee Building 101',
-      instructor: 'Prof. CHAN',
-      credits: '3.0',
-      color: 'bg-gray-500',
-      isVisible: true,
-      hasConflict: false
-    },
-    {
-      id: '5',
-      subject: 'PHYS',
-      courseCode: '1001',
-      title: 'General Physics I',
-      section: '--LEC (9123)', 
-      time: 'Tu 15:00 - 16:30',
-      location: 'Science Centre LT1',
-      instructor: 'Dr. LI',
-      credits: '3.0',
-      color: 'bg-pink-500',
-      isVisible: false,
-      hasConflict: false
-    }
-  ]
-
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
+
+  // Auto-restore schedule from localStorage when term changes
+  useEffect(() => {
+    try {
+      const savedSchedule = localStorage.getItem(`schedule_${currentTerm}`)
+      if (savedSchedule) {
+        const parsedSchedule: CourseEnrollment[] = JSON.parse(savedSchedule)
+        // Restore Date objects
+        const restoredSchedule = parsedSchedule.map((enrollment) => ({
+          ...enrollment,
+          enrollmentDate: new Date(enrollment.enrollmentDate)
+        }))
+        setCourseEnrollments(restoredSchedule)
+      } else {
+        // No saved schedule for this term, start fresh
+        setCourseEnrollments([])
+      }
+      // Clear section selections when switching terms
+      setSelectedSections(new Map())
+    } catch (error) {
+      console.error('Failed to restore schedule:', error)
+      setCourseEnrollments([])
+    }
+  }, [currentTerm])
+
+  // Auto-save schedule to localStorage whenever courseEnrollments changes
+  useEffect(() => {
+    try {
+      if (courseEnrollments.length > 0) {
+        localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(courseEnrollments))
+      } else {
+        // Remove empty schedule from localStorage to keep it clean
+        localStorage.removeItem(`schedule_${currentTerm}`)
+      }
+    } catch (error) {
+      console.error('Failed to save schedule:', error)
+    }
+  }, [courseEnrollments, currentTerm])
 
   // Convert enrolled sections to calendar events - single source of truth
   const calendarEvents = useMemo(() => {
@@ -112,12 +138,10 @@ export default function Home() {
     return coursesToCalendarEvents(detectConflicts(events))
   }, [courseEnrollments])
 
-  // Handle term change - clear shopping cart since courses may not be available in new term
+  // Handle term change - localStorage will handle schedule restoration
   const handleTermChange = (newTerm: string) => {
     setCurrentTerm(newTerm)
-    // Clear shopping cart when term changes since course availability may differ
-    setCourseEnrollments([])
-    setSelectedSections(new Map())
+    // localStorage useEffect will automatically restore/clear schedule for new term
   }
 
   const handleToggleVisibility = (enrollmentId: string) => {
@@ -170,9 +194,8 @@ export default function Home() {
       return // No valid sections selected
     }
     
-    // Assign consistent color for this enrollment (avoiding red - conflict zone color)
-    const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500', 'bg-cyan-500', 'bg-emerald-500', 'bg-violet-500']
-    const assignedColor = colors[courseEnrollments.length % colors.length]
+    // Assign deterministic color based on course code
+    const assignedColor = getDeterministicColor(courseKey)
     
     // Create new enrollment
     const newEnrollment: CourseEnrollment = {
