@@ -167,8 +167,8 @@ export default function ShoppingCart({
                             }
                             
                             return (
-                              <div key={meetingIndex} className="flex items-center justify-between text-xs text-gray-600">
-                                <span className="font-medium">{formattedTime}</span>
+                              <div key={meetingIndex} className="flex items-center justify-between text-[11px] text-gray-600">
+                                <span className="font-medium font-mono">{formattedTime}</span>
                                 <span className="text-gray-500 truncate ml-2 text-right">{formattedInstructor}</span>
                               </div>
                             )
