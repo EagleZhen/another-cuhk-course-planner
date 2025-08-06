@@ -131,11 +131,17 @@ export default function WeeklyCalendar({
                   
                   {/* Event Groups with Smart Stacking */}
                   {eventGroups.map((group) => {
-                    if (group.length === 1) {
-                      // Single event - no conflict
-                      const event = group[0]
+                    return group.map((event, stackIndex) => {
                       const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
                       const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
+                      
+                      // Conditional styling based on conflict status
+                      const isConflicted = group.length > 1
+                      const stackOffset = isConflicted ? stackIndex * 16 : 0
+                      const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * 16 : 0
+                      const zIndex = isConflicted ? 20 + stackIndex : 10
+                      const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
+                      const isTopCard = stackIndex === 0
                       
                       return (
                         <div
@@ -144,19 +150,43 @@ export default function WeeklyCalendar({
                             position: 'absolute',
                             top: `${cardTop}px`,
                             height: `${cardHeight}px`,
-                            left: '4px',
-                            right: '4px',
-                            zIndex: 10
+                            left: `${4 + stackOffset}px`,
+                            right: `${4 + rightOffset}px`,
+                            zIndex
                           }}
                           className={`
                             ${event.color} 
-                            rounded-sm p-1 text-xs text-white shadow-md
-                            hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer
-                            overflow-hidden
+                            rounded-sm p-1 text-xs text-white ${shadowClass}
+                            hover:scale-[1.02] transition-all cursor-pointer
+                            overflow-hidden group
                           `}
-                          onClick={() => console.log('Course details:', event.courseCode)}
+                          onClick={() => console.log(
+                            isConflicted 
+                              ? `Conflict details: ${event.courseCode} vs ${group.filter(e => e.id !== event.id).map(e => e.courseCode)}`
+                              : `Course details: ${event.courseCode}`
+                          )}
                         >
-                          <div className="font-semibold text-xs leading-tight truncate">
+                          {/* Toggle visibility button - shown on hover for ALL events */}
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              if (onToggleVisibility && event.enrollmentId) {
+                                onToggleVisibility(event.enrollmentId)
+                              }
+                            }}
+                            className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                            title={event.isVisible ? 'Hide course' : 'Show course'}
+                          >
+                            {event.isVisible ? (
+                              <Eye className="w-2.5 h-2.5 text-white" />
+                            ) : (
+                              <EyeOff className="w-2.5 h-2.5 text-white" />
+                            )}
+                          </Button>
+                          
+                          <div className="font-semibold text-xs leading-tight truncate pr-3">
                             {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
                           <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
@@ -165,76 +195,16 @@ export default function WeeklyCalendar({
                           <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
                             {event.location}
                           </div>
+                          
+                          {/* Conflict count indicator - only for conflicted top cards */}
+                          {isConflicted && isTopCard && group.length > 2 && (
+                            <div className="absolute bottom-0.5 right-0.5 bg-red-500 text-white text-[8px] px-1 rounded font-medium">
+                              +{group.length - 1}
+                            </div>
+                          )}
                         </div>
                       )
-                    } else {
-                      // Multiple events - conflict stacking
-                      return group.map((event, stackIndex) => {
-                        const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
-                        const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
-                        const stackOffset = stackIndex * 16 // 16px offset per stack level - even more visible
-                        const isTopCard = stackIndex === 0
-                        
-                        return (
-                          <div
-                            key={event.id}
-                            style={{
-                              position: 'absolute',
-                              top: `${cardTop}px`,
-                              height: `${cardHeight}px`,
-                              left: `${4 + stackOffset}px`,
-                              right: `${4 + (group.length - 1 - stackIndex) * 16}px`,
-                              zIndex: 20 + stackIndex // Conflicted events float higher
-                            }}
-                            className={`
-                              ${event.color} 
-                              rounded-sm p-1 text-xs text-white shadow-lg
-                              hover:shadow-xl hover:scale-[1.02] transition-all cursor-pointer
-                              overflow-hidden group
-                            `}
-                            onClick={() => console.log('Conflict details:', event.courseCode, 'vs', group.filter(e => e.id !== event.id).map(e => e.courseCode))}
-                          >
-                            {/* Toggle visibility button for conflict - only shown on hover */}
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                if (onToggleVisibility && event.enrollmentId) {
-                                  // Use the actual enrollment ID from the event
-                                  onToggleVisibility(event.enrollmentId)
-                                }
-                              }}
-                              className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                              title={event.isVisible ? 'Hide course' : 'Show course'}
-                            >
-                              {event.isVisible ? (
-                                <Eye className="w-2.5 h-2.5 text-white" />
-                              ) : (
-                                <EyeOff className="w-2.5 h-2.5 text-white" />
-                              )}
-                            </Button>
-                            
-                            <div className="font-semibold text-xs leading-tight truncate pr-3">
-                              {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
-                            </div>
-                            <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
-                              {event.time}
-                            </div>
-                            <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
-                              {event.location}
-                            </div>
-                            
-                            {/* Conflict count indicator for top card */}
-                            {isTopCard && group.length > 2 && (
-                              <div className="absolute bottom-0.5 right-0.5 bg-red-500 text-white text-[8px] px-1 rounded font-medium">
-                                +{group.length - 1}
-                              </div>
-                            )}
-                          </div>
-                        )
-                      })
-                    }
+                    })
                   })}
                 </div>
               </div>
