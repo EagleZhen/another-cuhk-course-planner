@@ -154,8 +154,8 @@ export default function Home() {
       return // No valid sections selected
     }
     
-    // Assign consistent color for this enrollment
-    const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-red-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500']
+    // Assign consistent color for this enrollment (avoiding red - conflict zone color)
+    const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500', 'bg-cyan-500', 'bg-emerald-500', 'bg-violet-500']
     const assignedColor = colors[courseEnrollments.length % colors.length]
     
     // Create new enrollment
