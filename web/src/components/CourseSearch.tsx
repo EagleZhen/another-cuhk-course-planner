@@ -310,6 +310,7 @@ function CourseCard({
                         className={`flex items-center justify-between p-2 rounded border transition-all ${
                           isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
+                        onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
                       >
                         <div className="flex items-center gap-3 flex-1 min-w-0">
                           <div className={`w-3 h-3 rounded-full border-2 ${
@@ -334,7 +335,6 @@ function CourseCard({
                           <Button
                             variant="ghost"
                             size="sm"
-                            onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
                             className="w-6 h-6 p-0"
                             title={isSelected ? "Remove selection" : "Select this section"}
                           >
