@@ -22,14 +22,6 @@ export default function ShoppingCart({
   const visibleEvents = calendarEvents.filter(event => event.isVisible)
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
-  const handleToggleVisibility = (courseId: string) => {
-    onToggleVisibility(courseId)
-  }
-
-  const handleRemoveCourse = (courseId: string) => {
-    onRemoveCourse(courseId)
-  }
-
   return (
     <Card className="h-[800px] flex flex-col">
       <CardHeader className="pb-2 flex-shrink-0">
@@ -102,7 +94,7 @@ export default function ShoppingCart({
                         size="sm"
                         onClick={() => {
                           // Toggle visibility for this enrollment
-                          handleToggleVisibility(enrollment.courseId)
+                          onToggleVisibility(enrollment.courseId)
                         }}
                         className="h-5 w-5 p-0"
                         title={isVisible ? 'Hide all sections' : 'Show all sections'}
@@ -118,7 +110,7 @@ export default function ShoppingCart({
                         size="sm"
                         onClick={() => {
                           // Remove this enrollment
-                          handleRemoveCourse(enrollment.courseId)
+                          onRemoveCourse(enrollment.courseId)
                         }}
                         className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
                         title="Remove course"
