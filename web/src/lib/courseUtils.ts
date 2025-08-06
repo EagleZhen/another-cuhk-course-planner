@@ -1,4 +1,5 @@
 // Unified course utilities for conflict detection and data transformation
+// Should contain pure functions without side effects
 
 export interface TimeRange {
   day: string // 'Mo', 'Tu', 'We', 'Th', 'Fr'
