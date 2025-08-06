@@ -188,7 +188,6 @@ export default function ShoppingCart({
       {courseEnrollments.length > 0 && (
         <div className="border-t px-3 py-2 flex-shrink-0">
           <div className="flex justify-between text-xs text-gray-600">
-            <span>{visibleEvents.length}/{calendarEvents.length} sections</span>
             <span>
               {courseEnrollments.reduce((sum, enrollment) => 
                 sum + parseFloat(enrollment.course.credits || '0'), 0
