@@ -15,13 +15,15 @@ class ScrapingConfig:
     """Configuration for testing vs production scraping"""
     # Testing defaults - safe for development
     max_courses_per_subject: Optional[int] = 3  # None = unlimited
-    save_debug_files: bool = True
+    save_debug_files: bool = True  # Save HTML files for debugging
+    save_debug_on_error: bool = True  # Always save HTML when parsing fails
+    debug_html_directory: str = "tests/output/debug_html"  # Separate from JSON results
     request_delay: float = 2.0
     max_retries: int = 3
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
-    progress_file: str = "scraping_progress.json"  # Progress log filename
+    progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename
     skip_recent_hours: float = 24  # Skip subjects scraped within N hours
     progress_update_interval: int = 60  # Save progress every N seconds
     
@@ -30,7 +32,9 @@ class ScrapingConfig:
         """Production-ready configuration - unlimited courses, optimized performance"""
         return cls(
             max_courses_per_subject=None,  # No limit
-            save_debug_files=False,
+            save_debug_files=False,       # No debug files in production
+            save_debug_on_error=True,     # Only save HTML on parsing errors
+            debug_html_directory="data/debug_html",  # Separate debug folder
             request_delay=1.0,
             max_retries=5,
             output_mode="per_subject",  # Per-subject files for production
@@ -127,8 +131,10 @@ class ScrapingProgressTracker:
     def _save_progress(self):
         """Save current progress to file"""
         try:
-            # Ensure directory exists
-            os.makedirs(os.path.dirname(self.progress_file), exist_ok=True)
+            # Ensure directory exists (only if there's a directory path)
+            dir_path = os.path.dirname(self.progress_file)
+            if dir_path:  # Only create directory if path contains a directory
+                os.makedirs(dir_path, exist_ok=True)
             
             self.progress_data["scraping_log"]["last_updated"] = datetime.now().isoformat()
             
@@ -336,6 +342,10 @@ class CuhkScraper:
         self.base_url = "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
         self.progress_tracker: Optional[ScrapingProgressTracker] = None
         
+        # Context management - eliminates parameter propagation
+        self.current_config: Optional[ScrapingConfig] = None
+        self.current_course_context: Optional[Dict] = None
+        
         # Suppress ONNX warnings
         onnxruntime.set_default_logger_severity(3)
         self.ocr = ddddocr.DdddOcr()
@@ -347,6 +357,34 @@ class CuhkScraper:
             'Accept-Language': 'en-US,en;q=0.5',
             'Connection': 'keep-alive',
         })
+    
+    def _set_context(self, config: ScrapingConfig, course: Optional[Course] = None):
+        """Set current scraping context to eliminate parameter propagation"""
+        self.current_config = config
+        if course:
+            self.current_course_context = {
+                'subject': course.subject,
+                'course_code': course.course_code
+            }
+    
+    def _save_debug_html(self, content: str, filename: str, force_save: bool = False) -> None:
+        """Smart HTML debug file saving with separate directory"""
+        if not self.current_config:
+            return
+            
+        # Save if explicitly enabled or on error
+        should_save = (self.current_config.save_debug_files or 
+                      (force_save and self.current_config.save_debug_on_error))
+        
+        if should_save:
+            # Ensure debug directory exists
+            os.makedirs(self.current_config.debug_html_directory, exist_ok=True)
+            
+            # Save to separate debug directory
+            debug_path = os.path.join(self.current_config.debug_html_directory, filename)
+            with open(debug_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            self.logger.info(f"Saved debug HTML: {debug_path}")
     
     def _solve_captcha(self, image_bytes: bytes) -> Optional[str]:
         """Solve captcha using ddddocr"""
@@ -395,6 +433,9 @@ class CuhkScraper:
         """Scrape courses for a specific subject"""
         if config is None:
             config = ScrapingConfig()  # Use testing defaults
+        
+        # Set context for this subject
+        self._set_context(config)
             
         for attempt in range(config.max_retries):
             try:
@@ -414,12 +455,8 @@ class CuhkScraper:
                 response = self.session.post(self.base_url, data=form_data)
                 response.raise_for_status()
                 
-                # Debug: save response to understand structure (if enabled)
-                if config.save_debug_files:
-                    debug_file = f"tests/output/response_{subject_code}_attempt_{attempt + 1}.html"
-                    with open(debug_file, 'w', encoding='utf-8') as f:
-                        f.write(response.text)
-                    self.logger.info(f"Saved response to {debug_file}")
+                # Debug: save response to understand structure (using smart saving)
+                self._save_debug_html(response.text, f"response_{subject_code}_attempt_{attempt + 1}.html")
                 
                 # Parse results
                 courses = self._parse_course_results(response.text)
@@ -622,12 +659,9 @@ class CuhkScraper:
             # Get course details with all available terms
             detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details, config=config)
             
-            # Debug: save detailed response (if enabled)
-            if config.save_debug_files:
-                debug_file = f"tests/output/course_details_{course.subject}_{course.course_code}.html"
-                with open(debug_file, 'w', encoding='utf-8') as f:
-                    f.write(response.text)
-                self.logger.info(f"Saved course details to {debug_file}")
+            # Debug: save detailed response (using smart saving)
+            self._set_context(config, course)  # Set course context
+            self._save_debug_html(response.text, f"course_details_{course.subject}_{course.course_code}.html")
             
             return detailed_course
             
@@ -650,7 +684,7 @@ class CuhkScraper:
         if not term_select:
             self.logger.info(f"No term dropdown found for {base_course.course_code}, using current data")
             # Create a single term with available data
-            current_term = self._parse_current_term_info(html, config, base_course.course_code, base_course.subject)
+            current_term = self._parse_current_term_info(html)
             if current_term:
                 base_course.terms = [current_term]
             return base_course
@@ -670,7 +704,7 @@ class CuhkScraper:
         for i, (term_code, term_name) in enumerate(available_terms):
             try:
                 self.logger.info(f"Scraping term {i+1}/{len(available_terms)}: {term_name} for {base_course.course_code}")
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name, get_enrollment_details=get_enrollment_details, config=config)
+                term_info = self._scrape_term_details(html, base_course, term_code, term_name, get_enrollment_details=get_enrollment_details)
                 if term_info:
                     all_term_info.append(term_info)
                 
@@ -688,7 +722,7 @@ class CuhkScraper:
                        f"Terms={len(all_term_info)}")
         return base_course
     
-    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Optional[TermInfo]:
+    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
         """Scrape details for a specific term"""
         try:
             soup = BeautifulSoup(html, 'html.parser')
@@ -747,24 +781,18 @@ class CuhkScraper:
                     response.raise_for_status()
                     html = response.text
                     
-                    # Save debug file for sections HTML (if enabled)
-                    if config and config.save_debug_files:
-                        debug_file = f"tests/output/sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                        with open(debug_file, 'w', encoding='utf-8') as f:
-                            f.write(html)
-                        self.logger.info(f"Saved sections debug file: {debug_file}")
+                    # Save debug file for sections HTML (using smart saving)
+                    filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
+                    self._save_debug_html(html, filename)
                 else:
                     self.logger.info(f"'Show sections' button disabled for {term_name} - sections should already be visible")
                     
                     # Save debug file for current page (sections should be already visible)
-                    if config and config.save_debug_files:
-                        debug_file = f"tests/output/sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                        with open(debug_file, 'w', encoding='utf-8') as f:
-                            f.write(html)
-                        self.logger.info(f"Saved sections debug file: {debug_file}")
+                    filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
+                    self._save_debug_html(html, filename)
             
             # Parse the term-specific information
-            return self._parse_term_info(html, term_code, term_name, get_enrollment_details, config, base_course.course_code, base_course.subject)
+            return self._parse_term_info(html, term_code, term_name, get_enrollment_details)
             
         except Exception as e:
             self.logger.error(f"Error scraping term {term_name}: {e}")
@@ -915,11 +943,11 @@ class CuhkScraper:
         schedule_data = list(sections_data.values())
         return schedule_data, instructors
 
-    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term", get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[TermInfo]:
+    def _create_term_info(self, html: str, term_code: str = "", term_name: str = "Unknown Term", get_enrollment_details: bool = False) -> Optional[TermInfo]:
         """Create TermInfo from HTML with optional term metadata"""
         if get_enrollment_details:
             # Use detailed section parsing with enrollment data
-            schedule_data, instructors = self._parse_schedule_with_enrollment_details(html, config, course_code, subject)
+            schedule_data, instructors = self._parse_schedule_with_enrollment_details(html)
         else:
             # Use current fast parsing method
             schedule_data, instructors = self._parse_schedule_from_html(html)
@@ -934,7 +962,7 @@ class CuhkScraper:
         
         return None
 
-    def _parse_schedule_with_enrollment_details(self, html: str, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> tuple[list[dict], set[str]]:
+    def _parse_schedule_with_enrollment_details(self, html: str) -> tuple[list[dict], set[str]]:
         """Parse schedule with detailed enrollment data by clicking into each section"""
         soup = BeautifulSoup(html, 'html.parser')
         sections_data = {}
@@ -970,7 +998,7 @@ class CuhkScraper:
                         self.logger.info(f"Getting enrollment details for section: {section_name}")
                         
                         # Click into section to get detailed enrollment data
-                        section_details = self._get_section_enrollment_details(postback_target, html, section_name, config, course_code, subject)
+                        section_details = self._get_section_enrollment_details(postback_target, html, section_name)
                         if section_details:
                             sections_data[section_name] = section_details
                             # Add instructors from this section
@@ -984,7 +1012,7 @@ class CuhkScraper:
         schedule_data = list(sections_data.values())
         return schedule_data, instructors
 
-    def _get_section_enrollment_details(self, postback_target: str, current_html: str, section_name: str, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[dict]:
+    def _get_section_enrollment_details(self, postback_target: str, current_html: str, section_name: str) -> Optional[dict]:
         """Click into a section to get detailed enrollment information"""
         try:
             # Extract postback parameters from the JavaScript call
@@ -1019,14 +1047,13 @@ class CuhkScraper:
                 response.raise_for_status()
                 class_details_html = response.text
                 
-                # Save debug file for class details HTML (if enabled)
-                if config and config.save_debug_files:
-                    # Clean section name for filename
-                    clean_section = section_name.replace('(', '').replace(')', '').replace(' ', '_').replace('-', '')
-                    debug_file = f"tests/output/class_details_{subject}_{course_code}_{clean_section}.html"
-                    with open(debug_file, 'w', encoding='utf-8') as f:
-                        f.write(class_details_html)
-                    self.logger.info(f"Saved class details debug file: {debug_file}")
+                # Save debug file for class details HTML (using smart saving)
+                clean_section = section_name.replace('(', '').replace(')', '').replace(' ', '_').replace('-', '')
+                if self.current_course_context:
+                    subject = self.current_course_context['subject']
+                    course_code = self.current_course_context['course_code']
+                    filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
+                    self._save_debug_html(class_details_html, filename)
                 
                 # Parse the class details page
                 return self._parse_class_details(class_details_html, section_name)
@@ -1123,13 +1150,13 @@ class CuhkScraper:
         
         return availability
 
-    def _parse_current_term_info(self, html: str, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[TermInfo]:
+    def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
         """Parse term info when no dropdown is available"""
-        return self._create_term_info(html, config=config, course_code=course_code, subject=subject)
+        return self._create_term_info(html)
     
-    def _parse_term_info(self, html: str, term_code: str, term_name: str, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None, course_code: str = "", subject: str = "") -> Optional[TermInfo]:
+    def _parse_term_info(self, html: str, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
         """Parse term-specific information from HTML"""
-        return self._create_term_info(html, term_code, term_name, get_enrollment_details, config, course_code, subject)
+        return self._create_term_info(html, term_code, term_name, get_enrollment_details)
     
     
     def _clean_text(self, text: str) -> str:

@@ -10,7 +10,7 @@ env/
 ENV/
 
 # Project-specific ignores
-tests/output/*.html
+/tests/output/debug_html
 
 # OS-specific
 .DS_Store
