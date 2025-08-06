@@ -59,12 +59,26 @@ export default function WeeklyCalendar({
         </div>
       </CardHeader>
       <CardContent className="flex-1 p-4 overflow-hidden">
-        <div className="grid grid-cols-6 h-full max-h-[720px] overflow-y-auto">
-          {/* Time column */}
-          <div className="flex flex-col w-20 flex-shrink-0">
-            <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-500 border-b">
+        {/* Scrollable Calendar Content - moved up to wrap header for scrollbar alignment */}
+        <div className="h-full max-h-[720px] overflow-y-auto">
+          {/* Sticky Header Row - now inside the scrollable container */}
+          <div className="grid grid-cols-6 border-b border-gray-200 bg-white sticky top-0 z-40">
+            {/* Time header */}
+            <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-500 border-b border-r border-gray-200 w-20 flex-shrink-0">
               Time
             </div>
+            {/* Day headers */}
+            {days.map((day) => (
+              <div key={day} className="h-16 flex items-center justify-center text-sm font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1">
+                {day}
+              </div>
+            ))}
+          </div>
+
+          {/* Calendar Content Grid */}
+          <div className="grid grid-cols-6">
+            {/* Time column */}
+            <div className="flex flex-col w-20 flex-shrink-0 border-r border-gray-200">
             <div className="flex-1">
               {hours.map(hour => (
                 <div key={hour} className="h-16 flex items-start justify-end pr-2 text-xs text-gray-500 border-b border-gray-100">
@@ -81,18 +95,13 @@ export default function WeeklyCalendar({
             const conflictZones = getConflictZones(dayEvents)
             
             return (
-              <div key={day} className="flex flex-col relative min-w-0 flex-1">
-                {/* Day header */}
-                <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-700 border-b border-r border-gray-200">
-                  {day}
-                </div>
-                
+              <div key={day} className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200">
                 {/* Hour slots */}
                 <div className="relative flex-1">
                   {hours.map(hour => (
                     <div 
                       key={hour} 
-                      className="h-16 border-b border-gray-100 border-r border-gray-200"
+                      className="h-16 border-b border-gray-200"
                     />
                   ))}
                   
@@ -212,6 +221,7 @@ export default function WeeklyCalendar({
               </div>
             )
           })}
+          </div>
         </div>
       </CardContent>
     </Card>
