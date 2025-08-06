@@ -31,7 +31,7 @@ export default function ShoppingCart({
   }
 
   return (
-    <Card className="h-[650px] flex flex-col">
+    <Card className="h-[800px] flex flex-col">
       <CardHeader className="pb-2 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">My Schedule</CardTitle>

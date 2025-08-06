@@ -21,7 +21,17 @@ export default function WeeklyCalendar({
   onTermChange 
 }: WeeklyCalendarProps) {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
-  const hours = Array.from({ length: 10 }, (_, i) => 9 + i) // 9:00 to 18:00
+  
+  // Dynamic hour range based on enrolled courses
+  const defaultStartHour = 8
+  const defaultEndHour = 19 // 7pm
+  
+  // Find the latest end time from all events
+  const latestEndTime = events.length > 0 
+    ? Math.max(defaultEndHour, ...events.map(event => event.endHour))
+    : defaultEndHour
+  
+  const hours = Array.from({ length: latestEndTime - defaultStartHour + 1 }, (_, i) => defaultStartHour + i)
 
   // Detect conflicts and mark events - using shared utility
   const detectConflicts = (events: CalendarEvent[]) => {
@@ -38,7 +48,7 @@ export default function WeeklyCalendar({
 
   return (
     <Card className="h-full flex flex-col">
-      <CardHeader className="pb-3 flex-shrink-0">
+      <CardHeader className="pb-2 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle>Weekly Schedule</CardTitle>
           <TermSelector 
@@ -48,16 +58,16 @@ export default function WeeklyCalendar({
           />
         </div>
       </CardHeader>
-      <CardContent className="flex-1 p-4">
-        <div className="grid grid-cols-6 gap-1 h-full min-h-[580px]">
+      <CardContent className="flex-1 p-4 overflow-hidden">
+        <div className="grid grid-cols-6 h-full max-h-[720px] overflow-y-auto">
           {/* Time column */}
-          <div className="flex flex-col w-16 flex-shrink-0">
-            <div className="h-12 flex items-center justify-center text-sm font-medium text-gray-500 border-b">
+          <div className="flex flex-col w-20 flex-shrink-0">
+            <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-500 border-b">
               Time
             </div>
             <div className="flex-1">
               {hours.map(hour => (
-                <div key={hour} className="h-12 flex items-start justify-end pr-2 text-xs text-gray-500 border-b border-gray-100">
+                <div key={hour} className="h-16 flex items-start justify-end pr-2 text-xs text-gray-500 border-b border-gray-100">
                   {hour.toString().padStart(2, '0')}:00
                 </div>
               ))}
@@ -73,7 +83,7 @@ export default function WeeklyCalendar({
             return (
               <div key={day} className="flex flex-col relative min-w-0 flex-1">
                 {/* Day header */}
-                <div className="h-12 flex items-center justify-center text-sm font-medium text-gray-700 border-b border-r border-gray-200">
+                <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-700 border-b border-r border-gray-200">
                   {day}
                 </div>
                 
@@ -82,14 +92,14 @@ export default function WeeklyCalendar({
                   {hours.map(hour => (
                     <div 
                       key={hour} 
-                      className="h-12 border-b border-gray-100 border-r border-gray-200"
+                      className="h-16 border-b border-gray-100 border-r border-gray-200"
                     />
                   ))}
                   
                   {/* Conflict Zone Backgrounds */}
                   {conflictZones.map((zone, zoneIndex) => {
-                    const zoneTop = ((zone.startHour - 9) * 48 + (zone.startMinute / 60) * 48)
-                    const zoneHeight = ((zone.endHour - zone.startHour) * 48 + ((zone.endMinute - zone.startMinute) / 60) * 48)
+                    const zoneTop = ((zone.startHour - defaultStartHour) * 64 + (zone.startMinute / 60) * 64)
+                    const zoneHeight = ((zone.endHour - zone.startHour) * 64 + ((zone.endMinute - zone.startMinute) / 60) * 64)
                     
                     return (
                       <div
@@ -112,8 +122,8 @@ export default function WeeklyCalendar({
                     if (group.length === 1) {
                       // Single event - no conflict
                       const event = group[0]
-                      const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
-                      const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
+                      const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
+                      const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
                       
                       return (
                         <div
@@ -137,19 +147,19 @@ export default function WeeklyCalendar({
                           <div className="font-semibold text-xs leading-tight truncate">
                             {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
-                          <div className="text-[10px] leading-tight truncate opacity-90">
+                          <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
                             {event.time}
                           </div>
-                          <div className="text-[9px] leading-tight truncate opacity-80">
-                            {event.instructor}
+                          <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
+                            {event.location}
                           </div>
                         </div>
                       )
                     } else {
                       // Multiple events - conflict stacking
                       return group.map((event, stackIndex) => {
-                        const cardHeight = ((event.endHour - event.startHour) * 48 + ((event.endMinute - event.startMinute) / 60) * 48)
-                        const cardTop = ((event.startHour - 9) * 48 + (event.startMinute / 60) * 48)
+                        const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
+                        const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
                         const stackOffset = stackIndex * 16 // 16px offset per stack level - even more visible
                         const isTopCard = stackIndex === 0
                         
@@ -178,10 +188,13 @@ export default function WeeklyCalendar({
                             </div>
                             
                             <div className="font-semibold text-xs leading-tight truncate pr-3">
-                              {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || 'SEC'}
+                              {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                             </div>
-                            <div className="text-[10px] leading-tight truncate opacity-90">
-                              {event.time.split(' ').slice(1).join(' ')}
+                            <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
+                              {event.time}
+                            </div>
+                            <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
+                              {event.location}
                             </div>
                             
                             {/* Conflict count indicator for top card */}

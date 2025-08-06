@@ -189,7 +189,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
-            <div className="h-[650px]">
+            <div className="h-[800px]">
               <WeeklyCalendar 
                 events={calendarEvents} 
                 selectedTerm={currentTerm}
