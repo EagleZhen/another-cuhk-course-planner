@@ -4,22 +4,25 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle } from 'lucide-react'
-import { type CourseEnrollment } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
-  calendarEvents: any[] // Calendar events for conflict detection
+  calendarEvents: CalendarEvent[] // Calendar events for conflict detection
+  selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
+  onClearSelection?: () => void
 }
 
 export default function ShoppingCart({ 
   courseEnrollments,
   calendarEvents,
+  selectedEnrollment,
   onToggleVisibility, 
-  onRemoveCourse
+  onRemoveCourse,
+  onClearSelection
 }: ShoppingCartProps) {
-  const visibleEvents = calendarEvents.filter(event => event.isVisible)
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
   return (
@@ -46,7 +49,7 @@ export default function ShoppingCart({
             <p className="text-xs opacity-70">Add courses to get started</p>
           </div>
         ) : (
-          <div className="space-y-3 overflow-y-auto h-full pr-1">
+          <div className="space-y-3 overflow-y-auto h-full pr-1 px-1 py-2">
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
               const enrollmentEvents = calendarEvents.filter(event => 
@@ -55,18 +58,29 @@ export default function ShoppingCart({
               )
               const hasConflict = enrollmentEvents.some(event => event.hasConflict)
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
+              const isSelected = selectedEnrollment === enrollment.courseId
               
               return (
                 <div
                   key={enrollment.courseId}
                   className={`
-                    border rounded p-3 transition-all
+                    border rounded p-3 transition-all duration-300 relative mx-1
                     ${hasConflict 
                       ? 'border-red-200 bg-red-50' 
                       : 'border-gray-200 bg-white'
                     }
                     ${!isVisible ? 'opacity-60' : ''}
+                    ${isSelected 
+                      ? 'ring-2 ring-blue-400 ring-opacity-75 shadow-lg scale-[1.02] bg-blue-50' 
+                      : ''
+                    }
                   `}
+                  onClick={() => {
+                    // Clear selection when clicking on selected shopping cart item
+                    if (isSelected && onClearSelection) {
+                      onClearSelection()
+                    }
+                  }}
                 >
                   {/* Course Header */}
                   <div className="flex items-center justify-between mb-2">

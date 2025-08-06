@@ -68,6 +68,7 @@ export default function Home() {
 
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
+  const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
 
   // Convert enrolled sections to calendar events - single source of truth
   const calendarEvents = useMemo(() => {
@@ -78,7 +79,7 @@ export default function Home() {
       
       enrollment.selectedSections.forEach(section => {
         // Deduplicate meetings by time for each section
-        const uniqueMeetings = new Map<string, any>()
+        const uniqueMeetings = new Map<string, { time: string; location?: string; instructor?: string }>()
         section.meetings.forEach(meeting => {
           if (meeting.time && meeting.time !== 'TBD') {
             uniqueMeetings.set(meeting.time, meeting)
@@ -127,6 +128,21 @@ export default function Home() {
           : enrollment
       )
     )
+  }
+
+  const handleSelectEnrollment = (enrollmentId: string | null) => {
+    setSelectedEnrollment(enrollmentId)
+    
+    // Auto-clear selection after 1.5 seconds
+    if (enrollmentId) {
+      setTimeout(() => {
+        setSelectedEnrollment(null)
+      }, 1000)
+    }
+  }
+
+  const handleClearSelection = () => {
+    setSelectedEnrollment(null)
   }
 
   const handleRemoveCourse = (enrollmentId: string) => {
@@ -197,6 +213,7 @@ export default function Home() {
                 availableTerms={availableTerms}
                 onTermChange={handleTermChange}
                 onToggleVisibility={handleToggleVisibility}
+                onSelectEnrollment={handleSelectEnrollment}
               />
             </div>
           </div>
@@ -206,8 +223,10 @@ export default function Home() {
             <ShoppingCart 
               courseEnrollments={courseEnrollments}
               calendarEvents={calendarEvents}
+              selectedEnrollment={selectedEnrollment}
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
+              onClearSelection={handleClearSelection}
             />
           </div>
         </div>

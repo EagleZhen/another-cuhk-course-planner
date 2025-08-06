@@ -13,6 +13,7 @@ interface WeeklyCalendarProps {
   availableTerms?: string[]
   onTermChange?: (term: string) => void
   onToggleVisibility?: (enrollmentId: string) => void
+  onSelectEnrollment?: (enrollmentId: string | null) => void
 }
 
 export default function WeeklyCalendar({ 
@@ -20,7 +21,8 @@ export default function WeeklyCalendar({
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
   onTermChange,
-  onToggleVisibility
+  onToggleVisibility,
+  onSelectEnrollment
 }: WeeklyCalendarProps) {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   
@@ -160,11 +162,19 @@ export default function WeeklyCalendar({
                             hover:scale-[1.02] transition-all cursor-pointer
                             overflow-hidden group
                           `}
-                          onClick={() => console.log(
-                            isConflicted 
-                              ? `Conflict details: ${event.courseCode} vs ${group.filter(e => e.id !== event.id).map(e => e.courseCode)}`
-                              : `Course details: ${event.courseCode}`
-                          )}
+                          onClick={() => {
+                            // Select the corresponding enrollment in shopping cart
+                            if (onSelectEnrollment && event.enrollmentId) {
+                              onSelectEnrollment(event.enrollmentId)
+                            }
+                            
+                            // Log course details  
+                            console.log(
+                              isConflicted 
+                                ? `Conflict details: ${event.courseCode} vs ${group.filter(e => e.id !== event.id).map(e => e.courseCode)}`
+                                : `Course details: ${event.courseCode}`
+                            )
+                          }}
                         >
                           {/* Toggle visibility button - shown on hover for ALL events */}
                           <Button
