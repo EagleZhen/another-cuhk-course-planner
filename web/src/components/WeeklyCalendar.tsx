@@ -107,8 +107,8 @@ export default function WeeklyCalendar({
                   
                   {/* Conflict Zone Backgrounds */}
                   {conflictZones.map((zone, zoneIndex) => {
-                    const zoneTop = ((zone.startHour - defaultStartHour) * 64 + (zone.startMinute / 60) * 64)
-                    const zoneHeight = ((zone.endHour - zone.startHour) * 64 + ((zone.endMinute - zone.startMinute) / 60) * 64)
+                    const zoneTop = ((zone.startHour - defaultStartHour) * 64 + (zone.startMinute / 60) * 64) - 4
+                    const zoneHeight = ((zone.endHour - zone.startHour) * 64 + ((zone.endMinute - zone.startMinute) / 60) * 64) + 8
                     
                     return (
                       <div
