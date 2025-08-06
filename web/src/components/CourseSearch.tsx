@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, type ScrapedCourse, type CourseEnrollment } from '@/lib/courseUtils'
 
 interface Course {
   subject: string
@@ -59,22 +59,30 @@ interface SelectedCourse {
   hasConflict: boolean
 }
 
+
 interface CourseSearchProps {
-  onAddCourse: (course: Course) => void
-  selectedCourses: SelectedCourse[]
+  onAddCourse: (course: ScrapedCourse, sectionsMap: Map<string, string>) => void
+  courseEnrollments: CourseEnrollment[]
   currentTerm: string
+  selectedSections: Map<string, string>
+  onSelectedSectionsChange: (sections: Map<string, string>) => void
 }
 
-export default function CourseSearch({ onAddCourse, selectedCourses, currentTerm }: CourseSearchProps) {
+export default function CourseSearch({ 
+  onAddCourse, 
+  courseEnrollments, 
+  currentTerm, 
+  selectedSections, 
+  onSelectedSectionsChange 
+}: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<Course[]>([])
-  const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
 
-  // Helper function to check if course is already added
+  // Helper function to check if course is already enrolled
   const isCourseAdded = (course: Course) => {
-    return selectedCourses.some(selected => 
-      selected.subject === course.subject && selected.courseCode === course.course_code
+    return courseEnrollments.some(enrollment => 
+      enrollment.course.subject === course.subject && enrollment.course.course_code === course.course_code
     )
   }
 
@@ -183,20 +191,18 @@ export default function CourseSearch({ onAddCourse, selectedCourses, currentTerm
                 currentTerm={currentTerm}
                 selectedSections={selectedSections}
                 onSectionToggle={(courseKey, sectionType, sectionId) => {
-                  setSelectedSections(prev => {
-                    const newMap = new Map(prev)
-                    const selectionKey = `${courseKey}_${sectionType}`
-                    
-                    if (newMap.get(selectionKey) === sectionId) {
-                      // Remove selection
-                      newMap.delete(selectionKey)
-                    } else {
-                      // Set new selection (replaces any existing selection for this type)
-                      newMap.set(selectionKey, sectionId)
-                    }
-                    
-                    return newMap
-                  })
+                  const newMap = new Map(selectedSections)
+                  const selectionKey = `${courseKey}_${sectionType}`
+                  
+                  if (newMap.get(selectionKey) === sectionId) {
+                    // Remove selection
+                    newMap.delete(selectionKey)
+                  } else {
+                    // Set new selection (replaces any existing selection for this type)
+                    newMap.set(selectionKey, sectionId)
+                  }
+                  
+                  onSelectedSectionsChange(newMap)
                 }}
                 onAddCourse={onAddCourse}
                 isAdded={isCourseAdded(course)}
@@ -221,7 +227,7 @@ function CourseCard({
   currentTerm: string
   selectedSections: Map<string, string>
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
-  onAddCourse: (course: Course) => void
+  onAddCourse: (course: Course, sectionsMap: Map<string, string>) => void
   isAdded: boolean
 }) {
   const [expanded, setExpanded] = useState(false)
@@ -259,7 +265,7 @@ function CourseCard({
             <Button
               variant={isEnrollmentComplete ? "default" : "secondary"}
               size="sm"
-              onClick={() => isEnrollmentComplete && onAddCourse(course)}
+              onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
               disabled={!isEnrollmentComplete || isAdded}
               className="min-w-[80px]"
               title={!isEnrollmentComplete ? "Select one section from each type to add course" : isAdded ? "Already added" : "Add course to cart"}

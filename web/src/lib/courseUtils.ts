@@ -31,6 +31,16 @@ export interface CalendarEvent extends Course {
   endMinute: number
 }
 
+// Complete course enrollment interface
+export interface CourseEnrollment {
+  courseId: string
+  course: any // Use flexible type for scraped course data
+  selectedSections: Section[]
+  enrollmentDate: Date
+  color: string
+  isVisible: boolean
+}
+
 export interface ConflictZone {
   startHour: number
   endHour: number

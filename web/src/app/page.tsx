@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { detectConflicts, coursesToCalendarEvents, transformScrapedCourse, type Course, type ScrapedCourse } from '@/lib/courseUtils'
+import { detectConflicts, coursesToCalendarEvents, getSelectedSectionsForCourse, type Course, type ScrapedCourse, type CourseEnrollment } from '@/lib/courseUtils'
 
 export default function Home() {
   // Available terms
@@ -18,7 +18,7 @@ export default function Home() {
   ]
   
   // Current term state
-  const [currentTerm, setCurrentTerm] = useState("2025-26 Term 2")
+  const [currentTerm, setCurrentTerm] = useState("2025-26 Term 1")
   
   // Sample shopping cart courses
   const initialCourses: Course[] = [
@@ -66,58 +66,118 @@ export default function Home() {
     }
   ]
 
-  const [selectedCourses, setSelectedCourses] = useState(() => detectConflicts(initialCourses))
+  const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
+  const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
 
-  // Convert selected courses to calendar events using utility
-  const calendarEvents = coursesToCalendarEvents(selectedCourses)
+  // Convert enrolled sections to calendar events - single source of truth
+  const calendarEvents = useMemo(() => {
+    const events: Course[] = []
+    
+    courseEnrollments.forEach(enrollment => {
+      if (!enrollment.isVisible) return // Skip hidden enrollments entirely
+      
+      enrollment.selectedSections.forEach(section => {
+        // Deduplicate meetings by time for each section
+        const uniqueMeetings = new Map<string, any>()
+        section.meetings.forEach(meeting => {
+          if (meeting.time && meeting.time !== 'TBD') {
+            uniqueMeetings.set(meeting.time, meeting)
+          }
+        })
+        
+        // Create one calendar event per unique meeting time
+        Array.from(uniqueMeetings.values()).forEach((meeting, meetingIndex) => {
+          const event: Course = {
+            id: `${enrollment.courseId}_${section.id}_${meetingIndex}`,
+            subject: enrollment.course.subject,
+            courseCode: enrollment.course.course_code,
+            title: enrollment.course.title,
+            section: section.section,
+            time: meeting.time,
+            location: meeting.location || 'TBD',
+            instructor: meeting.instructor || 'TBD',
+            credits: enrollment.course.credits || '3.0',
+            color: enrollment.color, // Consistent color per enrollment
+            isVisible: true, // Always visible if enrollment is visible
+            hasConflict: false // Will be calculated by detectConflicts
+          }
+          events.push(event)
+        })
+      })
+    })
+    
+    // Convert to calendar events and detect conflicts
+    return coursesToCalendarEvents(detectConflicts(events))
+  }, [courseEnrollments])
 
   // Handle term change - clear shopping cart since courses may not be available in new term
   const handleTermChange = (newTerm: string) => {
     setCurrentTerm(newTerm)
     // Clear shopping cart when term changes since course availability may differ
-    setSelectedCourses([])
+    setCourseEnrollments([])
+    setSelectedSections(new Map())
   }
 
-  const handleToggleVisibility = (courseId: string) => {
-    setSelectedCourses(prev => {
-      // Toggle visibility
-      const updatedCourses = prev.map(course => 
-        course.id === courseId 
-          ? { ...course, isVisible: !course.isVisible }
-          : course
+  const handleToggleVisibility = (enrollmentId: string) => {
+    setCourseEnrollments(prev => 
+      prev.map(enrollment => 
+        enrollment.courseId === enrollmentId 
+          ? { ...enrollment, isVisible: !enrollment.isVisible }
+          : enrollment
       )
-      
-      // Recalculate conflicts based on new visibility states
-      return detectConflicts(updatedCourses)
-    })
+    )
   }
 
-  const handleRemoveCourse = (courseId: string) => {
-    setSelectedCourses(prev => {
-      const filteredCourses = prev.filter(course => course.id !== courseId)
-      // Recalculate conflicts after removing course
-      return detectConflicts(filteredCourses)
-    })
+  const handleRemoveCourse = (enrollmentId: string) => {
+    setCourseEnrollments(prev => 
+      prev.filter(enrollment => enrollment.courseId !== enrollmentId)
+    )
   }
 
-  const handleAddCourse = (course: ScrapedCourse) => {
-    // Check if course is already added
-    const isAlreadyAdded = selectedCourses.some(existing => 
-      existing.subject === course.subject && existing.courseCode === course.course_code
+  const handleAddCourse = (course: ScrapedCourse, sectionsMap: Map<string, string>) => {
+    const courseKey = `${course.subject}${course.course_code}`
+    
+    // Check if course is already enrolled
+    const isAlreadyEnrolled = courseEnrollments.some(enrollment => 
+      enrollment.course.subject === course.subject && enrollment.course.course_code === course.course_code
     )
     
-    if (isAlreadyAdded) {
-      return // Course already added, do nothing
+    if (isAlreadyEnrolled) {
+      return // Course already enrolled, do nothing
     }
     
-    // Transform scraped course to internal format
-    const newCourse = transformScrapedCourse(course)
+    // Get selected sections for this course
+    const selectedSectionsForCourse = getSelectedSectionsForCourse(course, currentTerm, sectionsMap)
     
-    setSelectedCourses(prev => {
-      const updatedCourses = [...prev, newCourse]
-      // Recalculate conflicts when adding new course
-      return detectConflicts(updatedCourses)
+    if (selectedSectionsForCourse.length === 0) {
+      return // No valid sections selected
+    }
+    
+    // Assign consistent color for this enrollment
+    const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-red-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500']
+    const assignedColor = colors[courseEnrollments.length % colors.length]
+    
+    // Create new enrollment
+    const newEnrollment: CourseEnrollment = {
+      courseId: `${courseKey}_${Date.now()}`,
+      course,
+      selectedSections: selectedSectionsForCourse,
+      enrollmentDate: new Date(),
+      color: assignedColor,
+      isVisible: true // Default to visible
+    }
+    
+    // Add to enrollments
+    setCourseEnrollments(prev => [...prev, newEnrollment])
+    
+    // Clear section selections for this course after adding
+    const newSectionsMap = new Map(sectionsMap)
+    Array.from(sectionsMap.keys()).forEach(key => {
+      if (key.startsWith(`${courseKey}_`)) {
+        newSectionsMap.delete(key)
+      }
     })
+    setSelectedSections(newSectionsMap)
   }
 
 
@@ -142,7 +202,8 @@ export default function Home() {
           {/* Shopping Cart (1/4 width - more compact) */}
           <div>
             <ShoppingCart 
-              selectedCourses={selectedCourses}
+              courseEnrollments={courseEnrollments}
+              calendarEvents={calendarEvents}
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
             />
@@ -177,8 +238,10 @@ export default function Home() {
             <CardContent>
               <CourseSearch 
                 onAddCourse={handleAddCourse}
-                selectedCourses={selectedCourses}
+                courseEnrollments={courseEnrollments}
                 currentTerm={currentTerm}
+                selectedSections={selectedSections}
+                onSelectedSectionsChange={setSelectedSections}
               />
             </CardContent>
           </Card>
