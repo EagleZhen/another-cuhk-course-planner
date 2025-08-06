@@ -117,11 +117,12 @@ export default function WeeklyCalendar({
                           position: 'absolute',
                           top: `${zoneTop}px`,
                           height: `${zoneHeight}px`,
-                          left: '0px', // Extend past left border
-                          right: '0px', // Extend past right border  
-                          zIndex: 1 // Behind course cards
+                          left: '0px',
+                          right: '0px',
+                          zIndex: 1, // Behind course cards
+                          background: 'repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.6) 0px, rgba(239, 68, 68, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)'
                         }}
-                        className="bg-red-400/85 border-2 border-red-500/85 rounded-sm bg-radial"
+                        className="border-2 border-red-600 rounded-sm shadow-xl animate-pulse"
                       />
                     )
                   })}
