@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,6 +24,22 @@ export default function ShoppingCart({
   onRemoveCourse,
   onClearSelection
 }: ShoppingCartProps) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  
+  // Auto-scroll to selected enrollment
+  useEffect(() => {
+    if (selectedEnrollment && scrollContainerRef.current) {
+      const selectedElement = itemRefs.current.get(selectedEnrollment)
+      if (selectedElement) {
+        selectedElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      }
+    }
+  }, [selectedEnrollment])
+
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
   return (
@@ -49,7 +66,10 @@ export default function ShoppingCart({
             <p className="text-xs opacity-70">Add courses to get started</p>
           </div>
         ) : (
-          <div className="space-y-3 overflow-y-auto h-full pr-1 px-1 py-2">
+          <div 
+            ref={scrollContainerRef}
+            className="space-y-3 overflow-y-auto h-full pr-1 px-1 py-2"
+          >
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
               const enrollmentEvents = calendarEvents.filter(event => 
@@ -63,6 +83,13 @@ export default function ShoppingCart({
               return (
                 <div
                   key={enrollment.courseId}
+                  ref={(el) => {
+                    if (el) {
+                      itemRefs.current.set(enrollment.courseId, el)
+                    } else {
+                      itemRefs.current.delete(enrollment.courseId)
+                    }
+                  }}
                   className={`
                     border rounded p-3 transition-all duration-300 relative mx-1
                     ${hasConflict 
