@@ -5,41 +5,9 @@ import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { detectConflicts, coursesToCalendarEvents, getSelectedSectionsForCourse, type Course, type ScrapedCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
 
-// Deterministic color assignment based on course code
-function getDeterministicColor(courseCode: string): string {
-  // Expanded color palette with 25 distinct colors for better distribution
-  // Avoiding red tones (reserved for conflicts) and very light colors (poor contrast)
-  const colors = [
-    // Blues
-    'bg-blue-500', 'bg-blue-600', 'bg-sky-500', 'bg-cyan-500', 'bg-cyan-600',
-    // Greens  
-    'bg-green-500', 'bg-green-600', 'bg-emerald-500', 'bg-teal-500', 'bg-teal-600',
-    // Purples
-    'bg-purple-500', 'bg-purple-600', 'bg-violet-500', 'bg-indigo-500', 'bg-indigo-600',
-    // Warm colors
-    'bg-yellow-500', 'bg-amber-500', 'bg-orange-500', 'bg-pink-500', 'bg-rose-500',
-    // Earth tones
-    'bg-stone-500', 'bg-gray-600', 'bg-slate-600', 'bg-zinc-600', 'bg-neutral-600'
-  ]
-  
-  // Improved hash function with better distribution
-  let hash = 0
-  const prime = 31 // Use prime number for better distribution
-  
-  for (let i = 0; i < courseCode.length; i++) {
-    const char = courseCode.charCodeAt(i)
-    hash = (hash * prime + char) % 2147483647 // Use large prime modulus
-  }
-  
-  // Additional mixing to reduce clustering
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
-  hash = (hash >>> 16) ^ hash
-  
-  return colors[Math.abs(hash) % colors.length]
-}
+// Color assignment is now handled in courseUtils.ts
 
 export default function Home() {
   // Available terms
@@ -96,46 +64,13 @@ export default function Home() {
     }
   }, [courseEnrollments, currentTerm])
 
-  // Convert enrolled sections to calendar events - single source of truth
+  // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
-    const events: Course[] = []
+    // Generate events from enrollments
+    const events = enrollmentsToCalendarEvents(courseEnrollments)
     
-    courseEnrollments.forEach(enrollment => {
-      if (!enrollment.isVisible) return // Skip hidden enrollments entirely
-      
-      enrollment.selectedSections.forEach(section => {
-        // Deduplicate meetings by time for each section
-        const uniqueMeetings = new Map<string, { time: string; location?: string; instructor?: string }>()
-        section.meetings.forEach(meeting => {
-          if (meeting.time && meeting.time !== 'TBD') {
-            uniqueMeetings.set(meeting.time, meeting)
-          }
-        })
-        
-        // Create one calendar event per unique meeting time
-        Array.from(uniqueMeetings.values()).forEach((meeting, meetingIndex) => {
-          const event: Course = {
-            id: `${enrollment.courseId}_${section.id}_${meetingIndex}`,
-            subject: enrollment.course.subject,
-            courseCode: enrollment.course.course_code,
-            title: enrollment.course.title,
-            section: section.section,
-            time: meeting.time,
-            location: meeting.location || 'TBD',
-            instructor: meeting.instructor || 'TBD',
-            credits: enrollment.course.credits || '3.0',
-            color: enrollment.color, // Consistent color per enrollment
-            isVisible: true, // Always visible if enrollment is visible
-            hasConflict: false, // Will be calculated by detectConflicts
-            enrollmentId: enrollment.courseId // Add enrollment ID for toggle functionality
-          }
-          events.push(event)
-        })
-      })
-    })
-    
-    // Convert to calendar events and detect conflicts
-    return coursesToCalendarEvents(detectConflicts(events))
+    // Detect conflicts and return
+    return detectConflicts(events)
   }, [courseEnrollments])
 
   // Handle term change - localStorage will handle schedule restoration
@@ -175,12 +110,12 @@ export default function Home() {
     )
   }
 
-  const handleAddCourse = (course: ScrapedCourse, sectionsMap: Map<string, string>) => {
-    const courseKey = `${course.subject}${course.course_code}`
+  const handleAddCourse = (course: InternalCourse, sectionsMap: Map<string, string>) => {
+    const courseKey = `${course.subject}${course.courseCode}`
     
     // Check if course is already enrolled
     const isAlreadyEnrolled = courseEnrollments.some(enrollment => 
-      enrollment.course.subject === course.subject && enrollment.course.course_code === course.course_code
+      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
     )
     
     if (isAlreadyEnrolled) {

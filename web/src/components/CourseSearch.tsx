@@ -6,62 +6,14 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, type ScrapedCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { transformExternalCourseData } from '@/lib/validation'
 
-interface Course {
-  subject: string
-  course_code: string
-  title: string
-  credits: string
-  terms: Array<{
-    term_code: string
-    term_name: string
-    schedule: Array<{
-      section: string
-      meetings: Array<{
-        time: string
-        location: string
-        instructor: string
-        dates: string
-      }>
-      availability: {
-        capacity: string
-        enrolled: string
-        status: string
-        available_seats: string
-      }
-    }>
-  }>
-  description?: string
-  enrollment_requirement?: string
-}
-
-interface CourseData {
-  metadata: {
-    subject: string
-    total_courses: number
-  }
-  courses: Course[]
-}
-
-interface SelectedCourse {
-  id: string
-  subject: string
-  courseCode: string
-  title: string
-  section: string
-  time: string
-  location: string
-  instructor: string
-  credits: string
-  color: string
-  isVisible: boolean
-  hasConflict: boolean
-}
+// Using clean internal types only
 
 
 interface CourseSearchProps {
-  onAddCourse: (course: ScrapedCourse, sectionsMap: Map<string, string>) => void
+  onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
   selectedSections: Map<string, string>
@@ -77,12 +29,12 @@ export default function CourseSearch({
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
-  const [allCourses, setAllCourses] = useState<Course[]>([])
+  const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
 
   // Helper function to check if course is already enrolled
-  const isCourseAdded = (course: Course) => {
+  const isCourseAdded = (course: InternalCourse) => {
     return courseEnrollments.some(enrollment => 
-      enrollment.course.subject === course.subject && enrollment.course.course_code === course.course_code
+      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
     )
   }
 
@@ -92,14 +44,15 @@ export default function CourseSearch({
       setLoading(true)
       try {
         const subjects = ['CSCI', 'AIST', 'PHYS', 'FINA']
-        const allCoursesData: Course[] = []
+        const allCoursesData: InternalCourse[] = []
 
         for (const subject of subjects) {
           try {
             const response = await fetch(`/data/${subject}_20250804_002506.json`)
             if (response.ok) {
-              const data: CourseData = await response.json()
-              allCoursesData.push(...data.courses)
+              const rawData = await response.json()
+              const transformedData = transformExternalCourseData(rawData)
+              allCoursesData.push(...transformedData.courses)
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
@@ -121,7 +74,7 @@ export default function CourseSearch({
   const searchResults = useMemo(() => {
     // First filter by term - only show courses available in current term
     const termFilteredCourses = allCourses.filter(course => 
-      course.terms.some(term => term.term_name === currentTerm)
+      course.terms.some(term => term.termName === currentTerm)
     )
     
     if (!searchTerm.trim()) {
@@ -131,16 +84,16 @@ export default function CourseSearch({
     const searchLower = searchTerm.toLowerCase()
     const filtered = termFilteredCourses.filter(course => {
       // Create full course code without space for searching
-      const fullCourseCode = `${course.subject}${course.course_code}`.toLowerCase()
+      const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
       
       return (
         fullCourseCode.includes(searchLower) ||
-        course.course_code.toLowerCase().includes(searchLower) ||
+        course.courseCode.toLowerCase().includes(searchLower) ||
         course.title.toLowerCase().includes(searchLower) ||
         course.subject.toLowerCase().includes(searchLower) ||
         course.terms.some(term =>
-          term.schedule.some(schedule =>
-            schedule.meetings.some(meeting =>
+          term.sections.some(section =>
+            section.meetings.some(meeting =>
               meeting.instructor.toLowerCase().includes(searchLower)
             )
           )
@@ -186,7 +139,7 @@ export default function CourseSearch({
             </div>
             {searchResults.map((course, index) => (
               <CourseCard 
-                key={`${course.subject}-${course.course_code}-${index}`} 
+                key={`${course.subject}-${course.courseCode}-${index}`} 
                 course={course}
                 currentTerm={currentTerm}
                 selectedSections={selectedSections}
@@ -223,22 +176,22 @@ function CourseCard({
   onAddCourse, 
   isAdded 
 }: { 
-  course: Course
+  course: InternalCourse
   currentTerm: string
   selectedSections: Map<string, string>
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
-  onAddCourse: (course: Course, sectionsMap: Map<string, string>) => void
+  onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   isAdded: boolean
 }) {
   const [expanded, setExpanded] = useState(false)
-  const courseKey = `${course.subject}${course.course_code}`
+  const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
   const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, selectedSections)
 
   // Get unique instructors from current term
-  const currentTermData = course.terms.find(term => term.term_name === currentTerm)
+  const currentTermData = course.terms.find(term => term.termName === currentTerm)
   const instructors = Array.from(new Set(
-    currentTermData?.schedule.flatMap(section =>
+    currentTermData?.sections.flatMap(section =>
       section.meetings.map(meeting => meeting.instructor)
     ) || []
   )).filter(Boolean)
@@ -249,7 +202,7 @@ function CourseCard({
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <CardTitle className="text-lg">
-              {course.subject}{course.course_code}
+              {course.subject}{course.courseCode}
             </CardTitle>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
@@ -316,7 +269,7 @@ function CourseCard({
                           <div className={`w-3 h-3 rounded-full border-2 ${
                             isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
                           }`} />
-                          <span className="font-mono text-sm font-medium">{section.section}</span>
+                          <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
                           <span className="text-sm text-gray-600 truncate">
                             {meeting?.time || 'TBD'}
                           </span>
@@ -330,7 +283,7 @@ function CourseCard({
                             variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
                             className="text-xs"
                           >
-                            {section.availability.available_seats}/{section.availability.capacity}
+                            {section.availability.availableSeats}/{section.availability.capacity}
                           </Badge>
                           <Button
                             variant="ghost"
@@ -377,10 +330,10 @@ function CourseCard({
               )}
 
               {/* Prerequisites */}
-              {course.enrollment_requirement && (
+              {course.enrollmentRequirement && (
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Prerequisites</h4>
-                  <p className="text-sm text-gray-600">{course.enrollment_requirement}</p>
+                  <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
                 </div>
               )}
             </div>

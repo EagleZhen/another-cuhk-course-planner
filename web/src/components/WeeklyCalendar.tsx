@@ -204,7 +204,7 @@ export default function WeeklyCalendar({
                           </Button>
                           
                           <div className="font-semibold text-xs leading-tight truncate pr-3">
-                            {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
+                            {event.subject}{event.courseCode} {event.sectionCode.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
                           <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
                             {event.time}

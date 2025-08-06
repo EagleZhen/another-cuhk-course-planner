@@ -90,7 +90,7 @@ export default function ShoppingCart({
               // Find calendar events for this enrollment
               const enrollmentEvents = calendarEvents.filter(event => 
                 event.subject === enrollment.course.subject && 
-                event.courseCode === enrollment.course.course_code
+                event.courseCode === enrollment.course.courseCode
               )
               const hasConflict = enrollmentEvents.some(event => event.hasConflict)
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
@@ -130,7 +130,7 @@ export default function ShoppingCart({
                     <div className="flex items-center gap-2 flex-1 min-w-0">
                       <div className="flex items-center gap-1">
                         <span className="font-semibold text-sm">
-                          {enrollment.course.subject}{enrollment.course.course_code}
+                          {enrollment.course.subject}{enrollment.course.courseCode}
                         </span>
                       </div>
                       {/* Always reserve space for conflict indicator */}
@@ -188,7 +188,7 @@ export default function ShoppingCart({
                       <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
                         {/* Section header */}
                         <div className="text-xs font-mono font-medium text-gray-800 mb-1">
-                          {section.section}
+                          {section.sectionCode}
                         </div>
                         
                         {/* All meetings for this section - consolidated by time+location+instructor */}
@@ -258,7 +258,7 @@ export default function ShoppingCart({
           <div className="flex justify-between text-xs text-gray-600">
             <span>
               {courseEnrollments.reduce((sum, enrollment) => 
-                sum + parseFloat(enrollment.course.credits || '0'), 0
+                sum + enrollment.course.credits, 0
               ).toFixed(1)} credits
             </span>
             {conflictCount > 0 && (

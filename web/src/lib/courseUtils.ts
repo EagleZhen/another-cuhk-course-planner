@@ -1,53 +1,27 @@
 // Unified course utilities for conflict detection and data transformation
-// Should contain pure functions without side effects
+// Uses clean internal types with proper validation boundaries
 
-export interface TimeRange {
-  day: string // 'Mo', 'Tu', 'We', 'Th', 'Fr'
-  startHour: number
-  startMinute: number
-  endHour: number
-  endMinute: number
-}
+import type { 
+  TimeRange, 
+  CalendarEvent, 
+  CourseEnrollment, 
+  ConflictZone, 
+  InternalCourse, 
+  InternalSection, 
+  InternalMeeting, 
+  SectionType 
+} from './types'
 
-export interface Course {
-  id: string
-  subject: string
-  courseCode: string
-  title: string
-  section: string
-  time: string
-  location: string
-  instructor: string
-  credits: string
-  color: string
-  isVisible: boolean
-  hasConflict: boolean
-  enrollmentId?: string // Optional enrollment ID for toggle functionality
-}
-
-export interface CalendarEvent extends Course {
-  day: number // 0=Monday, 1=Tuesday, etc.
-  startHour: number
-  endHour: number
-  startMinute: number
-  endMinute: number
-}
-
-// Complete course enrollment interface
-export interface CourseEnrollment {
-  courseId: string
-  course: any // Use flexible type for scraped course data
-  selectedSections: Section[]
-  enrollmentDate: Date
-  color: string
-  isVisible: boolean
-}
-
-export interface ConflictZone {
-  startHour: number
-  endHour: number
-  startMinute: number
-  endMinute: number
+// Re-export types for backward compatibility
+export type {
+  TimeRange,
+  CalendarEvent,
+  CourseEnrollment,
+  ConflictZone,
+  InternalCourse,
+  InternalSection,
+  InternalMeeting,
+  SectionType
 }
 
 /**
@@ -109,53 +83,74 @@ export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
 }
 
 /**
- * Detect conflicts among courses and return courses with hasConflict flag
+ * Detect conflicts among calendar events and return events with hasConflict flag
  */
-export function detectConflicts(courses: Course[]): Course[] {
-  const visibleCourses = courses.filter(course => course.isVisible)
+export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
+  const visibleEvents = events.filter(event => event.isVisible)
   
-  return courses.map(course => {
-    if (!course.isVisible) {
-      return { ...course, hasConflict: false }
+  return events.map(event => {
+    if (!event.isVisible) {
+      return { ...event, hasConflict: false }
     }
     
-    const courseTime = parseTimeRange(course.time)
-    if (!courseTime) {
-      return { ...course, hasConflict: false }
+    const eventTime = parseTimeRange(event.time)
+    if (!eventTime) {
+      return { ...event, hasConflict: false }
     }
     
-    const hasConflict = visibleCourses.some(other => {
-      if (other.id === course.id) return false
+    const hasConflict = visibleEvents.some(other => {
+      if (other.id === event.id) return false
       
       const otherTime = parseTimeRange(other.time)
       if (!otherTime) return false
       
-      return doTimesOverlap(courseTime, otherTime)
+      return doTimesOverlap(eventTime, otherTime)
     })
     
-    return { ...course, hasConflict }
+    return { ...event, hasConflict }
   })
 }
 
 /**
- * Convert courses to calendar events with day/time info
+ * Convert course enrollments to calendar events with day/time info
  */
-export function coursesToCalendarEvents(courses: Course[]): CalendarEvent[] {
-  return courses
-    .filter(course => course.isVisible)
-    .map(course => {
-      const timeRange = parseTimeRange(course.time)
-      const dayIndex = getDayIndex(course.time)
-      
-      return {
-        ...course,
-        day: dayIndex,
-        startHour: timeRange?.startHour || 9,
-        endHour: timeRange?.endHour || 10,
-        startMinute: timeRange?.startMinute || 0,
-        endMinute: timeRange?.endMinute || 0
-      }
+export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
+  const events: CalendarEvent[] = []
+  
+  enrollments
+    .filter(enrollment => enrollment.isVisible)
+    .forEach(enrollment => {
+      enrollment.selectedSections.forEach(section => {
+        section.meetings.forEach(meeting => {
+          const timeRange = parseTimeRange(meeting.time)
+          const dayIndex = getDayIndex(meeting.time)
+          
+          events.push({
+            id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
+            subject: enrollment.course.subject,
+            courseCode: enrollment.course.courseCode,
+            title: enrollment.course.title,
+            sectionCode: section.sectionCode,
+            sectionType: section.sectionType,
+            time: meeting.time,
+            location: meeting.location,
+            instructor: meeting.instructor,
+            credits: enrollment.course.credits,
+            color: enrollment.color,
+            isVisible: enrollment.isVisible,
+            hasConflict: false, // Will be computed later
+            enrollmentId: enrollment.courseId,
+            day: dayIndex,
+            startHour: timeRange?.startHour || 9,
+            endHour: timeRange?.endHour || 10,
+            startMinute: timeRange?.startMinute || 0,
+            endMinute: timeRange?.endMinute || 0
+          })
+        })
+      })
     })
+  
+  return events
 }
 
 /**
@@ -238,99 +233,32 @@ export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
   return zones
 }
 
-// Interface for scraped course data
-export interface ScrapedCourse {
-  subject: string
-  course_code: string
-  title: string
-  credits?: string
-  terms?: Array<{
-    schedule?: Array<{
-      section?: string
-      meetings?: Array<{
-        time?: string
-        location?: string
-        instructor?: string
-      }>
-    }>
-  }>
-}
-
-// Interface for section type grouping
+// Section type grouping interface
 export interface SectionTypeGroup {
-  type: string // 'LEC', 'TUT', 'LAB', etc.
-  displayName: string // 'Lecture', 'Tutorial', 'Laboratory'
-  icon: string // '📚', '📝', '🧪'
-  sections: Section[]
-}
-
-export interface Section {
-  id: string
-  section: string
-  meetings: Meeting[]
-  availability: {
-    capacity: string
-    enrolled: string
-    status: string
-    available_seats: string
-  }
-}
-
-export interface Meeting {
-  time: string
-  location: string
-  instructor: string
-  dates: string
+  type: SectionType
+  displayName: string
+  icon: string
+  sections: InternalSection[]
 }
 
 /**
  * Parse section types from course data for a specific term
  */
-export function parseSectionTypes(course: any, termName: string): SectionTypeGroup[] {
-  const term = course.terms?.find((t: any) => t.term_name === termName)
-  if (!term?.schedule) return []
+export function parseSectionTypes(course: InternalCourse, termName: string): SectionTypeGroup[] {
+  const term = course.terms.find(t => t.termName === termName)
+  if (!term?.sections) return []
   
-  // Group sections by type prefix
-  const groups = new Map<string, Section[]>()
+  // Group sections by type
+  const groups = new Map<SectionType, InternalSection[]>()
   
-  term.schedule.forEach((section: any) => {
-    // Parse section type from various formats:
-    // --LEC (6161) -> LEC
-    // -L01-LAB (8040) -> LAB  
-    // -T01-TUT (5455) -> TUT
-    // LEC A -> LEC
-    let type = 'OTHER'
-    
-    const sectionStr = section.section
-    
-    // Pattern 1: --TYPE or -XXX-TYPE
-    const dashTypeMatch = sectionStr.match(/-+(?:[A-Z]\d+-)?(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)
-    if (dashTypeMatch) {
-      type = dashTypeMatch[1]
-    } 
-    // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
-    else {
-      const startTypeMatch = sectionStr.match(/^(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)
-      if (startTypeMatch) {
-        type = startTypeMatch[1]
-      }
-    }
+  term.sections.forEach(section => {
+    const type = section.sectionType
     
     if (!groups.has(type)) {
       groups.set(type, [])
     }
     
-    groups.get(type)!.push({
-      id: `${course.subject}${course.course_code}_${section.section}`,
-      section: section.section,
-      meetings: section.meetings || [],
-      availability: section.availability || {
-        capacity: '0',
-        enrolled: '0', 
-        status: 'Unknown',
-        available_seats: '0'
-      }
-    })
+    groups.get(type)!.push(section)
   })
   
   // Convert to SectionTypeGroup array
@@ -345,8 +273,8 @@ export function parseSectionTypes(course: any, termName: string): SectionTypeGro
 /**
  * Get display name for section type
  */
-export function getSectionTypeName(type: string): string {
-  const names: Record<string, string> = {
+export function getSectionTypeName(type: SectionType): string {
+  const names: Record<SectionType, string> = {
     'LEC': 'Lecture',
     'TUT': 'Tutorial',
     'LAB': 'Laboratory', 
@@ -355,16 +283,17 @@ export function getSectionTypeName(type: string): string {
     'PRJ': 'Project',
     'WKS': 'Workshop',
     'PRA': 'Practical',
-    'FLD': 'Field Work'
+    'FLD': 'Field Work',
+    'OTHER': 'Other'
   }
-  return names[type] || type
+  return names[type]
 }
 
 /**
  * Get icon for section type
  */
-export function getSectionTypeIcon(type: string): string {
-  const icons: Record<string, string> = {
+export function getSectionTypeIcon(type: SectionType): string {
+  const icons: Record<SectionType, string> = {
     'LEC': '📚',
     'TUT': '📝',
     'LAB': '🧪',
@@ -373,21 +302,22 @@ export function getSectionTypeIcon(type: string): string {
     'PRJ': '🛠️',
     'WKS': '👥',
     'PRA': '⚙️',
-    'FLD': '🌍'
+    'FLD': '🌍',
+    'OTHER': '📋'
   }
-  return icons[type] || '📋'
+  return icons[type]
 }
 
 /**
  * Check if a course enrollment is complete (has all required section types selected)
  */
 export function isCourseEnrollmentComplete(
-  course: any, 
+  course: InternalCourse, 
   termName: string, 
   selectedSections: Map<string, string>
 ): boolean {
   const sectionTypes = parseSectionTypes(course, termName)
-  const courseKey = `${course.subject}${course.course_code}`
+  const courseKey = `${course.subject}${course.courseCode}`
   
   // Check if we have a selection for each section type
   return sectionTypes.every(typeGroup => {
@@ -400,13 +330,13 @@ export function isCourseEnrollmentComplete(
  * Get selected sections for a course enrollment
  */
 export function getSelectedSectionsForCourse(
-  course: any,
+  course: InternalCourse,
   termName: string,
   selectedSections: Map<string, string>
-): Section[] {
+): InternalSection[] {
   const sectionTypes = parseSectionTypes(course, termName)
-  const courseKey = `${course.subject}${course.course_code}`
-  const result: Section[] = []
+  const courseKey = `${course.subject}${course.courseCode}`
+  const result: InternalSection[] = []
   
   sectionTypes.forEach(typeGroup => {
     const selectionKey = `${courseKey}_${typeGroup.type}`
@@ -424,30 +354,31 @@ export function getSelectedSectionsForCourse(
 }
 
 /**
- * Transform course data from scraper format to internal format
+ * Generate deterministic color for course based on course code
  */
-export function transformScrapedCourse(scrapedCourse: ScrapedCourse): Course {
-  // Get the first available term and section
-  const firstTerm = scrapedCourse.terms?.[0]
-  const firstSection = firstTerm?.schedule?.[0]
-  const firstMeeting = firstSection?.meetings?.[0]
+export function getDeterministicColor(courseCode: string): string {
+  // 25-color palette avoiding red tones (reserved for conflicts)
+  const colors = [
+    'bg-blue-500', 'bg-blue-600', 'bg-sky-500', 'bg-cyan-500',
+    'bg-green-500', 'bg-emerald-500', 'bg-teal-500', 'bg-purple-500',
+    'bg-violet-500', 'bg-indigo-500', 'bg-pink-500', 'bg-yellow-500',
+    'bg-amber-500', 'bg-orange-500', 'bg-lime-500', 'bg-slate-600',
+    'bg-gray-600', 'bg-zinc-600', 'bg-neutral-600', 'bg-stone-600',
+    'bg-rose-500', 'bg-fuchsia-500', 'bg-blue-700', 'bg-green-600',
+    'bg-purple-600'
+  ]
   
-  // Generate color avoiding red tones (conflict zone color)
-  const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500', 'bg-cyan-500', 'bg-emerald-500', 'bg-violet-500']
-  const randomColor = colors[Math.floor(Math.random() * colors.length)]
-  
-  return {
-    id: `${scrapedCourse.subject}${scrapedCourse.course_code}_${Date.now()}`,
-    subject: scrapedCourse.subject,
-    courseCode: scrapedCourse.course_code,
-    title: scrapedCourse.title,
-    section: firstSection?.section || '--LEC',
-    time: firstMeeting?.time || 'TBD',
-    location: firstMeeting?.location || 'TBD',
-    instructor: firstMeeting?.instructor || 'TBD',
-    credits: scrapedCourse.credits || '3.0',
-    color: randomColor,
-    isVisible: true,
-    hasConflict: false
+  // Advanced hash function with prime number mixing
+  let hash = 0
+  const prime = 31 // Prime for better distribution
+  for (let i = 0; i < courseCode.length; i++) {
+    hash = (hash * prime + courseCode.charCodeAt(i)) % 2147483647
   }
+  
+  // Additional mixing to reduce clustering
+  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
+  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b  
+  hash = (hash >>> 16) ^ hash
+  
+  return colors[Math.abs(hash) % colors.length]
 }
