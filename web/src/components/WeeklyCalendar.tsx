@@ -182,6 +182,13 @@ export default function WeeklyCalendar({
                             size="sm"
                             onClick={(e) => {
                               e.stopPropagation()
+                              
+                              // Trigger shopping cart selection + scroll when toggling visibility
+                              if (onSelectEnrollment && event.enrollmentId) {
+                                onSelectEnrollment(event.enrollmentId)
+                              }
+                              
+                              // Toggle visibility
                               if (onToggleVisibility && event.enrollmentId) {
                                 onToggleVisibility(event.enrollmentId)
                               }
