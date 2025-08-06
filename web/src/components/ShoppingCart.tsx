@@ -32,10 +32,26 @@ export default function ShoppingCart({
     if (selectedEnrollment && scrollContainerRef.current) {
       const selectedElement = itemRefs.current.get(selectedEnrollment)
       if (selectedElement) {
-        selectedElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        })
+        const container = scrollContainerRef.current
+        const elementTop = selectedElement.offsetTop
+        const elementHeight = selectedElement.offsetHeight
+        const containerHeight = container.clientHeight
+        const containerScrollTop = container.scrollTop
+        
+        // Calculate the ideal scroll position to center the element
+        const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
+        
+        // Only scroll if the element is not fully visible
+        const elementBottom = elementTop + elementHeight
+        const visibleTop = containerScrollTop
+        const visibleBottom = containerScrollTop + containerHeight
+        
+        if (elementTop < visibleTop || elementBottom > visibleBottom) {
+          container.scrollTo({
+            top: idealScrollTop,
+            behavior: 'smooth'
+          })
+        }
       }
     }
   }, [selectedEnrollment])
