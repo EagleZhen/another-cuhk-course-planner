@@ -62,9 +62,9 @@ export default function WeeklyCalendar({
         {/* Scrollable Calendar Content - moved up to wrap header for scrollbar alignment */}
         <div className="h-full max-h-[720px] overflow-y-auto">
           {/* Sticky Header Row - now inside the scrollable container */}
-          <div className="grid grid-cols-6 border-b border-gray-200 bg-white sticky top-0 z-40">
-            {/* Time header */}
-            <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-500 border-b border-r border-gray-200 w-20 flex-shrink-0">
+          <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}>
+            {/* Time header - smaller width */}
+            <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0">
               Time
             </div>
             {/* Day headers */}
@@ -76,13 +76,13 @@ export default function WeeklyCalendar({
           </div>
 
           {/* Calendar Content Grid */}
-          <div className="grid grid-cols-6">
-            {/* Time column */}
-            <div className="flex flex-col w-20 flex-shrink-0 border-r border-gray-200">
+          <div className="grid" style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}>
+            {/* Time column - smaller width */}
+            <div className="flex flex-col flex-shrink-0 border-r border-gray-200">
             <div className="flex-1">
               {hours.map(hour => (
-                <div key={hour} className="h-16 flex items-start justify-end pr-2 text-xs text-gray-500 border-b border-gray-100">
-                  {hour.toString().padStart(2, '0')}:00
+                <div key={hour} className="h-16 flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100">
+                  {hour.toString().padStart(2, '0')}
                 </div>
               ))}
             </div>
@@ -117,7 +117,7 @@ export default function WeeklyCalendar({
                           position: 'absolute',
                           top: `${zoneTop}px`,
                           height: `${zoneHeight}px`,
-                          left: '-5px', // Extend past left border
+                          left: '0px', // Extend past left border
                           right: '0px', // Extend past right border  
                           zIndex: 1 // Behind course cards
                         }}
@@ -141,8 +141,8 @@ export default function WeeklyCalendar({
                             position: 'absolute',
                             top: `${cardTop}px`,
                             height: `${cardHeight}px`,
-                            left: '3px',
-                            right: '8px',
+                            left: '4px',
+                            right: '4px',
                             zIndex: 10
                           }}
                           className={`
@@ -179,8 +179,8 @@ export default function WeeklyCalendar({
                               position: 'absolute',
                               top: `${cardTop}px`,
                               height: `${cardHeight}px`,
-                              left: `${8 + stackOffset}px`,
-                              right: `${8 + (group.length - 1 - stackIndex) * 16}px`,
+                              left: `${4 + stackOffset}px`,
+                              right: `${4 + (group.length - 1 - stackIndex) * 16}px`,
                               zIndex: 20 + stackIndex // Conflicted events float higher
                             }}
                             className={`
