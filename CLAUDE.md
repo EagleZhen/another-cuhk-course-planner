@@ -7,58 +7,71 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a CUHK Course Planner web application designed to solve the problem of outdated course data in existing planners. The project consists of two main components:
 
 1. **Advanced Course Data Scraper** (`cuhk_scraper.py`): ✅ **PRODUCTION READY** - Comprehensive Python-based web scraper with multi-term support and detailed course information extraction.
-2. **Web Interface**: 🚀 **ADVANCED FUNCTIONALITY** - Next.js + Tailwind CSS frontend with section-based course selection and comprehensive conflict management
+2. **Web Interface**: 🏆 **PRODUCTION QUALITY** - Next.js + Tailwind CSS frontend with advanced section-based course selection, enrollment management, and intelligent calendar visualization
 
 ## Current Development Status
 
-### ✅ **Completed Core Features**
-- **Real-time Course Search**: Across 4 subjects (CSCI, AIST, PHYS, FINA) with term filtering and performance optimization
-- **Section-Based Selection**: Users select individual sections (LEC, TUT, LAB) with smart validation
-- **Term Management**: Selectable terms with automatic filtering and shopping cart clearing
-- **Advanced Shopping Cart**: Compact design with credits display, conflict indicators, and layout stability
-- **Calendar Visualization**: Weekly schedule with color-coded courses, conflict zones, and smart stacking
-- **Dynamic Conflict Detection**: Visual red zones for overlapping course times (only applies to visible courses)
-- **Responsive Layout**: Optimized 3/4 calendar + 1/4 shopping cart with scrollable content
+### ✅ **Core Platform Features** (Production Ready)
+- **Intelligent Course Search**: Real-time search across 4 subjects with term filtering and section-aware results
+- **Advanced Section Selection**: Users select individual sections (LEC, TUT, LAB) with comprehensive validation
+- **Term Management**: 5-term selector with automatic filtering and smart state management
+- **Complete Enrollment System**: Shopping cart displays full course enrollments with all selected sections
+- **Smart Calendar**: Dynamic time range (8am-7pm default, extensible) with optimized course cards
+- **Visual Conflict Detection**: Real-time conflict zones with section-level precision
+- **Responsive Architecture**: 75/25 layout optimized for course planning workflow
 
-### ✅ **Major UX Improvements Complete** (August 2025)
-- **Section Type Parsing**: Handles complex formats (`--LEC (6161)`, `-L01-LAB (8040)`, `-T01-TUT (5455)`)
-- **Smart Course Addition**: Only enabled when all required section types are selected
-- **Icon-Based Interactions**: `+`/`×` buttons with tooltips to save space
-- **Layout Stability**: Reserved space for conflict indicators prevents UI shifts
-- **Term Selector**: Dropdown in calendar header with 5 available terms
-- **Search Filtering**: Clear indication that results are filtered by selected term
+### ✅ **Advanced UX & Data Management** (August 2025)
+- **Complex Section Parsing**: Robust regex handling for university formats (`--LEC (6161)`, `-L01-LAB (8040)`, `-T01-TUT (5455)`)
+- **Enrollment Validation**: Smart course addition only when all required section types selected
+- **Optimized Shopping Cart**: 30% width, multiple meetings per section, compact time format (`Tu 12:30-14:15`)
+- **Enhanced Calendar Cards**: Course+section type + time + wrapping location display
+- **12-Hour Time Support**: Proper parsing of `"Th 1:30PM - 2:15PM"` format with AM/PM conversion
+- **Multiple Meeting Deduplication**: Eliminates duplicate section meetings causing self-conflicts
+- **Consistent Color System**: Same color for all sections within each course enrollment
 
-### ✅ **Architectural Excellence** (August 2025)
-- **Unified Data Models**: Section-aware interfaces across all components
-- **Centralized Utilities**: Shared conflict detection, section parsing, and data transformation
-- **Type Safety**: Full TypeScript coverage with proper interfaces for complex course structures
-- **Code Deduplication**: Eliminated 150+ lines of duplicate logic across components
-- **Clean Build**: Zero TypeScript errors, zero ESLint warnings
+### ✅ **Architectural Excellence & State Management** (August 2025)
+- **Single Source of Truth**: CourseEnrollment-driven architecture eliminates state sync issues
+- **Centralized Interface Definitions**: CourseEnrollment, ScrapedCourse, Section in shared utilities
+- **Advanced Section Processing**: Multi-pattern regex parsing with university data format support
+- **Enrollment-Based Calendar**: Real-time event generation from enrollment data with conflict detection
+- **Performance Optimizations**: useMemo for calendar events, efficient section deduplication
+- **Type-Safe Implementation**: Full TypeScript coverage with proper scraped data interfaces
+- **Zero-Error Build**: Clean compilation with resolved interface conflicts
 
-### 🔧 **Current Implementation Status**
+### 🏆 **Advanced Implementation Status**
 
-#### **Section-Based Course Selection** ✅ **PRODUCTION READY**
+#### **Complete Course Enrollment System** ✅ **PRODUCTION READY**
 ```typescript
-// Users must select one section from each required type
-📚 LECTURE (Pick 1)
-○ LEC A   Mo 14:30-15:15   Prof. WONG    [+] [45/50]
-○ LEC B   Tu 09:30-10:15   Prof. CHAN    [+] [23/40]
+// Users select complete course enrollments with all sections
+📚 CSCI3100 - Software Engineering (3.0 credits)
+  ├─ --LEC (6161): Tu 12:30-14:15, Th 1:30-2:15 | Prof. LIU Renbao
+  ├─ -T01-TUT (5455): We 14:30-15:15 | TA: Alice Wong  
+  └─ -L01-LAB (8040): Fr 14:30-17:15 | Lab Technician
 
-📝 TUTORIAL (Pick 1)  
-○ TUT A1  We 11:30-12:15   TA: Alice     [+] [12/25]
-✓ TUT A2  We 14:30-15:15   TA: Bob       [×] [18/25]  (selected)
-
-🧪 LABORATORY (Pick 1)
-○ LAB 1   Fr 14:30-17:15   Lab Tech      [+] [15/20]
-
-[Add to Cart] (Disabled until all types selected)
+📊 Shopping Cart: Complete enrollments with all meetings displayed
+🗓️ Calendar: Dynamic 8am-7pm view (scrollable for evening courses)
+⚠️ Conflicts: Real-time detection with visual red zones
 ```
 
-#### **Term-Aware Course Management** ✅
-- **Term Dropdown**: Calendar header with 5 selectable terms
-- **Automatic Filtering**: Search results filtered by selected term
-- **Shopping Cart Clearing**: Automatic cleanup when switching terms
-- **Clear User Feedback**: Visual indication of term-based filtering
+#### **Advanced Calendar & Enrollment Features** ✅ **PRODUCTION READY**
+
+**📅 Dynamic Calendar System:**
+- **Smart Time Range**: 8am-7pm default, auto-extends for evening courses
+- **Optimized Card Display**: Course+section + time + location (with text wrapping)
+- **Scroll Architecture**: Fixed 800px height with overflow handling
+- **Conflict Visualization**: Real-time red zones for overlapping sections
+
+**🛒 Advanced Shopping Cart:**
+- **Complete Enrollments**: Shows all selected sections per course
+- **Multiple Meetings**: Displays all meeting times per section
+- **Compact Format**: `Tu 12:30-14:15` with `Prof. LIU` abbreviations
+- **30% Width Layout**: Optimized for course information display
+
+**🔧 Term & State Management:**
+- **5-Term Selector**: Dropdown with automatic cart clearing
+- **Enrollment Persistence**: Maintains course+section combinations
+- **Visibility Controls**: Toggle entire enrollments on/off
+- **Consistent Colors**: Same color across all sections in each course
 
 ### 🚧 **Remaining Development Tasks**
 
