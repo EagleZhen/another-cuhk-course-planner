@@ -60,7 +60,7 @@ export default function ShoppingCart({
 
   return (
     <Card className="h-[800px] flex flex-col">
-      <CardHeader className="pb-2 flex-shrink-0">
+      <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">My Schedule</CardTitle>
           <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
       
-      <CardContent className="flex-1 overflow-hidden p-3">
+      <CardContent className="flex-1 overflow-hidden px-3 py-0">
         {courseEnrollments.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             <div className="text-2xl mb-2">📚</div>
@@ -84,7 +84,7 @@ export default function ShoppingCart({
         ) : (
           <div 
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full pr-1 px-1 py-2"
+            className="space-y-3 overflow-y-auto h-full pr-1 px-2 py-1"
           >
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
@@ -107,7 +107,7 @@ export default function ShoppingCart({
                     }
                   }}
                   className={`
-                    border rounded p-3 transition-all duration-300 relative mx-1
+                    border rounded p-2 transition-all duration-300 relative
                     ${hasConflict 
                       ? 'border-red-200 bg-red-50' 
                       : 'border-gray-200 bg-white'
@@ -231,7 +231,12 @@ export default function ShoppingCart({
                               return (
                                 <div key={groupIndex} className="flex items-center justify-between text-[11px] text-gray-600">
                                   <span className="font-medium font-mono">{formattedTime}</span>
-                                  <span className="text-gray-500 truncate ml-2 text-right">{formattedInstructor}</span>
+                                  <span 
+                                    className="text-gray-500 truncate ml-2 text-right max-w-[100px]"
+                                    title={formattedInstructor} // Tooltip shows full name on hover
+                                  >
+                                    {formattedInstructor}
+                                  </span>
                                 </div>
                               )
                             })

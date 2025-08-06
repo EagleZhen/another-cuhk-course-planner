@@ -52,7 +52,7 @@ export default function WeeklyCalendar({
 
   return (
     <Card className="h-full flex flex-col">
-      <CardHeader className="pb-2 flex-shrink-0">
+      <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle>Weekly Schedule</CardTitle>
           <TermSelector 
@@ -62,18 +62,18 @@ export default function WeeklyCalendar({
           />
         </div>
       </CardHeader>
-      <CardContent className="flex-1 p-4 overflow-hidden">
+      <CardContent className="flex-1 px-4 py-0 overflow-hidden">
         {/* Scrollable Calendar Content - moved up to wrap header for scrollbar alignment */}
         <div className="h-full max-h-[720px] overflow-y-auto">
           {/* Sticky Header Row - now inside the scrollable container */}
           <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}>
             {/* Time header - smaller width */}
-            <div className="h-16 flex items-center justify-center text-sm font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0">
+            <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0">
               Time
             </div>
             {/* Day headers */}
             {days.map((day) => (
-              <div key={day} className="h-16 flex items-center justify-center text-sm font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1">
+              <div key={day} className="h-8 flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1">
                 {day}
               </div>
             ))}
