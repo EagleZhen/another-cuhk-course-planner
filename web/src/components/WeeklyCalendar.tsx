@@ -135,13 +135,10 @@ export default function WeeklyCalendar({
                           onClick={() => console.log('Course details:', event.courseCode)}
                         >
                           <div className="font-semibold text-xs leading-tight truncate">
-                            {event.courseCode}
+                            {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
                           <div className="text-[10px] leading-tight truncate opacity-90">
                             {event.time.split(' ').slice(1).join(' ')}
-                          </div>
-                          <div className="text-[10px] leading-tight truncate opacity-80">
-                            {event.section.replace('--', '')}
                           </div>
                         </div>
                       )
@@ -178,16 +175,11 @@ export default function WeeklyCalendar({
                             </div>
                             
                             <div className="font-semibold text-xs leading-tight truncate pr-3">
-                              {event.courseCode}
+                              {event.subject}{event.courseCode} {event.section.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || 'SEC'}
                             </div>
                             <div className="text-[10px] leading-tight truncate opacity-90">
                               {event.time.split(' ').slice(1).join(' ')}
                             </div>
-                            {cardHeight > 36 && (
-                              <div className="text-[10px] leading-tight truncate opacity-80">
-                                {event.section.replace('--', '')}
-                              </div>
-                            )}
                             
                             {/* Conflict count indicator for top card */}
                             {isTopCard && group.length > 2 && (
