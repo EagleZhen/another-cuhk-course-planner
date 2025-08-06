@@ -7,18 +7,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a CUHK Course Planner web application designed to solve the problem of outdated course data in existing planners. The project consists of two main components:
 
 1. **Advanced Course Data Scraper** (`cuhk_scraper.py`): ✅ **PRODUCTION READY** - Comprehensive Python-based web scraper with multi-term support and detailed course information extraction.
-2. **Web Interface**: 🎯 **ENTERPRISE-GRADE** - Next.js + Tailwind CSS frontend with persistent storage, advanced interactions, deterministic color system, and production-quality UX patterns
+2. **Web Interface**: 🏆 **ENTERPRISE-GRADE WITH CLEAN ARCHITECTURE** - Next.js + Tailwind CSS frontend with type-safe architecture, runtime validation, persistent storage, and production-quality UX patterns
 
 ## Current Development Status
 
-### 🎯 **Enterprise-Grade Platform Features** (Production Ready)
+### 🏆 **Enterprise-Grade Platform with Clean Architecture** (August 2025 - Production Ready)
+- **Type-Safe Architecture**: Complete elimination of `any` types with clean internal/external data boundaries
+- **Runtime Validation**: Zod-powered schema validation for external data with graceful error handling
 - **Persistent Course Management**: localStorage-backed schedules with cross-session continuity and per-term isolation
-- **Advanced Calendar Interactions**: Click-to-select, hover-to-toggle, auto-scroll selection with 1-second timeout UX
+- **Advanced Calendar Interactions**: Click-to-select, hover-to-toggle, auto-scroll selection with optimized UX
 - **Deterministic Color System**: Hash-based color assignment ensuring consistent course colors across sessions
 - **Interactive Section Selection**: Clickable section rows with instant visual feedback and enhanced UX patterns
 - **Smart Conflict Visualization**: Animated diagonal stripe backgrounds with pulse effects for time conflicts
 - **Cross-Component Communication**: Calendar events trigger shopping cart selection with smooth auto-scroll
-- **Production-Quality Architecture**: Enterprise-grade state management with automatic persistence and recovery
+- **Production-Quality Build System**: Zero TypeScript errors, zero ESLint warnings, optimized deployment
+
+### 🎯 **Clean Architecture Implementation** (August 2025 - COMPLETED)
+- **External Data Boundary**: Zod schemas for runtime validation of scraped course data
+- **Transformation Layer**: Clean conversion functions isolating `any` types to validation layer only
+- **Internal Domain Types**: Strongly-typed application models with full IntelliSense support
+- **Component Type Safety**: All React components use clean internal types with zero type assertions
+- **Build System Compliance**: Production builds pass with zero errors/warnings for deployment readiness
 
 ### 🚀 **Advanced Interaction & Persistence System** (August 2025)
 - **localStorage Integration**: Automatic per-term schedule saving with intelligent cleanup and Date object restoration
@@ -30,6 +39,8 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 - **Enhanced Section Interactions**: Clickable section rows throughout the interface with instant visual feedback
 
 ### 🏗️ **Production-Grade Architecture & Performance** (August 2025)
+- **Clean Type System**: Complete separation of external scraped data from internal application types
+- **Runtime Safety**: Zod validation catches malformed data at system boundaries before it affects the application
 - **Sophisticated Color Management**: Deterministic hash-based assignment with prime number mixing for optimal distribution
 - **Cross-Session State Persistence**: localStorage with automatic Date object serialization and term-aware storage
 - **Advanced Event Aggregation**: Efficient calendar event generation with proper conflict detection and visual feedback
@@ -40,9 +51,15 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 
 ### 🏆 **Advanced Implementation Status**
 
-#### **Interactive Course Management System** 🎯 **ENTERPRISE-GRADE**
+#### **Clean Architecture System** 🏆 **ENTERPRISE-GRADE**
 ```typescript
-// Advanced persistent enrollment with cross-component interactions
+// Clean separation of concerns with type safety
+External JSON Data → Zod Validation → Internal Types → React Components
+       ↓                  ↓              ↓               ↓
+  Raw scraped      Runtime check     Clean domain    Type-safe UI
+     data          + transform        models         components
+
+// Example: Clean course enrollment with full type safety
 📚 CSCI3100 - Software Engineering (3.0 credits) [Deterministic Color: bg-blue-500]
   ├─ --LEC (6161): Tu 12:30-14:15, Th 1:30-2:15 | Prof. LIU  [👁️ Hover Toggle]
   ├─ -T01-TUT (5455): We 14:30-15:15 | TA: Alice     [📍 Click → Auto-scroll]
@@ -52,6 +69,7 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 📅 Calendar: Click-to-select cards with hover controls and animated conflicts
 💾 Persistence: Cross-session localStorage with per-term isolation
 🎨 Colors: Hash-based assignment ensuring consistency across browser restarts
+🔒 Type Safety: Zero `any` types, full IntelliSense support, runtime validation
 ```
 
 #### **Interactive Calendar & Smart Shopping Cart** 🚀 **ENTERPRISE-GRADE**
@@ -92,34 +110,13 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 ```typescript
 interface CourseEnrollment {
   courseId: string
-  course: ScrapedCourse
-  selectedSections: Section[]
-  sectionAlternatives: Map<string, Section[]>  // NEW: Cached alternatives by section type
+  course: InternalCourse  // Clean internal type
+  selectedSections: InternalSection[]
+  sectionAlternatives: Map<string, InternalSection[]>  // NEW: Cached alternatives by section type
   enrollmentDate: Date
   color: string
   isVisible: boolean
 }
-```
-
-**Interaction Flow Design**:
-```typescript
-1. User clicks calendar section → Show selected state + ghost alternatives
-2. Ghost sections render with visual distinction (opacity, dashed borders)
-3. Conflict-free ghosts naturally emphasized (no red conflict zones)
-4. Click ghost alternative → Switch to new section, hide ghosts
-5. Click elsewhere → Hide ghosts, return to normal state
-```
-
-**Visual Design System**:
-```typescript
-// Current selected section
-className="bg-blue-500 border-2 border-blue-700 shadow-lg scale-105"
-
-// Ghost alternatives
-className="bg-blue-200 border-2 border-dashed border-blue-400 opacity-75"
-
-// Natural conflict emphasis through absence of diagonal stripes
-// No additional styling needed - clean visual hierarchy
 ```
 
 **Performance Strategy**:
@@ -147,152 +144,120 @@ className="bg-blue-200 border-2 border-dashed border-blue-400 opacity-75"
 - **University API Integration**: Direct connection to official course systems
 - **Advanced Analytics**: Usage patterns, popular courses, and optimization insights
 
-## Current Architecture (Section-Based Implementation)
+## Clean Architecture Implementation (August 2025)
 
-### **Frontend Structure** 🎯 **ENTERPRISE-GRADE**
+### **Frontend Structure** 🏆 **ENTERPRISE-GRADE WITH TYPE SAFETY**
 ```
 web/
 ├── src/
 │   ├── app/
-│   │   └── page.tsx                    # 🎯 STATE-HUB - localStorage persistence, cross-component communication
+│   │   └── page.tsx                    # 🎯 STATE-HUB - localStorage persistence, type-safe components
 │   ├── components/
-│   │   ├── CourseSearch.tsx           # 🚀 ENHANCED-INTERACTIONS - clickable sections with visual feedback
-│   │   ├── WeeklyCalendar.tsx         # 🎮 INTERACTIVE-CALENDAR - hover controls, click selection, animations
-│   │   └── ShoppingCart.tsx           # 📍 AUTO-SCROLL - selection tracking with smooth scrolling and highlights
+│   │   ├── CourseSearch.tsx           # 🚀 TYPE-SAFE - internal types, runtime validation
+│   │   ├── WeeklyCalendar.tsx         # 🎮 INTERACTIVE-CALENDAR - clean event types, animations
+│   │   └── ShoppingCart.tsx           # 📍 AUTO-SCROLL - type-safe enrollment display
 │   └── lib/
-│       └── courseUtils.ts             # 🧠 ADVANCED-UTILITIES - deterministic colors, persistence, interactions
+│       ├── types.ts                   # 🏛️ INTERNAL-TYPES - clean domain models
+│       ├── validation.ts              # 🔒 VALIDATION - Zod schemas, transformation layer
+│       └── courseUtils.ts             # 🧠 TYPE-SAFE-UTILITIES - clean internal types only
 ```
 
-### **Advanced Data Models** ✅
+### **Clean Architecture Layers** ✅
 
-#### **1. Production-Grade Enrollment System**
+#### **1. External Data Validation (Boundary Layer)**
 ```typescript
-// Enhanced course enrollment with persistence and interaction support
+// validation.ts - Isolates all `any` usage to transformation boundary
+import { z } from 'zod'
+
+const ExternalCourseSchema = z.object({
+  subject: z.string(),
+  course_code: z.string(),
+  title: z.string(),
+  credits: z.string().optional(),
+  // ... external schema matches scraped data exactly
+})
+
+export function transformExternalCourse(external: unknown): InternalCourse {
+  // Runtime validation + transformation
+  const validated = ExternalCourseSchema.parse(external)
+  return {
+    subject: validated.subject,
+    courseCode: validated.course_code,  // Transform to internal naming
+    title: validated.title,
+    credits: parseFloat(validated.credits || '3.0'),  // Parse to number
+    // ... clean internal types
+  }
+}
+```
+
+#### **2. Internal Domain Types (Application Layer)**
+```typescript
+// types.ts - Clean strongly-typed domain models
+export interface InternalCourse {
+  subject: string
+  courseCode: string        // Consistent camelCase
+  title: string
+  credits: number          // Parsed and validated
+  description?: string
+  enrollmentRequirement?: string
+  terms: InternalTerm[]
+}
+
+export interface CourseEnrollment {
+  courseId: string
+  course: InternalCourse    // ✅ Strong internal type (no more `any`)
+  selectedSections: InternalSection[]
+  enrollmentDate: Date
+  color: string
+  isVisible: boolean
+}
+```
+
+#### **3. Component Type Safety (Presentation Layer)**
+```typescript
+// CourseSearch.tsx - Uses only clean internal types
+interface CourseSearchProps {
+  onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  courseEnrollments: CourseEnrollment[]
+  currentTerm: string
+  selectedSections: Map<string, string>
+  onSelectedSectionsChange: (sections: Map<string, string>) => void
+}
+
+// Full IntelliSense support, no type assertions needed
+const course: InternalCourse = // Perfect autocompletion
+course.courseCode // ✅ Properly typed
+course.credits + 1 // ✅ TypeScript knows this is a number
+```
+
+### **Key Architectural Innovations**
+
+#### **1. Clean Data Transformation Pipeline**
+```typescript
+// Before (problematic architecture)
 interface CourseEnrollment {
-  courseId: string                    // Unique enrollment identifier with timestamp
-  course: ScrapedCourse              // Full course data from scraper system
-  selectedSections: Section[]        // Array of all selected sections
-  enrollmentDate: Date              // Timestamp for sorting and analytics
-  color: string                     // Deterministic hash-based color assignment
-  isVisible: boolean               // Calendar visibility state
+  course: any // ❌ External data leaking through entire app
 }
 
-// Interactive calendar event with cross-component communication
-interface CalendarEvent extends Course {
-  day: number                      // Parsed day index (0=Monday, 1=Tuesday, etc.)
-  startHour: number               // 24-hour format start time
-  endHour: number                // 24-hour format end time
-  startMinute: number            // Parsed start minute
-  endMinute: number             // Parsed end minute
-  enrollmentId?: string         // Link to enrollment for interaction triggers
-  hasConflict: boolean         // Real-time conflict detection result
-}
-
-// Advanced section with meeting consolidation
-interface Section {
-  id: string                      // Unique section identifier
-  section: string                // Raw university section format
-  meetings: Meeting[]           // Consolidated meeting list (deduplicated)
-  availability: {
-    capacity: string            // Total section capacity
-    enrolled: string           // Current enrollment count
-    status: string            // 'Open', 'Closed', 'Waitlist'
-    available_seats: string   // Calculated available seats
-  }
-}
+// After (clean architecture)
+Raw JSON → Zod Validation → Internal Types → React Components
+   ↓            ↓              ↓               ↓
+External     Transform     Clean domain    Type-safe
+scraped      + validate     models         components
 ```
 
-#### **2. Deterministic Color Management System** 🎨
-```typescript
-// Sophisticated hash-based color assignment for consistency
-function getDeterministicColor(courseCode: string): string {
-  // 25-color palette avoiding red tones (reserved for conflicts)
-  const colors = [
-    'bg-blue-500', 'bg-blue-600', 'bg-sky-500', 'bg-cyan-500',
-    'bg-green-500', 'bg-emerald-500', 'bg-teal-500', 'bg-purple-500',
-    'bg-violet-500', 'bg-indigo-500', 'bg-pink-500', 'bg-yellow-500',
-    // ... 13 more colors for optimal distribution
-  ]
-  
-  // Advanced hash function with prime number mixing
-  let hash = 0
-  const prime = 31 // Prime for better distribution
-  for (let i = 0; i < courseCode.length; i++) {
-    hash = (hash * prime + courseCode.charCodeAt(i)) % 2147483647
-  }
-  
-  // Additional mixing to reduce clustering
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b  
-  hash = (hash >>> 16) ^ hash
-  
-  return colors[Math.abs(hash) % colors.length]
-}
-```
+#### **2. Type Safety Benefits Achieved**
+- **Zero `any` Types**: All external data properly transformed at system boundary
+- **Full IntelliSense**: Perfect autocompletion throughout entire application
+- **Compile-Time Safety**: TypeScript catches errors before runtime
+- **Refactoring Confidence**: Safe to change internal types without breaking external data handling
+- **Runtime Validation**: Malformed external data caught early with detailed error messages
 
-#### **3. Cross-Session Persistence Management** 💾
-```typescript
-// Intelligent localStorage management with term isolation
-useEffect(() => {
-  // Auto-restore schedule when term changes
-  try {
-    const savedSchedule = localStorage.getItem(`schedule_${currentTerm}`)
-    if (savedSchedule) {
-      const parsedSchedule: CourseEnrollment[] = JSON.parse(savedSchedule)
-      // Restore Date objects from serialized strings
-      const restoredSchedule = parsedSchedule.map((enrollment) => ({
-        ...enrollment,
-        enrollmentDate: new Date(enrollment.enrollmentDate)
-      }))
-      setCourseEnrollments(restoredSchedule)
-    } else {
-      setCourseEnrollments([]) // Fresh start for new term
-    }
-  } catch (error) {
-    console.error('Failed to restore schedule:', error)
-    setCourseEnrollments([]) // Graceful fallback
-  }
-}, [currentTerm])
-
-// Auto-save on any enrollment changes
-useEffect(() => {
-  try {
-    if (courseEnrollments.length > 0) {
-      localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(courseEnrollments))
-    } else {
-      localStorage.removeItem(`schedule_${currentTerm}`) // Keep storage clean
-    }
-  } catch (error) {
-    console.error('Failed to save schedule:', error)
-  }
-}, [courseEnrollments, currentTerm])
-```
-
-### **Key Technical Innovations**
-
-#### **1. Advanced Interaction Architecture**
-- **Cross-Component Communication**: Calendar clicks trigger shopping cart auto-scroll with smooth animations
-- **Hover State Management**: Sophisticated event handling for visibility controls and visual feedback
-- **Selection State Tracking**: Auto-clearing selections with timeout-based UX patterns
-- **DOM Manipulation Optimization**: useRef-based scrolling with proper cleanup and memory management
-
-#### **4. Section Cycling Innovation** (Design Phase)
-- **Cached Alternative System**: Pre-computed section alternatives stored at enrollment time for zero-latency interactions
-- **Same-Type Logic**: Intuitive 1:1 replacement model (LEC→LEC, TUT→TUT, LAB→LAB) for predictable user experience
-- **Ghost Visualization**: Semi-transparent dashed-border alternatives with natural conflict emphasis through visual absence
-- **Click-Toggle Pattern**: Consistent interaction model with existing calendar click behaviors and proper state management
-
-#### **2. Enterprise Storage Patterns**
-- **Per-Term Isolation**: Separate localStorage namespaces preventing cross-term data contamination
-- **Intelligent Serialization**: Proper Date object handling and error recovery mechanisms
-- **Storage Cleanup**: Automatic removal of empty schedules maintaining clean browser storage
-- **Cross-Session Continuity**: Reliable state restoration across browser restarts and crashes
-
-#### **3. Production-Quality Visual Systems**
-- **Deterministic Color Assignment**: Hash-based consistent colors across all user sessions
-- **Animated Conflict Visualization**: Diagonal stripe patterns with CSS animations and pulse effects
-- **Enhanced Selection Feedback**: Ring highlights, scale transforms, and background state changes
-- **Performance-Optimized Rendering**: Efficient React patterns with proper reconciliation and updates
+#### **3. Production Build Quality**
+- **✅ Zero TypeScript Errors**: Complete type coverage with no suppressions
+- **✅ Zero ESLint Warnings**: Clean code following all best practices
+- **✅ Deployment Ready**: Production builds pass all quality gates
+- **✅ Runtime Stability**: Validated data transformations prevent runtime type errors
 
 ## Development Commands
 
@@ -300,9 +265,9 @@ useEffect(() => {
 ```bash
 cd web
 npm install
-npm run dev          # Development server with section-based selection
-npm run build        # Production build (✅ Zero TypeScript errors)
-npm run lint         # Code quality check (✅ Zero warnings)
+npm run dev          # Development server with type-safe components
+npm run build        # Production build (✅ Zero errors/warnings)
+npm run lint         # Code quality check (✅ Clean)
 ```
 
 ### **Scraper (Production Ready)**
@@ -315,147 +280,116 @@ python cuhk_scraper.py
 
 ## Next Development Priorities
 
-### **Phase 1: Complete Section-Based Implementation** 🔥
-1. **Shopping Cart Refactor**: Store complete course enrollments (section combinations)
-2. **Section Cycling**: Allow users to change selected sections post-enrollment
-3. **Enhanced Conflict Detection**: Account for section-level conflicts across courses
-4. **Term Persistence**: Remember term selection in URL/localStorage
+### **Phase 1: Section Cycling Implementation** 🔥
+1. **Enhanced Data Model**: Add `sectionAlternatives` to `CourseEnrollment`
+2. **Ghost Section Rendering**: Visual alternatives with conflict-aware styling
+3. **Interaction State**: Click-to-toggle ghost sections with proper cleanup
+4. **Performance Caching**: Pre-compute alternatives at enrollment time
 
 ### **Phase 2: Advanced Course Management**
-1. **Multi-Term Support**: Separate shopping carts for different terms
-2. **Schedule Optimization**: Auto-suggest conflict-free section combinations
-3. **Waitlist Integration**: Handle closed/waitlisted sections
+1. **Multi-Term Support**: Enhanced term-aware state management
+2. **Schedule Optimization**: Conflict-free section combination suggestions
+3. **Waitlist Integration**: Handle closed/waitlisted sections gracefully
 4. **Prerequisite Validation**: Check course requirements before enrollment
 
-### **Phase 3: Production Features**
-1. **Export Functionality**: PDF/iCal export with section details
-2. **Schedule Sharing**: URL-based schedule sharing with term and selections
+### **Phase 3: Platform Features**
+1. **Export Functionality**: PDF/iCal export with type-safe data serialization
+2. **Schedule Sharing**: URL-based sharing with compressed state encoding
 3. **Performance Optimization**: Handle all 263 subjects efficiently
 4. **Mobile App**: Progressive Web App with offline support
 
 ## Technical Insights for Future Development
 
-### **Production Capabilities** 🎯
-- **Enterprise-Grade Persistence**: Cross-session state management with intelligent localStorage patterns
-- **Advanced Interaction Design**: Calendar-shopping cart integration with smooth auto-scroll and visual feedback
-- **Deterministic Color System**: Hash-based assignment ensuring consistent user experience across sessions
-- **Sophisticated Conflict Detection**: Real-time visual feedback with animated backgrounds and proper stacking
-- **Performance-Optimized Architecture**: Efficient React patterns with proper memory management and cleanup
-- **Production-Quality UX**: Hover controls, click interactions, and auto-clearing selections with optimal timing
+### **Clean Architecture Benefits** 🏆
+- **Type Safety**: Complete TypeScript coverage with zero `any` types
+- **Runtime Safety**: Zod validation catches malformed data at system boundaries
+- **Maintainability**: Clear contracts between system layers
+- **Developer Experience**: Perfect IntelliSense throughout entire codebase
+- **Refactoring Safety**: Internal type changes don't break external data handling
+- **Deployment Confidence**: Production builds guaranteed to pass all quality gates
+
+### **Architecture Guidelines**
+
+#### **1. Data Flow Boundaries**
+- **External → Validation**: Use Zod schemas for runtime validation
+- **Validation → Internal**: Transform to clean strongly-typed models
+- **Internal → Components**: Type-safe props with full IntelliSense
+- **Never**: Allow external data types to leak into application logic
+
+#### **2. File Organization**
+- **`validation.ts`**: All external data handling and `any` type usage
+- **`types.ts`**: Clean internal domain models only
+- **`courseUtils.ts`**: Pure functions using internal types
+- **Components**: Use internal types exclusively
+
+#### **3. Quality Standards**
+- **Zero `any` types** in application code (validation layer only)
+- **Runtime validation** for all external data
+- **Full type coverage** with no suppressions
+- **Clean builds** with zero errors/warnings
 
 ### **Complex Problem Solutions**
 
-#### **1. Section Naming Complexity**
-**Problem**: University uses inconsistent section naming (`--LEC (6161)`, `-L01-LAB (8040)`)
-**Solution**: Multi-pattern regex parser with fallback logic
+#### **1. External Data Transformation**
+**Problem**: Scraped data has inconsistent structure and string types
+**Solution**: Validation boundary with type transformation
 ```typescript
-// Pattern 1: --TYPE or -XXX-TYPE
-/-+(?:[A-Z]\d+-)?(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/
-
-// Pattern 2: TYPE at start (fallback)
-/^(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/
+// External: { course_code: "3100", credits: "3.0" }
+// Internal: { courseCode: "3100", credits: 3.0 }
 ```
 
-#### **2. Course Enrollment Validation**
-**Problem**: Students must select compatible section combinations
-**Solution**: Type-based validation with visual feedback
+#### **2. Type Safety vs Runtime Flexibility**
+**Problem**: Need both compile-time safety and runtime validation
+**Solution**: Clean architecture with transformation boundary
 ```typescript
-// Only enable "Add to Cart" when all required types selected
-const isComplete = sectionTypes.every(type => 
-  selectedSections.has(`${courseKey}_${type.name}`)
-)
+// Runtime validation at boundary, strong types throughout app
 ```
 
-#### **3. Term-Based Data Management**
-**Problem**: Courses have different sections available in different terms
-**Solution**: Term-aware filtering with automatic state cleanup
+#### **3. Legacy Data Compatibility**
+**Problem**: External data format may change over time
+**Solution**: Isolated transformation layer absorbs changes
 ```typescript
-// Filter courses by selected term, clear cart on term change
-const termFilteredCourses = allCourses.filter(course => 
-  course.terms.some(term => term.term_name === currentTerm)
-)
+// Changes to external format only affect validation.ts
+// Internal types remain stable across data format changes
 ```
-
-### **Scalability Architecture**
-
-#### **Current Approach** (4 subjects, ~50 courses)
-- **Real-time search**: useMemo optimization handles current load
-- **Section parsing**: Regex parsing performs well for current dataset
-- **State management**: Simple Map-based selection tracking
-
-#### **Scaling Strategy** (263 subjects, ~2000+ courses)
-- **Search indexing**: Pre-process course data for faster search
-- **Virtual scrolling**: Handle large course lists efficiently
-- **Section caching**: Cache parsed section types to avoid re-computation
-- **Progressive loading**: Load subjects on-demand
 
 ### **Key Files & Implementation Details**
 
-#### **Core Implementation Files**
-- **`web/src/lib/courseUtils.ts`**: ✅ Section parsing, validation, type definitions
-- **`web/src/components/CourseSearch.tsx`**: ✅ Section-based selection UI
-- **`web/src/components/WeeklyCalendar.tsx`**: ✅ Term selector integration
-- **`web/src/components/ShoppingCart.tsx`**: ✅ Compact, stable layout
-- **`web/src/app/page.tsx`**: ✅ Term state management
+#### **Core Architecture Files**
+- **`web/src/lib/types.ts`**: ✅ Clean internal domain types
+- **`web/src/lib/validation.ts`**: ✅ Zod schemas, transformation functions
+- **`web/src/lib/courseUtils.ts`**: ✅ Type-safe utilities using internal types
+- **`web/src/components/*.tsx`**: ✅ All components use internal types
+- **`web/src/app/page.tsx`**: ✅ Type-safe state management
 
-#### **Data Pipeline**
+#### **Data Transformation Pipeline**
 ```
-CUHK Website → Python Scraper → JSON Files → Term Filtering → Section Parsing → User Selection → Course Enrollment
+External JSON → Zod Validation → Type Transformation → Internal Models → React Components
+     ↓               ↓                   ↓                  ↓               ↓
+Raw scraped     Runtime check      Clean conversion    Domain types   UI components
+   data           + error            to camelCase       (typed)       (type-safe)
+                  handling
 ```
 
-#### **Section Selection Flow**
+#### **Development Workflow**
 ```
-User Expands Course → Parse Section Types → Display by Type → User Selects → Validate Completeness → Enable Add
+External Data Changes → Update validation.ts only
+Internal Model Changes → Update types.ts + components
+Component Changes → Full type safety with IntelliSense
 ```
 
 ## Critical Implementation Notes for Future Development
 
-### **Section Type Management**
-- **Always assume all section types are required** (LEC + TUT + LAB)
-- **Parse section types per term** (availability varies by term)
-- **Handle unknown section types gracefully** (fallback to 'OTHER')
+### **Architecture Principles**
+- **Boundary Isolation**: Keep all `any` types in validation layer
+- **Type Transformation**: Convert external to internal naming conventions at boundary
+- **Runtime Safety**: Validate all external data with detailed error messages
+- **Internal Consistency**: Use strongly-typed internal models throughout application
 
-### **Term Management**
-- **Clear shopping cart when switching terms** (prevents invalid enrollments)
-- **Filter search results by selected term** (avoid showing unavailable courses)
-- **Store term selection in URL for sharing** (future enhancement)
+### **Quality Gates**
+- **Build Success**: `npm run build` must pass with zero errors/warnings
+- **Type Coverage**: No `any` types outside validation layer
+- **Runtime Validation**: All external data must pass Zod schemas
+- **Component Safety**: All props must use internal types
 
-### **Conflict Detection**
-- **Conflicts only apply to visible courses** (hidden courses don't conflict)
-- **No intra-course conflicts** (sections within same course don't conflict)
-- **Visual feedback through red zones** (background highlighting)
-
-### **Section Cycling Implementation Guidelines** (Next Development Phase)
-
-#### **Data Model Requirements**
-- **Cache alternatives at enrollment**: Pre-compute all same-type alternatives when adding course to cart
-- **Store per section type**: Map structure with section type as key, alternatives array as value
-- **Include availability data**: Cache enrollment status for ghost section rendering decisions
-
-#### **Interaction State Management**
-```typescript
-// Required state additions
-const [selectedSectionForCycling, setSelectedSectionForCycling] = useState<string | null>(null)
-
-// Ghost section rendering logic
-const shouldShowGhosts = (sectionId: string) => selectedSectionForCycling === sectionId
-const getGhostSections = (enrollment: CourseEnrollment, sectionType: string) => 
-  enrollment.sectionAlternatives.get(sectionType) || []
-```
-
-#### **Performance Considerations**
-- **Lazy ghost rendering**: Only render ghost sections when selected state is active
-- **Event delegation**: Use single click handler with event bubbling for ghost interactions
-- **Memory cleanup**: Clear ghost section references when switching terms
-
-#### **Visual Hierarchy Rules**
-- **Selected section priority**: Higher z-index, enhanced borders, scale effects
-- **Ghost transparency**: 75% opacity with dashed borders for clear distinction
-- **Conflict visualization**: Let existing conflict system handle ghost section conflicts naturally
-
-### **Data Consistency**
-- **Use courseUtils.ts for all course operations** (single source of truth)
-- **Validate section selections before enrollment** (prevent invalid states)
-- **Handle missing/malformed course data gracefully** (robust error handling)
-
-This document reflects the current enterprise-grade system state as of August 2025 after implementing advanced persistent storage, sophisticated interaction patterns, and production-quality UX features. The platform now provides a comprehensive course planning experience with cross-session continuity, deterministic visual consistency, and advanced user interaction patterns that rival commercial course planning systems.
+This document reflects the current enterprise-grade clean architecture system as of August 2025 after implementing complete type safety, runtime validation, and production-quality build standards. The platform now provides a robust, maintainable codebase with zero technical debt in type safety, ready for scalable development and deployment.
