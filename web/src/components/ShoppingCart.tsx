@@ -142,37 +142,51 @@ export default function ShoppingCart({
                           {section.section}
                         </div>
                         
-                        {/* All meetings for this section */}
+                        {/* All meetings for this section - consolidated by time+location+instructor */}
                         <div className="space-y-0.5">
-                          {section.meetings.map((meeting, meetingIndex) => {
-                            // Format time: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
-                            let formattedTime = meeting?.time || 'TBD'
-                            if (formattedTime !== 'TBD') {
-                              formattedTime = formattedTime
-                                .replace(/(\d{1,2}):(\d{2})PM/g, (match, h, m) => {
-                                  const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
-                                  return `${hour}:${m}`
-                                })
-                                .replace(/(\d{1,2}):(\d{2})AM/g, (match, h, m) => {
-                                  const hour = parseInt(h) === 12 ? 0 : parseInt(h)
-                                  return `${hour.toString().padStart(2, '0')}:${m}`
-                                })
-                                .replace(' - ', '-')
-                            }
+                          {(() => {
+                            // Group meetings by time + location + instructor
+                            const meetingGroups = new Map()
+                            section.meetings.forEach((meeting) => {
+                              const key = `${meeting?.time || 'TBD'}-${meeting?.location || 'TBD'}-${meeting?.instructor || 'TBD'}`
+                              if (!meetingGroups.has(key)) {
+                                meetingGroups.set(key, [])
+                              }
+                              meetingGroups.get(key).push(meeting)
+                            })
                             
-                            // Format instructor: "Professor" → "Prof.", "Dr." stays "Dr."
-                            let formattedInstructor = meeting?.instructor || 'TBD'
-                            if (formattedInstructor !== 'TBD') {
-                              formattedInstructor = formattedInstructor.replace('Professor ', 'Prof. ')
-                            }
-                            
-                            return (
-                              <div key={meetingIndex} className="flex items-center justify-between text-[11px] text-gray-600">
-                                <span className="font-medium font-mono">{formattedTime}</span>
-                                <span className="text-gray-500 truncate ml-2 text-right">{formattedInstructor}</span>
-                              </div>
-                            )
-                          })}
+                            return Array.from(meetingGroups.values()).map((meetings, groupIndex) => {
+                              const firstMeeting = meetings[0]
+                              
+                              // Format time: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
+                              let formattedTime = firstMeeting?.time || 'TBD'
+                              if (formattedTime !== 'TBD') {
+                                formattedTime = formattedTime
+                                  .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
+                                    const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
+                                    return `${hour}:${m}`
+                                  })
+                                  .replace(/(\d{1,2}):(\d{2})AM/g, (_match: string, h: string, m: string) => {
+                                    const hour = parseInt(h) === 12 ? 0 : parseInt(h)
+                                    return `${hour.toString().padStart(2, '0')}:${m}`
+                                  })
+                                  .replace(' - ', '-')
+                              }
+                              
+                              // Format instructor: "Professor" → "Prof.", "Dr." stays "Dr."
+                              let formattedInstructor = firstMeeting?.instructor || 'TBD'
+                              if (formattedInstructor !== 'TBD') {
+                                formattedInstructor = formattedInstructor.replace('Professor ', 'Prof. ')
+                              }
+                              
+                              return (
+                                <div key={groupIndex} className="flex items-center justify-between text-[11px] text-gray-600">
+                                  <span className="font-medium font-mono">{formattedTime}</span>
+                                  <span className="text-gray-500 truncate ml-2 text-right">{formattedInstructor}</span>
+                                </div>
+                              )
+                            })
+                          })()}
                         </div>
                       </div>
                     ))}
