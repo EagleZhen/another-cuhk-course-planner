@@ -275,16 +275,24 @@ export default function ShoppingCart({
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
                             const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
+                            const location = meeting?.location || 'TBD'
                             
                             return (
-                              <div key={index} className="flex items-center justify-between text-[11px] text-gray-600">
-                                <span className="font-medium font-mono">{formattedTime}</span>
-                                <span 
-                                  className="text-gray-500 truncate ml-2 text-right max-w-[100px]"
-                                  title={formattedInstructor} // Tooltip shows full name on hover
-                                >
-                                  {formattedInstructor}
-                                </span>
+                              <div key={index} className="text-[11px] text-gray-600">
+                                <div className="flex items-center justify-between">
+                                  <span className="font-medium font-mono">{formattedTime}</span>
+                                  <span 
+                                    className="text-gray-500 truncate ml-2 text-right max-w-[105px]"
+                                    title={formattedInstructor}
+                                  >
+                                    {formattedInstructor}
+                                  </span>
+                                </div>
+                                {location !== 'TBD' && (
+                                  <div className="text-gray-400 text-[10px] mt-0.5 truncate" title={location}>
+                                    {location}
+                                  </div>
+                                )}
                               </div>
                             )
                           })}

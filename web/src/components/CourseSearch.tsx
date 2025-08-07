@@ -295,17 +295,17 @@ function CourseCard({
                         </div>
                         
                         {/* Unique meetings for this section */}
-                        <div className="space-y-1 ml-6">
+                        <div className="ml-6">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => (
-                            <div key={index} className="flex items-center justify-between text-sm text-gray-600">
-                              <span className="font-mono">
-                                {meeting?.time || 'TBD'}
-                              </span>
-                              <div className="flex items-center gap-2">
-                                <span className="truncate max-w-[120px]" title={meeting?.location || 'TBD'}>
+                            <div key={index} className="mb-1.5 text-sm text-gray-600">
+                              <div className="flex items-center gap-3">
+                                <span className="font-mono font-medium min-w-[140px]">
+                                  {meeting?.time || 'TBD'}
+                                </span>
+                                <span className="text-gray-500 flex-1" title={meeting?.location || 'TBD'}>
                                   {meeting?.location || 'TBD'}
                                 </span>
-                                <span className="truncate max-w-[100px]" title={meeting?.instructor || 'TBD'}>
+                                <span className="text-gray-700 min-w-[120px] text-right" title={meeting?.instructor || 'TBD'}>
                                   {meeting?.instructor || 'TBD'}
                                 </span>
                               </div>
