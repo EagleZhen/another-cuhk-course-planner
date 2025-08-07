@@ -271,26 +271,27 @@ export default function ShoppingCart({
                           </div>
                         
                         {/* Unique meetings for this section - consolidated by time+location+instructor */}
-                        <div className="space-y-0.5">
+                        <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
                             const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
                             const location = meeting?.location || 'TBD'
                             
                             return (
-                              <div key={index} className="text-[11px] text-gray-600">
-                                <div className="flex items-center justify-between">
-                                  <span className="font-medium font-mono">{formattedTime}</span>
+                              <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
+                                <div className="flex items-center justify-between text-[11px]">
+                                  <span className="font-medium font-mono text-gray-900">{formattedTime}</span>
                                   <span 
-                                    className="text-gray-500 truncate ml-2 text-right max-w-[105px]"
+                                    className="text-gray-600 truncate text-right max-w-[90px]"
                                     title={formattedInstructor}
                                   >
                                     {formattedInstructor}
                                   </span>
                                 </div>
                                 {location !== 'TBD' && (
-                                  <div className="text-gray-400 text-[10px] mt-0.5 truncate" title={location}>
-                                    {location}
+                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
+                                    <span>📍</span>
+                                    <span className="truncate" title={location}>{location}</span>
                                   </div>
                                 )}
                               </div>

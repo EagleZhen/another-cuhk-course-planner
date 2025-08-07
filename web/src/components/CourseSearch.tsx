@@ -252,7 +252,8 @@ function CourseCard({
                   </Badge>
                 </h4>
                 
-                <div className="space-y-1">
+                {/* Display sections horizontally for easy comparison */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {typeGroup.sections.map(section => {
                     const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
                     
@@ -265,7 +266,7 @@ function CourseCard({
                         onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-2">
                             <div className={`w-3 h-3 rounded-full border-2 ${
                               isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
                             }`} />
@@ -294,18 +295,19 @@ function CourseCard({
                           </div>
                         </div>
                         
-                        {/* Unique meetings for this section */}
-                        <div className="ml-6">
+                        {/* Meetings displayed vertically within each section */}
+                        <div className="space-y-2">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => (
-                            <div key={index} className="mb-1.5 text-sm text-gray-600">
-                              <div className="flex items-center gap-3">
-                                <span className="font-mono font-medium min-w-[140px]">
-                                  {meeting?.time || 'TBD'}
-                                </span>
-                                <span className="text-gray-500 flex-1" title={meeting?.location || 'TBD'}>
+                            <div key={index} className="text-xs bg-white border border-gray-200 rounded-md px-3 py-2 shadow-sm">
+                              <div className="font-mono font-semibold text-gray-900 mb-1">
+                                {meeting?.time || 'TBD'}
+                              </div>
+                              <div className="flex items-center justify-between text-gray-600">
+                                <span className="flex items-center gap-1" title={meeting?.location || 'TBD'}>
+                                  <span className="text-gray-400">📍</span>
                                   {meeting?.location || 'TBD'}
                                 </span>
-                                <span className="text-gray-700 min-w-[120px] text-right" title={meeting?.instructor || 'TBD'}>
+                                <span className="text-right font-medium" title={meeting?.instructor || 'TBD'}>
                                   {meeting?.instructor || 'TBD'}
                                 </span>
                               </div>
