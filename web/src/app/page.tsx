@@ -5,7 +5,7 @@ import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, parseSectionTypes, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -108,6 +108,31 @@ export default function Home() {
     )
   }
 
+  const handleSectionChange = (enrollmentId: string, sectionType: string, newSectionId: string) => {
+    setCourseEnrollments(prev => 
+      prev.map(enrollment => {
+        if (enrollment.courseId !== enrollmentId) return enrollment
+        
+        // Find the course's available sections for this term
+        const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+        const typeGroup = sectionTypes.find(group => group.type === sectionType)
+        const newSection = typeGroup?.sections.find(s => s.id === newSectionId)
+        
+        if (!newSection) return enrollment
+        
+        // Replace the section of this type with the new one
+        const updatedSections = enrollment.selectedSections.map(section => 
+          section.sectionType === sectionType ? newSection : section
+        )
+        
+        return {
+          ...enrollment,
+          selectedSections: updatedSections
+        }
+      })
+    )
+  }
+
   const handleAddCourse = (course: InternalCourse, sectionsMap: Map<string, string>) => {
     const courseKey = `${course.subject}${course.courseCode}`
     
@@ -181,9 +206,11 @@ export default function Home() {
               courseEnrollments={courseEnrollments}
               calendarEvents={calendarEvents}
               selectedEnrollment={selectedEnrollment}
+              currentTerm={currentTerm}
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
               onClearSelection={handleClearSelection}
+              onSectionChange={handleSectionChange}
             />
           </div>
         </div>

@@ -4,28 +4,63 @@ import { useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent } from '@/lib/courseUtils'
+import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
   selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
+  currentTerm: string // Current term to get available sections
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
   onClearSelection?: () => void
+  onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
 }
 
 export default function ShoppingCart({ 
   courseEnrollments,
   calendarEvents,
   selectedEnrollment,
+  currentTerm,
   onToggleVisibility, 
   onRemoveCourse,
-  onClearSelection
+  onClearSelection,
+  onSectionChange
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  
+  // Helper function to get alternative sections for cycling
+  const getAlternativeSections = (course: InternalCourse, sectionType: string) => {
+    const sectionTypes = parseSectionTypes(course, currentTerm)
+    const typeGroup = sectionTypes.find(group => group.type === sectionType)
+    return typeGroup?.sections || []
+  }
+  
+  // Helper function to cycle to next/previous section
+  const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
+    if (!onSectionChange) return
+    
+    const availableSections = getAlternativeSections(enrollment.course, sectionType)
+    if (availableSections.length <= 1) return // No alternatives
+    
+    const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
+    if (!currentSection) return
+    
+    const currentIndex = availableSections.findIndex(s => s.id === currentSection.id)
+    if (currentIndex === -1) return
+    
+    let newIndex
+    if (direction === 'next') {
+      newIndex = (currentIndex + 1) % availableSections.length
+    } else {
+      newIndex = currentIndex === 0 ? availableSections.length - 1 : currentIndex - 1
+    }
+    
+    const newSection = availableSections[newIndex]
+    onSectionChange(enrollment.courseId, sectionType, newSection.id)
+  }
   
   // Auto-scroll to selected enrollment
   useEffect(() => {
@@ -184,12 +219,53 @@ export default function ShoppingCart({
 
                   {/* Selected Sections */}
                   <div className="space-y-2">
-                    {enrollment.selectedSections.map((section) => (
-                      <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
-                        {/* Section header */}
-                        <div className="text-xs font-mono font-medium text-gray-800 mb-1">
-                          {section.sectionCode}
-                        </div>
+                    {enrollment.selectedSections.map((section) => {
+                      const availableSections = getAlternativeSections(enrollment.course, section.sectionType)
+                      const canCycle = availableSections.length > 1
+                      const currentIndex = availableSections.findIndex(s => s.id === section.id)
+                      const sectionPosition = currentIndex >= 0 ? `${currentIndex + 1}/${availableSections.length}` : '1/1'
+                      
+                      return (
+                        <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
+                          {/* Section header with cycling buttons */}
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="text-xs font-mono font-medium text-gray-800">
+                              {section.sectionCode}
+                            </div>
+                            
+                            {/* Cycling controls */}
+                            {canCycle && (
+                              <div className="flex items-center gap-1">
+                                <span className="text-[10px] text-gray-500 mr-1">
+                                  {sectionPosition}
+                                </span>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    cycleSection(enrollment, section.sectionType, 'prev')
+                                  }}
+                                  className="h-4 w-4 p-0 hover:bg-gray-200"
+                                  title="Previous section"
+                                >
+                                  <ChevronLeft className="w-3 h-3" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    cycleSection(enrollment, section.sectionType, 'next')
+                                  }}
+                                  className="h-4 w-4 p-0 hover:bg-gray-200"
+                                  title="Next section"
+                                >
+                                  <ChevronRight className="w-3 h-3" />
+                                </Button>
+                              </div>
+                            )}
+                          </div>
                         
                         {/* All meetings for this section - consolidated by time+location+instructor */}
                         <div className="space-y-0.5">
@@ -243,7 +319,8 @@ export default function ShoppingCart({
                           })()}
                         </div>
                       </div>
-                    ))}
+                    )
+                    })}
                   </div>
                 </div>
               )
