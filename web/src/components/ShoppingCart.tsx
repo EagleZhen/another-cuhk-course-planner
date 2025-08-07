@@ -15,6 +15,7 @@ interface ShoppingCartProps {
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
   onClearSelection?: () => void
+  onSelectEnrollment?: (enrollmentId: string | null) => void
   onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
 }
 
@@ -26,6 +27,7 @@ export default function ShoppingCart({
   onToggleVisibility, 
   onRemoveCourse,
   onClearSelection,
+  onSelectEnrollment,
   onSectionChange
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -154,9 +156,10 @@ export default function ShoppingCart({
                     }
                   `}
                   onClick={() => {
-                    // Clear selection when clicking on selected shopping cart item
-                    if (isSelected && onClearSelection) {
-                      onClearSelection()
+                    // Toggle selection: if already selected, deselect; otherwise select
+                    if (onSelectEnrollment) {
+                      const newSelection = isSelected ? null : enrollment.courseId
+                      onSelectEnrollment(newSelection)
                     }
                   }}
                 >

@@ -210,6 +210,7 @@ export default function Home() {
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
               onClearSelection={handleClearSelection}
+              onSelectEnrollment={handleSelectEnrollment}
               onSectionChange={handleSectionChange}
             />
           </div>
