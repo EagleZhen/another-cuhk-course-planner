@@ -150,14 +150,15 @@ export default function ShoppingCart({
                       : 'border-gray-200 bg-white'
                     }
                     ${!isVisible ? 'opacity-60' : ''}
-                    ${isSelected 
+                    ${isSelected && isVisible
                       ? 'ring-2 ring-blue-400 ring-opacity-75 shadow-lg scale-[1.02] bg-blue-50' 
                       : ''
                     }
+                    ${!isVisible ? 'cursor-default' : 'cursor-pointer'}
                   `}
                   onClick={() => {
-                    // Toggle selection: if already selected, deselect; otherwise select
-                    if (onSelectEnrollment) {
+                    // Only allow selection if the enrollment is visible
+                    if (isVisible && onSelectEnrollment) {
                       const newSelection = isSelected ? null : enrollment.courseId
                       onSelectEnrollment(newSelection)
                     }
@@ -187,27 +188,33 @@ export default function ShoppingCart({
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          // If making invisible and currently selected, deselect it
+                          if (isVisible && isSelected && onSelectEnrollment) {
+                            onSelectEnrollment(null)
+                          }
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0"
+                        className="h-5 w-5 p-0 cursor-pointer"
                         title={isVisible ? 'Hide all sections' : 'Show all sections'}
                       >
                         {isVisible ? (
-                          <Eye className="w-3 h-3" />
+                          <Eye className="w-3 h-3 text-gray-600" />
                         ) : (
-                          <EyeOff className="w-3 h-3" />
+                          <EyeOff className="w-3 h-3 text-gray-400" />
                         )}
                       </Button>
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation()
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
+                        className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
                         title="Remove course"
                       >
                         <Trash2 className="w-3 h-3" />
@@ -249,10 +256,10 @@ export default function ShoppingCart({
                                     e.stopPropagation()
                                     cycleSection(enrollment, section.sectionType, 'prev')
                                   }}
-                                  className="h-4 w-4 p-0 hover:bg-gray-200"
+                                  className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
                                   title="Previous section"
                                 >
-                                  <ChevronLeft className="w-3 h-3" />
+                                  <ChevronLeft className="w-3 h-3 text-gray-600" />
                                 </Button>
                                 <Button
                                   variant="ghost"
@@ -261,10 +268,10 @@ export default function ShoppingCart({
                                     e.stopPropagation()
                                     cycleSection(enrollment, section.sectionType, 'next')
                                   }}
-                                  className="h-4 w-4 p-0 hover:bg-gray-200"
+                                  className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
                                   title="Next section"
                                 >
-                                  <ChevronRight className="w-3 h-3" />
+                                  <ChevronRight className="w-3 h-3 text-gray-600" />
                                 </Button>
                               </div>
                             )}
