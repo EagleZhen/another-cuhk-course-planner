@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -270,56 +270,24 @@ export default function ShoppingCart({
                             )}
                           </div>
                         
-                        {/* All meetings for this section - consolidated by time+location+instructor */}
+                        {/* Unique meetings for this section - consolidated by time+location+instructor */}
                         <div className="space-y-0.5">
-                          {(() => {
-                            // Group meetings by time + location + instructor
-                            const meetingGroups = new Map()
-                            section.meetings.forEach((meeting) => {
-                              const key = `${meeting?.time || 'TBD'}-${meeting?.location || 'TBD'}-${meeting?.instructor || 'TBD'}`
-                              if (!meetingGroups.has(key)) {
-                                meetingGroups.set(key, [])
-                              }
-                              meetingGroups.get(key).push(meeting)
-                            })
+                          {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                            const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
+                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
                             
-                            return Array.from(meetingGroups.values()).map((meetings, groupIndex) => {
-                              const firstMeeting = meetings[0]
-                              
-                              // Format time: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
-                              let formattedTime = firstMeeting?.time || 'TBD'
-                              if (formattedTime !== 'TBD') {
-                                formattedTime = formattedTime
-                                  .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
-                                    const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
-                                    return `${hour}:${m}`
-                                  })
-                                  .replace(/(\d{1,2}):(\d{2})AM/g, (_match: string, h: string, m: string) => {
-                                    const hour = parseInt(h) === 12 ? 0 : parseInt(h)
-                                    return `${hour.toString().padStart(2, '0')}:${m}`
-                                  })
-                                  .replace(' - ', '-')
-                              }
-                              
-                              // Format instructor: "Professor" → "Prof.", "Dr." stays "Dr."
-                              let formattedInstructor = firstMeeting?.instructor || 'TBD'
-                              if (formattedInstructor !== 'TBD') {
-                                formattedInstructor = formattedInstructor.replace('Professor ', 'Prof. ')
-                              }
-                              
-                              return (
-                                <div key={groupIndex} className="flex items-center justify-between text-[11px] text-gray-600">
-                                  <span className="font-medium font-mono">{formattedTime}</span>
-                                  <span 
-                                    className="text-gray-500 truncate ml-2 text-right max-w-[100px]"
-                                    title={formattedInstructor} // Tooltip shows full name on hover
-                                  >
-                                    {formattedInstructor}
-                                  </span>
-                                </div>
-                              )
-                            })
-                          })()}
+                            return (
+                              <div key={index} className="flex items-center justify-between text-[11px] text-gray-600">
+                                <span className="font-medium font-mono">{formattedTime}</span>
+                                <span 
+                                  className="text-gray-500 truncate ml-2 text-right max-w-[100px]"
+                                  title={formattedInstructor} // Tooltip shows full name on hover
+                                >
+                                  {formattedInstructor}
+                                </span>
+                              </div>
+                            )
+                          })}
                         </div>
                       </div>
                     )

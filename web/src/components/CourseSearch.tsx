@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -255,48 +255,62 @@ function CourseCard({
                 <div className="space-y-1">
                   {typeGroup.sections.map(section => {
                     const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
-                    const meeting = section.meetings[0] // Show first meeting
                     
                     return (
                       <div 
                         key={section.id}
-                        className={`flex items-center justify-between p-2 rounded border transition-all ${
+                        className={`p-2 rounded border transition-all ${
                           isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                         onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
                       >
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
-                          <div className={`w-3 h-3 rounded-full border-2 ${
-                            isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
-                          }`} />
-                          <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
-                          <span className="text-sm text-gray-600 truncate">
-                            {meeting?.time || 'TBD'}
-                          </span>
-                          <span className="text-sm text-gray-500 truncate">
-                            {meeting?.instructor || 'TBD'}
-                          </span>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-3 h-3 rounded-full border-2 ${
+                              isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                            }`} />
+                            <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
+                          </div>
+                          
+                          <div className="flex items-center gap-2 flex-shrink-0">
+                            <Badge 
+                              variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
+                              className="text-xs"
+                            >
+                              {section.availability.availableSeats}/{section.availability.capacity}
+                            </Badge>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="w-6 h-6 p-0"
+                              title={isSelected ? "Remove selection" : "Select this section"}
+                            >
+                              {isSelected ? (
+                                <X className="w-3 h-3 text-red-500" />
+                              ) : (
+                                <Plus className="w-3 h-3 text-gray-500" />
+                              )}
+                            </Button>
+                          </div>
                         </div>
                         
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                          <Badge 
-                            variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
-                            className="text-xs"
-                          >
-                            {section.availability.availableSeats}/{section.availability.capacity}
-                          </Badge>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="w-6 h-6 p-0"
-                            title={isSelected ? "Remove selection" : "Select this section"}
-                          >
-                            {isSelected ? (
-                              <X className="w-3 h-3 text-red-500" />
-                            ) : (
-                              <Plus className="w-3 h-3 text-gray-500" />
-                            )}
-                          </Button>
+                        {/* Unique meetings for this section */}
+                        <div className="space-y-1 ml-6">
+                          {getUniqueMeetings(section.meetings).map((meeting, index) => (
+                            <div key={index} className="flex items-center justify-between text-sm text-gray-600">
+                              <span className="font-mono">
+                                {meeting?.time || 'TBD'}
+                              </span>
+                              <div className="flex items-center gap-2">
+                                <span className="truncate max-w-[120px]" title={meeting?.location || 'TBD'}>
+                                  {meeting?.location || 'TBD'}
+                                </span>
+                                <span className="truncate max-w-[100px]" title={meeting?.instructor || 'TBD'}>
+                                  {meeting?.instructor || 'TBD'}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )

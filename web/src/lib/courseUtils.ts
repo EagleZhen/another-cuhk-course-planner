@@ -418,3 +418,49 @@ export function getDeterministicColor(courseCode: string): string {
   
   return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
 }
+
+/**
+ * Group meetings by time + location + instructor to show unique meetings
+ * This consolidates duplicate meetings that occur at the same time/place with same instructor
+ */
+export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[] {
+  const meetingGroups = new Map<string, InternalMeeting[]>()
+  
+  meetings.forEach((meeting) => {
+    const key = `${meeting?.time || 'TBD'}-${meeting?.location || 'TBD'}-${meeting?.instructor || 'TBD'}`
+    if (!meetingGroups.has(key)) {
+      meetingGroups.set(key, [])
+    }
+    meetingGroups.get(key)!.push(meeting)
+  })
+  
+  // Return first meeting from each group (they're identical for display purposes)
+  return Array.from(meetingGroups.values()).map(group => group[0])
+}
+
+/**
+ * Format time string for compact display: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
+ */
+export function formatTimeCompact(timeStr: string): string {
+  if (!timeStr || timeStr === 'TBD') return 'TBD'
+  
+  return timeStr
+    .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
+      const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
+      return `${hour}:${m}`
+    })
+    .replace(/(\d{1,2}):(\d{2})AM/g, (_match: string, h: string, m: string) => {
+      const hour = parseInt(h) === 12 ? 0 : parseInt(h)
+      return `${hour.toString().padStart(2, '0')}:${m}`
+    })
+    .replace(' - ', '-')
+}
+
+/**
+ * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
+ */
+export function formatInstructorCompact(instructor: string): string {
+  if (!instructor || instructor === 'TBD') return 'TBD'
+  
+  return instructor.replace('Professor ', 'Prof. ')
+}
