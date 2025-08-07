@@ -32,11 +32,15 @@ export default function Home() {
       const savedSchedule = localStorage.getItem(`schedule_${currentTerm}`)
       if (savedSchedule) {
         const parsedSchedule: CourseEnrollment[] = JSON.parse(savedSchedule)
-        // Restore Date objects
-        const restoredSchedule = parsedSchedule.map((enrollment) => ({
-          ...enrollment,
-          enrollmentDate: new Date(enrollment.enrollmentDate)
-        }))
+        // Restore Date objects and regenerate colors for consistency
+        const restoredSchedule = parsedSchedule.map((enrollment) => {
+          const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+          return {
+            ...enrollment,
+            enrollmentDate: new Date(enrollment.enrollmentDate),
+            color: getDeterministicColor(courseKey) // Regenerate color to ensure consistency
+          }
+        })
         setCourseEnrollments(restoredSchedule)
       } else {
         // No saved schedule for this term, start fresh
@@ -132,9 +136,9 @@ export default function Home() {
     // Assign deterministic color based on course code
     const assignedColor = getDeterministicColor(courseKey)
     
-    // Create new enrollment
+    // Create new enrollment - using deterministic ID for server/client consistency
     const newEnrollment: CourseEnrollment = {
-      courseId: `${courseKey}_${Date.now()}`,
+      courseId: courseKey, // Remove timestamp to ensure server/client match
       course,
       selectedSections: selectedSectionsForCourse,
       enrollmentDate: new Date(),

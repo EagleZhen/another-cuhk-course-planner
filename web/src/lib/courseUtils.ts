@@ -353,32 +353,68 @@ export function getSelectedSectionsForCourse(
   return result
 }
 
+// 72-color palette for deterministic color assignment (excluding 400 shades for better contrast)
+// Hardcoded to ensure all classes are included in Tailwind build
+const DETERMINISTIC_COLORS = [
+  // Blue family
+  'bg-blue-500', 'bg-blue-600', 'bg-blue-700', 'bg-blue-800',
+  // Sky family
+  'bg-sky-500', 'bg-sky-600', 'bg-sky-700', 'bg-sky-800',
+  // Cyan family
+  'bg-cyan-500', 'bg-cyan-600', 'bg-cyan-700', 'bg-cyan-800',
+  // Teal family
+  'bg-teal-500', 'bg-teal-600', 'bg-teal-700', 'bg-teal-800',
+  // Emerald family
+  'bg-emerald-500', 'bg-emerald-600', 'bg-emerald-700', 'bg-emerald-800',
+  // Green family
+  'bg-green-500', 'bg-green-600', 'bg-green-700', 'bg-green-800',
+  // Amber family
+  'bg-amber-500', 'bg-amber-600', 'bg-amber-700', 'bg-amber-800',
+  // Orange family
+  'bg-orange-500', 'bg-orange-600', 'bg-orange-700', 'bg-orange-800',
+  // Pink family
+  'bg-pink-500', 'bg-pink-600', 'bg-pink-700', 'bg-pink-800',
+  // Rose family
+  'bg-rose-500', 'bg-rose-600', 'bg-rose-700', 'bg-rose-800',
+  // Fuchsia family
+  'bg-fuchsia-500', 'bg-fuchsia-600', 'bg-fuchsia-700', 'bg-fuchsia-800',
+  // Purple family
+  'bg-purple-500', 'bg-purple-600', 'bg-purple-700', 'bg-purple-800',
+  // Violet family
+  'bg-violet-500', 'bg-violet-600', 'bg-violet-700', 'bg-violet-800',
+  // Indigo family
+  'bg-indigo-500', 'bg-indigo-600', 'bg-indigo-700', 'bg-indigo-800',
+  // Slate family
+  'bg-slate-500', 'bg-slate-600', 'bg-slate-700', 'bg-slate-800',
+  // Gray family
+  'bg-gray-500', 'bg-gray-600', 'bg-gray-700', 'bg-gray-800',
+  // Zinc family
+  'bg-zinc-500', 'bg-zinc-600', 'bg-zinc-700', 'bg-zinc-800',
+  // Stone family
+  'bg-stone-500', 'bg-stone-600', 'bg-stone-700', 'bg-stone-800'
+] as const
+
 /**
  * Generate deterministic color for course based on course code
  */
 export function getDeterministicColor(courseCode: string): string {
-  // 25-color palette avoiding red tones (reserved for conflicts)
-  const colors = [
-    'bg-blue-500', 'bg-blue-600', 'bg-sky-500', 'bg-cyan-500',
-    'bg-green-500', 'bg-emerald-500', 'bg-teal-500', 'bg-purple-500',
-    'bg-violet-500', 'bg-indigo-500', 'bg-pink-500', 'bg-yellow-500',
-    'bg-amber-500', 'bg-orange-500', 'bg-lime-500', 'bg-slate-600',
-    'bg-gray-600', 'bg-zinc-600', 'bg-neutral-600', 'bg-stone-600',
-    'bg-rose-500', 'bg-fuchsia-500', 'bg-blue-700', 'bg-green-600',
-    'bg-purple-600'
-  ]
+  // Using pre-generated color palette for server/client consistency
   
-  // Advanced hash function with prime number mixing
+  // Improved hash function - polynomial rolling hash with proper mixing
   let hash = 0
-  const prime = 31 // Prime for better distribution
+  const prime = 31 // Well-known prime used in Java String.hashCode()
+  
+  // Compute polynomial hash without early modulo to avoid collisions
   for (let i = 0; i < courseCode.length; i++) {
-    hash = (hash * prime + courseCode.charCodeAt(i)) % 2147483647
+    hash = hash * prime + courseCode.charCodeAt(i)
   }
   
-  // Additional mixing to reduce clustering
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b  
-  hash = (hash >>> 16) ^ hash
+  // MurmurHash3-style finalizer for better distribution
+  hash = hash ^ (hash >>> 16)
+  hash = (hash * 0x85ebca6b) >>> 0  // Multiply by well-researched constant
+  hash = hash ^ (hash >>> 13)
+  hash = (hash * 0xc2b2ae35) >>> 0  // Second mixing constant
+  hash = hash ^ (hash >>> 16)
   
-  return colors[Math.abs(hash) % colors.length]
+  return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
 }
