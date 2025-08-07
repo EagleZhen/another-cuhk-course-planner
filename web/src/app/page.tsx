@@ -95,13 +95,7 @@ export default function Home() {
 
   const handleSelectEnrollment = (enrollmentId: string | null) => {
     setSelectedEnrollment(enrollmentId)
-    
-    // Auto-clear selection after 1.5 seconds
-    if (enrollmentId) {
-      setTimeout(() => {
-        setSelectedEnrollment(null)
-      }, 1000)
-    }
+    // No auto-clear timeout - selection persists for section cycling
   }
 
   const handleClearSelection = () => {
@@ -173,6 +167,7 @@ export default function Home() {
                 events={calendarEvents} 
                 selectedTerm={currentTerm}
                 availableTerms={availableTerms}
+                selectedEnrollment={selectedEnrollment}
                 onTermChange={handleTermChange}
                 onToggleVisibility={handleToggleVisibility}
                 onSelectEnrollment={handleSelectEnrollment}
