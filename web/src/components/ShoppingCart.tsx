@@ -257,8 +257,7 @@ export default function ShoppingCart({
                       
                       const canCycle = compatible.length > 1
                       const currentIndex = compatible.findIndex(s => s.id === section.id)
-                      const sectionPosition = `${currentIndex + 1}/${compatible.length}` 
-                      const isOrphan = !canCycle
+                      const sectionPosition = `${currentIndex + 1}/${compatible.length}`
                       
                       return (
                         <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
@@ -268,15 +267,10 @@ export default function ShoppingCart({
                               <div className="text-xs font-mono font-medium text-gray-800">
                                 {section.sectionCode}
                               </div>
-                              {isOrphan && (
-                                <Badge variant="outline" className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300">
-                                  only option
-                                </Badge>
-                              )}
                             </div>
                             
-                            {/* Cycling controls */}
-                            {canCycle && (
+                            {/* Cycling controls or "only option" badge */}
+                            {canCycle ? (
                               <div className="flex items-center gap-1">
                                 <span className="text-[10px] text-gray-500 mr-1">
                                   {sectionPosition}
@@ -306,6 +300,10 @@ export default function ShoppingCart({
                                   <ChevronRight className="w-3 h-3 text-gray-600" />
                                 </Button>
                               </div>
+                            ) : (
+                              <Badge variant="outline" className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300">
+                                only option
+                              </Badge>
                             )}
                           </div>
                         
