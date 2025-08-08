@@ -107,7 +107,7 @@ export default function ShoppingCart({
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
   return (
-    <Card className="h-[800px] flex flex-col">
+    <Card className="h-[800px] flex flex-col" data-shopping-cart>
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">My Schedule</CardTitle>

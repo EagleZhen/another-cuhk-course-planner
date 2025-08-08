@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
@@ -21,6 +21,7 @@ interface CourseSearchProps {
   onTermChange?: (term: string) => void
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
+  onSelectEnrollment?: (enrollmentId: string | null) => void
 }
 
 export default function CourseSearch({ 
@@ -31,7 +32,8 @@ export default function CourseSearch({
   availableTerms = [],
   onTermChange, 
   selectedSections, 
-  onSelectedSectionsChange 
+  onSelectedSectionsChange,
+  onSelectEnrollment
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
@@ -271,6 +273,8 @@ export default function CourseSearch({
                 onRemoveCourse={onRemoveCourse}
                 isAdded={isCourseAdded(course)}
                 hasSelectionsChanged={hasSelectionsChanged(course)}
+                onSelectEnrollment={onSelectEnrollment}
+                courseEnrollments={courseEnrollments}
               />
             ))}
           </>
@@ -290,7 +294,9 @@ function CourseCard({
   onAddCourse,
   onRemoveCourse, 
   isAdded,
-  hasSelectionsChanged
+  hasSelectionsChanged,
+  onSelectEnrollment,
+  courseEnrollments
 }: { 
   course: InternalCourse
   currentTerm: string
@@ -302,10 +308,17 @@ function CourseCard({
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
   hasSelectionsChanged: boolean
+  onSelectEnrollment?: (enrollmentId: string | null) => void
+  courseEnrollments: CourseEnrollment[]
 }) {
   const [expanded, setExpanded] = useState(false)
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
+  
+  // Get enrolled course for this course
+  const enrolledCourse = courseEnrollments.find(enrollment => 
+    enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+  )
   const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, selectedSections)
 
   // Get unique instructors from current term
@@ -372,6 +385,23 @@ function CourseCard({
                 >
                   <Trash2 className="w-3 h-3 mr-1" />
                   Remove
+                </Button>
+                
+                {/* Go to Cart button */}
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    if (onSelectEnrollment && enrolledCourse) {
+                      onSelectEnrollment(enrolledCourse.courseId)
+                    }
+                  }}
+                  className="min-w-[80px] cursor-pointer"
+                  title="Go to course in shopping cart"
+                >
+                  <ShoppingCart className="w-3 h-3 mr-1" />
+                  Go to Cart
                 </Button>
                 
                 {/* Update or Added status button */}
