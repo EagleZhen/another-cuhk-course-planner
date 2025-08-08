@@ -236,13 +236,6 @@ export default function WeeklyCalendar({
                           <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
                             {event.location}
                           </div>
-                          
-                          {/* Conflict count indicator - only for conflicted top cards */}
-                          {isConflicted && isTopCard && group.length > 2 && (
-                            <div className="absolute bottom-0.5 right-0.5 bg-red-500 text-white text-[8px] px-1 rounded font-medium">
-                              +{group.length - 1}
-                            </div>
-                          )}
                         </div>
                       )
                     })
