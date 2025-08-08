@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2 } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
@@ -97,6 +97,13 @@ export default function CourseSearch({
   }, [])
 
   // Real-time search with useMemo for performance, filtered by current term
+  // Helper function to open Google search for course reviews
+  const searchCourseReviews = (course: InternalCourse) => {
+    const query = `CUHK ${course.subject} ${course.courseCode} review`
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
+    window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
+  }
+
   const searchResults = useMemo(() => {
     // First filter by term - only show courses available in current term
     const termFilteredCourses = allCourses.filter(course => 
@@ -169,6 +176,7 @@ export default function CourseSearch({
                 course={course}
                 currentTerm={currentTerm}
                 selectedSections={selectedSections}
+                onSearchReviews={searchCourseReviews}
                 onSectionToggle={(courseKey, sectionType, sectionId) => {
                   const newMap = new Map(selectedSections)
                   const selectionKey = `${courseKey}_${sectionType}`
@@ -218,6 +226,7 @@ function CourseCard({
   course, 
   currentTerm, 
   selectedSections, 
+  onSearchReviews,
   onSectionToggle, 
   onAddCourse,
   onRemoveCourse, 
@@ -227,6 +236,7 @@ function CourseCard({
   course: InternalCourse
   currentTerm: string
   selectedSections: Map<string, string>
+  onSearchReviews: (course: InternalCourse) => void
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
@@ -251,9 +261,24 @@ function CourseCard({
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <CardTitle className="text-lg">
-              {course.subject}{course.courseCode}
-            </CardTitle>
+            <div className="flex items-center gap-2">
+              <CardTitle className="text-lg">
+                {course.subject}{course.courseCode}
+              </CardTitle>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onSearchReviews(course)
+                }}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100 cursor-pointer"
+                title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
+              >
+                <Search className="w-3 h-3 mr-1" />
+                Reviews
+              </Button>
+            </div>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
             </CardDescription>
