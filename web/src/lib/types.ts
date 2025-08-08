@@ -39,7 +39,7 @@ export interface SectionAvailability {
   availableSeats: number
 }
 
-export type SectionType = 'LEC' | 'TUT' | 'LAB' | 'EXR' | 'SEM' | 'PRJ' | 'WKS' | 'PRA' | 'FLD' | 'OTHER'
+export type SectionType = 'LEC' | 'TUT' | 'LAB' | 'EXR' | 'SEM' | 'PRJ' | 'PRA' | 'OTHER'
 
 // Course enrollment using clean internal types
 export interface CourseEnrollment {

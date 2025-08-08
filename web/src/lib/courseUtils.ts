@@ -291,9 +291,7 @@ export function getSectionTypeName(type: SectionType): string {
     'EXR': 'Exercise',
     'SEM': 'Seminar',
     'PRJ': 'Project',
-    'WKS': 'Workshop',
-    'PRA': 'Practical',
-    'FLD': 'Field Work',
+    'PRA': 'Practicum',
     'OTHER': 'Other'
   }
   return names[type]
@@ -310,9 +308,7 @@ export function getSectionTypeIcon(type: SectionType): string {
     'EXR': '💪',
     'SEM': '🗣️',
     'PRJ': '🛠️',
-    'WKS': '👥',
     'PRA': '⚙️',
-    'FLD': '🌍',
     'OTHER': '📋'
   }
   return icons[type]
