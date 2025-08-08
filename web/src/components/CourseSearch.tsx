@@ -364,12 +364,6 @@ function CourseCard({
                         All {typeGroup.sections.length} available
                       </Badge>
                     )}
-                    {/* Priority indicator for higher-priority types */}
-                    {typeGroup.priority === 0 && (
-                      <Badge variant="outline" className="text-xs text-purple-700 border-purple-300 bg-purple-50">
-                        Choose first
-                      </Badge>
-                    )}
                   </h4>
                 
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}

@@ -286,8 +286,8 @@ export function parseSectionTypes(course: InternalCourse, termName: string): Sec
 export function getSectionTypeName(type: SectionType): string {
   const names: Record<SectionType, string> = {
     'LEC': 'Lecture',
-    'TUT': 'Tutorial',
-    'LAB': 'Laboratory', 
+    'TUT': 'Interactive Tutorial',
+    'LAB': 'Laboratory',
     'EXR': 'Exercise',
     'SEM': 'Seminar',
     'PRJ': 'Project',
