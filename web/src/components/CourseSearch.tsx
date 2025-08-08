@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -150,12 +150,30 @@ export default function CourseSearch({
                   if (newMap.get(selectionKey) === sectionId) {
                     // Remove selection
                     newMap.delete(selectionKey)
+                    onSelectedSectionsChange(newMap)
                   } else {
                     // Set new selection (replaces any existing selection for this type)
                     newMap.set(selectionKey, sectionId)
+                    
+                    // Find the course to get section types for cascade clearing
+                    const targetCourse = searchResults.find(c => `${c.subject}${c.courseCode}` === courseKey)
+                    if (targetCourse) {
+                      const sectionTypes = parseSectionTypes(targetCourse, currentTerm)
+                      // Clear any lower-priority incompatible selections
+                      const clearedMap = clearIncompatibleLowerSelections(
+                        newMap, 
+                        courseKey, 
+                        sectionType, 
+                        sectionId, 
+                        sectionTypes, 
+                        targetCourse, 
+                        currentTerm
+                      )
+                      onSelectedSectionsChange(clearedMap)
+                    } else {
+                      onSelectedSectionsChange(newMap)
+                    }
                   }
-                  
-                  onSelectedSectionsChange(newMap)
                 }}
                 onAddCourse={onAddCourse}
                 isAdded={isCourseAdded(course)}
@@ -242,28 +260,74 @@ function CourseCard({
         <CardContent className="pt-0">
           <div className="space-y-4">
             {/* Section Selection */}
-            {sectionTypes.map(typeGroup => (
-              <div key={typeGroup.type}>
-                <h4 className="flex items-center gap-2 font-medium text-sm text-gray-700 mb-2">
-                  <span>{typeGroup.icon}</span>
-                  <span>{typeGroup.displayName}</span>
-                  <Badge variant="outline" className="text-xs">
-                    Pick 1
-                  </Badge>
-                </h4>
+            {sectionTypes.map(typeGroup => {
+              // Get currently selected sections for this course to check compatibility
+              const currentlySelectedSections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
+              
+              // Only constrain by HIGHER priority selections (hierarchical flow)
+              const higherPrioritySelections = currentlySelectedSections.filter(s => {
+                const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+                return sPriority < typeGroup.priority  // Lower number = higher priority
+              })
+              
+              // Categorize sections as compatible/incompatible based on higher priority selections only
+              const { compatible, incompatible, hasNoCompatible } = categorizeCompatibleSections(
+                typeGroup.sections, 
+                higherPrioritySelections
+              )
+              
+              // Determine if this section type can be changed freely
+              const canChangeFreely = typeGroup.priority <= 1 || higherPrioritySelections.length === 0
+              
+              return (
+                <div key={typeGroup.type}>
+                  <h4 className="flex items-center gap-2 font-medium text-sm text-gray-700 mb-2">
+                    <span>{typeGroup.icon}</span>
+                    <span>{typeGroup.displayName}</span>
+                    <Badge variant="outline" className="text-xs">
+                      Pick 1
+                    </Badge>
+                    {/* Show positive availability messaging */}
+                    {hasNoCompatible ? (
+                      <Badge variant="secondary" className="text-xs">
+                        No compatible options
+                      </Badge>
+                    ) : compatible.length < typeGroup.sections.length ? (
+                      <Badge variant="outline" className="text-xs text-green-700 border-green-300 bg-green-50">
+                        {compatible.length} available
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="text-xs text-blue-700 border-blue-300 bg-blue-50">
+                        All {typeGroup.sections.length} available
+                      </Badge>
+                    )}
+                    {/* Priority indicator for higher-priority types */}
+                    {typeGroup.priority === 0 && (
+                      <Badge variant="outline" className="text-xs text-purple-700 border-purple-300 bg-purple-50">
+                        Choose first
+                      </Badge>
+                    )}
+                  </h4>
                 
                 {/* Display sections horizontally for easy comparison */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {typeGroup.sections.map(section => {
                     const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
+                    const isIncompatible = incompatible.includes(section)
+                    const sectionPrefix = getSectionPrefix(section.sectionCode)
                     
                     return (
                       <div 
                         key={section.id}
                         className={`p-2 rounded border transition-all ${
-                          isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                          isSelected 
+                            ? 'border-blue-500 bg-blue-50' 
+                            : isIncompatible 
+                              ? 'border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed' 
+                              : 'border-gray-200 hover:border-gray-300 cursor-pointer'
                         }`}
-                        onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
+                        onClick={() => !isIncompatible && onSectionToggle(courseKey, typeGroup.type, section.id)}
+                        title={isIncompatible ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections` : undefined}
                       >
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
@@ -319,7 +383,8 @@ function CourseCard({
                   })}
                 </div>
               </div>
-            ))}
+              )
+            })}
 
             {/* Course Details */}
             <div className="border-t pt-4 space-y-3">
