@@ -112,9 +112,6 @@ export default function ShoppingCart({
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">My Schedule</CardTitle>
           <div className="flex items-center gap-2">
-            {conflictCount > 0 && (
-              <AlertTriangle className="w-3 h-3 text-red-500" />
-            )}
             <Badge variant="secondary" className="text-xs">
               {courseEnrollments.length}
             </Badge>
@@ -356,7 +353,10 @@ export default function ShoppingCart({
               ).toFixed(1)} credits
             </span>
             {conflictCount > 0 && (
-              <span className="text-red-500">{conflictCount} conflicts</span>
+              <div className="flex items-center gap-1 text-red-500">
+                <AlertTriangle className="w-3 h-3" />
+                <span>Conflicts</span>
+              </div>
             )}
           </div>
         </div>
