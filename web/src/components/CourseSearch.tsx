@@ -104,6 +104,13 @@ export default function CourseSearch({
     window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
   }
 
+  // Helper function to open Google search for instructor
+  const searchInstructor = (instructorName: string) => {
+    const query = `${instructorName}`
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
+    window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
+  }
+
   const searchResults = useMemo(() => {
     // First filter by term - only show courses available in current term
     const termFilteredCourses = allCourses.filter(course => 
@@ -143,7 +150,7 @@ export default function CourseSearch({
       <div className="w-full space-y-2">
         <Input
           type="text"
-          placeholder="Search courses (e.g., CSCI3100, Software Engineering, CHEONG Chi Hong)"
+          placeholder="Search courses (e.g., CSCI3100, Software Engineering, CHEONG Chi Hong, Prof. WONG)"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full"
@@ -177,6 +184,7 @@ export default function CourseSearch({
                 currentTerm={currentTerm}
                 selectedSections={selectedSections}
                 onSearchReviews={searchCourseReviews}
+                onSearchInstructor={searchInstructor}
                 onSectionToggle={(courseKey, sectionType, sectionId) => {
                   const newMap = new Map(selectedSections)
                   const selectionKey = `${courseKey}_${sectionType}`
@@ -227,6 +235,7 @@ function CourseCard({
   currentTerm, 
   selectedSections, 
   onSearchReviews,
+  onSearchInstructor,
   onSectionToggle, 
   onAddCourse,
   onRemoveCourse, 
@@ -237,6 +246,7 @@ function CourseCard({
   currentTerm: string
   selectedSections: Map<string, string>
   onSearchReviews: (course: InternalCourse) => void
+  onSearchInstructor: (instructorName: string) => void
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
@@ -320,7 +330,9 @@ function CourseCard({
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
-                    hasSelectionsChanged && isEnrollmentComplete && onAddCourse(course, selectedSections)
+                    if (hasSelectionsChanged && isEnrollmentComplete) {
+                      onAddCourse(course, selectedSections)
+                    }
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="min-w-[80px]"
@@ -338,7 +350,9 @@ function CourseCard({
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
-                  isEnrollmentComplete && onAddCourse(course, selectedSections)
+                  if (isEnrollmentComplete) {
+                    onAddCourse(course, selectedSections)
+                  }
                 }}
                 disabled={!isEnrollmentComplete}
                 className="min-w-[80px]"
@@ -511,7 +525,16 @@ function CourseCard({
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Instructors</h4>
                   <div className="flex flex-wrap gap-1">
                     {instructors.map(instructor => (
-                      <Badge key={instructor} variant="outline" className="text-xs">
+                      <Badge 
+                        key={instructor} 
+                        variant="outline" 
+                        className="text-xs hover:bg-gray-100 cursor-pointer transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          onSearchInstructor(instructor)
+                        }}
+                        title={`Search Google for "${instructor}"`}
+                      >
                         {instructor}
                       </Badge>
                     ))}
