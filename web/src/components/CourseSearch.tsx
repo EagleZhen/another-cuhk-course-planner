@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2 } from 'lucide-react'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -14,6 +14,7 @@ import { transformExternalCourseData } from '@/lib/validation'
 
 interface CourseSearchProps {
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  onRemoveCourse: (courseKey: string) => void
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
   selectedSections: Map<string, string>
@@ -21,7 +22,8 @@ interface CourseSearchProps {
 }
 
 export default function CourseSearch({ 
-  onAddCourse, 
+  onAddCourse,
+  onRemoveCourse, 
   courseEnrollments, 
   currentTerm, 
   selectedSections, 
@@ -35,6 +37,31 @@ export default function CourseSearch({
   const isCourseAdded = (course: InternalCourse) => {
     return courseEnrollments.some(enrollment => 
       enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    )
+  }
+
+  // Helper function to get enrolled course for comparison
+  const getEnrolledCourse = (course: InternalCourse): CourseEnrollment | null => {
+    return courseEnrollments.find(enrollment => 
+      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    ) || null
+  }
+
+  // Helper function to check if current selections differ from enrolled selections
+  const hasSelectionsChanged = (course: InternalCourse): boolean => {
+    const enrolled = getEnrolledCourse(course)
+    if (!enrolled) return false
+    
+    const courseKey = `${course.subject}${course.courseCode}`
+    const currentSelections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
+    
+    // Compare section IDs
+    if (currentSelections.length !== enrolled.selectedSections.length) return true
+    
+    return currentSelections.some(currentSection => 
+      !enrolled.selectedSections.some(enrolledSection => 
+        enrolledSection.id === currentSection.id
+      )
     )
   }
 
@@ -150,15 +177,35 @@ export default function CourseSearch({
                   if (newMap.get(selectionKey) === sectionId) {
                     // Remove selection
                     newMap.delete(selectionKey)
+                    onSelectedSectionsChange(newMap)
                   } else {
                     // Set new selection (replaces any existing selection for this type)
                     newMap.set(selectionKey, sectionId)
+                    
+                    // Find the course to get section types for cascade clearing
+                    const targetCourse = searchResults.find(c => `${c.subject}${c.courseCode}` === courseKey)
+                    if (targetCourse) {
+                      const sectionTypes = parseSectionTypes(targetCourse, currentTerm)
+                      // Clear any lower-priority incompatible selections
+                      const clearedMap = clearIncompatibleLowerSelections(
+                        newMap, 
+                        courseKey, 
+                        sectionType as SectionType, // Type assertion for section type compatibility
+                        sectionId, 
+                        sectionTypes, 
+                        targetCourse, 
+                        currentTerm
+                      )
+                      onSelectedSectionsChange(clearedMap)
+                    } else {
+                      onSelectedSectionsChange(newMap)
+                    }
                   }
-                  
-                  onSelectedSectionsChange(newMap)
                 }}
                 onAddCourse={onAddCourse}
+                onRemoveCourse={onRemoveCourse}
                 isAdded={isCourseAdded(course)}
+                hasSelectionsChanged={hasSelectionsChanged(course)}
               />
             ))}
           </>
@@ -173,15 +220,19 @@ function CourseCard({
   currentTerm, 
   selectedSections, 
   onSectionToggle, 
-  onAddCourse, 
-  isAdded 
+  onAddCourse,
+  onRemoveCourse, 
+  isAdded,
+  hasSelectionsChanged
 }: { 
   course: InternalCourse
   currentTerm: string
   selectedSections: Map<string, string>
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
+  hasSelectionsChanged: boolean
 }) {
   const [expanded, setExpanded] = useState(false)
   const courseKey = `${course.subject}${course.courseCode}`
@@ -215,16 +266,47 @@ function CourseCard({
             </div>
           </div>
           <div className="flex items-center gap-2 ml-2">
-            <Button
-              variant={isEnrollmentComplete ? "default" : "secondary"}
-              size="sm"
-              onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
-              disabled={!isEnrollmentComplete || isAdded}
-              className="min-w-[80px]"
-              title={!isEnrollmentComplete ? "Select one section from each type to add course" : isAdded ? "Already added" : "Add course to cart"}
-            >
-              {isAdded ? "Added ✓" : isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
-            </Button>
+            {isAdded ? (
+              <>
+                {/* Remove button for enrolled courses */}
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => onRemoveCourse(courseKey)}
+                  className="min-w-[70px]"
+                  title="Remove course from cart"
+                >
+                  <Trash2 className="w-3 h-3 mr-1" />
+                  Remove
+                </Button>
+                
+                {/* Update or Added status button */}
+                <Button
+                  variant={hasSelectionsChanged ? "default" : "secondary"}
+                  size="sm"
+                  onClick={() => hasSelectionsChanged && isEnrollmentComplete && onAddCourse(course, selectedSections)}
+                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+                  className="min-w-[80px]"
+                  title={hasSelectionsChanged 
+                    ? "Update course with new section selections" 
+                    : "Course already added with current selections"}
+                >
+                  {hasSelectionsChanged ? "Update Cart" : "Added ✓"}
+                </Button>
+              </>
+            ) : (
+              /* Add button for non-enrolled courses */
+              <Button
+                variant={isEnrollmentComplete ? "default" : "secondary"}
+                size="sm"
+                onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
+                disabled={!isEnrollmentComplete}
+                className="min-w-[80px]"
+                title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
+              >
+                {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
+              </Button>
+            )}
             <Button
               variant="ghost"
               size="sm"
@@ -242,68 +324,139 @@ function CourseCard({
         <CardContent className="pt-0">
           <div className="space-y-4">
             {/* Section Selection */}
-            {sectionTypes.map(typeGroup => (
-              <div key={typeGroup.type}>
-                <h4 className="flex items-center gap-2 font-medium text-sm text-gray-700 mb-2">
-                  <span>{typeGroup.icon}</span>
-                  <span>{typeGroup.displayName}</span>
-                  <Badge variant="outline" className="text-xs">
-                    Pick 1
-                  </Badge>
-                </h4>
+            {sectionTypes.map(typeGroup => {
+              // Get currently selected sections for this course to check compatibility
+              const currentlySelectedSections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
+              
+              // Only constrain by HIGHER priority selections (hierarchical flow)
+              const higherPrioritySelections = currentlySelectedSections.filter(s => {
+                const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+                return sPriority < typeGroup.priority  // Lower number = higher priority
+              })
+              
+              // Categorize sections as compatible/incompatible based on higher priority selections only
+              const { compatible, incompatible, hasNoCompatible } = categorizeCompatibleSections(
+                typeGroup.sections, 
+                higherPrioritySelections
+              )
+              
+              // Note: Higher priority sections can always be changed freely (implemented in logic above)
+              
+              return (
+                <div key={typeGroup.type}>
+                  <h4 className="flex items-center gap-2 font-medium text-sm text-gray-700 mb-2">
+                    <span>{typeGroup.icon}</span>
+                    <span>{typeGroup.displayName}</span>
+                    <Badge variant="outline" className="text-xs">
+                      Pick 1
+                    </Badge>
+                    {/* Show positive availability messaging */}
+                    {hasNoCompatible ? (
+                      <Badge variant="secondary" className="text-xs">
+                        No compatible options
+                      </Badge>
+                    ) : compatible.length < typeGroup.sections.length ? (
+                      <Badge variant="outline" className="text-xs text-green-700 border-green-300 bg-green-50">
+                        {compatible.length} available
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="text-xs text-blue-700 border-blue-300 bg-blue-50">
+                        All {typeGroup.sections.length} available
+                      </Badge>
+                    )}
+                    {/* Priority indicator for higher-priority types */}
+                    {typeGroup.priority === 0 && (
+                      <Badge variant="outline" className="text-xs text-purple-700 border-purple-300 bg-purple-50">
+                        Choose first
+                      </Badge>
+                    )}
+                  </h4>
                 
-                <div className="space-y-1">
+                {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {typeGroup.sections.map(section => {
                     const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
-                    const meeting = section.meetings[0] // Show first meeting
+                    const isIncompatible = incompatible.includes(section)
+                    const sectionPrefix = getSectionPrefix(section.sectionCode)
                     
                     return (
                       <div 
                         key={section.id}
-                        className={`flex items-center justify-between p-2 rounded border transition-all ${
-                          isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'
+                        className={`p-2 rounded transition-all ${
+                          isSelected 
+                            ? 'border-2 border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200' 
+                            : isIncompatible 
+                              ? 'border border-gray-200 bg-gray-50 opacity-40 cursor-not-allowed grayscale' 
+                              : 'border border-green-200 bg-green-50 hover:border-green-300 hover:bg-green-100 cursor-pointer shadow-sm'
                         }`}
-                        onClick={() => onSectionToggle(courseKey, typeGroup.type, section.id)}
+                        onClick={() => !isIncompatible && onSectionToggle(courseKey, typeGroup.type, section.id)}
+                        title={isIncompatible ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections` : undefined}
                       >
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
-                          <div className={`w-3 h-3 rounded-full border-2 ${
-                            isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
-                          }`} />
-                          <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
-                          <span className="text-sm text-gray-600 truncate">
-                            {meeting?.time || 'TBD'}
-                          </span>
-                          <span className="text-sm text-gray-500 truncate">
-                            {meeting?.instructor || 'TBD'}
-                          </span>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <div className={`w-3 h-3 rounded-full border-2 ${
+                              isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
+                            }`} />
+                            <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
+                          </div>
+                          
+                          <div className="flex items-center gap-2 flex-shrink-0">
+                            <Badge 
+                              variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
+                              className="text-xs"
+                            >
+                              {section.availability.availableSeats}/{section.availability.capacity}
+                            </Badge>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="w-6 h-6 p-0"
+                              title={isSelected ? "Remove selection" : "Select this section"}
+                            >
+                              {isSelected ? (
+                                <X className="w-3 h-3 text-red-500" />
+                              ) : (
+                                <Plus className="w-3 h-3 text-gray-500" />
+                              )}
+                            </Button>
+                          </div>
                         </div>
                         
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                          <Badge 
-                            variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
-                            className="text-xs"
-                          >
-                            {section.availability.availableSeats}/{section.availability.capacity}
-                          </Badge>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="w-6 h-6 p-0"
-                            title={isSelected ? "Remove selection" : "Select this section"}
-                          >
-                            {isSelected ? (
-                              <X className="w-3 h-3 text-red-500" />
-                            ) : (
-                              <Plus className="w-3 h-3 text-gray-500" />
-                            )}
-                          </Button>
+                        {/* Meetings displayed compactly with time+instructor on same row */}
+                        <div className="space-y-1">
+                          {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                            const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
+                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
+                            const location = meeting?.location || 'TBD'
+                            
+                            return (
+                              <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
+                                <div className="flex items-center justify-between text-[11px]">
+                                  <span className="font-medium font-mono text-gray-900">{formattedTime}</span>
+                                  <span 
+                                    className="text-gray-600 truncate text-right max-w-[90px]"
+                                    title={formattedInstructor}
+                                  >
+                                    {formattedInstructor}
+                                  </span>
+                                </div>
+                                {location !== 'TBD' && (
+                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
+                                    <span>📍</span>
+                                    <span className="truncate" title={location}>{location}</span>
+                                  </div>
+                                )}
+                              </div>
+                            )
+                          })}
                         </div>
                       </div>
                     )
                   })}
                 </div>
               </div>
-            ))}
+              )
+            })}
 
             {/* Course Details */}
             <div className="border-t pt-4 space-y-3">

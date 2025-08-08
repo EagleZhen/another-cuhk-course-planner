@@ -11,6 +11,7 @@ interface WeeklyCalendarProps {
   events: CalendarEvent[]
   selectedTerm?: string
   availableTerms?: string[]
+  selectedEnrollment?: string | null
   onTermChange?: (term: string) => void
   onToggleVisibility?: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -20,6 +21,7 @@ export default function WeeklyCalendar({
   events, 
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
+  selectedEnrollment,
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
@@ -80,9 +82,21 @@ export default function WeeklyCalendar({
           </div>
 
           {/* Calendar Content Grid */}
-          <div className="grid" style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}>
+          <div 
+            className="grid" 
+            style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}
+            onClick={(e) => {
+              // Click away handler - deselect if clicking on empty calendar space (not on a course card)
+              const target = e.target as HTMLElement
+              const isEmptySpace = !target.closest('[data-course-card]')
+              
+              if (isEmptySpace && onSelectEnrollment) {
+                onSelectEnrollment(null)
+              }
+            }}
+          >
             {/* Time column - smaller width */}
-            <div className="flex flex-col flex-shrink-0 border-r border-gray-200">
+            <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
             <div className="flex-1">
               {hours.map(hour => (
                 <div key={hour} className="h-16 flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100">
@@ -99,7 +113,7 @@ export default function WeeklyCalendar({
             const conflictZones = getConflictZones(dayEvents)
             
             return (
-              <div key={day} className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200">
+              <div key={day} className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column">
                 {/* Hour slots */}
                 <div className="relative flex-1">
                   {hours.map(hour => (
@@ -137,17 +151,25 @@ export default function WeeklyCalendar({
                       const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
                       const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
                       
-                      // Conditional styling based on conflict status
+                      // Conditional styling based on conflict status and selection
                       const isConflicted = group.length > 1
+                      const isSelected = selectedEnrollment === event.enrollmentId
                       const stackOffset = isConflicted ? stackIndex * 16 : 0
                       const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * 16 : 0
-                      const zIndex = isConflicted ? 20 + stackIndex : 10
+                      
+                      // Boost z-index for selected cards to bring them to front
+                      let zIndex = isConflicted ? 20 + stackIndex : 10
+                      if (isSelected) {
+                        zIndex = 100 // Much higher z-index to ensure it's on top
+                      }
+                      
                       const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
                       const isTopCard = stackIndex === 0
                       
                       return (
                         <div
                           key={event.id}
+                          data-course-card="true"
                           style={{
                             position: 'absolute',
                             top: `${cardTop}px`,
@@ -159,20 +181,22 @@ export default function WeeklyCalendar({
                           className={`
                             ${event.color} 
                             rounded-sm p-1 text-xs text-white ${shadowClass}
-                            hover:scale-[1.02] transition-all cursor-pointer
+                            hover:scale-105 transition-all cursor-pointer
                             overflow-hidden group
+                            ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105 shadow-2xl' : ''}
                           `}
                           onClick={() => {
-                            // Select the corresponding enrollment in shopping cart
+                            // Toggle selection: if already selected, deselect; otherwise select
                             if (onSelectEnrollment && event.enrollmentId) {
-                              onSelectEnrollment(event.enrollmentId)
+                              const newSelection = isSelected ? null : event.enrollmentId
+                              onSelectEnrollment(newSelection)
                             }
                             
                             // Log course details  
                             console.log(
                               isConflicted 
                                 ? `Conflict details: ${event.courseCode} vs ${group.filter(e => e.id !== event.id).map(e => e.courseCode)}`
-                                : `Course details: ${event.courseCode}`
+                                : `Course details: ${event.courseCode} - Selected: ${!isSelected}`
                             )
                           }}
                         >

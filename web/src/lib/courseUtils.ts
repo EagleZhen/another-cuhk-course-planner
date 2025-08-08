@@ -239,35 +239,45 @@ export interface SectionTypeGroup {
   displayName: string
   icon: string
   sections: InternalSection[]
+  priority: number  // Lower number = higher priority (0 = highest)
 }
 
 /**
  * Parse section types from course data for a specific term
+ * Uses data-driven ordering based on scraped JSON order (reflects official catalog)
  */
 export function parseSectionTypes(course: InternalCourse, termName: string): SectionTypeGroup[] {
   const term = course.terms.find(t => t.termName === termName)
   if (!term?.sections) return []
   
-  // Group sections by type
+  // Track first occurrence index for natural ordering + group sections by type
+  const typeOrder = new Map<SectionType, number>()
   const groups = new Map<SectionType, InternalSection[]>()
   
-  term.sections.forEach(section => {
+  term.sections.forEach((section, index) => {
     const type = section.sectionType
+    
+    // Record first occurrence for data-driven ordering
+    if (!typeOrder.has(type)) {
+      typeOrder.set(type, index)
+    }
     
     if (!groups.has(type)) {
       groups.set(type, [])
     }
-    
     groups.get(type)!.push(section)
   })
   
-  // Convert to SectionTypeGroup array
-  return Array.from(groups.entries()).map(([type, sections]) => ({
-    type,
-    displayName: getSectionTypeName(type),
-    icon: getSectionTypeIcon(type),
-    sections
-  }))
+  // Sort by natural data order (preserves official catalog sequence)
+  return Array.from(groups.entries())
+    .sort(([typeA], [typeB]) => typeOrder.get(typeA)! - typeOrder.get(typeB)!)
+    .map(([type, sections], index) => ({
+      type,
+      displayName: getSectionTypeName(type),
+      icon: getSectionTypeIcon(type),
+      sections,
+      priority: index  // First in data order = highest priority (0)
+    }))
 }
 
 /**
@@ -310,6 +320,7 @@ export function getSectionTypeIcon(type: SectionType): string {
 
 /**
  * Check if a course enrollment is complete (has all required section types selected)
+ * Now considers compatibility constraints - allows enrollment with orphan sections
  */
 export function isCourseEnrollmentComplete(
   course: InternalCourse, 
@@ -319,10 +330,35 @@ export function isCourseEnrollmentComplete(
   const sectionTypes = parseSectionTypes(course, termName)
   const courseKey = `${course.subject}${course.courseCode}`
   
-  // Check if we have a selection for each section type
+  // Get currently selected sections
+  const currentlySelected = getSelectedSectionsForCourse(course, termName, selectedSections)
+  
+  // If no selections, not complete
+  if (currentlySelected.length === 0) return false
+  
+  // For each section type, check if:
+  // 1. User has selected it, OR
+  // 2. No compatible sections exist for this type given current selections
   return sectionTypes.every(typeGroup => {
     const selectionKey = `${courseKey}_${typeGroup.type}`
-    return selectedSections.has(selectionKey)
+    const hasSelection = selectedSections.has(selectionKey)
+    
+    if (hasSelection) return true // User selected this type
+    
+    // Check if there are any compatible sections for this type
+    // Only consider HIGHER priority selections as constraints (hierarchical)
+    const higherPrioritySelections = currentlySelected.filter(s => {
+      const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+      return sPriority < typeGroup.priority
+    })
+    
+    const { compatible } = categorizeCompatibleSections(
+      typeGroup.sections,
+      higherPrioritySelections
+    )
+    
+    // If no compatible sections exist, this type is not required
+    return compatible.length === 0
   })
 }
 
@@ -353,32 +389,380 @@ export function getSelectedSectionsForCourse(
   return result
 }
 
+// 72-color palette for deterministic color assignment (excluding 400 shades for better contrast)
+// Hardcoded to ensure all classes are included in Tailwind build
+const DETERMINISTIC_COLORS = [
+  // Blue family
+  'bg-blue-500', 'bg-blue-600', 'bg-blue-700', 'bg-blue-800',
+  // Sky family
+  'bg-sky-500', 'bg-sky-600', 'bg-sky-700', 'bg-sky-800',
+  // Cyan family
+  'bg-cyan-500', 'bg-cyan-600', 'bg-cyan-700', 'bg-cyan-800',
+  // Teal family
+  'bg-teal-500', 'bg-teal-600', 'bg-teal-700', 'bg-teal-800',
+  // Emerald family
+  'bg-emerald-500', 'bg-emerald-600', 'bg-emerald-700', 'bg-emerald-800',
+  // Green family
+  'bg-green-500', 'bg-green-600', 'bg-green-700', 'bg-green-800',
+  // Amber family
+  'bg-amber-500', 'bg-amber-600', 'bg-amber-700', 'bg-amber-800',
+  // Orange family
+  'bg-orange-500', 'bg-orange-600', 'bg-orange-700', 'bg-orange-800',
+  // Pink family
+  'bg-pink-500', 'bg-pink-600', 'bg-pink-700', 'bg-pink-800',
+  // Rose family
+  'bg-rose-500', 'bg-rose-600', 'bg-rose-700', 'bg-rose-800',
+  // Fuchsia family
+  'bg-fuchsia-500', 'bg-fuchsia-600', 'bg-fuchsia-700', 'bg-fuchsia-800',
+  // Purple family
+  'bg-purple-500', 'bg-purple-600', 'bg-purple-700', 'bg-purple-800',
+  // Violet family
+  'bg-violet-500', 'bg-violet-600', 'bg-violet-700', 'bg-violet-800',
+  // Indigo family
+  'bg-indigo-500', 'bg-indigo-600', 'bg-indigo-700', 'bg-indigo-800',
+  // Slate family
+  'bg-slate-500', 'bg-slate-600', 'bg-slate-700', 'bg-slate-800',
+  // Gray family
+  'bg-gray-500', 'bg-gray-600', 'bg-gray-700', 'bg-gray-800',
+  // Zinc family
+  'bg-zinc-500', 'bg-zinc-600', 'bg-zinc-700', 'bg-zinc-800',
+  // Stone family
+  'bg-stone-500', 'bg-stone-600', 'bg-stone-700', 'bg-stone-800'
+] as const
+
 /**
  * Generate deterministic color for course based on course code
  */
 export function getDeterministicColor(courseCode: string): string {
-  // 25-color palette avoiding red tones (reserved for conflicts)
-  const colors = [
-    'bg-blue-500', 'bg-blue-600', 'bg-sky-500', 'bg-cyan-500',
-    'bg-green-500', 'bg-emerald-500', 'bg-teal-500', 'bg-purple-500',
-    'bg-violet-500', 'bg-indigo-500', 'bg-pink-500', 'bg-yellow-500',
-    'bg-amber-500', 'bg-orange-500', 'bg-lime-500', 'bg-slate-600',
-    'bg-gray-600', 'bg-zinc-600', 'bg-neutral-600', 'bg-stone-600',
-    'bg-rose-500', 'bg-fuchsia-500', 'bg-blue-700', 'bg-green-600',
-    'bg-purple-600'
-  ]
+  // Using pre-generated color palette for server/client consistency
   
-  // Advanced hash function with prime number mixing
+  // Improved hash function - polynomial rolling hash with proper mixing
   let hash = 0
-  const prime = 31 // Prime for better distribution
+  const prime = 31 // Well-known prime used in Java String.hashCode()
+  
+  // Compute polynomial hash without early modulo to avoid collisions
   for (let i = 0; i < courseCode.length; i++) {
-    hash = (hash * prime + courseCode.charCodeAt(i)) % 2147483647
+    hash = hash * prime + courseCode.charCodeAt(i)
   }
   
-  // Additional mixing to reduce clustering
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b
-  hash = ((hash >>> 16) ^ hash) * 0x45d9f3b  
-  hash = (hash >>> 16) ^ hash
+  // MurmurHash3-style finalizer for better distribution
+  hash = hash ^ (hash >>> 16)
+  hash = (hash * 0x85ebca6b) >>> 0  // Multiply by well-researched constant
+  hash = hash ^ (hash >>> 13)
+  hash = (hash * 0xc2b2ae35) >>> 0  // Second mixing constant
+  hash = hash ^ (hash >>> 16)
   
-  return colors[Math.abs(hash) % colors.length]
+  return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
+}
+
+/**
+ * Group meetings by time + location + instructor to show unique meetings
+ * This consolidates duplicate meetings that occur at the same time/place with same instructor
+ */
+export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[] {
+  const meetingGroups = new Map<string, InternalMeeting[]>()
+  
+  meetings.forEach((meeting) => {
+    const key = `${meeting?.time || 'TBD'}-${meeting?.location || 'TBD'}-${meeting?.instructor || 'TBD'}`
+    if (!meetingGroups.has(key)) {
+      meetingGroups.set(key, [])
+    }
+    meetingGroups.get(key)!.push(meeting)
+  })
+  
+  // Return first meeting from each group (they're identical for display purposes)
+  return Array.from(meetingGroups.values()).map(group => group[0])
+}
+
+/**
+ * Format time string for compact display: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
+ */
+export function formatTimeCompact(timeStr: string): string {
+  if (!timeStr || timeStr === 'TBD') return 'TBD'
+  
+  return timeStr
+    .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
+      const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
+      return `${hour}:${m}`
+    })
+    .replace(/(\d{1,2}):(\d{2})AM/g, (_match: string, h: string, m: string) => {
+      const hour = parseInt(h) === 12 ? 0 : parseInt(h)
+      return `${hour.toString().padStart(2, '0')}:${m}`
+    })
+    .replace(' - ', '-')
+}
+
+/**
+ * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
+ */
+export function formatInstructorCompact(instructor: string): string {
+  if (!instructor || instructor === 'TBD') return 'TBD'
+  
+  return instructor.replace('Professor ', 'Prof. ')
+}
+
+// ========================================
+// Section Compatibility & Selection Logic
+// ========================================
+
+/**
+ * Extract section prefix for compatibility matching
+ * Examples: 
+ *   A-LEC → "A"        (letter prefix - specific cohort)
+ *   AE01-EXR → "A"     (letter prefix - specific cohort) 
+ *   AT01-TUT → "A"     (letter prefix - specific cohort)
+ *   --LEC → null       (dash prefix - universal wildcard)
+ *   -E01-EXR → null    (dash prefix - universal wildcard)
+ */
+export function getSectionPrefix(sectionCode: string): string | null {
+  // Check if starts with letter (not dash) - indicates specific cohort
+  const match = sectionCode.match(/^([A-Z])/)
+  return match ? match[1] : null // null = universal wildcard section
+}
+
+/**
+ * Check if two sections are compatible for pairing based on CUHK cohort rules
+ * Rules:
+ * - Letter-prefixed sections (A-LEC, AE01-EXR, AT01-TUT) must match same letter
+ * - Dash-prefixed sections (--LEC, -E01-EXR) are wildcards, match anything
+ * - Universal sections can pair with any specific cohort
+ * - Specific cohorts can only pair with same cohort or universal sections
+ */
+export function areSectionsCompatible(section1: InternalSection, section2: InternalSection): boolean {
+  const prefix1 = getSectionPrefix(section1.sectionCode)
+  const prefix2 = getSectionPrefix(section2.sectionCode)
+  
+  // Universal sections (null prefix) can pair with anything
+  if (prefix1 === null || prefix2 === null) return true
+  
+  // Same letter prefix sections can pair together
+  return prefix1 === prefix2
+}
+
+/**
+ * Get compatible and incompatible sections for UI state management
+ * Used for enabling/disabling section options based on prior selections
+ */
+export function categorizeCompatibleSections(
+  availableSections: InternalSection[],
+  selectedSections: InternalSection[]
+): {
+  compatible: InternalSection[]
+  incompatible: InternalSection[]
+  hasNoCompatible: boolean
+} {
+  // If no sections selected yet, all are compatible
+  if (selectedSections.length === 0) {
+    return {
+      compatible: availableSections,
+      incompatible: [],
+      hasNoCompatible: false
+    }
+  }
+  
+  // Check compatibility with all currently selected sections
+  const compatible = availableSections.filter(candidate =>
+    selectedSections.every(selected => areSectionsCompatible(candidate, selected))
+  )
+  
+  const incompatible = availableSections.filter(candidate =>
+    !selectedSections.every(selected => areSectionsCompatible(candidate, selected))
+  )
+  
+  return {
+    compatible,           // Shorthand property: equivalent to compatible: compatible
+    incompatible,         // Shorthand property: equivalent to incompatible: incompatible
+    hasNoCompatible: compatible.length === 0  // Computed property with boolean expression
+  }
+}
+
+/**
+ * Get compatible alternative sections for cycling in shopping cart
+ * Only returns sections of same type that work with current enrollment
+ */
+export function getCompatibleAlternatives(
+  selectedSection: InternalSection,
+  enrollment: CourseEnrollment,
+  termName: string
+): InternalSection[] {
+  const currentTerm = enrollment.course.terms.find(t => t.termName === termName)
+  if (!currentTerm) return []
+  
+  // Get sections of same type (LEC → LEC alternatives only)
+  const sameTypeSections = currentTerm.sections.filter(s => 
+    s.sectionType === selectedSection.sectionType && 
+    s.id !== selectedSection.id
+  )
+  
+  // Filter by compatibility with OTHER selected sections (different types)
+  const otherSelectedSections = enrollment.selectedSections
+    .filter(s => s.sectionType !== selectedSection.sectionType)
+  
+  return sameTypeSections.filter(candidateSection =>
+    otherSelectedSections.every(otherSection => 
+      areSectionsCompatible(candidateSection, otherSection)
+    )
+  )
+}
+
+/**
+ * Get the priority index of a section type within course section types
+ */
+export function getSectionTypePriority(
+  sectionType: SectionType, 
+  sectionTypes: SectionTypeGroup[]
+): number {
+  const typeGroup = sectionTypes.find(group => group.type === sectionType)
+  return typeGroup?.priority ?? 999 // High number = low priority if not found
+}
+
+/**
+ * Clear lower-priority section selections that become incompatible
+ * This implements the cascade reset behavior
+ */
+export function clearIncompatibleLowerSelections(
+  selectedSections: Map<string, string>,
+  courseKey: string,
+  changedSectionType: SectionType,
+  newSectionId: string,
+  sectionTypes: SectionTypeGroup[],
+  course: InternalCourse,
+  termName: string
+): Map<string, string> {
+  const newMap = new Map(selectedSections)
+  const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
+  
+  // Get the new section object
+  const termData = course.terms.find(t => t.termName === termName)
+  const newSection = termData?.sections.find(s => s.id === newSectionId)
+  if (!newSection) return newMap
+  
+  // Check all lower-priority section types
+  sectionTypes
+    .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
+    .forEach(lowerTypeGroup => {
+      const lowerSelectionKey = `${courseKey}_${lowerTypeGroup.type}`
+      const currentLowerSelectionId = newMap.get(lowerSelectionKey)
+      
+      if (currentLowerSelectionId) {
+        // Find the currently selected lower section
+        const currentLowerSection = lowerTypeGroup.sections.find(s => s.id === currentLowerSelectionId)
+        
+        // Check if it's still compatible with the new higher-priority selection
+        if (currentLowerSection && !areSectionsCompatible(newSection, currentLowerSection)) {
+          // Clear the incompatible selection
+          newMap.delete(lowerSelectionKey)
+          console.log(`🔄 Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`)
+        }
+      }
+    })
+  
+  return newMap
+}
+
+/**
+ * Check if a section type can be freely changed (is high priority or has no lower dependent selections)
+ */
+export function canFreelySectionType(
+  sectionType: SectionType,
+  sectionTypes: SectionTypeGroup[]
+): boolean {
+  const priority = getSectionTypePriority(sectionType, sectionTypes)
+  // Higher priority sections (lower numbers) can always be changed freely
+  return priority <= 1 // Allow top 2 priority levels to be changed freely
+}
+
+/**
+ * Validate course enrollment for section compatibility
+ * Returns validation result with detailed conflict information for debugging
+ */
+export function validateSectionCompatibility(enrollment: CourseEnrollment): {
+  isValid: boolean
+  conflicts: string[]
+} {
+  const conflicts: string[] = []
+  const sections = enrollment.selectedSections
+  
+  // Check all pairs of sections for compatibility
+  for (let i = 0; i < sections.length; i++) {
+    for (let j = i + 1; j < sections.length; j++) {
+      if (!areSectionsCompatible(sections[i], sections[j])) {
+        const prefix1 = getSectionPrefix(sections[i].sectionCode) || 'universal'
+        const prefix2 = getSectionPrefix(sections[j].sectionCode) || 'universal'
+        conflicts.push(
+          `${sections[i].sectionCode} (${prefix1}-cohort) and ${sections[j].sectionCode} (${prefix2}-cohort) are incompatible`
+        )
+      }
+    }
+  }
+  
+  return { isValid: conflicts.length === 0, conflicts }
+}
+
+/**
+ * Smart auto-completion: Updates enrollment sections when cycling creates new compatibility opportunities
+ * This implements the hierarchical auto-completion logic for shopping cart section cycling
+ */
+export function autoCompleteEnrollmentSections(
+  enrollment: CourseEnrollment,
+  changedSectionType: SectionType,
+  newSectionId: string,
+  course: InternalCourse,
+  termName: string
+): InternalSection[] {
+  const sectionTypes = parseSectionTypes(course, termName)
+  const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
+  
+  // Get the new section object
+  const termData = course.terms.find(t => t.termName === termName)
+  const newSection = termData?.sections.find(s => s.id === newSectionId)
+  if (!newSection) return enrollment.selectedSections
+  
+  // Start with current sections, replacing the changed one
+  let updatedSections = enrollment.selectedSections.map(section => 
+    section.sectionType === changedSectionType ? newSection : section
+  )
+  
+  // If we didn't have this section type before, add it
+  if (!enrollment.selectedSections.some(s => s.sectionType === changedSectionType)) {
+    updatedSections.push(newSection)
+  }
+  
+  // Clear incompatible lower-priority sections
+  updatedSections = updatedSections.filter(section => {
+    if (section.sectionType === changedSectionType) return true // Keep the new section
+    
+    const sectionPriority = getSectionTypePriority(section.sectionType, sectionTypes)
+    if (sectionPriority <= changedPriority) return true // Keep higher/equal priority sections
+    
+    // Check if this lower-priority section is still compatible with the new section
+    const isCompatible = areSectionsCompatible(newSection, section)
+    if (!isCompatible) {
+      console.log(`🔄 Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`)
+    }
+    return isCompatible
+  })
+  
+  // Auto-add compatible sections for missing lower-priority types
+  sectionTypes
+    .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
+    .forEach(lowerTypeGroup => {
+      // Check if we already have a section of this type
+      const hasTypeSelected = updatedSections.some(s => s.sectionType === lowerTypeGroup.type)
+      
+      if (!hasTypeSelected) {
+        // Get currently selected sections to check compatibility
+        const currentlySelected = updatedSections
+        const { compatible } = categorizeCompatibleSections(lowerTypeGroup.sections, currentlySelected)
+        
+        // Auto-add the first compatible section if available
+        if (compatible.length > 0) {
+          const firstCompatible = compatible[0]
+          updatedSections.push(firstCompatible)
+          console.log(`🔄 Auto-adding compatible ${lowerTypeGroup.type}: ${firstCompatible.sectionCode} (compatible with ${newSection.sectionCode})`)
+        }
+      }
+    })
+  
+  return updatedSections
 }

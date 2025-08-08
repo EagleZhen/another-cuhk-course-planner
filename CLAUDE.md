@@ -94,55 +94,145 @@ External JSON Data → Zod Validation → Internal Types → React Components
 - **Storage Cleanup**: Automatic removal of empty schedules to maintain clean localStorage
 - **Deterministic Colors**: Hash-based assignment ensures same colors across browser sessions
 
-### 🔄 **Next Development Phase: Section Cycling System**
+### 🔄 **Current Development Phase: Advanced Section Compatibility System** (August 2025)
 
-#### **🎯 Section Alternatives & Conflict Resolution** (In Design Phase - August 2025)
+#### **🎯 Hierarchical Section Selection with Smart Compatibility** 🏆 **ENTERPRISE-GRADE - IMPLEMENTED**
 
-**Feature Overview**: Intelligent section cycling system allowing users to easily switch between alternative sections directly from the calendar interface, with cached alternatives and visual conflict resolution.
+**Breakthrough Innovation**: Revolutionary section selection system that understands CUHK's academic cohort constraints and provides intelligent, hierarchical course enrollment with automatic cascade clearing.
 
-**Core Design Principles**:
-- **Same-Type Alternatives Only**: Clicking a LEC section shows only alternative LEC sections (intuitive 1:1 replacement)
-- **Cached Performance**: Section alternatives pre-computed and stored at enrollment time (no database lookups during interaction)
-- **Click-to-Toggle**: Click section to show ghosts, click again or elsewhere to hide (consistent interaction pattern)
-- **Natural Conflict Emphasis**: Conflict-free alternatives emphasized through absence of red conflict zones (elegant visual design)
+**Core Academic Logic Implemented**:
+- **Prefix-Based Cohort System**: `A-LEC` pairs with `AE01-EXR`, `AT01-TUT` (same A-cohort)
+- **Universal Wildcard Sections**: `--LEC`, `-E01-EXR` compatible with any cohort
+- **Hierarchical Priority**: Data-driven ordering (LEC → EXR → TUT → LAB) from official catalog
+- **Cascade Reset**: Changing high-priority sections automatically clears incompatible lower ones
+- **Smart Enrollment Validation**: Handles orphan sections (F-LEC alone) and mixed scenarios
 
-**Enhanced Data Architecture**:
+**Advanced Implementation Architecture**:
 ```typescript
-interface CourseEnrollment {
-  courseId: string
-  course: InternalCourse  // Clean internal type
-  selectedSections: InternalSection[]
-  sectionAlternatives: Map<string, InternalSection[]>  // NEW: Cached alternatives by section type
-  enrollmentDate: Date
-  color: string
-  isVisible: boolean
-}
+// Section Compatibility Engine - PRODUCTION READY
+External JSON Data → SectionType Priority → Compatibility Matrix → Smart UI
+       ↓                    ↓                    ↓                 ↓
+   LEC, EXR, TUT     Data-driven order    Prefix matching    Visual feedback
+
+// Example: PHYS1110 Smart Enrollment
+📚 PHYS1110 - General Physics I [Multiple cohort patterns supported]
+  ├─ 🏆 A-LEC → Compatible: [AE01-EXR, AE02-EXR, AT01-TUT] ✅
+  ├─ 🏆 B-LEC → Compatible: [BE01-EXR, BT01-TUT] ✅  
+  └─ 🏆 F-LEC → Compatible: [none] → Valid orphan enrollment ✅
+
+🔄 Smart Cascade: A-LEC → B-LEC automatically clears AE01-EXR (incompatible)
+📊 Visual Feedback: "3 available" vs "No compatible options" badges
+🎯 Hierarchical Flow: Higher priority sections can always be changed
 ```
 
-**Performance Strategy**:
-- **Enrollment-Time Caching**: Alternatives computed when course is added to shopping cart
-- **Zero-Lookup Interaction**: All alternatives available in CourseEnrollment data structure
-- **Memory-Efficient**: Only store alternatives for enrolled courses, not entire course database
+**Production-Quality Features Delivered**:
+- **Compatibility Validation Functions**: `areSectionsCompatible()`, `categorizeCompatibleSections()`
+- **Cascade Clearing Logic**: `clearIncompatibleLowerSelections()` with hierarchical awareness
+- **Smart Enrollment Logic**: `isCourseEnrollmentComplete()` handles orphan sections naturally
+- **Visual Design System**: Professional green tinting for available sections, clear disabled states
+- **Data-Driven Priority**: `parseSectionTypes()` preserves official catalog ordering
 
-#### **🚀 Future Enhancement Opportunities**
+#### **🛒 Shopping Cart Section Cycling System** ⚠️ **PARTIALLY IMPLEMENTED - KNOWN ISSUES**
 
-#### **1. Advanced User Features** (Post Section-Cycling)
+**Current Status**: Basic cycling implemented but architectural limitations remain
+
+**✅ Working Features**:
+- **Basic Same-Type Cycling**: Can cycle through all LEC sections (A-LEC → B-LEC → F-LEC)
+- **Visual Indicators**: Shows "1/5" position counter and "only option" badges for orphans
+- **Console Debugging**: Detailed logging for troubleshooting cycling issues
+
+**❌ Known Issues & Limitations**:
+```typescript
+// Critical UX Problem: Orphan Section Shopping Cart Limitation
+// Scenario: User adds F-LEC (orphan) to cart
+// Problem: When cycling F-LEC → A-LEC, compatible EXR/TUT don't appear
+// Root Cause: Shopping cart only shows selectedSections, not all available types
+
+interface CourseEnrollment {
+  selectedSections: InternalSection[]  // ❌ Only shows what was selected
+  // Missing: availableSections: SectionTypeGroup[] // ❌ Should show all types
+}
+
+// Current Shopping Cart Logic (Limited):
+enrollment.selectedSections.map(section => /* cycle through same type only */)
+
+// Required Shopping Cart Logic (Full Featured):
+parseSectionTypes(course, term).map(typeGroup => {
+  const currentSelection = findSelectedSection(typeGroup.type)
+  // Show cycling for selected OR available compatible sections
+})
+```
+
+**Technical Debt & Future Architecture**:
+```typescript
+// Problem: Current enrollment model is selection-centric
+interface CourseEnrollment {
+  selectedSections: InternalSection[]  // What user chose
+}
+
+// Solution: Need availability-aware model
+interface CourseEnrollment {
+  selectedSections: InternalSection[]     // What user chose
+  availableTypes: SectionTypeGroup[]     // What's possible (dynamic)
+  compatibilityMatrix: CompatibilityMap  // Real-time constraints
+}
+
+// Shopping Cart should show:
+// 1. Selected sections (with cycling arrows)
+// 2. Available unselected types (with "Add [TYPE]" button)  
+// 3. Incompatible types (grayed out with explanation)
+```
+
+#### **🔧 Immediate Priority Fixes Required**
+
+**1. Shopping Cart Architecture Overhaul** (Critical UX Issue)
+```typescript
+// Current Problem: Selection-only display
+<ShoppingCart>
+  {enrollment.selectedSections.map(...)} // ❌ Incomplete view
+</ShoppingCart>
+
+// Required Solution: Full availability display  
+<ShoppingCart>
+  {parseSectionTypes(course, term).map(typeGroup => (
+    <SectionTypeRow 
+      type={typeGroup.type}
+      selected={findSelectedSection(typeGroup.type)}
+      alternatives={getCompatibleAlternatives(typeGroup)}
+      canCycle={alternatives.length > 1}
+      onCycle={handleSectionCycle}
+      onAdd={handleAddSection} // NEW: Add unselected types
+    />
+  ))}
+</ShoppingCart>
+```
+
+**2. Dynamic Section Addition System**
+- **Add Section Buttons**: "Add EXR" buttons when compatible types become available
+- **Smart Defaults**: Auto-select first available when cycling creates new compatibilities  
+- **Visual State Management**: Clear indicators for added/removed section types
+
+**3. Enhanced Compatibility Feedback**
+- **Real-time Updates**: Section availability changes as higher-priority selections change
+- **Detailed Tooltips**: "AE01-EXR available because A-LEC selected"
+- **Conflict Prevention**: Prevent incompatible selections with clear explanations
+
+#### **🚀 Future Enhancement Roadmap**
+
+**Phase 1: Complete Shopping Cart (Next Sprint)**
+- Fix orphan section cycling UX issue
+- Implement dynamic section type addition/removal
+- Add comprehensive section availability display
+
+**Phase 2: Advanced User Features**
 - **Multi-Section Optimization**: AI-powered suggestions for optimal LEC+TUT+LAB combinations
 - **Intelligent Conflict Resolution**: Step-by-step wizard for resolving complex multi-course conflicts  
 - **Schedule Optimization Engine**: Analyze all possible combinations and suggest conflict-free schedules
-- **Advanced Search Filters**: Filter by instructor, time slots, location, or seat availability
 
-#### **2. Export & Sharing Platform** (Medium Priority)
+**Phase 3: Platform Integration**
 - **URL State Encoding**: Shareable schedule links with compressed course+term data
-- **Multi-Format Export**: PDF/iCal/Excel export with detailed section information
-- **Schedule Comparison**: Side-by-side comparison tool for different course combinations
-- **Social Features**: Anonymous schedule sharing and popularity analytics
-
-#### **3. Platform Integration** (Future Development)
 - **Progressive Web App**: Offline-capable mobile app with push notifications
-- **Real-Time Sync**: WebSocket integration for live enrollment status updates
 - **University API Integration**: Direct connection to official course systems
-- **Advanced Analytics**: Usage patterns, popular courses, and optimization insights
 
 ## Clean Architecture Implementation (August 2025)
 

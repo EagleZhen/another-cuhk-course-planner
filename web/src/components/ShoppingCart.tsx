@@ -4,28 +4,76 @@ import { useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent } from '@/lib/courseUtils'
+import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
   selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
+  currentTerm: string // Current term to get available sections
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
-  onClearSelection?: () => void
+  onSelectEnrollment?: (enrollmentId: string | null) => void
+  onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
 }
 
 export default function ShoppingCart({ 
   courseEnrollments,
   calendarEvents,
   selectedEnrollment,
+  currentTerm,
   onToggleVisibility, 
   onRemoveCourse,
-  onClearSelection
+  onSelectEnrollment,
+  onSectionChange
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  
+  // Note: Removed unused helper functions - cycling now uses direct compatibility checking
+  
+  // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
+  const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
+    if (!onSectionChange) return
+    
+    const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
+    if (!currentSection) return
+    
+    // Get compatible sections considering ONLY HIGHER priority constraints (hierarchical)
+    const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+    const typeGroup = sectionTypes.find(group => group.type === sectionType)
+    if (!typeGroup) return
+    
+    // Only constrain by HIGHER priority sections (lower priority numbers)
+    const currentPriority = getSectionTypePriority(sectionType as SectionType, sectionTypes)
+    const higherPrioritySelections = enrollment.selectedSections.filter(s => {
+      const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+      return sPriority < currentPriority // Higher priority (lower number)
+    })
+    
+    const { compatible } = categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections)
+    
+    if (compatible.length <= 1) {
+      console.log(`🔄 No compatible alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`)
+      return // No alternatives to cycle through
+    }
+    
+    const currentIndex = compatible.findIndex(s => s.id === currentSection.id)
+    if (currentIndex === -1) return
+    
+    let newIndex
+    if (direction === 'next') {
+      newIndex = (currentIndex + 1) % compatible.length
+    } else {
+      newIndex = currentIndex === 0 ? compatible.length - 1 : currentIndex - 1
+    }
+    
+    const newSection = compatible[newIndex]
+    console.log(`🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`)
+    console.log(`🔍 Compatible sections for ${sectionType} (constrained by higher priority only):`, compatible.map(s => s.sectionCode))
+    onSectionChange(enrollment.courseId, sectionType, newSection.id)
+  }
   
   // Auto-scroll to selected enrollment
   useEffect(() => {
@@ -113,15 +161,17 @@ export default function ShoppingCart({
                       : 'border-gray-200 bg-white'
                     }
                     ${!isVisible ? 'opacity-60' : ''}
-                    ${isSelected 
+                    ${isSelected && isVisible
                       ? 'ring-2 ring-blue-400 ring-opacity-75 shadow-lg scale-[1.02] bg-blue-50' 
                       : ''
                     }
+                    ${!isVisible ? 'cursor-default' : 'cursor-pointer'}
                   `}
                   onClick={() => {
-                    // Clear selection when clicking on selected shopping cart item
-                    if (isSelected && onClearSelection) {
-                      onClearSelection()
+                    // Only allow selection if the enrollment is visible
+                    if (isVisible && onSelectEnrollment) {
+                      const newSelection = isSelected ? null : enrollment.courseId
+                      onSelectEnrollment(newSelection)
                     }
                   }}
                 >
@@ -149,27 +199,33 @@ export default function ShoppingCart({
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          // If making invisible and currently selected, deselect it
+                          if (isVisible && isSelected && onSelectEnrollment) {
+                            onSelectEnrollment(null)
+                          }
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0"
+                        className="h-5 w-5 p-0 cursor-pointer"
                         title={isVisible ? 'Hide all sections' : 'Show all sections'}
                       >
                         {isVisible ? (
-                          <Eye className="w-3 h-3" />
+                          <Eye className="w-3 h-3 text-gray-600" />
                         ) : (
-                          <EyeOff className="w-3 h-3" />
+                          <EyeOff className="w-3 h-3 text-gray-400" />
                         )}
                       </Button>
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation()
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50"
+                        className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
                         title="Remove course"
                       >
                         <Trash2 className="w-3 h-3" />
@@ -182,68 +238,108 @@ export default function ShoppingCart({
                     {enrollment.course.title}
                   </p>
 
-                  {/* Selected Sections */}
+                  {/* Selected Sections - Compact Display */}
                   <div className="space-y-2">
-                    {enrollment.selectedSections.map((section) => (
-                      <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
-                        {/* Section header */}
-                        <div className="text-xs font-mono font-medium text-gray-800 mb-1">
-                          {section.sectionCode}
-                        </div>
-                        
-                        {/* All meetings for this section - consolidated by time+location+instructor */}
-                        <div className="space-y-0.5">
-                          {(() => {
-                            // Group meetings by time + location + instructor
-                            const meetingGroups = new Map()
-                            section.meetings.forEach((meeting) => {
-                              const key = `${meeting?.time || 'TBD'}-${meeting?.location || 'TBD'}-${meeting?.instructor || 'TBD'}`
-                              if (!meetingGroups.has(key)) {
-                                meetingGroups.set(key, [])
-                              }
-                              meetingGroups.get(key).push(meeting)
-                            })
+                    {enrollment.selectedSections.map((section) => {
+                      // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
+                      const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+                      const typeGroup = sectionTypes.find(group => group.type === section.sectionType)
+                      if (!typeGroup) return null
+                      
+                      // Only constrain by HIGHER priority sections (lower priority numbers)
+                      const higherPrioritySelections = enrollment.selectedSections.filter(s => {
+                        const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+                        const currentPriority = getSectionTypePriority(section.sectionType, sectionTypes)
+                        return sPriority < currentPriority // Higher priority (lower number)
+                      })
+                      
+                      const { compatible } = categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections)
+                      
+                      const canCycle = compatible.length > 1
+                      const currentIndex = compatible.findIndex(s => s.id === section.id)
+                      const sectionPosition = `${currentIndex + 1}/${compatible.length}` 
+                      const isOrphan = !canCycle
+                      
+                      return (
+                        <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
+                          {/* Section header with cycling buttons */}
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="flex items-center gap-2">
+                              <div className="text-xs font-mono font-medium text-gray-800">
+                                {section.sectionCode}
+                              </div>
+                              {isOrphan && (
+                                <Badge variant="outline" className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300">
+                                  only option
+                                </Badge>
+                              )}
+                            </div>
                             
-                            return Array.from(meetingGroups.values()).map((meetings, groupIndex) => {
-                              const firstMeeting = meetings[0]
-                              
-                              // Format time: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
-                              let formattedTime = firstMeeting?.time || 'TBD'
-                              if (formattedTime !== 'TBD') {
-                                formattedTime = formattedTime
-                                  .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
-                                    const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
-                                    return `${hour}:${m}`
-                                  })
-                                  .replace(/(\d{1,2}):(\d{2})AM/g, (_match: string, h: string, m: string) => {
-                                    const hour = parseInt(h) === 12 ? 0 : parseInt(h)
-                                    return `${hour.toString().padStart(2, '0')}:${m}`
-                                  })
-                                  .replace(' - ', '-')
-                              }
-                              
-                              // Format instructor: "Professor" → "Prof.", "Dr." stays "Dr."
-                              let formattedInstructor = firstMeeting?.instructor || 'TBD'
-                              if (formattedInstructor !== 'TBD') {
-                                formattedInstructor = formattedInstructor.replace('Professor ', 'Prof. ')
-                              }
-                              
-                              return (
-                                <div key={groupIndex} className="flex items-center justify-between text-[11px] text-gray-600">
-                                  <span className="font-medium font-mono">{formattedTime}</span>
+                            {/* Cycling controls */}
+                            {canCycle && (
+                              <div className="flex items-center gap-1">
+                                <span className="text-[10px] text-gray-500 mr-1">
+                                  {sectionPosition}
+                                </span>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    cycleSection(enrollment, section.sectionType, 'prev')
+                                  }}
+                                  className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                  title="Previous section"
+                                >
+                                  <ChevronLeft className="w-3 h-3 text-gray-600" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    cycleSection(enrollment, section.sectionType, 'next')
+                                  }}
+                                  className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                  title="Next section"
+                                >
+                                  <ChevronRight className="w-3 h-3 text-gray-600" />
+                                </Button>
+                              </div>
+                            )}
+                          </div>
+                        
+                        {/* Unique meetings for this section - consolidated by time+location+instructor */}
+                        <div className="space-y-1">
+                          {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                            const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
+                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
+                            const location = meeting?.location || 'TBD'
+                            
+                            return (
+                              <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
+                                <div className="flex items-center justify-between text-[11px]">
+                                  <span className="font-medium font-mono text-gray-900">{formattedTime}</span>
                                   <span 
-                                    className="text-gray-500 truncate ml-2 text-right max-w-[100px]"
-                                    title={formattedInstructor} // Tooltip shows full name on hover
+                                    className="text-gray-600 truncate text-right max-w-[90px]"
+                                    title={formattedInstructor}
                                   >
                                     {formattedInstructor}
                                   </span>
                                 </div>
-                              )
-                            })
-                          })()}
+                                {location !== 'TBD' && (
+                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
+                                    <span>📍</span>
+                                    <span className="truncate" title={location}>{location}</span>
+                                  </div>
+                                )}
+                              </div>
+                            )
+                          })}
                         </div>
                       </div>
-                    ))}
+                    )
+                    })}
                   </div>
                 </div>
               )
