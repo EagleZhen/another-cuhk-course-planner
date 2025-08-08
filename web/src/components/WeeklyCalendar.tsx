@@ -364,56 +364,42 @@ function UnscheduledSectionsCard({
         )}
       </div>
       
-      {/* Detailed view when expanded - calendar event card style */}
+      {/* Detailed view when expanded - exact calendar event style */}
       {isExpanded && (
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-1">
           {unscheduledSections.map((item, index) => (
             <div
               key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
               className={`
                 ${item.enrollment.color || 'bg-indigo-500'}
-                relative rounded-sm p-1 text-xs text-white shadow-md
+                rounded-sm p-1 text-xs text-white shadow-md
                 hover:scale-105 transition-all cursor-pointer
-                overflow-hidden
+                overflow-hidden group
+                relative
               `}
               style={{
-                minWidth: '200px',
-                maxWidth: '300px'
+                width: 'calc(20% - 4px)', // 5 cards per row
+                minHeight: '64px' // Slightly taller for 4 rows
               }}
             >
-              {/* Course Header */}
-              <div className="flex items-center justify-between mb-1">
-                <div className="font-semibold truncate">
-                  {item.enrollment.course.subject || 'TEST'}{item.enrollment.course.courseCode || '1234'}
-                </div>
-                <div className="text-xs opacity-80">
-                  {item.section.sectionType || 'LEC'}
-                </div>
+              {/* Row 1: Subject + Course Code + Section Type (like regular events) */}
+              <div className="font-semibold text-xs leading-tight truncate pr-1">
+                {item.enrollment.course.subject}{item.enrollment.course.courseCode} {item.section.sectionType}
               </div>
               
-              {/* Course Title */}
-              <div className="text-xs opacity-90 mb-1 truncate" title={item.enrollment.course.title}>
-                {item.enrollment.course.title}
+              {/* Row 2: Time */}
+              <div className="text-[10px] leading-tight truncate opacity-90">
+                {item.meeting.time}
               </div>
               
-              {/* Meeting Info */}
-              <div className="text-xs opacity-80 space-y-0.5">
-                <div className="truncate" title={item.meeting.time}>
-                  ⏰ {item.meeting.time}
-                </div>
-                <div className="truncate" title={item.meeting.location || 'TBD'}>
-                  📍 {item.meeting.location || 'TBD'}
-                </div>
-                {item.meeting.instructor && (
-                  <div className="truncate" title={item.meeting.instructor}>
-                    👨‍🏫 {item.meeting.instructor}
-                  </div>
-                )}
+              {/* Row 3: Location */}
+              <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
+                {item.meeting.location || 'TBD'}
               </div>
               
-              {/* Section Code */}
-              <div className="absolute top-1 right-1 text-xs opacity-60">
-                {item.section.sectionCode}
+              {/* Row 4: Instructor */}
+              <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
+                {item.meeting.instructor || 'TBD'}
               </div>
             </div>
           ))}
