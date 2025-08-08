@@ -415,7 +415,7 @@ function CourseCard({
                     }
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="min-w-[80px]"
+                  className="min-w-[80px] cursor-pointer"
                   title={hasSelectionsChanged 
                     ? "Update course with new section selections" 
                     : "Course already added with current selections"}
