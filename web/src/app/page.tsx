@@ -256,15 +256,15 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <CourseSearch 
-                onAddCourse={handleAddCourse}
-                onRemoveCourse={handleRemoveCourse}
-                courseEnrollments={courseEnrollments}
-                currentTerm={currentTerm}
-                availableTerms={availableTerms}
-                onTermChange={handleTermChange}
-                selectedSections={selectedSections}
-                onSelectedSectionsChange={setSelectedSections}
-                onSelectEnrollment={handleSelectEnrollment}
+              onAddCourse={handleAddCourse}           // Event handler prop
+              onRemoveCourse={handleRemoveCourse}     // Event handler prop
+              courseEnrollments={courseEnrollments}   // Data prop / State prop
+              currentTerm={currentTerm}               // Data prop / State prop
+              availableTerms={availableTerms}         // Data prop
+              onTermChange={handleTermChange}         // Event handler prop
+              selectedSections={selectedSections}     // Data prop / State prop
+              onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
+              onSelectEnrollment={handleSelectEnrollment}     // Event handler prop
               />
             </CardContent>
           </Card>
