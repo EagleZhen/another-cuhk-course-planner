@@ -257,7 +257,14 @@ function CourseCard({
   )).filter(Boolean)
 
   return (
-    <Card className="hover:shadow-md transition-shadow">
+    <Card 
+      className={`transition-all duration-200 ${
+        !expanded 
+          ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
+          : 'shadow-md'
+      }`}
+      onClick={!expanded ? () => setExpanded(true) : undefined}
+    >
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
@@ -296,8 +303,11 @@ function CourseCard({
                 <Button
                   variant="destructive"
                   size="sm"
-                  onClick={() => onRemoveCourse(courseKey)}
-                  className="min-w-[70px]"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onRemoveCourse(courseKey)
+                  }}
+                  className="min-w-[70px] cursor-pointer"
                   title="Remove course from cart"
                 >
                   <Trash2 className="w-3 h-3 mr-1" />
@@ -308,7 +318,10 @@ function CourseCard({
                 <Button
                   variant={hasSelectionsChanged ? "default" : "secondary"}
                   size="sm"
-                  onClick={() => hasSelectionsChanged && isEnrollmentComplete && onAddCourse(course, selectedSections)}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    hasSelectionsChanged && isEnrollmentComplete && onAddCourse(course, selectedSections)
+                  }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="min-w-[80px]"
                   title={hasSelectionsChanged 
@@ -323,7 +336,10 @@ function CourseCard({
               <Button
                 variant={isEnrollmentComplete ? "default" : "secondary"}
                 size="sm"
-                onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  isEnrollmentComplete && onAddCourse(course, selectedSections)
+                }}
                 disabled={!isEnrollmentComplete}
                 className="min-w-[80px]"
                 title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
@@ -334,8 +350,11 @@ function CourseCard({
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setExpanded(!expanded)}
-              className="w-8 h-8 p-0"
+              onClick={(e) => {
+                e.stopPropagation()
+                setExpanded(!expanded)
+              }}
+              className="w-8 h-8 p-0 cursor-pointer"
               title={expanded ? "Hide sections" : "Show sections"}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -402,7 +421,7 @@ function CourseCard({
                         key={section.id}
                         className={`p-2 rounded transition-all ${
                           isSelected 
-                            ? 'border-2 border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200' 
+                            ? 'border-2 border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer' 
                             : isIncompatible 
                               ? 'border border-gray-200 bg-gray-50 opacity-40 cursor-not-allowed grayscale' 
                               : 'border border-green-200 bg-green-50 hover:border-green-300 hover:bg-green-100 cursor-pointer shadow-sm'
