@@ -245,6 +245,8 @@ export default function Home() {
                 onRemoveCourse={handleRemoveCourse}
                 courseEnrollments={courseEnrollments}
                 currentTerm={currentTerm}
+                availableTerms={availableTerms}
+                onTermChange={handleTermChange}
                 selectedSections={selectedSections}
                 onSelectedSectionsChange={setSelectedSections}
               />

@@ -17,6 +17,8 @@ interface CourseSearchProps {
   onRemoveCourse: (courseKey: string) => void
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
+  availableTerms?: string[]
+  onTermChange?: (term: string) => void
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
 }
@@ -25,13 +27,16 @@ export default function CourseSearch({
   onAddCourse,
   onRemoveCourse, 
   courseEnrollments, 
-  currentTerm, 
+  currentTerm,
+  availableTerms = [],
+  onTermChange, 
   selectedSections, 
   onSelectedSectionsChange 
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
+  const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
 
   // Helper function to check if course is already enrolled
   const isCourseAdded = (course: InternalCourse) => {
@@ -157,7 +162,52 @@ export default function CourseSearch({
         />
         <div className="flex items-center gap-2 text-xs text-gray-600">
           <Info className="w-3 h-3" />
-          <span>Showing courses available in <strong>{currentTerm}</strong></span>
+          <span>Showing courses available in</span>
+          {availableTerms.length > 0 && onTermChange ? (
+            <div className="relative">
+              <button
+                onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+                title="Click to change term"
+              >
+                <span>{currentTerm}</span>
+                <ChevronDown className="w-3 h-3" />
+              </button>
+              
+              {isTermDropdownOpen && (
+                <>
+                  {/* Backdrop */}
+                  <div 
+                    className="fixed inset-0 z-40" 
+                    onClick={() => setIsTermDropdownOpen(false)}
+                  />
+                  
+                  {/* Dropdown */}
+                  <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
+                    <div className="py-1">
+                      {availableTerms.map(term => (
+                        <button
+                          key={term}
+                          type="button"
+                          className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
+                            term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
+                          }`}
+                          onClick={() => {
+                            onTermChange?.(term)
+                            setIsTermDropdownOpen(false)
+                          }}
+                        >
+                          {term}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          ) : (
+            <strong>{currentTerm}</strong>
+          )}
         </div>
       </div>
 

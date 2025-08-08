@@ -251,7 +251,7 @@ export default function WeeklyCalendar({
   )
 }
 
-// Term Selector Component
+// Term Selector Component - optimized for calendar header
 function TermSelector({ 
   selectedTerm, 
   availableTerms, 
