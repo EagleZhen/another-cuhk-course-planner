@@ -5,7 +5,7 @@ import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, parseSectionTypes, autoCompleteEnrollmentSections, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, autoCompleteEnrollmentSections, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -98,9 +98,6 @@ export default function Home() {
     // No auto-clear timeout - selection persists for section cycling
   }
 
-  const handleClearSelection = () => {
-    setSelectedEnrollment(null)
-  }
 
   const handleRemoveCourse = (enrollmentId: string) => {
     setCourseEnrollments(prev => 
@@ -206,7 +203,6 @@ export default function Home() {
               currentTerm={currentTerm}
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
-              onClearSelection={handleClearSelection}
               onSelectEnrollment={handleSelectEnrollment}
               onSectionChange={handleSectionChange}
             />

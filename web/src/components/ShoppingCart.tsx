@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getCompatibleAlternatives, getSectionTypePriority, categorizeCompatibleSections, autoCompleteEnrollmentSections } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -14,7 +14,6 @@ interface ShoppingCartProps {
   currentTerm: string // Current term to get available sections
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
-  onClearSelection?: () => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
 }
@@ -26,33 +25,13 @@ export default function ShoppingCart({
   currentTerm,
   onToggleVisibility, 
   onRemoveCourse,
-  onClearSelection,
   onSelectEnrollment,
   onSectionChange
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
   
-  // Helper function to get compatible alternative sections for cycling
-  // This considers hierarchical compatibility constraints
-  const getCompatibleAlternativeSections = (enrollment: CourseEnrollment, sectionType: string) => {
-    const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
-    const typeGroup = sectionTypes.find(group => group.type === sectionType)
-    if (!typeGroup) return []
-    
-    // Get current selected section of this type
-    const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
-    if (!currentSection) return typeGroup.sections // If none selected, all are available
-    
-    // Use the existing getCompatibleAlternatives function that considers hierarchical constraints
-    return getCompatibleAlternatives(currentSection, enrollment, currentTerm)
-  }
-  
-  // Helper function to check if a section type has any alternatives
-  const hasAlternatives = (enrollment: CourseEnrollment, sectionType: string): boolean => {
-    const alternatives = getCompatibleAlternativeSections(enrollment, sectionType)
-    return alternatives.length > 0
-  }
+  // Note: Removed unused helper functions - cycling now uses direct compatibility checking
   
   // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
   const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
