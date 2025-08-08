@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff } from 'lucide-react'
-import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
+import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, formatInstructorCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 
 interface WeeklyCalendarProps {
@@ -73,7 +73,10 @@ export default function WeeklyCalendar({
       
       {/* Unscheduled Events Row */}
       {unscheduledSections.length > 0 && (
-        <UnscheduledSectionsCard unscheduledSections={unscheduledSections} />
+        <UnscheduledSectionsCard 
+          unscheduledSections={unscheduledSections} 
+          onSelectEnrollment={onSelectEnrollment}
+        />
       )}
       
       <CardContent className="flex-1 px-4 py-0 overflow-hidden">
@@ -323,13 +326,15 @@ function TermSelector({
 
 // Unscheduled Sections Card Component - expandable like TermSelector
 function UnscheduledSectionsCard({ 
-  unscheduledSections 
+  unscheduledSections,
+  onSelectEnrollment
 }: {
   unscheduledSections: Array<{
     enrollment: CourseEnrollment
     section: InternalSection
     meeting: InternalMeeting
   }>
+  onSelectEnrollment?: (enrollmentId: string | null) => void
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
   
@@ -381,6 +386,15 @@ function UnscheduledSectionsCard({
                 width: 'calc(20% - 4px)', // 5 cards per row
                 minHeight: '64px' // Slightly taller for 4 rows
               }}
+              onClick={() => {
+                // Same selection behavior as regular calendar events
+                if (onSelectEnrollment && item.enrollment.courseId) {
+                  onSelectEnrollment(item.enrollment.courseId)
+                }
+                
+                // Log course details like regular events
+                console.log(`Unscheduled course selected: ${item.enrollment.course.subject}${item.enrollment.course.courseCode}`)
+              }}
             >
               {/* Row 1: Subject + Course Code + Section Type (like regular events) */}
               <div className="font-semibold text-xs leading-tight truncate pr-1">
@@ -389,7 +403,7 @@ function UnscheduledSectionsCard({
               
               {/* Row 2: Time */}
               <div className="text-[10px] leading-tight truncate opacity-90">
-                {item.meeting.time}
+                {item.meeting.time === 'TBA' ? 'No set time' : item.meeting.time}
               </div>
               
               {/* Row 3: Location */}
@@ -399,7 +413,7 @@ function UnscheduledSectionsCard({
               
               {/* Row 4: Instructor */}
               <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
-                {item.meeting.instructor || 'TBD'}
+                {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBD'}
               </div>
             </div>
           ))}
