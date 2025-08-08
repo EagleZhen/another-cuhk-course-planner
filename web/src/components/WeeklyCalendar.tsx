@@ -75,6 +75,7 @@ export default function WeeklyCalendar({
       {unscheduledSections.length > 0 && (
         <UnscheduledSectionsCard 
           unscheduledSections={unscheduledSections} 
+          selectedEnrollment={selectedEnrollment}
           onSelectEnrollment={onSelectEnrollment}
         />
       )}
@@ -327,6 +328,7 @@ function TermSelector({
 // Unscheduled Sections Card Component - expandable like TermSelector
 function UnscheduledSectionsCard({ 
   unscheduledSections,
+  selectedEnrollment,
   onSelectEnrollment
 }: {
   unscheduledSections: Array<{
@@ -334,6 +336,7 @@ function UnscheduledSectionsCard({
     section: InternalSection
     meeting: InternalMeeting
   }>
+  selectedEnrollment?: string | null
   onSelectEnrollment?: (enrollmentId: string | null) => void
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -371,8 +374,11 @@ function UnscheduledSectionsCard({
       
       {/* Detailed view when expanded - exact calendar event style */}
       {isExpanded && (
-        <div className="mt-3 flex flex-wrap gap-1">
-          {unscheduledSections.map((item, index) => (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {unscheduledSections.map((item, index) => {
+            const isSelected = selectedEnrollment === item.enrollment.courseId
+            
+            return (
             <div
               key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
               className={`
@@ -381,19 +387,21 @@ function UnscheduledSectionsCard({
                 hover:scale-105 transition-all cursor-pointer
                 overflow-hidden group
                 relative
+                ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105 shadow-2xl' : ''}
               `}
               style={{
-                width: 'calc(20% - 4px)', // 5 cards per row
+                width: 'calc((100% - 32px) / 5)', // 5 cards per row with gap-2 (8px gaps)
                 minHeight: '64px' // Slightly taller for 4 rows
               }}
               onClick={() => {
-                // Same selection behavior as regular calendar events
+                // Toggle selection: if already selected, deselect; otherwise select
                 if (onSelectEnrollment && item.enrollment.courseId) {
-                  onSelectEnrollment(item.enrollment.courseId)
+                  const newSelection = isSelected ? null : item.enrollment.courseId
+                  onSelectEnrollment(newSelection)
                 }
                 
                 // Log course details like regular events
-                console.log(`Unscheduled course selected: ${item.enrollment.course.subject}${item.enrollment.course.courseCode}`)
+                console.log(`Unscheduled course: ${item.enrollment.course.subject}${item.enrollment.course.courseCode} - Selected: ${!isSelected}`)
               }}
             >
               {/* Row 1: Subject + Course Code + Section Type (like regular events) */}
@@ -416,7 +424,8 @@ function UnscheduledSectionsCard({
                 {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBD'}
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       )}
     </div>
