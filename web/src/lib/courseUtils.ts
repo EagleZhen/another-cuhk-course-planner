@@ -243,31 +243,39 @@ export interface SectionTypeGroup {
 
 /**
  * Parse section types from course data for a specific term
+ * Uses data-driven ordering based on scraped JSON order (reflects official catalog)
  */
 export function parseSectionTypes(course: InternalCourse, termName: string): SectionTypeGroup[] {
   const term = course.terms.find(t => t.termName === termName)
   if (!term?.sections) return []
   
-  // Group sections by type
+  // Track first occurrence index for natural ordering + group sections by type
+  const typeOrder = new Map<SectionType, number>()
   const groups = new Map<SectionType, InternalSection[]>()
   
-  term.sections.forEach(section => {
+  term.sections.forEach((section, index) => {
     const type = section.sectionType
+    
+    // Record first occurrence for data-driven ordering
+    if (!typeOrder.has(type)) {
+      typeOrder.set(type, index)
+    }
     
     if (!groups.has(type)) {
       groups.set(type, [])
     }
-    
     groups.get(type)!.push(section)
   })
   
-  // Convert to SectionTypeGroup array
-  return Array.from(groups.entries()).map(([type, sections]) => ({
-    type,
-    displayName: getSectionTypeName(type),
-    icon: getSectionTypeIcon(type),
-    sections
-  }))
+  // Sort by natural data order (preserves official catalog sequence)
+  return Array.from(groups.entries())
+    .sort(([typeA], [typeB]) => typeOrder.get(typeA)! - typeOrder.get(typeB)!)
+    .map(([type, sections]) => ({
+      type,
+      displayName: getSectionTypeName(type),
+      icon: getSectionTypeIcon(type),
+      sections
+    }))
 }
 
 /**
@@ -463,4 +471,135 @@ export function formatInstructorCompact(instructor: string): string {
   if (!instructor || instructor === 'TBD') return 'TBD'
   
   return instructor.replace('Professor ', 'Prof. ')
+}
+
+// ========================================
+// Section Compatibility & Selection Logic
+// ========================================
+
+/**
+ * Extract section prefix for compatibility matching
+ * Examples: 
+ *   A-LEC → "A"        (letter prefix - specific cohort)
+ *   AE01-EXR → "A"     (letter prefix - specific cohort) 
+ *   AT01-TUT → "A"     (letter prefix - specific cohort)
+ *   --LEC → null       (dash prefix - universal wildcard)
+ *   -E01-EXR → null    (dash prefix - universal wildcard)
+ */
+export function getSectionPrefix(sectionCode: string): string | null {
+  // Check if starts with letter (not dash) - indicates specific cohort
+  const match = sectionCode.match(/^([A-Z])/)
+  return match ? match[1] : null // null = universal wildcard section
+}
+
+/**
+ * Check if two sections are compatible for pairing based on CUHK cohort rules
+ * Rules:
+ * - Letter-prefixed sections (A-LEC, AE01-EXR, AT01-TUT) must match same letter
+ * - Dash-prefixed sections (--LEC, -E01-EXR) are wildcards, match anything
+ * - Universal sections can pair with any specific cohort
+ * - Specific cohorts can only pair with same cohort or universal sections
+ */
+export function areSectionsCompatible(section1: InternalSection, section2: InternalSection): boolean {
+  const prefix1 = getSectionPrefix(section1.sectionCode)
+  const prefix2 = getSectionPrefix(section2.sectionCode)
+  
+  // Universal sections (null prefix) can pair with anything
+  if (prefix1 === null || prefix2 === null) return true
+  
+  // Same letter prefix sections can pair together
+  return prefix1 === prefix2
+}
+
+/**
+ * Get compatible and incompatible sections for UI state management
+ * Used for enabling/disabling section options based on prior selections
+ */
+export function categorizeCompatibleSections(
+  availableSections: InternalSection[],
+  selectedSections: InternalSection[]
+): {
+  compatible: InternalSection[]
+  incompatible: InternalSection[]
+  hasNoCompatible: boolean
+} {
+  // If no sections selected yet, all are compatible
+  if (selectedSections.length === 0) {
+    return {
+      compatible: availableSections,
+      incompatible: [],
+      hasNoCompatible: false
+    }
+  }
+  
+  // Check compatibility with all currently selected sections
+  const compatible = availableSections.filter(candidate =>
+    selectedSections.every(selected => areSectionsCompatible(candidate, selected))
+  )
+  
+  const incompatible = availableSections.filter(candidate =>
+    !selectedSections.every(selected => areSectionsCompatible(candidate, selected))
+  )
+  
+  return {
+    compatible,           // Shorthand property: equivalent to compatible: compatible
+    incompatible,         // Shorthand property: equivalent to incompatible: incompatible
+    hasNoCompatible: compatible.length === 0  // Computed property with boolean expression
+  }
+}
+
+/**
+ * Get compatible alternative sections for cycling in shopping cart
+ * Only returns sections of same type that work with current enrollment
+ */
+export function getCompatibleAlternatives(
+  selectedSection: InternalSection,
+  enrollment: CourseEnrollment,
+  termName: string
+): InternalSection[] {
+  const currentTerm = enrollment.course.terms.find(t => t.termName === termName)
+  if (!currentTerm) return []
+  
+  // Get sections of same type (LEC → LEC alternatives only)
+  const sameTypeSections = currentTerm.sections.filter(s => 
+    s.sectionType === selectedSection.sectionType && 
+    s.id !== selectedSection.id
+  )
+  
+  // Filter by compatibility with OTHER selected sections (different types)
+  const otherSelectedSections = enrollment.selectedSections
+    .filter(s => s.sectionType !== selectedSection.sectionType)
+  
+  return sameTypeSections.filter(candidateSection =>
+    otherSelectedSections.every(otherSection => 
+      areSectionsCompatible(candidateSection, otherSection)
+    )
+  )
+}
+
+/**
+ * Validate course enrollment for section compatibility
+ * Returns validation result with detailed conflict information for debugging
+ */
+export function validateSectionCompatibility(enrollment: CourseEnrollment): {
+  isValid: boolean
+  conflicts: string[]
+} {
+  const conflicts: string[] = []
+  const sections = enrollment.selectedSections
+  
+  // Check all pairs of sections for compatibility
+  for (let i = 0; i < sections.length; i++) {
+    for (let j = i + 1; j < sections.length; j++) {
+      if (!areSectionsCompatible(sections[i], sections[j])) {
+        const prefix1 = getSectionPrefix(sections[i].sectionCode) || 'universal'
+        const prefix2 = getSectionPrefix(sections[j].sectionCode) || 'universal'
+        conflicts.push(
+          `${sections[i].sectionCode} (${prefix1}-cohort) and ${sections[j].sectionCode} (${prefix2}-cohort) are incompatible`
+        )
+      }
+    }
+  }
+  
+  return { isValid: conflicts.length === 0, conflicts }
 }
