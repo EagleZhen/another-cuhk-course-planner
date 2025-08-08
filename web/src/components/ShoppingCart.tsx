@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getCompatibleAlternatives, getSectionTypePriority, categorizeCompatibleSections, autoCompleteEnrollmentSections } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getCompatibleAlternatives, getSectionTypePriority, categorizeCompatibleSections, autoCompleteEnrollmentSections } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -67,7 +67,7 @@ export default function ShoppingCart({
     if (!typeGroup) return
     
     // Only constrain by HIGHER priority sections (lower priority numbers)
-    const currentPriority = getSectionTypePriority(sectionType, sectionTypes)
+    const currentPriority = getSectionTypePriority(sectionType as SectionType, sectionTypes)
     const higherPrioritySelections = enrollment.selectedSections.filter(s => {
       const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
       return sPriority < currentPriority // Higher priority (lower number)
