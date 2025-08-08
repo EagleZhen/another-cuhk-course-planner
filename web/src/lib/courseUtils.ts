@@ -320,6 +320,7 @@ export function getSectionTypeIcon(type: SectionType): string {
 
 /**
  * Check if a course enrollment is complete (has all required section types selected)
+ * Now considers compatibility constraints - allows enrollment with orphan sections
  */
 export function isCourseEnrollmentComplete(
   course: InternalCourse, 
@@ -329,10 +330,35 @@ export function isCourseEnrollmentComplete(
   const sectionTypes = parseSectionTypes(course, termName)
   const courseKey = `${course.subject}${course.courseCode}`
   
-  // Check if we have a selection for each section type
+  // Get currently selected sections
+  const currentlySelected = getSelectedSectionsForCourse(course, termName, selectedSections)
+  
+  // If no selections, not complete
+  if (currentlySelected.length === 0) return false
+  
+  // For each section type, check if:
+  // 1. User has selected it, OR
+  // 2. No compatible sections exist for this type given current selections
   return sectionTypes.every(typeGroup => {
     const selectionKey = `${courseKey}_${typeGroup.type}`
-    return selectedSections.has(selectionKey)
+    const hasSelection = selectedSections.has(selectionKey)
+    
+    if (hasSelection) return true // User selected this type
+    
+    // Check if there are any compatible sections for this type
+    // Only consider HIGHER priority selections as constraints (hierarchical)
+    const higherPrioritySelections = currentlySelected.filter(s => {
+      const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+      return sPriority < typeGroup.priority
+    })
+    
+    const { compatible } = categorizeCompatibleSections(
+      typeGroup.sections,
+      higherPrioritySelections
+    )
+    
+    // If no compatible sections exist, this type is not required
+    return compatible.length === 0
   })
 }
 

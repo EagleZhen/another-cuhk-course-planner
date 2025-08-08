@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -163,7 +163,7 @@ export default function CourseSearch({
                       const clearedMap = clearIncompatibleLowerSelections(
                         newMap, 
                         courseKey, 
-                        sectionType as any, // Type assertion for section type compatibility
+                        sectionType as SectionType, // Type assertion for section type compatibility
                         sectionId, 
                         sectionTypes, 
                         targetCourse, 
@@ -239,7 +239,7 @@ function CourseCard({
               onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
               disabled={!isEnrollmentComplete || isAdded}
               className="min-w-[80px]"
-              title={!isEnrollmentComplete ? "Select one section from each type to add course" : isAdded ? "Already added" : "Add course to cart"}
+              title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : isAdded ? "Already added" : "Add course to cart"}
             >
               {isAdded ? "Added ✓" : isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
             </Button>
