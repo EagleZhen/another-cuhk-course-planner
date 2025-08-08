@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -308,8 +308,8 @@ function CourseCard({
                     )}
                   </h4>
                 
-                {/* Display sections horizontally for easy comparison */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {typeGroup.sections.map(section => {
                     const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
                     const isIncompatible = incompatible.includes(section)
@@ -358,24 +358,33 @@ function CourseCard({
                           </div>
                         </div>
                         
-                        {/* Meetings displayed vertically within each section */}
-                        <div className="space-y-2">
-                          {getUniqueMeetings(section.meetings).map((meeting, index) => (
-                            <div key={index} className="text-xs bg-white border border-gray-200 rounded-md px-3 py-2 shadow-sm">
-                              <div className="font-mono font-semibold text-gray-900 mb-1">
-                                {meeting?.time || 'TBD'}
+                        {/* Meetings displayed compactly with time+instructor on same row */}
+                        <div className="space-y-1">
+                          {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                            const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
+                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
+                            const location = meeting?.location || 'TBD'
+                            
+                            return (
+                              <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
+                                <div className="flex items-center justify-between text-[11px]">
+                                  <span className="font-medium font-mono text-gray-900">{formattedTime}</span>
+                                  <span 
+                                    className="text-gray-600 truncate text-right max-w-[90px]"
+                                    title={formattedInstructor}
+                                  >
+                                    {formattedInstructor}
+                                  </span>
+                                </div>
+                                {location !== 'TBD' && (
+                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
+                                    <span>📍</span>
+                                    <span className="truncate" title={location}>{location}</span>
+                                  </div>
+                                )}
                               </div>
-                              <div className="flex items-center justify-between text-gray-600">
-                                <span className="flex items-center gap-1" title={meeting?.location || 'TBD'}>
-                                  <span className="text-gray-400">📍</span>
-                                  {meeting?.location || 'TBD'}
-                                </span>
-                                <span className="text-right font-medium" title={meeting?.instructor || 'TBD'}>
-                                  {meeting?.instructor || 'TBD'}
-                                </span>
-                              </div>
-                            </div>
-                          ))}
+                            )
+                          })}
                         </div>
                       </div>
                     )
