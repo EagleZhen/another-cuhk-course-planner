@@ -54,20 +54,26 @@ export default function ShoppingCart({
     return alternatives.length > 0
   }
   
-  // Helper function to cycle to next/previous section (compatible sections only)
+  // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
   const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
     if (!onSectionChange) return
     
     const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
     if (!currentSection) return
     
-    // Get compatible sections considering hierarchical constraints
+    // Get compatible sections considering ONLY HIGHER priority constraints (hierarchical)
     const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
     const typeGroup = sectionTypes.find(group => group.type === sectionType)
     if (!typeGroup) return
     
-    const currentlySelectedSections = enrollment.selectedSections.filter(s => s.sectionType !== sectionType)
-    const { compatible } = categorizeCompatibleSections(typeGroup.sections, currentlySelectedSections)
+    // Only constrain by HIGHER priority sections (lower priority numbers)
+    const currentPriority = getSectionTypePriority(sectionType, sectionTypes)
+    const higherPrioritySelections = enrollment.selectedSections.filter(s => {
+      const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+      return sPriority < currentPriority // Higher priority (lower number)
+    })
+    
+    const { compatible } = categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections)
     
     if (compatible.length <= 1) {
       console.log(`🔄 No compatible alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`)
@@ -86,7 +92,7 @@ export default function ShoppingCart({
     
     const newSection = compatible[newIndex]
     console.log(`🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`)
-    console.log(`🔍 Compatible sections for ${sectionType}:`, compatible.map(s => s.sectionCode))
+    console.log(`🔍 Compatible sections for ${sectionType} (constrained by higher priority only):`, compatible.map(s => s.sectionCode))
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
   
@@ -256,13 +262,19 @@ export default function ShoppingCart({
                   {/* Selected Sections - Compact Display */}
                   <div className="space-y-2">
                     {enrollment.selectedSections.map((section) => {
-                      // Get compatible alternatives considering hierarchical constraints
+                      // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
                       const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
                       const typeGroup = sectionTypes.find(group => group.type === section.sectionType)
                       if (!typeGroup) return null
                       
-                      const currentlySelectedSections = enrollment.selectedSections.filter(s => s.sectionType !== section.sectionType)
-                      const { compatible } = categorizeCompatibleSections(typeGroup.sections, currentlySelectedSections)
+                      // Only constrain by HIGHER priority sections (lower priority numbers)
+                      const higherPrioritySelections = enrollment.selectedSections.filter(s => {
+                        const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+                        const currentPriority = getSectionTypePriority(section.sectionType, sectionTypes)
+                        return sPriority < currentPriority // Higher priority (lower number)
+                      })
+                      
+                      const { compatible } = categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections)
                       
                       const canCycle = compatible.length > 1
                       const currentIndex = compatible.findIndex(s => s.id === section.id)
