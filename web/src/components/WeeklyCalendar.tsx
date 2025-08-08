@@ -342,39 +342,58 @@ function UnscheduledSectionsCard({
   const [isExpanded, setIsExpanded] = useState(false)
   
   return (
-    <div className="px-4 py-2 border-b border-gray-100 bg-white">
-      <div className="flex items-center justify-between">
-        <Button
-          variant="ghost"
-          size="sm"
+    <div className="px-4 py-1 border-b border-gray-100 bg-white">
+      {/* Card-like expandable container - like CourseSearch */}
+      <div className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all bg-white">
+        {/* Header row - clickable to expand */}
+        <div 
+          className="p-3 cursor-pointer"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-2 p-2 h-auto text-sm hover:bg-gray-50"
         >
-          <span className="text-gray-600 font-medium">📋 Unscheduled ({unscheduledSections.length})</span>
-          <ChevronDown className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-        </Button>
-        
-        {/* Compact preview when collapsed */}
-        {!isExpanded && (
-          <div className="flex gap-1 flex-wrap max-w-md">
-            {unscheduledSections.slice(0, 3).map((item, index) => (
-              <span 
-                key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
-                className="px-1.5 py-0.5 text-xs rounded text-gray-600 border border-gray-300 bg-gray-50"
-              >
-                {item.enrollment.course.subject}{item.enrollment.course.courseCode}
-              </span>
-            ))}
-            {unscheduledSections.length > 3 && (
-              <span className="text-xs text-gray-500">+{unscheduledSections.length - 3} more</span>
-            )}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              <span className="text-sm font-medium text-gray-700">📋 Unscheduled ({unscheduledSections.length})</span>
+              
+              {/* Preview chips - always visible, left-aligned */}
+              <div className="flex gap-2 flex-wrap">
+                {unscheduledSections.map((item, index) => {
+                  const isSelected = selectedEnrollment === item.enrollment.courseId
+                  
+                  return (
+                  <span 
+                    key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
+                    className={`
+                      ${item.enrollment.color || 'bg-indigo-500'}
+                      px-2 py-0.5 text-xs rounded text-white cursor-pointer hover:scale-105 transition-all
+                      ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105' : ''}
+                    `}
+                    onClick={(e) => {
+                      e.stopPropagation() // Don't trigger card expansion
+                      // Same selection behavior as detailed cards
+                      if (onSelectEnrollment && item.enrollment.courseId) {
+                        const newSelection = isSelected ? null : item.enrollment.courseId
+                        onSelectEnrollment(newSelection)
+                      }
+                    }}
+                  >
+                    {item.enrollment.course.subject}{item.enrollment.course.courseCode}
+                  </span>
+                  )
+                })}
+              </div>
+            </div>
+            
+            {/* Dropdown arrow in top-right corner */}
+            <div className="flex-shrink-0 ml-2">
+              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            </div>
           </div>
-        )}
-      </div>
-      
-      {/* Detailed view when expanded - exact calendar event style */}
-      {isExpanded && (
-        <div className="mt-3 flex flex-wrap gap-2">
+        </div>
+        
+        {/* Detailed view when expanded - inside the same card */}
+        {isExpanded && (
+          <div className="px-3 pb-3 pt-0">
+            <div className="flex flex-wrap gap-2">
           {unscheduledSections.map((item, index) => {
             const isSelected = selectedEnrollment === item.enrollment.courseId
             
@@ -426,8 +445,10 @@ function UnscheduledSectionsCard({
             </div>
             )
           })}
-        </div>
-      )}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
