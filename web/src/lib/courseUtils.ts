@@ -125,6 +125,11 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
           const timeRange = parseTimeRange(meeting.time)
           const dayIndex = getDayIndex(meeting.time)
           
+          // Skip meetings without scheduled times (TBA, etc.)
+          if (!timeRange || dayIndex === -1) {
+            return
+          }
+          
           events.push({
             id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
             subject: enrollment.course.subject,
@@ -154,6 +159,43 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
 }
 
 /**
+ * Get unscheduled course sections (TBA meetings) from enrollments
+ */
+export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
+  enrollment: CourseEnrollment
+  section: InternalSection
+  meeting: InternalMeeting
+}> {
+  const unscheduledSections: Array<{
+    enrollment: CourseEnrollment
+    section: InternalSection
+    meeting: InternalMeeting
+  }> = []
+  
+  enrollments
+    .filter(enrollment => enrollment.isVisible)
+    .forEach(enrollment => {
+      enrollment.selectedSections.forEach(section => {
+        section.meetings.forEach(meeting => {
+          const timeRange = parseTimeRange(meeting.time)
+          const dayIndex = getDayIndex(meeting.time)
+          
+          // Include meetings without scheduled times (TBA, etc.)
+          if (!timeRange || dayIndex === -1) {
+            unscheduledSections.push({
+              enrollment,
+              section,
+              meeting
+            })
+          }
+        })
+      })
+    })
+  
+  return unscheduledSections
+}
+
+/**
  * Get day index from time string (0=Monday, 1=Tuesday, etc.)
  */
 export function getDayIndex(timeStr: string): number {
@@ -162,7 +204,7 @@ export function getDayIndex(timeStr: string): number {
   if (timeStr.includes('We')) return 2
   if (timeStr.includes('Th')) return 3
   if (timeStr.includes('Fr')) return 4
-  return 0
+  return -1 // Return -1 for times without valid day info (TBA, etc.)
 }
 
 /**

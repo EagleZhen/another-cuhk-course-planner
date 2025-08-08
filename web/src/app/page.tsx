@@ -5,7 +5,7 @@ import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, autoCompleteEnrollmentSections, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -204,6 +204,7 @@ export default function Home() {
             <div className="h-[800px]">
               <WeeklyCalendar 
                 events={calendarEvents} 
+                unscheduledSections={getUnscheduledSections(courseEnrollments)}
                 selectedTerm={currentTerm}
                 availableTerms={availableTerms}
                 selectedEnrollment={selectedEnrollment}

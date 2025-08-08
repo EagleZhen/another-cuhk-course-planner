@@ -4,11 +4,16 @@ import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff } from 'lucide-react'
-import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, type CalendarEvent } from '@/lib/courseUtils'
+import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
+  unscheduledSections?: Array<{
+    enrollment: CourseEnrollment
+    section: InternalSection
+    meeting: InternalMeeting
+  }>
   selectedTerm?: string
   availableTerms?: string[]
   selectedEnrollment?: string | null
@@ -19,6 +24,7 @@ interface WeeklyCalendarProps {
 
 export default function WeeklyCalendar({ 
   events, 
+  unscheduledSections = [],
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
@@ -64,6 +70,30 @@ export default function WeeklyCalendar({
           />
         </div>
       </CardHeader>
+      
+      {/* Unscheduled Events Row */}
+      {unscheduledSections.length > 0 && (
+        <div className="px-4 py-2 border-b border-gray-100 bg-white">
+          <div className="flex items-center gap-2 text-sm">
+            <span className="text-gray-600 font-medium">📋 Unscheduled:</span>
+            <div className="flex gap-2 flex-wrap">
+              {unscheduledSections.map((item, index) => (
+                <span 
+                  key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
+                  className="px-2 py-1 text-xs rounded text-gray-700 border"
+                  style={{ 
+                    backgroundColor: item.enrollment.color + '20', 
+                    borderColor: item.enrollment.color 
+                  }}
+                >
+                  {item.enrollment.course.subject}{item.enrollment.course.courseCode} {item.section.sectionType}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      
       <CardContent className="flex-1 px-4 py-0 overflow-hidden">
         {/* Scrollable Calendar Content - moved up to wrap header for scrollbar alignment */}
         <div className="h-full max-h-[720px] overflow-y-auto">
