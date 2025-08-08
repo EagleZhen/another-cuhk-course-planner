@@ -5,7 +5,7 @@ import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, parseSectionTypes, type InternalCourse, type CourseEnrollment } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, parseSectionTypes, autoCompleteEnrollmentSections, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -113,16 +113,13 @@ export default function Home() {
       prev.map(enrollment => {
         if (enrollment.courseId !== enrollmentId) return enrollment
         
-        // Find the course's available sections for this term
-        const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
-        const typeGroup = sectionTypes.find(group => group.type === sectionType)
-        const newSection = typeGroup?.sections.find(s => s.id === newSectionId)
-        
-        if (!newSection) return enrollment
-        
-        // Replace the section of this type with the new one
-        const updatedSections = enrollment.selectedSections.map(section => 
-          section.sectionType === sectionType ? newSection : section
+        // Use smart auto-completion to handle section changes with hierarchical logic
+        const updatedSections = autoCompleteEnrollmentSections(
+          enrollment,
+          sectionType as SectionType,
+          newSectionId,
+          enrollment.course,
+          currentTerm
         )
         
         return {

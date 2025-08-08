@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getCompatibleAlternatives, getSectionTypePriority, categorizeCompatibleSections } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getCompatibleAlternatives, getSectionTypePriority, categorizeCompatibleSections, autoCompleteEnrollmentSections } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -54,36 +54,39 @@ export default function ShoppingCart({
     return alternatives.length > 0
   }
   
-  // Helper function to cycle to next/previous section (all sections of same type)
+  // Helper function to cycle to next/previous section (compatible sections only)
   const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
     if (!onSectionChange) return
     
     const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
     if (!currentSection) return
     
-    // Get ALL sections of the same type for cycling
+    // Get compatible sections considering hierarchical constraints
     const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
     const typeGroup = sectionTypes.find(group => group.type === sectionType)
-    const allSameSections = typeGroup?.sections || []
+    if (!typeGroup) return
     
-    if (allSameSections.length <= 1) {
-      console.log(`🔄 No alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`)
+    const currentlySelectedSections = enrollment.selectedSections.filter(s => s.sectionType !== sectionType)
+    const { compatible } = categorizeCompatibleSections(typeGroup.sections, currentlySelectedSections)
+    
+    if (compatible.length <= 1) {
+      console.log(`🔄 No compatible alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`)
       return // No alternatives to cycle through
     }
     
-    const currentIndex = allSameSections.findIndex(s => s.id === currentSection.id)
+    const currentIndex = compatible.findIndex(s => s.id === currentSection.id)
     if (currentIndex === -1) return
     
     let newIndex
     if (direction === 'next') {
-      newIndex = (currentIndex + 1) % allSameSections.length
+      newIndex = (currentIndex + 1) % compatible.length
     } else {
-      newIndex = currentIndex === 0 ? allSameSections.length - 1 : currentIndex - 1
+      newIndex = currentIndex === 0 ? compatible.length - 1 : currentIndex - 1
     }
     
-    const newSection = allSameSections[newIndex]
+    const newSection = compatible[newIndex]
     console.log(`🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`)
-    console.log(`🔍 Available sections for ${sectionType}:`, allSameSections.map(s => s.sectionCode))
+    console.log(`🔍 Compatible sections for ${sectionType}:`, compatible.map(s => s.sectionCode))
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
   
@@ -250,17 +253,20 @@ export default function ShoppingCart({
                     {enrollment.course.title}
                   </p>
 
-                  {/* Selected Sections */}
+                  {/* Selected Sections - Compact Display */}
                   <div className="space-y-2">
                     {enrollment.selectedSections.map((section) => {
-                      // For cycling in shopping cart, we want ALL sections of the same type
+                      // Get compatible alternatives considering hierarchical constraints
                       const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
                       const typeGroup = sectionTypes.find(group => group.type === section.sectionType)
-                      const allSameSections = typeGroup?.sections || [section]
+                      if (!typeGroup) return null
                       
-                      const canCycle = allSameSections.length > 1
-                      const currentIndex = allSameSections.findIndex(s => s.id === section.id)
-                      const sectionPosition = `${currentIndex + 1}/${allSameSections.length}` 
+                      const currentlySelectedSections = enrollment.selectedSections.filter(s => s.sectionType !== section.sectionType)
+                      const { compatible } = categorizeCompatibleSections(typeGroup.sections, currentlySelectedSections)
+                      
+                      const canCycle = compatible.length > 1
+                      const currentIndex = compatible.findIndex(s => s.id === section.id)
+                      const sectionPosition = `${currentIndex + 1}/${compatible.length}` 
                       const isOrphan = !canCycle
                       
                       return (

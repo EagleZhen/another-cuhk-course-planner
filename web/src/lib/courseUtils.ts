@@ -698,3 +698,71 @@ export function validateSectionCompatibility(enrollment: CourseEnrollment): {
   
   return { isValid: conflicts.length === 0, conflicts }
 }
+
+/**
+ * Smart auto-completion: Updates enrollment sections when cycling creates new compatibility opportunities
+ * This implements the hierarchical auto-completion logic for shopping cart section cycling
+ */
+export function autoCompleteEnrollmentSections(
+  enrollment: CourseEnrollment,
+  changedSectionType: SectionType,
+  newSectionId: string,
+  course: InternalCourse,
+  termName: string
+): InternalSection[] {
+  const sectionTypes = parseSectionTypes(course, termName)
+  const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
+  
+  // Get the new section object
+  const termData = course.terms.find(t => t.termName === termName)
+  const newSection = termData?.sections.find(s => s.id === newSectionId)
+  if (!newSection) return enrollment.selectedSections
+  
+  // Start with current sections, replacing the changed one
+  let updatedSections = enrollment.selectedSections.map(section => 
+    section.sectionType === changedSectionType ? newSection : section
+  )
+  
+  // If we didn't have this section type before, add it
+  if (!enrollment.selectedSections.some(s => s.sectionType === changedSectionType)) {
+    updatedSections.push(newSection)
+  }
+  
+  // Clear incompatible lower-priority sections
+  updatedSections = updatedSections.filter(section => {
+    if (section.sectionType === changedSectionType) return true // Keep the new section
+    
+    const sectionPriority = getSectionTypePriority(section.sectionType, sectionTypes)
+    if (sectionPriority <= changedPriority) return true // Keep higher/equal priority sections
+    
+    // Check if this lower-priority section is still compatible with the new section
+    const isCompatible = areSectionsCompatible(newSection, section)
+    if (!isCompatible) {
+      console.log(`🔄 Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`)
+    }
+    return isCompatible
+  })
+  
+  // Auto-add compatible sections for missing lower-priority types
+  sectionTypes
+    .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
+    .forEach(lowerTypeGroup => {
+      // Check if we already have a section of this type
+      const hasTypeSelected = updatedSections.some(s => s.sectionType === lowerTypeGroup.type)
+      
+      if (!hasTypeSelected) {
+        // Get currently selected sections to check compatibility
+        const currentlySelected = updatedSections
+        const { compatible } = categorizeCompatibleSections(lowerTypeGroup.sections, currentlySelected)
+        
+        // Auto-add the first compatible section if available
+        if (compatible.length > 0) {
+          const firstCompatible = compatible[0]
+          updatedSections.push(firstCompatible)
+          console.log(`🔄 Auto-adding compatible ${lowerTypeGroup.type}: ${firstCompatible.sectionCode} (compatible with ${newSection.sectionCode})`)
+        }
+      }
+    })
+  
+  return updatedSections
+}
