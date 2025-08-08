@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type InternalCourse, type InternalSection, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getCompatibleAlternatives, getSectionTypePriority, categorizeCompatibleSections } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -33,34 +33,57 @@ export default function ShoppingCart({
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
   
-  // Helper function to get alternative sections for cycling
-  const getAlternativeSections = (course: InternalCourse, sectionType: string) => {
-    const sectionTypes = parseSectionTypes(course, currentTerm)
+  // Helper function to get compatible alternative sections for cycling
+  // This considers hierarchical compatibility constraints
+  const getCompatibleAlternativeSections = (enrollment: CourseEnrollment, sectionType: string) => {
+    const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
     const typeGroup = sectionTypes.find(group => group.type === sectionType)
-    return typeGroup?.sections || []
+    if (!typeGroup) return []
+    
+    // Get current selected section of this type
+    const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
+    if (!currentSection) return typeGroup.sections // If none selected, all are available
+    
+    // Use the existing getCompatibleAlternatives function that considers hierarchical constraints
+    return getCompatibleAlternatives(currentSection, enrollment, currentTerm)
   }
   
-  // Helper function to cycle to next/previous section
+  // Helper function to check if a section type has any alternatives
+  const hasAlternatives = (enrollment: CourseEnrollment, sectionType: string): boolean => {
+    const alternatives = getCompatibleAlternativeSections(enrollment, sectionType)
+    return alternatives.length > 0
+  }
+  
+  // Helper function to cycle to next/previous section (all sections of same type)
   const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
     if (!onSectionChange) return
-    
-    const availableSections = getAlternativeSections(enrollment.course, sectionType)
-    if (availableSections.length <= 1) return // No alternatives
     
     const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
     if (!currentSection) return
     
-    const currentIndex = availableSections.findIndex(s => s.id === currentSection.id)
+    // Get ALL sections of the same type for cycling
+    const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+    const typeGroup = sectionTypes.find(group => group.type === sectionType)
+    const allSameSections = typeGroup?.sections || []
+    
+    if (allSameSections.length <= 1) {
+      console.log(`🔄 No alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`)
+      return // No alternatives to cycle through
+    }
+    
+    const currentIndex = allSameSections.findIndex(s => s.id === currentSection.id)
     if (currentIndex === -1) return
     
     let newIndex
     if (direction === 'next') {
-      newIndex = (currentIndex + 1) % availableSections.length
+      newIndex = (currentIndex + 1) % allSameSections.length
     } else {
-      newIndex = currentIndex === 0 ? availableSections.length - 1 : currentIndex - 1
+      newIndex = currentIndex === 0 ? allSameSections.length - 1 : currentIndex - 1
     }
     
-    const newSection = availableSections[newIndex]
+    const newSection = allSameSections[newIndex]
+    console.log(`🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`)
+    console.log(`🔍 Available sections for ${sectionType}:`, allSameSections.map(s => s.sectionCode))
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
   
@@ -230,17 +253,29 @@ export default function ShoppingCart({
                   {/* Selected Sections */}
                   <div className="space-y-2">
                     {enrollment.selectedSections.map((section) => {
-                      const availableSections = getAlternativeSections(enrollment.course, section.sectionType)
-                      const canCycle = availableSections.length > 1
-                      const currentIndex = availableSections.findIndex(s => s.id === section.id)
-                      const sectionPosition = currentIndex >= 0 ? `${currentIndex + 1}/${availableSections.length}` : '1/1'
+                      // For cycling in shopping cart, we want ALL sections of the same type
+                      const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+                      const typeGroup = sectionTypes.find(group => group.type === section.sectionType)
+                      const allSameSections = typeGroup?.sections || [section]
+                      
+                      const canCycle = allSameSections.length > 1
+                      const currentIndex = allSameSections.findIndex(s => s.id === section.id)
+                      const sectionPosition = `${currentIndex + 1}/${allSameSections.length}` 
+                      const isOrphan = !canCycle
                       
                       return (
                         <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
                           {/* Section header with cycling buttons */}
                           <div className="flex items-center justify-between mb-1">
-                            <div className="text-xs font-mono font-medium text-gray-800">
-                              {section.sectionCode}
+                            <div className="flex items-center gap-2">
+                              <div className="text-xs font-mono font-medium text-gray-800">
+                                {section.sectionCode}
+                              </div>
+                              {isOrphan && (
+                                <Badge variant="outline" className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300">
+                                  only option
+                                </Badge>
+                              )}
                             </div>
                             
                             {/* Cycling controls */}
