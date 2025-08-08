@@ -130,15 +130,6 @@ export default function Home() {
   const handleAddCourse = (course: InternalCourse, sectionsMap: Map<string, string>) => {
     const courseKey = `${course.subject}${course.courseCode}`
     
-    // Check if course is already enrolled
-    const isAlreadyEnrolled = courseEnrollments.some(enrollment => 
-      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
-    )
-    
-    if (isAlreadyEnrolled) {
-      return // Course already enrolled, do nothing
-    }
-    
     // Get selected sections for this course
     const selectedSectionsForCourse = getSelectedSectionsForCourse(course, currentTerm, sectionsMap)
     
@@ -146,23 +137,37 @@ export default function Home() {
       return // No valid sections selected
     }
     
-    // Assign deterministic color based on course code
-    const assignedColor = getDeterministicColor(courseKey)
+    // Check if course is already enrolled
+    const existingEnrollmentIndex = courseEnrollments.findIndex(enrollment => 
+      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    )
     
-    // Create new enrollment - using deterministic ID for server/client consistency
-    const newEnrollment: CourseEnrollment = {
-      courseId: courseKey, // Remove timestamp to ensure server/client match
-      course,
-      selectedSections: selectedSectionsForCourse,
-      enrollmentDate: new Date(),
-      color: assignedColor,
-      isVisible: true // Default to visible
+    if (existingEnrollmentIndex >= 0) {
+      // Update existing enrollment with new sections
+      setCourseEnrollments(prev => 
+        prev.map((enrollment, index) => 
+          index === existingEnrollmentIndex 
+            ? { ...enrollment, selectedSections: selectedSectionsForCourse, enrollmentDate: new Date() }
+            : enrollment
+        )
+      )
+    } else {
+      // Add new enrollment
+      const assignedColor = getDeterministicColor(courseKey)
+      
+      const newEnrollment: CourseEnrollment = {
+        courseId: courseKey,
+        course,
+        selectedSections: selectedSectionsForCourse,
+        enrollmentDate: new Date(),
+        color: assignedColor,
+        isVisible: true
+      }
+      
+      setCourseEnrollments(prev => [...prev, newEnrollment])
     }
     
-    // Add to enrollments
-    setCourseEnrollments(prev => [...prev, newEnrollment])
-    
-    // Clear section selections for this course after adding
+    // Clear section selections for this course after adding/updating
     const newSectionsMap = new Map(sectionsMap)
     Array.from(sectionsMap.keys()).forEach(key => {
       if (key.startsWith(`${courseKey}_`)) {
@@ -237,6 +242,7 @@ export default function Home() {
             <CardContent>
               <CourseSearch 
                 onAddCourse={handleAddCourse}
+                onRemoveCourse={handleRemoveCourse}
                 courseEnrollments={courseEnrollments}
                 currentTerm={currentTerm}
                 selectedSections={selectedSections}

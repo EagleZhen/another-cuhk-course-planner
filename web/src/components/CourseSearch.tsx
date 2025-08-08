@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2 } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
@@ -14,6 +14,7 @@ import { transformExternalCourseData } from '@/lib/validation'
 
 interface CourseSearchProps {
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  onRemoveCourse: (courseKey: string) => void
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
   selectedSections: Map<string, string>
@@ -21,7 +22,8 @@ interface CourseSearchProps {
 }
 
 export default function CourseSearch({ 
-  onAddCourse, 
+  onAddCourse,
+  onRemoveCourse, 
   courseEnrollments, 
   currentTerm, 
   selectedSections, 
@@ -35,6 +37,31 @@ export default function CourseSearch({
   const isCourseAdded = (course: InternalCourse) => {
     return courseEnrollments.some(enrollment => 
       enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    )
+  }
+
+  // Helper function to get enrolled course for comparison
+  const getEnrolledCourse = (course: InternalCourse): CourseEnrollment | null => {
+    return courseEnrollments.find(enrollment => 
+      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    ) || null
+  }
+
+  // Helper function to check if current selections differ from enrolled selections
+  const hasSelectionsChanged = (course: InternalCourse): boolean => {
+    const enrolled = getEnrolledCourse(course)
+    if (!enrolled) return false
+    
+    const courseKey = `${course.subject}${course.courseCode}`
+    const currentSelections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
+    
+    // Compare section IDs
+    if (currentSelections.length !== enrolled.selectedSections.length) return true
+    
+    return currentSelections.some(currentSection => 
+      !enrolled.selectedSections.some(enrolledSection => 
+        enrolledSection.id === currentSection.id
+      )
     )
   }
 
@@ -176,7 +203,9 @@ export default function CourseSearch({
                   }
                 }}
                 onAddCourse={onAddCourse}
+                onRemoveCourse={onRemoveCourse}
                 isAdded={isCourseAdded(course)}
+                hasSelectionsChanged={hasSelectionsChanged(course)}
               />
             ))}
           </>
@@ -191,15 +220,19 @@ function CourseCard({
   currentTerm, 
   selectedSections, 
   onSectionToggle, 
-  onAddCourse, 
-  isAdded 
+  onAddCourse,
+  onRemoveCourse, 
+  isAdded,
+  hasSelectionsChanged
 }: { 
   course: InternalCourse
   currentTerm: string
   selectedSections: Map<string, string>
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
+  hasSelectionsChanged: boolean
 }) {
   const [expanded, setExpanded] = useState(false)
   const courseKey = `${course.subject}${course.courseCode}`
@@ -233,16 +266,47 @@ function CourseCard({
             </div>
           </div>
           <div className="flex items-center gap-2 ml-2">
-            <Button
-              variant={isEnrollmentComplete ? "default" : "secondary"}
-              size="sm"
-              onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
-              disabled={!isEnrollmentComplete || isAdded}
-              className="min-w-[80px]"
-              title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : isAdded ? "Already added" : "Add course to cart"}
-            >
-              {isAdded ? "Added ✓" : isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
-            </Button>
+            {isAdded ? (
+              <>
+                {/* Remove button for enrolled courses */}
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => onRemoveCourse(courseKey)}
+                  className="min-w-[70px]"
+                  title="Remove course from cart"
+                >
+                  <Trash2 className="w-3 h-3 mr-1" />
+                  Remove
+                </Button>
+                
+                {/* Update or Added status button */}
+                <Button
+                  variant={hasSelectionsChanged ? "default" : "secondary"}
+                  size="sm"
+                  onClick={() => hasSelectionsChanged && isEnrollmentComplete && onAddCourse(course, selectedSections)}
+                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+                  className="min-w-[80px]"
+                  title={hasSelectionsChanged 
+                    ? "Update course with new section selections" 
+                    : "Course already added with current selections"}
+                >
+                  {hasSelectionsChanged ? "Update Cart" : "Added ✓"}
+                </Button>
+              </>
+            ) : (
+              /* Add button for non-enrolled courses */
+              <Button
+                variant={isEnrollmentComplete ? "default" : "secondary"}
+                size="sm"
+                onClick={() => isEnrollmentComplete && onAddCourse(course, selectedSections)}
+                disabled={!isEnrollmentComplete}
+                className="min-w-[80px]"
+                title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
+              >
+                {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
+              </Button>
+            )}
             <Button
               variant="ghost"
               size="sm"
