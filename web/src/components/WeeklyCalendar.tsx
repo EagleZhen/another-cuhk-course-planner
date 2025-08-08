@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff } from 'lucide-react'
-import { groupOverlappingEvents, getConflictZones, eventsOverlap, type CalendarEvent } from '@/lib/courseUtils'
+import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, type CalendarEvent } from '@/lib/courseUtils'
 
 
 interface WeeklyCalendarProps {
@@ -231,7 +231,7 @@ export default function WeeklyCalendar({
                             {event.subject}{event.courseCode} {event.sectionCode.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
                           <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
-                            {event.time}
+                            {formatTimeCompact(event.time)}
                           </div>
                           <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
                             {event.location}
