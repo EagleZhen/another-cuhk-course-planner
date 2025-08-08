@@ -52,7 +52,6 @@ export default function CourseSearch({
     const enrolled = getEnrolledCourse(course)
     if (!enrolled) return false
     
-    const courseKey = `${course.subject}${course.courseCode}`
     const currentSelections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
     
     // Compare section IDs
