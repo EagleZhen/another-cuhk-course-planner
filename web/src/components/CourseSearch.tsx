@@ -163,7 +163,7 @@ export default function CourseSearch({
                       const clearedMap = clearIncompatibleLowerSelections(
                         newMap, 
                         courseKey, 
-                        sectionType, 
+                        sectionType as any, // Type assertion for section type compatibility
                         sectionId, 
                         sectionTypes, 
                         targetCourse, 
@@ -276,8 +276,7 @@ function CourseCard({
                 higherPrioritySelections
               )
               
-              // Determine if this section type can be changed freely
-              const canChangeFreely = typeGroup.priority <= 1 || higherPrioritySelections.length === 0
+              // Note: Higher priority sections can always be changed freely (implemented in logic above)
               
               return (
                 <div key={typeGroup.type}>
@@ -319,12 +318,12 @@ function CourseCard({
                     return (
                       <div 
                         key={section.id}
-                        className={`p-2 rounded border transition-all ${
+                        className={`p-2 rounded transition-all ${
                           isSelected 
-                            ? 'border-blue-500 bg-blue-50' 
+                            ? 'border-2 border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200' 
                             : isIncompatible 
-                              ? 'border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed' 
-                              : 'border-gray-200 hover:border-gray-300 cursor-pointer'
+                              ? 'border border-gray-200 bg-gray-50 opacity-40 cursor-not-allowed grayscale' 
+                              : 'border border-green-200 bg-green-50 hover:border-green-300 hover:bg-green-100 cursor-pointer shadow-sm'
                         }`}
                         onClick={() => !isIncompatible && onSectionToggle(courseKey, typeGroup.type, section.id)}
                         title={isIncompatible ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections` : undefined}
