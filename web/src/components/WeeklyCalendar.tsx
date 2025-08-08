@@ -73,25 +73,7 @@ export default function WeeklyCalendar({
       
       {/* Unscheduled Events Row */}
       {unscheduledSections.length > 0 && (
-        <div className="px-4 py-2 border-b border-gray-100 bg-white">
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-gray-600 font-medium">📋 Unscheduled:</span>
-            <div className="flex gap-2 flex-wrap">
-              {unscheduledSections.map((item, index) => (
-                <span 
-                  key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
-                  className="px-2 py-1 text-xs rounded text-gray-700 border"
-                  style={{ 
-                    backgroundColor: item.enrollment.color + '20', 
-                    borderColor: item.enrollment.color 
-                  }}
-                >
-                  {item.enrollment.course.subject}{item.enrollment.course.courseCode} {item.section.sectionType}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <UnscheduledSectionsCard unscheduledSections={unscheduledSections} />
       )}
       
       <CardContent className="flex-1 px-4 py-0 overflow-hidden">
@@ -334,6 +316,108 @@ function TermSelector({
             </div>
           </div>
         </>
+      )}
+    </div>
+  )
+}
+
+// Unscheduled Sections Card Component - expandable like TermSelector
+function UnscheduledSectionsCard({ 
+  unscheduledSections 
+}: {
+  unscheduledSections: Array<{
+    enrollment: CourseEnrollment
+    section: InternalSection
+    meeting: InternalMeeting
+  }>
+}) {
+  const [isExpanded, setIsExpanded] = useState(false)
+  
+  return (
+    <div className="px-4 py-2 border-b border-gray-100 bg-white">
+      <div className="flex items-center justify-between">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex items-center gap-2 p-2 h-auto text-sm hover:bg-gray-50"
+        >
+          <span className="text-gray-600 font-medium">📋 Unscheduled ({unscheduledSections.length})</span>
+          <ChevronDown className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+        </Button>
+        
+        {/* Compact preview when collapsed */}
+        {!isExpanded && (
+          <div className="flex gap-1 flex-wrap max-w-md">
+            {unscheduledSections.slice(0, 3).map((item, index) => (
+              <span 
+                key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
+                className="px-1.5 py-0.5 text-xs rounded text-gray-600 border border-gray-300 bg-gray-50"
+              >
+                {item.enrollment.course.subject}{item.enrollment.course.courseCode}
+              </span>
+            ))}
+            {unscheduledSections.length > 3 && (
+              <span className="text-xs text-gray-500">+{unscheduledSections.length - 3} more</span>
+            )}
+          </div>
+        )}
+      </div>
+      
+      {/* Detailed view when expanded - calendar event card style */}
+      {isExpanded && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {unscheduledSections.map((item, index) => (
+            <div
+              key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
+              className={`
+                ${item.enrollment.color || 'bg-indigo-500'}
+                relative rounded-sm p-1 text-xs text-white shadow-md
+                hover:scale-105 transition-all cursor-pointer
+                overflow-hidden
+              `}
+              style={{
+                minWidth: '200px',
+                maxWidth: '300px'
+              }}
+            >
+              {/* Course Header */}
+              <div className="flex items-center justify-between mb-1">
+                <div className="font-semibold truncate">
+                  {item.enrollment.course.subject || 'TEST'}{item.enrollment.course.courseCode || '1234'}
+                </div>
+                <div className="text-xs opacity-80">
+                  {item.section.sectionType || 'LEC'}
+                </div>
+              </div>
+              
+              {/* Course Title */}
+              <div className="text-xs opacity-90 mb-1 truncate" title={item.enrollment.course.title}>
+                {item.enrollment.course.title}
+              </div>
+              
+              {/* Meeting Info */}
+              <div className="text-xs opacity-80 space-y-0.5">
+                <div className="truncate" title={item.meeting.time}>
+                  ⏰ {item.meeting.time}
+                </div>
+                <div className="truncate" title={item.meeting.location || 'TBD'}>
+                  📍 {item.meeting.location || 'TBD'}
+                </div>
+                {item.meeting.instructor && (
+                  <div className="truncate" title={item.meeting.instructor}>
+                    👨‍🏫 {item.meeting.instructor}
+                  </div>
+                )}
+              </div>
+              
+              {/* Section Code */}
+              <div className="absolute top-1 right-1 text-xs opacity-60">
+                {item.section.sectionCode}
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   )
