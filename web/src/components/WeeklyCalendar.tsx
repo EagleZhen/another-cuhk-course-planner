@@ -344,12 +344,12 @@ function UnscheduledSectionsCard({
   return (
     <div className="px-4 py-1 bg-white">
       {/* Card-like expandable container - like CourseSearch */}
-      <div className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all bg-white">
-        {/* Header row - clickable to expand */}
-        <div 
-          className="p-3 cursor-pointer"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
+      <div 
+        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 transition-all bg-white cursor-pointer"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        {/* Header row */}
+        <div className="p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               <span className="text-sm font-medium text-gray-700">📋 Unscheduled ({unscheduledSections.length})</span>
@@ -412,7 +412,9 @@ function UnscheduledSectionsCard({
                 width: 'calc((100% - 32px) / 5)', // 5 cards per row with gap-2 (8px gaps)
                 minHeight: '64px' // Slightly taller for 4 rows
               }}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation() // Prevent card collapse when clicking course cards
+                
                 // Toggle selection: if already selected, deselect; otherwise select
                 if (onSelectEnrollment && item.enrollment.courseId) {
                   const newSelection = isSelected ? null : item.enrollment.courseId
