@@ -81,7 +81,8 @@ class Course:
     # Additional course details
     description: str = ""
     enrollment_requirement: str = ""
-    class_attributes: str = ""  # e.g., "English only", "Chinese only", "Bilingual"
+    course_attributes: str = ""  # e.g., "Virtual Teaching & Learning Course", "Service-Learning Course"
+    class_attributes: str = ""  # e.g., "English only", "Chinese only", "Bilingual" (mixed data, less reliable)
     academic_career: str = ""  # e.g., "Undergraduate"
     grading_basis: str = ""    # e.g., "Graded"
     component: str = ""        # e.g., "Lecture\nInteractive Tutorial"
@@ -830,7 +831,12 @@ class CuhkScraper:
         if enroll_elem:
             course.enrollment_requirement = self._clean_text(enroll_elem.get_text())
         
-        # Class attributes (language of instruction)
+        # Course attributes (course-level attributes like "Virtual Teaching & Learning Course")
+        course_attr_elem = soup.find('td', {'id': 'uc_course_tc_crse_attributes'})
+        if course_attr_elem:
+            course.course_attributes = self._clean_text(course_attr_elem.get_text())
+        
+        # Class attributes (class-level language of instruction, mixed data)
         class_attr_elem = soup.find('td', {'id': 'uc_class_tc_class_attributes'})
         if class_attr_elem:
             course.class_attributes = self._clean_text(class_attr_elem.get_text())
