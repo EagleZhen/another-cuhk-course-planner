@@ -404,9 +404,9 @@ function CourseCard({
                   Go to Cart
                 </Button>
                 
-                {/* Update or Added status button */}
+                {/* Replace/Added status button - for courses already in cart */}
                 <Button
-                  variant={hasSelectionsChanged ? "default" : "secondary"}
+                  variant={hasSelectionsChanged && isEnrollmentComplete ? "default" : "secondary"}
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
@@ -416,11 +416,11 @@ function CourseCard({
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="min-w-[80px] cursor-pointer"
-                  title={hasSelectionsChanged 
-                    ? "Update course with new section selections" 
-                    : "Course already added with current selections"}
+                  title={hasSelectionsChanged && isEnrollmentComplete
+                    ? "Replace course with new section selections" 
+                    : "Course already added to cart"}
                 >
-                  {hasSelectionsChanged ? "Update Cart" : "Added ✓"}
+                  {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
                 </Button>
               </>
             ) : (
@@ -435,7 +435,7 @@ function CourseCard({
                   }
                 }}
                 disabled={!isEnrollmentComplete}
-                className="min-w-[80px]"
+                className="min-w-[80px] cursor-pointer"
                 title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
               >
                 {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
