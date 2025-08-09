@@ -615,7 +615,7 @@ function CourseCard({
                         }}
                         title={`Search Google for "${instructor}"`}
                       >
-                        {instructor}
+                        {formatInstructorCompact(instructor)}
                       </Badge>
                     ))}
                   </div>
