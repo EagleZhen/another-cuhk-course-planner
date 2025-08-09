@@ -267,17 +267,19 @@ export default function WeeklyCalendar({
                     // Only create conflict zone for groups with multiple events (conflicts)
                     if (group.length <= 1) return null
                     
-                    // Calculate the zone to cover all actual card heights in this conflict group
-                    const cardHeights = group.map(event => 
-                      getCardHeight(event.startHour, event.endHour, event.startMinute, event.endMinute, CALENDAR_LAYOUT)
-                    )
+                    // Calculate the zone to cover all actual card bounds in this conflict group
+                    // Cards now use minHeight = CARD_MIN_HEIGHT (fixed) + CSS padding
                     const cardTops = group.map(event =>
                       getCardTop(event.startHour, event.startMinute, defaultStartHour, CALENDAR_LAYOUT)
                     )
+                    const cardBottoms = cardTops.map(cardTop => {
+                      // Cards use minHeight (which includes conceptual padding), CSS padding is within minHeight
+                      return cardTop + CALENDAR_LAYOUT.CARD_MIN_HEIGHT
+                    })
                     
                     // Find the overall bounds of all conflicting cards
                     const minCardTop = Math.min(...cardTops)
-                    const maxCardBottom = Math.max(...cardTops.map((top, i) => top + cardHeights[i]))
+                    const maxCardBottom = Math.max(...cardBottoms)
                     
                     // Conflict zone should extend BEYOND the cards with padding
                     const zoneTop = minCardTop - CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING
@@ -304,7 +306,6 @@ export default function WeeklyCalendar({
                   {/* Event Groups with Smart Stacking */}
                   {eventGroups.map((group) => {
                     return group.map((event, stackIndex) => {
-                      const cardHeight = getCardHeight(event.startHour, event.endHour, event.startMinute, event.endMinute, CALENDAR_LAYOUT)
                       const cardTop = getCardTop(event.startHour, event.startMinute, defaultStartHour, CALENDAR_LAYOUT)
                       
                       // Conditional styling based on conflict status and selection
