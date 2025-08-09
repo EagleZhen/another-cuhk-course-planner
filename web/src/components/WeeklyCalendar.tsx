@@ -6,6 +6,48 @@ import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff } from 'lucide-react'
 import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, formatInstructorCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
+// Centralized layout constants for maintainability
+const CALENDAR_LAYOUT = {
+  HOUR_HEIGHT: 80,        // Increased from 64 to accommodate 4 rows cleanly
+  TIME_COLUMN_WIDTH: 48,
+  CARD_MIN_HEIGHT: 58,    // Optimized: just enough for 4 rows (1 big + 3 small)
+  STACK_OFFSET: 16,
+  CONFLICT_ZONE_PADDING: 4,
+  CARD_PADDING: {
+    horizontal: 4,
+    vertical: 2
+  }
+} as const
+
+// Typography constants for consistency
+const CARD_TEXT = {
+  TITLE_SIZE: 'text-xs',
+  DETAIL_SIZE: 'text-[10px]', 
+  SMALL_SIZE: 'text-[9px]',
+  LINE_HEIGHT: 'leading-tight'
+} as const
+
+// Helper functions for consistent calculations
+const getCardHeight = (startHour: number, endHour: number, startMin: number, endMin: number) => {
+  const naturalHeight = ((endHour - startHour) * CALENDAR_LAYOUT.HOUR_HEIGHT + 
+                        ((endMin - startMin) / 60) * CALENDAR_LAYOUT.HOUR_HEIGHT)
+  return Math.max(naturalHeight, CALENDAR_LAYOUT.CARD_MIN_HEIGHT)
+}
+
+const getCardTop = (startHour: number, startMin: number, defaultStartHour: number) => {
+  return (startHour - defaultStartHour) * CALENDAR_LAYOUT.HOUR_HEIGHT + (startMin / 60) * CALENDAR_LAYOUT.HOUR_HEIGHT
+}
+
+const getConflictZoneTop = (startHour: number, startMin: number, defaultStartHour: number) => {
+  return getCardTop(startHour, startMin, defaultStartHour) - CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING
+}
+
+const getConflictZoneHeight = (startHour: number, endHour: number, startMin: number, endMin: number) => {
+  return ((endHour - startHour) * CALENDAR_LAYOUT.HOUR_HEIGHT + 
+          ((endMin - startMin) / 60) * CALENDAR_LAYOUT.HOUR_HEIGHT) + 
+         (CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING * 2)
+}
+
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
@@ -84,7 +126,7 @@ export default function WeeklyCalendar({
         {/* Scrollable Calendar Content - moved up to wrap header for scrollbar alignment */}
         <div className="h-full max-h-[720px] overflow-y-auto">
           {/* Sticky Header Row - now inside the scrollable container */}
-          <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}>
+          <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: `${CALENDAR_LAYOUT.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
             {/* Time header - smaller width */}
             <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0">
               Time
@@ -100,7 +142,7 @@ export default function WeeklyCalendar({
           {/* Calendar Content Grid */}
           <div 
             className="grid" 
-            style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}
+            style={{gridTemplateColumns: `${CALENDAR_LAYOUT.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
             onClick={(e) => {
               // Click away handler - deselect if clicking on empty calendar space (not on a course card)
               const target = e.target as HTMLElement
@@ -115,7 +157,7 @@ export default function WeeklyCalendar({
             <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
             <div className="flex-1">
               {hours.map(hour => (
-                <div key={hour} className="h-16 flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100">
+                <div key={hour} className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100" style={{ height: `${CALENDAR_LAYOUT.HOUR_HEIGHT}px` }}>
                   {hour.toString().padStart(2, '0')}
                 </div>
               ))}
@@ -135,14 +177,15 @@ export default function WeeklyCalendar({
                   {hours.map(hour => (
                     <div 
                       key={hour} 
-                      className="h-16 border-b border-gray-200"
+                      className="border-b border-gray-200"
+                      style={{ height: `${CALENDAR_LAYOUT.HOUR_HEIGHT}px` }}
                     />
                   ))}
                   
                   {/* Conflict Zone Backgrounds */}
                   {conflictZones.map((zone, zoneIndex) => {
-                    const zoneTop = ((zone.startHour - defaultStartHour) * 64 + (zone.startMinute / 60) * 64) - 4
-                    const zoneHeight = ((zone.endHour - zone.startHour) * 64 + ((zone.endMinute - zone.startMinute) / 60) * 64) + 8
+                    const zoneTop = getConflictZoneTop(zone.startHour, zone.startMinute, defaultStartHour)
+                    const zoneHeight = getConflictZoneHeight(zone.startHour, zone.endHour, zone.startMinute, zone.endMinute)
                     
                     return (
                       <div
@@ -164,14 +207,14 @@ export default function WeeklyCalendar({
                   {/* Event Groups with Smart Stacking */}
                   {eventGroups.map((group) => {
                     return group.map((event, stackIndex) => {
-                      const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
-                      const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
+                      const cardHeight = getCardHeight(event.startHour, event.endHour, event.startMinute, event.endMinute)
+                      const cardTop = getCardTop(event.startHour, event.startMinute, defaultStartHour)
                       
                       // Conditional styling based on conflict status and selection
                       const isConflicted = group.length > 1
                       const isSelected = selectedEnrollment === event.enrollmentId
-                      const stackOffset = isConflicted ? stackIndex * 16 : 0
-                      const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * 16 : 0
+                      const stackOffset = isConflicted ? stackIndex * CALENDAR_LAYOUT.STACK_OFFSET : 0
+                      const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_LAYOUT.STACK_OFFSET : 0
                       
                       // Boost z-index for selected cards to bring them to front
                       let zIndex = isConflicted ? 20 + stackIndex : 10
@@ -190,8 +233,8 @@ export default function WeeklyCalendar({
                             position: 'absolute',
                             top: `${cardTop}px`,
                             height: `${cardHeight}px`,
-                            left: `${4 + stackOffset}px`,
-                            right: `${4 + rightOffset}px`,
+                            left: `${CALENDAR_LAYOUT.CARD_PADDING.horizontal + stackOffset}px`,
+                            right: `${CALENDAR_LAYOUT.CARD_PADDING.horizontal + rightOffset}px`,
                             zIndex
                           }}
                           className={`
@@ -243,14 +286,17 @@ export default function WeeklyCalendar({
                             )}
                           </Button>
                           
-                          <div className="font-semibold text-xs leading-tight truncate pr-3">
+                          <div className={`font-semibold ${CARD_TEXT.TITLE_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate pr-3`}>
                             {event.subject}{event.courseCode} {event.sectionCode.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
-                          <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
+                          <div className={`${CARD_TEXT.DETAIL_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate opacity-90`}>
                             {formatTimeCompact(event.time)}
                           </div>
-                          <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
+                          <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
                             {event.location}
+                          </div>
+                          <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
+                            {event.instructor ? formatInstructorCompact(event.instructor) : 'TBD'}
                           </div>
                         </div>
                       )
@@ -410,7 +456,7 @@ function UnscheduledSectionsCard({
               `}
               style={{
                 width: 'calc((100% - 32px) / 5)', // 5 cards per row with gap-2 (8px gaps)
-                minHeight: '64px' // Slightly taller for 4 rows
+                minHeight: `${CALENDAR_LAYOUT.CARD_MIN_HEIGHT}px` // Consistent height for 4 rows
               }}
               onClick={(e) => {
                 e.stopPropagation() // Prevent card collapse when clicking course cards
@@ -426,22 +472,22 @@ function UnscheduledSectionsCard({
               }}
             >
               {/* Row 1: Subject + Course Code + Section Type (like regular events) */}
-              <div className="font-semibold text-xs leading-tight truncate pr-1">
+              <div className={`font-semibold ${CARD_TEXT.TITLE_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate pr-1`}>
                 {item.enrollment.course.subject}{item.enrollment.course.courseCode} {item.section.sectionType}
               </div>
               
               {/* Row 2: Time */}
-              <div className="text-[10px] leading-tight truncate opacity-90">
+              <div className={`${CARD_TEXT.DETAIL_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate opacity-90`}>
                 {item.meeting.time === 'TBA' ? 'No set time' : item.meeting.time}
               </div>
               
               {/* Row 3: Location */}
-              <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
+              <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
                 {item.meeting.location || 'TBD'}
               </div>
               
               {/* Row 4: Instructor */}
-              <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
+              <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
                 {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBD'}
               </div>
             </div>
