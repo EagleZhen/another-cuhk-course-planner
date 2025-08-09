@@ -249,8 +249,8 @@ interface CalendarDisplayConfig {
   // title always shown - course identification essential
 }
 
-// Example: Dynamic Layout Calculation
-📱 Title Only:     16px content + 4px padding = 20px cards → 32px hour slots
+// Example: Dynamic Layout Calculation (Updated August 2025)
+📱 Title Only:     16px content + 2px padding = 18px cards → 32px hour slots
 📊 + Time:         28px content + 6px padding = 34px cards → 40px hour slots  
 📋 + Location:     39px content + 6px padding = 45px cards → 51px hour slots
 🎓 All Info:       50px content + 6px padding = 56px cards → 62px hour slots
@@ -264,7 +264,7 @@ interface CalendarDisplayConfig {
 
 **🔧 Technical Excellence**:
 
-**Smart Layout Mathematics**:
+**Smart Layout Mathematics** (Updated August 2025):
 ```typescript
 const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
   // Precise row height calculations
@@ -273,15 +273,78 @@ const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
   if (config.showLocation) contentHeight += CARD_TEXT.SMALL_ROW_HEIGHT // +11px  
   if (config.showInstructor) contentHeight += CARD_TEXT.SMALL_ROW_HEIGHT // +11px
   
-  // Adaptive padding strategy
+  // Adaptive padding strategy (optimized for compact design)
   const rowCount = 1 + (showTime ? 1 : 0) + (showLocation ? 1 : 0) + (showInstructor ? 1 : 0)
-  const cardPadding = rowCount === 1 ? 4 : 6 // Minimal padding for title-only
+  const cardPadding = rowCount === 1 ? 2 : 6 // Ultra-minimal for title-only
+  const CARD_MIN_HEIGHT = contentHeight + cardPadding
+  
+  // Dynamic CSS padding (works with minHeight)
+  const CARD_PADDING = {
+    horizontal: 4,
+    vertical: cardPadding === 2 ? 1 : 2 // Tighter for compact cards
+  }
   
   // Dynamic hour slot sizing
-  const HOUR_HEIGHT = Math.max(32, contentHeight + cardPadding + 6)
+  const HOUR_HEIGHT = Math.max(32, CARD_MIN_HEIGHT + 6)
   
-  return { HOUR_HEIGHT, CARD_MIN_HEIGHT, DISPLAY_CONFIG: config }
+  return { HOUR_HEIGHT, CARD_MIN_HEIGHT, CARD_PADDING, DISPLAY_CONFIG: config }
 }
+```
+
+**Advanced Conflict Zone Calculation System** (August 2025):
+```typescript
+// Synchronized card-conflict zone architecture - PRODUCTION READY
+Card Rendering → Conflict Detection → Zone Calculation → Visual Alignment
+      ↓                ↓                    ↓                ↓
+  minHeight      Group overlaps    Exact bounds match    Perfect enclosure
+
+// Course Card Rendering (NEW: minHeight approach)
+<div style={{
+  position: 'absolute',
+  top: `${cardTop}px`,
+  minHeight: `${CALENDAR_LAYOUT.CARD_MIN_HEIGHT}px`, // Fixed minimum height
+  padding: `${CALENDAR_LAYOUT.CARD_PADDING.vertical}px ${CALENDAR_LAYOUT.CARD_PADDING.horizontal}px`
+}}>
+
+// Conflict Zone Calculation (SYNCHRONIZED)
+const cardTops = group.map(event =>
+  getCardTop(event.startHour, event.startMinute, defaultStartHour, CALENDAR_LAYOUT)
+)
+const cardBottoms = cardTops.map(cardTop => {
+  // Cards use minHeight (includes conceptual padding), CSS padding is within minHeight
+  return cardTop + CALENDAR_LAYOUT.CARD_MIN_HEIGHT
+})
+
+// Zone bounds with balanced padding
+const minCardTop = Math.min(...cardTops)
+const maxCardBottom = Math.max(...cardBottoms)
+const zoneTop = minCardTop - CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING    // 4px above
+const zoneBottom = maxCardBottom + CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING // 4px below
+```
+
+**🔧 Critical Architecture Insights**:
+
+**Card Sizing Strategy Evolution**:
+```typescript
+// ❌ OLD: Dynamic height (time-duration based) + CSS padding beyond
+height: `${getCardHeight(...)}px` + CSS padding extends beyond
+
+// ✅ NEW: Fixed minimum height + CSS padding within
+minHeight: `${CARD_MIN_HEIGHT}px` + CSS padding included in minHeight
+
+// Result: Consistent sizing regardless of class duration, aligned with unscheduled cards
+```
+
+**Conflict Zone Alignment Breakthrough**:
+```typescript
+// Problem: Cards and zones used different calculation methods
+// Cards: minHeight (fixed) | Zones: getCardHeight() (time-based)
+
+// Solution: Unified calculation using same CARD_MIN_HEIGHT
+const cardVisualBounds = cardTop + CARD_MIN_HEIGHT
+const conflictZoneBounds = cardVisualBounds ± CONFLICT_ZONE_PADDING
+
+// Result: Perfect 4px padding above/below conflicts with NO double-counting
 ```
 
 **Conditional Rendering System**:
@@ -296,8 +359,8 @@ const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
 
 **🎨 User Experience Innovations**:
 
-**Progressive Information Density**:
-- **Ultra-Compact Mode**: Title-only cards at 20px height - maximum time coverage
+**Progressive Information Density** (Updated August 2025):
+- **Ultra-Compact Mode**: Title-only cards at 18px height - maximum time coverage with balanced padding
 - **Standard Mode**: Title + Time cards at 34px height - balanced information/space
 - **Detailed Mode**: All 4 rows at 56px height - comprehensive course details
 - **Extended Time Range**: Now covers 8am-10pm (14 hours) - supports evening classes
@@ -311,6 +374,46 @@ const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
 - **Cursor Affordances**: All interactive elements now have proper `cursor-pointer` styling
 - **Button State Clarity**: Course search cards show "Added ✓" by default, "Replace Cart" only for valid new selections
 - **Professional Polish**: Modern toggle buttons blend seamlessly with existing UI design
+- **Consistent Card Heights**: Regular calendar and unscheduled cards now have identical sizing (18px title-only)
+
+**🛠️ Critical Debugging Insights for Future Development**:
+
+**Common Pitfalls Avoided**:
+```typescript
+// ❌ ANTI-PATTERN: Double-counting padding in conflict zones
+const cardHeight = getCardHeight(...) + (CSS_PADDING.vertical * 2) // WRONG
+
+// ❌ ANTI-PATTERN: Mismatched sizing between card types
+regularCards: height: `${dynamicHeight}px`     // Time-based sizing
+unscheduledCards: minHeight: `${fixedHeight}px` // Fixed sizing
+
+// ✅ SOLUTION: Unified minHeight approach with single boundary calculation
+const cardVisualBounds = cardTop + CARD_MIN_HEIGHT // No extra CSS padding
+const conflictZoneBounds = cardVisualBounds ± CONFLICT_ZONE_PADDING
+```
+
+**CSS Box Model Understanding**:
+```css
+/* minHeight includes all necessary space */
+.card {
+  min-height: 18px;        /* CARD_MIN_HEIGHT (content + conceptual padding) */
+  padding: 1px 4px;        /* CSS padding is WITHIN minHeight bounds */
+  /* Total visual height = 18px (CSS enforces minimum) */
+}
+
+/* Fixed height + padding extends beyond */
+.card-old {
+  height: 18px;            /* Fixed content area */
+  padding: 1px 4px;        /* CSS padding EXTENDS beyond height */
+  /* Total visual height = 18px + 2px = 20px */
+}
+```
+
+**Conflict Zone Debug Process**:
+1. **Visual Mismatch**: Bottom boundary too low relative to top
+2. **Root Cause**: Different calculation methods for cards vs zones  
+3. **Solution**: Unified `CARD_MIN_HEIGHT` approach for both systems
+4. **Validation**: Equal 4px visual padding above/below conflict cards
 
 #### **🏗️ Implementation Impact**
 
