@@ -604,20 +604,23 @@ function CourseCard({
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Instructors</h4>
                   <div className="flex flex-wrap gap-1">
-                    {instructors.map(instructor => (
-                      <Badge 
-                        key={instructor} 
-                        variant="outline" 
-                        className="text-xs hover:bg-gray-100 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          onSearchInstructor(instructor)
-                        }}
-                        title={`Search Google for "${instructor}"`}
-                      >
-                        {formatInstructorCompact(instructor)}
-                      </Badge>
-                    ))}
+                    {instructors.map(instructor => {
+                      const formattedInstructor = formatInstructorCompact(instructor)
+                      return (
+                        <Badge 
+                          key={formattedInstructor} 
+                          variant="outline" 
+                          className="text-xs hover:bg-gray-100 cursor-pointer transition-colors"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onSearchInstructor(formattedInstructor)
+                          }}
+                          title={`Search Google for "${formattedInstructor}"`}
+                        >
+                          {formattedInstructor}
+                        </Badge>
+                      )
+                    })}
                   </div>
                 </div>
               )}
