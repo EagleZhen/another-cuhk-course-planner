@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff } from 'lucide-react'
-import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, formatInstructorCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 // Configuration-driven calendar display system
 interface CalendarDisplayConfig {
@@ -49,7 +49,7 @@ const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
     (config.showLocation ? 1 : 0) + 
     (config.showInstructor ? 1 : 0)
   
-  const cardPadding = rowCount === 1 ? 4 : 6 // Minimal padding for title-only
+  const cardPadding = rowCount === 1 ? 2 : 6 // Ultra-minimal padding for title-only
   const CARD_MIN_HEIGHT = contentHeight + cardPadding
   
   // Hour height accommodates content with minimal but usable buffer
@@ -63,7 +63,7 @@ const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
     CONFLICT_ZONE_PADDING: 4,
     CARD_PADDING: {
       horizontal: 4,
-      vertical: cardPadding === 4 ? 1 : 2 // Tighter vertical padding for compact cards
+      vertical: cardPadding === 2 ? 1 : 2 // Tighter vertical padding for compact cards
     },
     // Store the config for conditional rendering
     DISPLAY_CONFIG: config
@@ -249,7 +249,6 @@ export default function WeeklyCalendar({
           {days.map((day, dayIndex) => {
             const dayEvents = detectConflicts(events.filter(event => event.day === dayIndex))
             const eventGroups = groupOverlappingEvents(dayEvents)
-            const conflictZones = getConflictZones(dayEvents)
             
             return (
               <div key={day} className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column">
@@ -329,7 +328,7 @@ export default function WeeklyCalendar({
                           style={{
                             position: 'absolute',
                             top: `${cardTop}px`,
-                            height: `${cardHeight}px`,
+                            minHeight: `${CALENDAR_LAYOUT.CARD_MIN_HEIGHT}px`,
                             left: `${CALENDAR_LAYOUT.CARD_PADDING.horizontal + stackOffset}px`,
                             right: `${CALENDAR_LAYOUT.CARD_PADDING.horizontal + rightOffset}px`,
                             padding: `${CALENDAR_LAYOUT.CARD_PADDING.vertical}px ${CALENDAR_LAYOUT.CARD_PADDING.horizontal}px`,
