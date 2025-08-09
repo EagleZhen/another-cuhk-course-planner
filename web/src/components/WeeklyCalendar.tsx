@@ -69,7 +69,7 @@ export default function WeeklyCalendar({
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
-  displayConfig = { showTime: true, showLocation: true, showInstructor: true },
+  displayConfig = { showTime: true, showLocation: true, showInstructor: false },
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
