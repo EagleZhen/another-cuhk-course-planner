@@ -71,14 +71,6 @@ const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
 }
 
 // Helper functions for consistent calculations (now layout-aware)
-const getCardHeight = (startHour: number, endHour: number, startMin: number, endMin: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
-  const naturalHeight = ((endHour - startHour) * layout.HOUR_HEIGHT + 
-                        ((endMin - startMin) / 60) * layout.HOUR_HEIGHT)
-  // For very short classes (like 45-50 min), ensure minimum content can fit
-  // But allow cards to shrink when fewer rows are displayed
-  return Math.max(naturalHeight, layout.CARD_MIN_HEIGHT)
-}
-
 const getCardTop = (startHour: number, startMin: number, defaultStartHour: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
   return (startHour - defaultStartHour) * layout.HOUR_HEIGHT + (startMin / 60) * layout.HOUR_HEIGHT
 }
