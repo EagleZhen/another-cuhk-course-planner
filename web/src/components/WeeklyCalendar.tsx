@@ -342,12 +342,12 @@ function UnscheduledSectionsCard({
   const [isExpanded, setIsExpanded] = useState(false)
   
   return (
-    <div className="px-4 py-1 border-b border-gray-100 bg-white">
+    <div className="px-4 py-1 bg-white">
       {/* Card-like expandable container - like CourseSearch */}
       <div className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all bg-white">
         {/* Header row - clickable to expand */}
         <div 
-          className="p-3 cursor-pointer"
+          className="p-3 cursor-pointer hover:bg-gray-100 transition-colors"
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <div className="flex items-center justify-between">
