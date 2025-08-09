@@ -348,9 +348,17 @@ export default function ShoppingCart({
         <div className="border-t px-3 py-2 flex-shrink-0">
           <div className="flex justify-between text-xs text-gray-600">
             <span>
-              {courseEnrollments.reduce((sum, enrollment) => 
-                sum + enrollment.course.credits, 0
-              ).toFixed(1)} credits
+              {(() => {
+                const visibleCredits = courseEnrollments
+                  .filter(enrollment => enrollment.isVisible)
+                  .reduce((sum, enrollment) => sum + enrollment.course.credits, 0)
+                const totalCredits = courseEnrollments
+                  .reduce((sum, enrollment) => sum + enrollment.course.credits, 0)
+                
+                return visibleCredits === totalCredits 
+                  ? `${totalCredits.toFixed(1)} credits`
+                  : `${visibleCredits.toFixed(1)} / ${totalCredits.toFixed(1)} credits`
+              })()}
             </span>
             {conflictCount > 0 && (
               <div className="flex items-center gap-1 text-red-500">
