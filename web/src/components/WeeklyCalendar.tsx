@@ -6,6 +6,93 @@ import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff } from 'lucide-react'
 import { groupOverlappingEvents, getConflictZones, eventsOverlap, formatTimeCompact, formatInstructorCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
+// Configuration-driven calendar display system
+interface CalendarDisplayConfig {
+  showTime: boolean
+  showLocation: boolean  
+  showInstructor: boolean
+  // title always shown - it's essential for course identification
+}
+
+// Typography constants for consistency
+const CARD_TEXT = {
+  TITLE_SIZE: 'text-xs',
+  DETAIL_SIZE: 'text-[10px]', 
+  SMALL_SIZE: 'text-[9px]',
+  LINE_HEIGHT: 'leading-tight',
+  // Row height estimates for calculation (precise measurements)
+  TITLE_ROW_HEIGHT: 16,    // text-xs + font-semibold + line-height
+  DETAIL_ROW_HEIGHT: 12,   // text-[10px] + line-height  
+  SMALL_ROW_HEIGHT: 11     // text-[9px] + tight line-height
+} as const
+
+// Calculate layout dimensions based on display configuration
+const calculateLayoutFromConfig = (config: CalendarDisplayConfig) => {
+  // Calculate total content height needed - title always shown
+  let contentHeight = CARD_TEXT.TITLE_ROW_HEIGHT
+  
+  // Add height for each visible row
+  if (config.showTime) {
+    contentHeight += CARD_TEXT.DETAIL_ROW_HEIGHT
+  }
+  if (config.showLocation) {
+    contentHeight += CARD_TEXT.SMALL_ROW_HEIGHT
+  }
+  if (config.showInstructor) {
+    contentHeight += CARD_TEXT.SMALL_ROW_HEIGHT
+  }
+  
+  // Calculate padding based on content
+  // Title-only cards need minimal padding, more rows need slightly more breathing room
+  const rowCount = 1 + 
+    (config.showTime ? 1 : 0) + 
+    (config.showLocation ? 1 : 0) + 
+    (config.showInstructor ? 1 : 0)
+  
+  const cardPadding = rowCount === 1 ? 4 : 6 // Minimal padding for title-only
+  const CARD_MIN_HEIGHT = contentHeight + cardPadding
+  
+  // Hour height accommodates content with minimal but usable buffer
+  const HOUR_HEIGHT = Math.max(32, CARD_MIN_HEIGHT + 6) // Very compact for title-only mode
+  
+  return {
+    HOUR_HEIGHT,
+    CARD_MIN_HEIGHT,
+    TIME_COLUMN_WIDTH: 48,
+    STACK_OFFSET: 16,
+    CONFLICT_ZONE_PADDING: 4,
+    CARD_PADDING: {
+      horizontal: 4,
+      vertical: cardPadding === 4 ? 1 : 2 // Tighter vertical padding for compact cards
+    },
+    // Store the config for conditional rendering
+    DISPLAY_CONFIG: config
+  } as const
+}
+
+// Helper functions for consistent calculations (now layout-aware)
+const getCardHeight = (startHour: number, endHour: number, startMin: number, endMin: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
+  const naturalHeight = ((endHour - startHour) * layout.HOUR_HEIGHT + 
+                        ((endMin - startMin) / 60) * layout.HOUR_HEIGHT)
+  // For very short classes (like 45-50 min), ensure minimum content can fit
+  // But allow cards to shrink when fewer rows are displayed
+  return Math.max(naturalHeight, layout.CARD_MIN_HEIGHT)
+}
+
+const getCardTop = (startHour: number, startMin: number, defaultStartHour: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
+  return (startHour - defaultStartHour) * layout.HOUR_HEIGHT + (startMin / 60) * layout.HOUR_HEIGHT
+}
+
+const getConflictZoneTop = (startHour: number, startMin: number, defaultStartHour: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
+  return getCardTop(startHour, startMin, defaultStartHour, layout) - layout.CONFLICT_ZONE_PADDING
+}
+
+const getConflictZoneHeight = (startHour: number, endHour: number, startMin: number, endMin: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
+  return ((endHour - startHour) * layout.HOUR_HEIGHT + 
+          ((endMin - startMin) / 60) * layout.HOUR_HEIGHT) + 
+         (layout.CONFLICT_ZONE_PADDING * 2)
+}
+
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
@@ -17,6 +104,7 @@ interface WeeklyCalendarProps {
   selectedTerm?: string
   availableTerms?: string[]
   selectedEnrollment?: string | null
+  displayConfig?: CalendarDisplayConfig  // New: configure what info to show
   onTermChange?: (term: string) => void
   onToggleVisibility?: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -28,15 +116,26 @@ export default function WeeklyCalendar({
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
+  displayConfig = { showTime: true, showLocation: true, showInstructor: true }, // Default: show all info
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
 }: WeeklyCalendarProps) {
+  // State for testing display configuration
+  const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
+  
+  // Calculate layout based on display configuration
+  const CALENDAR_LAYOUT = calculateLayoutFromConfig(localDisplayConfig)
+  
+  // Toggle functions for testing
+  const toggleTime = () => setLocalDisplayConfig(prev => ({ ...prev, showTime: !prev.showTime }))
+  const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
+  const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   
   // Dynamic hour range based on enrolled courses
   const defaultStartHour = 8
-  const defaultEndHour = 19 // 7pm
+  const defaultEndHour = 21 // last number is 21:00 but the last line is 22:00
   
   // Find the latest end time from all events
   const latestEndTime = events.length > 0 
@@ -62,7 +161,39 @@ export default function WeeklyCalendar({
     <Card className="h-full flex flex-col">
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <CardTitle>Weekly Schedule</CardTitle>
+          <div className="flex items-center gap-4">
+            <CardTitle>Weekly Schedule</CardTitle>
+            
+            {/* Display Configuration Toggle Buttons */}
+            <div className="flex items-center gap-2">
+              <div className="text-xs text-gray-500 font-medium">Show:</div>
+              <Button
+                variant={localDisplayConfig.showTime ? "default" : "outline"}
+                size="sm"
+                onClick={toggleTime}
+                className="h-6 px-2 text-xs font-normal cursor-pointer"
+              >
+                Time
+              </Button>
+              <Button
+                variant={localDisplayConfig.showLocation ? "default" : "outline"}
+                size="sm"
+                onClick={toggleLocation}
+                className="h-6 px-2 text-xs font-normal cursor-pointer"
+              >
+                Location
+              </Button>
+              <Button
+                variant={localDisplayConfig.showInstructor ? "default" : "outline"}
+                size="sm"
+                onClick={toggleInstructor}
+                className="h-6 px-2 text-xs font-normal cursor-pointer"
+              >
+                Instructor
+              </Button>
+            </div>
+          </div>
+          
           <TermSelector 
             selectedTerm={selectedTerm}
             availableTerms={availableTerms}
@@ -77,6 +208,7 @@ export default function WeeklyCalendar({
           unscheduledSections={unscheduledSections} 
           selectedEnrollment={selectedEnrollment}
           onSelectEnrollment={onSelectEnrollment}
+          layout={CALENDAR_LAYOUT}
         />
       )}
       
@@ -84,7 +216,7 @@ export default function WeeklyCalendar({
         {/* Scrollable Calendar Content - moved up to wrap header for scrollbar alignment */}
         <div className="h-full max-h-[720px] overflow-y-auto">
           {/* Sticky Header Row - now inside the scrollable container */}
-          <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}>
+          <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: `${CALENDAR_LAYOUT.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
             {/* Time header - smaller width */}
             <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0">
               Time
@@ -100,7 +232,7 @@ export default function WeeklyCalendar({
           {/* Calendar Content Grid */}
           <div 
             className="grid" 
-            style={{gridTemplateColumns: '48px 1fr 1fr 1fr 1fr 1fr'}}
+            style={{gridTemplateColumns: `${CALENDAR_LAYOUT.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
             onClick={(e) => {
               // Click away handler - deselect if clicking on empty calendar space (not on a course card)
               const target = e.target as HTMLElement
@@ -115,7 +247,7 @@ export default function WeeklyCalendar({
             <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
             <div className="flex-1">
               {hours.map(hour => (
-                <div key={hour} className="h-16 flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100">
+                <div key={hour} className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100" style={{ height: `${CALENDAR_LAYOUT.HOUR_HEIGHT}px` }}>
                   {hour.toString().padStart(2, '0')}
                 </div>
               ))}
@@ -135,14 +267,15 @@ export default function WeeklyCalendar({
                   {hours.map(hour => (
                     <div 
                       key={hour} 
-                      className="h-16 border-b border-gray-200"
+                      className="border-b border-gray-200"
+                      style={{ height: `${CALENDAR_LAYOUT.HOUR_HEIGHT}px` }}
                     />
                   ))}
                   
                   {/* Conflict Zone Backgrounds */}
                   {conflictZones.map((zone, zoneIndex) => {
-                    const zoneTop = ((zone.startHour - defaultStartHour) * 64 + (zone.startMinute / 60) * 64) - 4
-                    const zoneHeight = ((zone.endHour - zone.startHour) * 64 + ((zone.endMinute - zone.startMinute) / 60) * 64) + 8
+                    const zoneTop = getConflictZoneTop(zone.startHour, zone.startMinute, defaultStartHour, CALENDAR_LAYOUT)
+                    const zoneHeight = getConflictZoneHeight(zone.startHour, zone.endHour, zone.startMinute, zone.endMinute, CALENDAR_LAYOUT)
                     
                     return (
                       <div
@@ -164,14 +297,14 @@ export default function WeeklyCalendar({
                   {/* Event Groups with Smart Stacking */}
                   {eventGroups.map((group) => {
                     return group.map((event, stackIndex) => {
-                      const cardHeight = ((event.endHour - event.startHour) * 64 + ((event.endMinute - event.startMinute) / 60) * 64)
-                      const cardTop = ((event.startHour - defaultStartHour) * 64 + (event.startMinute / 60) * 64)
+                      const cardHeight = getCardHeight(event.startHour, event.endHour, event.startMinute, event.endMinute, CALENDAR_LAYOUT)
+                      const cardTop = getCardTop(event.startHour, event.startMinute, defaultStartHour, CALENDAR_LAYOUT)
                       
                       // Conditional styling based on conflict status and selection
                       const isConflicted = group.length > 1
                       const isSelected = selectedEnrollment === event.enrollmentId
-                      const stackOffset = isConflicted ? stackIndex * 16 : 0
-                      const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * 16 : 0
+                      const stackOffset = isConflicted ? stackIndex * CALENDAR_LAYOUT.STACK_OFFSET : 0
+                      const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_LAYOUT.STACK_OFFSET : 0
                       
                       // Boost z-index for selected cards to bring them to front
                       let zIndex = isConflicted ? 20 + stackIndex : 10
@@ -180,7 +313,6 @@ export default function WeeklyCalendar({
                       }
                       
                       const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
-                      const isTopCard = stackIndex === 0
                       
                       return (
                         <div
@@ -190,13 +322,14 @@ export default function WeeklyCalendar({
                             position: 'absolute',
                             top: `${cardTop}px`,
                             height: `${cardHeight}px`,
-                            left: `${4 + stackOffset}px`,
-                            right: `${4 + rightOffset}px`,
+                            left: `${CALENDAR_LAYOUT.CARD_PADDING.horizontal + stackOffset}px`,
+                            right: `${CALENDAR_LAYOUT.CARD_PADDING.horizontal + rightOffset}px`,
+                            padding: `${CALENDAR_LAYOUT.CARD_PADDING.vertical}px ${CALENDAR_LAYOUT.CARD_PADDING.horizontal}px`,
                             zIndex
                           }}
                           className={`
                             ${event.color} 
-                            rounded-sm p-1 text-xs text-white ${shadowClass}
+                            rounded-sm text-xs text-white ${shadowClass}
                             hover:scale-105 transition-all cursor-pointer
                             overflow-hidden group
                             ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105 shadow-2xl' : ''}
@@ -243,15 +376,31 @@ export default function WeeklyCalendar({
                             )}
                           </Button>
                           
-                          <div className="font-semibold text-xs leading-tight truncate pr-3">
+                          {/* Row 1: Course info (always shown) */}
+                          <div className={`font-semibold ${CARD_TEXT.TITLE_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate pr-3`}>
                             {event.subject}{event.courseCode} {event.sectionCode.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
                           </div>
-                          <div className="text-[10px] leading-tight truncate opacity-90 mb-1">
-                            {formatTimeCompact(event.time)}
-                          </div>
-                          <div className="text-[9px] leading-tight opacity-80" style={{wordBreak: 'break-word', lineHeight: '1.2'}}>
-                            {event.location}
-                          </div>
+                          
+                          {/* Row 2: Time (conditional) */}
+                          {CALENDAR_LAYOUT.DISPLAY_CONFIG.showTime && (
+                            <div className={`${CARD_TEXT.DETAIL_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate opacity-90`}>
+                              {formatTimeCompact(event.time)}
+                            </div>
+                          )}
+                          
+                          {/* Row 3: Location (conditional) */}
+                          {CALENDAR_LAYOUT.DISPLAY_CONFIG.showLocation && (
+                            <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
+                              {event.location}
+                            </div>
+                          )}
+                          
+                          {/* Row 4: Instructor (conditional) */}
+                          {CALENDAR_LAYOUT.DISPLAY_CONFIG.showInstructor && (
+                            <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
+                              {event.instructor ? formatInstructorCompact(event.instructor) : 'TBD'}
+                            </div>
+                          )}
                         </div>
                       )
                     })
@@ -329,7 +478,8 @@ function TermSelector({
 function UnscheduledSectionsCard({ 
   unscheduledSections,
   selectedEnrollment,
-  onSelectEnrollment
+  onSelectEnrollment,
+  layout
 }: {
   unscheduledSections: Array<{
     enrollment: CourseEnrollment
@@ -338,6 +488,7 @@ function UnscheduledSectionsCard({
   }>
   selectedEnrollment?: string | null
   onSelectEnrollment?: (enrollmentId: string | null) => void
+  layout: ReturnType<typeof calculateLayoutFromConfig>
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
   
@@ -402,7 +553,7 @@ function UnscheduledSectionsCard({
               key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
               className={`
                 ${item.enrollment.color || 'bg-indigo-500'}
-                rounded-sm p-1 text-xs text-white shadow-md
+                rounded-sm text-xs text-white shadow-md
                 hover:scale-105 transition-all cursor-pointer
                 overflow-hidden group
                 relative
@@ -410,7 +561,8 @@ function UnscheduledSectionsCard({
               `}
               style={{
                 width: 'calc((100% - 32px) / 5)', // 5 cards per row with gap-2 (8px gaps)
-                minHeight: '64px' // Slightly taller for 4 rows
+                minHeight: `${layout.CARD_MIN_HEIGHT}px`, // Consistent height for configured rows
+                padding: `${layout.CARD_PADDING.vertical}px ${layout.CARD_PADDING.horizontal}px`
               }}
               onClick={(e) => {
                 e.stopPropagation() // Prevent card collapse when clicking course cards
@@ -425,25 +577,31 @@ function UnscheduledSectionsCard({
                 console.log(`Unscheduled course: ${item.enrollment.course.subject}${item.enrollment.course.courseCode} - Selected: ${!isSelected}`)
               }}
             >
-              {/* Row 1: Subject + Course Code + Section Type (like regular events) */}
-              <div className="font-semibold text-xs leading-tight truncate pr-1">
+              {/* Row 1: Course info (always shown) */}
+              <div className={`font-semibold ${CARD_TEXT.TITLE_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate pr-1`}>
                 {item.enrollment.course.subject}{item.enrollment.course.courseCode} {item.section.sectionType}
               </div>
               
-              {/* Row 2: Time */}
-              <div className="text-[10px] leading-tight truncate opacity-90">
-                {item.meeting.time === 'TBA' ? 'No set time' : item.meeting.time}
-              </div>
+              {/* Row 2: Time (conditional) */}
+              {layout.DISPLAY_CONFIG.showTime && (
+                <div className={`${CARD_TEXT.DETAIL_SIZE} ${CARD_TEXT.LINE_HEIGHT} truncate opacity-90`}>
+                  {item.meeting.time === 'TBA' ? 'No set time' : item.meeting.time}
+                </div>
+              )}
               
-              {/* Row 3: Location */}
-              <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
-                {item.meeting.location || 'TBD'}
-              </div>
+              {/* Row 3: Location (conditional) */}
+              {layout.DISPLAY_CONFIG.showLocation && (
+                <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
+                  {item.meeting.location || 'TBD'}
+                </div>
+              )}
               
-              {/* Row 4: Instructor */}
-              <div className="text-[9px] leading-tight opacity-80 truncate" style={{lineHeight: '1.2'}}>
-                {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBD'}
-              </div>
+              {/* Row 4: Instructor (conditional) */}
+              {layout.DISPLAY_CONFIG.showInstructor && (
+                <div className={`${CARD_TEXT.SMALL_SIZE} ${CARD_TEXT.LINE_HEIGHT} opacity-80 truncate`} style={{lineHeight: '1.2'}}>
+                  {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBD'}
+                </div>
+              )}
             </div>
             )
           })}
