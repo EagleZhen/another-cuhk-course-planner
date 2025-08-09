@@ -94,6 +94,110 @@ External JSON Data → Zod Validation → Internal Types → React Components
 - **Storage Cleanup**: Automatic removal of empty schedules to maintain clean localStorage
 - **Deterministic Colors**: Hash-based assignment ensures same colors across browser sessions
 
+### 🎉 **Latest Development Phase: Enterprise-Grade Unscheduled Events System** (August 2025 - COMPLETED)
+
+#### **🗓️ Comprehensive TBA Course Management System** 🏆 **ENTERPRISE-GRADE - PRODUCTION READY**
+
+**Revolutionary Feature**: Advanced handling of courses without fixed meeting times (TBA), providing seamless integration with the calendar interface while maintaining full functionality and visual consistency.
+
+**🎯 Core System Architecture**:
+```typescript
+// Clean TBA Event Filtering Pipeline - PRODUCTION READY
+External Course Data → Time Parsing → Valid/Invalid Classification → Dual Display System
+        ↓                    ↓                    ↓                        ↓
+   JSON meetings     parseTimeRange()    Scheduled vs TBA        Calendar + Unscheduled
+   
+// Example: Complete TBA Course Handling
+📚 COMP4981 - Final Year Project (6.0 credits) [Color: bg-emerald-600]
+  └─ F-LEC: TBA @ TBD | Prof. Chen
+     ↓ Filtered from calendar grid
+     ↓ Displayed in unscheduled section
+     ↓ Clickable with same selection behavior
+
+🗓️ Calendar Grid: Only shows courses with valid time slots (Mo-Fr, proper hours)
+📋 Unscheduled Section: Expandable card showing TBA courses with full functionality
+🎨 Visual Consistency: Same colors, same interaction patterns, same selection rings
+```
+
+**🚀 Advanced Implementation Features**:
+
+**1. ✅ Smart Time Filtering System**:
+```typescript
+// Robust time validation - prevents TBA pollution of calendar grid
+export function getDayIndex(timeStr: string): number {
+  if (timeStr.includes('Mo')) return 0
+  // ... other days
+  return -1 // ✅ TBA/invalid times return -1 (filtered out)
+}
+
+// Calendar event generation with TBA filtering
+export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
+  // ✅ Only creates events for meetings with valid times and days
+  if (!timeRange || dayIndex === -1) return // Skip TBA meetings
+}
+```
+
+**2. ✅ Expandable Unscheduled Events Card**:
+- **CourseSearch-Style Interface**: Expandable card with preview chips and detailed view
+- **Clickable Preview Chips**: Always-visible course chips with selection functionality  
+- **Detailed Calendar-Style Cards**: 5-per-row layout matching regular calendar events
+- **Smart Credits Display**: Shows "visible / total credits" for better load understanding
+
+**3. ✅ Complete Visual & Interaction Consistency**:
+```typescript
+// Identical behavior to regular calendar events
+- Same Tailwind color classes (bg-blue-500, bg-emerald-600, etc.)
+- Same blue selection rings (ring-2 ring-blue-400 ring-opacity-75)
+- Same hover effects (hover:scale-105 transition-all)
+- Same shopping cart integration (auto-scroll selection)
+- Same instructor formatting (formatInstructorCompact)
+- Same click-to-toggle selection behavior
+```
+
+**🎨 Professional UI/UX Design**:
+
+**Compact State** (Space-Efficient):
+```
+┌─ 📋 Unscheduled (3)  [COMP4981] [CSCI4999] [PHYS1110]           ▼ ─┐
+└───────────── Single Row - Clickable Card ──────────────────────────┘
+```
+
+**Expanded State** (Full Information):
+```
+┌─ 📋 Unscheduled (3)  [COMP4981] [CSCI4999] [PHYS1110]           ▲ ─┐
+│                                                                    │
+│  [COMP4981 LEC]  [CSCI4999 TUT]  [PHYS1110 LAB]  [...]  [...]    │
+│  No set time     No set time     No set time                      │
+│  TBD             Room 205        Lab A                            │
+│  Prof. Chen      Prof. Wang      Dr. Smith                       │
+│                                                                   │
+└─────────────── Unified Card Background ─────────────────────────┘
+```
+
+**📊 Smart Shopping Cart Integration**:
+- **Dynamic Credits Display**: `12.0 / 15.0 credits` (visible vs total)
+- **Auto-Scroll Selection**: Clicking unscheduled cards scrolls to shopping cart item
+- **Visual Selection Feedback**: Blue rings on both preview chips and detailed cards
+- **Consistent Selection Logic**: Toggle behavior matching regular calendar events
+
+**🏗️ Technical Excellence**:
+
+**Type Safety & Data Flow**:
+```typescript
+// Clean extraction function for unscheduled courses
+export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
+  enrollment: CourseEnrollment
+  section: InternalSection  
+  meeting: InternalMeeting
+}> // ✅ Strongly typed with full IntelliSense support
+```
+
+**Performance & Responsiveness**:
+- **Efficient Filtering**: TBA detection at data boundary prevents unnecessary rendering
+- **Responsive Grid**: 5 cards per row with optimal width calculation `calc((100% - 32px) / 5)`
+- **Smooth Animations**: Professional transitions matching calendar events
+- **Memory Efficient**: Clean component architecture with proper event handling
+
 ### 🔄 **Current Development Phase: Advanced Section Compatibility System** (August 2025)
 
 #### **🎯 Hierarchical Section Selection with Smart Compatibility** 🏆 **ENTERPRISE-GRADE - IMPLEMENTED**
