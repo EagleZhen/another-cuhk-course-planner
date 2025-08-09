@@ -82,8 +82,8 @@ class Course:
     description: str = ""
     enrollment_requirement: str = ""
     course_attributes: str = ""  # e.g., "Virtual Teaching & Learning Course", "Service-Learning Course"
-    class_attributes: str = ""  # e.g., "English only", "Chinese only", "Bilingual" (mixed data, less reliable)
     academic_career: str = ""  # e.g., "Undergraduate"
+    # Note: class_attributes are section-specific and stored in each section's data within schedule
     grading_basis: str = ""    # e.g., "Graded"
     component: str = ""        # e.g., "Lecture\nInteractive Tutorial"
     campus: str = ""           # e.g., "Main Campus"
@@ -836,11 +836,6 @@ class CuhkScraper:
         if course_attr_elem:
             course.course_attributes = self._clean_text(course_attr_elem.get_text())
         
-        # Class attributes (class-level language of instruction, mixed data)
-        class_attr_elem = soup.find('td', {'id': 'uc_class_tc_class_attributes'})
-        if class_attr_elem:
-            course.class_attributes = self._clean_text(class_attr_elem.get_text())
-        
         # Academic career (Undergraduate/Graduate)
         career_elem = soup.find('span', {'id': 'uc_course_lbl_acad_career'})
         if career_elem:
@@ -1099,11 +1094,18 @@ class CuhkScraper:
                     }
                     meetings.append(meeting)
         
+        # Extract class attributes (language of instruction specific to this section)
+        class_attributes = ""
+        class_attr_elem = soup.find('td', {'id': 'uc_class_tc_class_attributes'})
+        if class_attr_elem:
+            class_attributes = self._clean_text(class_attr_elem.get_text())
+        
         # Use the original section name from the schedule page
         return {
             'section': section_name,
             'meetings': meetings,
-            'availability': availability
+            'availability': availability,
+            'class_attributes': class_attributes  # Section-specific language info
         }
 
     def _parse_class_availability(self, soup: BeautifulSoup) -> dict:
