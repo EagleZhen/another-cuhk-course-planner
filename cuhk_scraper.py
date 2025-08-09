@@ -9,6 +9,7 @@ import logging
 import ddddocr
 import onnxruntime
 import os
+import gc
 
 @dataclass
 class ScrapingConfig:
@@ -1179,25 +1180,35 @@ class CuhkScraper:
             return ""
         return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
     
-    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, List[Course]]:
-        """Scrape all subjects with optional progress tracking"""
+    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, str]:
+        """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup"""
         if config is None:
             config = ScrapingConfig()  # Use testing defaults
+        
+        self.logger.info(f"🛡️  Starting scraping for {len(subjects)} subjects")
+        self.logger.info(f"📁 Saving to: {config.output_directory}/")
+        self.logger.info(f"💾 Mode: Memory-safe with immediate saves")
+        
+        # Ensure output directory exists
+        os.makedirs(config.output_directory, exist_ok=True)
         
         # Initialize progress tracker if enabled
         if config.track_progress:
             self.progress_tracker = ScrapingProgressTracker(config.progress_file, self.logger)
             self.progress_tracker.progress_data["scraping_log"]["total_subjects"] = len(subjects)
-            self.logger.info(f"Progress tracking enabled: {config.progress_file}")
+            self.logger.info(f"📊 Progress tracking enabled: {config.progress_file}")
         
-        results = {}
+        completed_subjects = []
+        failed_subjects = []
+        saved_files = {}
         
         for i, subject in enumerate(subjects):
-            self.logger.info(f"Processing {subject} ({i+1}/{len(subjects)})")
+            self.logger.info(f"🔄 Processing {subject} ({i+1}/{len(subjects)})")
             
             # Check if subject should be skipped (freshness check)
             if self.progress_tracker and self.progress_tracker.should_skip_subject(subject, config.skip_recent_hours):
                 self.progress_tracker.skip_subject(subject, f"completed within {config.skip_recent_hours}h")
+                completed_subjects.append(subject)  # Count as completed
                 continue
             
             # Track start time for duration calculation
@@ -1205,35 +1216,73 @@ class CuhkScraper:
             
             try:
                 courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-                results[subject] = courses
                 
-                # Calculate duration and mark as completed
-                duration_minutes = (time.time() - start_time) / 60
-                if self.progress_tracker:
-                    config_info = {
-                        "get_details": get_details,
-                        "get_enrollment_details": get_enrollment_details,
-                        "max_courses": config.max_courses_per_subject
-                    }
-                    # We'll update this with the actual output file path in export methods
-                    self.progress_tracker.complete_subject(subject, len(courses), "", duration_minutes, config_info)
+                if courses:
+                    # IMMEDIATELY save subject (crash protection)
+                    saved_file = self._save_subject_immediately(subject, courses, config)
+                    
+                    if saved_file:
+                        completed_subjects.append(subject)
+                        saved_files[subject] = saved_file
+                        
+                        # Calculate duration and mark as completed in progress tracker
+                        duration_minutes = (time.time() - start_time) / 60
+                        if self.progress_tracker:
+                            config_info = {
+                                "get_details": get_details,
+                                "get_enrollment_details": get_enrollment_details,
+                                "max_courses": config.max_courses_per_subject
+                            }
+                            self.progress_tracker.complete_subject(subject, len(courses), saved_file, duration_minutes, config_info)
+                        
+                        self.logger.info(f"✅ {subject} completed: {len(courses)} courses in {duration_minutes:.1f}min → {saved_file}")
+                    else:
+                        failed_subjects.append(subject)
+                        self.logger.error(f"❌ {subject} scraped but save failed")
+                        if self.progress_tracker:
+                            self.progress_tracker.fail_subject(subject, "Save failed after successful scraping")
+                else:
+                    failed_subjects.append(subject)
+                    self.logger.error(f"❌ {subject} scraping failed - no courses found")
+                    if self.progress_tracker:
+                        self.progress_tracker.fail_subject(subject, "No courses found")
+                
+                # CRITICAL: Clean memory before next subject (prevent crashes)
+                self.logger.debug(f"🧹 Cleaning memory after {subject}")
+                del courses  # Explicit cleanup
+                gc.collect()  # Force garbage collection
                 
             except Exception as e:
+                failed_subjects.append(subject)
+                self.logger.error(f"❌ {subject} failed with exception: {e}")
+                
                 # Mark subject as failed in progress tracker
                 if self.progress_tracker:
                     self.progress_tracker.fail_subject(subject, str(e))
                 
-                self.logger.error(f"Failed to scrape {subject}: {e}")
-                results[subject] = []  # Add empty result to maintain structure
+                # Clean up even on failure
+                gc.collect()
             
             # Be polite to the server
-            time.sleep(config.request_delay)
+            if i < len(subjects) - 1:
+                time.sleep(config.request_delay)
         
         # Print progress summary if tracking enabled
         if self.progress_tracker:
             self.progress_tracker.print_summary()
         
-        return results
+        # Final summary
+        self.logger.info(f"🎉 SCRAPING COMPLETED!")
+        self.logger.info(f"✅ Completed: {len(completed_subjects)} subjects")
+        self.logger.info(f"❌ Failed: {len(failed_subjects)} subjects")
+        if failed_subjects:
+            self.logger.info(f"🔄 Failed subjects: {', '.join(failed_subjects)}")
+        
+        return {
+            'completed': completed_subjects,
+            'failed': failed_subjects,
+            'saved_files': saved_files
+        }
     
     def scrape_for_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> Dict[str, List[Course]]:
         """Production scraping - unlimited courses, no debug files, optimized performance"""
@@ -1303,6 +1352,33 @@ class CuhkScraper:
         export_summary = self.export_to_json(results, config=config)
         
         return export_summary
+    
+    def _save_subject_immediately(self, subject: str, courses: List[Course], config: ScrapingConfig) -> Optional[str]:
+        """Save single subject immediately to prevent data loss"""
+        try:
+            # Create subject data structure with timestamp in metadata (not filename)
+            subject_data = {
+                "metadata": {
+                    "scraped_at": datetime.now().isoformat(),
+                    "subject": subject,
+                    "total_courses": len(courses),
+                    "scraper_version": "memory-safe-v2.0"
+                },
+                "courses": [course.to_dict() for course in courses]
+            }
+            
+            # Save to simple filename (no timestamp suffix for better git diffs)
+            filename = f"{config.output_directory}/{subject}.json"
+            
+            with open(filename, 'w', encoding='utf-8') as f:
+                json.dump(subject_data, f, ensure_ascii=False, indent=2)
+            
+            self.logger.info(f"💾 SAVED {subject} → {filename}")
+            return filename
+            
+        except Exception as e:
+            self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
+            return None
     
     def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: str = None) -> str:
         """Export data to JSON with metadata, supporting both single file and per-subject modes"""
