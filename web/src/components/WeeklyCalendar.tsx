@@ -83,15 +83,6 @@ const getCardTop = (startHour: number, startMin: number, defaultStartHour: numbe
   return (startHour - defaultStartHour) * layout.HOUR_HEIGHT + (startMin / 60) * layout.HOUR_HEIGHT
 }
 
-const getConflictZoneTop = (startHour: number, startMin: number, defaultStartHour: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
-  return getCardTop(startHour, startMin, defaultStartHour, layout) - layout.CONFLICT_ZONE_PADDING
-}
-
-const getConflictZoneHeight = (startHour: number, endHour: number, startMin: number, endMin: number, layout: ReturnType<typeof calculateLayoutFromConfig>) => {
-  return ((endHour - startHour) * layout.HOUR_HEIGHT + 
-          ((endMin - startMin) / 60) * layout.HOUR_HEIGHT) + 
-         (layout.CONFLICT_ZONE_PADDING * 2)
-}
 
 
 interface WeeklyCalendarProps {
@@ -272,14 +263,31 @@ export default function WeeklyCalendar({
                     />
                   ))}
                   
-                  {/* Conflict Zone Backgrounds */}
-                  {conflictZones.map((zone, zoneIndex) => {
-                    const zoneTop = getConflictZoneTop(zone.startHour, zone.startMinute, defaultStartHour, CALENDAR_LAYOUT)
-                    const zoneHeight = getConflictZoneHeight(zone.startHour, zone.endHour, zone.startMinute, zone.endMinute, CALENDAR_LAYOUT)
+                  {/* Conflict Zone Backgrounds - calculated from actual event groups */}
+                  {eventGroups.map((group, groupIndex) => {
+                    // Only create conflict zone for groups with multiple events (conflicts)
+                    if (group.length <= 1) return null
+                    
+                    // Calculate the zone to cover all actual card heights in this conflict group
+                    const cardHeights = group.map(event => 
+                      getCardHeight(event.startHour, event.endHour, event.startMinute, event.endMinute, CALENDAR_LAYOUT)
+                    )
+                    const cardTops = group.map(event =>
+                      getCardTop(event.startHour, event.startMinute, defaultStartHour, CALENDAR_LAYOUT)
+                    )
+                    
+                    // Find the overall bounds of all conflicting cards
+                    const minCardTop = Math.min(...cardTops)
+                    const maxCardBottom = Math.max(...cardTops.map((top, i) => top + cardHeights[i]))
+                    
+                    // Conflict zone should extend BEYOND the cards with padding
+                    const zoneTop = minCardTop - CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING
+                    const zoneBottom = maxCardBottom + CALENDAR_LAYOUT.CONFLICT_ZONE_PADDING
+                    const zoneHeight = zoneBottom - zoneTop
                     
                     return (
                       <div
-                        key={`conflict-zone-${zoneIndex}`}
+                        key={`conflict-zone-${groupIndex}`}
                         style={{
                           position: 'absolute',
                           top: `${zoneTop}px`,
