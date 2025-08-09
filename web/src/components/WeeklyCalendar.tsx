@@ -135,7 +135,7 @@ export default function WeeklyCalendar({
   
   // Dynamic hour range based on enrolled courses
   const defaultStartHour = 8
-  const defaultEndHour = 19 // 7pm
+  const defaultEndHour = 21 // last number is 21:00 but the last line is 22:00
   
   // Find the latest end time from all events
   const latestEndTime = events.length > 0 
@@ -171,7 +171,7 @@ export default function WeeklyCalendar({
                 variant={localDisplayConfig.showTime ? "default" : "outline"}
                 size="sm"
                 onClick={toggleTime}
-                className="h-6 px-2 text-xs font-normal"
+                className="h-6 px-2 text-xs font-normal cursor-pointer"
               >
                 Time
               </Button>
@@ -179,7 +179,7 @@ export default function WeeklyCalendar({
                 variant={localDisplayConfig.showLocation ? "default" : "outline"}
                 size="sm"
                 onClick={toggleLocation}
-                className="h-6 px-2 text-xs font-normal"
+                className="h-6 px-2 text-xs font-normal cursor-pointer"
               >
                 Location
               </Button>
@@ -187,7 +187,7 @@ export default function WeeklyCalendar({
                 variant={localDisplayConfig.showInstructor ? "default" : "outline"}
                 size="sm"
                 onClick={toggleInstructor}
-                className="h-6 px-2 text-xs font-normal"
+                className="h-6 px-2 text-xs font-normal cursor-pointer"
               >
                 Instructor
               </Button>
@@ -313,7 +313,6 @@ export default function WeeklyCalendar({
                       }
                       
                       const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
-                      const isTopCard = stackIndex === 0
                       
                       return (
                         <div
