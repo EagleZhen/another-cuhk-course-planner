@@ -285,7 +285,7 @@ function TermSelector({
         variant="outline"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2"
+        className={`flex items-center gap-2 cursor-pointer ${isOpen ? 'relative z-50' : ''}`}
       >
         <span className="text-sm">{selectedTerm}</span>
         <ChevronDown className="w-3 h-3" />
@@ -295,7 +295,7 @@ function TermSelector({
         <>
           {/* Backdrop */}
           <div 
-            className="fixed inset-0 z-40" 
+            className="fixed inset-0 z-40 cursor-pointer" 
             onClick={() => setIsOpen(false)}
           />
           
@@ -306,7 +306,7 @@ function TermSelector({
                 <button
                   key={term}
                   type="button"
-                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
+                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
                     term === selectedTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
                   }`}
                   onClick={() => {
@@ -347,7 +347,7 @@ function UnscheduledSectionsCard({
       <div className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all bg-white">
         {/* Header row - clickable to expand */}
         <div 
-          className="p-3 cursor-pointer hover:bg-gray-100 transition-colors"
+          className="p-3 cursor-pointer"
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <div className="flex items-center justify-between">

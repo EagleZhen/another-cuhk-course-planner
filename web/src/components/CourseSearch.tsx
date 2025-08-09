@@ -169,7 +169,7 @@ export default function CourseSearch({
             <div className="relative">
               <button
                 onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+                className={`inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50' : ''}`}
                 title="Click to change term"
               >
                 <span>{currentTerm}</span>
@@ -180,7 +180,7 @@ export default function CourseSearch({
                 <>
                   {/* Backdrop */}
                   <div 
-                    className="fixed inset-0 z-40" 
+                    className="fixed inset-0 z-40 cursor-pointer" 
                     onClick={() => setIsTermDropdownOpen(false)}
                   />
                   
@@ -191,7 +191,7 @@ export default function CourseSearch({
                         <button
                           key={term}
                           type="button"
-                          className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 ${
+                          className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
                             term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
                           }`}
                           onClick={() => {
