@@ -30,19 +30,49 @@ const TEXT_STYLES = {
   INSTRUCTOR: 'text-[8px] leading-tight opacity-70',
 } as const
 
-// Pure time-to-pixel conversion (independent of content)
-const timeToPixels = (hour: number, minute: number, startHour: number): number => {
-  return ((hour - startHour) * CALENDAR_CONSTANTS.HOUR_HEIGHT) + 
-         (minute / 60) * CALENDAR_CONSTANTS.HOUR_HEIGHT
+// Row height constants based on typography (in pixels)
+const ROW_HEIGHTS = {
+  TITLE: 14,     // text-xs with leading-tight
+  TIME: 12,      // text-[10px] with leading-tight
+  LOCATION: 11,  // text-[9px] with leading-tight  
+  INSTRUCTOR: 10, // text-[8px] with leading-tight
+} as const
+
+// Reference duration for 45-minute standard class
+const REFERENCE_DURATION_MINUTES = 45
+
+// Dynamic height calculation functions
+const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
+  let totalHeight = ROW_HEIGHTS.TITLE // Title always shown
+  
+  if (displayConfig.showTime) totalHeight += ROW_HEIGHTS.TIME
+  if (displayConfig.showLocation) totalHeight += ROW_HEIGHTS.LOCATION
+  if (displayConfig.showInstructor) totalHeight += ROW_HEIGHTS.INSTRUCTOR
+  
+  // Add padding (4px top + 4px bottom)
+  totalHeight += CALENDAR_CONSTANTS.CARD_PADDING * 2
+  
+  return totalHeight
 }
 
-// Calculate card dimensions from pure time data
-const getCardDimensions = (event: CalendarEvent, startHour: number) => {
-  const top = timeToPixels(event.startHour, event.startMinute, startHour)
-  const timeBasedHeight = timeToPixels(event.endHour, event.endMinute, startHour) - top
+const calculateDynamicHourHeight = (referenceCardHeight: number): number => {
+  // 45 minutes = 0.75 hours
+  const referenceDurationHours = REFERENCE_DURATION_MINUTES / 60
+  return referenceCardHeight / referenceDurationHours
+}
+
+// Pure time-to-pixel conversion (now accepts dynamic hour height)
+const timeToPixels = (hour: number, minute: number, startHour: number, hourHeight: number = CALENDAR_CONSTANTS.HOUR_HEIGHT): number => {
+  return ((hour - startHour) * hourHeight) + (minute / 60) * hourHeight
+}
+
+// Calculate card dimensions from pure time data (now accepts dynamic hour height)
+const getCardDimensions = (event: CalendarEvent, startHour: number, hourHeight: number = CALENDAR_CONSTANTS.HOUR_HEIGHT) => {
+  const top = timeToPixels(event.startHour, event.startMinute, startHour, hourHeight)
+  const timeBasedHeight = timeToPixels(event.endHour, event.endMinute, startHour, hourHeight) - top
   
-  // Use time-based height with absolute minimum for very short events
-  const height = Math.max(timeBasedHeight, CALENDAR_CONSTANTS.MIN_CARD_HEIGHT)
+  // With dynamic scaling, no minimum height override needed
+  const height = timeBasedHeight
   
   return { top, height }
 }
@@ -87,6 +117,10 @@ export default function WeeklyCalendar({
   // Fixed hour range - consistent time grid
   const defaultStartHour = 8
   const defaultEndHour = 21
+  
+  // Calculate dynamic hour height based on display configuration
+  const referenceCardHeight = calculateReferenceCardHeight(localDisplayConfig)
+  const dynamicHourHeight = calculateDynamicHourHeight(referenceCardHeight)
   
   const latestEndTime = events.length > 0 
     ? Math.max(defaultEndHour, ...events.map(event => event.endHour))
@@ -180,7 +214,7 @@ export default function WeeklyCalendar({
             <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
               <div className="flex-1">
                 {hours.map(hour => (
-                  <div key={hour} className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100" style={{ height: `${CALENDAR_CONSTANTS.HOUR_HEIGHT}px` }}>
+                  <div key={hour} className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300" style={{ height: `${dynamicHourHeight}px` }}>
                     {hour.toString().padStart(2, '0')}
                   </div>
                 ))}
@@ -204,28 +238,28 @@ export default function WeeklyCalendar({
               
               return (
                 <div key={day} className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column">
-                  {/* Hour slots with fixed height */}
+                  {/* Hour slots with dynamic height */}
                   <div className="relative flex-1">
                     {hours.map(hour => (
                       <div 
                         key={hour} 
-                        className="border-b border-gray-200"
-                        style={{ height: `${CALENDAR_CONSTANTS.HOUR_HEIGHT}px` }}
+                        className="border-b border-gray-200 transition-all duration-300"
+                        style={{ height: `${dynamicHourHeight}px` }}
                       />
                     ))}
                     
-                    {/* Simplified conflict zones - pure time-based */}
+                    {/* Dynamic conflict zones - scale with hour height */}
                     {eventGroups.map((group, groupIndex) => {
                       if (group.length <= 1) return null
                       
-                      // Calculate based on pure time bounds
+                      // Calculate based on pure time bounds with dynamic height
                       const startTimes = group.map(e => e.startHour * 60 + e.startMinute)
                       const endTimes = group.map(e => e.endHour * 60 + e.endMinute)
                       const minStart = Math.min(...startTimes)
                       const maxEnd = Math.max(...endTimes)
                       
-                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, defaultStartHour) - CALENDAR_CONSTANTS.CARD_PADDING
-                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, defaultStartHour) + CALENDAR_CONSTANTS.CARD_PADDING
+                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, defaultStartHour, dynamicHourHeight) - CALENDAR_CONSTANTS.CARD_PADDING
+                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, defaultStartHour, dynamicHourHeight) + CALENDAR_CONSTANTS.CARD_PADDING
                       
                       return (
                         <div
@@ -239,15 +273,15 @@ export default function WeeklyCalendar({
                             zIndex: 1,
                             background: 'repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.6) 0px, rgba(239, 68, 68, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)'
                           }}
-                          className="border-2 border-red-600 rounded-sm shadow-xl animate-pulse"
+                          className="border-2 border-red-600 rounded-sm shadow-xl animate-pulse transition-all duration-300"
                         />
                       )
                     })}
                     
-                    {/* Event cards with consistent time-based positioning */}
+                    {/* Event cards with dynamic time-based positioning */}
                     {eventGroups.map((group) => {
                       return group.map((event, stackIndex) => {
-                        const { top, height } = getCardDimensions(event, defaultStartHour)
+                        const { top, height } = getCardDimensions(event, defaultStartHour, dynamicHourHeight)
                         const isConflicted = group.length > 1
                         const isSelected = selectedEnrollment === event.enrollmentId
                         
@@ -276,7 +310,7 @@ export default function WeeklyCalendar({
                             className={`
                               ${event.color} 
                               rounded-sm text-xs text-white ${shadowClass}
-                              hover:scale-105 transition-all cursor-pointer
+                              hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105 shadow-2xl' : ''}
                             `}
