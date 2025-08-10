@@ -24,6 +24,9 @@ interface CourseSearchProps {
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
+  selectedSubjects?: Set<string> // Subject filter
+  onSubjectFiltersChange?: (subjects: Set<string>) => void
+  onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
 export default function CourseSearch({ 
@@ -37,7 +40,10 @@ export default function CourseSearch({
   onSelectedSectionsChange,
   onSelectEnrollment,
   onSearchControlReady,
-  onDataUpdate
+  onDataUpdate,
+  selectedSubjects = new Set(),
+  onSubjectFiltersChange,
+  onAvailableSubjectsUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   
@@ -47,6 +53,7 @@ export default function CourseSearch({
       onSearchControlReady(setSearchTerm)
     }
   }, [onSearchControlReady])
+
   const [loading, setLoading] = useState(false)
   const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
   const [performanceStats, setPerformanceStats] = useState<{
@@ -58,7 +65,15 @@ export default function CourseSearch({
     totalDataSize: 0
   })
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
+  const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
+
+  // Notify parent when available subjects are discovered
+  useEffect(() => {
+    if (availableSubjects.length > 0 && onAvailableSubjectsUpdate) {
+      onAvailableSubjectsUpdate(availableSubjects)
+    }
+  }, [availableSubjects, onAvailableSubjectsUpdate])
 
   // Helper function to check if course is already enrolled
   const isCourseAdded = (course: InternalCourse) => {
@@ -146,10 +161,15 @@ export default function CourseSearch({
         })
         
         const probeResults = await Promise.all(probePromises)
-        availableSubjects.push(...probeResults.filter((subject): subject is string => subject !== null))
-        availableSubjects.sort()
+        const discoveredSubjects = probeResults.filter((subject): subject is string => subject !== null)
+        discoveredSubjects.sort()
         
-        console.log(`📂 Discovered ${availableSubjects.length} available subjects: ${availableSubjects.join(', ')}`)
+        console.log(`📂 Discovered ${discoveredSubjects.length} available subjects: ${discoveredSubjects.join(', ')}`)
+        
+        // Store discovered subjects for parent component
+        setAvailableSubjects(discoveredSubjects)
+        availableSubjects.length = 0
+        availableSubjects.push(...discoveredSubjects)
 
         setLoadingProgress({ loaded: 0, total: availableSubjects.length, currentSubject: '' })
 
@@ -277,16 +297,24 @@ export default function CourseSearch({
 
   const searchResults = useMemo(() => {
     // First filter by term - only show courses available in current term
-    const termFilteredCourses = allCourses.filter(course => 
+    let filteredCourses = allCourses.filter(course => 
       course.terms.some(term => term.termName === currentTerm)
     )
     
+    // Apply subject filter if any subjects are selected
+    if (selectedSubjects.size > 0) {
+      filteredCourses = filteredCourses.filter(course => 
+        selectedSubjects.has(course.subject)
+      )
+    }
+    
+    // Apply search term filter
     if (!searchTerm.trim()) {
-      return termFilteredCourses.slice(0, 10) // Show first 10 by default
+      return filteredCourses.slice(0, 10) // Show first 10 by default
     }
 
     const searchLower = searchTerm.toLowerCase()
-    const filtered = termFilteredCourses.filter(course => {
+    const searchFiltered = filteredCourses.filter(course => {
       // Create full course code without space for searching
       const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
       
@@ -294,7 +322,6 @@ export default function CourseSearch({
         fullCourseCode.includes(searchLower) ||
         course.courseCode.toLowerCase().includes(searchLower) ||
         course.title.toLowerCase().includes(searchLower) ||
-        course.subject.toLowerCase().includes(searchLower) ||
         course.terms.some(term =>
           term.sections.some(section =>
             section.meetings.some(meeting =>
@@ -305,8 +332,8 @@ export default function CourseSearch({
       )
     })
 
-    return filtered.slice(0, 20) // Limit to 20 results
-  }, [searchTerm, allCourses, currentTerm])
+    return searchFiltered.slice(0, 20) // Limit to 20 results
+  }, [searchTerm, allCourses, currentTerm, selectedSubjects])
 
   return (
     <div className="space-y-4">
@@ -412,6 +439,11 @@ export default function CourseSearch({
             <div className="text-sm text-gray-600 mb-3">
               Showing {searchResults.length} course{searchResults.length !== 1 ? 's' : ''}
               {searchTerm && ` matching "${searchTerm}"`}
+              {selectedSubjects.size > 0 && (
+                <span className="ml-2">
+                  · filtered by {Array.from(selectedSubjects).join(', ')}
+                </span>
+              )}
             </div>
             {searchResults.map((course, index) => (
               <CourseCard 

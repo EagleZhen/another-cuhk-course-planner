@@ -33,6 +33,8 @@ export default function Home() {
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
   const [lastDataUpdate, setLastDataUpdate] = useState<Date | null>(null)
   const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
+  const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
+  const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
 
   // Auto-restore schedule from localStorage when term changes
   useEffect(() => {
@@ -407,20 +409,30 @@ export default function Home() {
                 
                 {/* Available Subjects - Modern Toggle Interface */}
                 <div className="space-y-2">
-                  <div className="text-sm font-medium text-gray-700">Available Subjects</div>
+                  <div className="text-sm font-medium text-gray-700">
+                    Available Subjects {availableSubjects.length > 0 && `(${availableSubjects.length})`}
+                  </div>
                   <div className="flex gap-2 flex-wrap">
-                    {['AIST', 'CENG', 'CSCI', 'ENGG', 'FINA', 'PHYS', 'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN'].map((subject) => (
-                      <SubjectToggle
-                        key={subject}
-                        subject={subject}
-                        onSubjectSelect={(selectedSubject: string) => {
-                          // Use React ref to update search term directly
-                          if (setSearchTermRef.current) {
-                            setSearchTermRef.current(selectedSubject);
-                          }
-                        }}
-                      />
-                    ))}
+                    {availableSubjects.length > 0 ? (
+                      availableSubjects.map((subject) => (
+                        <SubjectToggle
+                          key={subject}
+                          subject={subject}
+                          isSelected={selectedSubjects.has(subject)}
+                          onSubjectToggle={(subject: string) => {
+                            const newSelection = new Set(selectedSubjects)
+                            if (newSelection.has(subject)) {
+                              newSelection.delete(subject)
+                            } else {
+                              newSelection.add(subject)
+                            }
+                            setSelectedSubjects(newSelection)
+                          }}
+                        />
+                      ))
+                    ) : (
+                      <div className="text-xs text-gray-500">Discovering subjects...</div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -438,6 +450,9 @@ export default function Home() {
               onSelectEnrollment={handleSelectEnrollment}     // Event handler prop
               onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
               onDataUpdate={handleDataUpdate}         // Data freshness callback
+              selectedSubjects={selectedSubjects}     // Subject filter state
+              onSubjectFiltersChange={setSelectedSubjects}   // Subject filter callback
+              onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
               />
             </CardContent>
           </Card>
@@ -447,33 +462,28 @@ export default function Home() {
   )
 }
 
-// Modern Subject Toggle Component
+// Persistent Subject Filter Toggle Component
 function SubjectToggle({ 
   subject, 
-  onSubjectSelect 
+  isSelected,
+  onSubjectToggle 
 }: { 
   subject: string
-  onSubjectSelect: (subject: string) => void 
+  isSelected: boolean
+  onSubjectToggle: (subject: string) => void 
 }) {
-  const [isActive, setIsActive] = useState(false)
-
-  const handleClick = () => {
-    setIsActive(true)
-    onSubjectSelect(subject)
-    
-    // Auto-deactivate after a short delay for visual feedback
-    setTimeout(() => setIsActive(false), 300)
-  }
-
   return (
     <Button
-      variant={isActive ? "default" : "outline"}
+      variant={isSelected ? "default" : "outline"}
       size="sm"
-      onClick={handleClick}
-      className="h-7 px-3 text-xs font-medium cursor-pointer transition-all duration-200"
-      title={`Search ${subject} courses`}
+      onClick={() => onSubjectToggle(subject)}
+      className={`h-7 px-3 text-xs font-medium cursor-pointer transition-all duration-200 ${
+        isSelected ? 'bg-blue-600 text-white hover:bg-blue-700' : 'hover:bg-blue-50 hover:border-blue-300'
+      }`}
+      title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
     >
       {subject}
+      {isSelected && ' ✓'}
     </Button>
   )
 }
