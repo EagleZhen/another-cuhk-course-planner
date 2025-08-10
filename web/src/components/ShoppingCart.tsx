@@ -34,25 +34,6 @@ export default function ShoppingCart({
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
   const [, forceUpdate] = useState({}) // For timestamp updates
   
-  // Helper function to format relative time
-  const formatRelativeTime = (timestamp: Date) => {
-    const now = new Date()
-    const diff = now.getTime() - timestamp.getTime()
-    const minutes = Math.floor(diff / 60000)
-    const seconds = Math.floor((diff % 60000) / 1000)
-    
-    if (minutes > 60) {
-      const hours = Math.floor(minutes / 60)
-      return `${hours}h ${minutes % 60}m ago`
-    } else if (minutes > 0) {
-      return `${minutes}m ago`
-    } else if (seconds > 5) {
-      return `${seconds}s ago`
-    } else {
-      return 'just now'
-    }
-  }
-  
   // Update timestamp display every 30 seconds
   useEffect(() => {
     if (!lastDataUpdate) return
@@ -149,7 +130,7 @@ export default function ShoppingCart({
             {lastDataUpdate && (
               <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Data from {formatRelativeTime(lastDataUpdate)}</span>
+                <span>Data from {lastDataUpdate.toLocaleString()}</span>
               </div>
             )}
           </div>
