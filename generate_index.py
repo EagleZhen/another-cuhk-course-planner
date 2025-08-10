@@ -305,6 +305,116 @@ def generate_term_indexes(data_dir: str):
     
     print(f"\n🚀 Ready for frontend integration!")
     print(f"   Load term-specific indexes for instant search per term.")
+    
+    # Prompt to move files to web app data folder
+    move_to_webapp(data_dir, all_generated_files, subject_files)
+
+def move_to_webapp(source_dir: str, generated_files: List[tuple], subject_files: List[Path]):
+    """
+    Prompt user to move generated index files and subject files to web app data folder
+    
+    Args:
+        source_dir: Source directory containing the files
+        generated_files: List of (filename, size_mb, course_count) tuples for generated indexes
+        subject_files: List of Path objects for subject JSON files
+    """
+    webapp_data_dir = "web/public/data"
+    source_path = Path(source_dir)
+    webapp_path = Path(webapp_data_dir)
+    
+    # Check if we're already in the web app data directory
+    if source_path.resolve() == webapp_path.resolve():
+        print(f"\n✅ Files are already in the web app data directory: {webapp_data_dir}")
+        return
+    
+    print(f"\n📁 File Transfer Options:")
+    print(f"   Source: {source_dir}")
+    print(f"   Target: {webapp_data_dir}")
+    
+    # Check if target directory exists
+    if not webapp_path.exists():
+        print(f"   ⚠️ Target directory doesn't exist: {webapp_data_dir}")
+        create_dir = input(f"   Create directory? (y/n): ").lower().strip()
+        if create_dir == 'y':
+            webapp_path.mkdir(parents=True, exist_ok=True)
+            print(f"   ✅ Created directory: {webapp_data_dir}")
+        else:
+            print(f"   ❌ Skipping file transfer")
+            return
+    
+    # Show what will be moved
+    print(f"\n📋 Files to transfer:")
+    
+    # List index files
+    print(f"   📊 Index files ({len(generated_files)}):")
+    for filename, size_mb, course_count in generated_files:
+        print(f"      - {filename} ({size_mb:.2f} MB, {course_count:,} courses)")
+    
+    # List subject files  
+    print(f"   📚 Subject files ({len(subject_files)}):")
+    subject_total_size = 0
+    for subject_file in sorted(subject_files):
+        file_size_mb = subject_file.stat().st_size / (1024 * 1024)
+        subject_total_size += file_size_mb
+        print(f"      - {subject_file.name} ({file_size_mb:.2f} MB)")
+    
+    total_transfer_size = sum(size for _, size, _ in generated_files) + subject_total_size
+    print(f"\n   📈 Total transfer size: {total_transfer_size:.2f} MB")
+    
+    # Ask for confirmation
+    print(f"\n❓ Move files to web app data directory?")
+    print(f"   This will copy all files to {webapp_data_dir}")
+    print(f"   Existing files will be overwritten.")
+    
+    choice = input(f"   Continue? (y/n): ").lower().strip()
+    
+    if choice != 'y':
+        print(f"   ❌ Transfer cancelled")
+        return
+    
+    # Perform the transfer
+    import shutil
+    
+    try:
+        files_moved = 0
+        total_files = len(generated_files) + len(subject_files)
+        
+        print(f"\n🚚 Transferring files...")
+        
+        # Move index files
+        for filename, _, _ in generated_files:
+            source_file = source_path / filename
+            target_file = webapp_path / filename
+            
+            if source_file.exists():
+                shutil.copy2(source_file, target_file)
+                files_moved += 1
+                print(f"   ✅ {filename}")
+            else:
+                print(f"   ⚠️ {filename} not found")
+        
+        # Move subject files
+        for subject_file in subject_files:
+            target_file = webapp_path / subject_file.name
+            shutil.copy2(subject_file, target_file)
+            files_moved += 1
+            print(f"   ✅ {subject_file.name}")
+        
+        print(f"\n🎉 Transfer complete!")
+        print(f"   📁 Destination: {webapp_data_dir}")
+        print(f"   📊 Files transferred: {files_moved}/{total_files}")
+        print(f"   💾 Total size: {total_transfer_size:.2f} MB")
+        
+        if files_moved == total_files:
+            print(f"\n✅ All files successfully transferred to web app!")
+            print(f"   Your frontend can now load the term-specific indexes.")
+        else:
+            print(f"\n⚠️ Some files may not have transferred correctly")
+            
+    except Exception as e:
+        print(f"\n❌ Error during transfer: {str(e)}")
+        print(f"   You may need to copy files manually to {webapp_data_dir}")
+        return
 
 def main():
     """CLI interface for term-specific index generation"""
