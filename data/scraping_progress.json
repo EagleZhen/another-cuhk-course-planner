@@ -1,9 +1,9 @@
 {
   "scraping_log": {
     "created_at": "2025-07-29T19:02:27.927695",
-    "last_updated": "2025-08-09T14:33:28.113170",
-    "total_subjects": 12,
-    "completed": 11,
+    "last_updated": "2025-08-09T23:59:47.791557",
+    "total_subjects": 1,
+    "completed": 12,
     "failed": 0,
     "skipped": 41,
     "subjects": {
@@ -381,6 +381,20 @@
         "courses_scraped": 77,
         "output_file": "data/UGED.json",
         "duration_minutes": 4.66,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FINA": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T23:59:47.791430",
+        "courses_count": 162,
+        "courses_scraped": 162,
+        "output_file": "data/FINA.json",
+        "duration_minutes": 9.06,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
