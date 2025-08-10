@@ -11,7 +11,190 @@ This is a CUHK Course Planner web application designed to solve the problem of o
 
 ## Current Development Status
 
-### 🎯 **Latest Development Phase: Scalable Data Architecture & Crash-Resistant Scraping** (January 2025 - IN PROGRESS)
+### 🎯 **Latest Development Phase: Dynamic Calendar Configuration System** (January 2025 - PRODUCTION READY)
+
+#### **🚀 Revolutionary Configuration-Driven Calendar Architecture** 🏆 **ENTERPRISE-GRADE**
+
+**Breakthrough Innovation**: Advanced calendar display system with user-configurable information density, dynamic layout optimization, and seamless UX integration that scales to display requirements.
+
+**🏗️ Core Dynamic Architecture**:
+```typescript
+// Configuration-Driven Layout Pipeline - PRODUCTION READY
+Display Config → Dynamic Height Calc → Time-Based Positioning → Responsive Rendering
+     ↓              ↓                      ↓                    ↓
+User toggles    Reference card math    Pure time pixels    Adaptive UI
+
+interface CalendarDisplayConfig {
+  showTime: boolean       // Time slot information
+  showLocation: boolean   // Room/location details  
+  showInstructor: boolean // Professor/TA names
+  // title always shown - course identification essential
+}
+
+// Example: Dynamic Layout Calculation (Latest Implementation)
+📱 Title Only:     14px + 4px padding = Dynamic 18px cards → Scaled hour slots
+📊 + Time:         26px + 8px padding = Dynamic 34px cards → Scaled hour slots  
+📋 + Location:     37px + 8px padding = Dynamic 45px cards → Scaled hour slots
+🎓 All Info:       47px + 8px padding = Dynamic 55px cards → Scaled hour slots
+```
+
+**🔬 Advanced Mathematical Layout Engine**:
+```typescript
+// Reference-Based Dynamic Sizing - PRODUCTION READY
+const calculateReferenceCardHeight = (config: CalendarDisplayConfig) => {
+  let contentHeight = ROW_HEIGHTS.TITLE // Always shown: 14px
+  if (config.showTime) contentHeight += ROW_HEIGHTS.TIME        // +12px
+  if (config.showLocation) contentHeight += ROW_HEIGHTS.LOCATION // +11px  
+  if (config.showInstructor) contentHeight += ROW_HEIGHTS.INSTRUCTOR // +10px
+  
+  return contentHeight + (CALENDAR_CONSTANTS.CARD_PADDING * 2) // +8px padding
+}
+
+// Time-Based Hour Height Calculation
+const calculateDynamicHourHeight = (referenceCardHeight: number) => {
+  const referenceDurationHours = 45 / 60 // 45-minute standard class = 0.75 hours
+  return referenceCardHeight / referenceDurationHours // Perfect scaling
+}
+
+// Pure Time-to-Pixel Conversion with Dynamic Scaling
+const timeToPixels = (hour: number, minute: number, startHour: number, hourHeight: number) => {
+  return ((hour - startHour) * hourHeight) + (minute / 60) * hourHeight
+}
+```
+
+#### **🎛️ Professional Toggle Interface & UX** 🚀 **ENTERPRISE-GRADE**
+
+**Modern Control System**:
+- **Professional Button Design**: Filled (active) ↔ Outline (inactive) variants
+- **Instant Layout Response**: Real-time height recalculation with smooth transitions  
+- **Space-Efficient Placement**: Integrated into calendar header without vertical overhead
+- **Consistent Styling**: Matches application design language with proper spacing
+
+**🎨 Progressive Information Density**:
+```
+📱 Ultra-Compact Mode (Title Only):    ~32px hour slots - Maximum time coverage
+📊 Standard Mode (Title + Time):       ~45px hour slots - Balanced info/space  
+📋 Detailed Mode (+ Location):         ~60px hour slots - More detail
+🎓 Full Information Mode (All):        ~73px hour slots - Complete course info
+```
+
+#### **🔧 Technical Architecture Excellence** 
+
+**Time-First Calendar Approach**:
+```typescript
+// Fixed Calendar Constants - Never Change
+const CALENDAR_CONSTANTS = {
+  TIME_COLUMN_WIDTH: 48,   // Fixed for consistent time alignment
+  STACK_OFFSET: 16,        // Fixed for conflict stacking
+  CARD_PADDING: 4,         // Fixed internal card padding
+  MIN_CARD_HEIGHT: 24,     // Absolute minimum for short events
+} as const
+
+// Dynamic Calculations Based on Content
+const HOUR_HEIGHT = calculateDynamicHourHeight(referenceCardHeight)
+const cardDimensions = getCardDimensions(event, startHour, HOUR_HEIGHT)
+```
+
+**Synchronized Conflict Zone System**:
+```typescript
+// Perfect Alignment - Cards and Conflict Zones Use Same Math
+Card Rendering → Conflict Detection → Zone Calculation → Visual Alignment
+      ↓                ↓                    ↓                ↓
+  Dynamic height   Group overlaps    Time-based bounds   Perfect enclosure
+
+// Conflict Zone Calculation (Synchronized with Card Heights)
+const cardTops = group.map(event => timeToPixels(event.startHour, event.startMinute, startHour, hourHeight))
+const cardBottoms = cardTops.map(top => top + dynamicCardHeight)
+const zoneTop = Math.min(...cardTops) - CARD_PADDING
+const zoneBottom = Math.max(...cardBottoms) + CARD_PADDING
+```
+
+### 🎯 **Previous Development Phase: Advanced UX & Dual Badge System** (January 2025 - COMPLETED)
+
+#### **🎨 Smart Dual Availability Badge System** 🏆 **PRODUCTION READY**
+
+**Revolutionary Feature**: Advanced dual-badge system showing both seat availability AND waitlist status with intelligent color-coding and risk assessment.
+
+**🏗️ Core Badge Architecture**:
+```typescript
+// Smart Badge Generation - PRODUCTION READY
+getAvailabilityBadges() → [Availability Badge] + [Waitlist Badge?]
+       ↓                         ↓                    ↓
+Context Analysis          👥 Seats Status      ⏰ Queue Status
+                         12/24 available       3/15 waiting
+
+// Example Badge Combinations:
+[👥 12/24] [⏰ 3/15]  → "Good seats, short waitlist"
+[👥 0/30] [⏰ 8/20]   → "Full but reasonable waitlist chances"
+[👥 25/30]            → "Plenty available, no waitlist shown"
+```
+
+**🎯 Risk Assessment Levels**:
+```typescript
+// Availability Badges:
+🟢 >10 seats     → Green   "Safe enrollment window"
+🟡 ≤10 seats     → Yellow  "Act fast - limited spots"  
+🔴 0 seats       → Red     "Full - need waitlist"
+
+// Waitlist Badges:
+🟢 0 people      → Green   "No queue, safe to wait"
+🟣 1-5 people    → Purple  "Short queue, decent chances"
+🟡 6-10 people   → Yellow  "Getting crowded, uncertain"  
+🔴 >10 people    → Red     "Long queue, low chances"
+```
+
+**🚀 Advanced UX Features**:
+- **Context-Aware Display**: Only shows waitlist badges when relevant
+- **Intelligent Tooltips**: Detailed availability information on hover
+- **Consistent Placement**: Same location across CourseSearch and ShoppingCart
+- **Visual Hierarchy**: Proper sizing differentiation (search vs cart)
+
+#### **🔧 Enhanced Data Freshness & Sync System** 🚀 **PRODUCTION READY**
+
+**Data Freshness Tracking**: Real-time display of when course data was last scraped
+```typescript
+// Data Freshness Pipeline - PRODUCTION READY
+JSON Metadata → Timestamp Extract → Display Update → User Awareness
+      ↓               ↓                ↓              ↓
+"scraped_at"    Parse timestamp    "Data from..."   Informed decisions
+
+// Shopping Cart Freshness Indicator:
+🟢 "Data from 2025-01-10 14:30:25" → Recent, reliable
+🟡 "Data from 2025-01-08 09:15:42" → Getting stale
+```
+
+**Complete Waitlist Data Integration**:
+- **Full Schema Support**: `waitlist_total` and `waitlist_capacity` fields
+- **Status Mapping**: "Wait List" status properly recognized
+- **Badge Logic**: Smart conditional display based on actual data
+
+#### **🌐 Teaching Language Display Enhancement** ✅ **COMPLETED**
+
+**Feature**: Prominent display of language of instruction across all components
+- **Data Integration**: `class_attributes` field from scraper (e.g., "English only", "Putonghua and English")
+- **Visual Design**: 🌐 universal icon with full language text
+- **Consistent Placement**: Section-level display in both CourseSearch and ShoppingCart
+- **Clean Layout**: Balanced with availability badges on same row
+
+#### **✅ Current Production Status & System Health**
+
+**🏆 Production-Ready Systems:**
+- **Dynamic Calendar Display**: Configuration-driven layout with real-time scaling
+- **Dual Badge System**: Availability + waitlist badges with smart color coding  
+- **Data Freshness Tracking**: Real-time scraping timestamps with age indicators
+- **Teaching Language Display**: Section-level language extraction and display
+- **Clean Architecture**: Complete type safety with zero `any` types
+- **Persistent State Management**: Cross-session localStorage with migration
+- **Build System**: Zero TypeScript errors, zero ESLint warnings
+- **Advanced Section Compatibility**: Hierarchical cohort system with cascade clearing
+- **Unscheduled Events**: TBA course management with expandable interface
+
+**⚠️ Known Technical Debt:**
+- **Shopping Cart Architecture**: Limited section cycling for orphan sections (F-LEC → A-LEC compatibility display)
+- **Data Synchronization**: Enrolled sections may reference stale availability data after JSON updates
+- **Real-time Updates**: No live enrollment number refresh during active sessions
+
+### 🎯 **Previous Development Phase: Scalable Data Architecture & Crash-Resistant Scraping** (January 2025 - COMPLETED)
 
 #### **🛡️ Crash-Resistant Scraping System** 🚀 **PRODUCTION READY**
 
@@ -366,38 +549,46 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
 - **Smooth Animations**: Professional transitions matching calendar events
 - **Memory Efficient**: Clean component architecture with proper event handling
 
-### 🔄 **Current Development Phase: Advanced Section Compatibility System** (August 2025)
+## **🏗️ Current System Architecture Overview** (January 2025)
 
-#### **🎯 Hierarchical Section Selection with Smart Compatibility** 🏆 **ENTERPRISE-GRADE - IMPLEMENTED**
+### **Enterprise-Grade Technology Stack** 🏆 **PRODUCTION READY**
 
-**Breakthrough Innovation**: Revolutionary section selection system that understands CUHK's academic cohort constraints and provides intelligent, hierarchical course enrollment with automatic cascade clearing.
-
-**Core Academic Logic Implemented**:
-- **Prefix-Based Cohort System**: `A-LEC` pairs with `AE01-EXR`, `AT01-TUT` (same A-cohort)
-- **Universal Wildcard Sections**: `--LEC`, `-E01-EXR` compatible with any cohort
-- **Hierarchical Priority**: Data-driven ordering (LEC → EXR → TUT → LAB) from official catalog
-- **Cascade Reset**: Changing high-priority sections automatically clears incompatible lower ones
-- **Smart Enrollment Validation**: Handles orphan sections (F-LEC alone) and mixed scenarios
-
-**Advanced Implementation Architecture**:
+**Frontend Architecture**:
 ```typescript
-// Section Compatibility Engine - PRODUCTION READY
-External JSON Data → SectionType Priority → Compatibility Matrix → Smart UI
-       ↓                    ↓                    ↓                 ↓
-   LEC, EXR, TUT     Data-driven order    Prefix matching    Visual feedback
+// Clean Three-Layer Architecture - PRODUCTION READY
+External Data → Zod Validation → Internal Types → React Components
+     ↓               ↓              ↓               ↓
+Raw scraped     Runtime check    Clean domain    Type-safe UI
+JSON files      + transform      models          components
 
-// Example: PHYS1110 Smart Enrollment
-📚 PHYS1110 - General Physics I [Multiple cohort patterns supported]
-  ├─ 🏆 A-LEC → Compatible: [AE01-EXR, AE02-EXR, AT01-TUT] ✅
-  ├─ 🏆 B-LEC → Compatible: [BE01-EXR, BT01-TUT] ✅  
-  └─ 🏆 F-LEC → Compatible: [none] → Valid orphan enrollment ✅
-
-🔄 Smart Cascade: A-LEC → B-LEC automatically clears AE01-EXR (incompatible)
-📊 Visual Feedback: "3 available" vs "No compatible options" badges
-🎯 Hierarchical Flow: Higher priority sections can always be changed
+// File Structure:
+web/src/
+├── app/page.tsx              # State management hub with localStorage persistence
+├── components/
+│   ├── CourseSearch.tsx      # Type-safe search with section compatibility
+│   ├── WeeklyCalendar.tsx    # Dynamic display config + conflict visualization  
+│   └── ShoppingCart.tsx      # Section cycling + enrollment management
+└── lib/
+    ├── types.ts              # Internal domain models (zero `any` types)
+    ├── validation.ts         # Zod schemas + transformation boundary
+    └── courseUtils.ts        # Pure functions with full type safety
 ```
 
-### 🎛️ **Latest Development Phase: Flexible Calendar Display System** (August 2025 - PRODUCTION READY)
+**Key System Features**:
+- **Dynamic Calendar Configuration**: User-toggleable information density with mathematical layout scaling
+- **Advanced Section Compatibility**: CUHK cohort system with hierarchical priority and cascade clearing
+- **Smart Badge System**: Dual availability + waitlist indicators with risk assessment color coding
+- **Persistent State Management**: Cross-session localStorage with automatic migration and cleanup
+- **TBA Course Handling**: Unscheduled events with expandable interface and visual consistency
+- **Real-time Conflict Detection**: Animated diagonal stripe backgrounds with proper zone calculation
+- **Complete Type Safety**: Zero `any` types with runtime validation at data boundaries
+
+**Production Quality Metrics**:
+- ✅ **TypeScript**: Zero compilation errors with strict type checking
+- ✅ **ESLint**: Zero warnings with enterprise coding standards  
+- ✅ **Build System**: Clean production builds with optimized bundles
+- ✅ **Runtime Validation**: Zod-powered data transformation with error handling
+- ✅ **Cross-Session Persistence**: Robust localStorage with version migration
 
 #### **🚀 Configuration-Driven Calendar Architecture** 🏆 **ENTERPRISE-GRADE - IMPLEMENTED**
 
@@ -800,34 +991,23 @@ course.courseCode // ✅ Properly typed
 course.credits + 1 // ✅ TypeScript knows this is a number
 ```
 
-### **Key Architectural Innovations**
+### **Core Architecture Principles** ✅ **IMPLEMENTED**
 
 #### **1. Clean Data Transformation Pipeline**
 ```typescript
-// Before (problematic architecture)
-interface CourseEnrollment {
-  course: any // ❌ External data leaking through entire app
-}
-
-// After (clean architecture)
+// Three-Layer Clean Architecture - PRODUCTION READY
 Raw JSON → Zod Validation → Internal Types → React Components
    ↓            ↓              ↓               ↓
-External     Transform     Clean domain    Type-safe
-scraped      + validate     models         components
+External     Runtime check   Clean domain    Type-safe UI
+scraped      + transform     models          components
 ```
 
-#### **2. Type Safety Benefits Achieved**
-- **Zero `any` Types**: All external data properly transformed at system boundary
-- **Full IntelliSense**: Perfect autocompletion throughout entire application
-- **Compile-Time Safety**: TypeScript catches errors before runtime
-- **Refactoring Confidence**: Safe to change internal types without breaking external data handling
-- **Runtime Validation**: Malformed external data caught early with detailed error messages
-
-#### **3. Production Build Quality**
-- **✅ Zero TypeScript Errors**: Complete type coverage with no suppressions
-- **✅ Zero ESLint Warnings**: Clean code following all best practices
-- **✅ Deployment Ready**: Production builds pass all quality gates
-- **✅ Runtime Stability**: Validated data transformations prevent runtime type errors
+#### **2. Type Safety & Quality Gates**
+- **Zero `any` Types**: All external data transformed at validation boundary
+- **Runtime Validation**: Zod schemas catch malformed data with detailed error messages
+- **Production Builds**: Zero TypeScript errors, zero ESLint warnings
+- **Full IntelliSense**: Complete autocompletion throughout application
+- **Deployment Ready**: All quality gates pass for production deployment
 
 ## Development Commands
 
@@ -884,44 +1064,43 @@ scrape_all_subjects.py (Legacy):
 ✅ Progress tracking with resume capability
 ```
 
-## Next Development Priorities
+## Current Development Priorities (January 2025)
 
-### **🎯 Current Sprint: Production Launch Preparation** (January 2025 - <1 Week Timeline)
+### **🎯 Next Development Focus**
 
-#### **✅ Recently Completed**
-- **🛡️ Crash-Resistant Scraping System**: JSONL temp files + automatic recovery (January 2025)
-- **📈 Enhanced Course Data Schema**: Dual-level attributes + freshness tracking
-- **🏗️ Scalable Architecture Design**: Static files + lazy loading strategy
-- **📊 Analytics Strategy**: Privacy-first metrics for data-driven decisions
-- **🔧 Resilient Scraper Scripts**: Production-ready crash protection tools
+#### **✅ Production-Ready Systems (Completed)**
+- **🚀 Dynamic Calendar Configuration**: Mathematical layout scaling with toggle controls
+- **🛡️ Crash-Resistant Scraping**: JSONL temp files with automatic recovery
+- **🔧 Smart Badge System**: Dual availability + waitlist indicators with color coding
+- **🏗️ Clean Architecture**: Complete type safety with Zod validation boundaries
+- **💾 Persistent State**: Cross-session localStorage with automatic migration
+- **🎯 Section Compatibility**: CUHK cohort system with hierarchical cascade clearing
+- **📋 Unscheduled Events**: TBA course management with expandable interface
 
-#### **🚀 Immediate Launch Tasks** (Next 2-3 Days)
+#### **🔧 Technical Debt & Enhancements**
 
-**Day 1: Data Collection & Validation**
-```bash
-# Priority 1: Get fresh course data for enrollment period
-python test_resilient.py        # Validate scraper works correctly
-python resilient_scraper.py     # Scrape all 263 subjects (crash-protected)
-# Verify: data/ folder contains complete subject JSON files
+**Priority 1: Shopping Cart Architecture**
+```typescript
+// Current Limitation: Orphan section cycling doesn't show newly compatible types
+// Scenario: F-LEC (orphan) → A-LEC should reveal AE01-EXR, AT01-TUT options
+// Solution: Extend enrollment model to include availableTypes alongside selectedSections
+
+interface CourseEnrollment {
+  selectedSections: InternalSection[]     // Current selections
+  availableTypes: SectionTypeGroup[]     // Dynamic based on compatibility
+  compatibilityMatrix: CompatibilityMap  // Real-time constraint tracking
+}
 ```
 
-**Day 2: Frontend Integration & Optimization**
-- **Add lazy loading**: Load index.json first, then subjects on-demand
-- **Add freshness indicators**: Show "Last updated 2 hours ago" from JSON metadata  
-- **Implement localStorage caching**: Reduce repeat loads for return users
-- **Add basic analytics tracking**: Performance and usage pattern measurement
+**Priority 2: Data Synchronization**
+- **Real-time Badge Updates**: Enrolled sections reflect latest JSON availability data
+- **Session Refresh Logic**: Smart detection of stale enrollment data with user prompts
+- **Background Data Loading**: Progressive course data fetching for improved UX
 
-**Day 3: Testing & Deployment**
-- **Performance testing**: Measure load times with real data
-- **Cross-browser testing**: Ensure compatibility across major browsers
-- **Mobile optimization**: Verify responsive design works well
-- **Deploy with fresh data**: Launch before enrollment period
-
-#### **🔍 Post-Launch Monitoring (Week 1-2)**
-- **Monitor bandwidth usage**: Track actual vs projected data transfer
-- **Collect user analytics**: Validate architectural assumptions
-- **Performance optimization**: Based on real usage patterns
-- **Bug fixes and UX improvements**: Address user feedback
+**Priority 3: Advanced Features**
+- **URL State Encoding**: Shareable schedule links with compressed course+term data  
+- **Progressive Enhancement**: Lazy loading architecture with subject-on-demand fetching
+- **Mobile Optimization**: Touch-friendly interactions and responsive calendar scaling
 
 ### **📋 Medium-Term Roadmap** (Post-Launch Iterations)
 
@@ -1045,16 +1224,25 @@ Component Changes → Full type safety with IntelliSense
 
 ## Critical Implementation Notes for Future Development
 
-### **Architecture Principles**
-- **Boundary Isolation**: Keep all `any` types in validation layer
-- **Type Transformation**: Convert external to internal naming conventions at boundary
-- **Runtime Safety**: Validate all external data with detailed error messages
-- **Internal Consistency**: Use strongly-typed internal models throughout application
+### **Architecture Guidelines** 🏗️
+- **Boundary Isolation**: All `any` types confined to `validation.ts` transformation layer
+- **Type Transformation**: External snake_case → Internal camelCase at validation boundary
+- **Runtime Safety**: Zod schemas validate all external data with detailed error messages
+- **Component Consistency**: All React components use clean internal types exclusively
 
-### **Quality Gates**
-- **Build Success**: `npm run build` must pass with zero errors/warnings
-- **Type Coverage**: No `any` types outside validation layer
-- **Runtime Validation**: All external data must pass Zod schemas
-- **Component Safety**: All props must use internal types
+### **Development Standards** ✅
+- **Build Quality**: `npm run build` must pass with zero TypeScript errors/warnings
+- **Type Coverage**: No `any` types outside validation layer boundaries
+- **Runtime Validation**: All external JSON data must pass Zod schema validation
+- **Component Safety**: All React props must use strongly-typed internal interfaces
 
-This document reflects the current enterprise-grade clean architecture system as of August 2025 after implementing complete type safety, runtime validation, and production-quality build standards. The platform now provides a robust, maintainable codebase with zero technical debt in type safety, ready for scalable development and deployment.
+### **Key Files for Development**
+- **`web/src/lib/types.ts`**: Internal domain models with complete type safety
+- **`web/src/lib/validation.ts`**: Zod schemas and external-to-internal transformation
+- **`web/src/lib/courseUtils.ts`**: Pure functions with full TypeScript IntelliSense
+- **`web/src/app/page.tsx`**: State management hub with localStorage persistence
+- **`web/src/components/*.tsx`**: Type-safe React components using internal types only
+
+---
+
+*This document reflects the current enterprise-grade system as of January 2025 with dynamic calendar configuration, advanced section compatibility, and complete type safety. The platform provides a robust, maintainable codebase ready for production deployment and future enhancements.*
