@@ -277,8 +277,7 @@ export default function ShoppingCart({
                       <div className="flex items-center gap-2 text-sm">
                         <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
                         <div>
-                          <div className="font-medium text-orange-800">Course data outdated</div>
-                          <div className="text-xs text-orange-600">{enrollment.invalidReason}</div>
+                          <div className="text-sm text-orange-600">{enrollment.invalidReason}</div>
                           {enrollment.lastSynced && (
                             <div className="text-xs text-gray-500 mt-1">
                               Last synced: {enrollment.lastSynced.toLocaleString()}
@@ -435,9 +434,10 @@ export default function ShoppingCart({
             <span>
               {(() => {
                 const visibleCredits = courseEnrollments
-                  .filter(enrollment => enrollment.isVisible)
+                  .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
                   .reduce((sum, enrollment) => sum + enrollment.course.credits, 0)
                 const totalCredits = courseEnrollments
+                  .filter(enrollment => !enrollment.isInvalid)
                   .reduce((sum, enrollment) => sum + enrollment.course.credits, 0)
                 
                 return visibleCredits === totalCredits 
@@ -445,12 +445,23 @@ export default function ShoppingCart({
                   : `${visibleCredits.toFixed(1)} / ${totalCredits.toFixed(1)} credits`
               })()}
             </span>
-            {conflictCount > 0 && (
-              <div className="flex items-center gap-1 text-red-500">
-                <AlertTriangle className="w-3 h-3" />
-                <span>Conflicts</span>
-              </div>
-            )}
+            <div className="flex items-center gap-3">
+              {conflictCount > 0 && (
+                <div className="flex items-center gap-1 text-red-500">
+                  <AlertTriangle className="w-3 h-3" />
+                  <span>Conflicts</span>
+                </div>
+              )}
+              {(() => {
+                const invalidCount = courseEnrollments.filter(enrollment => enrollment.isInvalid).length
+                return invalidCount > 0 && (
+                  <div className="flex items-center gap-1 text-orange-500">
+                    <AlertTriangle className="w-3 h-3" />
+                    <span>Invalid ({invalidCount})</span>
+                  </div>
+                )
+              })()}
+            </div>
           </div>
         </div>
       )}
