@@ -81,6 +81,7 @@ function parseSectionType(sectionCode: string): SectionType {
 function transformAvailability(external: z.infer<typeof ExternalAvailabilitySchema>): SectionAvailability {
   const capacity = parseInt(external.capacity) || 0
   const enrolled = parseInt(external.enrolled) || 0
+  const availableSeats = parseInt(external.available_seats)
   
   let status: SectionAvailability['status'] = 'Unknown'
   if (external.status === 'Open') status = 'Open'
@@ -91,7 +92,7 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
     capacity,
     enrolled,
     status,
-    availableSeats: Math.max(0, capacity - enrolled)
+    availableSeats
   }
 }
 

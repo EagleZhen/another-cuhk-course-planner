@@ -304,13 +304,25 @@ export default function ShoppingCart({
                             )}
                           </div>
                         
-                        {/* Teaching Language - section level */}
-                        {section.classAttributes && (
-                          <div className="flex items-center gap-1 text-gray-500 text-[10px] mb-2">
-                            <span>🌐</span>
-                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                              {section.classAttributes}
-                            </span>
+                        {/* Teaching Language + Availability - section level */}
+                        {(section.classAttributes || section.availability) && (
+                          <div className="flex items-center justify-between mb-2 gap-2">
+                            {section.classAttributes ? (
+                              <div className="flex items-center gap-1 text-gray-500 text-[10px] min-w-0 flex-1">
+                                <span className="flex-shrink-0">🌐</span>
+                                <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                                  {section.classAttributes}
+                                </span>
+                              </div>
+                            ) : <div className="flex-1" />}
+                            
+                            <Badge 
+                              variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
+                              className="text-[9px] flex-shrink-0 px-1 py-0"
+                              title={`${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`}
+                            >
+                              {section.availability.availableSeats}/{section.availability.capacity}
+                            </Badge>
                           </div>
                         )}
                         

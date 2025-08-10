@@ -577,6 +577,7 @@ function CourseCard({
                             <Badge 
                               variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
                               className="text-xs"
+                              title={`${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`}
                             >
                               {section.availability.availableSeats}/{section.availability.capacity}
                             </Badge>
@@ -597,7 +598,7 @@ function CourseCard({
                         
                         {/* Teaching Language - section level */}
                         {section.classAttributes && (
-                          <div className="flex items-center gap-1 text-gray-500 text-[10px] mb-2 -mt-1">
+                          <div className="flex items-center gap-1 text-gray-500 text-[10px] mb-2">
                             <span>🌐</span>
                             <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
                               {section.classAttributes}
