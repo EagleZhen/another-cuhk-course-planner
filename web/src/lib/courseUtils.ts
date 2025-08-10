@@ -827,18 +827,43 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal}/${waitlistCapacity}`,
-      style: {
-        variant: waitlistTotal >= waitlistCapacity * 0.8 ? 'secondary' as const : 'outline' as const,
-        className: waitlistTotal >= waitlistCapacity * 0.8 
-          ? 'bg-purple-100 text-purple-800 border-purple-300'
-          : 'text-purple-700 border-purple-300',
-        urgency: waitlistTotal >= waitlistCapacity * 0.8 ? 'high' as const : 'medium' as const
-      },
+      style: getWaitlistBadgeStyle(waitlistTotal, waitlistCapacity),
       priority: status === 'Closed' || status === 'Waitlist' ? 'primary' : 'secondary'
     })
   }
   
   return badges
+}
+
+/**
+ * Smart waitlist badge styling based on queue length
+ * Returns appropriate variant and styling for waitlist badges
+ */
+export function getWaitlistBadgeStyle(waitlistTotal: number, waitlistCapacity: number) {
+  // Risky: >5 people waiting
+  if (waitlistTotal > 5 && waitlistTotal <= 10) {
+    return {
+      variant: 'secondary' as const,
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+      urgency: 'risky' as const
+    }
+  }
+
+  // Dangerous: >10 people waiting
+  if (waitlistTotal > 10) {
+    return {
+      variant: 'secondary' as const,
+      className: 'bg-red-100 text-red-800 border-red-300',
+      urgency: 'dangerous' as const
+    }
+  }
+  
+  // Moderate: 1-5 people waiting
+  return {
+    variant: 'outline' as const,
+    className: 'text-green-700 border-green-300 bg-green-50',
+    urgency: 'good' as const
+  }
 }
 
 /**
