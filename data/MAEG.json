@@ -1,0 +1,3902 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T10:01:35.022879",
+    "subject": "MAEG",
+    "total_courses": 56,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "MAEG",
+      "course_code": "1010",
+      "title": "Introduction to Robot Design",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6762)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lai Chan Pui Ngong LT",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lai Chan Pui Ngong LT",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lai Chan Pui Ngong LT",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (8068)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L02-LAB (8067)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L03-LAB (8020)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "William MW Mong Eng Bldg 109",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8501)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers introduction to robots in different industries, microcontroller unit, programming using Arduino, sensors, actuators, mechanisms and engineering design principles. It provides the students extensive hands-on training on robot prototype development and experimental evaluation. It adopts a project-based learning approach: the students are required to design and build a fully functional robotic system that must be able to perform a specific task. Both mechanical and electronic hardware will be designed and developed by the students. The lectures and laboratory sessions are designed so as to equip them with the essential knowledge to successfully complete their project.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "1020",
+      "title": "Computational Design and Fabrication",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7938)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "2",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "68",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (8182)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L02-LAB (8183)",
+              "meetings": [
+                {
+                  "time": "We 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "2",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "33",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8909)",
+              "meetings": [
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "120",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (7955)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L02-LAB (7956)",
+              "meetings": [
+                {
+                  "time": "Tu 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L03-LAB (7954)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 218",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces engineering design fundamentals, manufacturing, and practical use of advanced computer-aided design software and prototyping techniques. The topics include engineering graphics, geometric dimensioning and tolerances, working drawings, conventional manufacturing, reverse engineering, digital manufacturing (CNC), additive manufacturing, and micromachining.",
+      "enrollment_requirement": "Not for students who have taken MAEG2010.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2010",
+      "title": "Computer-aided Drafting",
+      "credits": "2.00",
+      "terms": [],
+      "description": "The course introduces the basics of engineering graphics, background of computer-aided design, views and projections, sections and cutting planes, dimensioning, tolerances, working drawings, and basic guidelines in product design. It provides a series of homework and a project for students to learn and practice using standard CAD packages for creating 2D engineering drawing, 3D models, animation and analysis.",
+      "enrollment_requirement": "Not for students who have taken MAEG1020.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2020",
+      "title": "Engineering Mechanics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5913)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "110",
+                "enrolled": "53",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "57",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7271)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "110",
+                "enrolled": "53",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "57",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an introduction to the statics and dynamics. You will be introduced to and become familiar with all relevant physical properties and fundamental laws governing the behavior of particles and rigid bodies, and you will learn how to solve a variety of problems in terms of kinematics, kinetics, energy, and momentum of particles and rigid bodies. The emphasis is on the physical understanding of why particles or rigid bodies behave the way they do in both the statics and the dynamics.",
+      "enrollment_requirement": "Not for students who have taken ESTR2400.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2030",
+      "title": "Thermodynamics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6723)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "10/4, 17/4"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "205",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "205",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8787)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "205",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "205",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover fundamental topics in thermodynamics including basic concepts, heat and work, pure substance, ideal gas, first law and second law of thermodynamics, entropy, gas and vapor power cycles, and refrigeration cycles.",
+      "enrollment_requirement": "Not for students who have taken ESTR2402.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2050",
+      "title": "Robot Development in Practice: From Design to Prototyping",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (6150)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor KWOK Ka Wai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-W01-WKS (9556)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor KWOK Ka Wai",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor KWOK Ka Wai",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor KWOK Ka Wai",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is aimed to enhance students' professional and engineering interests through practicum and team-based development of practical robots through participation in hands-on competitions. This is a project-based experiential course that exposes students to design and build practical robots. Students will be required to conceptualize and perform high-level design of a robot system, and then design and build various components using skills including CAD drawing, mechanical structure, electronic circuits and programming skills. Students will practice their engineering knowledge through tutorial-style workshops and laboratory sessions. The goal is to develop and nurture skills in problem-solving, hands-on skills, project and time management through the project. Students should obtain approval from the course instructor to ensure that the participated activities are in-line with the course learning outcomes.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum Workshop",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2601",
+      "title": "Technology, Society and Engineering Practice",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6354)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "130",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "130",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces basic and fundamental knowledge in technology, engineering, and their impacts on human society. Important and various aspects of engineering will be introduced, like engineering design and innovation, engineering project management, and intellectual property. Student have opportunities to participate some field study to have a better understanding of engineering design, innovation, and industrial manufacturing in practice. This course also provides several seminars given by real engineers with topics on current engineering issues, career decision-making strategies, and opinions such as internships and life-long study.",
+      "enrollment_requirement": "Not for students who have taken ENGG2601.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2602",
+      "title": "Engineering Practicum",
+      "credits": "1.00",
+      "terms": [],
+      "description": "The course combines activities designed to develop employability with the knowledge and skills gained through attending workshops or seminars. Successful completion of the course will provide students with the employability skills required for transition to the world of work. Students who have attended certain industrial and professional workshops or seminars required by the MAEG programme may be able to count these towards the course.",
+      "enrollment_requirement": "Not for students who have taken ENGG2602.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2910",
+      "title": "Prototypes to Products",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course covers the fundamental ideas and concepts of product engineering processes from a prototype to product. Students learn about creativity and product engineering principles through both lectures and practical projects. Topics include opportunity identification; idea generation; survey of customers and markets; devising concepts and building models and drawings; building and testing mockups; project management; and construction of a high quality prototype. We encourage students to form teams and enroll together.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "2920",
+      "title": "Special Topics in Mechanical and Automation Engineering",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5026)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Staff",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5041)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Mechanical and automation engineering covers a wide range of topics related to physical machines and mechanisms that involve force and movement. The focus of the course varies according to the area of expertise of the instructor. The instructor will design lectures, tutorials, fieldtrips and/or hands-on activities around special topic(s). Drawing on the background, experiences and interests of the students, the course will consider the topics from mechanics, design, materials, fluid mechanics, thermodynamics, control, mechatronics and robotics.This course is exclusively designed for Bing Overseas Studies Program (BOSP) of Stanford University.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3010",
+      "title": "Mechanics of Materials",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9217)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor LIU Xiaohua",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor LIU Xiaohua",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor LIU Xiaohua",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "61",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7272)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Xiaohua",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "61",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a study of mechanics of materials. It covers the following topics: linear elasticity, stress and strain, stress-strain relations, loading and deformation, statically indeterminate problems, torsion, shear forces and bending moments, stresses in beams, deflection of beams, stresses in thin-walled pressure vessels, column and buckling.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3020",
+      "title": "Manufacturing Technology",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8923)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8788)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with fundamental background of manufacturing technologies. It covers the following topics: overview of manufacturing technologies, engineering materials, metal forming processes, plastic forming processes, 3D printing processes, machining processes, micro-manufacturing and fabrication. A number of industrial visits and hands-on labs are also included.",
+      "enrollment_requirement": "Not for students who have taken ESTR3404.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3030",
+      "title": "Fluid Mechanics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8921)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "130",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "130",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8789)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. LAU Alex Siu Hong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "130",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "130",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers important topics in fluid mechanics. It will introduce the nature of fluids; pressure, hydrostatics, and buoyancy; integral and differential equations of fluid flows; conservation of mass, momentum, and energy; basic mass transfer; inviscid flow, viscous-dominated flows; Navier-Stokes equation; dimensional analysis; internal and external flows, boundary layers, and lift and drag on objects.",
+      "enrollment_requirement": "---",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3040",
+      "title": "Mechanical Design",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8895)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8790)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor CHEN Shih Chi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the engineering design principles, machine design methods, design of machine components, and kinematics. Load analysis, design for manufacturing, reliability and human factors will also be introduced and reviewed.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3050",
+      "title": "Introduction to Control Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7159)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor XU Yunjian",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor XU Yunjian",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor XU Yunjian",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "60",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7273)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor XU Yunjian",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "60",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with fundamental knowledge of control systems. It covers the following topics: mathematical modelling and linear approximation of engineering systems, Laplace transform, transfer function and block diagram representation, characteristics of feedback systems, performance specifications, Routh-Hurwitz stability criterion, root locus design, frequency response design and Nyquist criterion. The utilization of computer-aided analysis and design software is also included.",
+      "enrollment_requirement": "Not for students who have taken ESTR3406.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3060",
+      "title": "Introduction to Robotics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6014)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (6452)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers the basic and fundamentals to the study of robotic manipulators, including: classification of robots, robot sensors and actuators, coordinate frames and homogeneous transformations, Denavit-Hartenberg notation, forwards and inverse kinematics, Jacobians and statics, singularity and workspace analysis, and trajectory generation. The course includes a creative project component for students to apply robot manipulators for a new and innovative application. This requires the students to design a new application for robot manipulators that would be useful to the community and globally. By using the introduction to the state-of-the-art in robotics around the world, and fundamentals learnt in the course, the students have to innovatively design and present the idea as a mock start-up company project.",
+      "enrollment_requirement": "Not for students who have taken ESTR3408 or ELEG3103.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3070",
+      "title": "Fundamentals of Computer-Aided Design",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6291)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wong Foo Yuan Bldg 401",
+                  "instructor": "Professor ZHAO Huan",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Professor ZHAO Huan",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Professor ZHAO Huan",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Professor ZHAO Huan",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7277)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor ZHAO Huan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with fundamentals of Computer Aided Design. It covers the following topics: elements of interactive graphics in CAD/CAM, mathematical bases and manipulation of curves and surfaces (parametric cubic curve, Bezier and NURBS curve, ruled surface, sweep surface, Coon's bilinear surface, Hermite surface, Bezier and NURBS surfaces), introduction to geometric and solid modeling (constructive solid geometry, boundary representation), and visualization for engineering simulation. Applications in design and manufacturing are also included.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3080",
+      "title": "Fundamentals of Machine Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6355)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8780)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LIN Xiaodie",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with fundamental knowledge of machine intelligence. It covers the following topics: data structures, sorting and searching, knowledge representation (state space, logical statements, rules, connectionism), discrete problem solving by state space search, deduction by resolution in predicate logic, inference by ruled-based systems, mappings by networks, and principles of learning. The application examples are also included.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "3920",
+      "title": "Engineering Design and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9519)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J01-PRJ (6418)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7278)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is intended to enable students to learn the fundamentals of engineering design and how to carry out the design process. One (or several) engineering project(s)s for students to practice is (are) included with the following topics: engineering design process, innovation and design basics, CAD and CAE tools and applications, prototyping (mechanical workshop), prototyping (electronics workshop), quality and inspection.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Project Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4010",
+      "title": "Computer-integrated Manufacturing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9267)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6450)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with a solid background in the fundamentals of computer-integrated manufacturing technology. It covers the following topics: concurrent engineering, computer-integrated manufacturing models and concepts, rapid prototyping, computer-aided manufacturing, control of manufacturing systems (numerical control and computer numerical control), programmable logic controller, computer aided process planning and manufacturing scheduling, and quality assurance. The hands-on experiments and projects are included.",
+      "enrollment_requirement": "Not for students who have taken ESTR4408.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4020",
+      "title": "Finite Element Modelling and Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5914)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7298)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The purpose of this course is to learn the mathematical and computational method for finite element analysis. Students will learn the computational procedure, basic elements, shape functions and the method for imposing boundary conditions. The numerical implementation for finite element analysis will also be learned. Finite element analysis software will be used in project to solve engineering applications.",
+      "enrollment_requirement": "Not for students who have taken ESTR4410.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4030",
+      "title": "Heat Transfer",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6096)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Institute of Chin Studies L1",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "58",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "42",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7313)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "58",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "42",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover fundamental topics in heat transfer including physical origins of three heat transfer modes and their rate equations, heat diffusion equation, boundary and initial conditions, steady-state and transient conduction, numerical methods, boundary layer equation, external and internal forced convection, free convection, and thermal radiation.",
+      "enrollment_requirement": "Pre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor Not for students who have taken ESTR4412.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4040",
+      "title": "Mechatronic Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9516)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 3:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 1:30PM - 3:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 1:30PM - 3:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6419)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Mechatronics is at the intersection of mechanical, electronic, control, and software engineering. This course will cover the technologies involved in developing and designing intelligent electro-mechanical systems. Specific topics include physical system modelling and analysis, measurement and manipulation principles, sensors, actuators, data acquisition and conversion, microcontrollers and interface, control system design and tuning. The course includes a significant lab component with a course project in mechatronics system design. Students will involve in hands-on programming project to reinforce the basic principles developed in lectures as well as develop control algorithm implementation skillsets.",
+      "enrollment_requirement": "Not for students who have taken ESTR4414.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4050",
+      "title": "Modern Control Systems Analysis and Design",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5298)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6230)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with the knowledge of modern control systems analysis and design. It covers the following topics: continuous and discrete domain state space representations (including transition matrix, stability, controllability and observability, pole placement control, state estimator), emulation design, and discrete design. Case studies are also included.",
+      "enrollment_requirement": "Not for students who have taken ESTR4416.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4060",
+      "title": "Virtual Reality Systems and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5767)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8781)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with knowledge of virtual reality systems and applications. It covers the following topics: introduction of virtual reality in engineering applications, sensors and actuators, principle and mechanism of VR equipment, model representation in VR, computational physics in virtual reality, real-time rendering, and virtual prototyping. Applications in engineering analysis and simulation are also included.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4070",
+      "title": "Engineering Optimization",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6592)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8667)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will introduce basic concepts of engineering optimization methods as applied to engineering problems. The theory and application of optimization techniques will be presented, including unconstrained and constrained optimization, Lagrange multiplier, necessary and sufficient conditions for optimality and dynamical programming.",
+      "enrollment_requirement": "Not for students who have taken ESTR4418.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4080",
+      "title": "Introduction to Combustion",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9268)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor REN Wei",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor REN Wei",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor REN Wei",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor REN Wei",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor REN Wei",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor REN Wei",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor REN Wei",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6451)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor REN Wei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Combustion and its control are essential to our daily life and more than 80% of the energy used nowadays is from combustion sources. This course starts with the basic principles that govern combustion phenomena such as conservation of mass, the first and second laws of thermodynamics, and the momentum principle. Then students will learn the new applications of these basic principles to account for the chemical transformations. We will discuss the basic concepts of chemical kinetics and the forms of reaction rate laws that apply in combustion processes, as well as mass transport phenomena. These laws will be applied to a variety of combustion phenomena, including spontaneous ignition of combustible mixtures, pollutant formation, internal combustion engine and fire safety.",
+      "enrollment_requirement": "Pre-requisite: MAEG2030/ESTR2402 and MAEG3030. Not for students who have taken ESTR4420.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4998",
+      "title": "Final Year Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8909)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "37",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8634)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in engineering.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "4999",
+      "title": "Final Year Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8815)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8657)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in engineering.",
+      "enrollment_requirement": "Pre-requisite: MAEG4998.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5030",
+      "title": "Geometric Computing for Design and Manufacturing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2179)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "3/9, 10/9"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "24/9"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "34",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Geometric computing tools have been widely used in modern product design and realization, such as all kinds of Computer-Aided Design (CAD), Computer-Aided Manufacturing (CAM) and Computer-Aided Engineering (CAE) software systems. However, the capability of simply using these CAD, CAM and CAE software systems is not sufficient for future products design and manufacturing. This course aims to help students in understanding the principles of geometric computing behind CAD, CAM and CAE systems, and provides students with deep understanding of computational techniques and practical experience in developing novel computational design and manufacturing applications.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering;Pre-requisite: MAEG3070 (for UG students only)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5070",
+      "title": "Nonlinear Control Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9316)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "7/1, 14/1, 21/1"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "4/2, 11/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "5/1, 12/1, 19/1, 26/1"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "9/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "18",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "57",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course consists of two parts. The first part is analysis of nonlinear systems, which includes state space description of nonlinear control systems, phase plane analysis of second order dynamic systems, Lyapunov ‘s stability theory such as Lyapunov’s first method, second method, Barbalat’s lemma, and total stability. The second part is design of nonlinear control systems, which includes Jacobian linearization, feedback linearization, sliding mode control, and backstepping method.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5080",
+      "title": "Smart Materials and Structures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2730)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "73",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "27",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The contents of this course include overview of smart materials technology, characteristics of smart materials such as piezoelectric materials, magnetorheological fluids, and shape memory alloys. It covers smart actuators and sensors; structural modelling and design; dynamics and control for smart structures; integrated system analysis; and applications in biomedical devices, precision machinery, transportation, and buildings.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering;Not for students who have taken MAEG5760",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5090",
+      "title": "Topics in Robotics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to teach students a range of classical and state-of-the-art topics through a series of examples. The focus will be on how different fundamental topics, such as linear and non-linear control, optimization, path planning, visual servo control, robot kinematics and dynamics, and machine learning, are applied through practical applications within robotics. Different application scenarios that may be used to show different fundamental topics include: mobile manipulation, bio-inspired and humanoid robots, robotic walking, rehabilitation robotics, medical and surgical robots, cable-driven robots, and autonomous ground, water and aerial vehicles.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5110",
+      "title": "Quantum Control and Quantum Information",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4471)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Leung Kau Kui Bldg 101",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The field of quantum information science includes quantum control and quantum information. It is a new area of inter-disciplinary research involving physicists, computer scientists, mathematicians and engineers. The course is an introduction to this rapidly expanding field. It covers basic quantum mechanics including quantum entanglement and quantum measurement; the modeling and control of quantum mechanical systems; quantum error correction; quantum communication and quantum information theory.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5120",
+      "title": "Nanomaterials and Nanotechnology: Fundamentals and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2186)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "5/1, 12/1, 19/1, 26/1"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "9/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "7/1, 14/1, 21/1"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor YANG Chaoyu",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "59",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides both fundamental knowledge of nanomaterials and nanotechnology and advanced topics related to applications. These topics cover basic principles, which include the scaling law, the surface science for nanomaterials, observation and characterization tools for nanomaterials, the nanofabrication techniques, building blocks for nanodevices and systems, etc. In the second half of this course, advanced topics on applying nanomaterials and nanotechnology for applications in mechanical engineering, energy engineering and biomedical engineering will be covered.",
+      "enrollment_requirement": "For students in MSc/MPhil-PhD/UG Mechanical and Automation Engineering; or UG Energy and Environmental Engineering;Pre-requisite (for UG students only): [EEEN3030 or ESTR3402 (with grade B or above)] or [with the consent of the course instructor]",
+      "course_attributes": "English only",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5130",
+      "title": "Computational Mechanics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2722)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor ZHANG Weizhao",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "12",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "63",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Mechanics is the foundation of many emerging research and engineering topics. With the rapid advancement in computing power, numerical methods are preferred to solve differential equations governing the physical process. It opens a whole new domain in industrial design, manufacturing process analysis, material behaviour prediction, etc. This course covers theoretical fundamentals in computational mechanics, including continuum mechanics, finite element methods, and computational plasticity. In addition, the course will also introduce practical skills to applying computational mechanics in research, including multi-physics simulation and advanced finite element simulation techniques.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5140",
+      "title": "Materials Characterization Techniques",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2172)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor HE Qiguang",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor HE Qiguang",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Cheng Yu Tung Building LT1B",
+                  "instructor": "Professor HE Qiguang",
+                  "dates": "4/9, 11/9"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Cheng Yu Tung Building LT1B",
+                  "instructor": "Professor HE Qiguang",
+                  "dates": "25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "95",
+                "enrolled": "91",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on a suite of materials characterization techniques that are useful in energy and environmental sciences. The main targets of these techniques include functional materials that are used in energy and environmental applications as well as solid, liquid, and gas samples that are involved in energy production and conversion, and pollution monitoring and control. The techniques include mass spectrometry (MS), gas chromatography (GC), high performance liquid chromatography (HPLC), nuclear magnetic resonance (NMR), infrared (IR) spectroscopy, Raman spectroscopy, X-ray diffraction (XRD), X-ray photoelectron spectroscopy (XPS), electron microscopy, and X-ray absorption fine structure (XAFS) spectroscopy. Students will receive lectures on the theory and operation principle of each technique as well as its limitations, and obtain hands-on experience with some of the techniques in supplemental lab sessions.",
+      "enrollment_requirement": "For students in MPhil-PhD/MSc/UG Mechanical and Automation Engineering; or UG Energy and Environmental Engineering;Pre-requisite (for UG students only): EEEN3030 or ESTR3402 (with grade B or above)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5150",
+      "title": "Advanced Heat Transfer and Fluid Mechanics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will cover advanced topics in heat transfer and fluid mechanics including overview of macroscopic theory of heat transfer, microscopic picture of heat carriers and their transport, micro- and nanoscale energy transport in solids, chemical thermodynamics, chemical kinetics, multicomponent and multiphase mixtures, basic principles of computational fluid dynamics, turbulence modeling, and airflow simulation in enclosed environments.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Energy and Environmental Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5160",
+      "title": "Design for Additive Manufacturing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2721)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor SONG Xu",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "95",
+                "enrolled": "60",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides a theoretical and practical guidance on how to design parts to gain the maximum benefit from what additive manufacturing (AM) can offer. It begins by describing the main AM technologies and their respective advantages and disadvantages. It then examines strategic considerations in the context of designing for additive manufacturing (DfAM), such as designing to avoid anisotropy, designing to minimize print time, and post-processing, before discussing the economics of AM. The course then focuses on computational tools for design analysis and the optimization of AM parts, part consolidation, and tooling applications. Both designing for polymer AM and metal AM and its corresponding design guidelines will be provided. The main benefit of the course is its combined theoretical and practical approach, which provides directly applicable, “hands-on” information and insights to help students adopt AM in their daily practice.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering - Major",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5710",
+      "title": "Computer Aided Design and Manufacturing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1849)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor HUI Kin Chuen",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12, 9/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "45",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on the technologies for the modeling and visualization of 3D objects. This includes topics on the transformation of objects and coordinate systems. Techniques for the representation of free form curves and surfaces including parametric cubic, Bezier, B-spline, and NURBS will be covered. Techniques for modeling trimmed surface will also be studied. The basic theory of solid modeling and representation schemes will be covered. The Constructive Solid Geometry and the Boundary Representation scheme will be studied. The basic concept for the generation of machining tool paths will be covered. There will also be an introduction to feature based design.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5715",
+      "title": "Computer Interface and Simulation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1842)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "10/4, 17/4, 24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "63",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "57",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will be offered to cover the knowledge of computer interface, including sensor, actuators, haptics, and human-computer interaction methods. To support the usage of human-computer interface, methods for 3D object modeling, deformation and simulation will be taught to make an integrated interaction and simulation system.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5720",
+      "title": "Computer Vision in Practice",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1840)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor WANG Jiangliu",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "70",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with theoretical backgrounds of computer vision. It will cover the following topics: imaging models; segmentation; pose estimation by visual means; 3D shape estimation by stereo vision; camera and stereo calibration; and motion tracking. A wide variety of case studies and practical applications in engineering are also included.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5725",
+      "title": "Control and Industrial Automation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9577)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YUAN Haidong",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "53",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "27",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to equip students with the knowledge of modern control systems analysis and design, and skills of control theory for practical applications of industrial automation systems. It will cover the following topics: state space representation, realizability, stability, controllability, observability; linear control design methods including pole placement, observer, asymptotic tracking and disturbance rejection, internal model design, and feedforward design; introduction to nonlinear systems. Various examples, e.g., robot control, satellite's attitude control and servomechanism are included.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken ENGG5403",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5735",
+      "title": "Applied Computational Intelligence",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course applies artificial intelligent algorithms to solve mechanical and automation problems. It consists of the following topics: various areas of emerging technologies of artificial intelligent systems; introduction and review of neural networks; support vector machines; fuzzy systems; simulated annealing, and genetic algorithms; the applications of intelligent systems to control, robotics, automation, manufacturing, and transportation systems.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5060",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5745",
+      "title": "Measurement and Instrumentation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1856)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. LI Yiyang",
+                  "dates": "13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "16",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "64",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended to provide basic concepts and methods to interface electro-mechanical parts and sensors to computers. It covers the following topics: analogue and digital circuitry; design of linear circuits with ICs and Op-amps; design of low-noise circuits.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5750",
+      "title": "Microelectromechanical Systems Technology and Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course covers the general introduction to micro-systems including integrated circuits, micromachine design, and microelectromechanical systems (MEMS) fabrication techniques. The second part of the course includes the scaling law, operational principles, design and analysis of microscale sensors and actuators, and the applications of micro sensors and actuators in robotic, biomedical, aerospace, and manufacturing industries.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken ENGG5404",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5755",
+      "title": "Robotics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4241)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Professor CHU Xiangyu",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Professor CHU Xiangyu",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "38",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "62",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will first give an introduction to robotics and its applications in industries and services; and then teach fundamentals in robotics including kinematics and dynamics of robot manipulators, sensors and actuators, motion control, and machine intelligence. Finally, examples of medical robotics and service robotics will be introduced.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5090 or ENGG5402",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5760",
+      "title": "Smart Materials and Structures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1850)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "59",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "21",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The contents of this course include overview of smart materials technology, characteristics of smart materials such as piezoelectric materials, magnetorheological fluids, and shape memory alloys. It covers smart actuators and sensors; structural modelling and design; dynamics and control for smart structures; integrated system analysis; and applications in buildings, automobiles, trains, robots, manufacturing systems, and medical devices.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5080",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5775",
+      "title": "Energy and Environment",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1846)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor CHEN Chun",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor CHEN Chun",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor CHEN Chun",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "61",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "39",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will discuss the global energy consumption and supply, thermodynamic principles of energy conversion and efficiency, fossil fuel usage, operation of nuclear power plant, emerging technologies utilizing renewable energy sources, energy harvesting and storage technologies, environmental impacts, energy systems management and government policy.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5780",
+      "title": "Railway Engineering and Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is designed to allow the postgraduate students to be kept abreast of the various key engineering systems and processes for a modern railway. This includes key components and core systems of modern railway systems including rolling stock, signaling, communication, control, AFC, traction power systems; and key processes including project management; system integration including system V&V process, project lifecycle modeling, system assurance and EMC management as well as railway development planning. In addition, introduction to new technologies being researched and applied to railway project and operation will also be covered in the course.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5785",
+      "title": "Precision Machine Design and Vibration Control",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1854)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor LI Chenglin",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor LI Chenglin",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "44",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "56",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to address the challenges of modern precision and high speed automation machinery design technology. It covers design methods, selection on components and systems, precision measurement and vibration control with industrial practical knowledge.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5910",
+      "title": "M.Sc. Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3962)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "41",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "59",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, each student will perform research on a topic related to research areas in the Department of Mechanical and Automation Engineering. The project will be supervised by faculty members in the MAE department. At the end of the project, the student is required to submit a written report and give an oral presentation for the assessment of performance.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5920",
+      "title": "Mechanical and Automation Engineering Internship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-O01-OTH (1155)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "11/05/2026 - 10/08/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to allow students to acquire a basic understanding and the skills of the practical aspects of the Mechanical and Automation Engineering profession. During the internship, the student must attach to a company in a study-related position for no less than 12 weeks. The student will have an academic supervisor (as primary supervisor) and an industry co-supervisor from the company, both have the expertise to provide advice to the student. To be qualified for award of the subject credit, the student must submit a report summarizing the internship experience at the end of the internship. Additional presentation may be required by the hosting company. The internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies. Students are recommended to seek the Professor-in-Charge's comment on potential internship opportunities before enrolling in the course.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Others",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "8003",
+      "title": "Thesis Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (1607)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Yi Chun",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "994",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (1592)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Yi Chun",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "998",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, a student is required to meet with his/her supervisor regularly who provides necessary guidance and supervision to write up a thesis and monitors the student's academic progress.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "8006",
+      "title": "Thesis Research",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (3811)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Yi Chun",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "88",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "911",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (3771)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Yi Chun",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "49",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "950",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, a student is required to meet with his/her supervisor regularly who provides necessary guidance and supervision to write up a thesis and monitors the student's academic progress.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "8012",
+      "title": "Thesis Research",
+      "credits": "12.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (1506)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Yi Chun",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "31",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "968",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (1464)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Yi Chun",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "16",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "983",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, a student is required to meet with his/her supervisor regularly who provides necessary guidance and supervision to write up a thesis and monitors the student's academic progress.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg"
+    }
+  ]
+}

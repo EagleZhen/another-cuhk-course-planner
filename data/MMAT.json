@@ -1,0 +1,1307 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T11:07:41.414918",
+    "subject": "MMAT",
+    "total_courses": 42,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "MMAT",
+      "course_code": "5000",
+      "title": "Analysis I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is intended to provide an introduction to linear structures and analysis covering fundamental concepts and techniques involving mathematical proofs for metric/ topological results in the one-dimensional and higher dimensional Euclidean spaces as well as in function spaces.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5010",
+      "title": "Linear Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2047)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "11/4, 18/4, 25/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "23",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "47",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is intended to provide an introduction to linear structures and various concepts of limits/convergence in analysis especially in the context of Euclidean/Hilbert/Banach spaces as well as the Lebesgue integration spaces.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5011",
+      "title": "Analysis II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The prerequisite of this course is the mathematical contents of Analysis I. The course is intended to provide basic and fundamental knowledge of modern analysis involving limits and various notions of convergence in the context of metirc/normed vector/Hilbert spaces as well as the vector Lp spaces.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5020",
+      "title": "Algebra and Geometry",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is an introduction to commutative algebra, in particular polynomial rings of one and several variables, their ideals and the associated varieties. The Hilbert basis theorem and Groebner bases algorithms are included.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5021",
+      "title": "Differential and Algebraic Methods in Geometry",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Degree Programme in Mathematics. The course is intended to provide an introduction to the geometry of curves and surfaces in 3 dimensional Euclidean space. The fundamental group and its application in the classification of closed surfaces will also be discussed.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5030",
+      "title": "Fourier Analysis",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is an introduction to the theory and applications of Fourier analysis, intended for students of the MSc programme of Mathematics.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5110",
+      "title": "Topics in Number Theory",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Divisibility of integers, theory of primes, fundamental theorem of Arithmetic, basic sieve methods, modular arithmetic, diophantine equations, cryptography, number theoretic functions, primitive roots, the quadratic reciprocity law, elliptic curves and other topics.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5120",
+      "title": "Topics in Geometry",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2908)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. CHENG Man Chuen",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "33",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "57",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended to provide a brief, but solid, modern introduction to various basic geometries using analytic methods.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5130",
+      "title": "Topics in Differential Equations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide with students a short and yet concise introduction to ordinary differential equations (O.D.E.). We will cover the conventional topics such as classifications of O.D.E., first order equations, linear second and higher order equations. If time permits, we may indicate heuristically how existence and uniqueness theorems are to be proved. Other optional topics may include: power series method, Frobenius’ series method, two-point boundary value problems, Sturm-Liouville problems, non-linear systems.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5140",
+      "title": "Probability Theory",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a course designed for the M.Sc. program. It aims to provide a basic but rigorous (both in theory and in applications) course in elementary probability theory.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5210",
+      "title": "Discrete Mathematics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is an introduction to discrete mathematics; topics will be chosen from: set theory, number theory, algebraic structures, recurrence relations and generating functions, rudiments of analysis of algorithms, finite geometries, (combinatorial) design theory, coding theory, graph theory, and various methods in combinatorics.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5220",
+      "title": "Complex Analysis and Its Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2922)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor YU Yong",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "53",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "37",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is intended to provide an introduction to the analysis and applications of analytic functions on the complex plane. Emphasis will be placed on the understanding and appreciation of the theory as well as its wide range of usage. It includes the study of integrals, residues, series expansion, and conformality of analytic functions; transforms and their use in differential equations.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5230",
+      "title": "Mathematics for Logistics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course provides the basic mathematical tools for logistics. Topics include: linear and nonlinear programming, resource allocation problem, shortest route problem, inventory and production problem, cargo loading problem, equipment replacement problem, reliability problem, max flow problem, decision tree analysis, production theory, maintenance and reliability theory.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5240",
+      "title": "Optimization and Modeling",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Degree Programme in Mathematics. The course provides an introduction to theory and numerical methods for optimization and modeling.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5250",
+      "title": "Financial Mathematics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2147)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HON Yiu Chung",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HON Yiu Chung",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "81",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "39",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is an introductory course on Financial Mathematics. Topics include probability, hedging, arbitrage, vanilla options, binomial models, the Black-Scholes formula, exotic options, Monte Carlo methods and binomial methods.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5260",
+      "title": "Calculus of Variations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Extremal problems from mechanics and geometry; First variations and Euler-Lagrange Equations; Constrained variational problems, Lagrange mulitipliers; Second variations and Jacobi necessary condition for weak extrema; and topics chosen from: Hamiltonian formation, Noether theorem on conservation laws, Weierstrass E-function and strong extrema.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5270",
+      "title": "Introduction to Inverse Problems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Degree Programme in Mathematics. The course is intended to provide an introduction to inverse problems and their computational techniques.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5310",
+      "title": "Financial Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2144)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "62",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "58",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (4642)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "05/01/2026 - 20/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "62",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "58",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. This course focuses on the study of multiple and granular views of the real world’s financial data and use it to gain insight and take action through the lens of statistical/mathematical/computational modelling together with computing software, e.g., MATLAB, Python and/or R. The aim of this course is to provide students with practical skills relating to financial modelling and the quantitative analysis of financial data and issues. Students will become familiar with essential topics/case-studies selected from, but not limited to, including, Mathematical Finance, Portfolio and Risk Management, Optimization Methods in Finance, Financial Forecasting, Numerical and Computational Financial Methods and Financial Management.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5320",
+      "title": "Computational Mathematics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1813)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor CHUNG Tsz Shun Eric",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "120",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is intended to provide an introduction to computational mathematics and their applications.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5330",
+      "title": "Econometric Principles and Data Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2025)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "120",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (4612)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MA Ka Chun",
+                  "dates": "01/09/2025 - 01/12/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "120",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. This course is focused on the importation of mathematical and statistical concepts, theories, methods and limitations into economic and data science and provides an overview of econometric methods and data analysis that allows analysts to better understand their economic/business landscape and to improve their ability to make sound economic/business forecasts. Through hands-on exercises based on the information flow of sample data together with available computing software, e.g., MATLAB, Python and/or R programming languages, participants gain knowledge of the practical elements of applied econometric analysis. The overall aim is to sharpen the quantitative, numerical, statistical and analytical skills of participants in dealing with real world examples and issues related to business and economic models.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5340",
+      "title": "Probability and Stochastic Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2187)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Shaw College LT",
+                  "instructor": "Professor TAN Xiaolu",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Shaw College LT",
+                  "instructor": "Professor TAN Xiaolu",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Shaw College LT",
+                  "instructor": "Professor TAN Xiaolu",
+                  "dates": "14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "66",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "54",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. This course focusses on the rigorous foundation in probability and Markov chains theory with applications in different areas. No prior knowledge of measure theory is assumed.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5350",
+      "title": "Coding Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4524)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LI Chun Che",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LI Chun Che",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "83",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "37",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. This course aims to introduce a subject of basic theory and practical relevance. Students are expected to have basic knowledge in algebra.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5360",
+      "title": "Game Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4525)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LIU Chun Lung",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LIU Chun Lung",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LIU Chun Lung",
+                  "dates": "10/4, 17/4, 24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "48",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "72",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. This course aims to introduce the principles and techniques of game theory. Students are expected to have knowledge in linear algebra.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5370",
+      "title": "Social and Economic Networks: Theory, Modelling and Computations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. This course provides an overview of quantitative methods appropriate for the data analysis of social and economic networks. Many social and economic activities are embedded in networks because datasets with graph theoretic structure are increasingly available to practical users. Two of the main goals are to study • how to describe, summarize and visually present network data together with computing software, e.g., MATLAB, Python and/or R and • formal econometric models of network formation that admit heterogeneity, strategic behavior, and/or dynamics. Theoretical/statistical/mathematical/computational models and their applications with respect to social and network data from development and labor economics are studied. Essential topics/case-studies are selected from, but not limited to, network formation, peer effects and the social multiplier, social capital and trust, information aggregation in networks, social learning, trading in networks, technology diffusion, job search, and other related topics.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5380",
+      "title": "Graph Theory and Networks",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Degree programme. This course covers some fundamental concepts and principles of graph theory and networks. Transferring some big-data problems to graph models will be introduced. In order to solve such problems, some algorithms of graphs and networks are also discussed. No prior knowledge is assumed.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5390",
+      "title": "Mathematical Image Processing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1831)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor LUI Lok Ming",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor LUI Lok Ming",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor LUI Lok Ming",
+                  "dates": "13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "120",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Degree programme. This course gives an introduction on mathematical models and techniques for various image processing tasks. A wide array of topics will be covered, including image restoration (denoising, deblurring), image decomposition, image segmentation, image registration, feature detection, multi-scale image analysis, morphology and so on. Students will become familiar with essential mathematical techniques for imaging tasks, such as image processing in the spatial domain (using gradient, Laplacian, convolution) and frequency domain (using Fourier / wavelet transform). Variational models and PDE-based techniques will be discussed. Deep-learning based techniques will also be explored. Students are expected to have basic knowledge in calculus, linear algebra and MATLAB language. Some background in numerical analysis, Fourier analysis and partial differential equations will be helpful, although the necessary concepts will be discussed as they are used.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5391",
+      "title": "Mathematical Theories of Machine Learning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4490)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. CHAN Hiu Ning",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. CHAN Hiu Ning",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. CHAN Hiu Ning",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "120",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Degree Programme in Mathematics. The aim of this course is to introduce the mathematical foundations of and optimization techniques used in machine learning. Both theoretical and numerical approaches for tackling mathematical problems arising from machine learning will be introduced. Learning will be enhanced through software implementation of the computational methods. Topics will be selected from, but not limited to, predictive modeling, classification, neural networks, support vector machines and other related topics. This course assumes no prior experience with programming.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5392",
+      "title": "Mathematical Principles of Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2124)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HON Yiu Chung",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HON Yiu Chung",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HON Yiu Chung",
+                  "dates": "14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "120",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course offers a mathematically introductory view of the theoretical foundation and practical approach/technique to artificial intelligence (AI) and serves as a basis for more in depth treatment of specific theories for building AI by means of computing software, e.g., MATLAB, Python and/or R. The aim of this course is to illustrate both the potential and current limitations of different AI techniques with examples from a variety of applications. Students will become familiar with computational models of intelligence behavior as well as essential topics/case-studies selected from, but not limited to, including, Searching Algorithm, Data Mining, Information Retrieval, Computational Neuroscience, Social Intelligence in Computing, and Semantic Analysis.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5393",
+      "title": "Numerical Linear Algebra and Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Linear algebra is a fundamental technique that underlies many mathematical disciplines. Numerical linear algebra, in turn, is the basis for scientific computation. This course covers the basic techniques, analysis methods, and details of implementing numerical linear algebra and computing software applications. The course emphasizes the strong link between theoretical concepts, algorithm formulation, and practical implementation, which makes numerical linear algebra widely applicable in various fields. The recent advancements in data science heavily rely on extending concepts from numerical linear algebra, which will also be discussed in the course.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5394",
+      "title": "Markov Chains and Algorithmic Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to familiarise students with the theory of Markov Chains and provide an overview of how this theory can be applied to problems in financial mathematics, data science, and network science using different randomised algorithms.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5395",
+      "title": "Mathematics of Games of Chance",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course delves into the mathematical concepts relevant to analysing games of chance. Topics covered include probabilities, odds, house advantages, fairness assessments, variance, risk evaluation, statistical tests for game honesty, optimal strategies, random walks, the gambler’s ruin, the Kelly criterion, and estimating gaming revenue. The course illustrates these concepts using examples from various games, including Lottery, Roulette, Blackjack, Poker, and Bridge.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5396",
+      "title": "Mathematics of Multivariate Data",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3749)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. WONG Chak Fu",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "100",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the mathematics of multivariate data analysis. The course builds on the concepts and skills developed in multivariate data analysis and methodology using R.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5410",
+      "title": "Guided Studies I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "A project in pure or applied mathematics, either in research or in reviewing the literature of an advanced topic. Each section may be taken by an individual student or a team of two students. Topics selected should be beyond the content of MMAT5000. Prerequisite: permission of the instructor.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "STOT Course",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5420",
+      "title": "Guided Studies II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is a continuation of MMAT5410. A project in pure or applied mathematics, either in research or in reviewing the literature of an advanced topic. Each section may be taken by an individual student or a team of two students. Topics selected should be beyond the content of MMAT5000. Prerequisite: permission of the instructor.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "STOT Course",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5430",
+      "title": "Graduate Seminar I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Series of projects in pure or applied mathematics focusing on a central theme. Topics selected should be beyond the content of MMAT5000. Prerequisite: permission of the instructor.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "STOT Course",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5440",
+      "title": "Graduate Seminar II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is a continuation of MMAT5430. Series of projects in pure or applied mathematics focusing on a central theme. Topics selected should be beyond the content of MMAT5000. Prerequisite: permission of the instructor.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "STOT Course",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5510",
+      "title": "Foundation of Advanced Mathematics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is intended to build a solid foundation for the students on the essential topics and the rigorous reasoning of mathematics. It includes the discussion of logic, sets and functions, cardinality and countability, basic number theory, real number and limits. (Not for undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx.)",
+      "enrollment_requirement": "For students in MSc Mathematics Education",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5520",
+      "title": "Differential Equation and Linear Algebra",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1830)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Dr. XIAO Jingjing",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "22",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "68",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is intended to provide an amalgamated treatment of Differential Equations and Linear Algebra. Emphasis will be placed on algebraic intuition and geometric visualization, together with illustrations of applications. (Not for undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx.)",
+      "enrollment_requirement": "For students in MSc Programme in Math Education. Undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx are not allowed to take the course.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5530",
+      "title": "Finite Mathematics and Mathematical Programming",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1823)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. CHAN Hiu Ning",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. CHAN Hiu Ning",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. CHAN Hiu Ning",
+                  "dates": "10/4, 17/4, 24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "16",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "74",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is intended to discuss mathematical methods frequently applied in managerial, business and social studies. It starts with a review of Linear Equations, then the main topics are selected from Linear Programming and Simplex Method, Counting and Probability, Game Theory, Basic Finance Mathematics, Mathematical Modelling. (Not for undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx.)",
+      "enrollment_requirement": "For students in MSc Mathematics Education",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5540",
+      "title": "Advanced Geometry",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course mainly introduces students to the fundamental concepts of analytic geometry and vector geometry. It covers topics such as plane analytic geometry, Cartesian and Polar coordinates, transformation of coordinates, pairs of straight lines, circles, conic sections, direction cosines, direction ratios, planes, parametric equations, and vectors. Additional topics such as Euclidean Geometry, Non-Euclidean Geometry, Transformational Geometry, Projective Geometry, Geometric Symmetries, or Finite Geometry may be included. (Not for undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx.)",
+      "enrollment_requirement": "For students in MSc Mathematics Education",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5610",
+      "title": "Introduction to Combinatorics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is an introduction of combinatorics, which includes basic counting techniques, pigeonhole principle, generating function. Further topics will be chosen from probability theory, graph theory, partition theory, geometric combinatorics, game theory and design theory.",
+      "enrollment_requirement": "For students in MSc Mathematics Education",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5620",
+      "title": "Mathematics Enhancement for Teachers",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4557)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. MAK Hugo Wai Leung",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. MAK Hugo Wai Leung",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. MAK Hugo Wai Leung",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "48",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "42",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics Education. This course aims to provide a solid mathematical background for teaching professionals.",
+      "enrollment_requirement": "For students in MSc Mathematics Education",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics"
+    }
+  ]
+}

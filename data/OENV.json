@@ -1,0 +1,384 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T11:42:46.577800",
+    "subject": "OENV",
+    "total_courses": 12,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "OENV",
+      "course_code": "5001",
+      "title": "Environmental Health Sciences",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "F-LEC (1964)",
+              "meetings": [
+                {
+                  "time": "Tu 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HO Kin Fai,   Professor TSE Lap Ah",
+                  "dates": "9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HO Kin Fai,   Professor TSE Lap Ah",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "P-LEC (1042)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HO Kin Fai,   Professor TSE Lap Ah",
+                  "dates": "6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HO Kin Fai,   Professor TSE Lap Ah",
+                  "dates": "10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HO Kin Fai,   Professor TSE Lap Ah",
+                  "dates": "8/5, 15/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Through a few selected important topics, this course examines how environmental factors impact the health of people and the community, and what we can do to prevent or minimize the negative impacts.",
+      "enrollment_requirement": "For students in Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5002",
+      "title": "Lecture series on Occupational Health",
+      "credits": "2.00",
+      "terms": [],
+      "description": "A basic course for students intending to study in any discipline of occupational health. General basic principles of controls of hazards in the practice of occupational health and hygiene will be introduced. Other topics include chemical hazards, physical hazards, biological hazards, ergonomics, injury and return to work, workplace wellness, as well as common occupational diseases and challenges in Hong Kong.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5003",
+      "title": "Occupational Health II (OM)",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a follow-up of course \"Occupational Health I\" for medical doctors who want to specialize in the discipline of occupational medicine. A systematic approach to the study of occupational diseases and work-related health problem will be introduced, and practical management problems in occupational medicine will be covered.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5004",
+      "title": "Occupational Health II (Hygiene)",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a follow-up of course \"Occupational Health I\" for students who want to specialize in the discipline of occupational hygiene. A systematic approach to the anticipation, recognition, evaluation and control of occupational hazards will be introduced and practical experience with instrumentation in the assessment of the working environment will be emphasised.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5005",
+      "title": "Occupational Health II (Health Practice)",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a follow-up of course \"Occupational Health I\" for nurses who want to specialize in the discipline of occupational health nursing and occupational health practice. Common and important occupational diseases and work-related health problems will be introduced as well as the importance of health promotion in the workplace. Practical aspects in occupational health practice will be emphasised.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5006",
+      "title": "Air Pollution",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1025)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHUNG Ming Kei,   Professor HO Kin Fai",
+                  "dates": "15/7"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHUNG Ming Kei,   Professor HO Kin Fai",
+                  "dates": "17/7"
+                },
+                {
+                  "time": "Mo 9:30AM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHUNG Ming Kei,   Professor HO Kin Fai",
+                  "dates": "13/7"
+                },
+                {
+                  "time": "Tu 9:30AM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHUNG Ming Kei,   Professor HO Kin Fai",
+                  "dates": "14/7"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the current state of knowledge in the key areas in which air pollutants impact on the health of the general population. Topics include the health impacts of gaseous air pollutants such as sulfur dioxide, nitrogen dioxide, carbon monoxide and ozone; mechanism of lung injury by airborne particulate matter; epidemiological evidence of the risk from particulate matter exposure; airborne chemical carcinogens; health effects of indoor air pollution; and setting health-based air quality standards.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5007",
+      "title": "Urban Environment and Health",
+      "credits": "2.00",
+      "terms": [],
+      "description": "A course that covers aspects of environmental health specific to urban environmental with particular emphasis on noise pollution, air pollution, water quality issues and green spaces.",
+      "enrollment_requirement": "For TPg students under School of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5008",
+      "title": "Water and Health",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This is a 2-credit course for graduate students. This course give a brief introduction to water, environment, and health.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5009",
+      "title": "Public Health Toxicology",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course provides students with the basic concepts of toxicology and its application to environmental, occupational, nutrition and food toxicology; discusses distribution, cellular penetration, metabolic conversion, and elimination of toxic agents, as well as the fundamental laws governing the interaction of foreign chemicals with biological systems; focuses on the application of these concepts to the understanding the result from environmental exposure to toxic substances through a case study format. [students are required to have good knowledge on biology and health or have taken PBHT5005 Basic Human Physiology]",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5010",
+      "title": "Environmental Risk Assessment",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1891)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WONG Tze Wai",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WONG Tze Wai",
+                  "dates": "24/2, 3/3, 10/3"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with an understanding of the role and scope of health risk assessment, the application of toxicology, epidemiology, exposure assessment and environmental monitoring in risk assessment, risk characterization and risk management.[students should also take OENV 5009– Public Health Toxicology]",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5011",
+      "title": "Environmental Risk Management and Communication",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1024)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WONG Tze Wai",
+                  "dates": "17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WONG Tze Wai",
+                  "dates": "14/4, 21/4, 28/4, 5/5, 12/5, 19/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This module builds upon the principles taught in OENV 5010 (Environmental Risk Assessment). The course gives students basic knowledge of the frameworks used for risk reduction and the protection of human health from chemical, physical, biological and ergonomic hazards. Students will be exposed to environmental risk communication frameworks and practical guidance on report writing for stakeholders and for future policy formulation.",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "OENV",
+      "course_code": "5801",
+      "title": "Injury prevention and control",
+      "credits": "1.50",
+      "terms": [],
+      "description": "This course aims to provide students with an understanding that injury is a public health issue of global importance, the burden of injury to society, and strategies currently in place to prevent injury of different causes. The course includes the definition of injury, measurement and classification of injury, assessment of injury severity, risk factors identification for various types of injury, concept of prevention, intervention strategies and their evaluation, and cause-specific injury topics.",
+      "enrollment_requirement": "For TPg students under School of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    }
+  ]
+}

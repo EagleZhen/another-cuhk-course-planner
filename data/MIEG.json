@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T11:00:41.225004",
+    "subject": "MIEG",
+    "total_courses": 2,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "MIEG",
+      "course_code": "2051",
+      "title": "Fourier Analysis with Engineering Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5441)",
+              "meetings": [
+                {
+                  "time": "Tu 8:30AM - 10:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 8:30AM - 10:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 704",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "19",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6343)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "19",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers Linear-time Invariant Systems, Convolution, Dirac delta functions, Fourier Analysis of Continuous and Discrete-time Systems, Sampling Theorem, Fast-Fourier Transform, Laplace Transform, Z-Transform, and Fourier uncertainty principle. There will be emphasis on the interplay between mathematical ideas in MATH courses and engineering applications. Ideas such as inner product spaces, Contour integration, Cauchy-Schwartz inequality, Spectral decomposition, etc. will be employed for obtaining various results.",
+      "enrollment_requirement": "Prerequisite: MATH1010 or MATH1510 Not for students who have taken ENGG2030, ESTR2206, ESTR2302, ESTR2360 or IERG2051.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Information Engg",
+      "academic_org": "Dept of Information Engg"
+    },
+    {
+      "subject": "MIEG",
+      "course_code": "2440",
+      "title": "Discrete Structures and Probability",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5383)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 403",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 403",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 403",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8462)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers the following two related topics. Discrete Structures: Graphs, Combinatorics - sums and asymptotics, recurrences, counting Probability: Random Variables and Probability density functions, conditional probability, independence, expectations, Markov and Chebychev inequalities, laws of large numbers, Random Walks, basic Markov Chains.",
+      "enrollment_requirement": "Prerequisite: MATH1050 Not for students who have taken CSCI2110, ENGG2430, ENGG2440, ENGG2450, ENGG2460, ENGG2470, ENGG2760, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2012, ESTR2018, ESTR2308, ESTR2362, IERG2470 or MATH3280.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Information Engg",
+      "academic_org": "Dept of Information Engg"
+    }
+  ]
+}

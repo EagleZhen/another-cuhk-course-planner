@@ -1,0 +1,3397 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T08:54:45.436743",
+    "subject": "GPAD",
+    "total_courses": 96,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "GPAD",
+      "course_code": "1000",
+      "title": "Learning GPA",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9173)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "B-LEC (5750)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C5",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is a basic orientation course for Government and Public Administration (GPA) students. It will familiarize students with the essence of politics and the study of it. Students will be introduced to the basic approaches, methods of study, research and writing skills, and ways of thinking of the discipline.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1010",
+      "title": "Political Debate",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will study political debates both from theoretical as well as practical perspectives. It aims at developing students’ confidence in presenting political arguments in public, and to defend the ideas in face of criticisms. Training will also be offered in respect of the skills in delivering sophisticated political messages in a coherent and convincing manner, and the professional way to restate a refined position. The course will also cover certain methodology of investigation and formal analysis of political activities and dialogues.",
+      "enrollment_requirement": "Not for students who have taken UGEC2711.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1015",
+      "title": "Politics and Mass Media",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course tries to explore the theoretical and practical links between politics and the media. It will examine the interplay of the media, the general public and the governing process in modern liberal democracy, and see how the media shape and are shaped by the other two components. The relationship between media and politics in un-democratic regimes will also be explored. Local and foreign political issues will be taken as examples for illustration.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1016",
+      "title": "Politics of Sports",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The objective of this course is to integrate theories and knowledge of political science and also other social science subjects to understand the world of sports. On the basis of these theories, concepts and knowledge, students will be asked to critically examine empirical examples from the world of sports and explore the power relationships and other social dynamics and interactions behind.",
+      "enrollment_requirement": "Not for students who have taken GLSD3302.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1020",
+      "title": "Fundamentals of Government",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4953)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Professor MA Ngok",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Professor MA Ngok",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T01-TUT (4977)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 206",
+                  "instructor": "Professor MA Ngok",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T02-TUT (9359)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor MA Ngok",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T03-TUT (5556)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor MA Ngok",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T04-TUT (4979)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Professor MA Ngok",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEC1512 is double-coded with GPAD1020.)   Introduction to the nature of political inquiry, the basic concepts in political science and the main features of the major types of political systems. Some emphasis is placed on the institutional aspects of government and administration, with concrete examples.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1030",
+      "title": "Fundamentals of Public Administration",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (6239)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEC1522 is double-coded with GPAD1030.)  This course introduces contemporary study and practice of public administration, and the characteristics and roles of public bureaucracy in various types of administrative systems. Students will also learn to analyze some issues such as codes of conduct for civil servants, budgetary politics and redress of administrative grievances.",
+      "enrollment_requirement": "Not for students who have taken UGEC1732.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1046",
+      "title": "The Art of Leadership",
+      "credits": "3.00",
+      "terms": [],
+      "description": "(GESC2120 is double-coded with GPAD1046.)  This course will examine and critically analyse the multifaceted phenomenon known as leadership. While sharing a number of personalities and attributes, leaders also possess various arts and skills. The goal of this course is to provide the students with a better understanding of these personalities, attributes, arts and skills, and to assess their proper role. Through studying experiences of different political, business, cultural and social leaders, students can have a better picture of what leadership is.",
+      "enrollment_requirement": "Not for students who have taken GPAD1045, or GELD2111, 2112 and 3113.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1050",
+      "title": "Government of Hong Kong",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8250)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEC1885 is double-coded with GPAD1050.)  This is an introductory course in government and politics of Hong Kong. It examines the following major issues: political institutions and processes; the various theoretical approaches to understand Hong Kong politics; the Basic Law and the principle of “one country, two systems”; the performance of the SAR Government since the return of sovereignty ; political culture; political parties and elections; and public administration and public policy. Emphasis is placed on recent changes and development, and the prospects for democratization.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1055",
+      "title": "Parliamentary Practices and Procedures",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to introduce to students the regulations and practice of meetings. Topics include: the convention, constitution and conduct of meetings, the agenda, notices, quorum, motions and amendments, procedural motions, voting, adjournments and minutes. Types of meetings include: public meetings, company meetings and legislative meetings.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1056",
+      "title": "Introductory Game Theory",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to introduce students to the study of game theory and its application in social sciences. Students will learn the basic concepts of game theory and different types of games. Students will understand, construct and solve games through exercises related to real-world political, economic and social situations.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1065",
+      "title": "Introduction to Contentious Politics in China",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to introduce a conceptual toolkit for understanding the origins, dynamics, and outcomes of contentious politics. It starts with an attempt to distinguish between normal political process and political contention. Then it presents two typologies of collective political contentions, one based on claims, the other based on forms of collective action. The third part of the subject focuses on a number of key concepts that are often used to analyse the emergence of political contentions. Lastly the impact of political contentions is discussed. The course draws on the literature on popular contention in contemporary China for examples.",
+      "enrollment_requirement": "-",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1066",
+      "title": "China and the World",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will situate China, a rising major power, in an international context and analyze its evolving relations with the outside world. It will focus on China's relations with other major actors in global and regional politics, including Taiwan, the United States, the Soviet Union/Russia, Asian neighbouring states, Europe and Africa.",
+      "enrollment_requirement": "Not for students who have taken GLSD3106.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1070",
+      "title": "Government and Politics of China",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6240)",
+              "meetings": [
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "63",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "63",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEC1540 is double-coded with GPAD1070.)  This is an introductory course that surveys key issues in Chinese politics, including the historical background of the system, the roles of the party/state, the style of leadership, the forms of popular participation, and the distinctive features of Chinese politics. The focus of this course is political change. Classic essays by Sun Yatsen, Lu Xun, Mao Zedong and others provide students with grounding in the key problems modern China has faced, as well as the solutions it has pioneered. From that foundation, we will move on to contemporary institutions and intellectual debates over inequality, human rights, and the future shape of political reform in China.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1073",
+      "title": "Reading Chinese Culture and Politics through Movies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4937)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor MA Shu Yun",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor MA Shu Yun",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor MA Shu Yun",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEA1515 is double-coded with GPAD1073.)  Since its birth in the late-19th/early-20th century, Chinese movies have provided a very rich pool of images and stories, real or fictional, through which political messages could be read, interpreted, constructed, and re-constructed. As politics is a reflection of culture, a systematic analysis of these movies will provide students with a “softer” way to understand the cultural context which shapes Chinese politics. After an introduction of the relationship between culture, movies, and politics, the course will examine how Chinese political culture could be read through Chinese movies produced under different political settings (Republican, Maoist, and post-Maoist China).",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Discussion Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1074",
+      "title": "Hong Kong Movies and Politics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Movies are political; Hong Kong movies are no exception. This course will take a political-historical approach to introduce to students different political contexts (including British-colonial rule, anti-Japanese war, Cold War, and 1997 political handover) in which Hong Kong movies are produced, and the possible political readings of these movies. In the end, the course will examine whether these movies, as an art form, can transcend politics.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1076",
+      "title": "Thinking Politically",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a beginner's course for students who are interested in knowing how to think politically and critically. It will introduce some major political ideas that may shape our way of thinking. Students will learn how to put issues into political perspectives. It will include both theoretical discussions and everyday case studies.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1077",
+      "title": "Critical Debates in Hong Kong",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8238)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 11:30AM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 11:30AM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of this course is to apply concepts and theories in politics to understand some major debates about current affairs in Hong Kong. Through participating in these debates, students are encouraged to develop their critical thinking and reflections on the society they live in.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1095",
+      "title": "Issues of Political Philosophy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4936)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T01-TUT (4938)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "14",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T02-TUT (4945)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "14",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T03-TUT (5782)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "14",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T04-TUT (6255)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "14",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T05-TUT (5783)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "14",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "(UGED1660 is double-coded with GPAD1095.)   This course will introduce students to key issues of political philosophy, including political authority and obligation, democracy, social justice, and freedom and right, through conceptual analysis and rational assessment of the thought of major political philosophers.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "1100",
+      "title": "Politics, Law and Society",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9141)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEC1814 is double-coded with GPAD1100.)  This course aims to provide an introductory examination of legal systems and the role of law in the shifting social and political contexts. Interdisciplinary perspectives (e.g. philosophical, political and sociological etc.) will be taken on to deal with the conceptual and empirical issues. The course is not designed for professional legal training, but aims to assist students to reflect on the legal phenomena they experience in their daily life.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2015",
+      "title": "Selected Topics in Hong Kong Politics I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an introductory analysis of important topics in the government and politics of Hong Kong. Examples of these topics are political structure and process, election and party system, public policy and administration, political development and democratization of Hong Kong. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "Students who have taken GPAD1077 cannot take this course, unless teacher's consent has been obtained.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2020",
+      "title": "Politics of Culture",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5299)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 406",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students with perspectives to understand culture, which has been considered as a contestable thing and a domain of politics in critical debate. As the course will convey, it is through the complicated cultural-political processes that the modern political world has been created. With special reference to local cases, this course will equip students with the concepts and analytical tools to approach the culture-politics phenomena in modern human society.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2025",
+      "title": "Selected Topics in Chinese Politics I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course conducts introductory studies on some important topics in Chinese political development since 1949. The topics may include issues such as political campaigns, politics of economic reform, political reform and state-society relations. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2026",
+      "title": "Selected Topics in Chinese Politics II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course conducts in-depth studies on some important topics in Chinese political development since 1949. The topics may include issues such as political campaigns, politics of economic reform, political reform and state-society relations. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "-",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2035",
+      "title": "Selected Topics in Public Administration I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an introductory analysis of important topics in the public administration and public policy. Examples of these topics are civil service reforms, new public management reforms, privatization, contracting-out, public-private partnership, globalization and public administration, politics-administration dynamics, public policy-making and implementation. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2036",
+      "title": "Selected Topics in Public Administration II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an in-depth analysis of important topics in the public administration and public policy. Examples of these topics are civil service reforms, new public management reforms, privatization, contracting-out, public-private partnership, globalization and public administration, politics-administration dynamics, public policy-making and implementation. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "-",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2065",
+      "title": "Values and Public Affairs",
+      "credits": "3.00",
+      "terms": [],
+      "description": "A study of the relationship between issues of public policy and the values underlying them, the course revolves around policy debates of current interest in light of the values of justice, freedom, respect for life, humanitarianism, etc.",
+      "enrollment_requirement": "Not for students who have taken UGED2550 or GPAD1090.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2070",
+      "title": "Social Networking Services, Social Listening and Public Affairs",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Given the current prevalence of Social Networking Services (SNS) in the exchange of information, and their epistemological and ontological impact on our world view, it is vital for every decision-maker and participant of public affairs to understand both the opportunities and challenges posed by SNS development. Employing both local and global case studies, this course aims to provide an academic overview on how SNS permanently changes the context and practices in public affairs. Students will also be instructed on the production of a SNS-based social listening report valuable to stakeholders and policy influencers.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2075",
+      "title": "Selected Topics in Political Theory I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6881)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 201",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 201",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "Introductory studies and evaluation of major political theories. Topics may include rational choice theory, theories of social justice, democratic theory, and constitutionalism. The approach is philosophical and analytical, with emphasis on contemporary literature.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2085",
+      "title": "Public Governance and Civil Service in Hong Kong",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6181)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "During the years since the establishment of the Hong Kong Special Administrative Region Government, public governance in Hong Kong has undergone many changes. This course will explain the historical background to the present public governance and its constitutional framework. It will focus on the major changes to various aspects of public administration and on the changing role of the civil service.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2090",
+      "title": "Governance and Public Policy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6157)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Tsang Shiu Tim Bldg 104",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Tsang Shiu Tim Bldg 104",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Tsang Shiu Tim Bldg 104",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In the last twenty years, there has been considerable discussion about the future role of governments. The notion of ‘governance’ has taken shape out of the fact that governments are now facing a much more limited role in supplying public goods and organising societies. Their activities and decisions have been increasingly transferred to the private sector, NGOs, quangos and international organisations, even to the extent that public policy has been ‘hollowed out’. As such, this course depicts a general picture of contextual challenges confronting governments in public policy. The features and effects of globalisation, regionalization, marketisation, privatisation and the dynamism of civil society are discussed. In addition, the course discusses the ways in which governments have attempted to cope with these contextual uncertainties. Faced with the changing context, governments in the late twentieth and early twenty-first century are developing new mechanisms to influence populations. These new mechanisms contain: rationality, regulation, surveillance, risk and moral politics. While governments have undergone change, they may be more or less powerful than in the past.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2095",
+      "title": "Public Policy Workshop",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Public policy-making is a nexus amalgamating concepts from many disciplines in action. This course is a small-class workshop offering a practical but theory-based understanding of the dynamics of public policy making in Hong Kong. We will illustrate the objectives, constraints and processes in public policy by going through real-life and current public policy issue(s) in depth. Active participation from students is required in the form of background research, presentation, role-play, policy debates and written policy proposals. Relevant overseas sources will also be examined.",
+      "enrollment_requirement": "Prerequisite: GPAD1050.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2111",
+      "title": "Political Research Methodology",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7368)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7369)",
+              "meetings": [
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers theories of research, structure and process of analysis, modes of observation and data analysis, and basic statistics.",
+      "enrollment_requirement": "Not for students who have taken GPAD1110",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork Exercise Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2120",
+      "title": "Democracies in the West",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Comparative study of the structures and functions of political institutions in democratic systems of Western Europe and North America. Topics include the historical, cultural and socioeconomic conditions of viable political institutions, and contemporary challenges to democratic governments in the Western world.",
+      "enrollment_requirement": "Prerequisite: GPAD1020 or exemption granted.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2130",
+      "title": "Introductory Comparative Politics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6694)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. CHEN Dakeng",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. CHEN Dakeng",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. CHEN Dakeng",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "84",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "84",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A beginner's course to introduce students to the comparative study of government and politics around the world. Not a juxtaposition and comparison of political systems, but an analytical discussion of the holistic system as well as partial aspects of systems across countries. Topics may include classification of political systems; conceptualization of political functions and processes; working and performance of political institutions; role of political culture; systemic, institutional or cultural effects of public policies; issues of development and decay; and the national-international linkage. Students will be familiarized with the major contending approaches to theory construction in comparative politics.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2140",
+      "title": "Selected Topics in Comparative Politics I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Introductory analysis of the structure and process of governing in one or more countries from a comparative perspective. Different theories to approach the case(s) will be addressed.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2145",
+      "title": "Electoral Studies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces elections as an instrument of democracy; different electoral systems and their political impacts; the impact of electoral system on party systems, executive-legislative relations, interest representation, and political behaviour; theories and concepts in electoral studies; factors that affect voting behaviour, the study of electoral campaigns; the development of elections and electoral systems in Hong Kong, etc.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2150",
+      "title": "Public Human Resources Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Topics studied include: recruitment and selection methods; performance appraisal; the merit system; pay structure and the comparable worth debate; motivation and productivity; staff training and development; human resources planning, collective bargaining and labour relations; the constitutional status of public sector employees; equal opportunity legislation; and the latest trends in personnel management.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2160",
+      "title": "Public Finance and Budgeting",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The study of the budget cycle; fiscal policy; programme design, planning and evaluation; performance measurement; forecasting techniques; accounting and auditing; legislative control of the budget; and the politics of the budgetary process.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2170",
+      "title": "Public Organization and Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course focuses on the nature, types and characteristics of public organization as well as the tools and skills used in public management. Emphasis is placed on addressing and resolving problems in managing public organizations, including such topics as organizational structures and designs, control and distortions, bureaucratic corruption, administrative leadership, motivation and work behaviour, decision-making and resource management.",
+      "enrollment_requirement": "Prerequisite: GPAD1030 or teacher's consent.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2185",
+      "title": "International Organizations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for undergraduate students who are either interested in social/political studies in general or international affairs in particular. As the course title states, the course introduces main categories of organizations that play important roles in today's world: 1) the United Nations; 2) regional inter-governmental organizations, e.g., the EU; 3) issue specific international regime and institution, e.g., WTO; 4) transnational non-governmental organizations, e.g., Greenpeace. When studying these organizations, particular attention will be paid to organizational history, structures, decision-making processes, and political effect. In addition, this course also leads students through the main theoretical frameworks developed by international relations scholars to explain the political relevance of international organizations.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2196",
+      "title": "Public Opinion Research: Theories and Practices",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9066)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Staff",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Staff",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Staff",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Staff",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "46",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "46",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Public Opinion is an important driving force of social development in all societies. Although Hong Kong is far from being a democratic society, its political development has been heavily influenced by public opinion during the colonial era and also under “one country, two systems”. This course examines the formation of public opinion in Hong Kong, its relevance to public policies, the design and conduct of scientific opinion surveys and other forms of opinion expression. Practicum will be arranged for students to learn through hands-on experience in conducting surveys and analyzing public opinion research.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2215",
+      "title": "Political Communication in Practice",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Political communication is a vital part of the daily work of politicians. They need to share their visions with the public. They need to help people understand complex public policy questions and solutions. They need to rally people to support certain courses of actions. And most important, they need to convince the voters in order to get elected and remain in power. To achieve these, effective communication is very important. This course aims at introducing students the basic theories and practices of political communication. It would explore the ways in which political messages are sent and received so that students can better understand how their lives are shaped, and then have a better reflection of real life politics. Moreover, while political communication becomes a rising profession, this course can provide a basic training to those students who want to begin their careers in this field.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2300",
+      "title": "Understanding Human Rights",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5426)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "(UGED2700 is double-coded with GPAD2300.)   This course is to expose students to the field of human rights as a cross-disciplinary sub-discipline in law and political science. This course will assist students to better understand the debate concerning human rights both at home and abroad. The course will cover the international law and political issues in this field, the application of human rights in the domestic context and major problems in international human rights practice, including, for example, questions of gender discrimination, humanitarian intervention in domestic conflicts, poverty and human rights, and questions of universalism and cultural relativism.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2345",
+      "title": "International Politics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5235)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. HORIUCHI Toru",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "(UGEC2610 is double-coded with GPAD2345.)  Examination of the actors, dynamics, strategies and rules of the changing international political system, and patterns of interaction among the powers.",
+      "enrollment_requirement": "Not for students who have taken GLSD2301 or UGEC2352.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2350",
+      "title": "Chinese Foreign Policy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Analytic study of motivations, objectives, means, manifestations and consequences of Chinese foreign policy. Discussion of Chinese foreign policy-making apparatus, procedures and styles. China’s role in the contemporary world and outstanding foreign policy problems facing China.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2355",
+      "title": "Globalization and Politics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "(UGEC2683 is double-coded with GPAD2355.)  This course introduces undergraduate students to the key concepts, theoretical frameworks, and main political discussions/reflections related to globalization. Globalization itself is introduced in a broad sense not limited by the economic aspect but a common experience of social change. For example, global environmental challenges, the common threat of nuclear crisis, the controversy between sovereignty and human rights, and the North-South divide. With both the historical and thematic perspectives, the class engages students with most recent research and debate on the topic. On the one hand, the class encourages students to relate their own experiences and observations in their own societies to digest what globalization is and what its impacts are. On the other hand, it also leads them to reflect on politics and social development in their own societies, in the context of globalization.",
+      "enrollment_requirement": "Not for students who have taken GLSD2301 or UGEC2352.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2370",
+      "title": "Taiwan Studies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The development and current conditions of the democratic political system in Taiwan, including the Constitution of the ROC, government apparatus, party politics, the administrative and policy-making systems, foreign relations and problems relating to the unification/independence debate. Emphasis on the recent experience in democratization and its significance for mainland China and the territories of Hong Kong and Macau.",
+      "enrollment_requirement": "Not for students who have taken GPAD3370.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2375",
+      "title": "Asian International Relations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a broad survey of international relations across the Asian landmass touching upon strategic, security, diplomatic and economic relations. It will also discuss other critical issues on the contemporary agenda of Asian relations, such as nuclear nonproliferation, globalization, human rights and regional conflicts. Putting emphasis on theoretical issues, this course will encourage students to apply theories to analyse current development in Asian relations.",
+      "enrollment_requirement": "Not for students who have taken GLSD3405.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2395",
+      "title": "Asian Comparative Politics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5415)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an introduction to the comparative analysis of the political structures and processes in the Asian states with special attention to the relevant historical, cultural and social settings. It will address one or several linked problems and topics, such as elections, political participation, nationalism, state-building and nation-building, labour politics, democratization, trade policy/politics, political accountability, constitutionalism and public opinion.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2450",
+      "title": "Introduction to Political Economy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is an introductory course for the understanding of the relation between politics and economics. It will employ both political and economic perspectives to examine issues such as allocation of resources, market structures, role of the state, political competition and economic performance, and voting.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "2555",
+      "title": "State-Society Relations in Contemporary China",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9593)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 111",
+                  "instructor": "Dr. CHEN Dakeng",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 111",
+                  "instructor": "Dr. CHEN Dakeng",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "45",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to expose students to major debates over state-society relationships in the study of contemporary Chinese politics and to encourage them to consider how well the state-society paradigm works in China studies. Particular attention will be paid to questions such as: Why is it necessary to disaggregate state and society in China? How should we do the disaggregating? Do concepts such as neotraditionalism, the reach of the state, civil society, citizenship and rights, representation, and corporatism improve our understanding of the structure and dynamics of Chinese politics?",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3040",
+      "title": "Democratization",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course focuses on the transition from authoritarian rule and the process of democratic consolidation or breakdown, drawing on experiences in several selected countries from Latin America, Europe and Asia. It will examine the concepts, theories and empirical findings pertaining to the study of democratization and their applicability to the study of the same issue in Chinese societies.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3050",
+      "title": "Inter-governmental Relations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course deals with hierarchical and non-hierarchical relations within a web of territorial structures that affect political integration in general or political/policy performance in particular. Fundamental concepts and approaches will be examined, such as federalism, center-periphery approach, principal-agent model, centralization versus decentralization, state theories, the inter-governmental relations perspective and neo-institutionism.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3070",
+      "title": "Contemporary Political Philosophy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5733)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "72",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "72",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course will introduce and examine major theories of contemporary Anglo-American political philosophy. Topics include utilitarianism, liberalism, libertarianism, Marxism, communitarianism, feminism and global justice.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3071",
+      "title": "Gender and Politics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces feminist political thought and scholarship on politics, especially the ways in which it has challenged the epistemological and ontological foundation of political science knowledge. It will examine the importance of gender in the study of political leadership, political participation, development studies and the state.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3111",
+      "title": "Quantitative Methods in Political Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The objective of this course is to help students develop basic working knowledge of quantitative methods in political science. The course has three parts. The first part introduces basic principles of survey research. The second part explains how to use statistical tools to describe political phenomena. The third part discusses how to use statistical techniques to explore causal relationships in political analysis. Students with basic knowledge in quantitative methods preferred.",
+      "enrollment_requirement": "Not for students who have taken DSPS2102.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3146",
+      "title": "The Idea of Freedom",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Freedom is widely held to be a primary political value. But what is freedom? Why is it valuable? And what kinds of institutions are required to protect it? These are the questions addressed in this course. It will be divided into four parts. The first part examines the concept of freedom and its history. The second part considers the value of freedom and its justification. The third part investigates the relationship between freedom and other political values. The last part examines the role of freedom in different political theories.",
+      "enrollment_requirement": "Not for students who have taken GPAD2146.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3160",
+      "title": "Governance of European Union",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course introduces students to the governance of the European Union. It will cover the extensive scholarly debates which have accompanied the development of the European Union. Issues to be covered include: (1) the historical background to the formation of the European Union; (2) the early institutional mechanisms; (3) the record of the organization up to the end of the cold war in 1989; (4) the latest period of institution building (the European Union and the Constitution); and (5) the European Union’s present domestic organization and place in the global system.",
+      "enrollment_requirement": "Not for students who have taken GLBS3403 or GLSD3403.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3161",
+      "title": "The Rise of Populism in Europe",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4989)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Dr. James Floyd DOWNES",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers a wide variety of material and is highly relevant in understanding rapid changes in Global and Comparative European Politics. To catalyze your learning, this course will provide practical and contemporary examples throughout the course. Part I of the course provides a brief historical background to European politics and sets the scene for the course. The course starts out by examining how and why the European Union was formed alongside the traditional political landscape in Europe that is largely considered as stable in terms of voting and political behavior. Important theoretical concepts are introduced in Part I of the course, in examining theoretically how contemporary 'populism' is defined and conceptualized in the 21st century political landscape. Two divergent concepts, in the form of (a) right-wing populism and (b) left-wing populism are introduced, with key examples from contemporary European politics drawn on to further enhance students' learning.Students are then introduced to the key theoretical debates on populism in the academic literature and are allowed to make critical evaluations about how they themselves will define populism as a political ideology.Part II of the course provides the main focus of the course, in focusing on the main causes and drivers that have led to the growth of (a) radical right-wing populism and (b) radical left-wing populism.Three key approaches are drawn on in Part II of the course, with comparative studies, survey research (public opinion) and case studies across Western Europe and Central-Eastern Europe allowing students to understand about the diversity and variations of populism in the contemporary political landscape. Students are then introduced to an important case study in the form of the landmark 2016 Brexit vote.Flipped classroom learning will be adopted here, with students watching and then having a critical debate based on a special documentary and discussing the role that radical right-wing populism and Euroscepticism has played in the Brexit vote and the future of the British political system. Students will also be tasked to work in groups and make group project presentations on a topic of their choice that relates to populism.Part III of the course introduces students to critical debates and evaluations on the 'rise' of populism and just how important understanding this political phenomenon is for (a) the implications for contemporary democracy and governance in EU member states, alongside (b) how populism on the 'right' and 'left' of the political spectrum is challenging the future EU project. Students are provided with a unique learning experience, with a practical and special Data Lab session that allows them to understand the root causes of populism, through a series of applied public opinion surveys (drawing on the Eurobarometer) and data analysis.The final part of the course also allows students to understand the wider roots that right-wing and left-wing populism has had in shaking up the contemporary political landscape. Latest articles from academic research alongside newspaper and op-ed articles will be deployed to further enhance the overall student learning experience. In particular, the 'rise' of populist parties on the left and right will be linked to the electoral decline of mainstream social democratic parties in Europe.Students will also be provided with a Special Guest Lecture, with a key speaker (European expert) from the Europe Asia Policy Centre for Comparative Research (EAP) coming in to share their own personal experiences, in outlining the role that populism has played in challenging the governance of the European Union and its key institutions. This session will also allow students to further their understanding of how the European Union works and most importantly allow students to ask questions from the guest speaker and further enhance their overall learning experience in an interactive setting. Students are also encouraged to draw on their own personal backgrounds and experience, in drawing on comparisons and making links between the causes of 'populism' in the European context, to the causes of 'localism' in the Hong Kong context.The final part of the course also revisits the premise and assumption made in Part I of the course, about the historical stability of the European political landscape by outlining how 'a new form of politics' now exists in European politics. Stability and patterns of partisan alignment have now been replaced by instability and widespread patterns of electoral volatility. Thus, by the end of the course students will able to trace the historical evolution of European Politics and most importantly, the challenges that a number of contemporary European Union (EU) countries are facing in terms of their governance amidst the 'rise' of populist radical right and left-wing parties alike in the 21st century.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3190",
+      "title": "Politics of Development",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Examination of theories of political and administrative development. In-depth analysis of conditions and stages of development, with emphasis on the role of politics and administration.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3220",
+      "title": "Politics of Space",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a trans-disciplinary course that aims at activating students' sensitivities in the dimension of space in understanding politics. Fundamental concepts and approaches developed in the field of politics of space will be introduced. The content includes also discussion of the following topics of interest: heritage preservation, contested public space, state project and societal resistance, consumerist space, etc. Substantive local and foreign cases will be used to demonstrate the complicated politico-spatial processes in society which are considered to be political, ideological and full of contradictions.",
+      "enrollment_requirement": "-",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3255",
+      "title": "Public Policy Analysis",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will equip students with the theoretical perspectives and analytical tools in public policy analysis which are necessary to resolve complex policy problems from the angles of policy analysts and policy-makers. The course views policy problems from interdisciplinary but complementary approaches and includes descriptive and normative theories. A major focus is placed on comparing the use of market versus government in tackling policy problems.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3260",
+      "title": "Public Policy and Administration in China",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The study of the policy-making process and the analysis of substantive policy issues in China. The study of the public administrative institutions and processes in China. These include the reform of the cadre system and its relationship with other institutional changes, anti-corruption policy, social welfare policy, budgeting, and the relationship between the central and the local governments. A comparative approach will also be adopted to study all these issues.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3360",
+      "title": "Global Environmental Politics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Upon entering the 21st century, the environment is becoming one of the most pressing issues for the world. This course is designed to introduce global environmental politics to student from different angles: (1) main global environmental issues, e.g., climate change, waste trade, biodiversity conservation; (2) global environmental governance and main international environmental organizations, e.g., UNEP, World Commission on Dams; (3) political theoretical reflections inspired by global environmental politics.",
+      "enrollment_requirement": "Not for students who have taken GLSD2401 or GLSD3401.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3365",
+      "title": "Ethics and International Affairs",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This module will survey some of the most pressing ethical and political dilemmas in international politics. It introduces students to influential approaches in international political theory in order to ascertain whether and to what extent the anarchic realm of international relations can be subject to moral and legal rules. In the course of this investigation, controversies surrounding the following important issues are explored: human rights, global poverty, sovereignty, just war, humanitarian intervention, the challenges of globalization, the transformation of political community and the emergence of global citizenship.",
+      "enrollment_requirement": "Prerequisite: GPAD1095.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "3451",
+      "title": "International Political Economy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to introduce students to the study and major issues in international political economy. It will begin with the major theories in international political economy. The discussion will then move to the important issues in international economy: trade, international monetary and financial policy, migration, globalization and its consequences, and development.",
+      "enrollment_requirement": "Not for students who have taken GPAD2451 or GLSD2501.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4020",
+      "title": "Seminar in Public Administration",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9368)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Staff",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Staff",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Staff",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "22",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "22",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course will offer in-depth discussion of selected issues in public administration in the form of seminars. Specific focus will be given by the teacher in each instance.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4027",
+      "title": "Seminar in Chinese Politics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4833)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Dr. KWAN Chung Yin",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a seminar course for senior undergraduates and graduate students on some important topics in Chinese political development since 1949. The topics may include issues such as political campaigns, politics of economic reform, political reform and state-society relations. The focus of the course may vary according to the area of expertise of the instructor and the interest of the class.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4030",
+      "title": "Seminar in Hong Kong Studies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This seminar course introduces to students the most important works in the study of Hong Kong politics. Students are guided by the instructor to read, discuss and critically think about the contents of the literature on Hong Kong politics. Students will also be guided towards systematic research on Hong Kong politics and there will be thorough discussions on research ideas in class.",
+      "enrollment_requirement": "Prerequisite: GPAD1050, 2015 or 3016. Students taking this course should first obtain teacher's consent.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4065",
+      "title": "Contentious Politics in China",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to prepare graduate and advanced undergraduate students to conduct in-depth analysis of popular contention in contemporary China. Substantively it will examine the origins, dynamics, and outcomes of collective protests in rural and urban settings and the politics of repression and accommodation. Conceptually it will explore how concepts developed to study social movements and collective action in Western countries may help us understand protests and resistance in today’s China. Theoretically, it will examine the relationships between state and society, history and institutions, and structure and agency.",
+      "enrollment_requirement": "Not for students who have taken GPAD1065.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4077",
+      "title": "Seminar in Political Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4776)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 114",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 114",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 114",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This is a seminar course for senior undergraduates and graduate students, with in-depth studies and evaluation of contemporary debate of political theories. Topics may include rational choice theory, theories of justice, egalitarianism, post-modernism, global justice, and the latest development in the discipline.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4080",
+      "title": "Political Analysis",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Conceptual introduction to political science methodology. Survey of major approaches such as systems analysis, structural-functional analysis, decision-making analysis and communication analysis. Discussion of humanism versus scientism and foundations of empirical political inquiry.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4111",
+      "title": "Applied Statistical Methods for the Social Sciences",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will help graduates and advanced undergraduate students develop a working knowledge of the statistical methods which are widely used in political science, public administration, psychology, social work and sociology. Topics include: exploratory and confirmatory factor analysis, reliability analysis and scale construction, data transformations, binary, ordinal and multinomial regressions, and structural equation modelling. The course focuses on practical applications rather than statistical theories. Published research articles are used to illustrate the rationales and problems of applying various statistical techniques and selected researches are repeated in class so that students can get first-hand experience in tackling these problems. Students with basic knowledge in quantitative methods preferred.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4130",
+      "title": "Theories of Comparative Politics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will address theoretical issues in comparative politics such as: elections, parties and the legislature; political participation and stability; nationalism, state-building and nation building; labour politics, democratization and the welfare state; trade policy/politics, transnational economic power and state power; technology, bureaucracy and political accountability; constitutionalism, the legislature and the court; and mass media, public opinion and democracy.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4142",
+      "title": "Seminar in Comparative Politics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a seminar course for senior undergraduates and graduate students, with in-depth analysis of the structure and process of governing in one or more countries from a comparative perspective. Different theories to approach the case(s) will be addressed.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4200",
+      "title": "Reading Political Philosophy I: John Rawls",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will offer an opportunity to study political theory through an intensive analysis of the work of a leading political philosopher. The proposed text for this course is John Rawls's A Theory of Justice. The topics to be discussed will include the nature of social justice, the principles of social distribution and their justification, the relationship between freedom and equality and the nature of modern liberalism compared with rival theories.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4211",
+      "title": "Philosophy of Social Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is designed for advanced students who wish to reflect generally upon the fundamental claims of their discipline. It will introduce participants to a range of debates within the philosophy of social science via an examination of the works of a number of key figures who have contributed to these debates. The course will consider: (1) empiricist/positivist conceptions of social science; (2) interpretive/hermeneutic conceptions of social science; and (3) critical and post-modernist conceptions of social science.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4225",
+      "title": "Theories of International Relations",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (5970)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 207",
+                  "instructor": "Professor TING Wai",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 207",
+                  "instructor": "Professor TING Wai",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 207",
+                  "instructor": "Professor TING Wai",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course examines major theoretical issues of international relations such as those in relevance with national security, international political economy and international institutions.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4335",
+      "title": "Modern Chinese Political Thought",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will consider the major developments of Chinese political though from late Qing to the present day. It will examine from philosophical and historical perspective show Chinese intellectuals responded to the challenge of modernization. The topics to be discussed include the tension between Chinese tradition and modernity, conservatism, neo-Confucianism, socialism, liberalism, nationalism and the debate between the new-left and libertarianism.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4385",
+      "title": "Institution and Reform in China",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will utilize contemporary theoretical perspectives and historical material to analyse the creation and evolution of Chinese political and economic institutions. The topics considered will include taxation schemes, private fund raising methods, political participation, voting methods, political control mechanisms, community organizations and local governance.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4601",
+      "title": "Independent Studies I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-I01-IND (9080)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Seanon Si Lon",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-I01-IND (6208)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "Research on an approved topic under individualized guidance of a faculty member, culminating in an individual research paper.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Independent Study",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4602",
+      "title": "Independent Studies II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Research on an approved topic under individualized guidance of a faculty member, culminating in an individual research paper.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Independent Study",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4701",
+      "title": "Graduation Thesis I",
+      "credits": "0.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-I01-IND (6400)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Xi,   Professor ZHAN Jing Vivian",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended to be the first part of a sequence of two courses that form a capstone of a student’s study in the programme. (For the second part, see GPAD4702; no unit would be awarded if GPAD4702 is not taken subsequently.) Under individual guidance of a faculty member, students will research on an approved topic and write a graduation thesis. Consent of instructor required.Advisory: only for final-year students who have a cumulative overall Grade Point Average (GPA) of 3.0 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Multi-Term Course Grades",
+      "component": "Independent Study",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4702",
+      "title": "Graduation Thesis II",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-I01-IND (6184)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEE Ka Kiu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-I01-IND (8544)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is intended to be the second part of a sequence of two courses that form a capstone of a student’s study in the programme. (For the first part, see GPAD4701; 6 units would be awarded for successful completion of GPAD4701 and GPAD4702.) Under individual guidance of a faculty member, students will research on an approved topic and write a graduation thesis. Consent of instructor required.",
+      "enrollment_requirement": "Pre-requisite(s): GPAD4701.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Independent Study",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4801",
+      "title": "Professional Practicum I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9594)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Can, change to Eng if needed Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9369)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Can, change to Eng if needed Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students with on-site learning experience for their integration of the theories and concepts in political science and public administration they learn in regular classes. Students will work at institutions recognized by the Department for no less than 200 hours. Students will be asked to attend orientation and sharing sessions before and after their placement.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "4802",
+      "title": "Professor Practicum II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-F01-FLD (9549)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Can, change to Eng if needed Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students with on-site learning experience for their integration of the theories and concepts in political science and public administration they learn in regular classes. Students will work at institutions recognized by the Department for no less than 200 hours. Students will be asked to attend orientation and sharing sessions before and after their placement.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Government & Public Admin PC",
+      "academic_org": "Government & Public Admin PC"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5030",
+      "title": "Independent Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-I01-IND (3851)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-I01-IND (3802)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to improve a student's skills in research. It covers critical review of literature, discussions of paradigm and research strategy with respect to specific topic or problems and research exercise. (Students are allowed to take this course more than once, and gain the units each time they pass the course. However, students cannot take the course more than once in a single term.)",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Independent Study",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5050",
+      "title": "Qualitative Methods of Political Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (2767)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor LO Wing Hung Carlos",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course serves to introduce postgraduate students to the fundamental principles of scientific inquiry and major qualitative research methods. Topics to be covered include: conceptual foundation of research in social science, design and structure of political research, and methods for collecting and analyzing qualitative data. Undergraduate students taking this course should first obtain teacher's consent.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5055",
+      "title": "Quantitative Methods of Political Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (2768)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 111",
+                  "instructor": "Professor ZHAN Jing Vivian",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 111",
+                  "instructor": "Professor ZHAN Jing Vivian",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 111",
+                  "instructor": "Professor ZHAN Jing Vivian",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "8",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course serves to help postgraduate students develop working knowledge of a number of statistical methods that are widely used in political and social studies. Topics to be covered include major principles of data collection and analysis and a variety of statistical models.Undergraduate students taking this course should first obtain teacher's consent.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administrtation",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5080",
+      "title": "Graduate Seminar",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (2760)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Professor ZHAN Jing Vivian",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Professor ZHAN Jing Vivian",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Professor ZHAN Jing Vivian",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "These are seminars for M.Phil. and Ph.D. students to present their research plans, and to receive comments from teachers and other research postgraduate students.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5090",
+      "title": "Seminar in Sustainability Governance",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims at engaging students to perform an in-depth inquiry into the growing important global agenda of sustainability governance. It will take an interdisciplinary approach to unpack the complexity of sustainable development governance in a domestic-national-international linkage. The academic inquiry will center on the institutional analysis of effective governance for sustainable development in research and problem-solving terms. This requires students to investigate the evolving concepts of “governance” and “sustainable development” in perspectives with the view on identifying and establishing their theoretical connections through a critical review of an emerging body of related literature. This analytical endeavor will provide the academic basis for students to attempt conceptual advancement, methodological sophistication and policy innovation for contributing to the theory and practice of sustainability governance.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration & Doctor of Social Science in Applied Social Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5111",
+      "title": "Advanced Social Science Research Methods",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course seeks to help post-graduate students engage with advanced quantitative issues in social science research. The course is organized around modules based on (hard) methodological challenges that social science researchers must confront at the stage of research design or data analysis, or both. The course is conceived as the last course in quantitative training to be offered for second year postgraduate students who are in the process of crafting their own thesis proposal. This course follows GPAD5055 or equivalent. Students who have not passed GPAD5055 need the instructor’s permission to enroll.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "5290",
+      "title": "Contemporary Political Science",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-O01-OTH (3741)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 406",
+                  "instructor": "Professor Pierre Francois LANDRY",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 406",
+                  "instructor": "Professor Pierre Francois LANDRY",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of this course is to acquaint students with the state of the art in political science. The course will analyse recent developments of the discipline pertaining to its scope, methodology, theory and approach. Particular attention will be given to areas where debates and controversies have contributed to the development of knowledge in the field. The ethos, concerns and research concentration of the discipline will also be discussed. Undergraduate students taking this course should first obtain teacher's consent.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Others",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "8003",
+      "title": "Thesis Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (2619)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "29",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (2632)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, a student is required to meet with his/her supervisor regularly who provides necessary guidance and supervision to write up a thesis and monitors the student's academic progress.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "8006",
+      "title": "Thesis Research",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (2620)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "17",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (2633)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "7",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, a student is required to meet with his/her supervisor regularly who provides necessary guidance and supervision to write up a thesis and monitors the student's academic progress.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    },
+    {
+      "subject": "GPAD",
+      "course_code": "8012",
+      "title": "Thesis Research",
+      "credits": "12.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (2621)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "28",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (2667)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, a student is required to meet with his/her supervisor regularly who provides necessary guidance and supervision to write up a thesis and monitors the student's academic progress.",
+      "enrollment_requirement": "For students in MPhil-PhD Government and Public Administration",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Gov & Policy Sci",
+      "academic_org": "Div of Gov & Policy Sci"
+    }
+  ]
+}

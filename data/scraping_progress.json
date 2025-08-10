@@ -1,66 +1,103 @@
 {
   "scraping_log": {
     "created_at": "2025-07-29T19:02:27.927695",
-    "last_updated": "2025-08-09T23:59:47.791557",
-    "total_subjects": 1,
-    "completed": 12,
-    "failed": 0,
-    "skipped": 41,
+    "last_updated": "2025-08-10T14:39:04.289876",
+    "total_subjects": 263,
+    "completed": 263,
+    "failed": 8,
+    "skipped": 8,
     "subjects": {
       "CSCI": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:53:14.260750",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:47:33.220717",
+        "courses_count": 83,
+        "courses_scraped": 83,
+        "output_file": "data/CSCI.json",
+        "duration_minutes": 7.97,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "ACCT": {
-        "status": "in_progress",
-        "started_at": "2025-08-09T13:49:44.413046",
-        "estimated_courses": 95,
-        "courses_scraped": 11,
-        "completed_courses": [
-          "1111",
-          "2111",
-          "2121",
-          "2151",
-          "3001",
-          "3002",
-          "3003",
-          "3004",
-          "3005",
-          "3111",
-          "3112"
-        ],
-        "last_course_completed": "3112",
-        "last_progress_update": "2025-08-09T13:50:46.061555",
+        "status": "completed",
+        "last_scraped": "2025-08-10T04:57:42.575178",
+        "courses_count": 95,
+        "courses_scraped": 95,
+        "output_file": "data/ACCT.json",
+        "duration_minutes": 5.68,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
         "retry_count": 0
       },
       "ACPY": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.790318",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T04:59:25.400206",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/ACPY.json",
+        "duration_minutes": 1.7,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "AENP": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.791176",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T04:59:46.678253",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/AENP.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 2
       },
       "AEPT": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.791980",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:00:07.890908",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/AEPT.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "AIMS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.792713",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:00:40.437888",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/AIMS.json",
+        "duration_minutes": 0.53,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "AIST": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:02:34.512736",
+        "last_scraped": "2025-08-10T05:02:28.152725",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/AIST.json",
-        "duration_minutes": 1.87,
+        "duration_minutes": 1.78,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -69,157 +106,418 @@
         "retry_count": 0
       },
       "ANAT": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.794201",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:02:48.848358",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/ANAT.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "ANIC": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.794974",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:03:55.636958",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/ANIC.json",
+        "duration_minutes": 1.1,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "ANTH": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.795592",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:12:12.157658",
+        "courses_count": 155,
+        "courses_scraped": 155,
+        "output_file": "data/ANTH.json",
+        "duration_minutes": 8.26,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "APEP": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.796251",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:12:32.367565",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/APEP.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "ARAB": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.796819",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:12:45.731223",
+        "courses_count": 4,
+        "courses_scraped": 4,
+        "output_file": "data/ARAB.json",
+        "duration_minutes": 0.21,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "ARCH": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.797393",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:18:46.829495",
+        "courses_count": 70,
+        "courses_scraped": 70,
+        "output_file": "data/ARCH.json",
+        "duration_minutes": 6.0,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "ARTS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.797991",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:19:14.921632",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/ARTS.json",
+        "duration_minutes": 0.45,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "ASEI": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.798557",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:19:22.422268",
+        "courses_count": 4,
+        "courses_scraped": 4,
+        "output_file": "data/ASEI.json",
+        "duration_minutes": 0.11,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BAMS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.799141",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:19:37.152177",
+        "courses_count": 6,
+        "courses_scraped": 6,
+        "output_file": "data/BAMS.json",
+        "duration_minutes": 0.23,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BASA": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.799666",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:19:42.763726",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/BASA.json",
+        "duration_minutes": 0.08,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BBMS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.800252",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:20:13.105596",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/BBMS.json",
+        "duration_minutes": 0.49,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BCHE": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.800765",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:21:51.273413",
+        "courses_count": 40,
+        "courses_scraped": 40,
+        "output_file": "data/BCHE.json",
+        "duration_minutes": 1.62,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BCHM": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.801261",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:22:12.176847",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/BCHM.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "BCJC": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.801757",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:22:15.109232",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/BCJC.json",
+        "duration_minutes": 0.03,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BCME": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.802252",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:27:42.615198",
+        "courses_count": 132,
+        "courses_scraped": 132,
+        "output_file": "data/BCME.json",
+        "duration_minutes": 5.44,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BECE": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.802731",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:28:35.466540",
+        "courses_count": 22,
+        "courses_scraped": 22,
+        "output_file": "data/BECE.json",
+        "duration_minutes": 0.86,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BEHM": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.803204",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:28:55.149883",
+        "courses_count": 4,
+        "courses_scraped": 4,
+        "output_file": "data/BEHM.json",
+        "duration_minutes": 0.31,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BEST": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.803674",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:29:18.921041",
+        "courses_count": 9,
+        "courses_scraped": 9,
+        "output_file": "data/BEST.json",
+        "duration_minutes": 0.38,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BIOL": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.804154",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:31:12.589953",
+        "courses_count": 48,
+        "courses_scraped": 48,
+        "output_file": "data/BIOL.json",
+        "duration_minutes": 1.88,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BIOS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.804617",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:31:40.066872",
+        "courses_count": 9,
+        "courses_scraped": 9,
+        "output_file": "data/BIOS.json",
+        "duration_minutes": 0.44,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BMBL": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.805126",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:32:18.709356",
+        "courses_count": 14,
+        "courses_scraped": 14,
+        "output_file": "data/BMBL.json",
+        "duration_minutes": 0.63,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BMED": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.805565",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:33:03.207157",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/BMED.json",
+        "duration_minutes": 0.72,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BMEG": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.805997",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:38:31.572585",
+        "courses_count": 58,
+        "courses_scraped": 58,
+        "output_file": "data/BMEG.json",
+        "duration_minutes": 5.46,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BMJC": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.806424",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:38:51.966330",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/BMJC.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "BSCG": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.806810",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:39:22.179554",
+        "courses_count": 17,
+        "courses_scraped": 17,
+        "output_file": "data/BSCG.json",
+        "duration_minutes": 0.49,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "BUDS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.807183",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:39:57.275161",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/BUDS.json",
+        "duration_minutes": 0.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CCNU": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.807553",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:40:18.066880",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/CCNU.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "CCSS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.807912",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:41:32.781025",
+        "courses_count": 40,
+        "courses_scraped": 40,
+        "output_file": "data/CCSS.json",
+        "duration_minutes": 1.23,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CDAS": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.808271",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:41:59.154252",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/CDAS.json",
+        "duration_minutes": 0.42,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CENG": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:00:41.442775",
+        "last_scraped": "2025-08-10T05:43:42.777011",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/CENG.json",
-        "duration_minutes": 1.69,
+        "duration_minutes": 1.71,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -228,43 +526,92 @@
         "retry_count": 0
       },
       "CGEN": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.808962",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:44:26.721526",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/CGEN.json",
+        "duration_minutes": 0.72,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CHCU": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.809291",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:44:46.883888",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/CHCU.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 1
       },
       "CHED": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.809618",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:45:32.684054",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/CHED.json",
+        "duration_minutes": 0.75,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CHEM": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.809943",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:51:22.275804",
+        "courses_count": 114,
+        "courses_scraped": 114,
+        "output_file": "data/CHEM.json",
+        "duration_minutes": 5.81,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CHES": {
-        "status": "skipped",
-        "skipped_at": "2025-08-09T13:49:11.810268",
-        "reason": "completed within 24h"
+        "status": "completed",
+        "last_scraped": "2025-08-10T05:55:28.628667",
+        "courses_count": 115,
+        "courses_scraped": 115,
+        "output_file": "data/CHES.json",
+        "duration_minutes": 4.09,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
       },
       "CHLL": {
-        "status": "in_progress",
-        "started_at": "2025-08-09T13:49:15.267354",
-        "estimated_courses": 187,
-        "courses_scraped": 0,
-        "completed_courses": [],
-        "last_course_completed": "",
-        "last_progress_update": "2025-08-09T13:49:15.267363",
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:03:51.180181",
+        "courses_count": 187,
+        "courses_scraped": 187,
+        "output_file": "data/CHLL.json",
+        "duration_minutes": 8.36,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
         "retry_count": 0
       },
       "ENGG": {
         "status": "completed",
-        "last_scraped": "2025-08-09T13:58:58.898279",
+        "last_scraped": "2025-08-10T07:58:14.746999",
         "courses_count": 48,
         "courses_scraped": 48,
         "output_file": "data/ENGG.json",
@@ -278,11 +625,11 @@
       },
       "PHYS": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:11:45.750739",
+        "last_scraped": "2025-08-10T12:43:23.168077",
         "courses_count": 100,
         "courses_scraped": 100,
         "output_file": "data/PHYS.json",
-        "duration_minutes": 9.17,
+        "duration_minutes": 11.2,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -292,11 +639,11 @@
       },
       "UGCP": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:11:58.924672",
+        "last_scraped": "2025-08-10T13:59:09.883444",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/UGCP.json",
-        "duration_minutes": 0.2,
+        "duration_minutes": 0.23,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -306,11 +653,11 @@
       },
       "UGFN": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:14:51.983554",
+        "last_scraped": "2025-08-10T14:34:43.170813",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/UGFN.json",
-        "duration_minutes": 2.87,
+        "duration_minutes": 7.99,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -320,11 +667,11 @@
       },
       "UGFH": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:17:38.081119",
+        "last_scraped": "2025-08-10T14:26:42.546230",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/UGFH.json",
-        "duration_minutes": 2.75,
+        "duration_minutes": 8.13,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -334,11 +681,11 @@
       },
       "UGEA": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:20:10.399891",
+        "last_scraped": "2025-08-10T14:02:22.581043",
         "courses_count": 30,
         "courses_scraped": 30,
         "output_file": "data/UGEA.json",
-        "duration_minutes": 2.52,
+        "duration_minutes": 3.19,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -348,11 +695,11 @@
       },
       "UGEB": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:23:11.883577",
+        "last_scraped": "2025-08-10T14:05:41.595063",
         "courses_count": 58,
         "courses_scraped": 58,
         "output_file": "data/UGEB.json",
-        "duration_minutes": 3.01,
+        "duration_minutes": 3.3,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -362,11 +709,11 @@
       },
       "UGEC": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:28:47.752187",
+        "last_scraped": "2025-08-10T14:12:38.481607",
         "courses_count": 128,
         "courses_scraped": 128,
         "output_file": "data/UGEC.json",
-        "duration_minutes": 5.58,
+        "duration_minutes": 6.93,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -376,11 +723,11 @@
       },
       "UGED": {
         "status": "completed",
-        "last_scraped": "2025-08-09T14:33:28.113109",
+        "last_scraped": "2025-08-10T14:18:33.508062",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/UGED.json",
-        "duration_minutes": 4.66,
+        "duration_minutes": 5.9,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -390,11 +737,2951 @@
       },
       "FINA": {
         "status": "completed",
-        "last_scraped": "2025-08-09T23:59:47.791430",
+        "last_scraped": "2025-08-10T08:26:08.811910",
         "courses_count": 162,
         "courses_scraped": 162,
         "output_file": "data/FINA.json",
-        "duration_minutes": 9.06,
+        "duration_minutes": 9.0,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CHLT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:11:52.079070",
+        "courses_count": 38,
+        "courses_scraped": 38,
+        "output_file": "data/CHLT.json",
+        "duration_minutes": 8.0,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CHPR": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:12:32.345589",
+        "courses_count": 18,
+        "courses_scraped": 18,
+        "output_file": "data/CHPR.json",
+        "duration_minutes": 0.65,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CHPY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:16:59.831826",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/CHPY.json",
+        "duration_minutes": 4.44,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CLCC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:20:16.838387",
+        "courses_count": 42,
+        "courses_scraped": 42,
+        "output_file": "data/CLCC.json",
+        "duration_minutes": 3.27,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CLCE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:20:24.707364",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/CLCE.json",
+        "duration_minutes": 0.11,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CLCH": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:20:31.377471",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/CLCH.json",
+        "duration_minutes": 0.09,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CLCP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:25:15.072874",
+        "courses_count": 45,
+        "courses_scraped": 45,
+        "output_file": "data/CLCP.json",
+        "duration_minutes": 4.71,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CLED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:26:04.944162",
+        "courses_count": 22,
+        "courses_scraped": 22,
+        "output_file": "data/CLED.json",
+        "duration_minutes": 0.81,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CLGY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:26:25.226003",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/CLGY.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CMBI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:27:48.285986",
+        "courses_count": 37,
+        "courses_scraped": 37,
+        "output_file": "data/CMBI.json",
+        "duration_minutes": 1.37,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CMSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:28:46.253788",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/CMSC.json",
+        "duration_minutes": 0.95,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CNGT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:29:20.176522",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/CNGT.json",
+        "duration_minutes": 0.55,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CODS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:29:41.320364",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/CODS.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "COMM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:39:12.205740",
+        "courses_count": 211,
+        "courses_scraped": 211,
+        "output_file": "data/COMM.json",
+        "duration_minutes": 9.5,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "COOP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:39:34.173868",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/COOP.json",
+        "duration_minutes": 0.35,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CULS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:50:08.345738",
+        "courses_count": 65,
+        "courses_scraped": 65,
+        "output_file": "data/CULS.json",
+        "duration_minutes": 2.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CUMT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:50:24.521693",
+        "courses_count": 7,
+        "courses_scraped": 7,
+        "output_file": "data/CUMT.json",
+        "duration_minutes": 0.25,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CURE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:56:28.140817",
+        "courses_count": 150,
+        "courses_scraped": 150,
+        "output_file": "data/CURE.json",
+        "duration_minutes": 6.04,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CVSM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:56:48.458666",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/CVSM.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "DBAC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:57:58.771125",
+        "courses_count": 26,
+        "courses_scraped": 26,
+        "output_file": "data/DBAC.json",
+        "duration_minutes": 1.15,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "DIUS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T06:58:15.811424",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/DIUS.json",
+        "duration_minutes": 0.27,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "DOTE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:04:06.381066",
+        "courses_count": 104,
+        "courses_scraped": 104,
+        "output_file": "data/DOTE.json",
+        "duration_minutes": 5.83,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "DROI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:05:34.506700",
+        "courses_count": 15,
+        "courses_scraped": 15,
+        "output_file": "data/DROI.json",
+        "duration_minutes": 1.45,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "DSME": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:05:54.533620",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/DSME.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "DSPS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:07:19.492346",
+        "courses_count": 35,
+        "courses_scraped": 35,
+        "output_file": "data/DSPS.json",
+        "duration_minutes": 1.4,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EASC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:08:35.144216",
+        "courses_count": 33,
+        "courses_scraped": 33,
+        "output_file": "data/EASC.json",
+        "duration_minutes": 1.24,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ECLT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:09:34.686683",
+        "courses_count": 14,
+        "courses_scraped": 14,
+        "output_file": "data/ECLT.json",
+        "duration_minutes": 0.98,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ECON": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:15:39.935086",
+        "courses_count": 130,
+        "courses_scraped": 130,
+        "output_file": "data/ECON.json",
+        "duration_minutes": 6.07,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ECTM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:16:00.347715",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/ECTM.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EDUC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:17:18.960193",
+        "courses_count": 29,
+        "courses_scraped": 29,
+        "output_file": "data/EDUC.json",
+        "duration_minutes": 1.29,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EEEN": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:18:09.323389",
+        "courses_count": 15,
+        "courses_scraped": 15,
+        "output_file": "data/EEEN.json",
+        "duration_minutes": 0.82,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EESC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:22:45.423126",
+        "courses_count": 116,
+        "courses_scraped": 116,
+        "output_file": "data/EESC.json",
+        "duration_minutes": 4.58,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EIHP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:23:06.333408",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/EIHP.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ELED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:23:58.937509",
+        "courses_count": 17,
+        "courses_scraped": 17,
+        "output_file": "data/ELED.json",
+        "duration_minutes": 0.86,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ELEG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:30:45.359846",
+        "courses_count": 72,
+        "courses_scraped": 72,
+        "output_file": "data/ELEG.json",
+        "duration_minutes": 6.76,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ELTU": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:42:36.034681",
+        "courses_count": 50,
+        "courses_scraped": 50,
+        "output_file": "data/ELTU.json",
+        "duration_minutes": 11.83,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EMBA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:43:39.200871",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/EMBA.json",
+        "duration_minutes": 1.04,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EMBF": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:44:00.392548",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/EMBF.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ENGE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:52:29.419257",
+        "courses_count": 158,
+        "courses_scraped": 158,
+        "output_file": "data/ENGE.json",
+        "duration_minutes": 8.47,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ENLC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:58:17.878956",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/ENLC.json",
+        "duration_minutes": 0.04,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ENLT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:58:52.912824",
+        "courses_count": 13,
+        "courses_scraped": 13,
+        "output_file": "data/ENLT.json",
+        "duration_minutes": 0.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ENSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T07:59:53.647375",
+        "courses_count": 32,
+        "courses_scraped": 32,
+        "output_file": "data/ENSC.json",
+        "duration_minutes": 0.99,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EPBI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:00:10.924249",
+        "courses_count": 4,
+        "courses_scraped": 4,
+        "output_file": "data/EPBI.json",
+        "duration_minutes": 0.27,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EPID": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:00:35.057734",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/EPID.json",
+        "duration_minutes": 0.38,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EPIN": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:01:25.841660",
+        "courses_count": 15,
+        "courses_scraped": 15,
+        "output_file": "data/EPIN.json",
+        "duration_minutes": 0.83,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EPSY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:02:10.455512",
+        "courses_count": 20,
+        "courses_scraped": 20,
+        "output_file": "data/EPSY.json",
+        "duration_minutes": 0.73,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ESGS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:03:09.225448",
+        "courses_count": 18,
+        "courses_scraped": 18,
+        "output_file": "data/ESGS.json",
+        "duration_minutes": 0.96,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ESSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:04:27.687342",
+        "courses_count": 45,
+        "courses_scraped": 45,
+        "output_file": "data/ESSC.json",
+        "duration_minutes": 1.29,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ESTR": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:09:42.254292",
+        "courses_count": 132,
+        "courses_scraped": 132,
+        "output_file": "data/ESTR.json",
+        "duration_minutes": 5.23,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EXSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:10:02.474923",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/EXSC.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EX_PGDE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:10:05.026035",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/EX_PGDE.json",
+        "duration_minutes": 0.03,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EX_RPG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:10:07.504478",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/EX_RPG.json",
+        "duration_minutes": 0.02,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EX_TPG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:10:10.085887",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/EX_TPG.json",
+        "duration_minutes": 0.03,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "EX_UG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:10:30.554317",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/EX_UG.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FAAS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:17:05.432140",
+        "courses_count": 119,
+        "courses_scraped": 119,
+        "output_file": "data/FAAS.json",
+        "duration_minutes": 6.56,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FAME": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:17:07.896658",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/FAME.json",
+        "duration_minutes": 0.02,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FNSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:27:53.327557",
+        "courses_count": 45,
+        "courses_scraped": 45,
+        "output_file": "data/FNSC.json",
+        "duration_minutes": 1.72,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FREN": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:28:57.592630",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/FREN.json",
+        "duration_minutes": 1.05,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "FTEC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:31:26.704894",
+        "courses_count": 33,
+        "courses_scraped": 33,
+        "output_file": "data/FTEC.json",
+        "duration_minutes": 2.47,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GAST": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:31:58.864385",
+        "courses_count": 14,
+        "courses_scraped": 14,
+        "output_file": "data/GAST.json",
+        "duration_minutes": 0.52,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GDRS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:34:54.107722",
+        "courses_count": 70,
+        "courses_scraped": 70,
+        "output_file": "data/GDRS.json",
+        "duration_minutes": 2.9,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GECC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:37:12.838976",
+        "courses_count": 9,
+        "courses_scraped": 9,
+        "output_file": "data/GECC.json",
+        "duration_minutes": 2.29,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GECW": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:38:06.057088",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/GECW.json",
+        "duration_minutes": 0.87,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GEJC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:38:11.575890",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/GEJC.json",
+        "duration_minutes": 0.07,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GEMC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:38:28.786685",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/GEMC.json",
+        "duration_minutes": 0.27,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GENA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:40:15.053548",
+        "courses_count": 24,
+        "courses_scraped": 24,
+        "output_file": "data/GENA.json",
+        "duration_minutes": 1.75,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GEOR": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:40:35.683270",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/GEOR.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GERM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:41:34.113842",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/GERM.json",
+        "duration_minutes": 0.96,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GESC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:43:16.264799",
+        "courses_count": 43,
+        "courses_scraped": 43,
+        "output_file": "data/GESC.json",
+        "duration_minutes": 1.69,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GESH": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:43:39.950313",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/GESH.json",
+        "duration_minutes": 0.38,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GEUC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:45:07.270085",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/GEUC.json",
+        "duration_minutes": 1.44,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GEWS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:46:01.787925",
+        "courses_count": 20,
+        "courses_scraped": 20,
+        "output_file": "data/GEWS.json",
+        "duration_minutes": 0.89,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GEYS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:46:24.713928",
+        "courses_count": 3,
+        "courses_scraped": 3,
+        "output_file": "data/GEYS.json",
+        "duration_minutes": 0.36,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GISM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:46:55.540659",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/GISM.json",
+        "duration_minutes": 0.5,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GLBS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:47:57.032826",
+        "courses_count": 37,
+        "courses_scraped": 37,
+        "output_file": "data/GLBS.json",
+        "duration_minutes": 1.01,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GLEF": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:48:23.903090",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/GLEF.json",
+        "duration_minutes": 0.43,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GLOF": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:48:44.951167",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/GLOF.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GLSD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:50:19.917399",
+        "courses_count": 38,
+        "courses_scraped": 38,
+        "output_file": "data/GLSD.json",
+        "duration_minutes": 1.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GNBF": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:50:52.928535",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/GNBF.json",
+        "duration_minutes": 0.53,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GNED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:51:13.515094",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/GNED.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GPAD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:54:45.443226",
+        "courses_count": 96,
+        "courses_scraped": 96,
+        "output_file": "data/GPAD.json",
+        "duration_minutes": 3.52,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GPEC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:55:57.630197",
+        "courses_count": 28,
+        "courses_scraped": 28,
+        "output_file": "data/GPEC.json",
+        "duration_minutes": 1.19,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GPGC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:56:33.137098",
+        "courses_count": 17,
+        "courses_scraped": 17,
+        "output_file": "data/GPGC.json",
+        "duration_minutes": 0.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GPSU": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T08:56:47.251919",
+        "courses_count": 6,
+        "courses_scraped": 6,
+        "output_file": "data/GPSU.json",
+        "duration_minutes": 0.22,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GRMD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:00:24.353131",
+        "courses_count": 82,
+        "courses_scraped": 82,
+        "output_file": "data/GRMD.json",
+        "duration_minutes": 3.6,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "GRON": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:01:05.919054",
+        "courses_count": 14,
+        "courses_scraped": 14,
+        "output_file": "data/GRON.json",
+        "duration_minutes": 0.68,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HIST": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:09:57.998758",
+        "courses_count": 210,
+        "courses_scraped": 210,
+        "output_file": "data/HIST.json",
+        "duration_minutes": 8.85,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HKSL": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:10:46.222313",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/HKSL.json",
+        "duration_minutes": 0.79,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HPSB": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:11:00.988665",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/HPSB.json",
+        "duration_minutes": 0.23,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HSGS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:11:22.148642",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/HSGS.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HSOC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:11:37.256778",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/HSOC.json",
+        "duration_minutes": 0.23,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HSYS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:12:40.214121",
+        "courses_count": 26,
+        "courses_scraped": 26,
+        "output_file": "data/HSYS.json",
+        "duration_minutes": 1.03,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "HTMG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:17:29.258105",
+        "courses_count": 114,
+        "courses_scraped": 114,
+        "output_file": "data/HTMG.json",
+        "duration_minutes": 4.8,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "IASP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:17:54.330937",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/IASP.json",
+        "duration_minutes": 0.4,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "IBBA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:18:12.281116",
+        "courses_count": 7,
+        "courses_scraped": 7,
+        "output_file": "data/IBBA.json",
+        "duration_minutes": 0.28,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "IEMS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:19:21.943665",
+        "courses_count": 24,
+        "courses_scraped": 24,
+        "output_file": "data/IEMS.json",
+        "duration_minutes": 1.14,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "IERG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:25:33.753581",
+        "courses_count": 85,
+        "courses_scraped": 85,
+        "output_file": "data/IERG.json",
+        "duration_minutes": 6.18,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "IMSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:25:49.032251",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/IMSC.json",
+        "duration_minutes": 0.24,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "INDA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:26:09.550403",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/INDA.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "INFD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:26:34.238500",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/INFD.json",
+        "duration_minutes": 0.39,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ITAL": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:26:56.267401",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/ITAL.json",
+        "duration_minutes": 0.35,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "JASP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:32:13.430025",
+        "courses_count": 104,
+        "courses_scraped": 104,
+        "output_file": "data/JASP.json",
+        "duration_minutes": 5.27,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "KORE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:33:28.123111",
+        "courses_count": 19,
+        "courses_scraped": 19,
+        "output_file": "data/KORE.json",
+        "duration_minutes": 1.23,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "LAWS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:48:09.365406",
+        "courses_count": 330,
+        "courses_scraped": 330,
+        "output_file": "data/LAWS.json",
+        "duration_minutes": 14.67,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "LDTE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:48:37.642565",
+        "courses_count": 13,
+        "courses_scraped": 13,
+        "output_file": "data/LDTE.json",
+        "duration_minutes": 0.45,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "LING": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:52:26.981721",
+        "courses_count": 77,
+        "courses_scraped": 77,
+        "output_file": "data/LING.json",
+        "duration_minutes": 3.81,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "LSCI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:57:20.899300",
+        "courses_count": 96,
+        "courses_scraped": 96,
+        "output_file": "data/LSCI.json",
+        "duration_minutes": 4.88,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "LSCM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:57:42.206718",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/LSCM.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "LSED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:58:06.811475",
+        "courses_count": 13,
+        "courses_scraped": 13,
+        "output_file": "data/LSED.json",
+        "duration_minutes": 0.39,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MAED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T09:58:26.051663",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/MAED.json",
+        "duration_minutes": 0.3,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MAEG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:01:35.026485",
+        "courses_count": 56,
+        "courses_scraped": 56,
+        "output_file": "data/MAEG.json",
+        "duration_minutes": 3.13,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MAPE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:01:55.749800",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MAPE.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MASE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:02:08.676743",
+        "courses_count": 6,
+        "courses_scraped": 6,
+        "output_file": "data/MASE.json",
+        "duration_minutes": 0.2,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MATH": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:14:07.177153",
+        "courses_count": 114,
+        "courses_scraped": 114,
+        "output_file": "data/MATH.json",
+        "duration_minutes": 11.96,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MAVE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:14:28.175850",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MAVE.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MBAC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:15:07.992765",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/MBAC.json",
+        "duration_minutes": 0.65,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MBTE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:16:37.655141",
+        "courses_count": 36,
+        "courses_scraped": 36,
+        "output_file": "data/MBTE.json",
+        "duration_minutes": 1.48,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MCLE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:17:06.865219",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/MCLE.json",
+        "duration_minutes": 0.47,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MCLS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:17:27.884421",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MCLS.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MCNS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:18:06.760649",
+        "courses_count": 17,
+        "courses_scraped": 17,
+        "output_file": "data/MCNS.json",
+        "duration_minutes": 0.63,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MECM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:18:26.976927",
+        "courses_count": 7,
+        "courses_scraped": 7,
+        "output_file": "data/MECM.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MEDF": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:18:50.209835",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/MEDF.json",
+        "duration_minutes": 0.37,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MEDM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:19:13.094704",
+        "courses_count": 8,
+        "courses_scraped": 8,
+        "output_file": "data/MEDM.json",
+        "duration_minutes": 0.36,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MEDP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:19:21.393340",
+        "courses_count": 3,
+        "courses_scraped": 3,
+        "output_file": "data/MEDP.json",
+        "duration_minutes": 0.12,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MEDU": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:22:00.960118",
+        "courses_count": 56,
+        "courses_scraped": 56,
+        "output_file": "data/MEDU.json",
+        "duration_minutes": 2.64,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MESC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:50:33.804980",
+        "courses_count": 13,
+        "courses_scraped": 13,
+        "output_file": "data/MESC.json",
+        "duration_minutes": 28.53,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MFMD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:51:02.977898",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/MFMD.json",
+        "duration_minutes": 0.47,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MGNT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:57:25.304291",
+        "courses_count": 102,
+        "courses_scraped": 102,
+        "output_file": "data/MGNT.json",
+        "duration_minutes": 6.36,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MHLS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T10:57:49.054443",
+        "courses_count": 13,
+        "courses_scraped": 13,
+        "output_file": "data/MHLS.json",
+        "duration_minutes": 0.38,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MICY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:00:32.059926",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/MICY.json",
+        "duration_minutes": 2.7,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MIEG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:00:41.225801",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/MIEG.json",
+        "duration_minutes": 0.14,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MITE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:01:01.754376",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MITE.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MKTG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:05:37.387005",
+        "courses_count": 79,
+        "courses_scraped": 79,
+        "output_file": "data/MKTG.json",
+        "duration_minutes": 4.58,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MLSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:06:11.465821",
+        "courses_count": 14,
+        "courses_scraped": 14,
+        "output_file": "data/MLSC.json",
+        "duration_minutes": 0.55,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MMAT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:07:41.417866",
+        "courses_count": 42,
+        "courses_scraped": 42,
+        "output_file": "data/MMAT.json",
+        "duration_minutes": 1.48,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MPTE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:08:02.308811",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MPTE.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MPUP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:08:48.257422",
+        "courses_count": 21,
+        "courses_scraped": 21,
+        "output_file": "data/MPUP.json",
+        "duration_minutes": 0.75,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MRGO": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:09:36.253720",
+        "courses_count": 20,
+        "courses_scraped": 20,
+        "output_file": "data/MRGO.json",
+        "duration_minutes": 0.78,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MSAE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:09:56.918535",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MSAE.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MSEG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:10:33.718112",
+        "courses_count": 7,
+        "courses_scraped": 7,
+        "output_file": "data/MSEG.json",
+        "duration_minutes": 0.6,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MSMR": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:10:53.972810",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MSMR.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MTCI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:11:15.904903",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/MTCI.json",
+        "duration_minutes": 0.35,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "MUSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:22:06.998228",
+        "courses_count": 230,
+        "courses_scraped": 230,
+        "output_file": "data/MUSC.json",
+        "duration_minutes": 10.83,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "NSCI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:22:27.579626",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/NSCI.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "NSSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:22:48.605868",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/NSSC.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "NURS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:39:17.348631",
+        "courses_count": 122,
+        "courses_scraped": 122,
+        "output_file": "data/NURS.json",
+        "duration_minutes": 16.46,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "OBGY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:41:59.045841",
+        "courses_count": 17,
+        "courses_scraped": 17,
+        "output_file": "data/OBGY.json",
+        "duration_minutes": 2.68,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "OBSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:42:17.842448",
+        "courses_count": 9,
+        "courses_scraped": 9,
+        "output_file": "data/OBSC.json",
+        "duration_minutes": 0.3,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "OENV": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:42:46.579566",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/OENV.json",
+        "duration_minutes": 0.46,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "OMBA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:43:07.620301",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/OMBA.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ORLC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:43:43.537378",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/ORLC.json",
+        "duration_minutes": 0.58,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ORTY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:45:13.151309",
+        "courses_count": 31,
+        "courses_scraped": 31,
+        "output_file": "data/ORTY.json",
+        "duration_minutes": 1.48,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "OVSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:50:29.880777",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/OVSC.json",
+        "duration_minutes": 5.26,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PBHT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:50:57.112718",
+        "courses_count": 14,
+        "courses_scraped": 14,
+        "output_file": "data/PBHT.json",
+        "duration_minutes": 0.44,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PEDU": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:55:56.425985",
+        "courses_count": 88,
+        "courses_scraped": 88,
+        "output_file": "data/PEDU.json",
+        "duration_minutes": 4.97,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PGDC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T11:56:23.422230",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/PGDC.json",
+        "duration_minutes": 0.43,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PGDE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:02:15.965722",
+        "courses_count": 110,
+        "courses_scraped": 110,
+        "output_file": "data/PGDE.json",
+        "duration_minutes": 5.86,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PGDP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:05:33.761776",
+        "courses_count": 68,
+        "courses_scraped": 68,
+        "output_file": "data/PGDP.json",
+        "duration_minutes": 3.28,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHAR": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:10:22.181632",
+        "courses_count": 92,
+        "courses_scraped": 92,
+        "output_file": "data/PHAR.json",
+        "duration_minutes": 4.79,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHEC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:11:04.262161",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/PHEC.json",
+        "duration_minutes": 0.68,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:21:51.911346",
+        "courses_count": 79,
+        "courses_scraped": 79,
+        "output_file": "data/PHED.json",
+        "duration_minutes": 10.78,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHIL": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:29:37.560011",
+        "courses_count": 134,
+        "courses_scraped": 134,
+        "output_file": "data/PHIL.json",
+        "duration_minutes": 7.74,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHMA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:29:57.775920",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/PHMA.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHPC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:31:48.952984",
+        "courses_count": 47,
+        "courses_scraped": 47,
+        "output_file": "data/PHPC.json",
+        "duration_minutes": 1.84,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHUG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:32:10.006469",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/PHUG.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHYY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:43:43.599665",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/PHYY.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "POPG": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:44:02.620999",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/POPG.json",
+        "duration_minutes": 0.3,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "POPN": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:44:24.693402",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/POPN.json",
+        "duration_minutes": 0.35,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PRHC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:44:28.357257",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/PRHC.json",
+        "duration_minutes": 0.04,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PSYC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:53:19.904293",
+        "courses_count": 134,
+        "courses_scraped": 134,
+        "output_file": "data/PSYC.json",
+        "duration_minutes": 8.84,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PUBH": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:54:04.440412",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/PUBH.json",
+        "duration_minutes": 0.73,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "REES": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:54:26.275702",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/REES.json",
+        "duration_minutes": 0.35,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "RELS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:56:42.219233",
+        "courses_count": 58,
+        "courses_scraped": 58,
+        "output_file": "data/RELS.json",
+        "duration_minutes": 2.25,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "RMCE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:57:17.239149",
+        "courses_count": 18,
+        "courses_scraped": 18,
+        "output_file": "data/RMCE.json",
+        "duration_minutes": 0.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "RMED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:57:22.441897",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/RMED.json",
+        "duration_minutes": 0.07,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "RMSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T12:59:43.618037",
+        "courses_count": 36,
+        "courses_scraped": 36,
+        "output_file": "data/RMSC.json",
+        "duration_minutes": 2.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ROSE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:00:10.764523",
+        "courses_count": 10,
+        "courses_scraped": 10,
+        "output_file": "data/ROSE.json",
+        "duration_minutes": 0.44,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "RUSS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:00:27.025140",
+        "courses_count": 6,
+        "courses_scraped": 6,
+        "output_file": "data/RUSS.json",
+        "duration_minutes": 0.25,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SBMS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:03:12.217013",
+        "courses_count": 47,
+        "courses_scraped": 47,
+        "output_file": "data/SBMS.json",
+        "duration_minutes": 2.74,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SEEM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:07:47.460161",
+        "courses_count": 77,
+        "courses_scraped": 77,
+        "output_file": "data/SEEM.json",
+        "duration_minutes": 4.57,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SENV": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:08:08.461320",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/SENV.json",
+        "duration_minutes": 0.33,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SGCL": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:09:09.385959",
+        "courses_count": 23,
+        "courses_scraped": 23,
+        "output_file": "data/SGCL.json",
+        "duration_minutes": 1.0,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SILP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:09:25.899248",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/SILP.json",
+        "duration_minutes": 0.26,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SLPA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:10:51.463847",
+        "courses_count": 40,
+        "courses_scraped": 40,
+        "output_file": "data/SLPA.json",
+        "duration_minutes": 1.41,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SOCI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:18:45.615888",
+        "courses_count": 93,
+        "courses_scraped": 93,
+        "output_file": "data/SOCI.json",
+        "duration_minutes": 7.89,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SOSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:19:54.471633",
+        "courses_count": 15,
+        "courses_scraped": 15,
+        "output_file": "data/SOSC.json",
+        "duration_minutes": 1.13,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SOWK": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:29:10.969063",
+        "courses_count": 112,
+        "courses_scraped": 112,
+        "output_file": "data/SOWK.json",
+        "duration_minutes": 9.26,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SPAN": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:30:35.826576",
+        "courses_count": 21,
+        "courses_scraped": 21,
+        "output_file": "data/SPAN.json",
+        "duration_minutes": 1.4,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SPED": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:33:44.463966",
+        "courses_count": 55,
+        "courses_scraped": 55,
+        "output_file": "data/SPED.json",
+        "duration_minutes": 3.13,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SPSY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:34:05.878937",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/SPSY.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SSMU": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:34:10.040128",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/SSMU.json",
+        "duration_minutes": 0.05,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SSPA": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:35:17.389006",
+        "courses_count": 23,
+        "courses_scraped": 23,
+        "output_file": "data/SSPA.json",
+        "duration_minutes": 1.11,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SSPE": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:35:37.439816",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/SSPE.json",
+        "duration_minutes": 0.32,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "STAR": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:36:08.929467",
+        "courses_count": 6,
+        "courses_scraped": 6,
+        "output_file": "data/STAR.json",
+        "duration_minutes": 0.51,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "STAT": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:41:45.662087",
+        "courses_count": 70,
+        "courses_scraped": 70,
+        "output_file": "data/STAT.json",
+        "duration_minutes": 5.59,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SURY": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:42:57.293902",
+        "courses_count": 21,
+        "courses_scraped": 21,
+        "output_file": "data/SURY.json",
+        "duration_minutes": 1.18,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "SUTM": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:43:21.049890",
+        "courses_count": 9,
+        "courses_scraped": 9,
+        "output_file": "data/SUTM.json",
+        "duration_minutes": 0.38,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "TESL": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:43:43.407732",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/TESL.json",
+        "duration_minutes": 0.36,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "THAI": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:43:54.281434",
+        "courses_count": 3,
+        "courses_scraped": 3,
+        "output_file": "data/THAI.json",
+        "duration_minutes": 0.16,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "THEO": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:53:46.580836",
+        "courses_count": 198,
+        "courses_scraped": 198,
+        "output_file": "data/THEO.json",
+        "duration_minutes": 9.85,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "TRAN": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T13:58:54.959657",
+        "courses_count": 83,
+        "courses_scraped": 83,
+        "output_file": "data/TRAN.json",
+        "duration_minutes": 5.12,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "URBD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:35:13.234268",
+        "courses_count": 11,
+        "courses_scraped": 11,
+        "output_file": "data/URBD.json",
+        "duration_minutes": 0.48,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "URSP": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:36:43.387652",
+        "courses_count": 35,
+        "courses_scraped": 35,
+        "output_file": "data/URSP.json",
+        "duration_minutes": 1.49,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "WOHS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:36:54.923615",
+        "courses_count": 5,
+        "courses_scraped": 5,
+        "output_file": "data/WOHS.json",
+        "duration_minutes": 0.18,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "XCBS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:37:16.469415",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/XCBS.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "XCCS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:37:37.697016",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/XCCS.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "XFUD": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:37:58.997598",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/XFUD.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "XUNC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:38:20.569836",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/XUNC.json",
+        "duration_minutes": 0.34,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "XUSC": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:38:42.392046",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/XUSC.json",
+        "duration_minutes": 0.35,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "XWAS": {
+        "status": "completed",
+        "last_scraped": "2025-08-10T14:39:04.289781",
+        "courses_count": 0,
+        "courses_scraped": 0,
+        "output_file": "data/XWAS.json",
+        "duration_minutes": 0.35,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,

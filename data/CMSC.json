@@ -1,0 +1,1308 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T06:28:46.250673",
+    "subject": "CMSC",
+    "total_courses": 16,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "CMSC",
+      "course_code": "5702",
+      "title": "Advanced Topics in Parallel/Distributed Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4476)",
+              "meetings": [
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Staff",
+                  "dates": "6/9, 13/9, 20/9, 27/9, 4/10"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Staff",
+                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "69",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "31",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers selected topics in parallel/distributed systems. The detailed contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "enrollment_requirement": "For students in MSc Computer Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5707",
+      "title": "Advanced Topics in Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1845)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "89",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover selected topics from: advanced pattern recognition, neural networks, expert systems and fuzzy systems, evolutionary computing, learning theory, constraint processing, logic programming, probabilistic reasoning, computer vision, speech processing, and natural language processing.",
+      "enrollment_requirement": "For students in MSc Computer Science; and  Exclusion: CSCI6200 or ENGG5189",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5711",
+      "title": "Image Processing and Computer Vision",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2092)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "69",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "31",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course includes fundamental topics in image processing, e.g., image enhancement techniques, color image processing, image segmentation and image compression. In addition, the course also focuses on topics concerning methodologies of recovering 3D information from 2D images. Specifi cally, techniques for camera calibration, stereopsis, motion analysis, pose estimation and structure from motion will be discussed. These techniques will have practical applications to virtual reality, model reconstruction and graphics.",
+      "enrollment_requirement": "For students in MSc Computer Science; and  Exclusion: CSCI5280 or ENGG5104",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5713",
+      "title": "IT Project Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2152)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Dr. Vincentius Felix HARTANTO KWEE",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "100",
+                "waitlist_capacity": "10",
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the key elements of the project management framework related to information technology. Topics include the identification of elements and processes of project management, processes involved in project integration management, project scope management, various tools and techniques used to develop project schedules and resource planning, processes of project quality management, project communications management, risk management, human resource management, and project procurement management. Experts from industry will also be invited to share their experience in the topics.",
+      "enrollment_requirement": "For students in MSc Computer Science;Exclusion: DSME6730",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5718",
+      "title": "Introduction to Computational Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2093)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr CHAU Ka Lok",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr CHAU Ka Lok",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr CHAU Ka Lok",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "80",
+                "waitlist_capacity": "10",
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces some basic concepts in computational finance. Topics include risk and return, modern portfolio theory, calculating the effi cient frontier, multiple factor models, various models for portfolio optimization, utility functions and evaluation of portfolio performance.",
+      "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken FTEC5610 or SEEM5820",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5719",
+      "title": "Seminar",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (4450)",
+              "meetings": [
+                {
+                  "time": "Mo 7:00PM - 9:00PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor KING Kuo Chin Irwin",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "150",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A series of 12 seminars on current topics in computer science to be presented by experts from academia or industry.",
+      "enrollment_requirement": "For students in MSc Computer Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5720",
+      "title": "Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (2461)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor KING Kuo Chin Irwin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "8",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J02-PRJ (3283)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LUI Chi Shing John",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "10",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J03-PRJ (3284)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Songtao,   Professor WANG Liwei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "2",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J04-PRJ (3285)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Hong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "10",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J05-PRJ (3286)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YU Bei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "10",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J06-PRJ (4049)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J07-PRJ (3287)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Yu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J08-PRJ (1060)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J09-PRJ (2503)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "2",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J10-PRJ (2629)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MENG Wei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "3",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J11-PRJ (2628)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "2",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J12-PRJ (3145)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "3",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J13-PRJ (3825)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "5",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J14-PRJ (4394)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor QIU Shi",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "3",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "These courses involve a significant project in any area of computer science. A project report has to be written under the supervision of the lecturing staff.",
+      "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5721",
+      "title": "Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (4033)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor KING Kuo Chin Irwin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J02-PRJ (2658)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LUI Chi Shing John",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J03-PRJ (2659)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Songtao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J04-PRJ (2660)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Hong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J05-PRJ (2661)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YU Bei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J06-PRJ (3796)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Lauren Marcelyn PICK,   Professor TAO Yufei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J07-PRJ (2662)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Yu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J08-PRJ (3826)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J09-PRJ (3827)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kin Hong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J10-PRJ (3825)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MENG Wei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J11-PRJ (3828)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J12-PRJ (3220)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J13-PRJ (3784)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J14-PRJ (4422)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James,   Professor QIU Shi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "These courses involve a signifi cant project in any area of computer science. A project report has to be written under the supervision of the lecturing staff.",
+      "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5724",
+      "title": "Data Mining and Knowledge Discovery",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1841)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Staff",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "100",
+                "waitlist_capacity": "10",
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the techniques used in data mining. Topics include clustering, classification, estimation, forecasting, statistical analysis and visualization. Data Mining provides useful tools for the analysis and visualization. Data Mining provides useful tools for the analysis, understanding and extraction of useful information from huge databases. Applications range from business, finance, medicine and engineering.",
+      "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken CSCI5180 or ENGG5103",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5726",
+      "title": "Computer and Network Security",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2145)",
+              "meetings": [
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. CHEONG Chi Hong",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. CHEONG Chi Hong",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. CHEONG Chi Hong",
+                  "dates": "11/4, 18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "80",
+                "waitlist_capacity": "10",
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Issues of computer and network security. Weaknesses of network protocols. Security protocols. Firewalls. Computer viruses. System security threats. Applications of Cryptography.",
+      "enrollment_requirement": "For students in MSc Computer Science; and  Not for students who have taken CSCI5470 or IERG5240 or ENGG5105 or ENGG5383",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5727",
+      "title": "Computer Game Software Production",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4449)",
+              "meetings": [
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Wong Foo Yuan Bldg LT4",
+                  "instructor": "Staff",
+                  "dates": "6/9, 13/9, 20/9, 27/9, 4/10"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Wong Foo Yuan Bldg LT4",
+                  "instructor": "Staff",
+                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "56",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "44",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on the programming issues in computer gaming software production, discusses the process in developing a game application and analyzes various considerations in technologies used. The main emphasis is on the real time performance requirement in computer game development. Indoor/outdoor rendering, networking, artificial intelligence, physics as well as the game design issues would be introduced.",
+      "enrollment_requirement": "For students in MSc Computer Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5728",
+      "title": "Decision Analysis & Game Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2151)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Professor LUI Chi Shing John",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Professor LUI Chi Shing John",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "95",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces decision theory and game theory used in computer science, in particular, artificial intelligence and multiagent systems. Topics include utility theory, decisions under risk, decisions under uncertainty, social choices, strategic games and Nash equilibrium, extensive games and subgame perfect equilibrium, repeated games and folk theorems, and applications in computer science.",
+      "enrollment_requirement": "For students in MSc Computer Science; Not for students who have taken CSCI5350",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5730",
+      "title": "IT Entrepreneurship and Marketing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1857)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Dr. Vincentius Felix HARTANTO KWEE",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Dr. Vincentius Felix HARTANTO KWEE",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Dr. Vincentius Felix HARTANTO KWEE",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "100",
+                "waitlist_capacity": "10",
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course equips students with the skills on how to create, launch and run an IT business and to develop a coherent marketing strategy. The key topics include entrepreneur characteristics, identifying market opportunity, IT product/service management, business planning, formation of a new IT venture, financing, market segmentation, positioning, pricing, promotion, distribution and channel management.",
+      "enrollment_requirement": "For students in MSc Computer Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5735",
+      "title": "Advanced Topics in Cloud Computing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2169)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "100",
+                "waitlist_capacity": "10",
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers advanced topics in cloud computing. Topics will include new problems proposed in each year. Some topics to be discussed include: cloud computing models (e.g., SaaS, PaaS, IaaS); distributed and parallel data processing (e.g. MapReduce, Hadoop); data storage (cloud storage architectures, data centers, data deduplication); case studies of real-world cloud services (e.g. Amazon EC2, Windows Azure).",
+      "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken CSCI5600",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5743",
+      "title": "Efficient Computing of Deep Neural Networks",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4478)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor YU Bei",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor YU Bei",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor YU Bei",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "100",
+                "waitlist_capacity": "10",
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The high computational demands of deep neural networks (DNNs) coupled with their pervasiveness across both cloud and IoT platforms have led to a rise in specialized hardware and software techniques to accelerate DNN executions. This course will present techniques that enable efficient applications and computing of DNNs. The course will start with an overview of DNNs, and then will introduce various frameworks and architectures that support DNNs, as well as the implementations and optimizations on some particular computing platforms.",
+      "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken CENG5030 or ELEG5491",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "CMSC",
+      "course_code": "5744",
+      "title": "Internship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-P01-PRA (1113)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor KING Kuo Chin Irwin",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of the course is to allow students to acquire a basic understanding and the skills of the practical aspects of computer science. To qualify for the award of the subject credits, the student must attach to a company in a computer science related post as approved by the Professor-in-Charge for no less than 12 weeks. The student will have an academic supervisor as assigned by the Professor-in-Charge and an industry supervisor from the company. There will be a mid-term company visit by the academic supervisor. At the end of the internship, the student must give a presentation to the academic and industry supervisors, and submit a report summarizing what the student has done and learnt from the internship. The student's grade will be determined by (1) the presentation, (2) the student report and (3) a testimonial from the industry supervisor.The internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies.Students are recommended to seek the Professor-in-Charge's comment on potential internship opportunities before enrolling in the course.",
+      "enrollment_requirement": "For students in MSc Computer Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    }
+  ]
+}
