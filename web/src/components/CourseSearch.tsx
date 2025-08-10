@@ -571,8 +571,8 @@ function CourseCard({
                           isSelected 
                             ? 'border-2 border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer' 
                             : isIncompatible 
-                              ? 'border border-gray-200 bg-gray-50 opacity-40 cursor-not-allowed grayscale' 
-                              : 'border border-green-200 bg-green-50 hover:border-green-300 hover:bg-green-100 cursor-pointer shadow-sm'
+                              ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale' 
+                              : 'border border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
                         }`}
                         onClick={() => !isIncompatible && onSectionToggle(courseKey, typeGroup.type, section.id)}
                         title={isIncompatible ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections` : undefined}
