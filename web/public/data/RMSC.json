@@ -1,0 +1,2954 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T12:59:43.609568",
+    "subject": "RMSC",
+    "total_courses": 36,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "RMSC",
+      "course_code": "1101",
+      "title": "Elementary Concepts in Risk Management",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (5822)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8027)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is an elementary course that introduces current issues and special topics in risk management. Students are required to present and discuss books and current articles in the related topics assigned by the instructor. Advisory: For majors only.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "2001",
+      "title": "Introduction to Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (5100)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AT01-TUT (8820)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (7792)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT01-TUT (8602)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at providing a focused introduction to various concepts of risk and risk measures from a scientific perspective. The course will discuss the various roles that risk plays in insurance and financial applications. Current risk measures such as value at risk and shortfall risk will be introduced. These measures will be calculated for recent financial losses to illustrate their usefulness in risk management.",
+      "enrollment_requirement": "-",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "2101",
+      "title": "Introductory Topics in Risk Management",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (7506)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7507)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is an intermediate course aiming at introducing current issues and special topics in risk management. Students are required to read books and articles in the related topics assigned by the instructor. Advisory: For majors only.",
+      "enrollment_requirement": "Pre-requisite: RMSC1101 or consent of instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "3001",
+      "title": "Principles of Credit Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5857)",
+              "meetings": [
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8425)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the general methodology for credit risk management – how should we handle the possibility our counterparty may not pay us what they owe? Answering this question depends on who the counterparty is and the nature of our contract with them. As such, in this course we explore credit risk models for retail customers, credit risk measures for portfolios, credit mitigation techniques for markets, credit derivatives used by traders and much else besides, all in the context of the latest Basel regulations and the lessons learned from Credit Crisis of 2007-8.",
+      "enrollment_requirement": "Pre-requisite: RMSC2001 or consent of instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "3101",
+      "title": "Special Topics in Risk Management",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (6768)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7757)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is an advanced course aiming at introducing current issues and special topics in risk management. Students are required to present books and current articles in the related topics assigned by the instructor. Advisory: For majors only.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Seminar Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4001",
+      "title": "Simulation Methods for Risk Management Science and Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6769)",
+              "meetings": [
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 8:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "110",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "110",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8792)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "110",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "110",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course starts with presenting standard topics in simulation including random variable generations, variance reduction methods and statistical analysis of simulation outputs. The course then reviews the applications of these methods to derivative security pricing. Topics addressed include: importance sampling, martingale control variables, stratification and the estimation of derivatives. Additional topics include the use of low discrepancy sequence (quasi-random numbers), pricing American options and scenario simulation for risk management.",
+      "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4002",
+      "title": "Financial Data Analytics with Machine Learning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6734)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 3:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 12:30PM - 3:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 12:30PM - 3:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9033)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers modern data analysis techniques that are commonly used in finance and risk management. Topics include applications of multivariate techniques for data cleansing and modeling such as principal component analysis and canonical correlation analysis to asset management, Extreme Value theory, Value-at-Risks, GARCH modeling in estimating volatility, time series methods in term-structure analysis. Besides, the next few introductory topics in machine learning will also be covered, such as recommender system, logistic regression, k-means clustering, perceptrons, decision trees, artificial neural network, stochastic gradient descent, Naive Bayes Classifiers and Bayesian networks.",
+      "enrollment_requirement": "Prerequisite:RMSC2001, STAT2001 and STAT2006, or consent of instructor",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4003",
+      "title": "Statistical Modelling in Financial Markets",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6735)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "120",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9034)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "120",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to introduce the current developments in risk management in the financial markets. Risk management ideas associated with three general important areas in finance will be discussed: asset management, derivative pricing and fixed income models. Emphasis will be placed on the statistical modelling aspects on some of the commonly used models in these areas.",
+      "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4004",
+      "title": "Theory of Risk and Insurance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7264)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 11:30AM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8655)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. CHAN Chun Man",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the theory of risk and its applications to insurance. Topics include: classical and stochastic risk models, ruin theory, claims modelling and evaluations, risk premium pricing, loss distributions and creditability theory.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4005",
+      "title": "Stochastic Calculus for Finance and Risk",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course starts with the introduction of the concepts of arbitrage and risk-neutral pricing. It then proceeds to discuss the stochastic calculus foundations for continuous-time finance models. Topics include: Brownian motion, stochastic integral, Itô's formula, Girsanov's change of measure, and the relationship between stochastic calculus and partial differential equations. Examples will be taken from equity options, including the Black-Scholes formula for foreign exchange and term-structure models.",
+      "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4006",
+      "title": "Operational Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7183)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7106)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the general methodology for operational risk management. Special emphasis will be placed on the analytical and modeling techniques for operational risk. Contents include Basel regulations, loss models, extreme value theory, copula, operational value-at-risk and operational risk derivatives. Machine learning techniques for managing operational risk will also be explored. The use of statistical packages R will be demonstrated.",
+      "enrollment_requirement": "Pre-requisite: RMSC2001 or consent of instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4007",
+      "title": "Risk Management with Derivatives Concepts",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9358)",
+              "meetings": [
+                {
+                  "time": "We 8:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 8:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 8:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8817)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at understanding the application of derivatives theories for the practical risk management. It starts by reviewing basic concepts of pricing and hedging derivatives, like risk-neutral valuation, arbitrage strategies, hedging strategies, implied volatilities and the Greeks. The Value-at-Risk framework for derivatives positions is discussed. Student will also learn how to apply option theoretic approach to credit risk management. Specifically, the capital structure model will be applied to measure the default probability. The Moody's KMV methodology and CreditRisk+ are introduced. Advisory: For Risk Management Science, Quantitative Finance and Risk Management Science, Statistics majors only.",
+      "enrollment_requirement": "Prerequisite: RMSC2001, 4001 & 4003 or consent of instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4102",
+      "title": "Research Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (6582)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "-T01-TUT (6423)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with the opportunity to apply their knowledge to solve real-world problems. Students are required to complete a group project, give a final project presentation and submit a written report, on which their assessment is based. Advisory: For majors only.",
+      "enrollment_requirement": "Pre-requisite: RMSC3101 or consent of instructor.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Project Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4112",
+      "title": "Research Project in Risk Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8877)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "-T01-TUT (6403)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, students are required to review selected readings in academic journal in Statistics and Risk Management. Students are required to form a group to complete a project, in which the latest techniques of Risk Analytics are applied to tackle a real-world problem. They are also required to submit an interim and final written report, on which their assessment will be based. Advisory: For majors only.",
+      "enrollment_requirement": "Pre-requisite: RMSC3101 or consent of instructor.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4202",
+      "title": "Practicum",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9099)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course Experiential Learning Course Internship"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (8530)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course Experiential Learning Course Internship"
+            }
+          ]
+        }
+      ],
+      "description": "The course serves to provide a bridge between the classroom and the real business world. Students will be required to complete a group project assigned by a company or an organization on a part-time basis. A team of three to five students will undertake a project under the joint supervision of an instructor and a member of the company or organization. Students will be required to give a final project presentation and submit a written report, on which their assessment will be based. Advisory: For majors only.",
+      "enrollment_requirement": "Prerequisite: RMSC2001 & FINA2010 or 2110 or consent of instructor.",
+      "course_attributes": "Capstone Course Experiential Learning Course Internship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum Project Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "4212",
+      "title": "Practicum in Risk Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (6346)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course Experiential Learning Course Internship"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (7147)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course Experiential Learning Course Internship"
+            }
+          ]
+        }
+      ],
+      "description": "Students will join practicum in a financial-technology themed or start-up themed company on a full-time or part-time basis. Students are required to complete assignments about risk analytics jointly issued by the course instructor and a member of the company. They are also required to submit an interim and final written report, on which their assessment will be based. Advisory: For majors only.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course Experiential Learning Course Internship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Risk Management Science PC",
+      "academic_org": "Risk Management Science PC"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "5001",
+      "title": "Advanced Statistical Theory in Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2050)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor LEUNG Pui Lam William",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor LEUNG Pui Lam William",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor LEUNG Pui Lam William",
+                  "dates": "11/4, 18/4, 25/4"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "38",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "61",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course discusses modern applications of advanced statistical methods in finance. Methods include Monte Carlo simulation, EWMA and GARCH model for estimating volatilities and correlations, calculation of Value at Risk using different approaches, data mining methods including Principal component analysis, Logistic regression, Multinomial logit, Linear Discriminant analysis, Classification Tree and Artificial Neural Network.",
+      "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "5002",
+      "title": "Principles of Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2036)",
+              "meetings": [
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. CHEUNG King Chau",
+                  "dates": "6/9, 13/9, 20/9, 27/9, 4/10, 11/10, 18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "44",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with fundamental concepts of risk and risk management. It further introduces risk management tools used in financial products. Topics include market risk, credit risk and integrated risk management.",
+      "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "5003",
+      "title": "Risk Measures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2170)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. WONG Tat Wing",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. WONG Tat Wing",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "56",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "43",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Risk measurement and quantification are the fundamentals of risk management procedures. This course discusses various types of risk measures but mainly focuses on the methodologies of calculating Value-at-Risk (VaR) such as historical simulation, parametric VaR, delta-gamma approximation and Monte-Carlo simulation. The uses of VaR in risk management are also addressed. Topics include portfolio risk management, asset allocation and measuring the performance of portfolio managers.",
+      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "5004",
+      "title": "Cases for Risk Management in Practice",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (2048)",
+              "meetings": [
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Staff",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Staff",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Staff",
+                  "dates": "11/4, 18/4, 25/4"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "45",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "54",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students need to present and discuss literatures assigned to them by the instructor on topics of current interest in financial risk management.",
+      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "5101",
+      "title": "Statistical Methods in Risk Management and Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2171)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor CHAN Ping Shing Ben",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor CHAN Ping Shing Ben",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor CHAN Ping Shing Ben",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "99",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to introduce the current developments in risk management in the financial markets. Risk management ideas associated with three general important areas in finance will be discussed: asset management, derivative pricing, and fixed income models. Emphasis will be placed on the statistical modelling aspects on some of the commonly used models in these areas.",
+      "enrollment_requirement": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics and MSc in Advanced Studies in Statistics and Data Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "5102",
+      "title": "Simulation Techniques in Risk Management and Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2184)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor ZHANG Jiacheng",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor ZHANG Jiacheng",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "21",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "78",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course starts with presenting standard topics in simulation including random variable generations, variance reduction methods and statistical analysis of simulation outputs. The course then reviews the applications of these methods to derivative security pricing. Topics addressed include importance sampling, martingale control variables, stratification and the estimation of derivatives. Additional topics include the use of low discrepancy sequence (quasi-random numbers), pricing American options and scenario simulation for risk management.",
+      "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6001",
+      "title": "Interest Rates and Fixed Incomes Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2174)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "34",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Fixed income securities are highly sensitive to the fluctuation of interest rates. Thus interest rate modelling becomes crucial for pricing and managing fixed income securities. This course introduces various types of fixed income securities and interest rate models. It covers the celebrated Heath-Jarrow-Morton (HJM) model as well as some term-structure models including Ho-Lee, Hull-White and the CIR models.",
+      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MSc in Data Science and Business Statistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6002",
+      "title": "Credit Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2126)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "36",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "63",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The Credit Crisis of 2007 devastated the global financial industry and demonstrated that, despite unprecedented financial sophistication, proper credit risk management is vital for the good health of any financial institution. In this course, we will cover the cat-and-mouse history of regulation of credit, taking us to the present day. Along the way, we cover various attempts at modeling and quantifying credit risk, which will lead us through topics like VaR, copulas, credit derivatives, different credit risk methodologies (e.g. Credit Risk Plus, CreditMetrics) and much else besides. We will also discuss various case histories of financial institutions failing due to poor credit risk management.",
+      "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6003",
+      "title": "Risk Management in Financial Institutions",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2042)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr Joaquin Jose CALVO TORRES",
+                  "dates": "6/9, 13/9, 20/9, 27/9, 4/10, 11/10, 18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "78",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "21",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course aims to discuss how risk management is applied in the banking sector.",
+      "enrollment_requirement": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics, MSc in Advanced Studies in Statistics and Data Science and MPhil Risk Management Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6004",
+      "title": "Special Topics in Risk Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course aims at discussing recent advances in risk management.",
+      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6005",
+      "title": "Special Topics in Quantitative Finance",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course aims at discussing recent advances in quantitative finance.",
+      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6006",
+      "title": "Portfolio Theory with Risk Management Perspective",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course introduces the general theory of financial portfolio based on utility theory. Non-arbitrage pricing theory based on the idea of risk management will be applied. Selected topics include utility functions, risk aversion, the St Petersburg paradox, dynamic asset pricing, forecast and valuation, portfolio optimisation under budget constraints, wealth consumption, and growth versus income.",
+      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6007",
+      "title": "Risk and Financial Data Analytics with Python",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1855)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "50",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "49",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The aim of the course is to provide students with a broad understanding of the principles and techniques of Python coding for finance applications on Jupyter notebook and/or other programming interfaces. Following an introduction to the basics of Python, the course is further divided into two main sections. The first part covers the fundamentals of data reduction and modelling applied specifically to financial data with Python libraries. Techniques for derivative pricing, risk measures estimation with Python are also discussed. The second part emphasises on several specific examples of applying state-of-the-art machine learning tools for various modelling/ analyses. Understanding the problems covered in the course will be important to students pursing a career in a rapidly expanding technology-intensive field of finance and risk management.",
+      "enrollment_requirement": "For students in MSc Risk Management Science and Data Analytics; MSc in Data Science and Business Statistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "6008",
+      "title": "Practicum",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (2546)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Tat Wing",
+                  "dates": "05/01/2026 - 20/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course serves to provide a bridge between the classroom and the real business world. Students will be required to complete a project assigned by a company or an organization on a part-time basis. Each student will undertake a project under the joint supervision of an instructor and a member of the company or organization. Students will be required to give a final project presentation and submit a written report on which their assessment will be based.",
+      "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "8206",
+      "title": "Research for Thesis",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AM01-TMC (4141)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BM01-TMC (1286)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CM01-TMC (1549)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DAI Ben",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DM01-TMC (3460)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor POON Wai Yin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EM01-TMC (1548)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SONG Xinyuan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FM01-TMC (1546)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GM01-TMC (1544)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FAN Xiaodan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HM01-TMC (1550)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IM01-TMC (1551)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JM01-TMC (2353)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KM01-TMC (3956)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Yuanyuan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LM01-TMC (3954)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "MM01-TMC (3371)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WEI Yingying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "NM01-TMC (3372)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OM01-TMC (2472)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PM01-TMC (2473)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to conduct research under the supervision of their advisors.",
+      "enrollment_requirement": "For students in MPhil Risk Management Science",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "8207",
+      "title": "Research for Thesis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "BM01-TMC (3915)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to conduct research under the supervision of their advisors.",
+      "enrollment_requirement": "For students in MPhil Risk Management Science",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "8301",
+      "title": "Research for Thesis",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AM01-TMC (1323)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BM01-TMC (1687)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CM01-TMC (1593)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DAI Ben",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DM01-TMC (3466)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor POON Wai Yin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EM01-TMC (1688)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SONG Xinyuan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FM01-TMC (1594)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GM01-TMC (1689)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FAN Xiaodan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HM01-TMC (4038)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IM01-TMC (4039)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JM01-TMC (2306)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KM01-TMC (3969)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Yuanyuan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LM01-TMC (3968)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "MM01-TMC (3324)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WEI Yingying",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "NM01-TMC (3323)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OM01-TMC (2420)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PM01-TMC (2439)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to conduct research under the supervision of their advisors.",
+      "enrollment_requirement": "For students in MPhil Risk Management Science",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "8302",
+      "title": "Research for Thesis",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AM01-TMC (1327)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BM01-TMC (1542)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CM01-TMC (1705)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DAI Ben",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DM01-TMC (3461)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor POON Wai Yin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EM01-TMC (1704)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SONG Xinyuan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FM01-TMC (1547)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Hoi Ying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GM01-TMC (1543)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FAN Xiaodan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HM01-TMC (4023)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IM01-TMC (4022)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAU Chun Yip",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JM01-TMC (2354)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KM01-TMC (3957)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Yuanyuan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LM01-TMC (3955)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "MM01-TMC (3373)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WEI Yingying",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "NM01-TMC (3374)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OM01-TMC (2488)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PM01-TMC (2489)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to conduct research under the supervision of their advisors.",
+      "enrollment_requirement": "For students in MPhil Risk Management Science",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "8303",
+      "title": "Research for Thesis",
+      "credits": "6.00",
+      "terms": [],
+      "description": "Students are required to conduct research under the supervision of their advisors.",
+      "enrollment_requirement": "For students in MPhil Risk Management Science",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    },
+    {
+      "subject": "RMSC",
+      "course_code": "8304",
+      "title": "Research for Thesis",
+      "credits": "6.00",
+      "terms": [],
+      "description": "Students are required to conduct research under the supervision of their advisors.",
+      "enrollment_requirement": "For students in MPhil Risk Management Science",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Risk Management Science",
+      "academic_org": "Div of Risk Management Science"
+    }
+  ]
+}

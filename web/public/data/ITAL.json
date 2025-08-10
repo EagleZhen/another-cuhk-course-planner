@@ -1,0 +1,294 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T09:26:56.266294",
+    "subject": "ITAL",
+    "total_courses": 10,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "ITAL",
+      "course_code": "1000",
+      "title": "Italian I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (5749)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "Italian and English"
+            },
+            {
+              "section": "BC01-CLW (7994)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "Italian and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (9300)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 402",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 402",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 402",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "Italian and English"
+            }
+          ]
+        }
+      ],
+      "description": "As the first in a series of six language courses, this course invites students without prior knowledge of Italian to explore the basic features of the Italian language. Supported by audiovisual aids, students will receive intensive practice in spoken and written Italian through interactive class work, homework and online exercises. They will become familiar with the basic concepts of Italian grammar and learn how to interact in some simple everyday situations.",
+      "enrollment_requirement": "Not for students who have taken ITAL2000,2001,2050,3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "1100",
+      "title": "Society and Culture in Contemporary Italy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course offers information about Italian geography, modern history, political institutions, education, economics, and social and cultural life with special emphasis on Italian culture and artistic heritage. No knowledge of Italian is required.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "2000",
+      "title": "Italian II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (5458)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Dr. Beatrice DE MAGISTRIS",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "Italian and English"
+            }
+          ]
+        }
+      ],
+      "description": "Building on the knowledge acquired in ITAL1000, this course aims to further develop students’ ability to communicate in Italian in various everyday situations. It also seeks to give students a taste of Italian culture and invites them to explore cultural differences. Through intensive practice students will develop more confidence in interacting in Italian while further expanding and solidifying their understanding of the basic grammar and pronunciation patterns.",
+      "enrollment_requirement": "1. Not for students who have taken ITAL2001,2050,3000,3001,3002,3050 or 3051  2. Prerequisite: ITAL1000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "2001",
+      "title": "Italian III",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to further enhance students' communication skills in the four language domains listening, speaking, reading and writing. Students are expected to communicate confidently in a wider range of social interactions including more formal situations and simple professional contexts as well as reporting past events and sharing experience. At the end of this course, students will have completed a proficiency level comparable to level A1 of the Common European Framework of Reference for Languages (CEFR).",
+      "enrollment_requirement": "1. Not for students who have taken ITAL3000,3001,3002,3050 or 3051 2. Prerequisite: ITAL2000 or 2050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "2050",
+      "title": "Italian I & II",
+      "credits": "6.00",
+      "terms": [],
+      "description": "( Please read the Study Scheme Note.) This is a summer intensive Italian language course for beginners, covering the full syllabus of ITAL1000 and 2000.",
+      "enrollment_requirement": "Not for students who have taken ITAL1000,2000,2001,3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "3000",
+      "title": "Italian IV",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims at increasing students' communicative fluency in oral and written Italian. Using a variety of classroom activities and multimedia, students will build up their competence in the four language domains listening, speaking, reading and writing. Through intensive practice they will be able to communicate in a wide range of social situations with the appropriate awareness of the pragmatic rules involved. Students receive guidance in the process of composing longer texts displaying a range of registers and styles relating to past, present and future events.",
+      "enrollment_requirement": "1. Not for students who have taken ITAL3001,3002,3050 or 3051 2. Prerequisite: ITAL2001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "3001",
+      "title": "Italian V",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course focuses on the further development of communication skills in Italian with emphasis on the expression of personal views and the training of argumentative strategies. The course will also engage students in critical reflections on various aspects of life in Italian-speaking countries and their own social environment. Students will be guided to analyze various types of data to support their views. They will learn how to express their wishes and aspirations using the appropriate registers.",
+      "enrollment_requirement": "1. Not for students who have taken ITAL3002 or 3051 2. Prerequisite: ITAL3000 or 3050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "3002",
+      "title": "Italian VI",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course builds on the knowledge acquired through previous Italian language courses. It aims at leading students to a proficiency level comparable to the threshold from A2 to B1 of the Common European Framework for Languages (CEFR), becoming “independent users” of Italian. To achieve this goal, students will be encouraged to work project-based through independent or collaborative work with their peers. At the end of this course students will have mastered the most important grammar features of Italian and be able to communicate effectively in a wide range of everyday situations and a number of professional contexts. They will be able to use their oral and written language skills to relate to, reflect on and analyze past and current issues involving the Italian-speaking societies.",
+      "enrollment_requirement": "1. Not for students who have taken ITAL3051 2. Prerequisite: ITAL3001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "3050",
+      "title": "Italian III & IV",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a summer intensive Italian language course for beginners, covering the full syllabus of ITAL2001 and 3000.",
+      "enrollment_requirement": "1.Pre-requisite: ITAL2000 or 2050 2.Not for students who have taken ITAL2001,3000,3001,3002 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "ITAL",
+      "course_code": "3051",
+      "title": "Italian V & VI",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a summer intensive Italian language course, covering the full syllabus of ITAL3001 and 3002.",
+      "enrollment_requirement": "1.Not for students who have taken ITAL3001 or 3002 2.Pre-requisite: ITAL3000 or 3050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    }
+  ]
+}

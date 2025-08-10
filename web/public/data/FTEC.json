@@ -1,0 +1,3597 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T08:31:26.697373",
+    "subject": "FTEC",
+    "total_courses": 33,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "FTEC",
+      "course_code": "2001",
+      "title": "FinTech Regulation and Legal Policy",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (7056)",
+              "meetings": [
+                {
+                  "time": "Tu 8:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Mr. Ernest Kenneth SOUTHWORTH",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 8:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Mr. Ernest Kenneth SOUTHWORTH",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 8:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Mr. Ernest Kenneth SOUTHWORTH",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Tu 8:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Mr. Ernest Kenneth SOUTHWORTH",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course examines the legal and regulatory aspects of Fintech, particularly in the context of Hong Kong and Mainland China, to set the foundation for a practical understanding of the legal environment in which Fintech develops and evolves. The topics covered in this course include, amongst others, the general regulatory framework for the financial markets, the specific policy for Fintech, the regulatory approach towards Fintech, equity crowdfunding regime, P2P Lending rules, robot advisory services, electronic and alternative payment systems, digital currency, program trading, contract law basics and Regtech. Given the nature of the course, a comparative approach will be adopted to examining the topics covered. The course is essential for students intending to pursue a career in the Fintech industry.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "2101",
+      "title": "Optimization Methods",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7057)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "10/4, 17/4"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 702",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 702",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 702",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5371)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg C5",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg C5",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg C5",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg C5",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the essentials of optimization methods, including models, solution methods, and programming techniques. Topics cover linear programming, integer linear programming, nonlinear programming, and convex programming. It will highlight applications of these methods in Fintech, such as asset allocation, portfolio management, and data analysis.",
+      "enrollment_requirement": "Not for students who have taken ESTR2520 or ESTR3500 or SEEM2420 or SEEM3440",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "2602",
+      "title": "Financial Technology Practicum",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (6605)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Industrial and professional workshops or seminars related to Financial Technology practicum",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "3001",
+      "title": "Financial Innovation and Structured Products",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7335)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                },
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6479)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course of Financial Innovation and Structured Products provides a quantitative introduction to derivative markets. In it, we will focus on (i) the fundamental mechanics of futures, swaps and option markets, (ii) risk neutral evaluation theory of asset pricing, (iii) numerical procedures related to derivatives evaluation and risk managements, (iv) the principle of financial engineering and structured product design and their applications, and (v) financial crisis and regulation.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "3002",
+      "title": "Introduction to Financial Infrastructures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7153)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "83",
+                "enrolled": "66",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "17",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6345)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "83",
+                "enrolled": "66",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "17",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an introduction to financial infrastructures. Topics include trading venues and platforms, securities settlement systems, payment systems, system links that facilitate cross-border transactions, central counterparties and clearance, cybersecurity infrastructure for financial services industry, infrastructure-related systemic risk and its impact on monetary and financial stability.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4001",
+      "title": "Advanced Database Technologies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "To support high-speed online payments, one important issue is efficiency and another important issue is reliability for millions of payments to be transferred among accounts. This course introduces the advanced topics in database systems. The topics include query processing and optimization, transaction management, concurrency control, recovery systems, parallel databases, and distributed database systems.",
+      "enrollment_requirement": "Prerequisite: SEEM3550",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4002",
+      "title": "Behavioral Analytics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Behavioral analytics is a recent advancement that reveals customer behaviors. In this course, we will focus on (i) how to use optimization techniques to design survey questions and to collect data that are relevant to customer behaviors, (ii) theories of customer behaviors, especially those under risk, (iii) how to use data mining techniques to reveal customer behaviors, and (iv) psychological biases in customer behaviors and their impact on financial and business decisions.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4003",
+      "title": "Data Mining for FinTech",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7132)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 106",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7052)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces key techniques on data mining, including data preprocessing, classification, association rule mining, and clustering and outlier detection. Applications of these techniques in financial market data will be discussed with hands-on practice on data mining packages.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4005",
+      "title": "Financial Informatics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces basic concepts, models, techniques, and applications on financial data analytics. Topics include processing and analytical techniques for data streams; processing and searching high-dimensional data; big graph analysis; Web mining; recommendation systems for Web applications. The applications may involve financial data processing and analysis, time series, portfolio management, social networks, recommender systems, and so on.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4006",
+      "title": "Internet Finance",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides students with the fundamentals in the operations and management of Internet finance. It will cover overall applications of Internet-based technologies such as mobile payments, social network, search engines, cloud computing, and big data on the financial sector. Specific topics include third-party payments, Internet currency, P2P lending, crowdfunding, and the use of big data in financial services. The course adopts case studies as the major means of teaching and learning.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4007",
+      "title": "Introduction to Blockchain and Distributed Ledger Technology",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7131)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Y.C. Liang Hall 101",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7053)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will cover the technical aspects of cryptocurrencies, blockchain technologies, distributed ledger technology and their applications. Students will learn how these systems work and how to develop secure software application that interacts with the Bitcoin network and other cryptocurrencies.",
+      "enrollment_requirement": "Prerequisite: CSCI4130 or ESTR4306 or IERG4130",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4008",
+      "title": "Natural Language Processing for FinTech",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course aims at equipping students with an overview of latest natural language processing (NLP) technologies that have been increasingly adopted in finance sector. The course will introduce basic concepts of NLP and the advanced developments based on machine learning, especially deep learning. The topics of word representations, sequence modeling, large language models, and conversational AI will be further explored. Based on the introduced foundation in NLP, multiple financial applications will be introduced to illustrate how NLP techniques, e.g., text mining, sentiment analysis, conversational AI and large language models, can increase productivity in various scenarios, including general financial data processing practice and specific RegTech and InsurTech use cases. Students will have ample opportunities to apply the learned techniques in hands-on implementation on course projects.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4998",
+      "title": "Final Year Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AJ01-PRJ (6420)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SO Man Cho",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "BJ01-PRJ (6434)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor AHN Dohyun",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "CJ01-PRJ (6435)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Xixin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "DJ01-PRJ (6436)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Xixin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "EJ01-PRJ (9107)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HE Xuedong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "FJ01-PRJ (7248)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG Hong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "GJ01-PRJ (6421)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Chen",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "HJ01-PRJ (6422)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HE Xuedong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "IJ01-PRJ (6416)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAM Wai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "JJ01-PRJ (6417)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HE Xuedong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "KJ01-PRJ (6423)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "LJ01-PRJ (6437)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "MJ01-PRJ (6438)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "NJ01-PRJ (6439)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Lingfei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "OJ01-PRJ (6440)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "PJ01-PRJ (6441)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MENG Mei Ling Helen",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "QJ01-PRJ (6279)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Chen",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "RJ01-PRJ (8832)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Huifu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "SJ01-PRJ (9106)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor GAO Xuefeng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "TJ01-PRJ (7033)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NGUYEN Viet Anh",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "UJ01-PRJ (7250)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NGUYEN Viet Anh",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "VJ01-PRJ (7249)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SO Man Cho",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in financial technology.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "4999",
+      "title": "Final Year Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AJ01-PRJ (6464)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SO Man Cho",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "BJ01-PRJ (6467)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor AHN Dohyun",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "CJ01-PRJ (6468)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Xixin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "DJ01-PRJ (6469)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Xixin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "EJ01-PRJ (6466)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HE Xuedong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "FJ01-PRJ (6470)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG Hong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "GJ01-PRJ (6465)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Chen",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "HJ01-PRJ (6471)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HE Xuedong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "IJ01-PRJ (6472)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAM Wai",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "JJ01-PRJ (6473)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HE Xuedong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "KJ01-PRJ (6474)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "LJ01-PRJ (6475)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "MJ01-PRJ (6476)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "NJ01-PRJ (6477)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Lingfei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "OJ01-PRJ (5342)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Sibo",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "PJ01-PRJ (6478)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MENG Mei Ling Helen",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "QJ01-PRJ (6245)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Chen",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "RJ01-PRJ (8613)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Huifu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "SJ01-PRJ (8465)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor GAO Xuefeng",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "TJ01-PRJ (7072)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NGUYEN Viet Anh",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "UJ01-PRJ (7234)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NGUYEN Viet Anh",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "VJ01-PRJ (7235)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SO Man Cho",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in financial technology.",
+      "enrollment_requirement": "Prerequisite: FTEC4998",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5510",
+      "title": "Advanced Financial Infrastructure",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (1714)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "76",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (2050)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "52",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "28",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an advanced examination of financial infrastructures, which include trading venues and platforms, securities settlement systems, payment systems, cross-border transactions interlinks, central counterparties and clearance, cybersecurity, and systemic risks. It requires students to undertake project work with a view to make concrete their understanding of the underlying technologies enabling Hong Kong’s financial infrastructure. The student projects will be required to explore the implications of new financial services technology, in particular, the licensing prerequisites, regulatory controls and supervision such new services necessitate. Students will have to form groups and select a particular infrastructure area, e.g. electronic payments or lending, and conduct a deep analysis of its operations, and thereby creating new/enhanced service propositions. It is intended that project teams will be able to create prototype solutions through collaborating with, for example, the Hong Kong and Science Technology Park (HKSTP), Cyberport, ASTRI, or other CUHK labs. Upon completing this course, students should have acquired advanced understanding of components of financial infrastructure, and its significance in the financial services sector.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5520",
+      "title": "Applied Blockchain and Cryptocurrencies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (2713)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 4:15PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 1:30PM - 4:15PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 1:30PM - 4:15PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor JIA Yanwei",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (2147)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor IEONG Sze Chung Ricci",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Miss TAM Chui Yuk,   Professor IEONG Sze Chung Ricci",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "43",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "97",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course introduces the basic underlying cryptographic concepts and technologies of blockchain as a method of securing distributed ledgers in all digital transactions. The significances of trust, anonymity and consensus mechanisms are discussed. The course also further explains the application of blockchain to cryptocurrencies and smart contracts. Examples of public and private blockchains are discussed with emphasis on the applications of blockchain in Finance.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology;Exclusion: CSCI5590 or IERG5590",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5530",
+      "title": "Quantitative and Algorithmic Trading",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2170)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Professor PAN Weijian",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Professor PAN Weijian",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "60",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The industry landscape of investment, trading, and risk management has been revolutionized by computing technologies, data science, and financial engineering. To progress in tandem with the changes in the industry, the topics covered in this course leverage on the recent developments in portfolio theory, empirical finance, and quantitative and algorithmic trading. In addition to mathematical modeling, an important part of this course is the practical aspect: computational implementations with statistical tests. Given that implementation and test procedures are involved, this quantitative finance course is algorithmic and hands-on in nature.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5540",
+      "title": "Financial Technology Internship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-P01-PRA (1157)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "11/05/2026 - 27/07/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of the course is to allow students to acquire a basic understanding and the skills of the practical aspects of the financial technology profession. To qualify for the award of the subject credits, the student must (a) attend regulatory workshop provided by such regulatory authorities as the Hong Kong Monetary Authority, Securities & Futures Commission, and Insurance Authority, and (b) attach to a company in a financial technology related post as approved by the Professor-in-Charge for no less than 12 weeks. The student will have an academic supervisor as assigned by the Professor-in-Charge and an industry supervisor from the company. There will be a mid-term company visit by the academic supervisor. At the end of the internship, the student must give a presentation to the academic and industry supervisors, and submit a report summarizing what the student has done and learnt from the internship. The student’s grade will be determined by (1) the presentation, (2) the student report and (3) a testimonial from the industry supervisor.The internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies.Students are recommended to seek the Professor-in-Charge's comment on potential internship opportunities before enrolling in the course.",
+      "enrollment_requirement": "For students in MSc Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5550",
+      "title": "Elements of RegTech for the Financial Market",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4522)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Mr. Donald Kurt DAY",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "65",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces students to a dynamic financial landscape, where safeguarding market fairness, efficiency, and security is more important than ever. With financial regulations now empowered by technologies like AI, machine learning, and advanced data analytics, this course examines how regulatory frameworks adapt to monitor trading, detect abuses, and enforce compliance in real-time. Expert speakers from the fields of information technology, finance, and law provide firsthand insights into both foundational and cutting-edge RegTech. Students will gain not only essential skills in regulatory frameworks but also hands-on training in presentation, interview, and job-readiness skills. This comprehensive experience is designed to launch students into impactful roles in the evolving FinTech and RegTech sectors.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5560",
+      "title": "Topics in Financial Technology Innovations",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4447)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor LO Ting Hong,   Professor LO Wai Shun",
+                  "dates": "6/9, 13/9, 20/9, 27/9, 4/10, 11/10, 18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students with the views of global, and in particular China and HK FinTech innovation landscape, including virtual banking and other business model innovation, associated opportunities and challenges. It covers topics including digital lending, digital payment, big data analysis application, FinTech partnership & incubation, Open API, digital product propositions, organizational design to support innovation. This is relevant for students who are interested to work in innovation-related departments in traditional institutions, FinTechs or intend to initiate a start-up. The course also covers the latest development in financial technology innovations and offers case studies.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5570",
+      "title": "Financial Technology Entrepreneurship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4558)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor LO Wai Shun",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor LO Wai Shun",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor LO Wai Shun",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "30",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The aim of this course is to turn innovative, creative, and inquisitive FinTech students into entrepreneurs through multi-disciplinary, and project-based learning. The course covers topics in disruptive innovation and business models, human centered and design-driven innovation, business plan formulation, start-up pitch, how technology spur entrepreneurship, fundraising, growth, acquisition and IPO, making critical decisions during the journey, in order to equip participants to become entrepreneurs in the FinTech world. Course participants are expected to:1. Learn the basic framework of Opportunity Identification, Venture Design, Resources Mobilization and Execution in Entrepreneurship 2. Acquire refined communication, organizational, and leadership skills for entrepreneurs3. Conduct case-study research on how FinTech entrepreneurship plays an important role in the development of the high-tech industry4. Learn the basic knowledge on IP (patents, copyright, trademarks)5. Take part in a class group project to prepare a business plan and present the research finding on FinTech entrepreneurship",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5580",
+      "title": "Data Analytics for Financial Technology",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2876)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LI Lingfei",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LI Lingfei",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LI Lingfei",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "55",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The aim of this course is to equip students with essential data analytics techniques for problems in financial technology. Topics covered by this course include linear and general regression, classification techniques such as logistic regression and discriminant analysis, decision trees, support vector machines, principal component analysis, clustering methods, time series models, resampling methods and deep learning models. Various applications in asset management, risk management, asset pricing and financial prediction will be used to illustrate the methods throughout this course. Students also learn how to implement these methods in the popular data analytics software R to analyze financial data.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology;Exclusion: CSCI5150",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5590",
+      "title": "Intelligent Automation - Robotic Process Automation (RPA) & Artificial Intelligence (AI)",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2711)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 8:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor Floyd Emahn NEWSUM",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 8:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor Floyd Emahn NEWSUM",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Tu 5:30PM - 8:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor Floyd Emahn NEWSUM",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "43",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "37",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Intelligent Automation (IA) is software-based automation which executes business processes on behalf of knowledge workers with minimal human intervention. IA combines methods and various technologies, in particular, robotic process automation (RPA) and artificial intelligence. As the core and foundational technology of intelligent automation (IA), robotic process automation (RPA) has been described as a first step on the stairway of intelligent automation towards building digital workers. The aim of this course is to provide learners comprehensive coverage of intelligent automation – including RPA development skills and AI fundamentals– in the context of financial services. This course will build the capabilities of students to an advanced level and will enable participants to actively engage in the full lifecycle of “bot” development from assessment of automation opportunities through the building/deployment of functional automations. The course also introduces students to the latest industry developments in low-code artificial intelligence providing students with less technical backgrounds an opportunity to learn the skills to automate business processes without a need of a computer science background.Course participants are expected to:1. Gain a clear understanding of the intelligent automation (RPA + AI) industry and benefits and understand the limits and constraints of process automation.2. Learn about the role of business analysis in the context of process automation implementation including: (a) how to conduct an automation opportunity assessment; (b) how to map the requirements and deliverables of a process automation project; (c) best practices during the Process Deep Dive stage including ways of compiling comprehensive process-related documentation; (d) testing strategies for an process automation solution; (e) how to conduct trainings and create a User Manual during Go-Live preparations; and (f) how to manage changes throughout the entire process automation development process. 3. Understand the delivery methodology of process automation project/program management including: (a) steps of a process automation implementation, (b) choosing processes suitable for automation, (c) driving/managing process automation projects, and (d) raising intelligent automation awareness throughout an organization.4. Obtain a solid grasp of the technical skills required to create software robots. 5. Be able to build and deploy software robots to automate a variety of manual tasks/process encountered in financial operations.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5610",
+      "title": "Computational Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2030)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Dr CHAU Ka Lok",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Dr CHAU Ka Lok,   Miss TAM Chui Yuk",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will introduce pricing models and algorithms in managing the risks and making decisions regarding the trading and analysis of financial assets. Main areas that will be covered include, but not limited to: (i) Models for asset allocation; (ii) Derivative models and products; (iii) Practical applications of financial modelling. Assignments will be set up to help students develop an intuitive understanding of how these models can be implemented.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology; Not for students who have taken CMSC5718 or SEEM5820",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5620",
+      "title": "Wealth Management Business and Fintech",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2196)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Mr. LEE Kam Wing Bruno",
+                  "dates": "1/9"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Mr. LEE Kam Wing Bruno",
+                  "dates": "15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "66",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students with a practical and management level understanding of how technology is and could be used and applied to the management, growth and development of wealth management business in Hong Kong / Mainland as well as Asia and other parts of the world. Key topics to be discussed include the regulatory framework for wealth management industry, a review of the relationship between macro-economic cycle and wealth management product development and product shelf management strategies, roles and responsibilities of the various players within the wealth management industry value chain to fulfill various stages of individual customers’ financial needs, wealth management business proposition including sales and marketing strategies, and the technology and operational infrastructure required to support and to enhance the business process and to deliver exceptional customer experience.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5630",
+      "title": "Green FinTech",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2217)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Staff",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Staff",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Miss TAM Chui Yuk",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "50",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on the intersection of green finance and financial technology, equipping students with the knowledge and skills to drive innovation in the green fintech space. It covers a range of topics, from renewable energy finance to sustainable infrastructure, carbon markets, and ESG data management, all within the context of fintech-enabled solutions.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5640",
+      "title": "Decentralized Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2241)",
+              "meetings": [
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Miss TAM Chui Yuk,   Professor LAU Wing Cheong",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "47",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "33",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides a foundational introduction to Decentralized Finance (DeFi) with an aim to bridge decentralized/ distributed computing and finance. Students will learn about decentralized systems, distributed consensus, blockchains, smart contracts, and the contrast between DeFi and traditional finance. The course starts with a brief review of the notion of money, conventional banking and payment systems. It then proceeds to cover different DeFi assets including cryptocurrencies, tokens and stablecoins. Various DeFi infrastructure technologies such as Decentralized Exchanges (DEX), Automated Market Maker (AMM) protocols, Decentralized Lending/ Borrowing protocols, and Oracles are also discussed. The course concludes with decentralized governance, DeFi risk management and best practices for DeFi security. By exploring the intricacies of DeFi ecosystems, students will gain a better understanding of the opportunities, challenges, and systemic risks associated with this emerging field.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5650",
+      "title": "Topics in International Fintech",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Hong Kong is “Asia’s world city” and an international financial center as well as an emerging innovation hub. Accordingly, it is important for Hong Kong’s fintech students to develop a much broader understanding of the international fintech ecosystems. This course aims to expand students’ knowledge of the fintech landscapes beyond the borders of mainland China and Hong Kong SAR perspectives. The course learning material will help students to appreciate the unique and significant difference of the Hong Kong fintech ecosystems from other international jurisdictions. Students are introduced to the latest international fintech trends and are provided with an overview of the respective ecosystems* of:(1) Africa (Sub-Saharan Africa)(2) Middle East & North Africa(3) Asia (South Asia)(4) East Asia & Pacific(5) Europe and Central Asia(6) Latin America & the Caribbean (7) North America*geographic ecosystems for the course are organized according to the World Bank analytical grouping scheme of seven (7) regions (https://datatopics.worldbank.org/sdgatlas/archive/2017/the-world-by-region.html)The course addresses the concept of techno-business ecosystems via a comprehensive framework including: people/firms, markets, policy/regulation, culture, finance, and infrastructure support.This course will also include a variety of C-suite level and international guest speakers to supplement lecture course material. Topics will be updated year to year.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5660",
+      "title": "Agentic AI for Business and FinTech",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2239)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 3:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor NGUYEN Viet Anh",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 12:30PM - 3:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor NGUYEN Viet Anh",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "42",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "38",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Traditional AI models can respond to prompts or execute predefined tasks impressively. Agentic AI goes beyond traditional AI by incorporating a \"chaining\" capability: it can take a “sequence” of actions in response to a single request, breaking down complex tasks into smaller, manageable steps or coordinating among multiple agents to achieve a common goal. Agentic AI systems have a high degree of autonomy and can act with minimal human supervision. Agentic AI could revolutionize business and financial technologies of the future. This course introduces the students to the fundamentals of agentic systems, covering reinforcement learning agents, language model agents, and multi-agent systems. We will cover applications of agentic systems in various aspects of business and fintech, including cryptocurrency/blockchain, financial analysis, portfolio management, customer service, human resources, business planning, and operations.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5670",
+      "title": "Financial Technology Entrepreneurship Field Trip",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-F01-FLD (1120)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Miss TAM Chui Yuk,   Professor LO Wai Shun",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with knowledge and experiences of entrepreneurship in real-life environment. Students will participate in a week-long field-trip (e.g. in Silicon Valley, Crypto Valley or Singapore, etc.), to visit organisations on various FinTech domains for a close-up on the operation. Course learning activities include lectures/ seminars at universities/ companies, discussions with management of start-up companies, and site visits to enterprises, etc. Through these activities, students will be able to learn practical operational knowledge and experience from FinTech entrepreneurs in close distance.Student should take part in a class group project, to present the research findings on FinTech entrepreneurship and the learning outcomes of the field trip",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5680",
+      "title": "AI Applications in FinTech",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2198)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Professor LAM Kai Pui",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "73",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Characteristics of financial data, patterns, and models, time-series representation and prediction. Limitations of classical system identification for prediction problems. Artificial Neural Networks (ANN) in AI: Recurrent and feedforward neural networks and their learning architectures: matrix computations and fast neural learning hardware realization. Reinforcement learning and dynamic programming. Integration of statistical techniques and neural learning, for applications in financial prediction, investment strategies and planning. Simulation of generative AI for potential applications and their evaluations. Exploring robo-advisors using generative AI with large language model (LLM) for enhancing wealth creation and investment outcomes.",
+      "enrollment_requirement": "For students in MSc Financial Technology or PgD Financial Technology;Good knowledge in linear algebra, probability, and calculus and familiarity with programming languages C or Python. Some acquaintance on using MATLAB and R is advantageous",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5910",
+      "title": "Financial Technology Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AJ01-PRJ (4237)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BAJ1-PRJ (4554)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BBJ1-PRJ (4555)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BJ01-PRJ (4236)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HO Kyson",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CJ01-PRJ (4235)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (4523)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EJ01-PRJ (4524)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ01-PRJ (4525)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GJ01-PRJ (4526)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (4527)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IJ01-PRJ (4528)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JJ01-PRJ (4529)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KJ01-PRJ (4569)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LJ01-PRJ (4530)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "MJ01-PRJ (4531)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "NJ01-PRJ (4532)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OJ01-PRJ (4533)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PJ01-PRJ (4534)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "QJ01-PRJ (4535)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "RJ01-PRJ (4536)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (4537)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "TJ01-PRJ (4538)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "UJ01-PRJ (4550)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "VJ01-PRJ (4551)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "WJ01-PRJ (4552)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss TAM Chui Yuk",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "XJ01-PRJ (4553)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss TAM Chui Yuk",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "YJ01-PRJ (4570)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss TAM Chui Yuk",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (4571)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss TAM Chui Yuk",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The courses, Financial Technology Project I & II, involve a significant research and/or development project under the supervision of an academic staff in any area of financial technology. Unless otherwise approved by the Professor-in-Charge, the project should involve an industrial partner with a co-supervisor from the industry. At the end of the course, the student must give a presentation to the academic and industry supervisors, and submit a report detailing the findings and deliverables. The student’s grade will be determined by the presentation and the report.Unless otherwise approved by the Programme Director, the credits for Financial Technology Project I are recognized if and only if the student takes also Financial Technology Project II in a subsequent semester.If a student has prior industrial background and has already secured a project topic with an industrial practitioner and the agreement of an academic staff, Financial Technology Project I can be taken in the first semester of studies. Otherwise, the two project courses can be taken in any consecutive semesters, including the summer term.Students are encouraged to find industrial projects by themselves and talk to various academic staffs for project ideas before enrolling in the courses.",
+      "enrollment_requirement": "For students in MSc Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5920",
+      "title": "Financial Technology Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AJ01-PRJ (4239)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BAJ1-PRJ (4591)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BBJ1-PRJ (4592)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BJ01-PRJ (4559)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CJ01-PRJ (4560)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (4561)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EJ01-PRJ (4562)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ01-PRJ (4563)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GJ01-PRJ (4564)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (4565)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IJ01-PRJ (4566)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JJ01-PRJ (4567)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KJ01-PRJ (4596)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LJ01-PRJ (4568)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "MJ01-PRJ (4569)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "NJ01-PRJ (4581)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OJ01-PRJ (4582)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PJ01-PRJ (4599)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "QJ01-PRJ (4583)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "RJ01-PRJ (4584)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (4585)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "TJ01-PRJ (4586)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "UJ01-PRJ (4587)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "VJ01-PRJ (4588)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "WJ01-PRJ (4589)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "XJ01-PRJ (4590)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "YJ01-PRJ (4597)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (4598)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The courses, Financial Technology Project I & II, involve a significant research and/or development project under the supervision of an academic staff in any area of financial technology. Unless otherwise approved by the Professor-in-Charge, the project should involve an industrial partner with a co-supervisor from the industry. At the end of the course, the student must give a presentation to the academic and industry supervisors, and submit a report detailing the findings and deliverables. The student’s grade will be determined by the presentation and the report.Unless otherwise approved by the Programme Director, the credits for Financial Technology Project I are recognized if and only if the student takes also Financial Technology Project II in a subsequent semester.If a student has prior industrial background and has already secured a project topic with an industrial practitioner and the agreement of an academic staff, Financial Technology Project I can be taken in the first semester of studies. Otherwise, the two project courses can be taken in any consecutive semesters, including the summer term.Students are encouraged to find industrial projects by themselves and talk to various academic staffs for project ideas before enrolling in the courses.",
+      "enrollment_requirement": "For students in MSc Financial Technology;Pre-requisite: FTEC5910",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering"
+    }
+  ]
+}

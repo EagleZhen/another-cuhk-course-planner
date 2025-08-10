@@ -1,0 +1,1552 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T08:28:57.589314",
+    "subject": "FREN",
+    "total_courses": 19,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "FREN",
+      "course_code": "1000",
+      "title": "French I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (6625)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "BC01-CLW (9398)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall G03",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "CC01-CLW (6743)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "DC01-CLW (9382)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "EC01-CLW (5857)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "FC01-CLW (4739)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "GC01-CLW (9399)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "HC01-CLW (5266)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 312",
+                  "instructor": "Mr. Edouard Pierre MAIRE",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 312",
+                  "instructor": "Mr. Edouard Pierre MAIRE",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 312",
+                  "instructor": "Mr. Edouard Pierre MAIRE",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "IC01-CLW (4741)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "JC01-CLW (5960)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 411",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "KC01-CLW (4742)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "LC01-CLW (4777)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Ms. Marie-helene Christiane F. MOULLOT",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Ms. Marie-helene Christiane F. MOULLOT",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Ms. Marie-helene Christiane F. MOULLOT",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Ms. Marie-helene Christiane F. MOULLOT",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "MC01-CLW (4803)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 106",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 106",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 106",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 106",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "NC01-CLW (8912)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "OC01-CLW (4801)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 306",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 306",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 306",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 306",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "PC01-CLW (4822)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "QC01-CLW (4802)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "RC01-CLW (4781)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "SC01-CLW (4782)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 408",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 408",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 408",
+                  "instructor": "Mrs. Hyon Sou KUNEGEL",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "TC01-CLW (4800)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "UC01-CLW (4783)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "VC01-CLW (8975)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "As the first in a series of six language courses, this course invites students without prior knowledge of French to explore the basic features of the French language. Supported by audiovisual aids, students will receive intensive practice in spoken and written French through interactive class work, homework and online exercises. They will become familiar with the basic concepts of French grammar and learn how to interact in some simple everyday situations.",
+      "enrollment_requirement": "Not for students who have taken FREN2000,2001,2050,3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "1001",
+      "title": "Invitation to French Online",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (8744)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "French and English Virtual Teaching & Learning Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8529)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "French and English Virtual Teaching & Learning Course"
+            }
+          ]
+        }
+      ],
+      "description": "[This course is offered via asynchronous online mode. Students should register the course via KEEP, a CUHK eLearning platform where the course materials are uploaded.]This course is for students without prior knowledge of French to discover some aspects of the French culture along with some basic elements of the French language. With the support of audio-visual materials, short textual information, different interactive tasks and online tests, it aims to help students get familiar with practical and cultural aspects of daily life in a French-speaking environment. It serves as a taster for students who might consider taking three-unit or six-unit French courses offered by the French programme of CUHK in the future.",
+      "enrollment_requirement": "Not for students who have taken FREN1000, 2000, 2001, 2050, 3000, 3001, 3002, 3050 or 3051 From 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001",
+      "course_attributes": "Virtual Teaching & Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "1100",
+      "title": "Made in France",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-C01-CLW (6624)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to present the French society and culture from a cross-cultural perspective. We will particularly examine the aspects of behavior, attitudes and customs of the French in modern France, as well as their image in the world.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "2000",
+      "title": "French II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (5407)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg C4",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg C4",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "BC01-CLW (4778)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "CC01-CLW (4779)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "DC01-CLW (4780)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 410",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 410",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 410",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 410",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "EC01-CLW (5488)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "FC01-CLW (4798)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "Building on the knowledge acquired in FREN1000, this course aims to further develop students’ ability to communicate in French in various everyday situations. It also seeks to give students a taste of French culture and invites them to explore cultural differences. Through intensive practice students will develop more confidence in interacting in French while further expanding and solidifying their understanding of the basic grammar and pronunciation patterns.",
+      "enrollment_requirement": "1. Not for students who have taken FREN2001,2050,3000,3001,3002,3050 or 3051 2. Prerequisite: FREN1000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "2001",
+      "title": "French III",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (6123)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mrs Anahi G. FRAUENFELDER NGUYEN TANG",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            },
+            {
+              "section": "BC01-CLW (4740)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to further enhance students’ communication skills in the four language domains listening, speaking, reading and writing. Students are expected to communicate confidently in a wider range of social interactions including more formal situations and simple professional contexts as well as reporting past events and sharing experience. At the end of this course, students will have completed a proficiency level comparable to level A1 of the Common European Framework of Reference for Languages (CEFR).",
+      "enrollment_requirement": "1. Not for students who have taken FREN3000,3001,3002,3050 or 3051 2. Prerequisite: FREN2000 or FREN2050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "2020",
+      "title": "Sounds of French",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-C01-CLW (6626)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 410",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an introduction to the phonetic system of the French language. Illustrations and examples will be taken from modern spoken French. Similarities and differences to other languages will also be examined when appropriate. Students learning French are encouraged to take this course.",
+      "enrollment_requirement": "Prerequisite: FREN2000,2050,3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "2050",
+      "title": "French I & II",
+      "credits": "6.00",
+      "terms": [],
+      "description": "(Please read the Study Scheme Note.) This is a summer intensive French language course for beginners, covering the full syllabus of FREN1000 and 2000.",
+      "enrollment_requirement": "Not for students who have taken FREN1000,2000,2001,3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "2100",
+      "title": "Exploring French Literature",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is aimed at giving students a better understanding of the specificity of the French literary culture from the 16th to the 20th century. It aims at enriching the student’s general knowledge of French literature, allowing them to explore the writings of selected famous French authors through the centuries. A presentation of the socio-intellectual, historical and literary context of each century’s French literature will be provided. Through short excerpts of French works, we will explore how the literary works mirror and transform the social and intellectual ideas of their time, while also examining their innovative literary aspects. The emphasis will be put on the appreciation of the texts and the use of basic reading strategies. Students will be exposed to a group of selected works through multimedia such as movies, voice recordings, and visual illustrations.Prior knowledge in French is not required for this course.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3000",
+      "title": "French IV",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AC01-CLW (4823)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Mr Raphael Ange Francois A. CHIARELLI",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at increasing students’ communicative fluency in oral and written French. Using a variety of classroom activities and multimedia, students will build up their competence in the four language domains listening, speaking, reading and writing. Through intensive practice they will be able to communicate in a wide range of social situations with the appropriate awareness of the pragmatic rules involved. Students receive guidance in the process of composing longer texts displaying a range of registers and styles relating to past, present and future events.",
+      "enrollment_requirement": "1. Not for students who have taken FREN3001,3002,3050 or 3051 2. Prerequisite: FREN2001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3001",
+      "title": "French V",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (4744)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 106",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 106",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on the further development of communication skills in French with emphasis on the expression of personal views and the training of argumentative strategies. The course will also engage students in critical reflections on various aspects of life in French-speaking countries and their own social environment. Students will be guided to analyze various types of data to support their views. They will learn how to express their wishes and aspirations using the appropriate registers.",
+      "enrollment_requirement": "1. Not for students who have taken FREN3002 or 3051 2. Prerequisite: FREN3000 or 3050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3002",
+      "title": "French VI",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AC01-CLW (5424)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 406",
+                  "instructor": "Mr. Benjamin Malcom Thomas GAUDET",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course builds on the knowledge acquired through previous French language courses. It aims at leading students to a proficiency level comparable to the threshold from A2 to B1 of the Common European Framework for Languages (CEFR), becoming “independent users” of French. To achieve this goal, students will be encouraged to work project-based through independent or collaborative work with their peers. At the end of this course students will have mastered the most important grammar features of French and be able to communicate effectively in a wide range of everyday situations and a number of professional contexts. They will be able to use their oral and written language skills to relate to, reflect on and analyze past and current issues involving the French-speaking societies.",
+      "enrollment_requirement": "1. Not for students who have taken FREN3051  2. Prerequisite: FREN3001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3021",
+      "title": "French Conversation",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to enhance students’ oral communication skills in French. Through selected student-oriented stimuli and topics related to social issues and contemporary affairs, students will practice the expression and exchange of personal views and ideas. Classroom activities may include in-class activities such as dialogue, role-play, narration, speech, group discussion, debate and multimedia activities. Emphasis will be placed on oral practice and an interactive learning environment with a view to helping students build confidence and develop fluency in using the language, to speak spontaneously in social interaction and acquire conversational techniques commonly used in a French-speaking environment.",
+      "enrollment_requirement": "Prerequisite: FREN3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3031",
+      "title": "French Reading and Creative Writing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for students who study French and want to enhance their reading and writing skills through literary texts and excerpts. The emphasis will be placed on the reading of French texts and poems which lead to creative writings in French. The objective of the course is to equip students with language keys to comprehend the texts and subsequently produce creative texts in French. All texts are in French.",
+      "enrollment_requirement": "Pre-requisite: FREN2001,2050,3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3041",
+      "title": "Business French I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to introduce and train in active practice in a wide range of business related dialogues, as well as to acquire the basic skills of business terminology through the reading of short commercial documents.",
+      "enrollment_requirement": "Prerequisite: FREN3000,3001,3002,3050 or 3051",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3050",
+      "title": "French III & IV",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a summer intensive French language course, covering the full syllabus of FREN2001 and 3000.",
+      "enrollment_requirement": "1. Not for students who have taken FREN2001,3000,3001,3002 or 3051 2. Prerequisite: FREN2000 or 2050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3051",
+      "title": "French V & VI",
+      "credits": "6.00",
+      "terms": [],
+      "description": "This is a summer intensive French language course, covering the full syllabus of FREN3001 and 3002.",
+      "enrollment_requirement": "1. Not for students who have taken FREN3001 or FREN3002 2. Prerequisite: FREN3000 or FREN3050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3060",
+      "title": "French through Short Films",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to strengthen and expand students’ language skills like speaking, listening, writing and reading. This will allow students to have better understanding of French culture and current French societal tendency. It places special emphasis on conversational fluency, grammatical accuracy and vocabulary acquisition. The course is mainly designed from several awarded shorts films and one movie. TV commercials and short videos will be used as supplementary materials. These pedagogical resources will provide the basis for interactive class activities that will help students to develop their language skills and to build language confidence. The course also aims to enhance students’ critical analysis on popular beliefs like clichés about France.",
+      "enrollment_requirement": "Prerequisite: FREN3000,3001,3002,3050 or 3051 Not for students who have taken FREN3100 in 2nd term 2019-20",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3100",
+      "title": "Special Topics in French",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims at furthering students' understanding of selected area(s) of French language, literature or culture. Topics will vary from year to year. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    },
+    {
+      "subject": "FREN",
+      "course_code": "3110",
+      "title": "French Through Literature",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (5369)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Mr. Louis Jean MUNSCH",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "French and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at enhancing the student’s command in reading and writing of French through the study of French literary works. Through activities such as creative writing, drama performance, role-playing and group discussion, students will familiarize themselves with different literary forms (poems, novels, plays, etc.) in French. The course also aims at enriching student’s general knowledge about French literary culture and allowing them to explore the writings of selected famous French authors in the specific context of their historical/biographical and cultural background. Students will be exposed to selected works through multimedia such as movies, voice recordings, songs and visual illustrations.",
+      "enrollment_requirement": "Pre-requisite(s): FREN3000,3050,3001,3002,3051 or equivalent competence Not for students who have taken FREN3100 in 2016-17",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang"
+    }
+  ]
+}

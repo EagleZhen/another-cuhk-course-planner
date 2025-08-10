@@ -1,0 +1,1445 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T07:07:19.488948",
+    "subject": "DSPS",
+    "total_courses": 35,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "DSPS",
+      "course_code": "1001",
+      "title": "Introduction to Policy Sciences",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6567)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces key concepts, theories and models in the study of policy sciences. To resolve complex and multi-level public problems of a globalized world in ways that help to identify and enhance the common interest, policy sciences provide an integrated and interdisciplinary approach for making good policy decisions. This course also aims to help students understand the process and structure in designing policies. The concerns of this course are integrating theory and practice into actionable social knowledge and apply it to real world problems.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "1002",
+      "title": "Data Science and Public Policy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course focuses on the important connection between data science and public policy by identifying and analyzing the policy challenges posed by data science technologies. It assesses what policy options and tools are available to address them and examines what new capacities governments and also citizens must develop in the era of data science. Students would also be introduced to the professional and ethical responsibilities and social, economic, political and legal impacts under the changes and innovations brought by data science.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "1003",
+      "title": "Foundation of Data Science",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (9390)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg UG01",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg UG01",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended for students with little or no programming experience. It is designed to provide students with a firm foundation for learning modern data science, which uses computer programming to wrangle and analyze data. Adopting a hands-on approach, this course covers all the basics of programming in Python, as well as general computer programming concepts and techniques, such as branching, looping and inheritance. It also familiarizes students with some of the most useful Python libraries for data science, such as NumPy, pandas and matplotlib. This course plays a foundational role in the data science curriculum.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "1004",
+      "title": "Statistics for Data Science and Policy Studies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5374)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "39",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "39",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an introduction to data science and its applications in policy analysis. Students will learn the fundamental concepts of statistics and probability theory and their role in policy research. Through hands-on exercises and case studies, students will gain practical experience in descriptive statistics, probability distributions, statistical inference, and analysis. Students will also develop skills in communicating statistical results to policy audiences through effective writing and data visualization techniques. By the end of the course, students will have a solid understanding of statistical methods commonly used in policy analysis and be able to apply them to real-world problems in policy studies.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2101",
+      "title": "Research Methods for Policy Studies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces major methods used in policy studies research, with both quantitative and qualitative methods as the foci. This course discusses major methodological issues, stages and process of research, the use of appropriate methods, strategies and tools with the objective of enabling students to adopt a multimethod and critical approach to conduct research of public policies and data science. Course contents also include the interpretation and communication of findings to different stakeholders, research ethics and limitations, and using research to generate impact.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2102",
+      "title": "Introduction to Data Science Applications in Public Policy and Political Studies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9184)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 123",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 123",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 123",
+                  "instructor": "Professor CHAN Chee Hon",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This introductory course explores the intersection of data science, public policy, and political studies. Students will learn how to utilize data analysis methods to understand and analyze public policy issues and the political process. The course will cover basic concepts in data science, including data collection, cleaning, analysis, and visualization, with a focus on applications in policy and political studies. Students will also learn how to critically evaluate and interpret data to inform decision-making in the public policy and political domains. Through hands-on projects and laboratory sessions, students will develop practical skills in using data to address real-world policy challenges and political issues. By the end of the course, students will be equipped with the tools and knowledge to apply data science techniques to analyze and understand the complexities of public policy and the political landscape.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2103",
+      "title": "Intermediate Data Science Applications in Public Policy and Political Studies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This intermediate course serves as a continuation of the exploration of data science methods in the context of public policy and political studies. Students will delve deeper into data analysis techniques and their application to understanding policy issues and political processes. The course is designed to further develop students' skills in data visualization, statistical analysis, and data interpretation, with a specific focus on their relevance to policy formulation and political decision-making. Through hands-on projects and laboratory sessions, students will enhance their data science proficiency and learn how to effectively communicate data-driven insights to stakeholders in the public sector. By the end of the course, students will be equipped to apply intermediate data science techniques to analyze and address policy challenges and political dynamics, building upon the foundational knowledge gained in the introductory course.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2104",
+      "title": "Advanced Programming for Data Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for students with prior programming experience interested in learning C# programming and game development. The course covers fundamental programming concepts like object-oriented programming, control structures, collections, and error handling in C#. Students will also learn how to create games with Unity, including working with the Unity editor, physics engine, game assets, and game AI.The course begins with an introduction to C# programming language and control structures and gradually progresses to advanced programming concepts, such as inheritance and polymorphism. Additionally, students will learn how to handle errors and debug code.The second half of the course focuses on Unity game development. Students will learn to use the Unity editor to create game objects, scenes, and gameplay mechanics. They will also learn to work with some of Unity's built-in features, e.g., animations, particle effects, and game AI.By the end of the course, students will have the skills and knowledge necessary to write a C# program and build a fully functional and engaging game with Unity.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2201",
+      "title": "Data Preprocessing for Data Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7180)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course teaches students the major computing applications and coding languages, such as Python, of data analytics and how to apply them in public policy. The emphasis of the course is to apply data analytics to make theory-guided and data-driven policy decisions. With the technical competence provided by the course, students are expected to be both a skillful user of data analytics and an intelligent policymaker informed by data science. This course focuses on the data preprocessing stage in the data science lifecycle and teaches the efficient use of powerful tools for data preprocessing such as pandas.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS2102 or (DSPS1003 and DSPS1004)",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2202",
+      "title": "Database Systems for Data Science",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5240)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the fundamental concepts of database systems and their role in data science projects. Students will gain practical experience working with relational databases, as well as learn how to design effective data models and optimize database performance. Topics covered may include SQL basics, entity-relationship modeling, normalization, indexing, and query optimization. This course is ideal for individuals with prior programming experience interested in learning about databases for data science.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2301",
+      "title": "Policy Analysis and Design Thinking",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7995)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course integrates public policy analysis and design thinking to give students an integrated and comprehensive approach of resolving public problems. Design thinking, with its key features of being solution-based, user involvement, co-creation of knowledge, co-evolution of solution and problem, complements the economics-based and analytical model of public policy analysis well. Together they strengthen students’ ability in serving the dual role of a capable policy designer and an effective analyst who solve the policy problem and satisfy the diverse concerns of stakeholders.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2320",
+      "title": "AI Governance and Public Policy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6139)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course offers an insightful and comprehensive exploration of the dynamic landscape surrounding the governance and public policies of artificial intelligence (AI). By focusing on the intersection of AI, governance, and public policy, it empowers students to navigate the multifaceted challenges. Through a combination of theoretical analysis, case studies, and interactive discussions, students will develop a profound understanding of AI strategies and governance frameworks and the formulation of responsible public policies in both national and global contexts. The course will equip students with the knowledge and skills necessary to shape the future of AI in the role of policymaker and major stakeholders in civil society.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2501",
+      "title": "Managing Technology and Policy Innovation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5375)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course explores the dynamic intersection of technology and policy innovation, delving into theories and practical strategies essential for effective management. The course unfolds in two distinct parts, each addressing pivotal aspects of this interdisciplinary field. Firstly, it examines policy challenges stemming from technological advancements. Secondly, it investigates using policy to foster societal innovation. Students will gain insights into the interplay of technology, institutions, and society, essential for sustainable innovation. This course is ideal for students who are eager to understand and navigate the intricate relationship between technology and policy, and who seek to drive impactful innovation in a rapidly evolving societal landscape.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2520",
+      "title": "Data Science Project Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4859)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Effective project management can lead to heightened efficiency and productivity while also mitigating the risk of failure. However, overseeing data science projects poses unique challenges due to the involvement of stakeholders from multiple teams and the necessity to balance both business and technical objectives. This course provides a comprehensive overview of the intersection between project management and data science. Students will explore how project management principles can enhance the management of data science projects and how data science methodologies can improve project management practices. While no prerequisites are required, this course is ideal for students who possess a basic understanding of data science. It is particularly suitable for students who harbor an interest in effectively managing data science projects and assembling teams.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2730",
+      "title": "Linear Algebra for Data Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to provide students with the essential foundational concepts of modern linear algebra for understanding contemporary data science and machine learning techniques. Stressing on intuition from coding rather than traditional mathematical proofs, this course approaches linear algebra from a computational perspective, where linear algebra concepts are implemented in Python code with a focus on applications in data science and machine learning. This course is ideal for students with prior programming experience who are interested in understanding modern linear algebra and its applications in data science and machine learning from a computational perspective.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "2830",
+      "title": "Calculus for Data Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to provide students with the essential foundational concepts of calculus for understanding contemporary machine learning and data science algorithms in which calculus is used as an optimization tool. It approaches calculus, both single-variable and multivariate, from a computational perspective, stressing on intuition from coding rather than traditional mathematical proofs. This course is ideal for students with prior programming experience who are interested in understanding the powerful optimization algorithms used in modern data science and machine learning.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3190",
+      "title": "Big Data Analytics for Public Policy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a comprehensive understanding of Big Data computing systems and programming models. Students will gain hands-on experience working with mainstream open-source platforms for Big Data processing and analytics, including Hadoop and Spark. The course covers the architecture and components of Hadoop and Spark, data processing with Spark, and advanced topics such as Spark Streaming, graph processing, and machine learning. Students will learn to develop operational and programming tools for data collection, serialization, migration, and workflow coordination in Big Data pipelines. By the end of the course, students will be able to design and implement solutions to real-world Big Data problems using Hadoop or Spark. This course is ideal for students with prior programming and database experience interested in developing expertise in Big Data computing systems and programming models for processing and analyzing large-scale datasets.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS2202",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3202",
+      "title": "Machine Learning for Public Policy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4848)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Hui Yeung Shing Bldg G03",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (4858)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg G03",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces students to the machine learning concepts and techniques that are relevant to policy analytics. Major topics include linear regression, predictive modeling, classification, resampling methods, dimension reduction techniques, principal component analysis, smoothing splines. Additional topics such as decision trees, support vector machines and clustering methods may also be introduced. Students will learn how to employ these methods to conduct supervised and unsupervised learning for social and policy analytics, and gain hands-on experience with real-life data using data science software.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS2201",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3310",
+      "title": "Collaborative Governance in a Global Context",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide students with knowledge, skills and applications of collaborative governance in a rapidly changing globalized world. Collaborative governance is broadly defined as the processes and structures of public policy decision making and management that engage people constructively across the boundaries of public, private and civic society for a public purpose that could not otherwise be accomplished. With the increasingly limited role of government in governance, the ability of policymakers to collaborate with non-state actors across levels and boundaries becomes critical for addressing policy challenges. The course focuses on how collaborative governance can build consensus and deliberative purposes of public policy and governance through studying its formats, process, rationales, concepts and outcomes as well as evaluation of its effectiveness and dilemma. The course also intends to nurture students to have a responsible and reflective role in society and to pursue a better governance.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3320",
+      "title": "Data Science and Regulation",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course focuses on the regulatory issues and concerns when the governments take data science as a paradigm to enhance the capacity of public policy. Advance in data science radically transforms the way data can be handled and utilized, and inevitably generates new regulatory concerns and debates due to the clash of competing values and interests. For example, while privacy and citizen rights advocates strive to decrease unexpected uses of data, many scientists and institutions may attempt to use data to design and evaluate public policies in order to maximize its effectiveness. This course discusses theoretical approaches to regulations from multidisciplinary and transdisciplinary approaches for the analysis of regulatory institutions, practices and ideas in data regulation as well as the dillemma between utilization of data and its protection, accessibility and transparency.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3330",
+      "title": "Extended Reality (XR) for Data Visualization and Policy Narratives",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5004)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In an era of technological advancement, AR/VR transcends traditional media types such as images, videos, text, and audio, offering a new medium for applications in data science and policy studies. This course explores the diverse applications of AR/VR technology in data visualization and policy narratives. Students gain practical skills in creating AR/VR experiences for visualizing complex data, crafting compelling narratives, and communicating policy insights. They will learn about AR/VR systems, principles for immersive experiences, human-centered design for AR/VR, and game development using cutting-edge platforms such as Unity. This course illuminates the potential of AR/VR as a powerful tool for visualizing ideas and communicating information with unparalleled depth and clarity. This course is ideal for students who are interested in exploring innovative applications of emerging technologies in data visualization, idea presentation, and policy communication and seek to harness AR/VR technology to innovate in these domains.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3340",
+      "title": "Smart Cities and Internet of Things",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will introduce the concept of Smart Cities and explore how the Internet of Things (IoT) can help address urbanization challenges. Students will gain an understanding of the different components of IoT for Smart Cities, including sensor technologies, communication technologies, big data analytics, and security. The course will cover topics such as devices and communication protocols for IoT networks, big data analytics in the context of the IoT paradigm, IoT-enabled electric vehicles in smart cities, and blockchain technology for security and privacy in IoT. This course is ideal for students who wish to explore the opportunities of IoT in building a smarter city.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3350",
+      "title": "Computer Simulation for Policymaking",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the fundamentals of systems modeling and simulation, which are increasingly popular tools for developing, implementing, and evaluating public policy. The course will expose students to diverse system modeling and simulation approaches and emphasize their applications in policymaking to equip them with the skills they will need to conduct technically-focused policy analysis. Teaching is conducted through class lectures and tutorials related to simulation software applications (e.g., Anylogic). This course is ideal for individuals with prior programming experience interested in exploring computer simulation’s potential for policy design and analysis.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS1003 and DSPS1004",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3501",
+      "title": "Policy Leadership and Entrepreneurship Workshop",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-T01-TUT (6216)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-W01-WKS (6732)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 108",
+                  "instructor": "Professor WONG Wai Ho",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course studies how leadership and entrepreneurship are interrelated to create social and political impacts throughout the policy process, in particular, how leadership acts as an important factor to influence the social environment to nurture entrepreneurial activities. Leadership provides social source of influence and vision that one uses to inspire action taken by others, and to mobilize others to achieve a common goal. Entrepreneurship is the recognition of opportunities by coupling needs, wants, resources, and problems with innovative solutions and make changes to society. With a workshop format, the course provides students more interactive experience to equip them with the mindset, skills, and strategies of policy leadership and entrepreneurship. Policy leaders and entrepreneurs will be invited to serve as guest speakers in order to offer students the opportunities to learn from their practical experience.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Interactive Tutorial Workshop",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3790",
+      "title": "Social Network Analysis for Public Policy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to introduce students to the concepts and methods of social network analysis (SNA), including network types, levels of analysis, data collection, descriptive methods and inferential methods, and their applications in public policy, such as policy agenda setting, policy network, advocacy coalition, policy learning and diffusion, and policy implementation. It also familiarizes students with network analysis software (e.g., Python and/or R). This course is ideal for students with basic knowledge of data analytics who are interested in understanding and using SNA in public policy studies.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS2201",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3791",
+      "title": "Natural Language Processing for Public Policy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6217)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "Hui Yeung Shing Bldg 501",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to introduce students to some common methods of Natural Language Processing (NLP), including text classification, topic modelling, text summarization, event extraction and text scaling, and their applications in public policy, such as data collection for evidence-based policymaking, interpretation of political decisions, policy communication, and investigation of policy effects. It also familiarizes students with some of the most useful Python libraries for NLP, for example, transformers, stanza and spaCy. Ethical issues are also discussed. This course is ideal for students with basic knowledge of machine learning who are interested in understanding and using NLP tools in data-driven policymaking.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS3202",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3801",
+      "title": "Internship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (8626)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Internship"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (8612)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Internship"
+            }
+          ]
+        }
+      ],
+      "description": "The aim of this course is to provide students with practical work experiences in the application of both data science and policy studies learned in DSPS programme. Students will be given opportunities to observe and experience the management operations and to have hands-on experience in public sector, non-government organizations (NGOs), private sector etc., and to experience the work life in the sector, as well as to nurture students’ practical skills. It is recommended that the internship to be conducted in summer holiday, i.e. June to August, after finishing year two studies in the block mode (i.e. 5 days x 8 hours). DSPS Programme will deploy work units, agencies, or organizations that provide internships relevant to the general course objectives. Meanwhile, students are encouraged to explore opportunities of internship to fit their own specific learning needs. However, all self-selected internship must comply with the course requirements, and subjected to the approval of DSPS Programme Director. Guidance and assistance will be provided whenever appropriate.During the internship, each student would be guided and assisted by an academic supervisor. The supervisor offers advice and help whenever necessary during the attachment period. At the same time, each student will be receiving guidance and assistance from his/her agency supervisor. Students will submit self-evaluation report to reflect on the experience in the internship. Academic advice will be provided to help students consolidate their learning in the internship.",
+      "enrollment_requirement": "",
+      "course_attributes": "Internship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3802",
+      "title": "Advanced Data Visualization",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4846)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (4847)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Dr. KWOK Pak Ki",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to equip students with the skills to convey data-driven insights clearly and effectively. The course begins with an introduction to data visualization and perception principles, followed by an overview of visualization design principles, data preparation and exploration, and advanced visualization techniques.Students will also learn about popular visualization tools (e.g., Tableau), virtual and augmented reality technologies, ethics and bias in data visualization, data storytelling, and data visualization for big data. The course concludes with a final project, where students apply the concepts learned throughout the course to create a high-impact data visualization using advanced technologies.This course is ideal for individuals with prior programming experience interested in exploring advanced data visualization techniques and technologies.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS2201",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "3803",
+      "title": "AI for Social Good",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5005)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9559)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Dr. WONG Kwong Cheong",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces students with basic coding skills to modern Artificial Intelligence (AI) and its societal impacts. It focuses on the techniques of deep learning and reinforcement learning, the workhorse of modern data-centric AI technologies and their applications. Ethical challenges and policy implications of these powerful AI technologies and applications are critically discussed and their positive and negative impacts on achieving the United Nations’ Sustainable Development Goals (SDGs) critically evaluated. The main concern of the course is how to ensure that these disruptive modern AI technologies are used to do good, rather than bad, to society. An emphasis is put on the need for dedicated regulatory AI policies, both at the national and international levels.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "4203",
+      "title": "Advanced Applications of Data Science in Public Policy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a special-topics course on advanced applications of data science in decision making, visualization, research, analytics and presentation techniques to inform policy decision-making. Topics covered would depend on knowledge and expertise of the instructor, and the latest development and innovations in the field. Students will be equipped with the most advanced capacities and methods to conduct data analytics related to policy decisions.",
+      "enrollment_requirement": "Pre-requisite(s): DSPS2201 and DSPS3202",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "4310",
+      "title": "Data, Evidence and Public Policy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course examines the fundamental principles and practices of evidence-based policymaking, emphasizing the role of data and empirical evidence in public policy design, implementation, and evaluation. Students will learn how to critically analyze policy issues through multiple lenses - empirical, normative, and practical - while developing skills in policy evaluation methodologies. The course covers the entire policy cycle, from problem identification to impact assessment, with particular attention to data collection, causal inference, and evaluation techniques. Through case studies across various policy domains, students will explore how evidence informs policy decisions and shapes public sector outcomes. The course combines theoretical frameworks with practical applications, preparing students to become sophisticated consumers and producers of policy evidence.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "4801",
+      "title": "Graduation Capstone Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8987)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kwong Cheong,   Professor CHAN Chee Hon,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8402)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kwong Cheong,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The graduation capstone project is about generating innovative ideas and implementing actionable knowledge to create impactful solutions. It offers students the opportunity to conduct a project on a selected topic under supervision related to data science and policy studies. While students are expected to integrate and apply what they have learned in the courses, internship, overseas exchanges and other learning opportunities, they are expected to address a real-world issue and to formulate feasible solutions and/or policy recommendations for the issue. Students are expected to meet their supervisor regularly, present their findings and exhibit their final product in any formats after developing a mutual consent between students and supervisor.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "4802",
+      "title": "Graduation Capstone Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8968)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chee Hon,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (6210)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kwong Cheong,   Professor CHAN Chee Hon,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The graduation capstone project is about generating innovative ideas and implementing actionable knowledge to create impactful solutions. It offers students the opportunity to conduct a project on a selected topic under supervision related to data science and policy studies. While students are expected to integrate and apply what they have learned in the courses, internship, overseas exchanges and other learning opportunities, they are expected to address a real-world issue and to formulate feasible solutions and/or policy recommendations for the issue. Students are expected to meet their supervisor regularly, present their findings and exhibit their final product in any formats after developing a mutual consent between students and supervisor.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "4803",
+      "title": "Selected Topics in Data Science and Policy Studies III",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an in-depth analysis of important topics in data science and policy studies. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    },
+    {
+      "subject": "DSPS",
+      "course_code": "4804",
+      "title": "Selected Topics in Data Science and Policy Studies IV",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an in-depth analysis of important topics in data science and policy studies. The focus of the course may vary according to the area of expertise of the instructor and the interests of the class.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Data Science & Policy Stud PC",
+      "academic_org": "Data Science & Policy Stud PC"
+    }
+  ]
+}

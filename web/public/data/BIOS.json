@@ -1,0 +1,489 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T05:31:40.065019",
+    "subject": "BIOS",
+    "total_courses": 9,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "BIOS",
+      "course_code": "5001",
+      "title": "Introduction to Biostatistics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4489)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "200",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "200",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces basic statistical concepts and methods. The emphasis of the course is on practical applications: choosing the correct method for particular datasets and correct interpretation of the analysis results. Examples from different disciplines of public health including chronic and infectious disease epidemiology, environmental health, and health policy will be used to illustrate the use of biostatistical methods in answering important public health questions.",
+      "enrollment_requirement": "For students in MSc/PgD in Epidemiology and Biostatistics, MPhil in Public Health, PhD in Public Health, Master of Public Health, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "5002",
+      "title": "Linear Models",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1871)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. WANG Jingxuan",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. WANG Jingxuan",
+                  "dates": "26/2, 5/3, 12/3"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will provide a foundation for the practical analysis of data for which the primary outcome is a continuous variable. The course will begin with an introduction to ‘real-world’ data analysis with a motivating example looking at predictors of infant birthweight in Hong Kong. Methods for analysis of variance and regression analysis for continuous outcomes will then be discussed in detail with an emphasis on correct use of these methods in practice.",
+      "enrollment_requirement": "For students in  MSc in Epidemiology & Biostatistics Pg Dip in Epidemiology & Biostatistics Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "5003",
+      "title": "Categorical and Survival Data Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4549)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. CAO Lirong,   Dr. WANG Jingxuan,   Professor WANG Haitian",
+                  "dates": "12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. CAO Lirong,   Dr. WANG Jingxuan,   Professor WANG Haitian",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will provide a foundation for the practical analyses of categorical and time to event (survival) data. The course will cover the use of logistic regression models for use with binary outcomes and Cox proportional hazards regression models for time to event outcomes. Practical application of these models will be emphasized and model building and the checking of model assumptions will be covered in detail.",
+      "enrollment_requirement": "For students in  Pg Dip in Epidemiology & Biostatistics MSc in Epidemiology & Biostatistics Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "5005",
+      "title": "Clinical Trials",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1861)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun,   Professor WEI Yuchen",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun,   Professor WEI Yuchen",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun,   Professor WEI Yuchen",
+                  "dates": "17/9, 24/9"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "75",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of this course is to provide students with a theoretical and practical knowledge of the issues involved in the design, conduct, analysis and interpretation of randomized clinical trials. We will discuss the basic principle of randomization and its importance, proper randomization and blinding procedures, choice of control arm, the importance of clear definition of endpoints, methods to calculate sample size, other statistical considerations and ethical issues in clinical trials. Attention will be given to the problems of conducting clinical trials in both single center and multi-center, and covers trials initiated by industry as well as trials in academic setting. Students will be trained to develop skills to properly design clinical trial, critically analyze and carry out research and to communicate effectively.",
+      "enrollment_requirement": "For students in MSc/PgD in Epidemiology and Biostatistics, MPhil in Public Health, PhD in Public Health, Master of Public Health, MSc in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "5007",
+      "title": "Pharmaceutical Statistics Computing in SAS",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4316)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "27/2, 6/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "20/3"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (4317)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "09/01/2026 - 13/02/2026"
+                },
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "27/02/2026 - 06/03/2026"
+                },
+                {
+                  "time": "Fr 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Jingxuan,   Professor CHONG Ka Chun",
+                  "dates": "20/3"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of this course is to familiarize students with the SAS software for pharmaceutical application. The course starts with the introduction of basic SAS skills followed by using SAS to draw tables, figures, and listings (TFL) and to analyze medical data. Practical scenarios will be given to students to understand the needs of SAS in pharmaceutical industry.",
+      "enrollment_requirement": "For Student in MSc/PgD in Epidemiology and Biostatistics, MPhil/Phd/PgD in Public Health, Master of Public Health, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health Prequisite: BIOS5001",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6001",
+      "title": "Topics in Linear Models",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1059)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. CAO Lirong,   Professor WANG Haitian",
+                  "dates": "19/3, 26/3, 2/4, 9/4, 16/4, 23/4, 30/4, 7/5"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover advanced statistical modeling techniques for use with complex datasets. Topics will include Poisson and Negative Binomial regression for count outcomes, repeated measures ANOVA, GEE models and multilevel models for longitudinal data, multilevel models for clustered data.",
+      "enrollment_requirement": "For students in MSc/PgD in Epidemiology and Biostatistics, MPhil in Public Health, PhD in Public Health, Master of Public Health, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6002",
+      "title": "Topics in Multivariate Analysis",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1948)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. CAO Lirong,   Professor YANG Xue",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover methods importance in the analysis of data collected from questionnaires. Methods for translation and validation of questionnaires will be covered. Both exploratory and confirmatory factor analysis (under the framework of Structural Equation Models) will be discussed.",
+      "enrollment_requirement": "For students in MSc/PgD in Epidemiology and Biostatistics, MPhil in Public Health, PhD in Public Health, Master of Public Health, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6005",
+      "title": "Pharmaceutical Bioinformatics",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1028)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WANG Haitian,   Professor WANG Xin",
+                  "dates": "21/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WANG Haitian,   Professor WANG Xin",
+                  "dates": "4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will provide a broad overview and introduction to bioinformatics and its applications in pharmaceutical industry. Topics will cover (1) basic bioinformatics methods: hierarchical clustering, lasso, random forest, LDA, PCA, boosting, bootstrapping, etc. (2) data sequencing and management: microarray data, GWAS data, the raw data treatment and analysis method, batch effect and normalization, parallel programming in R; (3) phylogenic analysis; (4) Chemobioinformatics modeling, 3D structure, chemical - protein relation leading to drug discovery.",
+      "enrollment_requirement": "Pre-requisites: BIOS5001, BIOS5002  For students in MSc/PgD in Epidemiology and Biostatistics, MPhil/PhD/PgD in Public Health, Master of Public Heath, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6006",
+      "title": "Artificial Intelligence Methods for Medical Research and Pharmaceutical Science",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1053)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. LAI Xin,   Professor LAM Ching Yu,   Professor SUN Rui,   Professor WANG Haitian,   Professor WEI Yuchen",
+                  "dates": "27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. LAI Xin,   Professor LAM Ching Yu,   Professor SUN Rui,   Professor WANG Haitian,   Professor WEI Yuchen",
+                  "dates": "10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai,   Dr. LAI Xin,   Professor LAM Ching Yu,   Professor SUN Rui,   Professor WANG Haitian,   Professor WEI Yuchen",
+                  "dates": "8/5, 15/5, 22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an advanced module for students who are interested to understand how various artificial intelligence approaches including machine-learning and deep-learning can be used on top of traditional biostatistics methods. It emphasizes on practical knowledge and skills needed for doing this kind of research leveraging on our experience and proprietary development of the Automatic Retinal Image Analysis (ARIA) and the Bioinformatics and Genomic research with significant machine-learning and deep-learning components. On top of sharing of the real life experience other important research areas in medical and pharmaceutical science would also be discussed.",
+      "enrollment_requirement": "-For students of Master of Public Health Programme -For students of Master of Science in Epidemiology and Biostatistics Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    }
+  ]
+}

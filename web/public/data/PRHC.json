@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-10T12:44:28.355863",
+    "subject": "PRHC",
+    "total_courses": 1,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "PRHC",
+      "course_code": "5001",
+      "title": "Development of Primary Healthcare",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3723)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HUANG Junjie,   Professor WONG Carmen,   Professor WONG Chi Sang,   Professor ZHONG Chenwen",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HUANG Junjie,   Professor WONG Carmen,   Professor WONG Chi Sang,   Professor ZHONG Chenwen",
+                  "dates": "27/2, 6/3"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an update on the structure, functions, strengths, and development of primary healthcare, which has been evolving over time.",
+      "enrollment_requirement": "For students in Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health"
+    }
+  ]
+}
