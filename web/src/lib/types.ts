@@ -49,7 +49,6 @@ export interface CourseEnrollment {
   courseId: string
   course: InternalCourse // ✅ Strong internal type
   selectedSections: InternalSection[]
-  enrollmentDate: Date
   color: string
   isVisible: boolean
 }

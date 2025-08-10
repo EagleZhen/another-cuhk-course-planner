@@ -23,7 +23,7 @@ interface CourseSearchProps {
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
-  onDataUpdate?: (timestamp: Date) => void // Callback when fresh data is loaded
+  onDataUpdate?: (timestamp: Date) => void // Callback when data is loaded
 }
 
 export default function CourseSearch({ 
@@ -144,7 +144,7 @@ export default function CourseSearch({
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
           const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map(d => d.getTime())))
           console.log(`🕒 Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`)
-          onDataUpdate(oldestTimestamp)
+          onDataUpdate(oldestTimestamp) // Just pass timestamp, data freshness is handled by localStorage migration
         }
         
       } catch (error) {

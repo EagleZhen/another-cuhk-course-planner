@@ -25,6 +25,9 @@ export default function Home() {
   // Current term state
   const [currentTerm, setCurrentTerm] = useState("2025-26 Term 1")
   
+  // Current data format version for localStorage migration
+  const SCHEDULE_DATA_VERSION = 1
+  
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
@@ -33,19 +36,56 @@ export default function Home() {
   // Auto-restore schedule from localStorage when term changes
   useEffect(() => {
     try {
-      const savedSchedule = localStorage.getItem(`schedule_${currentTerm}`)
-      if (savedSchedule) {
-        const parsedSchedule: CourseEnrollment[] = JSON.parse(savedSchedule)
-        // Restore Date objects and regenerate colors for consistency
-        const restoredSchedule = parsedSchedule.map((enrollment) => {
+      const savedData = localStorage.getItem(`schedule_${currentTerm}`)
+      if (savedData) {
+        const parsedData = JSON.parse(savedData)
+        
+        // Handle both old format (array) and new format (versioned object)
+        let parsedSchedule: CourseEnrollment[]
+        if (Array.isArray(parsedData)) {
+          // Old format - just array of enrollments
+          console.log('📦 Detected old localStorage format, migrating...')
+          parsedSchedule = parsedData
+        } else if (parsedData.version === SCHEDULE_DATA_VERSION) {
+          // Current format - versioned object
+          parsedSchedule = parsedData.enrollments
+          console.log(`✅ Loaded schedule data version ${parsedData.version}`)
+        } else {
+          // Unknown version - clear and start fresh
+          console.warn(`⚠️ Unknown schedule data version: ${parsedData.version}, clearing...`)
+          localStorage.removeItem(`schedule_${currentTerm}`)
+          setCourseEnrollments([])
+          setSelectedSections(new Map())
+          return
+        }
+        
+        // Validate and migrate enrollment data
+        const migratedSchedule = parsedSchedule.map((enrollment) => {
           const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+          
+          // Migrate courseId if it's in old format (contains underscore + timestamp)
+          let migratedCourseId = enrollment.courseId
+          if (enrollment.courseId && enrollment.courseId.includes('_') && enrollment.courseId !== courseKey) {
+            console.log(`🔄 Migrating courseId: ${enrollment.courseId} → ${courseKey}`)
+            migratedCourseId = courseKey
+          }
+          
+          // Validate required fields
+          if (!enrollment.course?.subject || !enrollment.course?.courseCode) {
+            console.warn('⚠️ Invalid enrollment data, skipping:', enrollment)
+            return null
+          }
+          
           return {
             ...enrollment,
-            enrollmentDate: new Date(enrollment.enrollmentDate),
-            color: getDeterministicColor(courseKey) // Regenerate color to ensure consistency
+            courseId: migratedCourseId, // Use migrated courseId
+            color: getDeterministicColor(courseKey), // Regenerate color for consistency
+            isVisible: enrollment.isVisible ?? true // Default to visible if undefined
           }
-        })
-        setCourseEnrollments(restoredSchedule)
+        }).filter(Boolean) // Remove invalid enrollments
+        
+        setCourseEnrollments(migratedSchedule as CourseEnrollment[])
+        console.log(`✅ Restored ${migratedSchedule.length} enrollments for ${currentTerm}`)
       } else {
         // No saved schedule for this term, start fresh
         setCourseEnrollments([])
@@ -54,15 +94,41 @@ export default function Home() {
       setSelectedSections(new Map())
     } catch (error) {
       console.error('Failed to restore schedule:', error)
+      // Clear corrupted localStorage data
+      localStorage.removeItem(`schedule_${currentTerm}`)
       setCourseEnrollments([])
     }
-  }, [currentTerm])
+  }, [currentTerm, SCHEDULE_DATA_VERSION])
+
+  // Separate effect to migrate selectedEnrollment after enrollments are loaded
+  useEffect(() => {
+    if (selectedEnrollment && selectedEnrollment.includes('_') && courseEnrollments.length > 0) {
+      const migratedEnrollment = courseEnrollments.find(enrollment => {
+        const oldCourseId = selectedEnrollment
+        const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+        return oldCourseId.startsWith(courseKey + '_')
+      })
+      
+      if (migratedEnrollment) {
+        console.log(`🔄 Migrating selectedEnrollment: ${selectedEnrollment} → ${migratedEnrollment.courseId}`)
+        setSelectedEnrollment(migratedEnrollment.courseId)
+      } else {
+        // Clear invalid selection
+        setSelectedEnrollment(null)
+      }
+    }
+  }, [courseEnrollments, selectedEnrollment])
 
   // Auto-save schedule to localStorage whenever courseEnrollments changes
   useEffect(() => {
     try {
       if (courseEnrollments.length > 0) {
-        localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(courseEnrollments))
+        const scheduleData = {
+          version: SCHEDULE_DATA_VERSION,
+          enrollments: courseEnrollments,
+          savedAt: new Date().toISOString()
+        }
+        localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
       } else {
         // Remove empty schedule from localStorage to keep it clean
         localStorage.removeItem(`schedule_${currentTerm}`)
@@ -166,7 +232,7 @@ export default function Home() {
       setCourseEnrollments(prev => 
         prev.map((enrollment, index) => 
           index === existingEnrollmentIndex 
-            ? { ...enrollment, selectedSections: selectedSectionsForCourse, enrollmentDate: new Date() }
+            ? { ...enrollment, selectedSections: selectedSectionsForCourse }
             : enrollment
         )
       )
@@ -178,7 +244,6 @@ export default function Home() {
         courseId: courseKey,
         course,
         selectedSections: selectedSectionsForCourse,
-        enrollmentDate: new Date(),
         color: assignedColor,
         isVisible: true
       }
@@ -196,9 +261,10 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
-  // Handle data updates from CourseSearch
+  // Handle data updates from CourseSearch - just update timestamp
   const handleDataUpdate = useCallback((timestamp: Date) => {
     setLastDataUpdate(timestamp)
+    console.log(`� Course data loaded from: ${timestamp.toLocaleString()}`)
   }, [])
 
   return (
