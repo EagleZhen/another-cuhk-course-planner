@@ -142,7 +142,7 @@ export default function WeeklyCalendar({
                 variant={localDisplayConfig.showTime ? "default" : "outline"}
                 size="sm"
                 onClick={toggleTime}
-                className="h-6 px-2 text-xs font-normal cursor-pointer"
+                className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
               >
                 Time
               </Button>
@@ -150,7 +150,7 @@ export default function WeeklyCalendar({
                 variant={localDisplayConfig.showLocation ? "default" : "outline"}
                 size="sm"
                 onClick={toggleLocation}
-                className="h-6 px-2 text-xs font-normal cursor-pointer"
+                className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
               >
                 Location
               </Button>
@@ -158,7 +158,7 @@ export default function WeeklyCalendar({
                 variant={localDisplayConfig.showInstructor ? "default" : "outline"}
                 size="sm"
                 onClick={toggleInstructor}
-                className="h-6 px-2 text-xs font-normal cursor-pointer"
+                className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
               >
                 Instructor
               </Button>
