@@ -119,7 +119,7 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
   const events: CalendarEvent[] = []
   
   enrollments
-    .filter(enrollment => enrollment.isVisible)
+    .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
     .forEach(enrollment => {
       enrollment.selectedSections.forEach(section => {
         section.meetings.forEach(meeting => {
@@ -174,7 +174,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
   }> = []
   
   enrollments
-    .filter(enrollment => enrollment.isVisible)
+    .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
     .forEach(enrollment => {
       enrollment.selectedSections.forEach(section => {
         section.meetings.forEach(meeting => {
