@@ -574,23 +574,6 @@ function CourseCard({
                           </div>
                           
                           <div className="flex items-center gap-2 flex-shrink-0">
-                            {getAvailabilityBadges(section.availability).map((badge) => (
-                              <Badge
-                                key={badge.type}
-                                variant={badge.style.variant}
-                                className={`text-xs ${badge.style.className} flex items-center gap-1`}
-                                title={badge.type === 'availability' 
-                                  ? `${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                  : `Waitlist: ${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
-                                }
-                              >
-                                {badge.type === 'availability' ? (
-                                  <><Users className="w-3 h-3" />{badge.text}</>
-                                ) : (
-                                  <><Clock className="w-3 h-3" />{badge.text}</>
-                                )}
-                              </Badge>
-                            ))}
                             <Button
                               variant="ghost"
                               size="sm"
@@ -606,13 +589,37 @@ function CourseCard({
                           </div>
                         </div>
                         
-                        {/* Teaching Language - section level */}
-                        {section.classAttributes && (
-                          <div className="flex items-center gap-1 text-gray-500 text-[12px] mb-2">
-                            <span>🌐</span>
-                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                              {section.classAttributes}
-                            </span>
+                        {/* Teaching Language + Availability - section level */}
+                        {(section.classAttributes || getAvailabilityBadges(section.availability).length > 0) && (
+                          <div className="flex items-center justify-between mb-2 gap-2">
+                            {section.classAttributes ? (
+                              <div className="flex items-center gap-1 text-gray-500 text-[12px] min-w-0 flex-1">
+                                <span className="flex-shrink-0">🌐</span>
+                                <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                                  {section.classAttributes}
+                                </span>
+                              </div>
+                            ) : <div className="flex-1" />}
+                            
+                            <div className="flex items-center gap-1 flex-shrink-0">
+                              {getAvailabilityBadges(section.availability).map((badge) => (
+                                <Badge
+                                  key={badge.type}
+                                  variant={badge.style.variant}
+                                  className={`text-[10px] ${badge.style.className} flex items-center gap-1`}
+                                  title={badge.type === 'availability' 
+                                    ? `${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                    : `Waitlist: ${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                  }
+                                >
+                                  {badge.type === 'availability' ? (
+                                    <><Users className="w-2.5 h-2.5" />{badge.text}</>
+                                  ) : (
+                                    <><Clock className="w-2.5 h-2.5" />{badge.text}</>
+                                  )}
+                                </Badge>
+                              ))}
+                            </div>
                           </div>
                         )}
                         
