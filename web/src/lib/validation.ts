@@ -27,7 +27,8 @@ const ExternalSectionSchema = z.object({
     enrolled: '0',
     status: 'Unknown',
     available_seats: '0'
-  })
+  }),
+  class_attributes: z.string().default("") // Language of instruction
 })
 
 const ExternalTermSchema = z.object({
@@ -115,7 +116,8 @@ function transformSection(external: z.infer<typeof ExternalSectionSchema>, cours
     sectionCode: external.section,
     sectionType,
     meetings,
-    availability
+    availability,
+    classAttributes: external.class_attributes || "" // Transform to camelCase, ensure non-null
   }
 }
 

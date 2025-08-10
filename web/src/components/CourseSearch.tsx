@@ -622,6 +622,16 @@ function CourseCard({
                                     <span className="truncate" title={location}>{location}</span>
                                   </div>
                                 )}
+                                
+                                {/* Teaching Language - shown once per section, not per meeting */}
+                                {index === 0 && section.classAttributes.trim() && (
+                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
+                                    <span>🌐</span>
+                                    <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                                      {section.classAttributes}
+                                    </span>
+                                  </div>
+                                )}
                               </div>
                             )
                           })}
