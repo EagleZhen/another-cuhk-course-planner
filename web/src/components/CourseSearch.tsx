@@ -48,6 +48,15 @@ export default function CourseSearch({
     }
   }, [onSearchControlReady])
   const [loading, setLoading] = useState(false)
+  const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
+  const [performanceStats, setPerformanceStats] = useState<{
+    totalLoadTime?: number
+    subjectLoadTimes: { subject: string, time: number, size: number }[]
+    totalDataSize: number
+  }>({
+    subjectLoadTimes: [],
+    totalDataSize: 0
+  })
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
 
@@ -86,23 +95,91 @@ export default function CourseSearch({
   useEffect(() => {
     const loadCourseData = async () => {
       setLoading(true)
+      
+      // Performance tracking
+      const startTime = performance.now()
+      const subjectLoadTimes: { subject: string, time: number, size: number }[] = []
+      let totalDataSize = 0
+      
       try {
-        // Static list of available subjects based on actual files
-        const availableSubjects = [
-          'AIST', 'CENG', 'CSCI', 'ENGG', 'FINA', 'PHYS',
-          'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN'
+        // Dynamically discover available subjects by probing for files
+        const potentialSubjects = [
+          'ACCT', 'ACPY', 'AENP', 'AEPT', 'AIMS', 'AIST', 'ANAT', 'ANIC', 'ANTH', 'APEP', 
+          'ARAB', 'ARCH', 'ARTS', 'ASEI', 'BAMS', 'BASA', 'BBMS', 'BCHE', 'BCHM', 'BCJC',
+          'BCME', 'BECE', 'BEHM', 'BEST', 'BIOL', 'BIOS', 'BMBL', 'BMED', 'BMEG', 'BMJC',
+          'BSCG', 'BUDS', 'CCNU', 'CCSS', 'CDAS', 'CENG', 'CGEN', 'CHCU', 'CHED', 'CHEM',
+          'CHES', 'CHLL', 'CHLT', 'CHPR', 'CHPY', 'CLCC', 'CLCE', 'CLCH', 'CLCP', 'CLED',
+          'CLGY', 'CMBI', 'CMSC', 'CNGT', 'CODS', 'COMM', 'COOP', 'CSCI', 'CULS', 'CUMT',
+          'CURE', 'CVSM', 'DBAC', 'DIUS', 'DOTE', 'DROI', 'DSME', 'DSPS', 'EASC', 'ECLT',
+          'ECON', 'ECTM', 'EDUC', 'EEEN', 'EESC', 'EIHP', 'ELED', 'ELEG', 'ELTU', 'EMBA',
+          'EMBF', 'ENGE', 'ENGG', 'ENLC', 'ENLT', 'ENSC', 'EPBI', 'EPID', 'EPIN', 'EPSY',
+          'ESGS', 'ESSC', 'ESTR', 'EXSC', 'FAAS', 'FAME', 'FINA', 'FNSC', 'FREN', 'FTEC',
+          'GAST', 'GDRS', 'GECC', 'GECW', 'GEJC', 'GEMC', 'GENA', 'GEOR', 'GERM', 'GESC',
+          'GESH', 'GEUC', 'GEWS', 'GEYS', 'GISM', 'GLBS', 'GLEF', 'GLOF', 'GLSD', 'GNBF',
+          'GNED', 'GPAD', 'GPEC', 'GPGC', 'GPSU', 'GRMD', 'GRON', 'HIST', 'HKSL', 'HPSB',
+          'HSGS', 'HSOC', 'HSYS', 'HTMG', 'IASP', 'IBBA', 'IEMS', 'IERG', 'IMSC', 'INDA',
+          'INFD', 'ITAL', 'JASP', 'KORE', 'LAWS', 'LDTE', 'LING', 'LSCI', 'LSCM', 'LSED',
+          'MAED', 'MAEG', 'MAPE', 'MASE', 'MATH', 'MAVE', 'MBAC', 'MBTE', 'MCLE', 'MCLS',
+          'MCNS', 'MECM', 'MEDF', 'MEDM', 'MEDP', 'MEDU', 'MESC', 'MFMD', 'MGNT', 'MHLS',
+          'MICY', 'MIEG', 'MITE', 'MKTG', 'MLSC', 'MMAT', 'MPTE', 'MPUP', 'MRGO', 'MSAE',
+          'MSEG', 'MSMR', 'MTCI', 'MUSC', 'NSCI', 'NSSC', 'NURS', 'OBGY', 'OBSC', 'OENV',
+          'OMBA', 'ORLC', 'ORTY', 'OVSC', 'PBHT', 'PEDU', 'PGDC', 'PHYS', 'UGCP', 'UGEA', 
+          'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN'
         ]
+        
+        console.log(`📂 Probing for available subjects from ${potentialSubjects.length} possibilities...`)
+        setLoadingProgress({ loaded: 0, total: potentialSubjects.length, currentSubject: 'Discovering subjects...' })
+        
+        const availableSubjects: string[] = []
+        
+        // Check which files actually exist by making HEAD requests (lightweight)
+        const probePromises = potentialSubjects.map(async (subject) => {
+          try {
+            const response = await fetch(`/data/${subject}.json`, { method: 'HEAD' })
+            if (response.ok) {
+              return subject
+            }
+          } catch {
+            // File doesn't exist
+          }
+          return null
+        })
+        
+        const probeResults = await Promise.all(probePromises)
+        availableSubjects.push(...probeResults.filter((subject): subject is string => subject !== null))
+        availableSubjects.sort()
+        
+        console.log(`📂 Discovered ${availableSubjects.length} available subjects: ${availableSubjects.join(', ')}`)
+
+        setLoadingProgress({ loaded: 0, total: availableSubjects.length, currentSubject: '' })
 
         const allCoursesData: InternalCourse[] = []
         const scrapingTimestamps: Date[] = []
         let successCount = 0
 
-        // Load each subject file
-        for (const subject of availableSubjects) {
+        // Load each subject file with performance tracking
+        for (let i = 0; i < availableSubjects.length; i++) {
+          const subject = availableSubjects[i]
+          setLoadingProgress({ loaded: i, total: availableSubjects.length, currentSubject: subject })
+          
+          const subjectStartTime = performance.now()
+          
           try {
             const response = await fetch(`/data/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
+              const subjectEndTime = performance.now()
+              
+              // Calculate approximate data size (rough estimate)
+              const dataSize = JSON.stringify(rawData).length
+              totalDataSize += dataSize
+              
+              const loadTime = subjectEndTime - subjectStartTime
+              subjectLoadTimes.push({ 
+                subject, 
+                time: Math.round(loadTime), 
+                size: Math.round(dataSize / 1024) // KB
+              })
               
               // Extract scraping timestamp from metadata
               if (rawData.metadata?.scraped_at) {
@@ -120,19 +197,44 @@ export default function CourseSearch({
                 const transformedData = transformExternalCourseData(rawData)
                 allCoursesData.push(...transformedData.courses)
                 successCount++
-                console.log(`✅ Loaded ${transformedData.courses.length} courses from ${subject}`)
+                console.log(`✅ ${subject}: ${transformedData.courses.length} courses, ${Math.round(dataSize / 1024)}KB, ${Math.round(loadTime)}ms`)
               } else {
                 console.warn(`Invalid data structure in ${subject}.json`)
               }
             } else {
               console.warn(`Failed to load ${subject}.json: ${response.status}`)
+              subjectLoadTimes.push({ subject, time: 0, size: 0 })
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
+            subjectLoadTimes.push({ subject, time: 0, size: 0 })
           }
         }
 
+        // Calculate total load time and log performance summary
+        const totalLoadTime = performance.now() - startTime
+        
         console.log(`📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`)
+        console.log(`⚡ Performance Summary:`)
+        console.log(`   Total load time: ${Math.round(totalLoadTime)}ms (${(totalLoadTime/1000).toFixed(1)}s)`)
+        console.log(`   Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`)
+        console.log(`   Average per subject: ${Math.round(totalLoadTime / availableSubjects.length)}ms`)
+        
+        // Log detailed per-subject performance
+        if (subjectLoadTimes.length > 0) {
+          console.log(`   Per-subject breakdown:`)
+          subjectLoadTimes
+            .filter(s => s.time > 0)
+            .sort((a, b) => b.time - a.time) // Sort by load time (slowest first)
+            .forEach(s => console.log(`     ${s.subject}: ${s.time}ms, ${s.size}KB`))
+        }
+        
+        // Store performance stats for potential UI display
+        setPerformanceStats({
+          totalLoadTime: Math.round(totalLoadTime),
+          subjectLoadTimes,
+          totalDataSize: Math.round(totalDataSize / 1024) // KB
+        })
         
         if (successCount === 0) {
           console.error('❌ No course data could be loaded - check that /data/ files exist')
@@ -151,6 +253,7 @@ export default function CourseSearch({
         console.error('Failed to load course data:', error)
       } finally {
         setLoading(false)
+        setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
       }
     }
 
@@ -271,7 +374,34 @@ export default function CourseSearch({
       <div className="space-y-3">
         {loading ? (
           <div className="text-center py-8 text-gray-500">
-            Loading course data...
+            <div className="space-y-2">
+              <div>Loading course data...</div>
+              {loadingProgress.total > 0 && (
+                <>
+                  <div className="text-sm">
+                    {loadingProgress.currentSubject && (
+                      <div>Loading {loadingProgress.currentSubject}...</div>
+                    )}
+                    <div>
+                      {loadingProgress.loaded}/{loadingProgress.total} subjects
+                      {loadingProgress.total > 0 && (
+                        <span className="ml-2">
+                          ({Math.round((loadingProgress.loaded / loadingProgress.total) * 100)}%)
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mx-auto max-w-xs">
+                    <div 
+                      className="bg-blue-500 h-2 rounded-full transition-all duration-200" 
+                      style={{ 
+                        width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%` 
+                      }}
+                    ></div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         ) : searchResults.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
