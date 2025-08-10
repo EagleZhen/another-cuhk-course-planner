@@ -148,29 +148,6 @@ class ScrapingProgressTracker:
         except Exception as e:
             self.logger.error(f"Could not save progress: {e}")
     
-    def should_skip_subject(self, subject: str, skip_recent_hours: float) -> bool:
-        """Check if subject was recently scraped and should be skipped"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
-        
-        if subject not in subjects:
-            return False
-        
-        subject_data = subjects[subject]
-        
-        # Skip if completed recently
-        if subject_data.get("status") == "completed":
-            last_scraped = subject_data.get("last_scraped")
-            if last_scraped:
-                try:
-                    scraped_time = datetime.fromisoformat(last_scraped.replace('Z', '+00:00'))
-                    if datetime.now() - scraped_time < timedelta(hours=skip_recent_hours):
-                        self.logger.info(f"Skipping {subject}: completed {last_scraped} (within {skip_recent_hours}h)")
-                        return True
-                except Exception as e:
-                    self.logger.warning(f"Could not parse last_scraped time for {subject}: {e}")
-        
-        return False
-    
     def start_subject(self, subject: str, estimated_courses: int = 0):
         """Mark subject as started"""
         subjects = self.progress_data["scraping_log"]["subjects"]
@@ -1204,12 +1181,6 @@ class CuhkScraper:
         
         for i, subject in enumerate(subjects):
             self.logger.info(f"🔄 Processing {subject} ({i+1}/{len(subjects)})")
-            
-            # Check if subject should be skipped (freshness check)
-            if self.progress_tracker and self.progress_tracker.should_skip_subject(subject, config.skip_recent_hours):
-                self.progress_tracker.skip_subject(subject, f"completed within {config.skip_recent_hours}h")
-                completed_subjects.append(subject)  # Count as completed
-                continue
             
             # Track start time for duration calculation
             start_time = time.time()
