@@ -22,6 +22,7 @@ interface CourseSearchProps {
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
+  onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
 }
 
 export default function CourseSearch({ 
@@ -33,9 +34,17 @@ export default function CourseSearch({
   onTermChange, 
   selectedSections, 
   onSelectedSectionsChange,
-  onSelectEnrollment
+  onSelectEnrollment,
+  onSearchControlReady
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
+  
+  // Expose search function to parent
+  useEffect(() => {
+    if (onSearchControlReady) {
+      onSearchControlReady(setSearchTerm)
+    }
+  }, [onSearchControlReady])
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
@@ -76,23 +85,59 @@ export default function CourseSearch({
     const loadCourseData = async () => {
       setLoading(true)
       try {
-        const subjects = ['CSCI', 'AIST', 'PHYS', 'FINA']
-        const allCoursesData: InternalCourse[] = []
+        // First, try to load index/manifest to get available subjects
+        let availableSubjects: string[] = []
+        
+        try {
+          const indexResponse = await fetch('/data/index.json')
+          if (indexResponse.ok) {
+            const indexData = await indexResponse.json()
+            availableSubjects = indexData.subjects?.map((s: { code: string }) => s.code) || []
+            console.log(`Found ${availableSubjects.length} subjects from index`)
+          }
+        } catch {
+          console.warn('No index.json found, using fallback subject discovery')
+        }
 
-        for (const subject of subjects) {
+        // Fallback: try common subjects if no index available
+        if (availableSubjects.length === 0) {
+          const commonSubjects = [
+            'CSCI', 'AIST', 'PHYS', 'ENGG', 'CENG', 'FINA', 
+            'UGCP', 'UGFN', 'UGFH', 'UGEA', 'UGEB', 'UGEC', 'UGED'
+          ]
+          availableSubjects = commonSubjects
+        }
+
+        const allCoursesData: InternalCourse[] = []
+        let successCount = 0
+
+        // Load each subject with clean filename (no timestamp)
+        for (const subject of availableSubjects) {
           try {
-            const response = await fetch(`/data/${subject}_20250804_002506.json`)
+            const response = await fetch(`/data/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
-              const transformedData = transformExternalCourseData(rawData)
-              allCoursesData.push(...transformedData.courses)
+              
+              // Validate data structure
+              if (rawData.courses && Array.isArray(rawData.courses)) {
+                const transformedData = transformExternalCourseData(rawData)
+                allCoursesData.push(...transformedData.courses)
+                successCount++
+                console.log(`✅ Loaded ${transformedData.courses.length} courses from ${subject}`)
+              } else {
+                console.warn(`Invalid data structure in ${subject}.json`)
+              }
+            } else {
+              console.warn(`Failed to load ${subject}.json: ${response.status}`)
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
           }
         }
 
+        console.log(`📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`)
         setAllCourses(allCoursesData)
+        
       } catch (error) {
         console.error('Failed to load course data:', error)
       } finally {

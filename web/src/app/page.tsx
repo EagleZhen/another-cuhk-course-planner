@@ -1,15 +1,18 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 
 // Color assignment is now handled in courseUtils.ts
 
 export default function Home() {
+  // Reference to CourseSearch's setSearchTerm function
+  const setSearchTermRef = useRef<((term: string) => void) | null>(null)
   // Available terms
   const availableTerms = [
     "2025-26 Term 1",
@@ -234,24 +237,31 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <Card>
             <CardHeader>
-              <div className="flex items-center justify-between">
+              <div className="space-y-4">
                 <div>
                   <CardTitle>Search & Add Courses</CardTitle>
                   <CardDescription>
-                    Search by course code, title, or instructor name. Click to add courses to your schedule.
+                    Search by course code, title, or instructor name. Click subjects below to filter.
                   </CardDescription>
                 </div>
                 
-                {/* Available Subjects - Compact */}
-                <div className="flex gap-2 flex-wrap">
-                  {['CSCI', 'AIST', 'PHYS', 'FINA'].map((subject) => (
-                    <div
-                      key={subject}
-                      className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium"
-                    >
-                      {subject}
-                    </div>
-                  ))}
+                {/* Available Subjects - Modern Toggle Interface */}
+                <div className="space-y-2">
+                  <div className="text-sm font-medium text-gray-700">Available Subjects</div>
+                  <div className="flex gap-2 flex-wrap">
+                    {['AIST', 'CENG', 'CSCI', 'ENGG', 'FINA', 'PHYS', 'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN'].map((subject) => (
+                      <SubjectToggle
+                        key={subject}
+                        subject={subject}
+                        onSubjectSelect={(selectedSubject: string) => {
+                          // Use React ref to update search term directly
+                          if (setSearchTermRef.current) {
+                            setSearchTermRef.current(selectedSubject);
+                          }
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </CardHeader>
@@ -266,11 +276,43 @@ export default function Home() {
               selectedSections={selectedSections}     // Data prop / State prop
               onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
               onSelectEnrollment={handleSelectEnrollment}     // Event handler prop
+              onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
               />
             </CardContent>
           </Card>
         </div>
       </div>
     </div>
+  )
+}
+
+// Modern Subject Toggle Component
+function SubjectToggle({ 
+  subject, 
+  onSubjectSelect 
+}: { 
+  subject: string
+  onSubjectSelect: (subject: string) => void 
+}) {
+  const [isActive, setIsActive] = useState(false)
+
+  const handleClick = () => {
+    setIsActive(true)
+    onSubjectSelect(subject)
+    
+    // Auto-deactivate after a short delay for visual feedback
+    setTimeout(() => setIsActive(false), 300)
+  }
+
+  return (
+    <Button
+      variant={isActive ? "default" : "outline"}
+      size="sm"
+      onClick={handleClick}
+      className="h-7 px-3 text-xs font-medium cursor-pointer transition-all duration-200"
+      title={`Search ${subject} courses`}
+    >
+      {subject}
+    </Button>
   )
 }

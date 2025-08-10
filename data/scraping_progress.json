@@ -1,17 +1,391 @@
 {
   "scraping_log": {
     "created_at": "2025-07-29T19:02:27.927695",
-    "last_updated": "2025-07-29T19:02:27.928044",
-    "total_subjects": 2,
-    "completed": 0,
+    "last_updated": "2025-08-09T14:33:28.113170",
+    "total_subjects": 12,
+    "completed": 11,
     "failed": 0,
-    "skipped": 0,
+    "skipped": 41,
     "subjects": {
       "CSCI": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:53:14.260750",
+        "reason": "completed within 24h"
+      },
+      "ACCT": {
         "status": "in_progress",
-        "started_at": "2025-07-29T19:02:27.927859",
-        "estimated_courses": 0,
+        "started_at": "2025-08-09T13:49:44.413046",
+        "estimated_courses": 95,
+        "courses_scraped": 11,
+        "completed_courses": [
+          "1111",
+          "2111",
+          "2121",
+          "2151",
+          "3001",
+          "3002",
+          "3003",
+          "3004",
+          "3005",
+          "3111",
+          "3112"
+        ],
+        "last_course_completed": "3112",
+        "last_progress_update": "2025-08-09T13:50:46.061555",
+        "retry_count": 0
+      },
+      "ACPY": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.790318",
+        "reason": "completed within 24h"
+      },
+      "AENP": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.791176",
+        "reason": "completed within 24h"
+      },
+      "AEPT": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.791980",
+        "reason": "completed within 24h"
+      },
+      "AIMS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.792713",
+        "reason": "completed within 24h"
+      },
+      "AIST": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:02:34.512736",
+        "courses_count": 16,
+        "courses_scraped": 16,
+        "output_file": "data/AIST.json",
+        "duration_minutes": 1.87,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "ANAT": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.794201",
+        "reason": "completed within 24h"
+      },
+      "ANIC": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.794974",
+        "reason": "completed within 24h"
+      },
+      "ANTH": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.795592",
+        "reason": "completed within 24h"
+      },
+      "APEP": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.796251",
+        "reason": "completed within 24h"
+      },
+      "ARAB": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.796819",
+        "reason": "completed within 24h"
+      },
+      "ARCH": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.797393",
+        "reason": "completed within 24h"
+      },
+      "ARTS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.797991",
+        "reason": "completed within 24h"
+      },
+      "ASEI": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.798557",
+        "reason": "completed within 24h"
+      },
+      "BAMS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.799141",
+        "reason": "completed within 24h"
+      },
+      "BASA": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.799666",
+        "reason": "completed within 24h"
+      },
+      "BBMS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.800252",
+        "reason": "completed within 24h"
+      },
+      "BCHE": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.800765",
+        "reason": "completed within 24h"
+      },
+      "BCHM": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.801261",
+        "reason": "completed within 24h"
+      },
+      "BCJC": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.801757",
+        "reason": "completed within 24h"
+      },
+      "BCME": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.802252",
+        "reason": "completed within 24h"
+      },
+      "BECE": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.802731",
+        "reason": "completed within 24h"
+      },
+      "BEHM": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.803204",
+        "reason": "completed within 24h"
+      },
+      "BEST": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.803674",
+        "reason": "completed within 24h"
+      },
+      "BIOL": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.804154",
+        "reason": "completed within 24h"
+      },
+      "BIOS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.804617",
+        "reason": "completed within 24h"
+      },
+      "BMBL": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.805126",
+        "reason": "completed within 24h"
+      },
+      "BMED": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.805565",
+        "reason": "completed within 24h"
+      },
+      "BMEG": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.805997",
+        "reason": "completed within 24h"
+      },
+      "BMJC": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.806424",
+        "reason": "completed within 24h"
+      },
+      "BSCG": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.806810",
+        "reason": "completed within 24h"
+      },
+      "BUDS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.807183",
+        "reason": "completed within 24h"
+      },
+      "CCNU": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.807553",
+        "reason": "completed within 24h"
+      },
+      "CCSS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.807912",
+        "reason": "completed within 24h"
+      },
+      "CDAS": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.808271",
+        "reason": "completed within 24h"
+      },
+      "CENG": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:00:41.442775",
+        "courses_count": 12,
+        "courses_scraped": 12,
+        "output_file": "data/CENG.json",
+        "duration_minutes": 1.69,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "CGEN": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.808962",
+        "reason": "completed within 24h"
+      },
+      "CHCU": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.809291",
+        "reason": "completed within 24h"
+      },
+      "CHED": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.809618",
+        "reason": "completed within 24h"
+      },
+      "CHEM": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.809943",
+        "reason": "completed within 24h"
+      },
+      "CHES": {
+        "status": "skipped",
+        "skipped_at": "2025-08-09T13:49:11.810268",
+        "reason": "completed within 24h"
+      },
+      "CHLL": {
+        "status": "in_progress",
+        "started_at": "2025-08-09T13:49:15.267354",
+        "estimated_courses": 187,
         "courses_scraped": 0,
+        "completed_courses": [],
+        "last_course_completed": "",
+        "last_progress_update": "2025-08-09T13:49:15.267363",
+        "retry_count": 0
+      },
+      "ENGG": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T13:58:58.898279",
+        "courses_count": 48,
+        "courses_scraped": 48,
+        "output_file": "data/ENGG.json",
+        "duration_minutes": 5.74,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "PHYS": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:11:45.750739",
+        "courses_count": 100,
+        "courses_scraped": 100,
+        "output_file": "data/PHYS.json",
+        "duration_minutes": 9.17,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGCP": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:11:58.924672",
+        "courses_count": 2,
+        "courses_scraped": 2,
+        "output_file": "data/UGCP.json",
+        "duration_minutes": 0.2,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGFN": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:14:51.983554",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/UGFN.json",
+        "duration_minutes": 2.87,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGFH": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:17:38.081119",
+        "courses_count": 1,
+        "courses_scraped": 1,
+        "output_file": "data/UGFH.json",
+        "duration_minutes": 2.75,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGEA": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:20:10.399891",
+        "courses_count": 30,
+        "courses_scraped": 30,
+        "output_file": "data/UGEA.json",
+        "duration_minutes": 2.52,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGEB": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:23:11.883577",
+        "courses_count": 58,
+        "courses_scraped": 58,
+        "output_file": "data/UGEB.json",
+        "duration_minutes": 3.01,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGEC": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:28:47.752187",
+        "courses_count": 128,
+        "courses_scraped": 128,
+        "output_file": "data/UGEC.json",
+        "duration_minutes": 5.58,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
+        "retry_count": 0
+      },
+      "UGED": {
+        "status": "completed",
+        "last_scraped": "2025-08-09T14:33:28.113109",
+        "courses_count": 77,
+        "courses_scraped": 77,
+        "output_file": "data/UGED.json",
+        "duration_minutes": 4.66,
+        "config": {
+          "get_details": true,
+          "get_enrollment_details": true,
+          "max_courses": null
+        },
         "retry_count": 0
       }
     }

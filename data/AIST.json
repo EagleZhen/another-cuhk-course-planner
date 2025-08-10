@@ -1,0 +1,2684 @@
+{
+  "metadata": {
+    "scraped_at": "2025-08-09T14:02:34.506177",
+    "subject": "AIST",
+    "total_courses": 16,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "AIST",
+      "course_code": "1000",
+      "title": "Introduction to Artificial Intelligence and Machine Learning",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7015)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-J01-PRJ (7016)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the basic concepts, problems, approaches and applications of artificial intelligence and machine learning. It provides an introduction to various topics in AI systems and technologies, e.g., an overview of AI, machine learning theory and methods, ML in data science, neural networks and deep learning, hardware and software technologies for AI systems, natural language processing, computer vision, AI in games and sports, biomedical intelligence, intelligent manufacturing and robotics, ethical and legal issues with AI, etc. It discusses the applications of engineering principles to selected AI and ML problems. It also explores the future possibilities and challenges of AI.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "1110",
+      "title": "Introduction to Computing using Python",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6148)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (6883)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide an intensive hands-on introduction to the Python programming language. Topics include Python programming language syntax, basic data types, operators for various data types, function definition and usage, file and operating system support, object-oriented programming, functional programming, module creation, visualization, multi-threaded programming, networking, cryptography, web/database access. The course will go through some important Python packages for artificial intelligence and machine learning applications, e.g., NumPy and SciPy, and use these packages to accomplish some simple artificial intelligence and machine learning tasks.",
+      "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002 Not for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "2010",
+      "title": "Introduction to Computer Music: From Analysis to Algorithmic Music",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6048)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Dr. CHAU Chuck Jee",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg C1",
+                  "instructor": "Dr. CHAU Chuck Jee",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (8181)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 924",
+                  "instructor": "Dr. CHAU Chuck Jee",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to present an overview of computer music for students with basic programming abilities. The course starts with fundamental audio analysis and synthesis, and finally progress towards algorithmic music generation with machine learning. Hands-on exercises also cover software toolboxes for music information retrieval and programming.",
+      "enrollment_requirement": "Prerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "2601",
+      "title": "Technology, Society and Engineering Practice",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course teaches the following topics: the impact of technology on society; introduction to engineering as a profession (different engineering fields, professional societies and registration, soft skills for working in a team); engineering design and innovation; introduction to intellectual property (copyright, trademarks, registered design and patents); engineering project management; product safety; professional ethics; liability and responsibility; workplace safety; environmental impact and market requirements; case studies and experience sharing from industry; global energy policies and standards.",
+      "enrollment_requirement": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "2602",
+      "title": "Engineering Practicum",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This course arranges industrial and professional workshops or seminars as required by the Major programme.",
+      "enrollment_requirement": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "3010",
+      "title": "Numerical Optimization",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course aims to provide students with the basic knowledge of optimization theory and introduce various computational libraries and programming techniques to perform optimization. Topics include unconstrained optimization methods, conjugate gradient methods, quasi-newton methods, theory of constrained optimization, linear programming, non-linear constrained optimization, etc.",
+      "enrollment_requirement": "Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510 Not for students who have taken AIST3030 or ESTR3112 or ESTR3114",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "3020",
+      "title": "Introduction to Computer Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5972)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (6884)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students the basic knowledge of computer systems through the study of computer organization, assembly language and C programming. The course will mainly have two parts: (1) the structure of a computer that includes topics like data representations, digital logic structures, the Von Neumann model, assembly language, I/O, traps, subroutines and the stack; (2) system programming with C that includes topics like functions, pointers and arrays, file operations, dynamic memory management and data structures.",
+      "enrollment_requirement": "Not for students who have taken CSCI3150 or ESTR3102 Prerequisite: (ENGG1110 or ESTR1002) AND (ENGG2440 or ESTR2004)",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "3030",
+      "title": "Numerical Optimization",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7017)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg LT",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7020)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with the analytical and programming skills required for applying standard optimization algorithms to engineering and AI problems. The syllabus covers basic topics on optimization including the theory of unconstrained and constrained optimization, dual optimization tasks, linear programming, convex optimization, line search methods, trust-region methods, gradient descent, and Newton's method.",
+      "enrollment_requirement": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510 Not for students who have taken AIST3010 or ESTR3112 or ESTR3114",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "3110",
+      "title": "Music Information Retrieval",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a comprehensive study on the analysis, visualisation, processing, and mining of sound and music data. Music processing is an interdisciplinary research area where technology and art meets. The course covers topics on feature extraction and analysis in different time scales, including tempo and beat tracking, chord recognition, and structure analysis. The ultimate goal is on \"machine listening\", where the computers will have the ability to understand the music to facilitate creation.",
+      "enrollment_requirement": "Pre-requisite/Co-requisite: AIST2010 or CSCI3280",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "3120",
+      "title": "Introduction to Natural Language Processing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6079)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (6885)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6898)",
+              "meetings": [
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an introductory course in the field of natural language processing. This course focuses on introducing what natural language processing is, the main concepts in natural language processing research, and the algorithm design of major natural language processing tasks. The setting of this course includes three parts. The first part is an introduction to the basic tasks and concepts in the field of natural language processing, such as parsers, language modeling, etc. The second part is about the main research methods of natural language processing, such as statistical learning methods and deep learning algorithms. The third part is an introduction to the research directions of natural language processing, such as the development of technologies of large language models.",
+      "enrollment_requirement": "Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018)",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "3510",
+      "title": "Human-computer Interaction",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an introduction to the fast evolving field of human computer interaction (HCI). HCI is a multidisciplinary subject concerning the design, implemen-tation and evaluation of interactive computing systems for human use, and the study of major phenomena surrounding them. We will provide a broad overview of the field, including the theory and principles underlying good designs, with an emphasis on the interface design process, development and evaluation. We will also sample some state-of-the-art technologies in HCI, such as speech recognition, haptics, virtual reality, software agents and computer supported cooperative work.",
+      "enrollment_requirement": "Not for students who have taken SEEM3510",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4010",
+      "title": "Foundation of Applied Deep Learning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6830)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor LI Yu",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Yu",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Yu",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6851)",
+              "meetings": [
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg 705",
+                  "instructor": "Professor LI Yu",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers how to use deep learning techniques to resolve real-life computational problems, handling different kinds of data. We start the course by introducing the problem-solving paradigm with deep learning: data preparation, building the model, training the model, model evaluation, and hyper-parameter searching. Then, we fill in the details in the paradigm. Regarding the deep learning models, we will go from the simplest linear regression model, towards the relatively complicated models. To handle various data types, that is, the structured data, images, text, sequences, signals, and graphs, in our daily life, we would cover CNN/ResNet, RNN/LSTM, Attention, and GNN models. In addition to the above paradigms, we will also cover the commonly used techniques to handle overfitting. We would briefly go through the generative models, VAE, and GAN, at the end of this course.Advisory: Students are expected to have background knowledge on python programming.",
+      "enrollment_requirement": "Not for students who have taken ESTR4140 Prerequisite: CSCI3230 or CSCI3320 or ESTR3108",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4998",
+      "title": "Final Year Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AAJ1-PRJ (7121)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YOUNG Fung Yu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ABJ1-PRJ (6166)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YU Bei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ACJ1-PRJ (6167)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHAU Chuck Jee",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ADJ1-PRJ (9076)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHEONG Chi Hong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AEJ1-PRJ (8975)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHUI Yim Pan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AFJ1-PRJ (8937)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KAM Ho Chuen",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AGJ1-PRJ (6185)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AHJ1-PRJ (8976)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LAW Yat Chiu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AIJ1-PRJ (7122)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Songtao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AJ01-PRJ (7096)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AJJ1-PRJ (9051)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. SUM Kwok Wing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AKJ1-PRJ (9052)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. YU Michael Ruisi",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ALJ1-PRJ (8922)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AMJ1-PRJ (8977)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ANJ1-PRJ (8942)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Hanrui",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AOJ1-PRJ (8850)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "APJ1-PRJ (7339)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AQJ1-PRJ (8742)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ARJ1-PRJ (7123)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "BJ01-PRJ (8950)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG Yu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "CJ01-PRJ (9077)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "DJ01-PRJ (8951)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "EJ01-PRJ (9048)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "FJ01-PRJ (8986)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "GJ01-PRJ (8952)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HENG Pheng Ann",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "HJ01-PRJ (9073)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HO Tsung Yi",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "IJ01-PRJ (8953)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Shaohua",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "JJ01-PRJ (9049)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Ho Man",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "KJ01-PRJ (8954)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor KING Kuo Chin Irwin",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "LJ01-PRJ (8955)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "MJ01-PRJ (8956)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. JIANG Yuli",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "NJ01-PRJ (6162)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Yu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "OJ01-PRJ (8957)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "PJ01-PRJ (9075)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LYU Rung Tsong Michael",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "QJ01-PRJ (9005)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MENG Wei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "RJ01-PRJ (8940)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHAO Zili",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "SJ01-PRJ (7120)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "TJ01-PRJ (8941)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "UJ01-PRJ (8970)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "VJ01-PRJ (8971)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor QIU Shi",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "WJ01-PRJ (8972)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Weiyang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "XJ01-PRJ (9050)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Hong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "YJ01-PRJ (8973)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ZJ01-PRJ (8974)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8687)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in artificial intelligence topics.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4999",
+      "title": "Final Year Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (8849)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AAJ1-PRJ (6249)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YOUNG Fung Yu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ABJ1-PRJ (6242)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YU Bei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ACJ1-PRJ (6243)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHAU Chuck Jee",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ADJ1-PRJ (8735)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHEONG Chi Hong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AEJ1-PRJ (6244)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHUI Yim Pan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AFJ1-PRJ (8736)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KAM Ho Chuen",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AGJ1-PRJ (6250)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LAM King Tin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AHJ1-PRJ (8738)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LAW Yat Chiu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AIJ1-PRJ (8695)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Songtao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AJ01-PRJ (6241)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AJJ1-PRJ (8739)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. SUM Kwok Wing",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AKJ1-PRJ (8740)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. YU Michael Ruisi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ALJ1-PRJ (8816)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AMJ1-PRJ (7116)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ANJ1-PRJ (7112)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Hanrui",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AOJ1-PRJ (7117)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "APJ1-PRJ (7113)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "AQJ1-PRJ (7114)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ARJ1-PRJ (7118)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "BJ01-PRJ (6246)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG Yu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "CJ01-PRJ (8720)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "DJ01-PRJ (6227)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "EJ01-PRJ (8693)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "FJ01-PRJ (6228)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "GJ01-PRJ (6247)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HENG Pheng Ann",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "HJ01-PRJ (8721)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HO Tsung Yi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "IJ01-PRJ (6248)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Shaohua",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "JJ01-PRJ (8722)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Ho Man",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "KJ01-PRJ (6229)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor KING Kuo Chin Irwin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "LJ01-PRJ (8800)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Pak Ching",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "MJ01-PRJ (8724)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. JIANG Yuli",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "NJ01-PRJ (6224)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Yu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "OJ01-PRJ (8725)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "PJ01-PRJ (8726)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LYU Rung Tsong Michael",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "QJ01-PRJ (8727)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor MENG Wei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "RJ01-PRJ (8728)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHAO Zili",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "SJ01-PRJ (8729)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "TJ01-PRJ (6225)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "UJ01-PRJ (8731)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "VJ01-PRJ (8732)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor QIU Shi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "WJ01-PRJ (6226)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Weiyang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "XJ01-PRJ (8733)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Hong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "YJ01-PRJ (8694)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            },
+            {
+              "section": "ZJ01-PRJ (8734)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in artificial intelligence topics.",
+      "enrollment_requirement": "Prerequisite: AIST4998",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "5020",
+      "title": "Trustworthy Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the principles and techniques of Trustworthy Artificial Intelligence (Trustworthy AI), which aims to mitigate the potential adverse effects of AI on people and society. The course focuses on four main aspects of trustworthy AI: privacy & security, robustness, explainability, and fairness. It covers the state-of-the-art research progress in these areas, including federated learning and adversarial attacks. Algorithms, models, and systems will be covered. Moreover, the course discusses the ethical and social implications of trustworthy AI, to foster social awareness among students who would use or develop AI techniques in the future. This course is suitable for students who have some background in machine learning, probability, and linear algebra.",
+      "enrollment_requirement": "For students in MSc Computer Science; or For students in MPhil-PhD Computer Science & Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "5030",
+      "title": "Generative Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4638)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Weiyang",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Weiyang",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Ms. CHAN Lee Ping,   Professor LIU Weiyang",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "81",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course aims at equipping students with an overview of latest generative AI (GenAI) technologies that generate various types of data, e.g., images, videos, audios, text, code, music and molecules, etc. that are profoundly impacting the industry and society. The course will provide a comprehensive understanding of the fundamental concepts and techniques behind GenAI, including generative models, probabilistic models, deep learning architectures, and self-supervised/unsupervised learning, etc. The advanced topics of large language models, conversational AI and mutli-modality generative AI will be further explored. Applications on speech and conversational data will be introduced to illustrate the concepts and techniques of GenAI. The ethical and social implications of GenAI will also be discussed in the course, so that students can critically analyze the impact of GenAI on society and propose ethical guidelines for its development and deployment. Ample opportunities will be provided to students to apply what they have learned in class through hands-on implementation and research paper on course projects. The course is suitable for students who have some background in machine learning, probability, statistics, and linear algebra .",
+      "enrollment_requirement": "For students in MSc Computer Science; or  For students in MPhil-PhD Computer Science and Engineering;Not for students who have taken SEEM5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg"
+    }
+  ]
+}
