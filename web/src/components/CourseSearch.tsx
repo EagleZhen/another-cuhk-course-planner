@@ -412,6 +412,16 @@ export default function CourseSearch({
             ) : (
               <strong>{currentTerm}</strong>
             )}
+            {selectedSubjects.size > 0 && (
+              <>
+                <span>·</span>
+                <span>filtered by</span>
+                <span className="font-semibold text-blue-600">
+                  {Array.from(selectedSubjects).join(', ')}
+                </span>
+                <span>({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})</span>
+              </>
+            )}
           </div>
         </div>
       </div>
