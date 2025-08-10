@@ -92,7 +92,7 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
   let status: SectionAvailability['status'] = 'Unknown'
   if (external.status === 'Open') status = 'Open'
   else if (external.status === 'Closed') status = 'Closed' 
-  else if (external.status === 'Waitlist') status = 'Waitlist'
+  else if (external.status === 'Waitlist') status = 'Wait List'
   
   return {
     capacity,

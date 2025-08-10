@@ -129,7 +129,7 @@ export default function WeeklyCalendar({
   const hours = Array.from({ length: latestEndTime - defaultStartHour + 1 }, (_, i) => defaultStartHour + i)
 
   return (
-    <Card className="h-full flex flex-col">
+    <Card className="h-full flex flex-col gap-2">
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">

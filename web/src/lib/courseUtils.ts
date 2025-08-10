@@ -822,7 +822,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   })
   
   // Show waitlist badge when relevant (has waitlist or is closed with waitlist capacity)
-  if (waitlistTotal > 0 || (status === 'Waitlist' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
+  if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal}/${waitlistCapacity}`,
@@ -863,7 +863,7 @@ export function getWaitlistBadgeStyle(waitlistTotal: number) {
  * Returns appropriate variant and styling for availability badges
  */
 export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
-  const { availableSeats, capacity, status } = availability
+  const { availableSeats, status } = availability
   
   // Closed/Full status takes precedence
   if (status === 'Closed' || availableSeats === 0) {
@@ -872,17 +872,14 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
     }
   }
   
-  if (status === 'Waitlist') {
+  if (status === 'Wait List') {
     return {
       className: 'bg-orange-100 text-orange-800 border-orange-300'
     }
   }
   
-  // Calculate availability percentage
-  const availabilityRatio = capacity > 0 ? availableSeats / capacity : 0
-  
-  // Low availability (≤10 seats or ≤20% capacity)
-  if (availableSeats <= 10 || availabilityRatio <= 0.2) {
+  // Low availability (≤10 seats)
+  if (availableSeats <= 10) {
     return {
       className: 'bg-yellow-100 text-yellow-800 border-yellow-300'
     }

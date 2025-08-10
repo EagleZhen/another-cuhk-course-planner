@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -12,6 +12,7 @@ interface ShoppingCartProps {
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
   selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
   currentTerm: string // Current term to get available sections
+  lastDataUpdate?: Date | null // When course data was last refreshed
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -23,6 +24,7 @@ export default function ShoppingCart({
   calendarEvents,
   selectedEnrollment,
   currentTerm,
+  lastDataUpdate,
   onToggleVisibility, 
   onRemoveCourse,
   onSelectEnrollment,
@@ -30,6 +32,18 @@ export default function ShoppingCart({
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  const [, forceUpdate] = useState({}) // For timestamp updates
+  
+  // Update timestamp display every 30 seconds
+  useEffect(() => {
+    if (!lastDataUpdate) return
+    
+    const interval = setInterval(() => {
+      forceUpdate({}) // Trigger re-render to update relative time
+    }, 30000) // Update every 30 seconds
+    
+    return () => clearInterval(interval)
+  }, [lastDataUpdate])
   
   // Note: Removed unused helper functions - cycling now uses direct compatibility checking
   
@@ -107,10 +121,19 @@ export default function ShoppingCart({
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
   return (
-    <Card className="h-[800px] flex flex-col" data-shopping-cart>
+    <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base">My Schedule</CardTitle>
+          <div className="flex flex-col">
+            <CardTitle className="text-base">My Schedule</CardTitle>
+            {/* Data freshness indicator - shows actual scraping time */}
+            {lastDataUpdate && (
+              <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                <span>Data from {lastDataUpdate.toLocaleString()}</span>
+              </div>
+            )}
+          </div>
           <div className="flex items-center gap-2">
             <Badge variant="secondary" className="text-xs">
               {courseEnrollments.length}
@@ -129,7 +152,7 @@ export default function ShoppingCart({
         ) : (
           <div 
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 pt-2"
+            className="space-y-3 overflow-y-auto h-full p-1 pb-2"
           >
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
