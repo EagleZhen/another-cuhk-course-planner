@@ -585,7 +585,7 @@ function CourseCard({
                   e.stopPropagation()
                   onSearchReviews(course)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100 cursor-pointer"
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
               >
                 <Search className="w-3 h-3 mr-1" />
@@ -596,7 +596,7 @@ function CourseCard({
               {course.title}
             </CardDescription>
             <div className="flex items-center gap-2 mt-2">
-              <Badge variant="secondary">{course.credits} credits</Badge>
+              <Badge variant="outline">{course.credits} credits</Badge>
               <Badge variant="outline" className="text-xs">
                 {currentTerm}
               </Badge>
