@@ -23,19 +23,21 @@ interface CourseSearchProps {
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
+  onDataUpdate?: (timestamp: Date) => void // Callback when fresh data is loaded
 }
 
 export default function CourseSearch({ 
   onAddCourse,
   onRemoveCourse, 
-  courseEnrollments, 
+  courseEnrollments,
   currentTerm,
   availableTerms = [],
-  onTermChange, 
-  selectedSections, 
+  onTermChange,
+  selectedSections,
   onSelectedSectionsChange,
   onSelectEnrollment,
-  onSearchControlReady
+  onSearchControlReady,
+  onDataUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   
@@ -85,33 +87,16 @@ export default function CourseSearch({
     const loadCourseData = async () => {
       setLoading(true)
       try {
-        // First, try to load index/manifest to get available subjects
-        let availableSubjects: string[] = []
-        
-        try {
-          const indexResponse = await fetch('/data/index.json')
-          if (indexResponse.ok) {
-            const indexData = await indexResponse.json()
-            availableSubjects = indexData.subjects?.map((s: { code: string }) => s.code) || []
-            console.log(`Found ${availableSubjects.length} subjects from index`)
-          }
-        } catch {
-          console.warn('No index.json found, using fallback subject discovery')
-        }
-
-        // Fallback: try common subjects if no index available
-        if (availableSubjects.length === 0) {
-          const commonSubjects = [
-            'CSCI', 'AIST', 'PHYS', 'ENGG', 'CENG', 'FINA', 
-            'UGCP', 'UGFN', 'UGFH', 'UGEA', 'UGEB', 'UGEC', 'UGED'
-          ]
-          availableSubjects = commonSubjects
-        }
+        // Static list of available subjects based on actual files
+        const availableSubjects = [
+          'AIST', 'CENG', 'CSCI', 'ENGG', 'FINA', 'PHYS',
+          'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN'
+        ]
 
         const allCoursesData: InternalCourse[] = []
         let successCount = 0
 
-        // Load each subject with clean filename (no timestamp)
+        // Load each subject file
         for (const subject of availableSubjects) {
           try {
             const response = await fetch(`/data/${subject}.json`)
@@ -136,7 +121,17 @@ export default function CourseSearch({
         }
 
         console.log(`📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`)
+        
+        if (successCount === 0) {
+          console.error('❌ No course data could be loaded - check that /data/ files exist')
+        }
+        
         setAllCourses(allCoursesData)
+        
+        // Notify parent that fresh data has been loaded
+        if (onDataUpdate) {
+          onDataUpdate(new Date())
+        }
         
       } catch (error) {
         console.error('Failed to load course data:', error)
@@ -146,7 +141,7 @@ export default function CourseSearch({
     }
 
     loadCourseData()
-  }, [])
+  }, [onDataUpdate]) // Now safe with useCallback
 
   // Real-time search with useMemo for performance, filtered by current term
   // Helper function to open Google search for course reviews

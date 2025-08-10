@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect, useRef } from 'react'
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
@@ -28,6 +28,7 @@ export default function Home() {
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
+  const [lastDataUpdate, setLastDataUpdate] = useState<Date | null>(null)
 
   // Auto-restore schedule from localStorage when term changes
   useEffect(() => {
@@ -195,6 +196,10 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
+  // Handle data updates from CourseSearch
+  const handleDataUpdate = useCallback((timestamp: Date) => {
+    setLastDataUpdate(timestamp)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -225,6 +230,7 @@ export default function Home() {
               calendarEvents={calendarEvents}
               selectedEnrollment={selectedEnrollment}
               currentTerm={currentTerm}
+              lastDataUpdate={lastDataUpdate}
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
               onSelectEnrollment={handleSelectEnrollment}
@@ -277,6 +283,7 @@ export default function Home() {
               onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
               onSelectEnrollment={handleSelectEnrollment}     // Event handler prop
               onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
+              onDataUpdate={handleDataUpdate}         // Data freshness callback
               />
             </CardContent>
           </Card>
