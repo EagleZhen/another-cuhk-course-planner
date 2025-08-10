@@ -9,6 +9,7 @@ import type {
   InternalCourse, 
   InternalSection, 
   InternalMeeting, 
+  SectionAvailability,
   SectionType 
 } from './types'
 
@@ -803,4 +804,48 @@ export function autoCompleteEnrollmentSections(
     })
   
   return updatedSections
+}
+
+/**
+ * Smart availability badge styling based on quota levels
+ * Returns appropriate variant and styling for availability badges
+ */
+export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
+  const { availableSeats, capacity, status } = availability
+  
+  // Closed/Full status takes precedence
+  if (status === 'Closed' || availableSeats === 0) {
+    return {
+      variant: 'destructive' as const,
+      className: 'bg-red-100 text-red-800 border-red-300',
+      urgency: 'critical' as const
+    }
+  }
+  
+  if (status === 'Waitlist') {
+    return {
+      variant: 'secondary' as const, 
+      className: 'bg-orange-100 text-orange-800 border-orange-300',
+      urgency: 'warning' as const
+    }
+  }
+  
+  // Calculate availability percentage
+  const availabilityRatio = capacity > 0 ? availableSeats / capacity : 0
+  
+  // Low availability (≤10 seats or ≤20% capacity)
+  if (availableSeats <= 10 || availabilityRatio <= 0.2) {
+    return {
+      variant: 'secondary' as const,
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+      urgency: 'low' as const
+    }
+  }
+  
+  // Good availability 
+  return {
+    variant: 'default' as const,
+    className: 'bg-green-100 text-green-800 border-green-300',
+    urgency: 'none' as const
+  }
 }

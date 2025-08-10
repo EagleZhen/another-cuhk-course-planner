@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, getAvailabilityBadgeStyle, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -574,9 +574,9 @@ function CourseCard({
                           </div>
                           
                           <div className="flex items-center gap-2 flex-shrink-0">
-                            <Badge 
-                              variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
-                              className="text-xs"
+                            <Badge
+                              variant={getAvailabilityBadgeStyle(section.availability).variant}
+                              className={`text-xs ${getAvailabilityBadgeStyle(section.availability).className}`}
                               title={`${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`}
                             >
                               {section.availability.availableSeats}/{section.availability.capacity}
@@ -598,7 +598,7 @@ function CourseCard({
                         
                         {/* Teaching Language - section level */}
                         {section.classAttributes && (
-                          <div className="flex items-center gap-1 text-gray-500 text-[10px] mb-2">
+                          <div className="flex items-center gap-1 text-gray-500 text-[12px] mb-2">
                             <span>🌐</span>
                             <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
                               {section.classAttributes}

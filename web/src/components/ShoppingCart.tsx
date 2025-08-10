@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadgeStyle } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -317,8 +317,8 @@ export default function ShoppingCart({
                             ) : <div className="flex-1" />}
                             
                             <Badge 
-                              variant={section.availability.status === 'Open' ? 'default' : 'secondary'}
-                              className="text-[9px] flex-shrink-0 px-1 py-0"
+                              variant={getAvailabilityBadgeStyle(section.availability).variant}
+                              className={`text-[9px] flex-shrink-0 px-1 py-0 ${getAvailabilityBadgeStyle(section.availability).className}`}
                               title={`${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`}
                             >
                               {section.availability.availableSeats}/{section.availability.capacity}
