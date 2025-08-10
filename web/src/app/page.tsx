@@ -32,6 +32,7 @@ export default function Home() {
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
   const [lastDataUpdate, setLastDataUpdate] = useState<Date | null>(null)
+  const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
 
   // Auto-restore schedule from localStorage when term changes
   useEffect(() => {
@@ -261,11 +262,98 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
-  // Handle data updates from CourseSearch - just update timestamp
-  const handleDataUpdate = useCallback((timestamp: Date) => {
+  // Handle data updates from CourseSearch - update timestamp and sync enrollments
+  const handleDataUpdate = useCallback((timestamp: Date, allFreshCourses?: InternalCourse[]) => {
     setLastDataUpdate(timestamp)
-    console.log(`� Course data loaded from: ${timestamp.toLocaleString()}`)
-  }, [])
+    console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
+    
+    // Background sync: Update existing enrollments with fresh data
+    // Use callback form to avoid dependency on courseEnrollments
+    setCourseEnrollments(currentEnrollments => {
+      if (!allFreshCourses || currentEnrollments.length === 0) {
+        return currentEnrollments // No changes needed
+      }
+      
+      // Prevent duplicate syncs for same timestamp
+      if (lastSyncTimestamp && Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
+        console.log('🔄 Skipping duplicate sync (< 1 second apart)')
+        return currentEnrollments
+      }
+      
+      console.log('🔄 Background syncing shopping cart with fresh course data...')
+      
+      const syncedEnrollments = currentEnrollments.map(enrollment => {
+        const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+        
+        // Find fresh course data
+        const freshCourse = allFreshCourses.find(course => 
+          `${course.subject}${course.courseCode}` === courseKey
+        )
+        
+        if (!freshCourse) {
+          console.warn(`⚠️ Course ${courseKey} no longer exists in fresh data`)
+          // Mark as invalid but preserve for user to see
+          return {
+            ...enrollment,
+            isInvalid: true,
+            invalidReason: 'Course no longer available'
+          }
+        }
+        
+        // Find fresh sections for current term
+        const termData = freshCourse.terms.find(t => t.termName === currentTerm)
+        if (!termData) {
+          return {
+            ...enrollment,
+            isInvalid: true,
+            invalidReason: 'Course not available in current term'
+          }
+        }
+        
+        // Update sections with fresh data
+        const syncedSections = enrollment.selectedSections.map(oldSection => {
+          const freshSection = termData.sections.find(s => s.id === oldSection.id)
+          
+          if (!freshSection) {
+            console.warn(`⚠️ Section ${oldSection.sectionCode} no longer exists for ${courseKey}`)
+            // Keep old section but mark as invalid
+            return { ...oldSection, isInvalid: true }
+          }
+          
+          // Merge fresh data with preserved user choices
+          return {
+            ...freshSection, // Fresh section data (classAttributes, availability, etc.)
+            // Preserve any user-specific state if needed in future
+          }
+        })
+        
+        // Check if any sections are invalid
+        const hasInvalidSections = syncedSections.some(s => s.isInvalid)
+        
+        return {
+          ...enrollment,
+          course: freshCourse,           // Always use fresh course data
+          selectedSections: syncedSections,
+          isInvalid: hasInvalidSections,
+          invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
+          lastSynced: timestamp,         // Track when we last synced this enrollment
+        }
+      })
+      
+      // Log sync results
+      const invalidCount = syncedEnrollments.filter(e => e.isInvalid).length
+      if (invalidCount > 0) {
+        console.warn(`⚠️ ${invalidCount} enrollments have invalid data`)
+      } else {
+        console.log(`✅ Successfully synced ${syncedEnrollments.length} enrollments`)
+      }
+      
+      // Update sync timestamp after successful sync
+      setLastSyncTimestamp(timestamp)
+      
+      return syncedEnrollments
+    })
+  }, [currentTerm, lastSyncTimestamp]) // Add lastSyncTimestamp to dependencies
 
   return (
     <div className="min-h-screen bg-gray-50">

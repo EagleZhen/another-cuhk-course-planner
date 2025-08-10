@@ -130,7 +130,7 @@ export default function ShoppingCart({
             {lastDataUpdate && (
               <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Data from {lastDataUpdate.toLocaleString()}</span>
+                <span>Synced at {lastDataUpdate.toLocaleString()}</span>
               </div>
             )}
           </div>
@@ -163,6 +163,7 @@ export default function ShoppingCart({
               const hasConflict = enrollmentEvents.some(event => event.hasConflict)
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
+              const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
               
               return (
                 <div
@@ -176,20 +177,22 @@ export default function ShoppingCart({
                   }}
                   className={`
                     border rounded p-2 transition-all duration-300 relative
-                    ${hasConflict 
-                      ? 'border-red-200 bg-red-50' 
-                      : 'border-gray-200 bg-white'
+                    ${isInvalid 
+                      ? 'border-orange-200 bg-orange-50 opacity-75' 
+                      : hasConflict 
+                        ? 'border-red-200 bg-red-50' 
+                        : 'border-gray-200 bg-white'
                     }
-                    ${!isVisible ? 'opacity-60' : ''}
-                    ${isSelected && isVisible
+                    ${!isVisible && !isInvalid ? 'opacity-60' : ''}
+                    ${isSelected && isVisible && !isInvalid
                       ? 'ring-2 ring-blue-400 ring-opacity-75 shadow-lg scale-[1.02] bg-blue-50' 
                       : ''
                     }
-                    ${!isVisible ? 'cursor-default' : 'cursor-pointer'}
+                    ${!isVisible || isInvalid ? 'cursor-default' : 'cursor-pointer'}
                   `}
                   onClick={() => {
-                    // Only allow selection if the enrollment is visible
-                    if (isVisible && onSelectEnrollment) {
+                    // Only allow selection if the enrollment is visible and not invalid
+                    if (isVisible && !isInvalid && onSelectEnrollment) {
                       const newSelection = isSelected ? null : enrollment.courseId
                       onSelectEnrollment(newSelection)
                     }
@@ -203,10 +206,17 @@ export default function ShoppingCart({
                           {enrollment.course.subject}{enrollment.course.courseCode}
                         </span>
                       </div>
-                      {/* Always reserve space for conflict indicator */}
-                      <div className="w-3 h-3 flex-shrink-0">
-                        {hasConflict && (
-                          <AlertTriangle className="w-3 h-3 text-red-500" />
+                      {/* Always reserve space for status indicators */}
+                      <div className="flex items-center gap-1 flex-shrink-0">
+                        {isInvalid && (
+                          <div title={enrollment.invalidReason || 'Course data is outdated'}>
+                            <AlertTriangle className="w-3 h-3 text-orange-500" />
+                          </div>
+                        )}
+                        {hasConflict && !isInvalid && (
+                          <div title="Time conflict detected">
+                            <AlertTriangle className="w-3 h-3 text-red-500" />
+                          </div>
                         )}
                       </div>
                       <span className="text-xs text-gray-500 font-medium">
@@ -258,9 +268,27 @@ export default function ShoppingCart({
                     {enrollment.course.title}
                   </p>
 
-                  {/* Selected Sections - Compact Display */}
-                  <div className="space-y-2">
-                    {enrollment.selectedSections.map((section) => {
+                  {/* Selected Sections - Compact Display or Invalid Message */}
+                  {isInvalid ? (
+                    /* Show simplified invalid state */
+                    <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
+                      <div className="flex items-center gap-2 text-sm">
+                        <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                        <div>
+                          <div className="font-medium text-orange-800">Course data outdated</div>
+                          <div className="text-xs text-orange-600">{enrollment.invalidReason}</div>
+                          {enrollment.lastSynced && (
+                            <div className="text-xs text-gray-500 mt-1">
+                              Last synced: {enrollment.lastSynced.toLocaleString()}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Show normal section details */
+                    <div className="space-y-2">
+                      {enrollment.selectedSections.map((section) => {
                       // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
                       const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
                       const typeGroup = sectionTypes.find(group => group.type === section.sectionType)
@@ -389,7 +417,8 @@ export default function ShoppingCart({
                       </div>
                     )
                     })}
-                  </div>
+                    </div>
+                  )}
                 </div>
               )
             })}

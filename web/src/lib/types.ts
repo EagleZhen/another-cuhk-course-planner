@@ -24,6 +24,8 @@ export interface InternalSection {
   meetings: InternalMeeting[]
   availability: SectionAvailability
   classAttributes: string // Language of instruction (e.g., "English only", "Putonghua and English", or "")
+  // Sync status fields (for sections that may no longer exist)
+  isInvalid?: boolean     // True if this section no longer exists in fresh data
 }
 
 export interface InternalMeeting {
@@ -51,6 +53,10 @@ export interface CourseEnrollment {
   selectedSections: InternalSection[]
   color: string
   isVisible: boolean
+  // Sync status fields
+  isInvalid?: boolean           // True if course/sections no longer exist
+  invalidReason?: string        // Human-readable reason for invalidity
+  lastSynced?: Date            // When this enrollment was last synced with fresh data
 }
 
 // Calendar event using clean internal types
