@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
+
+// Proper hydration handling without suppressing warnings
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
@@ -36,12 +38,21 @@ export default function Home() {
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
+  const [isHydrated, setIsHydrated] = useState<boolean>(false)
   
   // Term-specific subject filter persistence (session state only)
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
 
-  // Auto-restore schedule from localStorage when term changes
+  // Track hydration status
   useEffect(() => {
+    setIsHydrated(true)
+  }, [])
+
+  // Auto-restore schedule from localStorage when term changes (client-side only)
+  useEffect(() => {
+    // Only run after hydration to prevent SSR/client mismatch
+    if (!isHydrated) return
+    
     try {
       const savedData = localStorage.getItem(`schedule_${currentTerm}`)
       if (savedData) {
@@ -111,7 +122,8 @@ export default function Home() {
       setCourseEnrollments([])
       setSelectedSubjects(new Set())
     }
-  }, [currentTerm, SCHEDULE_DATA_VERSION])
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
+  }, [currentTerm, SCHEDULE_DATA_VERSION, isHydrated])
 
   // Save subject filters to session state whenever they change
   useEffect(() => {
