@@ -86,40 +86,41 @@ python resilient_scraper.py --retry  # Retry failed only
 - Complete type safety with clean architecture
 - Persistent state management with localStorage migration
 
-### **✅ Latest Achievement: Hybrid Data Synchronization System**
+### **✅ Latest Achievement: Enhanced Subject Filtering & Performance Optimization**
 
-**Problem Solved**: Stale data in shopping cart (missing `class_attributes`, outdated availability)
-**Solution**: Hybrid localStorage + background sync architecture
+**Problem Solved**: Subject discovery and filtering system with performance insights for 200+ subjects
+**Solution**: Dynamic subject discovery + term-specific filtering + performance analysis
 
 **Implementation Details:**
 ```typescript
-// Data Flow: Fast Display + Background Sync
-1. App loads → localStorage display (instant UX)
-2. JSON loads → Background sync process  
-3. Fresh data → Update enrollments automatically
-4. Invalid data → Graceful degradation with visual indicators
+// Subject Discovery: Dynamic probing instead of hardcoded lists
+const discoveredSubjects = await Promise.all(
+  potentialSubjects.map(async (subject) => {
+    const response = await fetch(`/data/${subject}.json`, { method: 'HEAD' })
+    return response.ok ? subject : null
+  })
+)
 
-// Smart Sync Logic
-setCourseEnrollments(currentEnrollments => {
-  // Prevent infinite loops with callback form
-  // Match localStorage courses with fresh JSON data
-  // Update classAttributes, availability, etc.
-  // Mark missing courses as invalid
-})
+// Term-Specific Filtering: Persistent during session
+const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
 
-// Invalid State Handling
-interface CourseEnrollment {
-  isInvalid?: boolean           // Course/sections no longer exist
-  invalidReason?: string        // User-friendly explanation
-  lastSynced?: Date            // Sync timestamp tracking
-}
+// Performance Tracking: Real-time loading metrics
+console.log(`⚡ Performance Summary:
+   Total load time: ${totalLoadTime}ms
+   Total data size: ${totalDataSize}KB  
+   Per-subject breakdown: CSCI: 890ms, 4521KB`)
 ```
 
 **Key Architecture Insights:**
-- **Infinite Loop Prevention**: Use state updater callbacks, remove circular dependencies
-- **Performance**: Instant display from localStorage, sync in background
-- **User Experience**: Orange styling for invalid data, no intrusive popups  
-- **Data Consistency**: Fresh JSON always wins, localStorage for speed only
+- **Subject Discovery**: Parallel HEAD requests discover available subjects (202 found vs 13 hardcoded)
+- **Term Isolation**: Each term maintains separate subject filters during session
+- **Performance Reality**: 47 seconds for 202 subjects on 4G → Need hybrid loading strategy
+- **UI Consistency**: Subject toggles use same Button styling as other controls
+
+### **✅ Previous Achievement: Hybrid Data Synchronization System**
+
+**Problem Solved**: Stale data in shopping cart (missing `class_attributes`, outdated availability)
+**Solution**: Hybrid localStorage + background sync architecture
 
 **Critical Debugging Insights (January 2025):**
 ```typescript
@@ -137,16 +138,26 @@ if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
 }
 ```
 
-### **🔧 Remaining Technical Debt & Next Steps**
+### **🔧 Current Technical Priorities & Next Steps**
 
-**Priority 1: Shopping Cart Section Cycling Enhancement**
+**Priority 1: Performance Optimization (Critical)**
+- **Current Issue**: 47 seconds to load 202 subjects (32-45MB total data) on 4G
+- **Solution Strategy**: Hybrid term index + on-demand subject loading
+- **Implementation**: 
+  ```typescript
+  // Phase 1: Load term index (~1.5MB, 2-3 seconds)
+  const termIndex = await fetch(`/data/Index ${currentTerm}.json`)
+  // Phase 2: Load subjects on-demand when user expands course cards
+  const loadSubjectOnDemand = async (subject: string) => {
+    if (!loadedSubjects.has(subject)) {
+      await fetch(`/data/${subject}.json`) // 1-3MB per subject
+    }
+  }
+  ```
+
+**Priority 2: Shopping Cart Section Cycling Enhancement**
 - Orphan section cycling doesn't reveal newly compatible types (F-LEC → A-LEC compatibility display)
 - Need full availability display instead of selectedSections-only approach
-
-**Priority 2: Data Loading Optimization**  
-- Subject-on-demand loading (currently loads all 13 subjects)
-- Lazy loading architecture with ETag-based freshness validation
-- Progressive enhancement for large course datasets
 
 **Priority 3: Advanced Features**
 - URL state encoding for shareable schedules with compressed data
