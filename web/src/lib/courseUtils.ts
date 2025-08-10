@@ -807,6 +807,41 @@ export function autoCompleteEnrollmentSections(
 }
 
 /**
+ * Determine which badges to show based on course status and availability
+ */
+export function getAvailabilityBadges(availability: SectionAvailability) {
+  const { availableSeats, capacity, status, waitlistTotal, waitlistCapacity } = availability
+  
+  const badges = []
+  
+  // Always show availability badge
+  badges.push({
+    type: 'availability' as const,
+    text: `${availableSeats}/${capacity}`,
+    style: getAvailabilityBadgeStyle(availability),
+    priority: status === 'Closed' || availableSeats === 0 ? 'secondary' : 'primary'
+  })
+  
+  // Show waitlist badge when relevant (has waitlist or is closed with waitlist capacity)
+  if (waitlistTotal > 0 || (status === 'Waitlist' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
+    badges.push({
+      type: 'waitlist' as const,
+      text: `${waitlistTotal}/${waitlistCapacity}`,
+      style: {
+        variant: waitlistTotal >= waitlistCapacity * 0.8 ? 'secondary' as const : 'outline' as const,
+        className: waitlistTotal >= waitlistCapacity * 0.8 
+          ? 'bg-purple-100 text-purple-800 border-purple-300'
+          : 'text-purple-700 border-purple-300',
+        urgency: waitlistTotal >= waitlistCapacity * 0.8 ? 'high' as const : 'medium' as const
+      },
+      priority: status === 'Closed' || status === 'Waitlist' ? 'primary' : 'secondary'
+    })
+  }
+  
+  return badges
+}
+
+/**
  * Smart availability badge styling based on quota levels
  * Returns appropriate variant and styling for availability badges
  */

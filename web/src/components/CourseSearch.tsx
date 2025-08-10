@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, getAvailabilityBadgeStyle, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, getAvailabilityBadges, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 
 // Using clean internal types only
@@ -574,13 +574,23 @@ function CourseCard({
                           </div>
                           
                           <div className="flex items-center gap-2 flex-shrink-0">
-                            <Badge
-                              variant={getAvailabilityBadgeStyle(section.availability).variant}
-                              className={`text-xs ${getAvailabilityBadgeStyle(section.availability).className}`}
-                              title={`${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`}
-                            >
-                              {section.availability.availableSeats}/{section.availability.capacity}
-                            </Badge>
+                            {getAvailabilityBadges(section.availability).map((badge) => (
+                              <Badge
+                                key={badge.type}
+                                variant={badge.style.variant}
+                                className={`text-xs ${badge.style.className} flex items-center gap-1`}
+                                title={badge.type === 'availability' 
+                                  ? `${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                  : `Waitlist: ${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                }
+                              >
+                                {badge.type === 'availability' ? (
+                                  <><Users className="w-3 h-3" />{badge.text}</>
+                                ) : (
+                                  <><Clock className="w-3 h-3" />{badge.text}</>
+                                )}
+                              </Badge>
+                            ))}
                             <Button
                               variant="ghost"
                               size="sm"
