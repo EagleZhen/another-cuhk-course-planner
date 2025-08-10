@@ -428,7 +428,7 @@ export default function Home() {
 
         {/* Bottom Section - Course Search (Full Width) */}
         <div className="max-w-7xl mx-auto">
-          <Card>
+          <Card className="gap-0">
             <CardHeader>
               <div className="space-y-4">
                 <div>
@@ -546,7 +546,7 @@ function SubjectToggle({
       variant={isSelected ? "default" : "outline"}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
-      className="h-6 px-2 text-xs font-normal cursor-pointer"
+      className="h-6 px-2 text-xs font-mono font-normal cursor-pointer border-1 min-w-[3rem]"
       title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
     >
       {subject}
