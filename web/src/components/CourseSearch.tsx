@@ -605,7 +605,6 @@ function CourseCard({
                               {getAvailabilityBadges(section.availability).map((badge) => (
                                 <Badge
                                   key={badge.type}
-                                  variant={badge.style.variant}
                                   className={`text-[10px] ${badge.style.className} flex items-center gap-1`}
                                   title={badge.type === 'availability' 
                                     ? `${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`

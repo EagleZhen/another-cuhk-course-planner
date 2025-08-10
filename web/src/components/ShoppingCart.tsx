@@ -320,7 +320,6 @@ export default function ShoppingCart({
                               {getAvailabilityBadges(section.availability).map((badge) => (
                                 <Badge
                                   key={badge.type}
-                                  variant={badge.style.variant}
                                   className={`text-[9px] flex-shrink-0 px-1 py-0 flex items-center gap-0.5 ${badge.style.className}`}
                                   title={badge.type === 'availability' 
                                     ? `${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
