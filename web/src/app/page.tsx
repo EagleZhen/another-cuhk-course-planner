@@ -36,6 +36,9 @@ export default function Home() {
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
+  
+  // Term-specific subject filter persistence (session state only)
+  const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
 
   // Auto-restore schedule from localStorage when term changes
   useEffect(() => {
@@ -96,13 +99,28 @@ export default function Home() {
       }
       // Clear section selections when switching terms
       setSelectedSections(new Map())
+      
+      // Restore subject filters from session state (term-specific)
+      const termFilters = subjectFiltersByTerm.get(currentTerm) || new Set()
+      setSelectedSubjects(termFilters)
+      
     } catch (error) {
       console.error('Failed to restore schedule:', error)
       // Clear corrupted localStorage data
       localStorage.removeItem(`schedule_${currentTerm}`)
       setCourseEnrollments([])
+      setSelectedSubjects(new Set())
     }
-  }, [currentTerm, SCHEDULE_DATA_VERSION])
+  }, [currentTerm, SCHEDULE_DATA_VERSION, subjectFiltersByTerm])
+
+  // Save subject filters to session state whenever they change
+  useEffect(() => {
+    setSubjectFiltersByTerm(prev => {
+      const updated = new Map(prev)
+      updated.set(currentTerm, selectedSubjects)
+      return updated
+    })
+  }, [selectedSubjects, currentTerm])
 
   // Separate effect to migrate selectedEnrollment after enrollments are loaded
   useEffect(() => {
