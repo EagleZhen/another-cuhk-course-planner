@@ -807,6 +807,58 @@ export function autoCompleteEnrollmentSections(
 }
 
 /**
+ * Determine which badges to show based on course status and availability
+ */
+export function getAvailabilityBadges(availability: SectionAvailability) {
+  const { availableSeats, capacity, status, waitlistTotal, waitlistCapacity } = availability
+  
+  const badges = []
+  
+  // Always show availability badge
+  badges.push({
+    type: 'availability' as const,
+    text: `${availableSeats}/${capacity}`,
+    style: getAvailabilityBadgeStyle(availability)
+  })
+  
+  // Show waitlist badge when relevant (has waitlist or is closed with waitlist capacity)
+  if (waitlistTotal > 0 || (status === 'Waitlist' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
+    badges.push({
+      type: 'waitlist' as const,
+      text: `${waitlistTotal}/${waitlistCapacity}`,
+      style: getWaitlistBadgeStyle(waitlistTotal)
+    })
+  }
+  
+  return badges
+}
+
+/**
+ * Smart waitlist badge styling based on queue length
+ * Returns appropriate variant and styling for waitlist badges
+ */
+export function getWaitlistBadgeStyle(waitlistTotal: number) {
+  // Risky: >5 people waiting
+  if (waitlistTotal > 5 && waitlistTotal <= 10) {
+    return {
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-300'
+    }
+  }
+
+  // Dangerous: >10 people waiting
+  if (waitlistTotal > 10) {
+    return {
+      className: 'bg-red-100 text-red-800 border-red-300'
+    }
+  }
+  
+  // Moderate: 1-5 people waiting
+  return {
+    className: 'bg-green-100 text-green-700 border-green-300'
+  }
+}
+
+/**
  * Smart availability badge styling based on quota levels
  * Returns appropriate variant and styling for availability badges
  */
@@ -816,17 +868,13 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
   // Closed/Full status takes precedence
   if (status === 'Closed' || availableSeats === 0) {
     return {
-      variant: 'destructive' as const,
-      className: 'bg-red-100 text-red-800 border-red-300',
-      urgency: 'critical' as const
+      className: 'bg-red-100 text-red-800 border-red-300'
     }
   }
   
   if (status === 'Waitlist') {
     return {
-      variant: 'secondary' as const, 
-      className: 'bg-orange-100 text-orange-800 border-orange-300',
-      urgency: 'warning' as const
+      className: 'bg-orange-100 text-orange-800 border-orange-300'
     }
   }
   
@@ -836,16 +884,12 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
   // Low availability (≤10 seats or ≤20% capacity)
   if (availableSeats <= 10 || availabilityRatio <= 0.2) {
     return {
-      variant: 'secondary' as const,
-      className: 'bg-yellow-100 text-yellow-800 border-yellow-300',
-      urgency: 'low' as const
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-300'
     }
   }
   
   // Good availability 
   return {
-    variant: 'default' as const,
-    className: 'bg-green-100 text-green-800 border-green-300',
-    urgency: 'none' as const
+    className: 'bg-green-100 text-green-800 border-green-300'
   }
 }

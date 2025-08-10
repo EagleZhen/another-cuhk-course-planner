@@ -38,6 +38,8 @@ export interface SectionAvailability {
   enrolled: number
   status: 'Open' | 'Closed' | 'Waitlist' | 'Unknown'
   availableSeats: number
+  waitlistCapacity: number
+  waitlistTotal: number
 }
 
 export type SectionType = 'LEC' | 'TUT' | 'LAB' | 'EXR' | 'SEM' | 'PRJ' | 'PRA' | 'OTHER'

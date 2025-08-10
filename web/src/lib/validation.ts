@@ -16,7 +16,9 @@ const ExternalAvailabilitySchema = z.object({
   capacity: z.string().optional().default('0'),
   enrolled: z.string().optional().default('0'),
   status: z.string().optional().default('Unknown'),
-  available_seats: z.string().optional().default('0')
+  available_seats: z.string().optional().default('0'),
+  waitlist_capacity: z.string().optional().default('0'),
+  waitlist_total: z.string().optional().default('0')
 })
 
 const ExternalSectionSchema = z.object({
@@ -26,7 +28,9 @@ const ExternalSectionSchema = z.object({
     capacity: '0',
     enrolled: '0',
     status: 'Unknown',
-    available_seats: '0'
+    available_seats: '0',
+    waitlist_capacity: '0',
+    waitlist_total: '0'
   }),
   class_attributes: z.string().default("") // Language of instruction
 })
@@ -82,6 +86,8 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
   const capacity = parseInt(external.capacity) || 0
   const enrolled = parseInt(external.enrolled) || 0
   const availableSeats = parseInt(external.available_seats)
+  const waitlistCapacity = parseInt(external.waitlist_capacity) || 0
+  const waitlistTotal = parseInt(external.waitlist_total) || 0
   
   let status: SectionAvailability['status'] = 'Unknown'
   if (external.status === 'Open') status = 'Open'
@@ -92,7 +98,9 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
     capacity,
     enrolled,
     status,
-    availableSeats
+    availableSeats,
+    waitlistCapacity,
+    waitlistTotal
   }
 }
 
