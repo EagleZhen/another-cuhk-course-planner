@@ -86,30 +86,71 @@ python resilient_scraper.py --retry  # Retry failed only
 - Complete type safety with clean architecture
 - Persistent state management with localStorage migration
 
-### **🔧 Technical Debt & Next Steps**
+### **✅ Latest Achievement: Hybrid Data Synchronization System**
 
-**Priority 1: Shopping Cart Enhancement**
+**Problem Solved**: Stale data in shopping cart (missing `class_attributes`, outdated availability)
+**Solution**: Hybrid localStorage + background sync architecture
+
+**Implementation Details:**
 ```typescript
-// Current limitation: Orphan section cycling doesn't reveal compatible types
-// F-LEC (orphan) → A-LEC should show newly available AE01-EXR, AT01-TUT
+// Data Flow: Fast Display + Background Sync
+1. App loads → localStorage display (instant UX)
+2. JSON loads → Background sync process  
+3. Fresh data → Update enrollments automatically
+4. Invalid data → Graceful degradation with visual indicators
 
-// Solution: Extend enrollment model
+// Smart Sync Logic
+setCourseEnrollments(currentEnrollments => {
+  // Prevent infinite loops with callback form
+  // Match localStorage courses with fresh JSON data
+  // Update classAttributes, availability, etc.
+  // Mark missing courses as invalid
+})
+
+// Invalid State Handling
 interface CourseEnrollment {
-  selectedSections: InternalSection[]     // Current selections
-  availableTypes: SectionTypeGroup[]     // Dynamic compatibility
-  compatibilityMatrix: CompatibilityMap  // Real-time constraints
+  isInvalid?: boolean           // Course/sections no longer exist
+  invalidReason?: string        // User-friendly explanation
+  lastSynced?: Date            // Sync timestamp tracking
 }
 ```
 
-**Priority 2: Data Synchronization**
-- Real-time badge updates for enrolled sections
-- Smart detection of stale enrollment data
-- Progressive course data loading
+**Key Architecture Insights:**
+- **Infinite Loop Prevention**: Use state updater callbacks, remove circular dependencies
+- **Performance**: Instant display from localStorage, sync in background
+- **User Experience**: Orange styling for invalid data, no intrusive popups  
+- **Data Consistency**: Fresh JSON always wins, localStorage for speed only
+
+**Critical Debugging Insights (January 2025):**
+```typescript
+// ❌ PROBLEMATIC: Circular dependency causes infinite loops
+const handleDataUpdate = useCallback(..., [courseEnrollments, currentTerm])
+// handleDataUpdate modifies courseEnrollments → re-triggers callback → infinite loop
+
+// ✅ SOLUTION: Use state updater function, remove circular dependency  
+const handleDataUpdate = useCallback(..., [currentTerm, lastSyncTimestamp])
+setCourseEnrollments(current => { /* access without dependency */ })
+
+// ✅ DUPLICATE SYNC PREVENTION: Add timestamp checking
+if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
+  return current // Skip rapid duplicates
+}
+```
+
+### **🔧 Remaining Technical Debt & Next Steps**
+
+**Priority 1: Shopping Cart Section Cycling Enhancement**
+- Orphan section cycling doesn't reveal newly compatible types (F-LEC → A-LEC compatibility display)
+- Need full availability display instead of selectedSections-only approach
+
+**Priority 2: Data Loading Optimization**  
+- Subject-on-demand loading (currently loads all 13 subjects)
+- Lazy loading architecture with ETag-based freshness validation
+- Progressive enhancement for large course datasets
 
 **Priority 3: Advanced Features**
-- URL state encoding for shareable schedules
-- Lazy loading architecture with subject-on-demand
-- Mobile optimization with touch interactions
+- URL state encoding for shareable schedules with compressed data
+- Mobile touch interactions and responsive calendar scaling
 
 ## Core Implementation Details
 
@@ -159,33 +200,52 @@ Subject → Per-Course JSONL → Structured JSON → Frontend consumption
 CSCI → CSCI_temp.jsonl → CSCI.json → CourseSearch.tsx load
 ```
 
-**Frontend Data Transformation:**
+**Hybrid Sync Data Flow:**
 ```typescript
-// 2. Clean validation boundary  
-External JSON → transformExternalCourseData() → InternalCourse[] → Components
-Raw sections → Zod validation → Type-safe models → UI rendering
+// 2. Fast Display + Background Sync (January 2025 Implementation)
+App Load → localStorage restore → Instant display (even if stale)
+         ↓
+JSON Load → Background sync → Fresh data merge → Updated UI
+         ↓
+Invalid courses → Orange styling + graceful degradation
+
+// Implementation Pattern:
+const handleDataUpdate = (timestamp: Date, freshCourses: InternalCourse[]) => {
+  setCourseEnrollments(current => {
+    // Sync current localStorage data with fresh JSON
+    return current.map(enrollment => ({
+      ...enrollment,
+      course: findFreshCourse(enrollment.courseId),     // Fresh data
+      selectedSections: updateWithFreshSections(...),  // Fresh availability
+      isInvalid: !courseExists,                        // Mark invalid
+      lastSynced: timestamp                            // Track sync
+    }))
+  })
+}
 ```
 
 **State Management:**
 ```typescript
-// 3. Persistent user state
+// 3. Persistent user state with sync status
 Course selections → CourseEnrollment[] → localStorage → Cross-session restore
 Section choices → Map<string,string> → Term-aware storage → Migration handling
+Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 ```
 
 ## Known Issues & Limitations
 
 **Shopping Cart Architecture:**
-- Limited section cycling for orphan sections (F-LEC → A-LEC doesn't show new compatible types)
-- Need full availability display instead of just selectedSections
+- Limited section cycling for orphan sections (F-LEC → A-LEC doesn't show newly compatible types)
+- Shopping cart displays selectedSections only, not full section type availability
 
-**Data Synchronization:**
-- Enrolled sections may reference stale availability data after JSON updates
-- No real-time enrollment number refresh during active sessions
+**Data Loading & Performance:**
+- Loads all 13 subjects on startup instead of on-demand (AIST, CENG, CSCI, ENGG, FINA, PHYS, UGCP, UGEA, UGEB, UGEC, UGED, UGFH, UGFN)
+- No lazy loading or progressive enhancement for large datasets
+- No ETag-based caching for reduced bandwidth
 
-**Performance Opportunities:**
-- Subject-on-demand loading not yet implemented
-- No lazy loading for large course datasets
+**Real-time Limitations:**
+- No live enrollment number updates during active sessions
+- Background sync only occurs on app startup/refresh
 
 ## Development Standards
 
@@ -203,4 +263,4 @@ Section choices → Map<string,string> → Term-aware storage → Migration hand
 
 ---
 
-*Last updated: January 2025 - Reflects current enterprise-grade system with dynamic calendar, section compatibility, and complete type safety. Ready for production deployment and future enhancements.*
+*Last updated: January 2025 - Reflects current enterprise-grade system with dynamic calendar, hybrid data synchronization, section compatibility, and complete type safety. Includes critical debugging insights for infinite loop prevention. Ready for production deployment and future enhancements.*
