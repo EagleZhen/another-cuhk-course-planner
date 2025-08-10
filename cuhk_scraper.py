@@ -25,7 +25,6 @@ class ScrapingConfig:
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
     progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename
-    skip_recent_hours: float = 24  # Skip subjects scraped within N hours
     progress_update_interval: int = 60  # Save progress every N seconds
     
     @classmethod
@@ -42,7 +41,6 @@ class ScrapingConfig:
             output_directory="data",     # Production data directory
             track_progress=True,         # Enable progress tracking
             progress_file="data/scraping_progress.json",
-            skip_recent_hours=24,
             progress_update_interval=60  # 1-minute periodic saves
         )
     
@@ -126,7 +124,6 @@ class ScrapingProgressTracker:
                 "total_subjects": 0,
                 "completed": 0,
                 "failed": 0,
-                "skipped": 0,
                 "subjects": {}
             }
         }
@@ -236,29 +233,13 @@ class ScrapingProgressTracker:
         self._save_progress()
         self.logger.error(f"Failed {subject} (attempt {retry_count}): {error_message}")
     
-    def skip_subject(self, subject: str, reason: str):
-        """Mark subject as skipped"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
-        subjects[subject] = {
-            "status": "skipped",
-            "skipped_at": datetime.now().isoformat(),
-            "reason": reason
-        }
-        
-        # Update totals
-        log = self.progress_data["scraping_log"]
-        log["skipped"] = len([s for s in log["subjects"].values() if s.get("status") == "skipped"])
-        
-        self._save_progress()
-        self.logger.info(f"Skipped {subject}: {reason}")
-    
     def get_remaining_subjects(self, all_subjects: List[str]) -> List[str]:
         """Get list of subjects that still need to be scraped"""
         subjects = self.progress_data["scraping_log"]["subjects"]
         remaining = []
         
         for subject in all_subjects:
-            if subject not in subjects or subjects[subject].get("status") not in ["completed", "skipped"]:
+            if subject not in subjects or subjects[subject].get("status") != "completed":
                 remaining.append(subject)
         
         return remaining
@@ -301,14 +282,12 @@ class ScrapingProgressTracker:
         total = len(log["subjects"])
         completed = log.get("completed", 0)
         failed = log.get("failed", 0)
-        skipped = log.get("skipped", 0)
         
         print(f"\n=== SCRAPING PROGRESS SUMMARY ===")
         print(f"Total subjects: {total}")
         print(f"Completed: {completed}")
         print(f"Failed: {failed}")
-        print(f"Skipped: {skipped}")
-        print(f"Progress: {(completed + skipped) / max(total, 1) * 100:.1f}%")
+        print(f"Progress: {completed / max(total, 1) * 100:.1f}%")
         
         if failed > 0:
             print(f"\nFailed subjects: {', '.join(self.get_failed_subjects())}")
@@ -1569,6 +1548,10 @@ def main():
         print("For production scraping only:")
         print("  results = scraper.scrape_for_production(subjects)")
         print("  # Returns summary dict with completed/failed subjects")
+        print()
+        print("To resume previous scraping:")
+        print("  resume_summary = scraper.resume_production_scraping()")
+        print("  # Continues from where previous scraping left off")
         print()
         print("Per-subject files enable:")
         print("  - Fault tolerance (keep completed subjects if scraping fails)")
