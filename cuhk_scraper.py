@@ -141,7 +141,7 @@ class ScrapingProgressTracker:
             with open(self.progress_file, 'w', encoding='utf-8') as f:
                 json.dump(self.progress_data, f, ensure_ascii=False, indent=2)
             
-            self.logger.debug(f"Progress saved to {self.progress_file}")
+            self.logger.debug(f"💾 Progress saved to {self.progress_file}")
         except Exception as e:
             self.logger.error(f"Could not save progress: {e}")
     
@@ -159,7 +159,7 @@ class ScrapingProgressTracker:
             "retry_count": subjects.get(subject, {}).get("retry_count", 0)
         }
         self._save_progress()
-        self.logger.info(f"Started scraping {subject}")
+        self.logger.info(f"🚀 Started scraping {subject}")
     
     def update_course_progress(self, subject: str, course_code: str, total_courses_scraped: int):
         """Update progress for a specific course completion"""
@@ -210,7 +210,7 @@ class ScrapingProgressTracker:
         log["completed"] = len([s for s in log["subjects"].values() if s.get("status") == "completed"])
         
         self._save_progress()
-        self.logger.info(f"Completed {subject}: {courses_count} courses in {duration_minutes:.1f} minutes")
+        self.logger.info(f"✅ Completed {subject}: {courses_count} courses in {duration_minutes:.1f} minutes")
     
     def fail_subject(self, subject: str, error_message: str):
         """Mark subject as failed"""
@@ -398,7 +398,7 @@ class CuhkScraper:
             
         for attempt in range(config.max_retries):
             try:
-                self.logger.info(f"Scraping {subject_code}, attempt {attempt + 1}")
+                self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
                 
                 # Get the initial page to extract form data
                 response = self.session.get(self.base_url)
@@ -442,7 +442,7 @@ class CuhkScraper:
                     last_progress_save = time.time()  # Track last periodic save
                     
                     for i, course in enumerate(courses_to_detail):
-                        self.logger.info(f"Getting details for course {i+1}/{len(courses_to_detail)}: {course.course_code}")
+                        self.logger.info(f"📖 Getting details for course {i+1}/{len(courses_to_detail)}: {course.course_code}")
                         detailed_course = self.get_course_details(course, response.text, get_enrollment_details=get_enrollment_details, config=config)
                         detailed_courses.append(detailed_course)
                         
@@ -455,7 +455,7 @@ class CuhkScraper:
                             if self.progress_tracker.should_save_periodic_progress(last_progress_save, config.progress_update_interval):
                                 self.progress_tracker.save_periodic_progress()
                                 last_progress_save = time.time()
-                                self.logger.info(f"Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed")
+                                self.logger.info(f"💾 Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed")
                         
                         # Be polite to the server
                         if i < len(courses_to_detail) - 1:
