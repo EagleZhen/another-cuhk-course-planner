@@ -140,7 +140,7 @@ export default function ShoppingCart({
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
   return (
-    <Card className="h-[800px] flex flex-col" data-shopping-cart>
+    <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
