@@ -295,7 +295,7 @@ export default function CourseSearch({
     }
 
     loadCourseData()
-  }, [onDataUpdate]) // Now safe with useCallback
+  }, [onDataUpdate, currentTerm]) // Reload data when term changes
 
   // Real-time search with useMemo for performance, filtered by current term
   // Helper function to open Google search for course reviews
