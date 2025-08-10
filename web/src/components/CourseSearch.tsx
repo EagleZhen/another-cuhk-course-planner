@@ -371,7 +371,7 @@ function CourseCard({
 
   return (
     <Card 
-      className={`transition-all duration-200 ${
+      className={`py-5 gap-0 transition-all duration-200 ${
         !expanded 
           ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
           : 'shadow-md'
@@ -499,7 +499,7 @@ function CourseCard({
 
       {expanded && (
         <CardContent className="pt-0">
-          <div className="space-y-4">
+          <div className="space-y-4 pt-3 border-t">
             {/* Section Selection */}
             {sectionTypes.map(typeGroup => {
               // Get currently selected sections for this course to check compatibility
