@@ -1238,12 +1238,6 @@ class CuhkScraper:
             'saved_files': saved_files
         }
     
-    def scrape_for_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> Dict[str, Any]:
-        """Production scraping - unlimited courses, no debug files, optimized performance"""
-        self.logger.info(f"Starting PRODUCTION scraping for {len(subjects)} subjects")
-        config = ScrapingConfig.for_production()
-        return self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-    
     def scrape_and_export_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> str:
         """Complete production workflow: scrape + export to per-subject files in /data"""
         config = ScrapingConfig.for_production()
