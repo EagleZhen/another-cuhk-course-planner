@@ -22,6 +22,7 @@ interface CourseSearchProps {
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
+  onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
 }
 
 export default function CourseSearch({ 
@@ -33,9 +34,17 @@ export default function CourseSearch({
   onTermChange, 
   selectedSections, 
   onSelectedSectionsChange,
-  onSelectEnrollment
+  onSelectEnrollment,
+  onSearchControlReady
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
+  
+  // Expose search function to parent
+  useEffect(() => {
+    if (onSearchControlReady) {
+      onSearchControlReady(setSearchTerm)
+    }
+  }, [onSearchControlReady])
   const [loading, setLoading] = useState(false)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)

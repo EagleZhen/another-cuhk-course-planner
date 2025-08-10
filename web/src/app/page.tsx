@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
@@ -11,6 +11,8 @@ import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCou
 // Color assignment is now handled in courseUtils.ts
 
 export default function Home() {
+  // Reference to CourseSearch's setSearchTerm function
+  const setSearchTermRef = useRef<((term: string) => void) | null>(null)
   // Available terms
   const availableTerms = [
     "2025-26 Term 1",
@@ -252,12 +254,9 @@ export default function Home() {
                         key={subject}
                         subject={subject}
                         onSubjectSelect={(selectedSubject: string) => {
-                          // Set the search input value and trigger search
-                          const searchInput = document.querySelector('input[placeholder*="Search courses"]') as HTMLInputElement;
-                          if (searchInput) {
-                            searchInput.value = selectedSubject;
-                            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                            searchInput.focus();
+                          // Use React ref to update search term directly
+                          if (setSearchTermRef.current) {
+                            setSearchTermRef.current(selectedSubject);
                           }
                         }}
                       />
@@ -277,6 +276,7 @@ export default function Home() {
               selectedSections={selectedSections}     // Data prop / State prop
               onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
               onSelectEnrollment={handleSelectEnrollment}     // Event handler prop
+              onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
               />
             </CardContent>
           </Card>
