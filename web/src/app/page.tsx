@@ -35,6 +35,7 @@ export default function Home() {
   const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
+  const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
 
   // Auto-restore schedule from localStorage when term changes
   useEffect(() => {
@@ -409,36 +410,65 @@ export default function Home() {
                 
                 {/* Available Subjects - Modern Toggle Interface */}
                 <div className="space-y-2">
-                  <div className="text-sm font-medium text-gray-700">
-                    Available Subjects {availableSubjects.length > 0 && `(${availableSubjects.length})`}
+                  <div className="text-sm font-medium text-gray-700 flex items-center gap-3">
+                    <span>
+                      Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
+                    </span>
                     {selectedSubjects.size > 0 && (
-                      <button 
-                        onClick={() => setSelectedSubjects(new Set())}
-                        className="ml-2 text-xs text-blue-600 hover:text-blue-800 underline"
-                        title="Clear all subject filters"
-                      >
-                        Clear all
-                      </button>
+                      <div className="flex items-center gap-1.5">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => setShowSelectedOnly(!showSelectedOnly)}
+                          className="h-5 px-2 text-xs font-normal text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full cursor-pointer"
+                          title={showSelectedOnly ? "Show all subjects" : "Show selected subjects only"}
+                        >
+                          {showSelectedOnly ? "Show All" : "Show Selected Only"}
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => setSelectedSubjects(new Set())}
+                          className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
+                          title="Clear all subject filters"
+                        >
+                          ✕ Clear All
+                        </Button>
+                      </div>
                     )}
                   </div>
                   <div className="flex gap-2 flex-wrap">
                     {availableSubjects.length > 0 ? (
-                      availableSubjects.map((subject) => (
-                        <SubjectToggle
-                          key={subject}
-                          subject={subject}
-                          isSelected={selectedSubjects.has(subject)}
-                          onSubjectToggle={(subject: string) => {
-                            const newSelection = new Set(selectedSubjects)
-                            if (newSelection.has(subject)) {
-                              newSelection.delete(subject)
-                            } else {
-                              newSelection.add(subject)
-                            }
-                            setSelectedSubjects(newSelection)
-                          }}
-                        />
-                      ))
+                      (() => {
+                        const subjectsToShow = showSelectedOnly 
+                          ? availableSubjects.filter(subject => selectedSubjects.has(subject))
+                          : availableSubjects
+                        
+                        if (subjectsToShow.length === 0 && showSelectedOnly) {
+                          return (
+                            <div className="text-xs text-gray-500">
+                              No subjects selected. Select some subjects or click &ldquo;Show All&rdquo; to see available options.
+                            </div>
+                          )
+                        }
+                        
+                        return subjectsToShow.map((subject) => (
+                          <SubjectToggle
+                            key={subject}
+                            subject={subject}
+                            isSelected={selectedSubjects.has(subject)}
+                            onSubjectToggle={(subject: string) => {
+                              const newSelection = new Set(selectedSubjects)
+                              if (newSelection.has(subject)) {
+                                newSelection.delete(subject)
+                              } else {
+                                newSelection.add(subject)
+                              }
+                              setSelectedSubjects(newSelection)
+                            }}
+                          />
+                        ))
+                      })()
                     ) : (
                       <div className="text-xs text-gray-500">Discovering subjects...</div>
                     )}
