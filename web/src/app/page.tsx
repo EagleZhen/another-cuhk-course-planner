@@ -111,7 +111,7 @@ export default function Home() {
       setCourseEnrollments([])
       setSelectedSubjects(new Set())
     }
-  }, [currentTerm, SCHEDULE_DATA_VERSION, subjectFiltersByTerm])
+  }, [currentTerm, SCHEDULE_DATA_VERSION])
 
   // Save subject filters to session state whenever they change
   useEffect(() => {
