@@ -354,68 +354,70 @@ export default function CourseSearch({
 
   return (
     <div className="space-y-4">
-      {/* Search Input with Term Filter Hint */}
-      <div className="w-full space-y-2">
-        <Input
-          type="text"
-          placeholder="Search courses (e.g., CSCI3180, Software Engineering, Yu Bei)"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full"
-        />
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <Info className="w-3 h-3" />
-          <span>Showing courses available in</span>
-          {availableTerms.length > 0 && onTermChange ? (
-            <div className="relative">
-              <button
-                onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
-                className={`inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50' : ''}`}
-                title="Click to change term"
-              >
-                <span>{currentTerm}</span>
-                <ChevronDown className="w-3 h-3" />
-              </button>
-              
-              {isTermDropdownOpen && (
-                <>
-                  {/* Backdrop */}
-                  <div 
-                    className="fixed inset-0 z-40 cursor-pointer" 
-                    onClick={() => setIsTermDropdownOpen(false)}
-                  />
-                  
-                  {/* Dropdown */}
-                  <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
-                    <div className="py-1">
-                      {availableTerms.map(term => (
-                        <button
-                          key={term}
-                          type="button"
-                          className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
-                            term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
-                          }`}
-                          onClick={() => {
-                            onTermChange?.(term)
-                            setIsTermDropdownOpen(false)
-                          }}
-                        >
-                          {term}
-                        </button>
-                      ))}
+      {/* Sticky Search Input with Term Filter Hint */}
+      <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
+        <div className="w-full space-y-2">
+          <Input
+            type="text"
+            placeholder="Search courses (e.g., CSCI3180, Software Engineering, Yu Bei)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full"
+          />
+          <div className="flex items-center gap-2 text-xs text-gray-600">
+            <Info className="w-3 h-3" />
+            <span>Showing courses available in</span>
+            {availableTerms.length > 0 && onTermChange ? (
+              <div className="relative">
+                <button
+                  onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
+                  className={`inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50' : ''}`}
+                  title="Click to change term"
+                >
+                  <span>{currentTerm}</span>
+                  <ChevronDown className="w-3 h-3" />
+                </button>
+                
+                {isTermDropdownOpen && (
+                  <>
+                    {/* Backdrop */}
+                    <div 
+                      className="fixed inset-0 z-40 cursor-pointer" 
+                      onClick={() => setIsTermDropdownOpen(false)}
+                    />
+                    
+                    {/* Dropdown */}
+                    <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
+                      <div className="py-1">
+                        {availableTerms.map(term => (
+                          <button
+                            key={term}
+                            type="button"
+                            className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
+                              term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
+                            }`}
+                            onClick={() => {
+                              onTermChange?.(term)
+                              setIsTermDropdownOpen(false)
+                            }}
+                          >
+                            {term}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-            </div>
-          ) : (
-            <strong>{currentTerm}</strong>
-          )}
+                  </>
+                )}
+              </div>
+            ) : (
+              <strong>{currentTerm}</strong>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Search Results */}
-      <div className="space-y-3">
+      {/* Search Results with Natural Flow */}
+      <div className="space-y-3 pb-8">
         {loading ? (
           <div className="text-center py-8 text-gray-500">
             <div className="space-y-2">
@@ -462,54 +464,56 @@ export default function CourseSearch({
                 </span>
               )}
             </div>
-            {searchResults.map((course, index) => (
-              <CourseCard 
-                key={`${course.subject}-${course.courseCode}-${index}`} 
-                course={course}
-                currentTerm={currentTerm}
-                selectedSections={selectedSections}
-                onSearchReviews={searchCourseReviews}
-                onSearchInstructor={searchInstructor}
-                onSectionToggle={(courseKey, sectionType, sectionId) => {
-                  const newMap = new Map(selectedSections)
-                  const selectionKey = `${courseKey}_${sectionType}`
-                  
-                  if (newMap.get(selectionKey) === sectionId) {
-                    // Remove selection
-                    newMap.delete(selectionKey)
-                    onSelectedSectionsChange(newMap)
-                  } else {
-                    // Set new selection (replaces any existing selection for this type)
-                    newMap.set(selectionKey, sectionId)
+            <div className="space-y-3">
+              {searchResults.map((course, index) => (
+                <CourseCard 
+                  key={`${course.subject}-${course.courseCode}-${index}`} 
+                  course={course}
+                  currentTerm={currentTerm}
+                  selectedSections={selectedSections}
+                  onSearchReviews={searchCourseReviews}
+                  onSearchInstructor={searchInstructor}
+                  onSectionToggle={(courseKey, sectionType, sectionId) => {
+                    const newMap = new Map(selectedSections)
+                    const selectionKey = `${courseKey}_${sectionType}`
                     
-                    // Find the course to get section types for cascade clearing
-                    const targetCourse = searchResults.find(c => `${c.subject}${c.courseCode}` === courseKey)
-                    if (targetCourse) {
-                      const sectionTypes = parseSectionTypes(targetCourse, currentTerm)
-                      // Clear any lower-priority incompatible selections
-                      const clearedMap = clearIncompatibleLowerSelections(
-                        newMap, 
-                        courseKey, 
-                        sectionType as SectionType, // Type assertion for section type compatibility
-                        sectionId, 
-                        sectionTypes, 
-                        targetCourse, 
-                        currentTerm
-                      )
-                      onSelectedSectionsChange(clearedMap)
-                    } else {
+                    if (newMap.get(selectionKey) === sectionId) {
+                      // Remove selection
+                      newMap.delete(selectionKey)
                       onSelectedSectionsChange(newMap)
+                    } else {
+                      // Set new selection (replaces any existing selection for this type)
+                      newMap.set(selectionKey, sectionId)
+                      
+                      // Find the course to get section types for cascade clearing
+                      const targetCourse = searchResults.find(c => `${c.subject}${c.courseCode}` === courseKey)
+                      if (targetCourse) {
+                        const sectionTypes = parseSectionTypes(targetCourse, currentTerm)
+                        // Clear any lower-priority incompatible selections
+                        const clearedMap = clearIncompatibleLowerSelections(
+                          newMap, 
+                          courseKey, 
+                          sectionType as SectionType, // Type assertion for section type compatibility
+                          sectionId, 
+                          sectionTypes, 
+                          targetCourse, 
+                          currentTerm
+                        )
+                        onSelectedSectionsChange(clearedMap)
+                      } else {
+                        onSelectedSectionsChange(newMap)
+                      }
                     }
-                  }
-                }}
-                onAddCourse={onAddCourse}
-                onRemoveCourse={onRemoveCourse}
-                isAdded={isCourseAdded(course)}
-                hasSelectionsChanged={hasSelectionsChanged(course)}
-                onSelectEnrollment={onSelectEnrollment}
-                courseEnrollments={courseEnrollments}
-              />
-            ))}
+                  }}
+                  onAddCourse={onAddCourse}
+                  onRemoveCourse={onRemoveCourse}
+                  isAdded={isCourseAdded(course)}
+                  hasSelectionsChanged={hasSelectionsChanged(course)}
+                  onSelectEnrollment={onSelectEnrollment}
+                  courseEnrollments={courseEnrollments}
+                />
+              ))}
+            </div>
           </>
         )}
       </div>
