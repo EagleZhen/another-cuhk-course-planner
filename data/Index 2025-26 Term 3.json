@@ -1,0 +1,1840 @@
+{
+  "metadata": {
+    "generated_at": "2025-08-10T14:44:38.767790",
+    "format_version": 1,
+    "term": "2025-26 Term 3",
+    "total_courses": 161,
+    "total_subjects": 25,
+    "subjects": [
+      "ACCT",
+      "BAMS",
+      "BIOS",
+      "CGEN",
+      "DBAC",
+      "DOTE",
+      "EMBA",
+      "EPBI",
+      "EPID",
+      "EPSY",
+      "FINA",
+      "HPSB",
+      "HSOC",
+      "HSYS",
+      "HTMG",
+      "IEMS",
+      "INFD",
+      "MBAC",
+      "MEDM",
+      "MGNT",
+      "MKTG",
+      "MRGO",
+      "NURS",
+      "OENV",
+      "PBHT"
+    ],
+    "processing_summary": {
+      "files_processed": 259,
+      "courses_extracted": 161,
+      "errors_count": 0
+    }
+  },
+  "courses": [
+    {
+      "id": "ACCT5110",
+      "subject": "ACCT",
+      "code": "5110",
+      "title": "Advanced Financial Accounting and Reporting",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor XIN Xiangang"
+      ]
+    },
+    {
+      "id": "ACCT5130",
+      "subject": "ACCT",
+      "code": "5130",
+      "title": "Auditing and Professional Practice",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. WONG Ka Lok"
+      ]
+    },
+    {
+      "id": "ACCT5160",
+      "subject": "ACCT",
+      "code": "5160",
+      "title": "Taxation and Tax Planning",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. BUTT Yiu Yu"
+      ]
+    },
+    {
+      "id": "ACCT5550",
+      "subject": "ACCT",
+      "code": "5550",
+      "title": "Corporate and Financial Law",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. WANG Guiguo,   Mr. GU Minkang"
+      ]
+    },
+    {
+      "id": "ACCT6001",
+      "subject": "ACCT",
+      "code": "6001",
+      "title": "Accounting Field Study",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "ACCT6111",
+      "subject": "ACCT",
+      "code": "6111",
+      "title": "Business Valuation and Analysis",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor TSENG Chun Kai"
+      ]
+    },
+    {
+      "id": "ACCT6141",
+      "subject": "ACCT",
+      "code": "6141",
+      "title": "Accounting Data Analytics and Business Intelligence",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHANG Qi"
+      ]
+    },
+    {
+      "id": "ACCT6160",
+      "subject": "ACCT",
+      "code": "6160",
+      "title": "Taxation in China",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. GUAN Yanling"
+      ]
+    },
+    {
+      "id": "ACCT6161",
+      "subject": "ACCT",
+      "code": "6161",
+      "title": "International Taxation Planning and Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. BUTT Yiu Yu"
+      ]
+    },
+    {
+      "id": "BAMS6001",
+      "subject": "BAMS",
+      "code": "6001",
+      "title": "Business Field Study",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHEUNG Wai Man",
+        "Professor LIAO Ming"
+      ]
+    },
+    {
+      "id": "BIOS6001",
+      "subject": "BIOS",
+      "code": "6001",
+      "title": "Topics in Linear Models",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr LEE Jock Wai,   Dr. CAO Lirong,   Professor WANG Haitian"
+      ]
+    },
+    {
+      "id": "BIOS6005",
+      "subject": "BIOS",
+      "code": "6005",
+      "title": "Pharmaceutical Bioinformatics",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WANG Haitian,   Professor WANG Xin"
+      ]
+    },
+    {
+      "id": "BIOS6006",
+      "subject": "BIOS",
+      "code": "6006",
+      "title": "Artificial Intelligence Methods for Medical Research and Pharmaceutical Science",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr LEE Jock Wai,   Dr. LAI Xin,   Professor LAM Ching Yu,   Professor SUN Rui,   Professor WANG Haitian,   Professor WEI Yuchen"
+      ]
+    },
+    {
+      "id": "CGEN5006",
+      "subject": "CGEN",
+      "code": "5006",
+      "title": "Psychospiritual Aspects In Palliative Care",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "CGEN5007",
+      "subject": "CGEN",
+      "code": "5007",
+      "title": "Ethical Principles and Dilemmas in End of Life Care",
+      "credits": 0.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "CGEN5010",
+      "subject": "CGEN",
+      "code": "5010",
+      "title": "Epidemiology and Research Methodology",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "CGEN5012",
+      "subject": "CGEN",
+      "code": "5012",
+      "title": "Symptom Control and Medical Care in End of Life Care A",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "CGEN6205",
+      "subject": "CGEN",
+      "code": "6205",
+      "title": "Case Studies IV",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "CGEN6902",
+      "subject": "CGEN",
+      "code": "6902",
+      "title": "Project Report III",
+      "credits": 3.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor Jean WOO,   Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "CGEN6905",
+      "subject": "CGEN",
+      "code": "6905",
+      "title": "Practicum III",
+      "credits": 3.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor Jean WOO,   Professor KWOK Chi Yui Timothy"
+      ]
+    },
+    {
+      "id": "DBAC7106",
+      "subject": "DBAC",
+      "code": "7106",
+      "title": "Workshop for Thesis Proposal",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "DBAC7119",
+      "subject": "DBAC",
+      "code": "7119",
+      "title": "Global Business and Management Field Study",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor YANG Haibin"
+      ]
+    },
+    {
+      "id": "DBAC8101",
+      "subject": "DBAC",
+      "code": "8101",
+      "title": "Thesis Research",
+      "credits": 5.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "DOTE5012",
+      "subject": "DOTE",
+      "code": "5012",
+      "title": "Macroeconomics for Business Executives",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YUEN Chi Lok"
+      ]
+    },
+    {
+      "id": "DOTE5021",
+      "subject": "DOTE",
+      "code": "5021",
+      "title": "Business Analytics",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. KU Kei Tat"
+      ]
+    },
+    {
+      "id": "DOTE5210",
+      "subject": "DOTE",
+      "code": "5210",
+      "title": "Strategic Information Systems",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHANG Xiaoquan"
+      ]
+    },
+    {
+      "id": "DOTE5411",
+      "subject": "DOTE",
+      "code": "5411",
+      "title": "Operations and Supply Chains Strategies",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor HSU Vernon Ning"
+      ]
+    },
+    {
+      "id": "DOTE6010",
+      "subject": "DOTE",
+      "code": "6010",
+      "title": "Managerial Economics",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WANG Jian"
+      ]
+    },
+    {
+      "id": "DOTE6654",
+      "subject": "DOTE",
+      "code": "6654",
+      "title": "Business Process Analysis and Simulation",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LIN Yunduan"
+      ]
+    },
+    {
+      "id": "DOTE6680",
+      "subject": "DOTE",
+      "code": "6680",
+      "title": "Selected Topics of Information and Technology Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHANG Dongcheng"
+      ]
+    },
+    {
+      "id": "DOTE6683",
+      "subject": "DOTE",
+      "code": "6683",
+      "title": "Blockchain and Its Application",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KIM Keong Tae"
+      ]
+    },
+    {
+      "id": "DOTE6685",
+      "subject": "DOTE",
+      "code": "6685",
+      "title": "Generative Artificial Intelligence for Business",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LIAO Ming"
+      ]
+    },
+    {
+      "id": "DOTE6686",
+      "subject": "DOTE",
+      "code": "6686",
+      "title": "Advanced Information Systems Practicum",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHEUNG Wai Man"
+      ]
+    },
+    {
+      "id": "DOTE6688",
+      "subject": "DOTE",
+      "code": "6688",
+      "title": "Technology Startup-From Idea to Reality",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor Prasanna Purushottam KARHADE"
+      ]
+    },
+    {
+      "id": "DOTE6696",
+      "subject": "DOTE",
+      "code": "6696",
+      "title": "Advanced Business Analytics Practicum",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHANG Renyu"
+      ]
+    },
+    {
+      "id": "DOTE6698",
+      "subject": "DOTE",
+      "code": "6698",
+      "title": "Machine Learning for Business II",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHANG Dongcheng",
+        "Professor ZHU Kaijie"
+      ]
+    },
+    {
+      "id": "DOTE6730",
+      "subject": "DOTE",
+      "code": "6730",
+      "title": "Project Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor GONG Xiting"
+      ]
+    },
+    {
+      "id": "DOTE6790",
+      "subject": "DOTE",
+      "code": "6790",
+      "title": "Technology Field Study",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor YEUNG Hoi Yan Jeff"
+      ]
+    },
+    {
+      "id": "DOTE6930",
+      "subject": "DOTE",
+      "code": "6930",
+      "title": "Supply Chain and Logistics Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LI Anran"
+      ]
+    },
+    {
+      "id": "DOTE6940",
+      "subject": "DOTE",
+      "code": "6940",
+      "title": "Enterprise Resource Planning",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr. WONG Kwan Hoi"
+      ]
+    },
+    {
+      "id": "EMBA6062",
+      "subject": "EMBA",
+      "code": "6062",
+      "title": "Selected Topics in Business and Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHAU Chi Wai",
+        "Staff"
+      ]
+    },
+    {
+      "id": "EMBA6063",
+      "subject": "EMBA",
+      "code": "6063",
+      "title": "Contemporary Perspectives of Effective Management",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor YAN Xuan"
+      ]
+    },
+    {
+      "id": "EMBA6064",
+      "subject": "EMBA",
+      "code": "6064",
+      "title": "Current Practices for Business Success",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHAN Chi Fai Andrew"
+      ]
+    },
+    {
+      "id": "EMBA6066",
+      "subject": "EMBA",
+      "code": "6066",
+      "title": "Adaptive Management in Evolving Environments",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LIAO Ming"
+      ]
+    },
+    {
+      "id": "EMBA6101",
+      "subject": "EMBA",
+      "code": "6101",
+      "title": "Monetary Policy and Global Financial Markets",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. CHEN Dong"
+      ]
+    },
+    {
+      "id": "EPBI5002",
+      "subject": "EPBI",
+      "code": "5002",
+      "title": "Protocol Development II",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor TSOI Kam Fai,   Professor WANG Zixin"
+      ]
+    },
+    {
+      "id": "EPBI6901",
+      "subject": "EPBI",
+      "code": "6901",
+      "title": "Research Thesis II",
+      "credits": 5.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHONG Ka Chun,   Professor WANG Haitian,   Professor YANG Zuyao"
+      ]
+    },
+    {
+      "id": "EPID5003",
+      "subject": "EPID",
+      "code": "5003",
+      "title": "Epidemiology III",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. WANG Jingxuan,   Professor KIM Jean Hee,   Professor LAM Yuen Tung,   Professor WANG Zixin,   Professor YANG Xue,   Professor YANG Zuyao"
+      ]
+    },
+    {
+      "id": "EPID6001",
+      "subject": "EPID",
+      "code": "6001",
+      "title": "Appraisal of the Methods of Epidemiological Studies",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. WANG Jingxuan,   Professor CHAN Yan Chim,   Professor TSOI Kam Fai,   Professor WANG Zixin,   Professor WONG Tze Wai,   Professor YANG Zuyao"
+      ]
+    },
+    {
+      "id": "EPID6003",
+      "subject": "EPID",
+      "code": "6003",
+      "title": "Nutritional Epidemiology",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. LO Ka Hei Kenneth"
+      ]
+    },
+    {
+      "id": "EPID6006",
+      "subject": "EPID",
+      "code": "6006",
+      "title": "Advanced Infectious Disease Epidemiology",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWOK Kin On"
+      ]
+    },
+    {
+      "id": "EPSY6401",
+      "subject": "EPSY",
+      "code": "6401",
+      "title": "Research seminar in Professional Educational Psychology",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LAM Yu Hin"
+      ]
+    },
+    {
+      "id": "EPSY6501",
+      "subject": "EPSY",
+      "code": "6501",
+      "title": "Practicum (I)",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. LAM Wing Chi,   Dr. LUI Wan Hap,   Dr. WONG Kathy,   Mr. NGAN Wai Lam"
+      ]
+    },
+    {
+      "id": "FINA5012",
+      "subject": "FINA",
+      "code": "5012",
+      "title": "Fundamentals of Sustainable Finance",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6010",
+      "subject": "FINA",
+      "code": "6010",
+      "title": "Money and Capital Markets",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor Thomas Rodney Mason BAIN"
+      ]
+    },
+    {
+      "id": "FINA6020",
+      "subject": "FINA",
+      "code": "6020",
+      "title": "FinTech Analytics",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6132",
+      "subject": "FINA",
+      "code": "6132",
+      "title": "Derivatives Markets",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. MOK Ka Ming",
+        "Mr. LAM Chi Fung Kelvin,   Professor GAO Zhenyu",
+        "Mr. LAM Chi Fung Kelvin,   Professor SU Yang",
+        "Professor GAO Zhenyu",
+        "Professor SU Yang"
+      ]
+    },
+    {
+      "id": "FINA6172",
+      "subject": "FINA",
+      "code": "6172",
+      "title": "Mergers & Acquisitions",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Ms. HSU Shirley Sui Wei"
+      ]
+    },
+    {
+      "id": "FINA6204",
+      "subject": "FINA",
+      "code": "6204",
+      "title": "Frontier Topics in Finance",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr. JEN Marshall Hong"
+      ]
+    },
+    {
+      "id": "FINA6205",
+      "subject": "FINA",
+      "code": "6205",
+      "title": "Frontier Issues in Finance",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LI Gang"
+      ]
+    },
+    {
+      "id": "FINA6206",
+      "subject": "FINA",
+      "code": "6206",
+      "title": "International Finance",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6212",
+      "subject": "FINA",
+      "code": "6212",
+      "title": "Financial Policy",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6220",
+      "subject": "FINA",
+      "code": "6220",
+      "title": "Current Issues in Finance",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Miss CHAN Wai Hing Annie"
+      ]
+    },
+    {
+      "id": "FINA6221",
+      "subject": "FINA",
+      "code": "6221",
+      "title": "Selected Issues in Finance",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6222",
+      "subject": "FINA",
+      "code": "6222",
+      "title": "Selected Topics in Finance",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KUONG Chi Fong"
+      ]
+    },
+    {
+      "id": "FINA6229",
+      "subject": "FINA",
+      "code": "6229",
+      "title": "Machine Learning in Finance",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LI Gang"
+      ]
+    },
+    {
+      "id": "FINA6230",
+      "subject": "FINA",
+      "code": "6230",
+      "title": "Venture Capital & Private Equity",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor MIU Hon Kit"
+      ]
+    },
+    {
+      "id": "FINA6236",
+      "subject": "FINA",
+      "code": "6236",
+      "title": "Sustainable Finance",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor SHU Tao"
+      ]
+    },
+    {
+      "id": "FINA6250",
+      "subject": "FINA",
+      "code": "6250",
+      "title": "Fundamentals of Derivatives Trading Strategies",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CAO Quanwei"
+      ]
+    },
+    {
+      "id": "FINA6292",
+      "subject": "FINA",
+      "code": "6292",
+      "title": "Capital Markets",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KUONG Chi Fong"
+      ]
+    },
+    {
+      "id": "FINA6352",
+      "subject": "FINA",
+      "code": "6352",
+      "title": "Credit & Financing: Flow, Structured and Risk Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6508",
+      "subject": "FINA",
+      "code": "6508",
+      "title": "Commercial Banking",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor TANG Nai Pan",
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6514",
+      "subject": "FINA",
+      "code": "6514",
+      "title": "Special Topics in Finance",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor JIANG Wenxi",
+        "Professor LI Jiange",
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6522",
+      "subject": "FINA",
+      "code": "6522",
+      "title": "Law and the Securities Markets",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor HUANG Hui"
+      ]
+    },
+    {
+      "id": "FINA6526",
+      "subject": "FINA",
+      "code": "6526",
+      "title": "International Political Economy",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6527",
+      "subject": "FINA",
+      "code": "6527",
+      "title": "Seminars on International Capital Markets",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "FINA6533",
+      "subject": "FINA",
+      "code": "6533",
+      "title": "Finance Field Study",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor Paul Brian MCGUINNESS"
+      ]
+    },
+    {
+      "id": "FINA6572",
+      "subject": "FINA",
+      "code": "6572",
+      "title": "Mathematical Financial Modeling and Structured Solutions",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LAW Ka Fai"
+      ]
+    },
+    {
+      "id": "FINA6608",
+      "subject": "FINA",
+      "code": "6608",
+      "title": "Derivatives for Actuaries",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LI Siu Hang"
+      ]
+    },
+    {
+      "id": "FINA6609",
+      "subject": "FINA",
+      "code": "6609",
+      "title": "Data Science for Insurance Analytics",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LIM Hong Beng"
+      ]
+    },
+    {
+      "id": "FINA6610",
+      "subject": "FINA",
+      "code": "6610",
+      "title": "Statistical Modelling for Insurance Analytics",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LIM Hong Beng"
+      ]
+    },
+    {
+      "id": "FINA6616",
+      "subject": "FINA",
+      "code": "6616",
+      "title": "Advanced Life Contingencies",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHU Xiao Bai"
+      ]
+    },
+    {
+      "id": "FINA6617",
+      "subject": "FINA",
+      "code": "6617",
+      "title": "Loss and Survival Models",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor ZHU Xiao Bai"
+      ]
+    },
+    {
+      "id": "HPSB5003",
+      "subject": "HPSB",
+      "code": "5003",
+      "title": "Health Promotion Programme Evaluation and Monitoring",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WANG Zixin"
+      ]
+    },
+    {
+      "id": "HSOC5003",
+      "subject": "HSOC",
+      "code": "5003",
+      "title": "Nutrition for Public Health",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YUNG Ka Chun"
+      ]
+    },
+    {
+      "id": "HSOC5006",
+      "subject": "HSOC",
+      "code": "5006",
+      "title": "Medical Sociology",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. CHENG Yeung Hung"
+      ]
+    },
+    {
+      "id": "HSYS5002",
+      "subject": "HSYS",
+      "code": "5002",
+      "title": "Healthcare Organisation and Management",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YAU Zi May Susan,   Professor HUNG Chi Tim"
+      ]
+    },
+    {
+      "id": "HSYS5004",
+      "subject": "HSYS",
+      "code": "5004",
+      "title": "Health Systems and Policies",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YAM Ho Kwan,   Dr. YAU Zi May Susan,   Professor FUNG Hong,   Professor WANG Kailu,   Professor WU Yushan,   Professor YEOH Eng Kiong"
+      ]
+    },
+    {
+      "id": "HSYS5006",
+      "subject": "HSYS",
+      "code": "5006",
+      "title": "Health Management in Practice",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. FUNG Shu Yan Anthony"
+      ]
+    },
+    {
+      "id": "HSYS5012",
+      "subject": "HSYS",
+      "code": "5012",
+      "title": "Human Resource Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YAU Zi May Susan,   Professor HUNG Chi Tim"
+      ]
+    },
+    {
+      "id": "HSYS5013",
+      "subject": "HSYS",
+      "code": "5013",
+      "title": "Financial Management",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YAU Zi May Susan,   Professor TSE Sau Ling"
+      ]
+    },
+    {
+      "id": "HSYS5023",
+      "subject": "HSYS",
+      "code": "5023",
+      "title": "Local Visits",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YAU Zi May Susan,   Professor HUNG Chi Tim"
+      ]
+    },
+    {
+      "id": "HSYS5027",
+      "subject": "HSYS",
+      "code": "5027",
+      "title": "Clinical Governance",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YAU Zi May Susan,   Professor HUNG Chi Tim,   Professor YEOH Eng Kiong"
+      ]
+    },
+    {
+      "id": "HSYS5028",
+      "subject": "HSYS",
+      "code": "5028",
+      "title": "Advanced Healthcare Financing",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor FUNG Hong,   Professor WU Yushan"
+      ]
+    },
+    {
+      "id": "HSYS6900",
+      "subject": "HSYS",
+      "code": "6900",
+      "title": "Master-Level Guided Case Study",
+      "credits": 6.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor FUNG Hong,   Professor HUNG Chi Tim,   Professor LEE Koon Hung,   Professor LO Su Vui"
+      ]
+    },
+    {
+      "id": "HTMG5003",
+      "subject": "HTMG",
+      "code": "5003",
+      "title": "Services Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WAN Chun Ying"
+      ]
+    },
+    {
+      "id": "HTMG5015",
+      "subject": "HTMG",
+      "code": "5015",
+      "title": "Global Real Estate Asset Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WONG Chi Fai Nelson"
+      ]
+    },
+    {
+      "id": "HTMG5021",
+      "subject": "HTMG",
+      "code": "5021",
+      "title": "Shopping Mall Development and Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. Ervi LIUSMAN"
+      ]
+    },
+    {
+      "id": "HTMG5022",
+      "subject": "HTMG",
+      "code": "5022",
+      "title": "Revitalisation of Historic Buildings",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Ms. CHAN Pak Wai"
+      ]
+    },
+    {
+      "id": "HTMG5029",
+      "subject": "HTMG",
+      "code": "5029",
+      "title": "Selected Topics in Real Estate",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHAN Ka Yan Elisa"
+      ]
+    },
+    {
+      "id": "HTMG5030",
+      "subject": "HTMG",
+      "code": "5030",
+      "title": "Real Estate Field Study",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. TIAN Jie Jenny"
+      ]
+    },
+    {
+      "id": "HTMG5031",
+      "subject": "HTMG",
+      "code": "5031",
+      "title": "PropTech: Emerging Trends and Opportunities",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor YANG Liuming"
+      ]
+    },
+    {
+      "id": "IEMS5710",
+      "subject": "IEMS",
+      "code": "5710",
+      "title": "Cryptography, Information Security and Privacy",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHOW Sze Ming"
+      ]
+    },
+    {
+      "id": "IEMS5718",
+      "subject": "IEMS",
+      "code": "5718",
+      "title": "Web Programming and Internet Security",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. MA Pui Kit"
+      ]
+    },
+    {
+      "id": "IEMS5726",
+      "subject": "IEMS",
+      "code": "5726",
+      "title": "Data Science in Practice",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YIP Kit Sang Danny"
+      ]
+    },
+    {
+      "id": "IEMS5910",
+      "subject": "IEMS",
+      "code": "5910",
+      "title": "Advanced Research and Development Project I",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHOW Sze Ming"
+      ]
+    },
+    {
+      "id": "INFD5001",
+      "subject": "INFD",
+      "code": "5001",
+      "title": "Infectious Diseases in Public Health Practice",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LEE Shui Shan,   Professor WONG Ngai Sze"
+      ]
+    },
+    {
+      "id": "INFD5007",
+      "subject": "INFD",
+      "code": "5007",
+      "title": "Application of Geographic Information System in Public Health",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. WONG Kwan Kit,   Professor LEE Shui Shan,   Professor WONG Ngai Sze"
+      ]
+    },
+    {
+      "id": "MBAC6070",
+      "subject": "MBAC",
+      "code": "6070",
+      "title": "Business Practicum",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHEW Seen Meng",
+        "Staff"
+      ]
+    },
+    {
+      "id": "MBAC6090",
+      "subject": "MBAC",
+      "code": "6090",
+      "title": "Selected Topics in Business",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor Wan Tay Tat WONG SUN-WAI"
+      ]
+    },
+    {
+      "id": "MBAC6150",
+      "subject": "MBAC",
+      "code": "6150",
+      "title": "Overseas Field Study in Financial Institutions",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor GU Zhaoyang"
+      ]
+    },
+    {
+      "id": "MEDM5201",
+      "subject": "MEDM",
+      "code": "5201",
+      "title": "General Endocrinology and Metabolism I",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHAN Chung Ngor Juliana"
+      ]
+    },
+    {
+      "id": "MEDM6101",
+      "subject": "MEDM",
+      "code": "6101",
+      "title": "Diabetes Management & Education III",
+      "credits": 3.4,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHAN Chung Ngor Juliana"
+      ]
+    },
+    {
+      "id": "MGNT5506",
+      "subject": "MGNT",
+      "code": "5506",
+      "title": "Strategic Management for Competitive Advantage",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LAM Yat Tung Simon",
+        "Professor LI Jingyu"
+      ]
+    },
+    {
+      "id": "MGNT5507",
+      "subject": "MGNT",
+      "code": "5507",
+      "title": "MiM Capstone",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LAU Chi Sun Dora"
+      ]
+    },
+    {
+      "id": "MGNT5531",
+      "subject": "MGNT",
+      "code": "5531",
+      "title": "Business Model Canvas for Digital Economy",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. NG Wing Fung"
+      ]
+    },
+    {
+      "id": "MGNT5532",
+      "subject": "MGNT",
+      "code": "5532",
+      "title": "Emerging Technology and Business Innovation",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "MGNT5533",
+      "subject": "MGNT",
+      "code": "5533",
+      "title": "Entrepreneusrship and Strategic Renewal",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor FONG Chi Wai Alex"
+      ]
+    },
+    {
+      "id": "MGNT5561",
+      "subject": "MGNT",
+      "code": "5561",
+      "title": "MiM Selected Topics",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHOI Wai Shan"
+      ]
+    },
+    {
+      "id": "MGNT5607",
+      "subject": "MGNT",
+      "code": "5607",
+      "title": "Sustainability Entrepreneurship and Impact Venture Capital",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor AU Yuk Fai Kevin"
+      ]
+    },
+    {
+      "id": "MGNT5608",
+      "subject": "MGNT",
+      "code": "5608",
+      "title": "Contemporary Topics in Business Sustainability",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. YU Jieqiong"
+      ]
+    },
+    {
+      "id": "MGNT5609",
+      "subject": "MGNT",
+      "code": "5609",
+      "title": "Sustainability Field Trip",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. HO Kin Yan"
+      ]
+    },
+    {
+      "id": "MGNT5611",
+      "subject": "MGNT",
+      "code": "5611",
+      "title": "Project in Sustainability",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor MAO Shuguang"
+      ]
+    },
+    {
+      "id": "MGNT6027",
+      "subject": "MGNT",
+      "code": "6027",
+      "title": "Management Consulting",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CHAN Chi Bong Dominic"
+      ]
+    },
+    {
+      "id": "MGNT6028",
+      "subject": "MGNT",
+      "code": "6028",
+      "title": "Management Decision Making",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. IUN Sio Kun Joyce"
+      ]
+    },
+    {
+      "id": "MGNT6140",
+      "subject": "MGNT",
+      "code": "6140",
+      "title": "Strategic Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor LI Shu Wing David"
+      ]
+    },
+    {
+      "id": "MGNT6330",
+      "subject": "MGNT",
+      "code": "6330",
+      "title": "Leadership Development",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WANG Jian,   Professor WANG Jian"
+      ]
+    },
+    {
+      "id": "MGNT6340",
+      "subject": "MGNT",
+      "code": "6340",
+      "title": "Leading Organizations",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "MKTG5014",
+      "subject": "MKTG",
+      "code": "5014",
+      "title": "Managing Service Excellence",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. TANG Wing Kin Jacky"
+      ]
+    },
+    {
+      "id": "MKTG5017",
+      "subject": "MKTG",
+      "code": "5017",
+      "title": "Marketing",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor GAO Leilei,   Professor HU Mantian"
+      ]
+    },
+    {
+      "id": "MKTG6013",
+      "subject": "MKTG",
+      "code": "6013",
+      "title": "Customer Analytics",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KE Te"
+      ]
+    },
+    {
+      "id": "MKTG6014",
+      "subject": "MKTG",
+      "code": "6014",
+      "title": "Global Marketing Management",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. POON Kwok Ho"
+      ]
+    },
+    {
+      "id": "MKTG6021",
+      "subject": "MKTG",
+      "code": "6021",
+      "title": "Business Negotiation",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor DAI Xianchi"
+      ]
+    },
+    {
+      "id": "MKTG6026",
+      "subject": "MKTG",
+      "code": "6026",
+      "title": "Behavioral Decision Making",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KWONG Yuk Yee Jessica"
+      ]
+    },
+    {
+      "id": "MKTG6029",
+      "subject": "MKTG",
+      "code": "6029",
+      "title": "AI and Social Media",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor CAO Xinyu"
+      ]
+    },
+    {
+      "id": "MKTG6033",
+      "subject": "MKTG",
+      "code": "6033",
+      "title": "Digital Marketing",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. CISTERNAS VERA Francisco Orlando"
+      ]
+    },
+    {
+      "id": "MKTG6037",
+      "subject": "MKTG",
+      "code": "6037",
+      "title": "Advanced Machine Learning in Marketing",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WANG Jingbo"
+      ]
+    },
+    {
+      "id": "MKTG6038",
+      "subject": "MKTG",
+      "code": "6038",
+      "title": "Special Topics in Business Negotiation",
+      "credits": 1.5,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor KANG Sanghoon"
+      ]
+    },
+    {
+      "id": "MRGO5201",
+      "subject": "MRGO",
+      "code": "5201",
+      "title": "Guided Clinical Case Studies – Geriatric Orthopaedics or Musculoskeletal Rehabilitation",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor LEUNG Siu Man,   Professor LING Ka Kin Samuel,   Professor NG Wai Kit Raymond,   Professor ONG Michael Tim Yun,   Professor TSE Wing Lim,   Professor WONG Wing Yee",
+        "Professor LEUNG Siu Man,   Professor LING Ka Kin Samuel,   Professor NG Wai Kit Raymond,   Professor ONG Michael Tim Yun,   Professor TSE Wing Lim,   Professor WONG Wing Yee"
+      ]
+    },
+    {
+      "id": "MRGO6103",
+      "subject": "MRGO",
+      "code": "6103",
+      "title": "Surgical Management and peri-operative care",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Miss LAI Wing Kun,   Mr NG Chi Chung,   Professor ONG Michael Tim Yun,   Professor TANG Ning,   Professor TSE Wing Lim,   Professor WONG Yu Chung",
+        "Miss LAI Wing Kun,   Professor ONG Michael Tim Yun,   Professor TANG Ning,   Professor TSE Wing Lim,   Professor WONG Yu Chung"
+      ]
+    },
+    {
+      "id": "MRGO6104",
+      "subject": "MRGO",
+      "code": "6104",
+      "title": "Geriatric Care and Clinical Management of Musculoskeletal System",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor MA Hon Ming Bosco",
+        "Professor MA Hon Ming Bosco"
+      ]
+    },
+    {
+      "id": "MRGO6202",
+      "subject": "MRGO",
+      "code": "6202",
+      "title": "Rehabilitation Technology in Orthopedics: Spinal Cord Injuries, Amputation",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor LEUNG Siu Man,   Professor NG Wai Kit Raymond,   Professor WONG Ronald Man Yeung,   Professor WONG Yu Chung",
+        "Professor LEUNG Siu Man,   Professor NG Wai Kit Raymond,   Professor WONG Ronald Man Yeung,   Professor WONG Yu Chung"
+      ]
+    },
+    {
+      "id": "MRGO6301",
+      "subject": "MRGO",
+      "code": "6301",
+      "title": "Musculoskeletal Rehabilitation: Musculoskeletal Ultrasound",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor TSE Lung Fung",
+        "Professor TSE Lung Fung"
+      ]
+    },
+    {
+      "id": "MRGO6302",
+      "subject": "MRGO",
+      "code": "6302",
+      "title": "Musculoskeletal Conference and Workshop (Occupational Rehabilitation)",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung"
+      ]
+    },
+    {
+      "id": "MRGO6303",
+      "subject": "MRGO",
+      "code": "6303",
+      "title": "Musculoskeletal Conference and Workshop (Osteoporosis and Sarcopenia)",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung"
+      ]
+    },
+    {
+      "id": "MRGO6304",
+      "subject": "MRGO",
+      "code": "6304",
+      "title": "Musculoskeletal Conference and Workshop (Musculoskeletal Rehabilitation)",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung"
+      ]
+    },
+    {
+      "id": "MRGO6305",
+      "subject": "MRGO",
+      "code": "6305",
+      "title": "Musculoskeletal Conference and Workshop (Integrated Medicine)",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung"
+      ]
+    },
+    {
+      "id": "MRGO6306",
+      "subject": "MRGO",
+      "code": "6306",
+      "title": "Robotic Rehabilitation Therapy",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor LAU Mun Cheung,   Professor WONG Ronald Man Yeung",
+        "Professor LAU Mun Cheung,   Professor WONG Ronald Man Yeung"
+      ]
+    },
+    {
+      "id": "MRGO6307",
+      "subject": "MRGO",
+      "code": "6307",
+      "title": "Musculoskeletal Rehabilitation: Occupational Rehabilitation",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor NG Wai Kit Raymond",
+        "Professor NG Wai Kit Raymond"
+      ]
+    },
+    {
+      "id": "MRGO6401",
+      "subject": "MRGO",
+      "code": "6401",
+      "title": "Project",
+      "credits": 3.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Mr NG Chi Chung,   Professor CHEUNG Wing Hoi,   Professor LAM Tsz Ping,   Professor LEE Yuk Wai,   Professor LING Ka Kin Samuel,   Professor NG Wai Kit Raymond,   Professor ONG Michael Tim Yun,   Professor SZETO Pui Yuk Grace,   Professor TONG Wenxue,   Professor WONG Ronald Man Yeung,   Professor XU Jiankun,   Professor ZHANG Ning",
+        "Professor CHEUNG Wing Hoi,   Professor LAM Tsz Ping,   Professor LEE Yuk Wai,   Professor LING Ka Kin Samuel,   Professor NG Wai Kit Raymond,   Professor ONG Michael Tim Yun,   Professor SZETO Pui Yuk Grace,   Professor TONG Wenxue,   Professor WONG Ronald Man Yeung,   Professor XU Jiankun,   Professor ZHANG Ning"
+      ]
+    },
+    {
+      "id": "NURS6203",
+      "subject": "NURS",
+      "code": "6203",
+      "title": "Fundamentals of Nursing III",
+      "credits": 4.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. AHMAT Ricky,   Dr. KWOK Ching Man,   Dr. TANG Pui Yin,   Dr. YEUNG Wing Yan,   Miss HO Pui Yee Rosa,   Miss SIN Po Yan,   Mr. LEUNG Wai Hin,   Mr. YAU Chun Lung,   Ms OR Hau Yee,   Ms. CHAN Jasmine,   Ms. IP Yan Yi,   Ms. LAM Yuk Ki,   Ms. WONG Ho Yan",
+        "Dr. AHMAT Ricky,   Dr. KWOK Ching Man,   Dr. TANG Pui Yin,   Dr. YEUNG Wing Yan,   Ms. WONG Ho Yan"
+      ]
+    },
+    {
+      "id": "NURS6211",
+      "subject": "NURS",
+      "code": "6211",
+      "title": "Fundamental Pharmacology",
+      "credits": 1.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. KWOK Ching Man,   Dr. LEE Chui Ping,   Dr. TAI Bik Wai,   Dr. YUEN Siu Hong Johnny,   Dr. ZHOU Keary Rui,   Professor LAM Tai Ning,   Professor YOU Hoi Sze Joyce"
+      ]
+    },
+    {
+      "id": "NURS6212",
+      "subject": "NURS",
+      "code": "6212",
+      "title": "Microbiology",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. CHAN Wai Ling",
+        "Dr. CHAN Wai Ling,   Dr. LO Ka Ching,   Dr. Mirza Muhammad Faran Ashraf BAIG,   Miss LO Hin Man Hermione,   Ms LEE Chui Wan,   Ms WONG So Yan Christina,   Ms. CHEUNG Ka Lai,   Ms. LAM Mei Yee,   Ms. LAM Yuk Ki,   Ms. LEUNG Suk Kit,   Ms. TONG Lee Sha,   Ms. YAU Wai Yan",
+        "Dr. CHAN Wai Ling,   Dr. LO Ka Ching,   Miss LO Hin Man Hermione"
+      ]
+    },
+    {
+      "id": "NURS6214",
+      "subject": "NURS",
+      "code": "6214",
+      "title": "Applied Psychology in Nursing",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. CHAN Wai Ling,   Dr. LING Cheuk Chi,   Dr. NG Ka Lai,   Miss LO Hin Man Hermione,   Mr. YAU Chun Lung,   Ms. LAM Yuk Ki,   Professor TANG Wing Ki"
+      ]
+    },
+    {
+      "id": "NURS6305",
+      "subject": "NURS",
+      "code": "6305",
+      "title": "Care for Clients with Acute and Chronic Illnesses II",
+      "credits": 6.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. CHAN Sau Man Conny,   Dr. KWOK Ching Man,   Dr. NG Ka Lai,   Dr. TANG Pui Yin,   Dr. WONG Yuk Shim,   Dr. YEUNG Chi Yan,   Miss HO Pui Yee Rosa,   Ms. KWAN Siu Kuen,   Professor CHAN Wai Kiu,   Professor CHOW Ka Ming,   Professor LAM Kam Ki",
+        "Dr. TANG Pui Yin,   Miss CHAN Elaine,   Miss CHAN Yu Yan,   Miss FONG Hoi Yin,   Miss HO Pui Yee Rosa,   Miss NG Sze Wing,   Mr. CHIM Wong Kit,   Mr. NG Wing Ho,   Mr. YAU Chun Lung,   Ms LEE Chui Wan,   Ms OR Hau Yee,   Ms WONG So Yan Christina,   Ms. CHEUNG Ka Lai,   Ms. LEUNG Suk Kit,   Ms. TONG Lee Sha,   Ms. WONG Ho Yan"
+      ]
+    },
+    {
+      "id": "NURS6319",
+      "subject": "NURS",
+      "code": "6319",
+      "title": "Gerontological Nursing",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. KWOK Ching Man,   Dr. NGAN Hau Yi,   Dr. YEUNG Chi Yan",
+        "Dr. KWOK Ching Man,   Dr. NGAN Hau Yi,   Miss CHAU Ka Wing Vanessa,   Miss HO Pui Yee Rosa,   Miss LO Hin Man Hermione,   Ms WONG So Yan Christina"
+      ]
+    },
+    {
+      "id": "NURS6321",
+      "subject": "NURS",
+      "code": "6321",
+      "title": "Nursing Research",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. LEE Regina Lai Tong,   Dr. YEUNG Chi Yan,   Professor HO Long Kwan",
+        "Dr. YEUNG Chi Yan,   Professor HO Long Kwan,   Professor LAM Yuen Tung,   Professor XIAO Sarah"
+      ]
+    },
+    {
+      "id": "NURS6504",
+      "subject": "NURS",
+      "code": "6504",
+      "title": "Clinical Practice Block IV",
+      "credits": 8.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Dr. AHMAT Ricky"
+      ]
+    },
+    {
+      "id": "OENV5001",
+      "subject": "OENV",
+      "code": "5001",
+      "title": "Environmental Health Sciences",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor HO Kin Fai,   Professor TSE Lap Ah"
+      ]
+    },
+    {
+      "id": "OENV5011",
+      "subject": "OENV",
+      "code": "5011",
+      "title": "Environmental Risk Management and Communication",
+      "credits": 2.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor WONG Tze Wai"
+      ]
+    },
+    {
+      "id": "PBHT6900",
+      "subject": "PBHT",
+      "code": "6900",
+      "title": "Master Capstone Project & Report",
+      "credits": 6.0,
+      "grading_basis": "Graded",
+      "instructors": [
+        "Professor YIP Hon Kei"
+      ]
+    }
+  ]
+}
