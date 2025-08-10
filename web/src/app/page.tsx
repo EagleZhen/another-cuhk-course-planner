@@ -444,7 +444,8 @@ export default function Home() {
                     <span>
                       Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
                     </span>
-                    {selectedSubjects.size > 0 && (
+                    {/* Show controls when subjects are selected OR when there are available subjects */}
+                    {(selectedSubjects.size > 0 || availableSubjects.length > 0) && (
                       <div className="flex items-center gap-1.5">
                         <Button
                           variant="ghost"
@@ -455,15 +456,17 @@ export default function Home() {
                         >
                           {showSelectedOnly ? "Show All" : "Show Selected Only"}
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setSelectedSubjects(new Set())}
-                          className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
-                          title="Clear all subject filters"
-                        >
-                          ✕ Clear All
-                        </Button>
+                        {selectedSubjects.size > 0 && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setSelectedSubjects(new Set())}
+                            className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
+                            title="Clear all subject filters"
+                          >
+                            ✕ Clear All
+                          </Button>
+                        )}
                       </div>
                     )}
                   </div>
