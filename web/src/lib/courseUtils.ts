@@ -827,7 +827,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal}/${waitlistCapacity}`,
-      style: getWaitlistBadgeStyle(waitlistTotal, waitlistCapacity),
+      style: getWaitlistBadgeStyle(waitlistTotal),
       priority: status === 'Closed' || status === 'Waitlist' ? 'primary' : 'secondary'
     })
   }
@@ -839,7 +839,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
  * Smart waitlist badge styling based on queue length
  * Returns appropriate variant and styling for waitlist badges
  */
-export function getWaitlistBadgeStyle(waitlistTotal: number, waitlistCapacity: number) {
+export function getWaitlistBadgeStyle(waitlistTotal: number) {
   // Risky: >5 people waiting
   if (waitlistTotal > 5 && waitlistTotal <= 10) {
     return {
@@ -861,7 +861,7 @@ export function getWaitlistBadgeStyle(waitlistTotal: number, waitlistCapacity: n
   // Moderate: 1-5 people waiting
   return {
     variant: 'outline' as const,
-    className: 'text-green-700 border-green-300 bg-green-50',
+    className: 'bg-green-100 text-green-700 border-green-300',
     urgency: 'good' as const
   }
 }

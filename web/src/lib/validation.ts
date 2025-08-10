@@ -28,7 +28,9 @@ const ExternalSectionSchema = z.object({
     capacity: '0',
     enrolled: '0',
     status: 'Unknown',
-    available_seats: '0'
+    available_seats: '0',
+    waitlist_capacity: '0',
+    waitlist_total: '0'
   }),
   class_attributes: z.string().default("") // Language of instruction
 })
