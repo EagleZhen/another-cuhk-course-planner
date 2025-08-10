@@ -68,12 +68,29 @@ export default function CourseSearch({
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
 
+  // Calculate subjects that actually have courses in current term
+  const subjectsWithCourses = useMemo(() => {
+    if (availableSubjects.length === 0 || allCourses.length === 0) {
+      return []
+    }
+    
+    const subjectsInTerm = new Set<string>()
+    allCourses.forEach(course => {
+      if (course.terms.some(term => term.termName === currentTerm)) {
+        subjectsInTerm.add(course.subject)
+      }
+    })
+    
+    // Filter available subjects to only include those with courses in current term
+    return availableSubjects.filter(subject => subjectsInTerm.has(subject))
+  }, [availableSubjects, allCourses, currentTerm])
+
   // Notify parent when available subjects are discovered
   useEffect(() => {
-    if (availableSubjects.length > 0 && onAvailableSubjectsUpdate) {
-      onAvailableSubjectsUpdate(availableSubjects)
+    if (subjectsWithCourses.length > 0 && onAvailableSubjectsUpdate) {
+      onAvailableSubjectsUpdate(subjectsWithCourses)
     }
-  }, [availableSubjects, onAvailableSubjectsUpdate])
+  }, [subjectsWithCourses, onAvailableSubjectsUpdate])
 
   // Helper function to check if course is already enrolled
   const isCourseAdded = (course: InternalCourse) => {

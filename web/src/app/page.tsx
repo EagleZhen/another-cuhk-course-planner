@@ -411,6 +411,15 @@ export default function Home() {
                 <div className="space-y-2">
                   <div className="text-sm font-medium text-gray-700">
                     Available Subjects {availableSubjects.length > 0 && `(${availableSubjects.length})`}
+                    {selectedSubjects.size > 0 && (
+                      <button 
+                        onClick={() => setSelectedSubjects(new Set())}
+                        className="ml-2 text-xs text-blue-600 hover:text-blue-800 underline"
+                        title="Clear all subject filters"
+                      >
+                        Clear all
+                      </button>
+                    )}
                   </div>
                   <div className="flex gap-2 flex-wrap">
                     {availableSubjects.length > 0 ? (
@@ -477,13 +486,10 @@ function SubjectToggle({
       variant={isSelected ? "default" : "outline"}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
-      className={`h-7 px-3 text-xs font-medium cursor-pointer transition-all duration-200 ${
-        isSelected ? 'bg-blue-600 text-white hover:bg-blue-700' : 'hover:bg-blue-50 hover:border-blue-300'
-      }`}
+      className="h-6 px-2 text-xs font-normal cursor-pointer"
       title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
     >
       {subject}
-      {isSelected && ' ✓'}
     </Button>
   )
 }
