@@ -1,7 +1,7 @@
 import requests
 import json
 from bs4 import BeautifulSoup
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
 import time
@@ -1157,7 +1157,7 @@ class CuhkScraper:
             return ""
         return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
     
-    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, str]:
+    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, Any]:
         """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup"""
         if config is None:
             config = ScrapingConfig()  # Use testing defaults
@@ -1188,35 +1188,33 @@ class CuhkScraper:
             try:
                 courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
                 
-                if courses:
-                    # IMMEDIATELY save subject (crash protection)
-                    saved_file = self._save_subject_immediately(subject, courses, config)
+                # Always try to save, even if no courses (some subjects legitimately have no courses)
+                saved_file = self._save_subject_immediately(subject, courses or [], config)
+                
+                if saved_file:
+                    completed_subjects.append(subject)
+                    saved_files[subject] = saved_file
                     
-                    if saved_file:
-                        completed_subjects.append(subject)
-                        saved_files[subject] = saved_file
-                        
-                        # Calculate duration and mark as completed in progress tracker
-                        duration_minutes = (time.time() - start_time) / 60
-                        if self.progress_tracker:
-                            config_info = {
-                                "get_details": get_details,
-                                "get_enrollment_details": get_enrollment_details,
-                                "max_courses": config.max_courses_per_subject
-                            }
-                            self.progress_tracker.complete_subject(subject, len(courses), saved_file, duration_minutes, config_info)
-                        
+                    # Calculate duration and mark as completed in progress tracker
+                    duration_minutes = (time.time() - start_time) / 60
+                    if self.progress_tracker:
+                        config_info = {
+                            "get_details": get_details,
+                            "get_enrollment_details": get_enrollment_details,
+                            "max_courses": config.max_courses_per_subject
+                        }
+                        self.progress_tracker.complete_subject(subject, len(courses or []), saved_file, duration_minutes, config_info)
+                    
+                    # Use different message for empty vs populated subjects
+                    if courses:
                         self.logger.info(f"✅ {subject} completed: {len(courses)} courses in {duration_minutes:.1f}min → {saved_file}")
                     else:
-                        failed_subjects.append(subject)
-                        self.logger.error(f"❌ {subject} scraped but save failed")
-                        if self.progress_tracker:
-                            self.progress_tracker.fail_subject(subject, "Save failed after successful scraping")
+                        self.logger.info(f"✅ {subject} completed: no courses (empty subject) in {duration_minutes:.1f}min → {saved_file}")
                 else:
                     failed_subjects.append(subject)
-                    self.logger.error(f"❌ {subject} scraping failed - no courses found")
+                    self.logger.error(f"❌ {subject} save failed")
                     if self.progress_tracker:
-                        self.progress_tracker.fail_subject(subject, "No courses found")
+                        self.progress_tracker.fail_subject(subject, "Save failed")
                 
                 # CRITICAL: Clean memory before next subject (prevent crashes)
                 self.logger.debug(f"🧹 Cleaning memory after {subject}")
@@ -1261,7 +1259,7 @@ class CuhkScraper:
             'saved_files': saved_files
         }
     
-    def scrape_for_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> Dict[str, List[Course]]:
+    def scrape_for_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> Dict[str, Any]:
         """Production scraping - unlimited courses, no debug files, optimized performance"""
         self.logger.info(f"Starting PRODUCTION scraping for {len(subjects)} subjects")
         config = ScrapingConfig.for_production()
@@ -1274,11 +1272,19 @@ class CuhkScraper:
         self.logger.info(f"Output: per-subject files in {config.output_directory}/")
         
         results = self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-        export_summary = self.export_to_json(results, config=config)
         
-        return export_summary
+        # Generate index file for frontend discovery
+        if results['completed']:
+            index_file = self.generate_index_file(config.output_directory)
+            if index_file:
+                self.logger.info(f"📋 Generated index file: {index_file}")
+        
+        # Return summary based on scraping results
+        completed_count = len(results['completed'])
+        failed_count = len(results['failed'])
+        return f"Production scraping completed: {completed_count} subjects successful, {failed_count} failed"
     
-    def resume_production_scraping(self, all_subjects: List[str] = None, get_details: bool = True, get_enrollment_details: bool = True) -> str:
+    def resume_production_scraping(self, all_subjects: Optional[List[str]] = None, get_details: bool = True, get_enrollment_details: bool = True) -> str:
         """Resume production scraping from previous progress"""
         config = ScrapingConfig.for_production()
         
@@ -1304,9 +1310,17 @@ class CuhkScraper:
         
         # Continue scraping remaining subjects
         results = self.scrape_all_subjects(remaining_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-        export_summary = self.export_to_json(results, config=config)
         
-        return export_summary
+        # Generate index file for frontend discovery
+        if results['completed']:
+            index_file = self.generate_index_file(config.output_directory)
+            if index_file:
+                self.logger.info(f"📋 Generated index file: {index_file}")
+        
+        # Return summary based on scraping results
+        completed_count = len(results['completed'])
+        failed_count = len(results['failed'])
+        return f"Resume scraping completed: {completed_count} subjects successful, {failed_count} failed"
     
     def retry_failed_subjects(self, get_details: bool = True, get_enrollment_details: bool = True) -> str:
         """Retry previously failed subjects"""
@@ -1326,9 +1340,17 @@ class CuhkScraper:
         
         # Retry failed subjects
         results = self.scrape_all_subjects(failed_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-        export_summary = self.export_to_json(results, config=config)
         
-        return export_summary
+        # Generate index file for frontend discovery
+        if results['completed']:
+            index_file = self.generate_index_file(config.output_directory)
+            if index_file:
+                self.logger.info(f"📋 Generated index file: {index_file}")
+        
+        # Return summary based on scraping results
+        completed_count = len(results['completed'])
+        failed_count = len(results['failed'])
+        return f"Retry scraping completed: {completed_count} subjects successful, {failed_count} failed"
     
     def _save_subject_immediately(self, subject: str, courses: List[Course], config: ScrapingConfig) -> Optional[str]:
         """Save single subject immediately to prevent data loss"""
@@ -1419,7 +1441,7 @@ class CuhkScraper:
             self.logger.error(f"Failed to generate index file: {e}")
             return ""
     
-    def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: str = None) -> str:
+    def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: Optional[str] = None) -> str:
         """Export data to JSON with metadata, supporting both single file and per-subject modes"""
         if config is None:
             config = ScrapingConfig()  # Use testing defaults
@@ -1433,7 +1455,7 @@ class CuhkScraper:
         else:
             return self._export_single_file(data, config, filename)
     
-    def _export_single_file(self, data: Dict[str, List[Course]], config: ScrapingConfig, filename: str = None) -> str:
+    def _export_single_file(self, data: Dict[str, List[Course]], config: ScrapingConfig, filename: Optional[str] = None) -> str:
         """Export all data to a single JSON file"""
         if not filename:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -1530,22 +1552,23 @@ def main():
         # Testing mode (default behavior)
         results = scraper.scrape_all_subjects(test_subjects, get_details=True, get_enrollment_details=True)
         
-        # Export results with default config (single file, tests/output)
-        json_file = scraper.export_to_json(results)
-        print(f"Results exported to {json_file}")
-        
         # Show summary
-        total_courses = sum(len(courses) for courses in results.values())
-        print(f"Total courses scraped: {total_courses}")
+        completed_count = len(results['completed'])
+        failed_count = len(results['failed']) 
+        total_files = len(results['saved_files'])
+        print(f"Scraping completed: {completed_count} subjects successful, {failed_count} failed")
+        print(f"Files saved: {total_files}")
+        if results['saved_files']:
+            print(f"Saved files: {list(results['saved_files'].values())}")
         
         print("\n=== PRODUCTION MODE EXAMPLES ===")
         print("For complete production workflow (recommended):")
         print("  summary = scraper.scrape_and_export_production(subjects)")
-        print("  # Creates per-subject files in /data/ directory")
+        print("  # Creates per-subject files in /data/ directory with index.json")
         print()
         print("For production scraping only:")
         print("  results = scraper.scrape_for_production(subjects)")
-        print("  summary = scraper.export_to_json(results, ScrapingConfig.for_production())")
+        print("  # Returns summary dict with completed/failed subjects")
         print()
         print("Per-subject files enable:")
         print("  - Fault tolerance (keep completed subjects if scraping fails)")
