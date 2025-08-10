@@ -43,16 +43,6 @@ def get_available_terms(course_data: Dict[str, Any]) -> List[str]:
             terms.append(term_name)
     return sorted(terms)
 
-def count_sections_for_term(course_data: Dict[str, Any], term_filter: str = None) -> int:
-    """Count sections for a specific term"""
-    total = 0
-    for term in course_data.get('terms', []):
-        if term_filter and term.get('term_name') != term_filter:
-            continue
-        # Use 'schedule' field as that's what the scraper generates    
-        total += len(term.get('schedule', []))
-    return total
-
 def extract_all_terms_from_subjects(data_dir: str) -> Set[str]:
     """Scan all subject files to find all available terms"""
     data_path = Path(data_dir)
@@ -139,9 +129,8 @@ def process_subject_file_for_term(subject_file: Path, term_filter: str) -> tuple
                 
                 # Extract term-specific metadata
                 instructors = extract_unique_instructors(course, term_filter)
-                section_count = count_sections_for_term(course, term_filter)
                 
-                # Create index entry with clear, readable field names
+                # Create index entry with essential fields only
                 index_entry = {
                     "id": course_id,
                     "subject": subject,
@@ -149,11 +138,7 @@ def process_subject_file_for_term(subject_file: Path, term_filter: str) -> tuple
                     "title": title,
                     "credits": credits,
                     "grading_basis": grading_basis,
-                    "instructors": instructors,
-                    "section_count": section_count,
-                    # Optional fields that might be useful
-                    "has_description": bool(course.get('description', '').strip()),
-                    "has_prerequisites": bool(course.get('enrollment_requirement', '').strip())
+                    "instructors": instructors
                 }
                 
                 index_entries.append(index_entry)
@@ -366,7 +351,7 @@ def move_to_webapp(source_dir: str, generated_files: List[tuple], subject_files:
     print(f"   This will copy all files to {webapp_data_dir}")
     print(f"   Existing files will be overwritten.")
     
-    choice = input(f"   Continue? (y/n): ").lower().strip()
+    choice = input(f"   Continue? (y/N): ").lower().strip()
     
     if choice != 'y':
         print(f"   ❌ Transfer cancelled")
