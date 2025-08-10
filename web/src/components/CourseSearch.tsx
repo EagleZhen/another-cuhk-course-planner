@@ -359,7 +359,7 @@ export default function CourseSearch({
         <div className="w-full space-y-2">
           <Input
             type="text"
-            placeholder="Search courses (e.g., CSCI3180, Software Engineering, Yu Bei)"
+            placeholder="Search courses (e.g., UGFH1000, In Dialogue with Humanity, YU Bei)"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full"
