@@ -94,6 +94,7 @@ export default function CourseSearch({
         ]
 
         const allCoursesData: InternalCourse[] = []
+        const scrapingTimestamps: Date[] = []
         let successCount = 0
 
         // Load each subject file
@@ -102,6 +103,17 @@ export default function CourseSearch({
             const response = await fetch(`/data/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
+              
+              // Extract scraping timestamp from metadata
+              if (rawData.metadata?.scraped_at) {
+                try {
+                  const scrapedAt = new Date(rawData.metadata.scraped_at)
+                  scrapingTimestamps.push(scrapedAt)
+                  console.log(`📅 ${subject} scraped at: ${scrapedAt.toLocaleString()}`)
+                } catch {
+                  console.warn(`Invalid scraped_at timestamp in ${subject}.json:`, rawData.metadata.scraped_at)
+                }
+              }
               
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
@@ -128,9 +140,11 @@ export default function CourseSearch({
         
         setAllCourses(allCoursesData)
         
-        // Notify parent that fresh data has been loaded
-        if (onDataUpdate) {
-          onDataUpdate(new Date())
+        // Find the oldest scraping timestamp and notify parent
+        if (scrapingTimestamps.length > 0 && onDataUpdate) {
+          const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map(d => d.getTime())))
+          console.log(`🕒 Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`)
+          onDataUpdate(oldestTimestamp)
         }
         
       } catch (error) {

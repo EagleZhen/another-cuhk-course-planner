@@ -145,11 +145,11 @@ export default function ShoppingCart({
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <CardTitle className="text-base">My Schedule</CardTitle>
-            {/* Data freshness indicator - replaces the whitespace gap */}
+            {/* Data freshness indicator - shows actual scraping time */}
             {lastDataUpdate && (
               <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Updated {formatRelativeTime(lastDataUpdate)}</span>
+                <span>Data from {formatRelativeTime(lastDataUpdate)}</span>
               </div>
             )}
           </div>
