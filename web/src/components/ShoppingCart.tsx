@@ -127,12 +127,14 @@ export default function ShoppingCart({
           <div className="flex flex-col">
             <CardTitle className="text-base">My Schedule</CardTitle>
             {/* Data freshness indicator - shows actual scraping time */}
-            {lastDataUpdate && (
-              <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
-                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Synced at {lastDataUpdate.toLocaleString()}</span>
-              </div>
-            )}
+            <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
+              <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+              {lastDataUpdate ? (
+                <span>Last Data Refresh: {lastDataUpdate.toLocaleString()}</span>
+              ) : (
+                <span>Loading Data...</span>
+              )}
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <Badge variant="secondary" className="text-xs">
