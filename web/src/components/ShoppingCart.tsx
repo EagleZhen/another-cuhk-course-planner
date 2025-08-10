@@ -304,6 +304,16 @@ export default function ShoppingCart({
                             )}
                           </div>
                         
+                        {/* Teaching Language - section level */}
+                        {section.classAttributes && (
+                          <div className="flex items-center gap-1 text-gray-500 text-[10px] mb-2">
+                            <span>🌐</span>
+                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                              {section.classAttributes}
+                            </span>
+                          </div>
+                        )}
+                        
                         {/* Unique meetings for this section - consolidated by time+location+instructor */}
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
@@ -322,12 +332,10 @@ export default function ShoppingCart({
                                     {formattedInstructor}
                                   </span>
                                 </div>
-                                {location !== 'TBD' && (
-                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
-                                    <span>📍</span>
-                                    <span className="truncate" title={location}>{location}</span>
-                                  </div>
-                                )}
+                                <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
+                                  <span>📍</span>
+                                  <span className="truncate" title={location}>{location}</span>
+                                </div>
                               </div>
                             )
                           })}

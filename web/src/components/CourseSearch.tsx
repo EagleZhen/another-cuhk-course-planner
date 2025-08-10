@@ -570,9 +570,6 @@ function CourseCard({
                       >
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
-                            <div className={`w-3 h-3 rounded-full border-2 ${
-                              isSelected ? 'bg-blue-500 border-blue-500' : 'border-gray-300'
-                            }`} />
                             <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
                           </div>
                           
@@ -598,6 +595,16 @@ function CourseCard({
                           </div>
                         </div>
                         
+                        {/* Teaching Language - section level */}
+                        {section.classAttributes && (
+                          <div className="flex items-center gap-1 text-gray-500 text-[10px] mb-2 -mt-1">
+                            <span>🌐</span>
+                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                              {section.classAttributes}
+                            </span>
+                          </div>
+                        )}
+                        
                         {/* Meetings displayed compactly with time+instructor on same row */}
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
@@ -620,16 +627,6 @@ function CourseCard({
                                   <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
                                     <span>📍</span>
                                     <span className="truncate" title={location}>{location}</span>
-                                  </div>
-                                )}
-                                
-                                {/* Teaching Language - shown once per section, not per meeting */}
-                                {index === 0 && section.classAttributes.trim() && (
-                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
-                                    <span>🌐</span>
-                                    <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                                      {section.classAttributes}
-                                    </span>
                                   </div>
                                 )}
                               </div>

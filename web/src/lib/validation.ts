@@ -117,7 +117,7 @@ function transformSection(external: z.infer<typeof ExternalSectionSchema>, cours
     sectionType,
     meetings,
     availability,
-    classAttributes: external.class_attributes || "" // Transform to camelCase, ensure non-null
+    classAttributes: (external.class_attributes || "").trim() // Transform to camelCase, clean whitespace
   }
 }
 
