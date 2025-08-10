@@ -822,7 +822,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   })
   
   // Show waitlist badge when relevant (has waitlist or is closed with waitlist capacity)
-  if (waitlistTotal > 0 || (status === 'Waitlist' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
+  if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal}/${waitlistCapacity}`,

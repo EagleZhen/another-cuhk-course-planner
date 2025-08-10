@@ -36,7 +36,7 @@ export interface InternalMeeting {
 export interface SectionAvailability {
   capacity: number
   enrolled: number
-  status: 'Open' | 'Closed' | 'Wait List'
+  status: 'Open' | 'Closed' | 'Wait List' | 'Unknown'
   availableSeats: number
   waitlistCapacity: number
   waitlistTotal: number
