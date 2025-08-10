@@ -211,12 +211,11 @@ def generate_term_indexes(data_dir: str):
         # Process all subjects for this specific term
         term_courses = []
         total_courses = 0
-        processed_subjects = set()
+        subjects_with_courses = set()  # Only subjects that actually have courses in this term
         all_errors = []
         
         for subject_file in sorted(subject_files):
             subject_name = subject_file.stem
-            processed_subjects.add(subject_name)
             
             courses, count, errors = process_subject_file_for_term(subject_file, term)
             
@@ -225,6 +224,7 @@ def generate_term_indexes(data_dir: str):
             all_errors.extend(errors)
             
             if count > 0:
+                subjects_with_courses.add(subject_name)  # Only add if courses found
                 print(f"   ✅ {subject_name}: {count} courses")
         
         # Skip terms with no courses
@@ -242,8 +242,8 @@ def generate_term_indexes(data_dir: str):
                 "format_version": 1,
                 "term": term,
                 "total_courses": total_courses,
-                "total_subjects": len(processed_subjects),
-                "subjects": sorted(list(processed_subjects)),
+                "total_subjects": len(subjects_with_courses),
+                "subjects": sorted(list(subjects_with_courses)),
                 "processing_summary": {
                     "files_processed": len(subject_files),
                     "courses_extracted": total_courses,
@@ -260,7 +260,7 @@ def generate_term_indexes(data_dir: str):
                 index_data["metadata"]["processing_errors"].append(f"... and {len(all_errors) - 20} more errors")
         
         # Generate filename with spaces (as agreed)
-        output_filename = f"index{term}.json"
+        output_filename = f"Index {term}.json"
         output_path = data_path / output_filename
         
         # Write index file
