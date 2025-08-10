@@ -58,9 +58,13 @@ def extract_all_terms_from_subjects(data_dir: str) -> Set[str]:
     data_path = Path(data_dir)
     all_terms = set()
     
-    for subject_file in data_path.glob("*.json"):
-        if subject_file.name.startswith("index"):
-            continue  # Skip existing index files
+    # Only process 4-character uppercase subject files
+    subject_files = [
+        f for f in data_path.glob("*.json")
+        if len(f.stem) == 4 and f.stem.isupper()
+    ]
+    
+    for subject_file in subject_files:
             
         try:
             with open(subject_file, 'r', encoding='utf-8') as f:
@@ -178,8 +182,11 @@ def generate_term_indexes(data_dir: str):
     if not data_path.exists():
         raise FileNotFoundError(f"Data directory not found: {data_dir}")
     
-    # Find all subject JSON files (exclude existing index files)
-    subject_files = [f for f in data_path.glob("*.json") if not f.name.startswith("index")]
+    # Find all subject JSON files (4-character uppercase names only)
+    subject_files = [
+        f for f in data_path.glob("*.json") 
+        if len(f.stem) == 4 and f.stem.isupper()
+    ]
     
     if not subject_files:
         raise FileNotFoundError(f"No subject JSON files found in {data_dir}")
