@@ -505,7 +505,7 @@ export default function CourseSearch({
             
             <div className="space-y-3">
               {searchResults.courses.map((course, index) => (
-                <CourseCard 
+                <CourseCard
                   key={`${course.subject}-${course.courseCode}-${index}`} 
                   course={course}
                   currentTerm={currentTerm}
@@ -647,7 +647,7 @@ function CourseCard({
               {/* Show instructors as badges with smart truncation */}
               {instructors.length > 0 && (
                 <>
-                  {instructors.slice(0, 5).map(instructor => {
+                  {instructors.slice(0, 4).map(instructor => {
                     const formattedInstructor = formatInstructorCompact(instructor)
                     return (
                       <Badge 
@@ -664,13 +664,13 @@ function CourseCard({
                       </Badge>
                     )
                   })}
-                  {instructors.length > 5 && (
+                  {instructors.length > 4 && (
                     <Badge 
                       variant="outline" 
                       className="text-xs text-gray-500"
-                      title={`Additional instructors: ${instructors.slice(5).map(i => formatInstructorCompact(i)).join(', ')}`}
+                      title={`Additional instructors: ${instructors.slice(4).map(i => formatInstructorCompact(i)).join(', ')}`}
                     >
-                      +{instructors.length - 5} more
+                      +{instructors.length - 4} more
                     </Badge>
                   )}
                 </>
