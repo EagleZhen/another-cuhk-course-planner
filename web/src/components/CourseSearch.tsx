@@ -403,7 +403,7 @@ export default function CourseSearch({
         <div className="w-full space-y-2">
           <Input
             type="text"
-            placeholder="Search courses (e.g., UGFH1000, In Dialogue with Humanity, YU Bei)"
+            placeholder="Search courses (e.g., UGFH1000, In Dialogue with Nature, YU Bei)"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full"
@@ -636,7 +636,7 @@ export default function CourseSearch({
                   <Search className="w-12 h-12 mx-auto mb-3" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-600">No courses found</h3>
-                <p className="text-sm text-gray-500 max-w-md mx-auto">
+                <p className="text-sm text-gray-500 mx-auto truncate">
                   {searchTerm && selectedSubjects.size > 0 
                     ? `No courses match "${searchTerm}" in the selected ${selectedSubjects.size} subject${selectedSubjects.size !== 1 ? 's' : ''}.`
                     : searchTerm 
@@ -648,8 +648,9 @@ export default function CourseSearch({
                   <p>💡 Try:</p>
                   <div className="space-y-1">
                     {searchTerm && <p>• Clearing the search term</p>}
-                    {selectedSubjects.size > 0 && <p>• Removing subject filters</p>}
+                    {selectedSubjects.size > 0 && <p>• Changing or removing subject filters</p>}
                     <p>• Searching for course codes like &ldquo;CSCI3100&rdquo;</p>
+                    <p>• Searching for course titles like &ldquo;In Dialogue with Nature&rdquo;</p>
                     <p>• Searching for instructor names</p>
                   </div>
                 </div>
