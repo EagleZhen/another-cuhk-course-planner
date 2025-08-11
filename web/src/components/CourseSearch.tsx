@@ -624,7 +624,7 @@ function CourseCard({
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               <Badge variant="outline">{course.credits} credits</Badge>
               {course.gradingBasis && (
-                <Badge variant="ghost" className="text-xs">
+                <Badge variant="outline" className="text-xs">
                   {course.gradingBasis}
                 </Badge>
               )}
