@@ -141,50 +141,57 @@ export default function CourseSearch({
       let totalDataSize = 0
       
       try {
-        // Dynamically discover available subjects by fetching the directory index
-        console.log(`📂 Discovering available subjects from data directory...`)
-        setLoadingProgress({ loaded: 0, total: 1, currentSubject: 'Discovering subjects...' })
+        // 🚀 MVP APPROACH: Load ALL subjects for complete coverage and simplicity
+        // No term-specific filtering - let the data itself determine availability
+        console.log(`📂 Loading ALL subjects for complete coverage...`)
+        setLoadingProgress({ loaded: 0, total: 1, currentSubject: 'Preparing complete subject list...' })
         
-        let discoveredSubjects: string[] = []
+        const ALL_SUBJECTS = [
+          'ACCT', 'ACPY', 'AENP', 'AEPT', 'AIMS', 'AIST', 'ANAT', 'ANIC', 'ANTH', 'APEP', 
+          'ARAB', 'ARCH', 'ARTS', 'ASEI', 'BAMS', 'BASA', 'BBMS', 'BCHE', 'BCHM', 'BCJC',
+          'BCME', 'BECE', 'BEHM', 'BEST', 'BIOL', 'BIOS', 'BMBL', 'BMED', 'BMEG', 'BMJC',
+          'BSCG', 'BUDS', 'CCNU', 'CCSS', 'CDAS', 'CENG', 'CGEN', 'CHCU', 'CHED', 'CHEM',
+          'CHES', 'CHLL', 'CHLT', 'CHPR', 'CHPY', 'CLCC', 'CLCE', 'CLCH', 'CLCP', 'CLED',
+          'CLGY', 'CMBI', 'CMSC', 'CNGT', 'CODS', 'COMM', 'COOP', 'CSCI', 'CULS', 'CUMT',
+          'CURE', 'CVSM', 'DBAC', 'DIUS', 'DOTE', 'DROI', 'DSME', 'DSPS', 'EASC', 'ECLT',
+          'ECON', 'ECTM', 'EDUC', 'EEEN', 'EESC', 'EIHP', 'ELED', 'ELEG', 'ELTU', 'EMBA',
+          'EMBF', 'ENGE', 'ENGG', 'ENLC', 'ENLT', 'ENSC', 'EPBI', 'EPID', 'EPIN', 'EPSY',
+          'ESGS', 'ESSC', 'ESTR', 'EXSC', 'FAAS', 'FAME', 'FINA', 'FNSC', 'FREN', 'FTEC',
+          'GAST', 'GDRS', 'GECC', 'GECW', 'GEJC', 'GEMC', 'GENA', 'GEOR', 'GERM', 'GESC',
+          'GESH', 'GEUC', 'GEWS', 'GEYS', 'GISM', 'GLBS', 'GLEF', 'GLOF', 'GLSD', 'GNBF',
+          'GNED', 'GPAD', 'GPEC', 'GPGC', 'GPSU', 'GRMD', 'GRON', 'HIST', 'HKSL', 'HPSB',
+          'HSGS', 'HSOC', 'HSYS', 'HTMG', 'IASP', 'IBBA', 'IEMS', 'IERG', 'IMSC', 'INDA',
+          'INFD', 'ITAL', 'JASP', 'KORE', 'LAWS', 'LDTE', 'LING', 'LSCI', 'LSCM', 'LSED',
+          'MAED', 'MAEG', 'MAPE', 'MASE', 'MATH', 'MAVE', 'MBAC', 'MBTE', 'MCLE', 'MCLS',
+          'MCNS', 'MECM', 'MEDF', 'MEDM', 'MEDP', 'MEDU', 'MESC', 'MFMD', 'MGNT', 'MHLS',
+          'MICY', 'MIEG', 'MITE', 'MKTG', 'MLSC', 'MMAT', 'MPTE', 'MPUP', 'MRGO', 'MSAE',
+          'MSEG', 'MSMR', 'MTCI', 'MUSC', 'NSCI', 'NSSC', 'NURS', 'OBGY', 'OBSC', 'OENV',
+          'OMBA', 'ORLC', 'ORTY', 'OVSC', 'PBHT', 'PEDU', 'PGDC', 'PGDE', 'PGDP', 'PHAR',
+          'PHEC', 'PHED', 'PHIL', 'PHMA', 'PHPC', 'PHUG', 'PHYS', 'PHYY', 'POPG', 'POPN',
+          'PRHC', 'PSYC', 'PUBH', 'REES', 'RELS', 'RMCE', 'RMED', 'RMSC', 'ROSE', 'RUSS',
+          'SBMS', 'SEEM', 'SENV', 'SGCL', 'SILP', 'SLPA', 'SOCI', 'SOSC', 'SOWK', 'SPAN',
+          'SPED', 'SPSY', 'SSMU', 'SSPA', 'SSPE', 'STAR', 'STAT', 'SURY', 'SUTM', 'TESL',
+          'THAI', 'THEO', 'TRAN', 'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN',
+          'URBD', 'URSP', 'WOHS', 'XCBS', 'XCCS', 'XFUD', 'XUNC', 'XUSC', 'XWAS'
+        ]
         
-        try {
-          // Try to fetch the term-specific index (most accurate)
-          const termIndexResponse = await fetch(`/data/Index ${currentTerm}.json`)
-          if (termIndexResponse.ok) {
-            const termIndexData = await termIndexResponse.json()
-            if (Array.isArray(termIndexData.metadata?.subjects)) {
-              discoveredSubjects = termIndexData.metadata.subjects.sort()
-              console.log(`📂 Loaded ${discoveredSubjects.length} subjects from term-specific index (${currentTerm}): ${discoveredSubjects.join(', ')}`)
-            }
-          }
-        } catch {
-          console.log(`📂 Failed to load term-specific index for ${currentTerm}`)
-        }
+        console.log(`📂 Complete subject list: ${ALL_SUBJECTS.length} subjects (no term filtering)`)
+        console.log(`🎯 Benefits: Complete coverage, simple logic, browser caching optimized`)
         
-        // If no subjects found, something is wrong
-        if (discoveredSubjects.length === 0) {
-          console.error(`❌ No subjects found for term: ${currentTerm}`)
-          console.error(`   Make sure the index file exists: /data/Index ${currentTerm}.json`)
-          throw new Error(`No subjects available for ${currentTerm}`)
-        }
-        
-        console.log(`📂 Discovered ${discoveredSubjects.length} available subjects: ${discoveredSubjects.join(', ')}`)
-        
-        // Store discovered subjects for parent component
-        setAvailableSubjects(discoveredSubjects)
-        const availableSubjects: string[] = [...discoveredSubjects]
+        // Store all subjects for parent component (they'll filter by current term)
+        setAvailableSubjects(ALL_SUBJECTS)
+        const availableSubjects: string[] = [...ALL_SUBJECTS]
 
-        setLoadingProgress({ loaded: 0, total: availableSubjects.length, currentSubject: '' })
+        setLoadingProgress({ loaded: 0, total: availableSubjects.length, currentSubject: 'Starting parallel load...' })
 
         const allCoursesData: InternalCourse[] = []
         const scrapingTimestamps: Date[] = []
-        let successCount = 0
+        let completedCount = 0
 
-        // Load each subject file with performance tracking
-        for (let i = 0; i < availableSubjects.length; i++) {
-          const subject = availableSubjects[i]
-          setLoadingProgress({ loaded: i, total: availableSubjects.length, currentSubject: subject })
-          
+        console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL using Vercel CDN...`)
+        
+        // 🔥 PARALLEL LOADING: Fire ALL requests simultaneously!
+        const allPromises = availableSubjects.map(async (subject) => {
           const subjectStartTime = performance.now()
           
           try {
@@ -195,20 +202,21 @@ export default function CourseSearch({
               
               // Calculate approximate data size (rough estimate)
               const dataSize = JSON.stringify(rawData).length
-              totalDataSize += dataSize
-              
               const loadTime = subjectEndTime - subjectStartTime
-              subjectLoadTimes.push({ 
-                subject, 
-                time: Math.round(loadTime), 
-                size: Math.round(dataSize / 1024) // KB
-              })
+              
+              // Update progress as each request completes (thread-safe)
+              completedCount++
+              setLoadingProgress(() => ({ 
+                loaded: completedCount, 
+                total: availableSubjects.length, 
+                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${completedCount}/${availableSubjects.length}` 
+              }))
               
               // Extract scraping timestamp from metadata
+              let scrapedAt = null
               if (rawData.metadata?.scraped_at) {
                 try {
-                  const scrapedAt = new Date(rawData.metadata.scraped_at)
-                  scrapingTimestamps.push(scrapedAt)
+                  scrapedAt = new Date(rawData.metadata.scraped_at)
                   console.log(`📅 ${subject} scraped at: ${scrapedAt.toLocaleString()}`)
                 } catch {
                   console.warn(`Invalid scraped_at timestamp in ${subject}.json:`, rawData.metadata.scraped_at)
@@ -218,38 +226,77 @@ export default function CourseSearch({
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
-                allCoursesData.push(...transformedData.courses)
-                successCount++
                 console.log(`✅ ${subject}: ${transformedData.courses.length} courses, ${Math.round(dataSize / 1024)}KB, ${Math.round(loadTime)}ms`)
+                
+                return {
+                  subject,
+                  courses: transformedData.courses,
+                  loadTime: Math.round(loadTime),
+                  dataSize: Math.round(dataSize / 1024),
+                  scrapedAt,
+                  success: true
+                }
               } else {
                 console.warn(`Invalid data structure in ${subject}.json`)
+                return { subject, success: false, error: 'Invalid data structure' }
               }
             } else {
               console.warn(`Failed to load ${subject}.json: ${response.status}`)
-              subjectLoadTimes.push({ subject, time: 0, size: 0 })
+              return { subject, success: false, error: `HTTP ${response.status}` }
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
-            subjectLoadTimes.push({ subject, time: 0, size: 0 })
+            return { subject, success: false, error: String(error) }
           }
-        }
+        })
+        
+        // Wait for ALL requests to complete
+        console.log(`⏳ Waiting for all ${availableSubjects.length} parallel requests to complete...`)
+        const results = await Promise.all(allPromises)
+        
+        // Process successful results
+        results.forEach(result => {
+          if (result.success && result.courses) {
+            allCoursesData.push(...result.courses)
+            if (result.scrapedAt) {
+              scrapingTimestamps.push(result.scrapedAt)
+            }
+            subjectLoadTimes.push({
+              subject: result.subject,
+              time: result.loadTime || 0,
+              size: result.dataSize || 0
+            })
+          } else {
+            subjectLoadTimes.push({
+              subject: result.subject,
+              time: 0,
+              size: 0
+            })
+          }
+        })
+        
+        const successCount = results.filter(r => r.success).length
+        totalDataSize = subjectLoadTimes.reduce((sum, s) => sum + (s.size * 1024), 0)
 
         // Calculate total load time and log performance summary
         const totalLoadTime = performance.now() - startTime
         
+        console.log(`🎉 PARALLEL LOADING COMPLETE!`)
         console.log(`📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`)
-        console.log(`⚡ Performance Summary:`)
-        console.log(`   Total load time: ${Math.round(totalLoadTime)}ms (${(totalLoadTime/1000).toFixed(1)}s)`)
-        console.log(`   Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`)
-        console.log(`   Average per subject: ${Math.round(totalLoadTime / availableSubjects.length)}ms`)
+        console.log(`⚡ Parallel Performance Summary:`)
+        console.log(`   🚀 Total parallel load time: ${Math.round(totalLoadTime)}ms (${(totalLoadTime/1000).toFixed(1)}s)`)
+        console.log(`   📦 Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`)
+        console.log(`   ⚡ Speedup: ALL subjects loaded simultaneously instead of sequentially!`)
+        console.log(`   🏆 Previous sequential time would have been: ~${Math.round(subjectLoadTimes.reduce((sum, s) => sum + s.time, 0))}ms`)
         
-        // Log detailed per-subject performance
-        if (subjectLoadTimes.length > 0) {
-          console.log(`   Per-subject breakdown:`)
-          subjectLoadTimes
-            .filter(s => s.time > 0)
-            .sort((a, b) => b.time - a.time) // Sort by load time (slowest first)
-            .forEach(s => console.log(`     ${s.subject}: ${s.time}ms, ${s.size}KB`))
+        // Log fastest and slowest requests for insight
+        const validTimes = subjectLoadTimes.filter(s => s.time > 0)
+        if (validTimes.length > 0) {
+          const fastest = validTimes.reduce((min, s) => s.time < min.time ? s : min)
+          const slowest = validTimes.reduce((max, s) => s.time > max.time ? s : max)
+          console.log(`   🏃 Fastest: ${fastest.subject} (${fastest.time}ms, ${fastest.size}KB)`)
+          console.log(`   🐌 Slowest: ${slowest.subject} (${slowest.time}ms, ${slowest.size}KB)`)
+          console.log(`   📊 Average per request: ${Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)}ms`)
         }
         
         // Store performance stats for potential UI display
