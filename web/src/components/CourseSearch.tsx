@@ -630,11 +630,39 @@ function CourseCard({
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
             </CardDescription>
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-2 mt-2 flex-wrap">
               <Badge variant="outline">{course.credits} credits</Badge>
-              <Badge variant="outline" className="text-xs">
-                {currentTerm}
-              </Badge>
+              {/* Show instructors as badges with smart truncation */}
+              {instructors.length > 0 && (
+                <>
+                  {instructors.slice(0, 5).map(instructor => {
+                    const formattedInstructor = formatInstructorCompact(instructor)
+                    return (
+                      <Badge 
+                        key={formattedInstructor} 
+                        variant="secondary" 
+                        className="text-xs text-gray-700 hover:text-gray-900 hover:bg-gray-200 cursor-pointer transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          onSearchInstructor(formattedInstructor)
+                        }}
+                        title={`Search Google for "${formattedInstructor}"`}
+                      >
+                        {formattedInstructor}
+                      </Badge>
+                    )
+                  })}
+                  {instructors.length > 5 && (
+                    <Badge 
+                      variant="outline" 
+                      className="text-xs text-gray-500"
+                      title={`Additional instructors: ${instructors.slice(5).map(i => formatInstructorCompact(i)).join(', ')}`}
+                    >
+                      +{instructors.length - 5} more
+                    </Badge>
+                  )}
+                </>
+              )}
             </div>
           </div>
           <div className="flex items-center gap-2 ml-2">
