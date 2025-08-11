@@ -325,31 +325,40 @@ export default function CourseSearch({
       )
     }
     
-    // Apply search term filter
-    if (!searchTerm.trim()) {
-      return filteredCourses.slice(0, 10) // Show first 10 by default
-    }
-
-    const searchLower = searchTerm.toLowerCase()
-    const searchFiltered = filteredCourses.filter(course => {
-      // Create full course code without space for searching
-      const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
-      
-      return (
-        fullCourseCode.includes(searchLower) ||
-        course.courseCode.toLowerCase().includes(searchLower) ||
-        course.title.toLowerCase().includes(searchLower) ||
-        course.terms.some(term =>
-          term.sections.some(section =>
-            section.meetings.some(meeting =>
-              meeting.instructor.toLowerCase().includes(searchLower)
+    // Determine if user has applied any filters or search
+    const hasFiltersOrSearch = searchTerm.trim() || selectedSubjects.size > 0
+    
+    // Apply search term filter if provided
+    let finalCourses = filteredCourses
+    if (searchTerm.trim()) {
+      const searchLower = searchTerm.toLowerCase()
+      finalCourses = filteredCourses.filter(course => {
+        // Create full course code without space for searching
+        const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
+        
+        return (
+          fullCourseCode.includes(searchLower) ||
+          course.courseCode.toLowerCase().includes(searchLower) ||
+          course.title.toLowerCase().includes(searchLower) ||
+          course.terms.some(term =>
+            term.sections.some(section =>
+              section.meetings.some(meeting =>
+                meeting.instructor.toLowerCase().includes(searchLower)
+              )
             )
           )
         )
-      )
-    })
+      })
+    }
 
-    return searchFiltered.slice(0, 20) // Limit to 20 results
+    // Simple limiting logic based on user intent
+    const limit = hasFiltersOrSearch ? 100 : 10
+
+    return {
+      courses: finalCourses.slice(0, limit),
+      total: finalCourses.length,
+      isLimited: finalCourses.length > limit
+    }
   }, [searchTerm, allCourses, currentTerm, selectedSubjects])
 
   return (
@@ -416,7 +425,7 @@ export default function CourseSearch({
               <>
                 <span>filtered by</span>
                 <span className="font-semibold text-blue-600">
-                  {Array.from(selectedSubjects).join(', ')}
+                  {Array.from(selectedSubjects).sort().join(', ')}
                 </span>
                 <span>({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})</span>
               </>
@@ -458,23 +467,36 @@ export default function CourseSearch({
               )}
             </div>
           </div>
-        ) : searchResults.length === 0 ? (
+        ) : searchResults.courses.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             {searchTerm ? 'No courses found' : 'No courses available'}
           </div>
         ) : (
           <>
             <div className="text-sm text-gray-600 mb-3">
-              Showing {searchResults.length} course{searchResults.length !== 1 ? 's' : ''}
-              {searchTerm && ` matching "${searchTerm}"`}
-              {selectedSubjects.size > 0 && (
-                <span className="ml-2">
-                  · filtered by {Array.from(selectedSubjects).join(', ')}
-                </span>
+              Showing {searchResults.courses.length} course{searchResults.courses.length !== 1 ? 's' : ''}
+              {searchResults.total > searchResults.courses.length && (
+                <span className="font-medium"> of {searchResults.total} total</span>
               )}
+              {searchTerm && ` matching "${searchTerm}"`}
             </div>
+            
+            {/* Show helpful message when results are limited */}
+            {searchResults.isLimited && (
+              <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
+                <div className="flex items-start gap-2">
+                  <span className="text-amber-600 text-3xl">💡</span>
+                  <div>
+                    <strong>Too many results to display.</strong>
+                    <br />
+                    <span className="text-amber-600">Try searching for specific course codes or adding more subject filters to narrow results.</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <div className="space-y-3">
-              {searchResults.map((course, index) => (
+              {searchResults.courses.map((course, index) => (
                 <CourseCard 
                   key={`${course.subject}-${course.courseCode}-${index}`} 
                   course={course}
@@ -495,7 +517,7 @@ export default function CourseSearch({
                       newMap.set(selectionKey, sectionId)
                       
                       // Find the course to get section types for cascade clearing
-                      const targetCourse = searchResults.find(c => `${c.subject}${c.courseCode}` === courseKey)
+                      const targetCourse = searchResults.courses.find(c => `${c.subject}${c.courseCode}` === courseKey)
                       if (targetCourse) {
                         const sectionTypes = parseSectionTypes(targetCourse, currentTerm)
                         // Clear any lower-priority incompatible selections
