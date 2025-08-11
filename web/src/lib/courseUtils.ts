@@ -333,6 +333,7 @@ export function getSectionTypeName(type: SectionType): string {
     'LAB': 'Laboratory',
     'EXR': 'Exercise',
     'SEM': 'Seminar',
+    'DIS': 'Discussion',
     'PRJ': 'Project',
     'PRA': 'Practicum',
     'OTHER': 'Other'
@@ -350,6 +351,7 @@ export function getSectionTypeIcon(type: SectionType): string {
     'LAB': '🧪',
     'EXR': '💪',
     'SEM': '🗣️',
+    'DIS': '💬',
     'PRJ': '🛠️',
     'PRA': '⚙️',
     'OTHER': '📋'

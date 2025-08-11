@@ -44,7 +44,7 @@ export interface SectionAvailability {
   waitlistTotal: number
 }
 
-export type SectionType = 'LEC' | 'TUT' | 'LAB' | 'EXR' | 'SEM' | 'PRJ' | 'PRA' | 'OTHER'
+export type SectionType = 'LEC' | 'TUT' | 'LAB' | 'EXR' | 'SEM' | 'DIS' | 'PRJ' | 'PRA' | 'OTHER'
 
 // Course enrollment using clean internal types
 export interface CourseEnrollment {

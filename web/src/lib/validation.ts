@@ -67,13 +67,13 @@ export type ExternalCourse = z.infer<typeof ExternalCourseSchema>
 // Section type parsing and validation
 function parseSectionType(sectionCode: string): SectionType {
   // Pattern 1: --TYPE or -XXX-TYPE
-  const dashTypeMatch = sectionCode.match(/-+(?:[A-Z]\d+-)?(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)
+  const dashTypeMatch = sectionCode.match(/-+(?:[A-Z]\d+-)?(LEC|TUT|LAB|EXR|SEM|DIS|PRJ|WKS|PRA|FLD)/)
   if (dashTypeMatch) {
     return dashTypeMatch[1] as SectionType
   }
   
   // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
-  const startTypeMatch = sectionCode.match(/^(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)
+  const startTypeMatch = sectionCode.match(/^(LEC|TUT|LAB|EXR|SEM|DIS|PRJ|WKS|PRA|FLD)/)
   if (startTypeMatch) {
     return startTypeMatch[1] as SectionType
   }
