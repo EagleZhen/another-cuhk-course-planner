@@ -941,10 +941,10 @@ function CourseCard({
                 </div>
               )}
 
-              {/* Prerequisites */}
+              {/* Enrollment Requirement */}
               {course.enrollmentRequirement && (
                 <div>
-                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Prerequisites</h4>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
                   <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
                 </div>
               )}
