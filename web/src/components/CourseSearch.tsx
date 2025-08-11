@@ -25,6 +25,7 @@ interface CourseSearchProps {
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
+  onSubjectFiltersChange?: (subjects: Set<string>) => void // Subject filter callback
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
@@ -41,6 +42,7 @@ export default function CourseSearch({
   onSearchControlReady,
   onDataUpdate,
   selectedSubjects = new Set(),
+  onSubjectFiltersChange,
   onAvailableSubjectsUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
