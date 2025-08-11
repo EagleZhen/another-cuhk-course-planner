@@ -819,7 +819,7 @@ function CourseCard({
                         key={section.id}
                         className={`p-2 rounded transition-all ${
                           isSelected 
-                            ? 'border-2 border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer' 
+                            ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer' 
                             : isIncompatible 
                               ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale' 
                               : 'border border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
