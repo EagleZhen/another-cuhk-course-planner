@@ -471,124 +471,156 @@ export default function CourseSearch({
       <div className="space-y-3 pb-8">
         {loading ? (
           <div className="text-center py-12 px-4">
-            <div className="max-w-md mx-auto space-y-6">
+            <div className="max-w-2xl mx-auto space-y-6">
               {/* Main Loading Animation */}
               <div className="flex items-center justify-center">
                 <div className="relative">
-                  {/* Spinning loader */}
-                  <div className="w-16 h-16 border-4 border-blue-100 border-t-blue-500 rounded-full animate-spin"></div>
-                  {/* Inner pulsing dot */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
+                  {/* Modern spinner */}
+                  <div className="w-12 h-12 border-2 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+                </div>
+              </div>
+
+              {/* Professional Context */}
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Loading Comprehensive Course Catalog
+                </h3>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                    <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    <span>Loading time depends on your network connection</span>
                   </div>
                 </div>
               </div>
 
-              {/* Context & Explanation */}
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-800">
-                  Loading Course Catalog
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Fetching the latest course information from all CUHK departments.
-                  <br />
-                  <span className="text-blue-600 font-medium">
-                    This may take 10-15 seconds on first load.
-                  </span>
-                </p>
-              </div>
-
-              {/* Enhanced Progress Display */}
+              {/* Modern Progress Display */}
               {loadingProgress.total > 0 && (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {/* Current Status */}
                   <div className="text-sm font-medium text-gray-700">
                     {loadingProgress.currentSubject ? (
-                      <div className="flex items-center justify-center gap-2">
-                        <span>🔄</span>
-                        <span>Loading {loadingProgress.currentSubject.split(' ')[0]}...</span>
+                      <div className="flex items-center justify-center gap-3">
+                        <div className="w-4 h-4 border-2 border-blue-300 border-t-blue-600 rounded-full animate-spin"></div>
+                        <span>Loading {loadingProgress.currentSubject.split(' ')[0]} courses</span>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-center gap-2">
-                        <span>🚀</span>
-                        <span>Parallel loading in progress...</span>
+                      <div className="flex items-center justify-center gap-3">
+                        <div className="flex space-x-1">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.1s'}}></div>
+                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                        </div>
+                        <span>Initializing course catalog...</span>
                       </div>
                     )}
                   </div>
 
-                  {/* Progress Stats */}
-                  <div className="bg-gray-50 rounded-lg p-4 space-y-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600">Progress</span>
-                      <span className="font-mono font-semibold text-blue-600">
-                        {loadingProgress.loaded}/{loadingProgress.total} subjects
-                        <span className="ml-2 text-xs text-gray-500">
+                  {/* Progress Card */}
+                  <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                    <div className="flex items-center justify-between text-sm mb-3">
+                      <span className="text-gray-600 font-medium">Loading Progress</span>
+                      <span className="font-mono text-sm text-gray-900">
+                        {loadingProgress.loaded} / {loadingProgress.total}
+                        <span className="ml-2 text-xs text-gray-500 font-sans">
                           ({Math.round((loadingProgress.loaded / loadingProgress.total) * 100)}%)
                         </span>
                       </span>
                     </div>
 
-                    {/* Animated Progress Bar */}
+                    {/* Modern Progress Bar */}
                     <div className="relative">
-                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                      <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
                         <div 
-                          className="h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-300 ease-out relative"
+                          className="h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500 ease-out"
                           style={{ 
                             width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%` 
                           }}
-                        >
-                          {/* Shimmer effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
+                        ></div>
+                      </div>
+                    </div>
+
+                    {/* Performance Metrics with Time Estimation */}
+                    {performanceStats.subjectLoadTimes.length > 3 && (
+                      <div className="mt-3 pt-3 border-t border-gray-100">
+                        <div className="grid grid-cols-3 gap-4 text-xs">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span className="text-gray-600">Avg Speed:</span>
+                            <span className="font-mono text-gray-900">
+                              {Math.round(
+                                performanceStats.subjectLoadTimes
+                                  .filter(s => s.time > 0)
+                                  .reduce((sum, s) => sum + s.time, 0) / 
+                                performanceStats.subjectLoadTimes.filter(s => s.time > 0).length
+                              )}ms
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <span className="text-gray-600">Data Size:</span>
+                            <span className="font-mono text-gray-900">
+                              {Math.round(performanceStats.totalDataSize / 1024)}KB
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                            <span className="text-gray-600">Est. Time:</span>
+                            <span className="font-mono text-gray-900">
+                              {(() => {
+                                const completedRequests = performanceStats.subjectLoadTimes.filter(s => s.time > 0)
+                                if (completedRequests.length < 3) return 'Calculating...'
+                                
+                                const avgTime = completedRequests.reduce((sum, s) => sum + s.time, 0) / completedRequests.length
+                                const remaining = loadingProgress.total - loadingProgress.loaded
+                                const estimatedMs = remaining * avgTime
+                                
+                                if (estimatedMs < 1000) return '<1s'
+                                if (estimatedMs < 60000) return `${Math.round(estimatedMs / 1000)}s`
+                                return `${Math.round(estimatedMs / 60000)}m`
+                              })()}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      
-                      {/* Progress percentage overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-xs font-bold text-white drop-shadow-sm">
-                          {Math.round((loadingProgress.loaded / loadingProgress.total) * 100)}%
-                        </span>
-                      </div>
-                    </div>
+                    )}
                   </div>
 
-                  {/* Performance Stats (if available) */}
-                  {performanceStats.subjectLoadTimes.length > 5 && (
-                    <div className="text-xs text-gray-500 space-y-1">
-                      <div className="flex items-center justify-center gap-4">
-                        <span>⚡ Average: {Math.round(
-                          performanceStats.subjectLoadTimes
-                            .filter(s => s.time > 0)
-                            .reduce((sum, s) => sum + s.time, 0) / 
-                          performanceStats.subjectLoadTimes.filter(s => s.time > 0).length
-                        )}ms per subject</span>
-                        <span>📦 Loaded: {Math.round(performanceStats.totalDataSize / 1024)}KB</span>
-                      </div>
+                  {/* Status Message */}
+                  <div className="text-center">
+                    <div className="text-sm text-gray-600">
+                      {loadingProgress.loaded < loadingProgress.total * 0.3 ? (
+                        "Initializing course data loading..."
+                      ) : loadingProgress.loaded < loadingProgress.total * 0.7 ? (
+                        "Processing course information..."
+                      ) : (
+                        "Finalizing course catalog..."
+                      )}
                     </div>
-                  )}
-
-                  {/* Encouraging Message */}
-                  <div className="text-xs text-gray-500 italic">
-                    {loadingProgress.loaded < loadingProgress.total * 0.3 ? (
-                      "🏃‍♂️ Getting started..."
-                    ) : loadingProgress.loaded < loadingProgress.total * 0.7 ? (
-                      "⚡ Making great progress!"
-                    ) : (
-                      "🎯 Almost there!"
-                    )}
                   </div>
                 </div>
               )}
 
-              {/* Tips while loading */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-left">
-                <h4 className="text-sm font-semibold text-blue-800 mb-2 flex items-center gap-2">
-                  <span>💡</span>
-                  <span>Did you know?</span>
+              {/* Professional Tips Panel */}
+              <div className="bg-slate-50 border border-slate-200 rounded-lg p-5">
+                <h4 className="text-sm font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center">
+                    <Info className="w-2.5 h-2.5 text-blue-600" />
+                  </div>
+                  <span>Search Tips</span>
                 </h4>
-                <div className="text-sm text-blue-700 space-y-1">
-                  <p>• Course data is cached after first load for faster subsequent searches</p>
-                  <p>• You can filter by subject codes to narrow your search</p>
-                  <p>• Try searching for specific course codes like &ldquo;UGFH1000&rdquo; or instructor names</p>
+                <div className="text-sm text-slate-700 space-y-2">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Course data is cached locally for improved performance on subsequent searches</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Use subject filters to focus on specific academic areas</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Search by course code (e.g., &ldquo;UGFH1000&rdquo;), course title (e.g., &ldquo;In Dialogue with Humanity &rdquo;) or instructor name for precise results</span>
+                  </div>
                 </div>
               </div>
             </div>
