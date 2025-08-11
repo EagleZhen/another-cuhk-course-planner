@@ -122,7 +122,7 @@ export default function ShoppingCart({
 
   return (
     <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
-      <CardHeader className="pb-0 pt-1 flex-shrink-0">
+      <CardHeader className="pb-0 pt-2 flex-shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <CardTitle className="text-base">My Schedule</CardTitle>
@@ -275,9 +275,9 @@ export default function ShoppingCart({
                     /* Show simplified invalid state */
                     <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
                       <div className="flex items-center gap-2 text-sm">
-                        <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
                         <div>
-                          <div className="text-sm text-orange-600">{enrollment.invalidReason}</div>
+                          <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                          <div className="text-xs text-orange-600">{enrollment.invalidReason}</div>
                           {enrollment.lastSynced && (
                             <div className="text-xs text-gray-500 mt-1">
                               Last synced: {enrollment.lastSynced.toLocaleString()}
