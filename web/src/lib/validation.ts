@@ -3,6 +3,7 @@
 
 import { z } from 'zod'
 import type { InternalCourse, InternalTerm, InternalSection, InternalMeeting, SectionAvailability, SectionType } from './types'
+import { SECTION_TYPE_CONFIG } from './types'
 
 // External data schemas (for runtime validation)
 const ExternalMeetingSchema = z.object({
@@ -64,18 +65,32 @@ const ExternalCourseDataSchema = z.object({
 export type ExternalCourseData = z.infer<typeof ExternalCourseDataSchema>
 export type ExternalCourse = z.infer<typeof ExternalCourseSchema>
 
-// Section type parsing and validation
+// Section type parsing and validation - now configuration-driven
 function parseSectionType(sectionCode: string): SectionType {
-  // Pattern 1: --TYPE or -XXX-TYPE
-  const dashTypeMatch = sectionCode.match(/-+(?:[A-Z]\d+-)?(LEC|TUT|LAB|EXR|SEM|DIS|PRJ|WKS|PRA|FLD)/)
-  if (dashTypeMatch) {
-    return dashTypeMatch[1] as SectionType
+  // Build regex patterns dynamically from configuration
+  const allAliases = Object.entries(SECTION_TYPE_CONFIG)
+    .flatMap(([type, config]) => config.aliases.map(alias => ({ alias, type })))
+  
+  const aliasPattern = allAliases.map(({ alias }) => alias).join('|')
+  
+  // Pattern 1: --TYPE or -XXX-TYPE (e.g., "--LEC", "-D01-DIS")
+  const dashPattern = new RegExp(`-+(?:[A-Z]\\d+-)?(${aliasPattern})`)
+  const dashMatch = sectionCode.match(dashPattern)
+  if (dashMatch) {
+    const foundAlias = dashMatch[1]
+    // Find which type this alias belongs to
+    const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
+    return typeEntry?.type as SectionType || 'OTHER'
   }
   
   // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
-  const startTypeMatch = sectionCode.match(/^(LEC|TUT|LAB|EXR|SEM|DIS|PRJ|WKS|PRA|FLD)/)
-  if (startTypeMatch) {
-    return startTypeMatch[1] as SectionType
+  const startPattern = new RegExp(`^(${aliasPattern})`)
+  const startMatch = sectionCode.match(startPattern)
+  if (startMatch) {
+    const foundAlias = startMatch[1]
+    // Find which type this alias belongs to
+    const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
+    return typeEntry?.type as SectionType || 'OTHER'
   }
   
   return 'OTHER'

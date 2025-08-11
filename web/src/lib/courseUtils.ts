@@ -10,8 +10,9 @@ import type {
   InternalSection, 
   InternalMeeting, 
   SectionAvailability,
-  SectionType 
+  SectionType
 } from './types'
+import { SECTION_TYPE_CONFIG } from './types'
 
 // Re-export types for backward compatibility
 export type {
@@ -327,36 +328,14 @@ export function parseSectionTypes(course: InternalCourse, termName: string): Sec
  * Get display name for section type
  */
 export function getSectionTypeName(type: SectionType): string {
-  const names: Record<SectionType, string> = {
-    'LEC': 'Lecture',
-    'TUT': 'Interactive Tutorial',
-    'LAB': 'Laboratory',
-    'EXR': 'Exercise',
-    'SEM': 'Seminar',
-    'DIS': 'Discussion',
-    'PRJ': 'Project',
-    'PRA': 'Practicum',
-    'OTHER': 'Other'
-  }
-  return names[type]
+  return SECTION_TYPE_CONFIG[type].displayName
 }
 
 /**
  * Get icon for section type
  */
 export function getSectionTypeIcon(type: SectionType): string {
-  const icons: Record<SectionType, string> = {
-    'LEC': '📚',
-    'TUT': '📝',
-    'LAB': '🧪',
-    'EXR': '💪',
-    'SEM': '🗣️',
-    'DIS': '💬',
-    'PRJ': '🛠️',
-    'PRA': '⚙️',
-    'OTHER': '📋'
-  }
-  return icons[type]
+  return SECTION_TYPE_CONFIG[type].icon
 }
 
 /**

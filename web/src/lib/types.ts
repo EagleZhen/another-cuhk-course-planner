@@ -44,7 +44,22 @@ export interface SectionAvailability {
   waitlistTotal: number
 }
 
-export type SectionType = 'LEC' | 'TUT' | 'LAB' | 'EXR' | 'SEM' | 'DIS' | 'PRJ' | 'PRA' | 'OTHER'
+// Centralized section type configuration - SINGLE SOURCE OF TRUTH
+export const SECTION_TYPE_CONFIG = {
+  'LEC': { displayName: 'Lecture', icon: '📚', aliases: ['LEC'] },
+  'TUT': { displayName: 'Interactive Tutorial', icon: '📝', aliases: ['TUT'] },
+  'LAB': { displayName: 'Laboratory', icon: '🧪', aliases: ['LAB'] },
+  'EXR': { displayName: 'Exercise', icon: '💪', aliases: ['EXR'] },
+  'SEM': { displayName: 'Seminar', icon: '🗣️', aliases: ['SEM'] },
+  'DIS': { displayName: 'Discussion', icon: '💬', aliases: ['DIS'] },
+  'PRJ': { displayName: 'Project', icon: '🛠️', aliases: ['PRJ'] },
+  'WKS': { displayName: 'Workshop', icon: '🔧', aliases: ['WKS'] },
+  'PRA': { displayName: 'Practicum', icon: '⚙️', aliases: ['PRA'] },
+  'OTHER': { displayName: 'Other', icon: '📋', aliases: ['OTHER'] }
+} as const
+
+// Derive the type from the config keys - automatically stays in sync
+export type SectionType = keyof typeof SECTION_TYPE_CONFIG
 
 // Course enrollment using clean internal types
 export interface CourseEnrollment {
