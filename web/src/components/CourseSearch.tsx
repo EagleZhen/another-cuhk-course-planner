@@ -25,7 +25,6 @@ interface CourseSearchProps {
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
-  onSubjectFiltersChange?: (subjects: Set<string>) => void
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
@@ -42,7 +41,6 @@ export default function CourseSearch({
   onSearchControlReady,
   onDataUpdate,
   selectedSubjects = new Set(),
-  onSubjectFiltersChange,
   onAvailableSubjectsUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -312,6 +310,7 @@ export default function CourseSearch({
         
         setAllCourses(allCoursesData)
         setHasDataLoaded(true) // Mark data as loaded for this session
+        setLoading(false)
         
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
@@ -322,8 +321,8 @@ export default function CourseSearch({
         
       } catch (error) {
         console.error('Failed to load course data:', error)
-      } finally {
         setLoading(false)
+      } finally {
         setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
       }
     }
@@ -471,39 +470,168 @@ export default function CourseSearch({
       {/* Search Results with Natural Flow */}
       <div className="space-y-3 pb-8">
         {loading ? (
-          <div className="text-center py-8 text-gray-500">
-            <div className="space-y-2">
-              <div>Loading course data...</div>
+          <div className="text-center py-12 px-4">
+            <div className="max-w-md mx-auto space-y-6">
+              {/* Main Loading Animation */}
+              <div className="flex items-center justify-center">
+                <div className="relative">
+                  {/* Spinning loader */}
+                  <div className="w-16 h-16 border-4 border-blue-100 border-t-blue-500 rounded-full animate-spin"></div>
+                  {/* Inner pulsing dot */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Context & Explanation */}
+              <div className="space-y-2">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  Loading Course Catalog
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Fetching the latest course information from all CUHK departments.
+                  <br />
+                  <span className="text-blue-600 font-medium">
+                    This may take 10-15 seconds on first load.
+                  </span>
+                </p>
+              </div>
+
+              {/* Enhanced Progress Display */}
               {loadingProgress.total > 0 && (
-                <>
-                  <div className="text-sm">
-                    {loadingProgress.currentSubject && (
-                      <div>Loading {loadingProgress.currentSubject}...</div>
+                <div className="space-y-3">
+                  {/* Current Status */}
+                  <div className="text-sm font-medium text-gray-700">
+                    {loadingProgress.currentSubject ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <span>🔄</span>
+                        <span>Loading {loadingProgress.currentSubject.split(' ')[0]}...</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center gap-2">
+                        <span>🚀</span>
+                        <span>Parallel loading in progress...</span>
+                      </div>
                     )}
-                    <div>
-                      {loadingProgress.loaded}/{loadingProgress.total} subjects
-                      {loadingProgress.total > 0 && (
-                        <span className="ml-2">
+                  </div>
+
+                  {/* Progress Stats */}
+                  <div className="bg-gray-50 rounded-lg p-4 space-y-3">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">Progress</span>
+                      <span className="font-mono font-semibold text-blue-600">
+                        {loadingProgress.loaded}/{loadingProgress.total} subjects
+                        <span className="ml-2 text-xs text-gray-500">
                           ({Math.round((loadingProgress.loaded / loadingProgress.total) * 100)}%)
                         </span>
-                      )}
+                      </span>
+                    </div>
+
+                    {/* Animated Progress Bar */}
+                    <div className="relative">
+                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                        <div 
+                          className="h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-300 ease-out relative"
+                          style={{ 
+                            width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%` 
+                          }}
+                        >
+                          {/* Shimmer effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Progress percentage overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xs font-bold text-white drop-shadow-sm">
+                          {Math.round((loadingProgress.loaded / loadingProgress.total) * 100)}%
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 mx-auto max-w-xs">
-                    <div 
-                      className="bg-blue-500 h-2 rounded-full transition-all duration-200" 
-                      style={{ 
-                        width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%` 
-                      }}
-                    ></div>
+
+                  {/* Performance Stats (if available) */}
+                  {performanceStats.subjectLoadTimes.length > 5 && (
+                    <div className="text-xs text-gray-500 space-y-1">
+                      <div className="flex items-center justify-center gap-4">
+                        <span>⚡ Average: {Math.round(
+                          performanceStats.subjectLoadTimes
+                            .filter(s => s.time > 0)
+                            .reduce((sum, s) => sum + s.time, 0) / 
+                          performanceStats.subjectLoadTimes.filter(s => s.time > 0).length
+                        )}ms per subject</span>
+                        <span>📦 Loaded: {Math.round(performanceStats.totalDataSize / 1024)}KB</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Encouraging Message */}
+                  <div className="text-xs text-gray-500 italic">
+                    {loadingProgress.loaded < loadingProgress.total * 0.3 ? (
+                      "🏃‍♂️ Getting started..."
+                    ) : loadingProgress.loaded < loadingProgress.total * 0.7 ? (
+                      "⚡ Making great progress!"
+                    ) : (
+                      "🎯 Almost there!"
+                    )}
                   </div>
-                </>
+                </div>
               )}
+
+              {/* Tips while loading */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-left">
+                <h4 className="text-sm font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                  <span>💡</span>
+                  <span>Did you know?</span>
+                </h4>
+                <div className="text-sm text-blue-700 space-y-1">
+                  <p>• Course data is cached after first load for faster subsequent searches</p>
+                  <p>• You can filter by subject codes to narrow your search</p>
+                  <p>• Try searching for specific course codes like &ldquo;UGFH1000&rdquo; or instructor names</p>
+                </div>
+              </div>
             </div>
           </div>
         ) : searchResults.courses.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
-            {searchTerm ? 'No courses found' : 'No courses available'}
+          <div className="text-center py-12">
+            {searchTerm || selectedSubjects.size > 0 ? (
+              // No results for search/filter
+              <div className="space-y-3">
+                <div className="text-gray-400">
+                  <Search className="w-12 h-12 mx-auto mb-3" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-600">No courses found</h3>
+                <p className="text-sm text-gray-500 max-w-md mx-auto">
+                  {searchTerm && selectedSubjects.size > 0 
+                    ? `No courses match "${searchTerm}" in the selected ${selectedSubjects.size} subject${selectedSubjects.size !== 1 ? 's' : ''}.`
+                    : searchTerm 
+                    ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
+                    : `No courses found in the ${selectedSubjects.size} selected subject${selectedSubjects.size !== 1 ? 's' : ''}.`
+                  }
+                </p>
+                <div className="space-y-2 text-xs text-gray-400">
+                  <p>💡 Try:</p>
+                  <div className="space-y-1">
+                    {searchTerm && <p>• Clearing the search term</p>}
+                    {selectedSubjects.size > 0 && <p>• Removing subject filters</p>}
+                    <p>• Searching for course codes like &ldquo;CSCI3100&rdquo;</p>
+                    <p>• Searching for instructor names</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // No data available
+              <div className="space-y-3">
+                <div className="text-gray-400">
+                  <span className="text-4xl">📚</span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-600">No courses available</h3>
+                <p className="text-sm text-gray-500">
+                  No course data is currently available for {currentTerm}.
+                </p>
+              </div>
+            )}
           </div>
         ) : (
           <>
