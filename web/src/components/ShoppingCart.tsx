@@ -144,7 +144,7 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
       
-      <CardContent className="flex-1 overflow-hidden px-3 py-0">
+      <CardContent className="flex-1 overflow-hidden px-3">
         {courseEnrollments.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             <div className="text-2xl mb-2">📚</div>
@@ -154,7 +154,7 @@ export default function ShoppingCart({
         ) : (
           <div 
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 pb-2"
+            className="space-y-3 overflow-y-auto h-full p-1 py-2"
           >
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
