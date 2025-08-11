@@ -529,6 +529,18 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
+        
+        {/* Inspired Footer */}
+        <footer className="mt-16 mb-8 text-center">
+          <div className="space-y-2">
+            <div className="text-sm text-slate-400 italic font-light tracking-wide">
+              &ldquo;There&apos;s more to explore here.&rdquo;
+            </div>
+            <div className="text-xs text-slate-500 font-medium">
+              Crafted by EZ
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   )
