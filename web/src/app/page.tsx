@@ -9,6 +9,7 @@ import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { analytics } from '@/lib/analytics'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -43,9 +44,29 @@ export default function Home() {
   // Term-specific subject filter persistence (session state only)
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
 
-  // Track hydration status
+  // Track hydration status and session start
   useEffect(() => {
     setIsHydrated(true)
+    
+    // Track session start
+    analytics.sessionStart(currentTerm)
+    const sessionStartTime = Date.now()
+    
+    // Track session end on page unload
+    const handleBeforeUnload = () => {
+      const sessionDuration = Date.now() - sessionStartTime
+      analytics.sessionEnd(sessionDuration, courseEnrollments.length)
+    }
+    
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+      // Also track on component unmount (for development)
+      const sessionDuration = Date.now() - sessionStartTime
+      analytics.sessionEnd(sessionDuration, courseEnrollments.length)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want this to run once on mount
   }, [])
 
   // Auto-restore schedule from localStorage when term changes (client-side only)
@@ -189,6 +210,8 @@ export default function Home() {
 
   // Handle term change - localStorage will handle schedule restoration
   const handleTermChange = (newTerm: string) => {
+    const oldTerm = currentTerm
+    analytics.termSwitched(oldTerm, newTerm)
     setCurrentTerm(newTerm)
     // localStorage useEffect will automatically restore/clear schedule for new term
   }
@@ -266,6 +289,10 @@ export default function Home() {
     const existingEnrollmentIndex = courseEnrollments.findIndex(enrollment => 
       enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
     )
+    
+    // Track analytics
+    const isFirstCourse = courseEnrollments.length === 0 && existingEnrollmentIndex < 0
+    analytics.courseAdded(courseKey, currentTerm, isFirstCourse)
     
     if (existingEnrollmentIndex >= 0) {
       // Update existing enrollment with new sections
