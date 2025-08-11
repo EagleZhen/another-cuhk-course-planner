@@ -601,7 +601,11 @@ function CourseCard({
   const currentTermData = course.terms.find(term => term.termName === currentTerm)
   const instructors = Array.from(new Set(
     currentTermData?.sections.flatMap(section =>
-      section.meetings.map(meeting => meeting.instructor)
+      section.meetings.flatMap(meeting => {
+        // Split instructor names by comma if multiple instructors are listed together
+        const instructorString = meeting.instructor || ''
+        return instructorString.split(',').map(name => name.trim()).filter(Boolean)
+      })
     ) || []
   )).filter(Boolean)
 
