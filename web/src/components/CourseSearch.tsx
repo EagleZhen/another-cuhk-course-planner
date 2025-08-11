@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, getAvailabilityBadges, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
-import { analytics, detectSearchType } from '@/lib/analytics'
+import { analytics } from '@/lib/analytics'
 
 // Using clean internal types only
 
@@ -135,7 +135,6 @@ export default function CourseSearch({
 
     const loadCourseData = async () => {
       setLoading(true)
-      analytics.catalogLoadStart()
       
       // Performance tracking
       const startTime = performance.now()
@@ -316,6 +315,11 @@ export default function CourseSearch({
         setHasDataLoaded(true) // Mark data as loaded for this session
         setLoading(false)
         
+        // Track loading performance
+        const totalLoadTimeSeconds = Math.round(totalLoadTime / 1000)
+        analytics.catalogLoaded(totalLoadTimeSeconds, successCount)
+        analytics.loadingExperience(totalLoadTimeSeconds)
+        
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
           const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map(d => d.getTime())))
@@ -325,6 +329,8 @@ export default function CourseSearch({
         
       } catch (error) {
         console.error('Failed to load course data:', error)
+        analytics.catalogFailed()
+        analytics.userError('catalog_load_failed')
         setLoading(false)
       } finally {
         setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
@@ -398,29 +404,15 @@ export default function CourseSearch({
     }
   }, [searchTerm, allCourses, currentTerm, selectedSubjects])
 
-  // Track search analytics
+  // Track search analytics - simplified for MVP
   useEffect(() => {
     if (searchTerm.trim() && searchTerm.length > 2) {
-      const searchType = detectSearchType(searchTerm)
-      analytics.courseSearch(searchTerm, searchResults.total, searchType)
-      
-      // Track empty search results
-      if (searchResults.total === 0) {
-        analytics.emptySearchResults(searchTerm)
-      }
+      const foundResults = searchResults.total > 0
+      analytics.searchUsed(foundResults)
     }
   }, [searchTerm, searchResults.total])
 
-  // Track subject filter usage
-  useEffect(() => {
-    if (selectedSubjects.size > 0) {
-      const resultsWithoutFilter = allCourses.filter(course => 
-        course.terms.some(term => term.termName === currentTerm)
-      ).length
-      const resultsWithFilter = searchResults.total
-      analytics.subjectFilterUsed(selectedSubjects.size, resultsWithFilter < resultsWithoutFilter)
-    }
-  }, [selectedSubjects, searchResults.total, allCourses, currentTerm])
+  // No complex filter tracking - keep it simple for MVP
 
   return (
     <div className="space-y-4">

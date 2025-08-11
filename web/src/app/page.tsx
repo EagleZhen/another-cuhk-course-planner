@@ -48,24 +48,8 @@ export default function Home() {
   useEffect(() => {
     setIsHydrated(true)
     
-    // Track session start
-    analytics.sessionStart(currentTerm)
-    const sessionStartTime = Date.now()
-    
-    // Track session end on page unload
-    const handleBeforeUnload = () => {
-      const sessionDuration = Date.now() - sessionStartTime
-      analytics.sessionEnd(sessionDuration, courseEnrollments.length)
-    }
-    
-    window.addEventListener('beforeunload', handleBeforeUnload)
-    
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload)
-      // Also track on component unmount (for development)
-      const sessionDuration = Date.now() - sessionStartTime
-      analytics.sessionEnd(sessionDuration, courseEnrollments.length)
-    }
+    // Track user visit
+    analytics.userVisited(currentTerm)
   // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want this to run once on mount
   }, [])
 
@@ -210,9 +194,9 @@ export default function Home() {
 
   // Handle term change - localStorage will handle schedule restoration
   const handleTermChange = (newTerm: string) => {
-    const oldTerm = currentTerm
-    analytics.termSwitched(oldTerm, newTerm)
     setCurrentTerm(newTerm)
+    // Track when user switches terms
+    analytics.userVisited(newTerm)
     // localStorage useEffect will automatically restore/clear schedule for new term
   }
 
@@ -292,7 +276,11 @@ export default function Home() {
     
     // Track analytics
     const isFirstCourse = courseEnrollments.length === 0 && existingEnrollmentIndex < 0
-    analytics.courseAdded(courseKey, currentTerm, isFirstCourse)
+    analytics.courseAdded(courseKey, isFirstCourse)
+    
+    // Track schedule building
+    const totalCourses = existingEnrollmentIndex >= 0 ? courseEnrollments.length : courseEnrollments.length + 1
+    analytics.scheduleBuilt(totalCourses)
     
     if (existingEnrollmentIndex >= 0) {
       // Update existing enrollment with new sections
