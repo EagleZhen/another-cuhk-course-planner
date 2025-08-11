@@ -124,9 +124,9 @@ export default function CourseSearch({
     )
   }
 
-  // Load course data on component mount (only once per session)
+  // Load course data on component mount and when term changes
   useEffect(() => {
-    // Skip loading if data is already loaded this session
+    // Skip loading if data is already loaded this session for this term
     if (hasDataLoaded) {
       console.log('📦 Course data already loaded this session, skipping reload')
       return
@@ -141,59 +141,38 @@ export default function CourseSearch({
       let totalDataSize = 0
       
       try {
-        // Dynamically discover available subjects by probing for files
-        const potentialSubjects = [
-          'ACCT', 'ACPY', 'AENP', 'AEPT', 'AIMS', 'AIST', 'ANAT', 'ANIC', 'ANTH', 'APEP', 
-          'ARAB', 'ARCH', 'ARTS', 'ASEI', 'BAMS', 'BASA', 'BBMS', 'BCHE', 'BCHM', 'BCJC',
-          'BCME', 'BECE', 'BEHM', 'BEST', 'BIOL', 'BIOS', 'BMBL', 'BMED', 'BMEG', 'BMJC',
-          'BSCG', 'BUDS', 'CCNU', 'CCSS', 'CDAS', 'CENG', 'CGEN', 'CHCU', 'CHED', 'CHEM',
-          'CHES', 'CHLL', 'CHLT', 'CHPR', 'CHPY', 'CLCC', 'CLCE', 'CLCH', 'CLCP', 'CLED',
-          'CLGY', 'CMBI', 'CMSC', 'CNGT', 'CODS', 'COMM', 'COOP', 'CSCI', 'CULS', 'CUMT',
-          'CURE', 'CVSM', 'DBAC', 'DIUS', 'DOTE', 'DROI', 'DSME', 'DSPS', 'EASC', 'ECLT',
-          'ECON', 'ECTM', 'EDUC', 'EEEN', 'EESC', 'EIHP', 'ELED', 'ELEG', 'ELTU', 'EMBA',
-          'EMBF', 'ENGE', 'ENGG', 'ENLC', 'ENLT', 'ENSC', 'EPBI', 'EPID', 'EPIN', 'EPSY',
-          'ESGS', 'ESSC', 'ESTR', 'EXSC', 'FAAS', 'FAME', 'FINA', 'FNSC', 'FREN', 'FTEC',
-          'GAST', 'GDRS', 'GECC', 'GECW', 'GEJC', 'GEMC', 'GENA', 'GEOR', 'GERM', 'GESC',
-          'GESH', 'GEUC', 'GEWS', 'GEYS', 'GISM', 'GLBS', 'GLEF', 'GLOF', 'GLSD', 'GNBF',
-          'GNED', 'GPAD', 'GPEC', 'GPGC', 'GPSU', 'GRMD', 'GRON', 'HIST', 'HKSL', 'HPSB',
-          'HSGS', 'HSOC', 'HSYS', 'HTMG', 'IASP', 'IBBA', 'IEMS', 'IERG', 'IMSC', 'INDA',
-          'INFD', 'ITAL', 'JASP', 'KORE', 'LAWS', 'LDTE', 'LING', 'LSCI', 'LSCM', 'LSED',
-          'MAED', 'MAEG', 'MAPE', 'MASE', 'MATH', 'MAVE', 'MBAC', 'MBTE', 'MCLE', 'MCLS',
-          'MCNS', 'MECM', 'MEDF', 'MEDM', 'MEDP', 'MEDU', 'MESC', 'MFMD', 'MGNT', 'MHLS',
-          'MICY', 'MIEG', 'MITE', 'MKTG', 'MLSC', 'MMAT', 'MPTE', 'MPUP', 'MRGO', 'MSAE',
-          'MSEG', 'MSMR', 'MTCI', 'MUSC', 'NSCI', 'NSSC', 'NURS', 'OBGY', 'OBSC', 'OENV',
-          'OMBA', 'ORLC', 'ORTY', 'OVSC', 'PBHT', 'PEDU', 'PGDC', 'PHYS', 'UGCP', 'UGEA', 
-          'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN'
-        ]
+        // Dynamically discover available subjects by fetching the directory index
+        console.log(`📂 Discovering available subjects from data directory...`)
+        setLoadingProgress({ loaded: 0, total: 1, currentSubject: 'Discovering subjects...' })
         
-        console.log(`📂 Probing for available subjects from ${potentialSubjects.length} possibilities...`)
-        setLoadingProgress({ loaded: 0, total: potentialSubjects.length, currentSubject: 'Discovering subjects...' })
+        let discoveredSubjects: string[] = []
         
-        const availableSubjects: string[] = []
-        
-        // Check which files actually exist by making HEAD requests (lightweight)
-        const probePromises = potentialSubjects.map(async (subject) => {
-          try {
-            const response = await fetch(`/data/${subject}.json`, { method: 'HEAD' })
-            if (response.ok) {
-              return subject
+        try {
+          // Try to fetch the term-specific index (most accurate)
+          const termIndexResponse = await fetch(`/data/Index ${currentTerm}.json`)
+          if (termIndexResponse.ok) {
+            const termIndexData = await termIndexResponse.json()
+            if (Array.isArray(termIndexData.metadata?.subjects)) {
+              discoveredSubjects = termIndexData.metadata.subjects.sort()
+              console.log(`📂 Loaded ${discoveredSubjects.length} subjects from term-specific index (${currentTerm}): ${discoveredSubjects.join(', ')}`)
             }
-          } catch {
-            // File doesn't exist
           }
-          return null
-        })
+        } catch {
+          console.log(`📂 Failed to load term-specific index for ${currentTerm}`)
+        }
         
-        const probeResults = await Promise.all(probePromises)
-        const discoveredSubjects = probeResults.filter((subject): subject is string => subject !== null)
-        discoveredSubjects.sort()
+        // If no subjects found, something is wrong
+        if (discoveredSubjects.length === 0) {
+          console.error(`❌ No subjects found for term: ${currentTerm}`)
+          console.error(`   Make sure the index file exists: /data/Index ${currentTerm}.json`)
+          throw new Error(`No subjects available for ${currentTerm}`)
+        }
         
         console.log(`📂 Discovered ${discoveredSubjects.length} available subjects: ${discoveredSubjects.join(', ')}`)
         
         // Store discovered subjects for parent component
         setAvailableSubjects(discoveredSubjects)
-        availableSubjects.length = 0
-        availableSubjects.push(...discoveredSubjects)
+        const availableSubjects: string[] = [...discoveredSubjects]
 
         setLoadingProgress({ loaded: 0, total: availableSubjects.length, currentSubject: '' })
 
@@ -303,7 +282,7 @@ export default function CourseSearch({
     }
 
     loadCourseData()
-  }, [onDataUpdate]) // hasDataLoaded is used but not a dependency (prevents circular logic)
+  }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
 
   // Real-time search with useMemo for performance, filtered by current term
   // Helper function to open Google search for course reviews
@@ -645,7 +624,7 @@ function CourseCard({
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               <Badge variant="outline">{course.credits} credits</Badge>
               {course.gradingBasis && (
-                <Badge variant="ghost" className="text-xs">
+                <Badge variant="secondary" className="text-xs">
                   {course.gradingBasis}
                 </Badge>
               )}
