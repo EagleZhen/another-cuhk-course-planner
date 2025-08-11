@@ -86,25 +86,51 @@ python resilient_scraper.py --retry  # Retry failed only
 - Complete type safety with clean architecture
 - Persistent state management with localStorage migration
 
-### **✅ Latest Achievement: Enhanced Subject Filtering & Performance Optimization**
+### **✅ Latest Achievement: Critical Infrastructure Improvements**
 
-**Problem Solved**: Subject discovery and filtering system with performance insights for 200+ subjects
-**Solution**: Dynamic subject discovery + term-specific filtering + performance analysis
+**Problems Solved**: 
+1. **Critical localStorage Bug**: Page refresh deleted all user data due to race condition
+2. **Term Switch Performance**: Users experienced 47-second reload on every term change
+3. **CourseSearch Maintainability**: Identified critical architecture issues for future work
 
-**Implementation Details:**
+**1. localStorage Race Condition Fix**
 ```typescript
-// Subject Discovery: Dynamic probing instead of hardcoded lists
-const discoveredSubjects = await Promise.all(
-  potentialSubjects.map(async (subject) => {
-    const response = await fetch(`/data/${subject}.json`, { method: 'HEAD' })
-    return response.ok ? subject : null
-  })
-)
+// ❌ CRITICAL BUG: Auto-save triggered before data restoration
+useEffect(() => {
+  if (courseEnrollments.length === 0) {
+    localStorage.removeItem(`schedule_${currentTerm}`) // Deletes data on page load!
+  }
+}, [courseEnrollments, currentTerm])
 
-// Term-Specific Filtering: Persistent during session
-const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
+// ✅ SOLUTION: Hydration guard prevents premature deletion
+useEffect(() => {
+  if (!isHydrated) return // Wait for hydration before localStorage operations
+  // ... safe save/delete logic
+}, [courseEnrollments, currentTerm, isHydrated])
+```
 
-// Performance Tracking: Real-time loading metrics
+**2. Session-Based Data Caching**
+```typescript
+// Simple session caching to prevent term-switch reloading
+const [hasDataLoaded, setHasDataLoaded] = useState(false)
+
+useEffect(() => {
+  if (hasDataLoaded) {
+    console.log('📦 Course data already loaded this session, skipping reload')
+    return
+  }
+  loadCourseData() // Only load once per session
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- hasDataLoaded intentionally omitted
+}, [onDataUpdate])
+```
+
+**3. Enhanced Subject Discovery & Performance Tracking**
+```typescript
+// Dynamic subject discovery from term-specific index files
+const termIndexResponse = await fetch(`/data/Index ${currentTerm}.json`)
+const discoveredSubjects = termIndexData.metadata.subjects
+
+// Real-time performance monitoring
 console.log(`⚡ Performance Summary:
    Total load time: ${totalLoadTime}ms
    Total data size: ${totalDataSize}KB  
@@ -112,10 +138,10 @@ console.log(`⚡ Performance Summary:
 ```
 
 **Key Architecture Insights:**
-- **Subject Discovery**: Parallel HEAD requests discover available subjects (202 found vs 13 hardcoded)
-- **Term Isolation**: Each term maintains separate subject filters during session
-- **Performance Reality**: 47 seconds for 202 subjects on 4G → Need hybrid loading strategy
-- **UI Consistency**: Subject toggles use same Button styling as other controls
+- **Critical Data Safety**: localStorage operations must respect React hydration cycle
+- **Session Performance**: Simple boolean flag eliminates unnecessary reloads (47s → 0s on term switch)
+- **Engineering Pragmatism**: "Dump everything" to localStorage is often the most maintainable approach
+- **Impact over Perfection**: Focus on real production issues before theoretical optimizations
 
 ### **✅ Previous Achievement: Hybrid Data Synchronization System**
 
@@ -141,25 +167,41 @@ if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
 ### **🔧 Current Technical Priorities & Next Steps**
 
 **Priority 1: Performance Optimization (Critical)**
-- **Current Issue**: 47 seconds to load 202 subjects (32-45MB total data) on 4G
-- **Solution Strategy**: Hybrid term index + on-demand subject loading
-- **Implementation**: 
-  ```typescript
-  // Phase 1: Load term index (~1.5MB, 2-3 seconds)
-  const termIndex = await fetch(`/data/Index ${currentTerm}.json`)
-  // Phase 2: Load subjects on-demand when user expands course cards
-  const loadSubjectOnDemand = async (subject: string) => {
-    if (!loadedSubjects.has(subject)) {
-      await fetch(`/data/${subject}.json`) // 1-3MB per subject
-    }
-  }
-  ```
+- **Current Issue**: Initial 47-second load time (202 subjects, 32-45MB) - Only affects first page load
+- **Status**: Term switching now instant (session caching implemented)
+- **Next Step**: Index-based lazy loading for faster initial experience
 
-**Priority 2: Shopping Cart Section Cycling Enhancement**
+**Planned Solution Strategy**: 
+```typescript
+// Phase 1: Load lightweight term index (~1.5MB, 2-3 seconds)
+const indexData = await fetch(`/data/Index ${currentTerm}.json`)
+// Show searchable course cards immediately with basic info
+
+// Phase 2: Load full subject data on-demand when cards expand
+const loadSubjectOnDemand = async (subject: string) => {
+  if (!isSubjectLoaded(subject)) {
+    const subjectData = await fetch(`/data/${subject}.json`)
+    // Show full section details, availability, etc.
+  }
+}
+```
+
+**Architecture Approach**: Simple utility functions over complex hooks for maintainability
+
+**Priority 2: CourseSearch Component Refactoring**  
+**Identified Critical Issues (Analysis Complete, Implementation Pending):**
+- **Monolithic Data Loading**: 170+ line function handling discovery + loading + performance + sync
+- **Giant CourseCard Component**: 378 lines mixing UI + business logic + section compatibility
+- **Hardcoded Subject Arrays**: 200+ subjects hardcoded in component (to be replaced by index loading)
+- **Complex Inline Logic**: Section compatibility logic embedded in JSX rendering
+
+**Refactoring Strategy**: Break into focused components after performance optimization complete
+
+**Priority 3: Shopping Cart Section Cycling Enhancement**
 - Orphan section cycling doesn't reveal newly compatible types (F-LEC → A-LEC compatibility display)
 - Need full availability display instead of selectedSections-only approach
 
-**Priority 3: Advanced Features**
+**Priority 4: Advanced Features**
 - URL state encoding for shareable schedules with compressed data
 - Mobile touch interactions and responsive calendar scaling
 
@@ -274,4 +316,4 @@ Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 
 ---
 
-*Last updated: January 2025 - Reflects current enterprise-grade system with dynamic calendar, hybrid data synchronization, section compatibility, and complete type safety. Includes critical debugging insights for infinite loop prevention. Ready for production deployment and future enhancements.*
+*Last updated: January 2025 - System now includes critical infrastructure fixes (localStorage race condition, session caching), enhanced subject discovery, and comprehensive maintainability analysis. Ready for performance optimization phase with index-based lazy loading. Demonstrates engineering pragmatism: impact over theoretical perfection.*
