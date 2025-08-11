@@ -67,6 +67,7 @@ export default function CourseSearch({
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
+  const [hasDataLoaded, setHasDataLoaded] = useState(false)
 
   // Calculate subjects that actually have courses in current term
   const subjectsWithCourses = useMemo(() => {
@@ -123,8 +124,14 @@ export default function CourseSearch({
     )
   }
 
-  // Load course data on component mount
+  // Load course data on component mount (only once per session)
   useEffect(() => {
+    // Skip loading if data is already loaded this session
+    if (hasDataLoaded) {
+      console.log('📦 Course data already loaded this session, skipping reload')
+      return
+    }
+
     const loadCourseData = async () => {
       setLoading(true)
       
@@ -278,6 +285,7 @@ export default function CourseSearch({
         }
         
         setAllCourses(allCoursesData)
+        setHasDataLoaded(true) // Mark data as loaded for this session
         
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
@@ -295,7 +303,7 @@ export default function CourseSearch({
     }
 
     loadCourseData()
-  }, [onDataUpdate, currentTerm]) // Reload data when term changes
+  }, [onDataUpdate]) // hasDataLoaded is used but not a dependency (prevents circular logic)
 
   // Real-time search with useMemo for performance, filtered by current term
   // Helper function to open Google search for course reviews
