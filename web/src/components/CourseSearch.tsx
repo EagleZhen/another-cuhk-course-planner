@@ -639,7 +639,7 @@ function CourseCard({
                     const formattedInstructor = formatInstructorCompact(instructor)
                     return (
                       <Badge 
-                        key={formattedInstructor} 
+                        key={formattedInstructor}
                         variant="secondary" 
                         className="text-xs text-gray-700 hover:text-gray-900 hover:bg-gray-200 cursor-pointer transition-colors"
                         onClick={(e) => {
@@ -928,7 +928,7 @@ function CourseCard({
                       const formattedInstructor = formatInstructorCompact(instructor)
                       return (
                         <Badge 
-                          key={formattedInstructor} 
+                          key={formattedInstructor}
                           variant="outline" 
                           className="text-xs hover:bg-gray-100 cursor-pointer transition-colors"
                           onClick={(e) => {
