@@ -154,7 +154,11 @@ export default function Home() {
   }, [courseEnrollments, selectedEnrollment])
 
   // Auto-save schedule to localStorage whenever courseEnrollments changes
+  // Only after hydration to prevent deleting data on initial load
   useEffect(() => {
+    // Don't save/delete during initial hydration
+    if (!isHydrated) return
+    
     try {
       if (courseEnrollments.length > 0) {
         const scheduleData = {
@@ -163,14 +167,16 @@ export default function Home() {
           savedAt: new Date().toISOString()
         }
         localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
+        console.log(`💾 Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
       } else {
-        // Remove empty schedule from localStorage to keep it clean
+        // Only remove if we're sure this is intentional (after hydration)
         localStorage.removeItem(`schedule_${currentTerm}`)
+        console.log(`🗑️ Cleared empty schedule for ${currentTerm}`)
       }
     } catch (error) {
       console.error('Failed to save schedule:', error)
     }
-  }, [courseEnrollments, currentTerm])
+  }, [courseEnrollments, currentTerm, isHydrated])
 
   // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
