@@ -615,11 +615,11 @@ export default function CourseSearch({
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Use subject filters to focus on specific academic areas</span>
+                    <span>Use subject filters to focus on specific areas of study</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Search by course code (e.g., &ldquo;UGFH1000&rdquo;), course title (e.g., &ldquo;In Dialogue with Humanity &rdquo;) or instructor name for precise results</span>
+                    <span>Search by course code, course title, or instructor name for precise results</span>
                   </div>
                 </div>
               </div>
