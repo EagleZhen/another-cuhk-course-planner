@@ -644,6 +644,11 @@ function CourseCard({
             </CardDescription>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               <Badge variant="outline">{course.credits} credits</Badge>
+              {course.gradingBasis && (
+                <Badge variant="ghost" className="text-xs">
+                  {course.gradingBasis}
+                </Badge>
+              )}
               {/* Show instructors as badges with smart truncation */}
               {instructors.length > 0 && (
                 <>

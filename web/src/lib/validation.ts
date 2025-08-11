@@ -49,6 +49,7 @@ const ExternalCourseSchema = z.object({
   credits: z.string().optional(),
   description: z.string().optional(),
   enrollment_requirement: z.string().optional(),
+  grading_basis: z.string().optional(),
   terms: z.array(ExternalTermSchema).optional().default([])
 })
 
@@ -186,6 +187,7 @@ export function transformExternalCourse(external: unknown): InternalCourse {
       credits,
       description: validated.description,
       enrollmentRequirement: validated.enrollment_requirement,
+      gradingBasis: validated.grading_basis,
       terms
     }
   } catch (error) {
