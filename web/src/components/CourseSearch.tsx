@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, getAvailabilityBadges, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -350,7 +350,9 @@ export default function CourseSearch({
 
   // Helper function to open Google search for instructor
   const searchInstructor = (instructorName: string) => {
-    const query = `${instructorName}`
+    // Use name without title for better search results (titles can change over time)
+    const searchName = removeInstructorTitle(instructorName)
+    const query = `${searchName}`
     const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
     window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
   }
@@ -767,6 +769,73 @@ export default function CourseSearch({
   )
 }
 
+// Reusable instructor filters component
+function InstructorFilters({
+  instructors,
+  selectedInstructors,
+  onToggleInstructor,
+  onSearchInstructor,
+  onClearAll,
+  isMobile = false
+}: {
+  instructors: string[]
+  selectedInstructors: Set<string>
+  onToggleInstructor: (instructor: string) => void
+  onSearchInstructor: (instructor: string) => void
+  onClearAll: () => void
+  isMobile?: boolean
+}) {
+  return (
+    <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
+      {instructors.map(instructor => {
+        const formattedInstructor = formatInstructorCompact(instructor)
+        const isSelected = selectedInstructors.has(formattedInstructor)
+        return (
+          <div key={formattedInstructor} className="flex items-center">
+            <Button 
+              variant={isSelected ? "default" : "outline"}
+              size="sm"
+              className="h-6 pl-2 pr-1 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group"
+              onClick={(e) => {
+                e.stopPropagation()
+                onToggleInstructor(formattedInstructor)
+              }}
+              title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
+            >
+              {formattedInstructor}
+              <div className={`h-4 w-px mx-1 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
+              <div
+                className="h-4 w-4 p-0 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onSearchInstructor(formattedInstructor)
+                }}
+                title={`Search Google for "${removeInstructorTitle(formattedInstructor)}" (without title for better results)`}
+              >
+                <Search className={`w-2.5 h-2.5 transition-opacity ${isSelected ? 'text-white opacity-90 hover:opacity-100' : 'text-gray-600 opacity-70 hover:opacity-100'}`} />
+              </div>
+            </Button>
+          </div>
+        )
+      })}
+      {selectedInstructors.size > 0 && (
+        <Button
+          variant="secondary"
+          size="sm"
+          className="h-6 px-3 text-xs font-medium cursor-pointer bg-red-50 text-red-700 border-red-200 hover:bg-red-100 transition-colors"
+          onClick={(e) => {
+            e.stopPropagation()
+            onClearAll()
+          }}
+          title="Clear all instructor filters"
+        >
+          Clear All
+        </Button>
+      )}
+    </div>
+  )
+}
+
 function CourseCard({ 
   course, 
   currentTerm, 
@@ -832,9 +901,9 @@ function CourseCard({
       })
     ) || []
   )).filter(Boolean).sort((a, b) => {
-    // Sort alphabetically by the name part (without title like "Prof", "Dr", etc.)
-    const nameA = formatInstructorCompact(a).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
-    const nameB = formatInstructorCompact(b).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+    // Sort alphabetically by the name part using utility function
+    const nameA = removeInstructorTitle(a)
+    const nameB = removeInstructorTitle(b)
     return nameA.localeCompare(nameB)
   })
 
@@ -881,52 +950,14 @@ function CourseCard({
               )}
               {/* Show all instructors as filter toggle buttons */}
               {instructors.length > 0 && (
-                <div className="flex items-center gap-2 flex-wrap">
-                  {instructors.map(instructor => {
-                    const formattedInstructor = formatInstructorCompact(instructor)
-                    const isSelected = selectedInstructors.has(formattedInstructor)
-                    return (
-                      <div key={formattedInstructor} className="flex items-center">
-                        <Button 
-                          variant={isSelected ? "default" : "outline"}
-                          size="sm"
-                          className="h-6 pl-2 pr-1 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            toggleInstructorFilter(formattedInstructor)
-                          }}
-                          title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
-                        >
-                          {formattedInstructor}
-                          <div
-                            className="h-4 w-4 p-0 ml-1 flex items-center justify-center rounded hover:bg-black/10 cursor-pointer transition-colors"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onSearchInstructor(formattedInstructor)
-                            }}
-                            title={`Search Google for "${formattedInstructor}"`}
-                          >
-                            <Search className="w-2.5 h-2.5" />
-                          </div>
-                        </Button>
-                      </div>
-                    )
-                  })}
-                  {selectedInstructors.size > 0 && (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="h-6 px-3 text-xs font-medium cursor-pointer bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedInstructors(new Set())
-                      }}
-                      title="Clear all instructor filters"
-                    >
-                      Clear All
-                    </Button>
-                  )}
-                </div>
+                <InstructorFilters
+                  instructors={instructors}
+                  selectedInstructors={selectedInstructors}
+                  onToggleInstructor={toggleInstructorFilter}
+                  onSearchInstructor={onSearchInstructor}
+                  onClearAll={() => setSelectedInstructors(new Set())}
+                  isMobile={false}
+                />
               )}
             </div>
           </div>
@@ -1053,52 +1084,14 @@ function CourseCard({
               )}
               {/* Show instructors as filter toggle buttons on mobile */}
               {instructors.length > 0 && (
-                <div className="flex items-center gap-2 flex-wrap w-full">
-                  {instructors.map(instructor => {
-                    const formattedInstructor = formatInstructorCompact(instructor)
-                    const isSelected = selectedInstructors.has(formattedInstructor)
-                    return (
-                      <div key={formattedInstructor} className="flex items-center">
-                        <Button 
-                          variant={isSelected ? "default" : "outline"}
-                          size="sm"
-                          className="h-6 pl-2 pr-1 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            toggleInstructorFilter(formattedInstructor)
-                          }}
-                          title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
-                        >
-                          {formattedInstructor}
-                          <div
-                            className="h-4 w-4 p-0 ml-1 flex items-center justify-center rounded hover:bg-black/10 cursor-pointer transition-colors"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onSearchInstructor(formattedInstructor)
-                            }}
-                            title={`Search Google for "${formattedInstructor}"`}
-                          >
-                            <Search className="w-2.5 h-2.5" />
-                          </div>
-                        </Button>
-                      </div>
-                    )
-                  })}
-                  {selectedInstructors.size > 0 && (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="h-6 px-3 text-xs font-medium cursor-pointer bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedInstructors(new Set())
-                      }}
-                      title="Clear all instructor filters"
-                    >
-                      Clear All
-                    </Button>
-                  )}
-                </div>
+                <InstructorFilters
+                  instructors={instructors}
+                  selectedInstructors={selectedInstructors}
+                  onToggleInstructor={toggleInstructorFilter}
+                  onSearchInstructor={onSearchInstructor}
+                  onClearAll={() => setSelectedInstructors(new Set())}
+                  isMobile={true}
+                />
               )}
             </div>
           </div>
@@ -1407,32 +1400,6 @@ function CourseCard({
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Description</h4>
                   <p className="text-sm text-gray-600">{course.description}</p>
-                </div>
-              )}
-
-              {/* Instructors */}
-              {instructors.length > 0 && (
-                <div>
-                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Instructors</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {instructors.map(instructor => {
-                      const formattedInstructor = formatInstructorCompact(instructor)
-                      return (
-                        <Badge 
-                          key={formattedInstructor}
-                          variant="outline" 
-                          className="text-xs hover:bg-gray-100 cursor-pointer transition-colors"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            onSearchInstructor(formattedInstructor)
-                          }}
-                          title={`Search Google for "${formattedInstructor}"`}
-                        >
-                          {formattedInstructor}
-                        </Badge>
-                      )
-                    })}
-                  </div>
                 </div>
               )}
 
