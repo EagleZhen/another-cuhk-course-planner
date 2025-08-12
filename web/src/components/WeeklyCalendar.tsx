@@ -131,44 +131,41 @@ export default function WeeklyCalendar({
   return (
     <Card className="h-full flex flex-col gap-2">
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
-        <div className="flex items-center justify-between">
+        {/* Desktop layout: everything in one row */}
+        <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
             <CardTitle>Weekly Schedule</CardTitle>
-            
-            {/* Display Configuration Toggle Buttons */}
-            <div className="flex items-center gap-2">
-              <div className="text-xs text-gray-500 font-medium">Show:</div>
-              <Button
-                variant={localDisplayConfig.showTime ? "default" : "outline"}
-                size="sm"
-                onClick={toggleTime}
-                className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-              >
-                Time
-              </Button>
-              <Button
-                variant={localDisplayConfig.showLocation ? "default" : "outline"}
-                size="sm"
-                onClick={toggleLocation}
-                className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-              >
-                Location
-              </Button>
-              <Button
-                variant={localDisplayConfig.showInstructor ? "default" : "outline"}
-                size="sm"
-                onClick={toggleInstructor}
-                className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-              >
-                Instructor
-              </Button>
-            </div>
+            <DisplayToggleButtons
+              displayConfig={localDisplayConfig}
+              onToggleTime={toggleTime}
+              onToggleLocation={toggleLocation}
+              onToggleInstructor={toggleInstructor}
+            />
           </div>
           
           <TermSelector 
             selectedTerm={selectedTerm}
             availableTerms={availableTerms}
             onTermChange={onTermChange}
+          />
+        </div>
+
+        {/* Mobile layout: title row, then buttons row */}
+        <div className="md:hidden">
+          <div className="flex items-center justify-between mb-2">
+            <CardTitle>Weekly Schedule</CardTitle>
+            <TermSelector 
+              selectedTerm={selectedTerm}
+              availableTerms={availableTerms}
+              onTermChange={onTermChange}
+            />
+          </div>
+          
+          <DisplayToggleButtons
+            displayConfig={localDisplayConfig}
+            onToggleTime={toggleTime}
+            onToggleLocation={toggleLocation}
+            onToggleInstructor={toggleInstructor}
           />
         </div>
       </CardHeader>
@@ -184,32 +181,35 @@ export default function WeeklyCalendar({
       )}
       
       <CardContent className="flex-1 px-4 py-0 overflow-hidden">
-        <div className="h-full max-h-[720px] overflow-y-auto">
-          {/* Sticky Header Row */}
-          <div className="grid border-b border-gray-200 bg-white sticky top-0 z-40" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
-            <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0">
-              Time
-            </div>
-            {days.map((day) => (
-              <div key={day} className="h-8 flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1">
-                {day}
+        {/* Mobile horizontal scroll wrapper */}
+        <div className="overflow-x-auto h-full">
+          <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
+            <div className="h-full max-h-[720px] overflow-y-auto">
+              {/* Sticky Header Row */}
+              <div className="grid border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
+                <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
+                  Time
+                </div>
+                {days.map((day) => (
+                  <div key={day} className="h-8 flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white">
+                    {day}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          {/* Calendar Content Grid */}
-          <div 
-            className="grid" 
-            style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
-            onClick={(e) => {
-              const target = e.target as HTMLElement
-              const isEmptySpace = !target.closest('[data-course-card]')
-              
-              if (isEmptySpace && onSelectEnrollment) {
-                onSelectEnrollment(null)
-              }
-            }}
-          >
+              {/* Calendar Content Grid */}
+              <div 
+                className="grid" 
+                style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
+                onClick={(e) => {
+                  const target = e.target as HTMLElement
+                  const isEmptySpace = !target.closest('[data-course-card]')
+                  
+                  if (isEmptySpace && onSelectEnrollment) {
+                    onSelectEnrollment(null)
+                  }
+                }}
+              >
             {/* Time column */}
             <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
               <div className="flex-1">
@@ -374,10 +374,55 @@ export default function WeeklyCalendar({
                 </div>
               )
             })}
+              </div>
+            </div>
           </div>
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+// Display Toggle Buttons Component
+function DisplayToggleButtons({ 
+  displayConfig, 
+  onToggleTime, 
+  onToggleLocation, 
+  onToggleInstructor 
+}: {
+  displayConfig: CalendarDisplayConfig
+  onToggleTime: () => void
+  onToggleLocation: () => void
+  onToggleInstructor: () => void
+}) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="text-xs text-gray-500 font-medium">Show:</div>
+      <Button
+        variant={displayConfig.showTime ? "default" : "outline"}
+        size="sm"
+        onClick={onToggleTime}
+        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+      >
+        Time
+      </Button>
+      <Button
+        variant={displayConfig.showLocation ? "default" : "outline"}
+        size="sm"
+        onClick={onToggleLocation}
+        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+      >
+        Location
+      </Button>
+      <Button
+        variant={displayConfig.showInstructor ? "default" : "outline"}
+        size="sm"
+        onClick={onToggleInstructor}
+        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+      >
+        Instructor
+      </Button>
+    </div>
   )
 }
 
