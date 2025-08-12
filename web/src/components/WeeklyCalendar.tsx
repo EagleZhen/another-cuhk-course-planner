@@ -206,7 +206,7 @@ export default function WeeklyCalendar({
                 title="Download schedule as image"
               >
                 <Camera className="w-4 h-4" />
-                {isCapturing ? 'Capturing...' : 'Save'}
+                {isCapturing ? 'Capturing...' : 'Screenshot'}
               </Button>
               
               <TermSelector 
