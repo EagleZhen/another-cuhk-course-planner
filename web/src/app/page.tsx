@@ -461,36 +461,27 @@ export default function Home() {
                 
                 {/* Available Subjects - Modern Toggle Interface */}
                 <div className="space-y-2">
-                  <div className="text-sm font-medium text-gray-700 flex items-center gap-3">
-                    <span>
-                      Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
-                    </span>
-                    {/* Show controls when subjects are selected OR when there are available subjects */}
-                    {(selectedSubjects.size > 0 || availableSubjects.length > 0) && (
-                      <div className="flex items-center gap-1.5">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setShowSelectedOnly(!showSelectedOnly)}
-                          className="h-5 px-2 text-xs font-normal text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full cursor-pointer"
-                          title={showSelectedOnly ? "Show all subjects" : "Show selected subjects only"}
-                        >
-                          {showSelectedOnly ? "Show All" : "Show Selected Only"}
-                        </Button>
-                        {selectedSubjects.size > 0 && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setSelectedSubjects(new Set())}
-                            className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
-                            title="Clear all subject filters"
-                          >
-                            ✕ Clear All
-                          </Button>
-                        )}
-                      </div>
-                    )}
-                  </div>
+                  {/* Desktop layout: title and controls in one row */}
+                  <SubjectFilterControls
+                    layout="horizontal"
+                    availableSubjects={availableSubjects}
+                    selectedSubjects={selectedSubjects}
+                    showSelectedOnly={showSelectedOnly}
+                    onToggleShowSelected={() => setShowSelectedOnly(!showSelectedOnly)}
+                    onClearAll={() => setSelectedSubjects(new Set())}
+                    className="hidden sm:flex"
+                  />
+
+                  {/* Mobile layout: title and controls stacked */}
+                  <SubjectFilterControls
+                    layout="vertical"
+                    availableSubjects={availableSubjects}
+                    selectedSubjects={selectedSubjects}
+                    showSelectedOnly={showSelectedOnly}
+                    onToggleShowSelected={() => setShowSelectedOnly(!showSelectedOnly)}
+                    onClearAll={() => setSelectedSubjects(new Set())}
+                    className="sm:hidden"
+                  />
                   <div className="flex gap-2 flex-wrap">
                     {availableSubjects.length > 0 ? (
                       (() => {
@@ -587,5 +578,61 @@ function SubjectToggle({
     >
       {subject}
     </Button>
+  )
+}
+
+// Reusable Subject Filter Controls Component
+function SubjectFilterControls({
+  layout = 'horizontal',
+  availableSubjects,
+  selectedSubjects,
+  showSelectedOnly,
+  onToggleShowSelected,
+  onClearAll,
+  className
+}: {
+  layout?: 'horizontal' | 'vertical'
+  availableSubjects: string[]
+  selectedSubjects: Set<string>
+  showSelectedOnly: boolean
+  onToggleShowSelected: () => void
+  onClearAll: () => void
+  className?: string
+}) {
+  const isVertical = layout === 'vertical'
+  const hasSubjects = selectedSubjects.size > 0 || availableSubjects.length > 0
+  
+  return (
+    <div className={`${isVertical ? 'space-y-2' : 'text-sm font-medium text-gray-700 items-center gap-3'} ${className || ''}`}>
+      <div className={isVertical ? 'text-sm font-medium text-gray-700' : ''}>
+        Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
+      </div>
+      
+      {/* Show controls when subjects are selected OR when there are available subjects */}
+      {hasSubjects && (
+        <div className="flex items-center gap-1.5">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onToggleShowSelected}
+            className="h-5 px-2 text-xs font-normal text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full cursor-pointer"
+            title={showSelectedOnly ? "Show all subjects" : "Show selected subjects only"}
+          >
+            {showSelectedOnly ? "Show All" : "Show Selected Only"}
+          </Button>
+          {selectedSubjects.size > 0 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClearAll}
+              className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
+              title="Clear all subject filters"
+            >
+              ✕ Clear All
+            </Button>
+          )}
+        </div>
+      )}
+    </div>
   )
 }
