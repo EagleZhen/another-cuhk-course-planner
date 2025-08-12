@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-10T11:43:43.488000",
+    "scraped_at": "2025-08-12T05:07:46.428385",
     "subject": "ORLC",
     "total_courses": 10,
     "scraper_version": "memory-safe-v2.0"
@@ -226,6 +226,32 @@
       "title": "Special Topics in Otorhinolaryngology, Head and Neck Surgery and Communication Sciences III",
       "credits": "3.00",
       "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9855)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Andreas MOELLER",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
         {
           "term_code": "2390",
           "term_name": "2025-26 Term 2",

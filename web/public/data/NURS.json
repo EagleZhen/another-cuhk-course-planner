@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-10T11:39:17.307468",
+    "scraped_at": "2025-08-12T05:03:16.969029",
     "subject": "NURS",
     "total_courses": 122,
     "scraper_version": "memory-safe-v2.0"
@@ -7327,11 +7327,11 @@
               ],
               "availability": {
                 "capacity": "21",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only Capstone Course"
             },
@@ -7447,11 +7447,11 @@
               ],
               "availability": {
                 "capacity": "21",
-                "enrolled": "21",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only Capstone Course"
             }
@@ -17661,7 +17661,7 @@
                   "time": "We 5:30PM - 6:15PM",
                   "location": "Esther Lee Bldg LT4",
                   "instructor": "Dr. AHMAT Ricky,   Dr. CHEUNG Pui Han,   Dr. NG Ka Lai,   Mr. CHIM Wong Kit,   Professor KEUNG Sau Ho,   Professor SO Kwok Wei",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
+                  "dates": "24/9"
                 },
                 {
                   "time": "We 5:30PM - 6:15PM",
@@ -18978,6 +18978,12 @@
             {
               "section": "--LEC (2157)",
               "meetings": [
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg LT4",
+                  "instructor": "Professor LAU Ying,   Professor LI Ho Cheung William,   Professor LO Hoi Shan,   Professor TANG Wing Ki,   Professor XIAO Sarah",
+                  "dates": "3/9, 10/9, 17/9"
+                },
                 {
                   "time": "Fr 6:30PM - 9:15PM",
                   "location": "Esther Lee Bldg LT4",
@@ -21185,6 +21191,30 @@
                   "location": "TBA",
                   "instructor": "Dr. CHAN Sau Man Conny,   Dr. NG Ka Lai,   Dr. PANG Cho Kwan,   Dr. YEUNG Chi Yan,   Professor LAM Kam Ki",
                   "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10"
+                },
+                {
+                  "time": "Mo 8:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. CHAN Sau Man Conny,   Dr. NG Ka Lai,   Dr. PANG Cho Kwan,   Dr. YEUNG Chi Yan,   Professor LAM Kam Ki",
+                  "dates": "27/10, 3/11"
+                },
+                {
+                  "time": "Mo 8:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. CHAN Sau Man Conny,   Dr. NG Ka Lai,   Dr. PANG Cho Kwan,   Dr. YEUNG Chi Yan,   Professor LAM Kam Ki",
+                  "dates": "27/10, 3/11"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. CHAN Sau Man Conny,   Dr. NG Ka Lai,   Dr. PANG Cho Kwan,   Dr. YEUNG Chi Yan,   Professor LAM Kam Ki",
+                  "dates": "9/9"
+                },
+                {
+                  "time": "Mo 8:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Dr. CHAN Sau Man Conny,   Dr. NG Ka Lai,   Dr. PANG Cho Kwan,   Dr. YEUNG Chi Yan,   Professor LAM Kam Ki",
+                  "dates": "3/11"
                 }
               ],
               "availability": {
@@ -22337,12 +22367,12 @@
                 }
               ],
               "availability": {
-                "capacity": "30",
+                "capacity": "100",
                 "enrolled": "59",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "41",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -22600,18 +22630,6 @@
               "section": "--LEC (2891)",
               "meetings": [
                 {
-                  "time": "Mo 8:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 407",
-                  "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "27/10, 3/11"
-                },
-                {
-                  "time": "Mo 8:30AM - 12:15PM",
-                  "location": "Esther Lee Bldg 303",
-                  "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "27/10, 3/11"
-                },
-                {
                   "time": "We 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 401",
                   "instructor": "Dr. CHENG Yeung Hung",
@@ -22642,34 +22660,10 @@
                   "dates": "8/10"
                 },
                 {
-                  "time": "We 8:30AM - 10:15AM",
-                  "location": "Esther Lee Bldg 202",
-                  "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "24/9"
-                },
-                {
-                  "time": "We 8:30AM - 10:15AM",
-                  "location": "Esther Lee Bldg 202",
-                  "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "8/10"
-                },
-                {
-                  "time": "We 8:30AM - 10:15AM",
-                  "location": "Esther Lee Bldg 307",
-                  "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "24/9"
-                },
-                {
-                  "time": "We 8:30AM - 10:15AM",
-                  "location": "Esther Lee Bldg 307",
-                  "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "8/10"
-                },
-                {
                   "time": "Tu 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "9/9, 16/9"
+                  "dates": "16/9"
                 },
                 {
                   "time": "Fr 8:30AM - 12:15PM",
@@ -22684,10 +22678,16 @@
                   "dates": "7/11"
                 },
                 {
-                  "time": "Mo 8:30AM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "time": "We 8:30AM - 10:15AM",
+                  "location": "Esther Lee Bldg 202",
                   "instructor": "Dr. CHENG Yeung Hung",
-                  "dates": "3/11"
+                  "dates": "24/9"
+                },
+                {
+                  "time": "We 8:30AM - 10:15AM",
+                  "location": "Esther Lee Bldg 307",
+                  "instructor": "Dr. CHENG Yeung Hung",
+                  "dates": "24/9"
                 }
               ],
               "availability": {
@@ -22713,7 +22713,7 @@
                   "time": "Tu 12:30PM - 1:15PM",
                   "location": "Esther Lee Bldg 204",
                   "instructor": "Dr. CHENG Yeung Hung,   Miss CHAN Elaine,   Miss HO Pui Yee Rosa,   Miss NG Sze Wing,   Mr. CHIM Wong Kit,   Ms. LAM Yuk Ki,   Ms. LEUNG Suk Kit,   Ms. YAU Wai Yan",
-                  "dates": "23/9"
+                  "dates": "16/9"
                 },
                 {
                   "time": "We 11:30AM - 1:15PM",
@@ -22745,7 +22745,7 @@
                   "time": "Tu 12:30PM - 1:15PM",
                   "location": "Esther Lee Bldg 304",
                   "instructor": "Dr. CHENG Yeung Hung,   Miss CHAN Elaine,   Miss HO Pui Yee Rosa,   Miss NG Sze Wing,   Mr. CHIM Wong Kit,   Ms. LAM Yuk Ki,   Ms. LEUNG Suk Kit,   Ms. YAU Wai Yan",
-                  "dates": "23/9"
+                  "dates": "16/9"
                 },
                 {
                   "time": "We 11:30AM - 1:15PM",
@@ -22775,9 +22775,9 @@
                 },
                 {
                   "time": "Tu 12:30PM - 1:15PM",
-                  "location": "Wong Foo Yuan Bldg 105",
+                  "location": "Esther Lee Bldg 401",
                   "instructor": "Dr. CHENG Yeung Hung,   Miss CHAN Elaine,   Miss HO Pui Yee Rosa,   Miss NG Sze Wing,   Mr. CHIM Wong Kit,   Ms. LAM Yuk Ki,   Ms. LEUNG Suk Kit,   Ms. YAU Wai Yan",
-                  "dates": "23/9"
+                  "dates": "16/9"
                 },
                 {
                   "time": "We 11:30AM - 1:15PM",
@@ -22807,9 +22807,9 @@
                 },
                 {
                   "time": "Tu 12:30PM - 1:15PM",
-                  "location": "Wong Foo Yuan Bldg 107A",
+                  "location": "Esther Lee Bldg 405",
                   "instructor": "Dr. CHENG Yeung Hung,   Miss CHAN Elaine,   Miss HO Pui Yee Rosa,   Miss NG Sze Wing,   Mr. CHIM Wong Kit,   Ms. LAM Yuk Ki,   Ms. LEUNG Suk Kit,   Ms. YAU Wai Yan",
-                  "dates": "23/9"
+                  "dates": "16/9"
                 },
                 {
                   "time": "We 11:30AM - 1:15PM",
