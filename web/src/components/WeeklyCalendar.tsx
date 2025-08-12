@@ -125,10 +125,16 @@ export default function WeeklyCalendar({
 
     setIsCapturing(true)
     try {
+      console.log('Starting screenshot capture...')
       await captureCalendarScreenshot(calendarRef.current, selectedTerm)
+      console.log('Screenshot completed successfully')
     } catch (error) {
       console.error('Screenshot capture failed:', error)
-      // You could show a toast notification here
+      // Show detailed error information
+      if (error instanceof Error) {
+        console.error('Error message:', error.message)
+        console.error('Error stack:', error.stack)
+      }
     } finally {
       setIsCapturing(false)
     }

@@ -920,84 +920,175 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
 
 /**
  * Captures a calendar screenshot with term name header and website attribution
+ * Uses modern html-to-image library for better compatibility
  */
 export async function captureCalendarScreenshot(
   calendarElement: HTMLElement,
   termName: string,
   websiteUrl: string = typeof window !== 'undefined' ? window.location.origin : ''
 ): Promise<void> {
-  const html2canvas = (await import('html2canvas')).default
+  const { toPng } = await import('html-to-image')
   
-  // Get the calendar element dimensions
-  const rect = calendarElement.getBoundingClientRect()
+  // Find the actual calendar grid content (not the scrollable container)
+  const calendarGrid = calendarElement.querySelector('.grid[style*="gridTemplateColumns"]') as HTMLElement
+  const calendarHeader = calendarElement.querySelector('.grid.border-b.bg-white.sticky') as HTMLElement
+  
+  if (!calendarGrid || !calendarHeader) {
+    throw new Error('Could not find calendar grid or header elements')
+  }
+  
+  // Get the full content dimensions (including scrolled content)
+  const headerRect = calendarHeader.getBoundingClientRect()
+  const gridRect = calendarGrid.getBoundingClientRect()
+  
+  // Calculate the natural size of the content (without scroll constraints)
+  const scrollContainer = calendarElement.querySelector('.overflow-y-auto') as HTMLElement
+  const naturalHeight = scrollContainer ? scrollContainer.scrollHeight : gridRect.height
+  const naturalWidth = Math.max(gridRect.width, 800) // Minimum width
+  
   const padding = 40
   const headerHeight = 80
   const footerHeight = 40
   
-  // Create a canvas with extra space for header and footer
-  const canvasWidth = Math.max(rect.width + (padding * 2), 800) // Minimum width
-  const canvasHeight = rect.height + headerHeight + footerHeight + (padding * 2)
+  // Calculate final dimensions based on natural content size
+  const canvasWidth = Math.max(naturalWidth + (padding * 2), 800)
+  const canvasHeight = naturalHeight + headerRect.height + headerHeight + footerHeight + (padding * 2)
   
-  // Capture the calendar element
-  const calendarCanvas = await html2canvas(calendarElement, {
-    scrollX: 0,
-    scrollY: 0,
-    width: rect.width,
-    height: rect.height,
-    backgroundColor: '#ffffff',
-    scale: 2, // Higher resolution
-    useCORS: true,
-    allowTaint: true
-  })
-  
-  // Create a new canvas for the final image
-  const finalCanvas = document.createElement('canvas')
-  finalCanvas.width = canvasWidth
-  finalCanvas.height = canvasHeight
-  const ctx = finalCanvas.getContext('2d')
-  
-  if (!ctx) {
-    throw new Error('Failed to get canvas context')
-  }
-  
-  // Fill background
-  ctx.fillStyle = '#ffffff'
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight)
-  
-  // Draw term name header
-  ctx.fillStyle = '#1f2937' // gray-800
-  ctx.font = 'bold 32px system-ui, -apple-system, sans-serif'
-  ctx.textAlign = 'center'
-  ctx.fillText(termName, canvasWidth / 2, padding + 40)
-  
-  // Draw the calendar
-  const calendarX = (canvasWidth - rect.width) / 2
-  const calendarY = padding + headerHeight
-  ctx.drawImage(calendarCanvas, calendarX, calendarY)
-  
-  // Draw website attribution footer
-  ctx.fillStyle = '#6b7280' // gray-500
-  ctx.font = '14px system-ui, -apple-system, sans-serif'
-  ctx.textAlign = 'center'
-  ctx.fillText(
-    `Generated from ${websiteUrl}`, 
-    canvasWidth / 2, 
-    canvasHeight - padding + 20
-  )
-  
-  // Convert to blob and download
-  finalCanvas.toBlob((blob) => {
-    if (!blob) {
-      throw new Error('Failed to create image blob')
+  try {
+    // Temporarily remove overflow constraints for full content capture
+    const originalStyles = new Map()
+    const elementsToModify = [
+      calendarElement.querySelector('.overflow-hidden'),
+      calendarElement.querySelector('.overflow-x-auto'),
+      calendarElement.querySelector('.overflow-y-auto'),
+      calendarElement.querySelector('[style*="max-h"]')
+    ].filter(Boolean) as HTMLElement[]
+    
+    elementsToModify.forEach(el => {
+      originalStyles.set(el, {
+        overflow: el.style.overflow,
+        overflowX: el.style.overflowX,
+        overflowY: el.style.overflowY,
+        maxHeight: el.style.maxHeight,
+        height: el.style.height
+      })
+      
+      // Temporarily set to visible and auto height
+      el.style.overflow = 'visible'
+      el.style.overflowX = 'visible'
+      el.style.overflowY = 'visible'
+      el.style.maxHeight = 'none'
+      el.style.height = 'auto'
+    })
+    
+    // Create a wrapper div that includes both header and content
+    const tempWrapper = document.createElement('div')
+    tempWrapper.style.backgroundColor = '#ffffff'
+    tempWrapper.style.width = `${naturalWidth}px`
+    tempWrapper.style.minHeight = `${naturalHeight + headerRect.height}px`
+    
+    // Clone the header and content
+    const headerClone = calendarHeader.cloneNode(true) as HTMLElement
+    const gridClone = calendarGrid.cloneNode(true) as HTMLElement
+    
+    tempWrapper.appendChild(headerClone)
+    tempWrapper.appendChild(gridClone)
+    
+    // Temporarily add to DOM for capture
+    document.body.appendChild(tempWrapper)
+    
+    // Generate PNG data URL from the temporary wrapper
+    const calendarDataUrl = await toPng(tempWrapper, {
+      quality: 0.95,
+      backgroundColor: '#ffffff',
+      pixelRatio: 2, // High resolution
+      style: {
+        color: 'inherit',
+        backgroundColor: 'inherit'
+      }
+    })
+    
+    // Clean up temporary element
+    document.body.removeChild(tempWrapper)
+    
+    // Restore original styles
+    elementsToModify.forEach(el => {
+      const originalStyle = originalStyles.get(el)
+      el.style.overflow = originalStyle.overflow
+      el.style.overflowX = originalStyle.overflowX
+      el.style.overflowY = originalStyle.overflowY
+      el.style.maxHeight = originalStyle.maxHeight
+      el.style.height = originalStyle.height
+    })
+    
+    // Create a new canvas for final composition
+    const finalCanvas = document.createElement('canvas')
+    finalCanvas.width = canvasWidth
+    finalCanvas.height = canvasHeight
+    const ctx = finalCanvas.getContext('2d')
+    
+    if (!ctx) {
+      throw new Error('Failed to get canvas context')
     }
     
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `${termName}-${new Date().toISOString().split('T')[0]}.png`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }, 'image/png', 0.95)
+    // Fill background
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight)
+    
+    // Draw term name header
+    ctx.fillStyle = '#1f2937' // gray-800
+    ctx.font = 'bold 32px system-ui, -apple-system, sans-serif'
+    ctx.textAlign = 'center'
+    ctx.fillText(termName, canvasWidth / 2, padding + 40)
+    
+    // Create image from calendar data URL and draw it
+    const calendarImage = new Image()
+    
+    return new Promise<void>((resolve, reject) => {
+      calendarImage.onload = () => {
+        // Draw the calendar image
+        const calendarX = (canvasWidth - naturalWidth) / 2
+        const calendarY = padding + headerHeight
+        ctx.drawImage(calendarImage, calendarX, calendarY)
+        
+        // Draw website attribution footer
+        ctx.fillStyle = '#6b7280' // gray-500
+        ctx.font = '14px system-ui, -apple-system, sans-serif'
+        ctx.textAlign = 'center'
+        ctx.fillText(
+          `Generated from ${websiteUrl}`, 
+          canvasWidth / 2, 
+          canvasHeight - padding + 20
+        )
+        
+        // Convert to blob and download
+        finalCanvas.toBlob((blob) => {
+          if (!blob) {
+            reject(new Error('Failed to create image blob'))
+            return
+          }
+          
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = `${termName}-${new Date().toISOString().split('T')[0]}.png`
+          document.body.appendChild(a)
+          a.click()
+          document.body.removeChild(a)
+          URL.revokeObjectURL(url)
+          resolve()
+        }, 'image/png', 0.95)
+      }
+      
+      calendarImage.onerror = () => {
+        reject(new Error('Failed to load calendar image'))
+      }
+      
+      calendarImage.src = calendarDataUrl
+    })
+    
+  } catch (error) {
+    console.error('Screenshot capture error:', error)
+    throw error
+  }
 }
