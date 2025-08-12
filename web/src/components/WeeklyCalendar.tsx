@@ -11,6 +11,7 @@ interface CalendarDisplayConfig {
   showTime: boolean
   showLocation: boolean  
   showInstructor: boolean
+  showTitle: boolean
 }
 
 // Fixed calendar constants - never change regardless of content
@@ -24,7 +25,8 @@ const CALENDAR_CONSTANTS = {
 
 // Typography styles for consistent rendering
 const TEXT_STYLES = {
-  TITLE: 'text-xs font-semibold leading-tight',
+  COURSE_CODE: 'text-xs font-semibold leading-tight',
+  TITLE: 'text-[9px] leading-tight opacity-85', // Course title - smaller than course code
   TIME: 'text-[10px] leading-tight opacity-90', 
   LOCATION: 'text-[9px] leading-tight opacity-80',
   INSTRUCTOR: 'text-[8px] leading-tight opacity-70',
@@ -32,10 +34,11 @@ const TEXT_STYLES = {
 
 // Row height constants based on typography (in pixels)
 const ROW_HEIGHTS = {
-  TITLE: 14,     // text-xs with leading-tight
-  TIME: 12,      // text-[10px] with leading-tight
-  LOCATION: 11,  // text-[9px] with leading-tight  
-  INSTRUCTOR: 10, // text-[8px] with leading-tight
+  COURSE_CODE: 14,     // text-xs with leading-tight (course code + section type)
+  TITLE: 11,           // text-[9px] with leading-tight (course title)
+  TIME: 12,            // text-[10px] with leading-tight
+  LOCATION: 11,        // text-[9px] with leading-tight  
+  INSTRUCTOR: 10,      // text-[8px] with leading-tight
 } as const
 
 // Reference duration for 45-minute standard class
@@ -43,8 +46,9 @@ const REFERENCE_DURATION_MINUTES = 45
 
 // Dynamic height calculation functions
 const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
-  let totalHeight = ROW_HEIGHTS.TITLE // Title always shown
+  let totalHeight = ROW_HEIGHTS.COURSE_CODE // Course code + section type always shown
   
+  if (displayConfig.showTitle) totalHeight += ROW_HEIGHTS.TITLE
   if (displayConfig.showTime) totalHeight += ROW_HEIGHTS.TIME
   if (displayConfig.showLocation) totalHeight += ROW_HEIGHTS.LOCATION
   if (displayConfig.showInstructor) totalHeight += ROW_HEIGHTS.INSTRUCTOR
@@ -99,7 +103,7 @@ export default function WeeklyCalendar({
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
-  displayConfig = { showTime: true, showLocation: true, showInstructor: false },
+  displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
@@ -115,6 +119,7 @@ export default function WeeklyCalendar({
   const toggleTime = () => setLocalDisplayConfig(prev => ({ ...prev, showTime: !prev.showTime }))
   const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
   const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
+  const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
   
   // Screenshot function
   const handleScreenshot = async () => {
@@ -168,6 +173,7 @@ export default function WeeklyCalendar({
               onToggleTime={toggleTime}
               onToggleLocation={toggleLocation}
               onToggleInstructor={toggleInstructor}
+              onToggleTitle={toggleTitle}
             />
           </div>
           
@@ -222,6 +228,7 @@ export default function WeeklyCalendar({
             onToggleTime={toggleTime}
             onToggleLocation={toggleLocation}
             onToggleInstructor={toggleInstructor}
+            onToggleTitle={toggleTitle}
           />
         </div>
       </CardHeader>
@@ -410,9 +417,15 @@ export default function WeeklyCalendar({
                             </Button>
                             
                             {/* Course content with conditional rendering based on config */}
-                            <div className={`${TEXT_STYLES.TITLE} truncate pr-3`}>
+                            <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
                               {event.subject}{event.courseCode} {extractSectionType(event.sectionCode)}
                             </div>
+                            
+                            {localDisplayConfig.showTitle && (
+                              <div className={`${TEXT_STYLES.TITLE} truncate`}>
+                                {event.title || 'Course Title'}
+                              </div>
+                            )}
                             
                             {localDisplayConfig.showTime && (
                               <div className={`${TEXT_STYLES.TIME} truncate`}>
@@ -453,16 +466,26 @@ function DisplayToggleButtons({
   displayConfig, 
   onToggleTime, 
   onToggleLocation, 
-  onToggleInstructor 
+  onToggleInstructor,
+  onToggleTitle
 }: {
   displayConfig: CalendarDisplayConfig
   onToggleTime: () => void
   onToggleLocation: () => void
   onToggleInstructor: () => void
+  onToggleTitle: () => void
 }) {
   return (
     <div className="flex items-center gap-2">
       <div className="text-xs text-gray-500 font-medium">Show:</div>
+      <Button
+        variant={displayConfig.showTitle ? "default" : "outline"}
+        size="sm"
+        onClick={onToggleTitle}
+        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+      >
+        Title
+      </Button>
       <Button
         variant={displayConfig.showTime ? "default" : "outline"}
         size="sm"
@@ -657,9 +680,15 @@ function UnscheduledSectionsCard({
                       }
                     }}
                   >
-                    <div className={`${TEXT_STYLES.TITLE} truncate pr-1`}>
-                      {item.enrollment.course.subject}{item.enrollment.course.courseCode} {extractSectionType(item.section.sectionCode)}
+                    <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-1`}>
+                      {item.enrollment.course.subject}{item.enrollment.course.courseCode} {extractSectionType(item.section.id)}
                     </div>
+                    
+                    {displayConfig.showTitle && (
+                      <div className={`${TEXT_STYLES.TITLE} truncate`}>
+                        {item.enrollment.course.title || 'Course Title'}
+                      </div>
+                    )}
                     
                     {displayConfig.showTime && (
                       <div className={`${TEXT_STYLES.TIME} truncate`}>
