@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff, Camera } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, extractSectionType, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 // Clean calendar architecture - time-first approach
 interface CalendarDisplayConfig {
@@ -411,7 +411,7 @@ export default function WeeklyCalendar({
                             
                             {/* Course content with conditional rendering based on config */}
                             <div className={`${TEXT_STYLES.TITLE} truncate pr-3`}>
-                              {event.subject}{event.courseCode} {event.sectionCode.match(/(LEC|TUT|LAB|EXR|SEM|PRJ|WKS|PRA|FLD)/)?.[1] || '?'}
+                              {event.subject}{event.courseCode} {extractSectionType(event.sectionCode)}
                             </div>
                             
                             {localDisplayConfig.showTime && (
@@ -658,7 +658,7 @@ function UnscheduledSectionsCard({
                     }}
                   >
                     <div className={`${TEXT_STYLES.TITLE} truncate pr-1`}>
-                      {item.enrollment.course.subject}{item.enrollment.course.courseCode} {item.section.sectionType}
+                      {item.enrollment.course.subject}{item.enrollment.course.courseCode} {extractSectionType(item.section.sectionCode)}
                     </div>
                     
                     {displayConfig.showTime && (

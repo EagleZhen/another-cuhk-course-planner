@@ -14,6 +14,20 @@ import type {
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 
+/**
+ * Extract section type from section code using centralized config
+ */
+export function extractSectionType(sectionCode: string): string {
+  const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
+  const foundType = sectionTypes.find(type => 
+    sectionCode.includes(type) || 
+    SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some(alias => 
+      sectionCode.includes(alias)
+    )
+  )
+  return foundType || '?'
+}
+
 // Re-export types for backward compatibility
 export type {
   TimeRange,
