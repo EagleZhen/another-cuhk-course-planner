@@ -795,6 +795,7 @@ function CourseCard({
   courseEnrollments: CourseEnrollment[]
 }) {
   const [expanded, setExpanded] = useState(false)
+  const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
   
@@ -803,6 +804,22 @@ function CourseCard({
     enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
   )
   const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, selectedSections)
+
+  // Instructor filter toggle function
+  const toggleInstructorFilter = (instructor: string) => {
+    const newSelected = new Set(selectedInstructors)
+    if (newSelected.has(instructor)) {
+      newSelected.delete(instructor)
+    } else {
+      newSelected.add(instructor)
+    }
+    setSelectedInstructors(newSelected)
+    
+    // Auto-expand when filters are applied
+    if (newSelected.size > 0 && !expanded) {
+      setExpanded(true)
+    }
+  }
 
   // Get unique instructors from current term
   const currentTermData = course.terms.find(term => term.termName === currentTerm)
@@ -851,42 +868,63 @@ function CourseCard({
               {course.title}
             </CardDescription>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
-              <Badge variant="outline">{course.credits} credits</Badge>
+              <Badge variant="secondary">{course.credits} credits</Badge>
               {course.gradingBasis && (
-                <Badge variant="outline" className="text-xs">
+                <Badge variant="secondary" className="text-xs">
                   {course.gradingBasis}
                 </Badge>
               )}
-              {/* Show instructors as badges with smart truncation */}
+              {/* Show all instructors as filter toggle buttons */}
               {instructors.length > 0 && (
-                <>
-                  {instructors.slice(0, 4).map(instructor => {
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs text-gray-500 font-medium">Instructors:</span>
+                  {instructors.map(instructor => {
                     const formattedInstructor = formatInstructorCompact(instructor)
+                    const isSelected = selectedInstructors.has(formattedInstructor)
                     return (
-                      <Badge 
-                        key={formattedInstructor}
-                        variant="secondary" 
-                        className="text-xs text-gray-700 hover:text-gray-900 hover:bg-gray-200 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          onSearchInstructor(formattedInstructor)
-                        }}
-                        title={`Search Google for "${formattedInstructor}"`}
-                      >
-                        {formattedInstructor}
-                      </Badge>
+                      <div key={formattedInstructor} className="flex items-center gap-1">
+                        <Button 
+                          variant={isSelected ? "default" : "outline"}
+                          size="sm"
+                          className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            toggleInstructorFilter(formattedInstructor)
+                          }}
+                          title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
+                        >
+                          {formattedInstructor}
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-6 w-6 p-0 text-gray-400 hover:text-gray-600 cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onSearchInstructor(formattedInstructor)
+                          }}
+                          title={`Search Google for "${formattedInstructor}"`}
+                        >
+                          <Search className="w-3 h-3" />
+                        </Button>
+                      </div>
                     )
                   })}
-                  {instructors.length > 4 && (
-                    <Badge 
-                      variant="outline" 
-                      className="text-xs text-gray-500"
-                      title={`Additional instructors: ${instructors.slice(4).map(i => formatInstructorCompact(i)).join(', ')}`}
+                  {selectedInstructors.size > 0 && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 px-2 text-xs font-normal text-gray-500 hover:text-gray-700 cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedInstructors(new Set())
+                      }}
+                      title="Clear all instructor filters"
                     >
-                      +{instructors.length - 4} more
-                    </Badge>
+                      Clear
+                    </Button>
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>
@@ -1011,36 +1049,57 @@ function CourseCard({
                   {course.gradingBasis}
                 </Badge>
               )}
-              {/* Show fewer instructors on mobile */}
+              {/* Show instructors as filter toggle buttons on mobile */}
               {instructors.length > 0 && (
-                <>
-                  {instructors.slice(0, 2).map(instructor => {
+                <div className="flex items-center gap-2 flex-wrap w-full">
+                  <span className="text-xs text-gray-500 font-medium">Instructors:</span>
+                  {instructors.map(instructor => {
                     const formattedInstructor = formatInstructorCompact(instructor)
+                    const isSelected = selectedInstructors.has(formattedInstructor)
                     return (
-                      <Badge 
-                        key={formattedInstructor}
-                        variant="secondary" 
-                        className="text-xs text-gray-700 hover:text-gray-900 hover:bg-gray-200 cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          onSearchInstructor(formattedInstructor)
-                        }}
-                        title={`Search Google for "${formattedInstructor}"`}
-                      >
-                        {formattedInstructor}
-                      </Badge>
+                      <div key={formattedInstructor} className="flex items-center gap-1">
+                        <Button 
+                          variant={isSelected ? "default" : "outline"}
+                          size="sm"
+                          className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            toggleInstructorFilter(formattedInstructor)
+                          }}
+                          title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
+                        >
+                          {formattedInstructor}
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-6 w-6 p-0 text-gray-400 hover:text-gray-600 cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onSearchInstructor(formattedInstructor)
+                          }}
+                          title={`Search Google for "${formattedInstructor}"`}
+                        >
+                          <Search className="w-3 h-3" />
+                        </Button>
+                      </div>
                     )
                   })}
-                  {instructors.length > 2 && (
-                    <Badge 
-                      variant="outline" 
-                      className="text-xs text-gray-500"
-                      title={`Additional instructors: ${instructors.slice(2).map(i => formatInstructorCompact(i)).join(', ')}`}
+                  {selectedInstructors.size > 0 && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 px-2 text-xs font-normal text-gray-500 hover:text-gray-700 cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedInstructors(new Set())
+                      }}
+                      title="Clear all instructor filters"
                     >
-                      +{instructors.length - 2} more
-                    </Badge>
+                      Clear
+                    </Button>
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>
@@ -1169,25 +1228,72 @@ function CourseCard({
                     <Badge variant="outline" className="text-xs">
                       Pick 1
                     </Badge>
-                    {/* Show positive availability messaging */}
-                    {hasNoCompatible ? (
-                      <Badge variant="secondary" className="text-xs">
-                        No compatible options
-                      </Badge>
-                    ) : compatible.length < typeGroup.sections.length ? (
-                      <Badge variant="outline" className="text-xs text-green-700 border-green-300 bg-green-50">
-                        {compatible.length} available
-                      </Badge>
-                    ) : (
-                      <Badge variant="outline" className="text-xs text-blue-700 border-blue-300 bg-blue-50">
-                        All {typeGroup.sections.length} available
+                    {/* Show instructor filter status */}
+                    {selectedInstructors.size > 0 && (
+                      <Badge variant="outline" className="text-xs text-purple-700 border-purple-300 bg-purple-50">
+                        Filtered by {selectedInstructors.size} instructor{selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
                     )}
+                    {/* Show positive availability messaging */}
+                    {(() => {
+                      // Filter sections by instructor if filters are active
+                      const filteredSections = selectedInstructors.size > 0 
+                        ? typeGroup.sections.filter(section => 
+                            section.meetings.some(meeting => {
+                              if (!meeting.instructor) return false
+                              const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                              return instructorNames.some(instructorName => {
+                                const formattedName = formatInstructorCompact(instructorName)
+                                return selectedInstructors.has(formattedName)
+                              })
+                            })
+                          )
+                        : typeGroup.sections
+                      
+                      const filteredCompatible = compatible.filter(section => filteredSections.includes(section))
+                      
+                      if (hasNoCompatible || filteredCompatible.length === 0) {
+                        return (
+                          <Badge variant="secondary" className="text-xs">
+                            {selectedInstructors.size > 0 ? 'No matching sections' : 'No compatible options'}
+                          </Badge>
+                        )
+                      } else if (filteredCompatible.length < filteredSections.length) {
+                        return (
+                          <Badge variant="outline" className="text-xs text-green-700 border-green-300 bg-green-50">
+                            {filteredCompatible.length} available
+                          </Badge>
+                        )
+                      } else {
+                        return (
+                          <Badge variant="outline" className="text-xs text-blue-700 border-blue-300 bg-blue-50">
+                            All {filteredSections.length} available
+                          </Badge>
+                        )
+                      }
+                    })()}
                   </h4>
                 
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {typeGroup.sections.map(section => {
+                  {typeGroup.sections
+                    .filter(section => {
+                      // If no instructors are selected, show all sections
+                      if (selectedInstructors.size === 0) return true
+                      
+                      // Check if any of the section's meetings have instructors matching the filter
+                      return section.meetings.some(meeting => {
+                        if (!meeting.instructor) return false
+                        
+                        // Split instructor names by comma and check each one
+                        const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                        return instructorNames.some(instructorName => {
+                          const formattedName = formatInstructorCompact(instructorName)
+                          return selectedInstructors.has(formattedName)
+                        })
+                      })
+                    })
+                    .map(section => {
                     const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
                     const isIncompatible = incompatible.includes(section)
                     const sectionPrefix = getSectionPrefix(section.sectionCode)
