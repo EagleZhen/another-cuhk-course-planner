@@ -305,14 +305,23 @@ export default function WeeklyCalendar({
                               left: `${CALENDAR_CONSTANTS.CARD_PADDING + stackOffset}px`,
                               right: `${CALENDAR_CONSTANTS.CARD_PADDING + rightOffset}px`,
                               padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`,
-                              zIndex
+                              zIndex,
+                              ...(isSelected && {
+                                backgroundImage: `repeating-linear-gradient(
+                                  45deg,
+                                  transparent,
+                                  transparent 4px,
+                                  rgba(255,255,255,0.3) 4px,
+                                  rgba(255,255,255,0.3) 8px
+                                )`
+                              })
                             }}
                             className={`
                               ${event.color} 
                               rounded-sm text-xs text-white ${shadowClass}
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105 shadow-2xl' : ''}
+                              ${isSelected ? 'scale-105 shadow-2xl' : ''}
                             `}
                             onClick={() => {
                               if (onSelectEnrollment && event.enrollmentId) {
@@ -521,8 +530,17 @@ function UnscheduledSectionsCard({
                       className={`
                         ${item.enrollment.color || 'bg-indigo-500'}
                         px-2 py-0.5 text-xs rounded text-white cursor-pointer hover:scale-105 transition-all
-                        ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105' : ''}
+                        ${isSelected ? 'scale-105 shadow-lg' : ''}
                       `}
+                      style={isSelected ? {
+                        backgroundImage: `repeating-linear-gradient(
+                          45deg,
+                          transparent,
+                          transparent 4px,
+                          rgba(255,255,255,0.3) 4px,
+                          rgba(255,255,255,0.3) 8px
+                        )`
+                      } : {}}
                       onClick={(e) => {
                         e.stopPropagation()
                         if (onSelectEnrollment && item.enrollment.courseId) {
@@ -558,12 +576,21 @@ function UnscheduledSectionsCard({
                       rounded-sm text-xs text-white shadow-md
                       hover:scale-105 transition-all cursor-pointer
                       overflow-hidden group relative
-                      ${isSelected ? 'ring-2 ring-blue-400 ring-opacity-75 scale-105 shadow-2xl' : ''}
+                      ${isSelected ? 'scale-105 shadow-2xl' : ''}
                     `}
                     style={{
                       width: 'calc((100% - 32px) / 5)',
                       minHeight: '60px',
-                      padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`
+                      padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`,
+                      ...(isSelected && {
+                        backgroundImage: `repeating-linear-gradient(
+                          45deg,
+                          transparent,
+                          transparent 4px,
+                          rgba(255,255,255,0.3) 4px,
+                          rgba(255,255,255,0.3) 8px
+                        )`
+                      })
                     }}
                     onClick={(e) => {
                       e.stopPropagation()

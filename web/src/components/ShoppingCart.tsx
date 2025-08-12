@@ -187,7 +187,7 @@ export default function ShoppingCart({
                     }
                     ${!isVisible && !isInvalid ? 'opacity-60' : ''}
                     ${isSelected && isVisible && !isInvalid
-                      ? 'ring-2 ring-blue-400 ring-opacity-75 shadow-lg scale-[1.02] bg-blue-50' 
+                      ? `ring-1 shadow-lg scale-[1.02] ${enrollment.color?.replace('bg-', 'ring-')}` 
                       : ''
                     }
                     ${!isVisible || isInvalid ? 'cursor-default' : 'cursor-pointer'}
@@ -203,7 +203,7 @@ export default function ShoppingCart({
                   {/* Course Header */}
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-2">
                         <span className="font-semibold text-sm">
                           {enrollment.course.subject}{enrollment.course.courseCode}
                         </span>
