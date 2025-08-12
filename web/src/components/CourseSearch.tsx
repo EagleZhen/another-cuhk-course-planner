@@ -125,9 +125,13 @@ export default function CourseSearch({
       }
     }
     
-    // Compare with enrolled sections
+    // If no current selections, then no changes are pending (selections were cleared after adding)
+    if (currentLocalSelections.size === 0) return false
+    
+    // If different number of selections, then changes exist
     if (currentLocalSelections.size !== enrolled.selectedSections.length) return true
     
+    // Check if any selected sections differ from enrolled sections
     return enrolled.selectedSections.some(enrolledSection => 
       currentLocalSelections.get(enrolledSection.sectionType) !== enrolledSection.id
     )
