@@ -573,7 +573,7 @@ function SubjectToggle({
       variant={isSelected ? "default" : "outline"}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
-      className="h-6 px-2 text-xs font-mono font-normal cursor-pointer border-1 min-w-[3rem]"
+      className="h-6 px-2 text-xs font-mono font-normal"
       title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
     >
       {subject}
