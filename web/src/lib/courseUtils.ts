@@ -822,7 +822,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   })
   
   // Show waitlist badge when relevant (has waitlist or is closed with waitlist capacity)
-  if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
+  if (waitlistTotal > 0 || (status === 'Waitlisted' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal}/${waitlistCapacity}`,
@@ -871,8 +871,8 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
       className: 'bg-red-100 text-red-800 border-red-300'
     }
   }
-  
-  if (status === 'Wait List') {
+
+  if (status === 'Waitlisted') {
     return {
       className: 'bg-orange-100 text-orange-800 border-orange-300'
     }
