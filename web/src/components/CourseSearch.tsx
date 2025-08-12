@@ -826,7 +826,8 @@ function CourseCard({
       onClick={!expanded ? () => setExpanded(true) : undefined}
     >
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
+        {/* Desktop Layout: Keep existing horizontal layout */}
+        <div className="hidden sm:flex items-start justify-between">
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <CardTitle className="text-lg">
@@ -972,6 +973,167 @@ function CourseCard({
               title={expanded ? "Hide sections" : "Show sections"}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Layout: Clean title row + action buttons below */}
+        <div className="sm:hidden space-y-3">
+          {/* Clean title row */}
+          <div className="flex items-center gap-2">
+            <CardTitle className="text-lg">
+              {course.subject}{course.courseCode}
+            </CardTitle>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                onSearchReviews(course)
+              }}
+              className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+              title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
+            >
+              <Search className="w-3 h-3 mr-1" />
+              Reviews
+            </Button>
+          </div>
+
+          {/* Course info */}
+          <div>
+            <CardDescription className="text-base font-medium text-gray-700">
+              {course.title}
+            </CardDescription>
+            <div className="flex items-center gap-2 mt-2 flex-wrap">
+              <Badge variant="outline">{course.credits} credits</Badge>
+              {course.gradingBasis && (
+                <Badge variant="outline" className="text-xs">
+                  {course.gradingBasis}
+                </Badge>
+              )}
+              {/* Show fewer instructors on mobile */}
+              {instructors.length > 0 && (
+                <>
+                  {instructors.slice(0, 2).map(instructor => {
+                    const formattedInstructor = formatInstructorCompact(instructor)
+                    return (
+                      <Badge 
+                        key={formattedInstructor}
+                        variant="secondary" 
+                        className="text-xs text-gray-700 hover:text-gray-900 hover:bg-gray-200 cursor-pointer transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          onSearchInstructor(formattedInstructor)
+                        }}
+                        title={`Search Google for "${formattedInstructor}"`}
+                      >
+                        {formattedInstructor}
+                      </Badge>
+                    )
+                  })}
+                  {instructors.length > 2 && (
+                    <Badge 
+                      variant="outline" 
+                      className="text-xs text-gray-500"
+                      title={`Additional instructors: ${instructors.slice(2).map(i => formatInstructorCompact(i)).join(', ')}`}
+                    >
+                      +{instructors.length - 2} more
+                    </Badge>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Action buttons section - vertical hierarchy */}
+          <div className="border-t border-gray-100 pt-3 space-y-2">
+            {isAdded ? (
+              <>
+                {/* Primary action: Replace/Added status - full width */}
+                <Button
+                  variant={hasSelectionsChanged && isEnrollmentComplete ? "default" : "secondary"}
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    if (hasSelectionsChanged && isEnrollmentComplete) {
+                      onAddCourse(course, selectedSections)
+                    }
+                  }}
+                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+                  className="w-full cursor-pointer"
+                  title={hasSelectionsChanged && isEnrollmentComplete
+                    ? "Replace course with new section selections" 
+                    : "Course already added to cart"}
+                >
+                  {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
+                </Button>
+                
+                {/* Secondary actions: Go to Cart + Remove - side by side */}
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      if (onSelectEnrollment && enrolledCourse) {
+                        onSelectEnrollment(enrolledCourse.courseId)
+                      }
+                    }}
+                    className="flex-1 cursor-pointer"
+                    title="Go to course in shopping cart"
+                  >
+                    <ShoppingCart className="w-3 h-3 mr-1" />
+                    Go to Cart
+                  </Button>
+                  
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      onRemoveCourse(courseKey)
+                    }}
+                    className="flex-1 cursor-pointer"
+                    title="Remove course from cart"
+                  >
+                    <Trash2 className="w-3 h-3 mr-1" />
+                    Remove
+                  </Button>
+                </div>
+              </>
+            ) : (
+              /* Add button for non-enrolled courses - full width */
+              <Button
+                variant={isEnrollmentComplete ? "default" : "secondary"}
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  if (isEnrollmentComplete) {
+                    onAddCourse(course, selectedSections)
+                  }
+                }}
+                disabled={!isEnrollmentComplete}
+                className="w-full cursor-pointer"
+                title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
+              >
+                <Plus className="w-3 h-3 mr-1" />
+                {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
+              </Button>
+            )}
+            
+            {/* Expand button - separate as it's different from cart actions */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                setExpanded(!expanded)
+              }}
+              className="w-full cursor-pointer"
+              title={expanded ? "Hide sections" : "Show sections"}
+            >
+              {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              <span className="ml-2">{expanded ? "Hide Sections" : "Show Sections"}</span>
             </Button>
           </div>
         </div>
