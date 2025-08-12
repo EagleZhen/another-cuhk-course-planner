@@ -14,14 +14,14 @@ export default function FeedbackButton() {
   }
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hi! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n")
+    const message = encodeURIComponent("Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n")
     window.open(`https://wa.me/64886152?text=${message}`, '_blank', 'noopener,noreferrer')
     setIsOpen(false)
   }
 
   const handleEmail = () => {
     const subject = encodeURIComponent("Another CUHK Course Planner Feedback")
-    const body = encodeURIComponent("Hi! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n")
+    const body = encodeURIComponent("Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n")
     window.open(`mailto:1155194751@link.cuhk.edu.hk?subject=${subject}&body=${body}`, '_self')
     setIsOpen(false)
   }
