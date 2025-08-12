@@ -459,6 +459,33 @@ const DETERMINISTIC_COLORS = [
 ] as const
 
 /**
+ * Convert Tailwind background colors to CSS color values
+ */
+export function getComputedBorderColor(bgColor: string): string {
+  const colorMap: Record<string, string> = {
+    'bg-blue-500': '#3b82f6', 'bg-blue-600': '#2563eb', 'bg-blue-700': '#1d4ed8', 'bg-blue-800': '#1e40af',
+    'bg-sky-500': '#0ea5e9', 'bg-sky-600': '#0284c7', 'bg-sky-700': '#0369a1', 'bg-sky-800': '#075985',
+    'bg-cyan-500': '#06b6d4', 'bg-cyan-600': '#0891b2', 'bg-cyan-700': '#0e7490', 'bg-cyan-800': '#155e75',
+    'bg-teal-500': '#14b8a6', 'bg-teal-600': '#0d9488', 'bg-teal-700': '#0f766e', 'bg-teal-800': '#115e59',
+    'bg-emerald-500': '#10b981', 'bg-emerald-600': '#059669', 'bg-emerald-700': '#047857', 'bg-emerald-800': '#065f46',
+    'bg-green-500': '#22c55e', 'bg-green-600': '#16a34a', 'bg-green-700': '#15803d', 'bg-green-800': '#166534',
+    'bg-amber-500': '#f59e0b', 'bg-amber-600': '#d97706', 'bg-amber-700': '#b45309', 'bg-amber-800': '#92400e',
+    'bg-orange-500': '#f97316', 'bg-orange-600': '#ea580c', 'bg-orange-700': '#c2410c', 'bg-orange-800': '#9a3412',
+    'bg-pink-500': '#ec4899', 'bg-pink-600': '#db2777', 'bg-pink-700': '#be185d', 'bg-pink-800': '#9d174d',
+    'bg-rose-500': '#f43f5e', 'bg-rose-600': '#e11d48', 'bg-rose-700': '#be123c', 'bg-rose-800': '#9f1239',
+    'bg-fuchsia-500': '#d946ef', 'bg-fuchsia-600': '#c026d3', 'bg-fuchsia-700': '#a21caf', 'bg-fuchsia-800': '#86198f',
+    'bg-purple-500': '#a855f7', 'bg-purple-600': '#9333ea', 'bg-purple-700': '#7c3aed', 'bg-purple-800': '#6b21a8',
+    'bg-violet-500': '#8b5cf6', 'bg-violet-600': '#7c3aed', 'bg-violet-700': '#6d28d9', 'bg-violet-800': '#5b21b6',
+    'bg-indigo-500': '#6366f1', 'bg-indigo-600': '#4f46e5', 'bg-indigo-700': '#4338ca', 'bg-indigo-800': '#3730a3',
+    'bg-slate-500': '#64748b', 'bg-slate-600': '#475569', 'bg-slate-700': '#334155', 'bg-slate-800': '#1e293b',
+    'bg-gray-500': '#6b7280', 'bg-gray-600': '#4b5563', 'bg-gray-700': '#374151', 'bg-gray-800': '#1f2937',
+    'bg-zinc-500': '#71717a', 'bg-zinc-600': '#52525b', 'bg-zinc-700': '#3f3f46', 'bg-zinc-800': '#27272a',
+    'bg-stone-500': '#78716c', 'bg-stone-600': '#57534e', 'bg-stone-700': '#44403c', 'bg-stone-800': '#292524'
+  }
+  return colorMap[bgColor] || '#6366f1' // fallback to indigo-500
+}
+
+/**
  * Generate deterministic color for course based on course code
  */
 export function getDeterministicColor(courseCode: string): string {

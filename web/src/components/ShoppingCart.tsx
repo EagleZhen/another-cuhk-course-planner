@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Users, Clock } from 'lucide-react'
-import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges } from '@/lib/courseUtils'
+import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -179,11 +179,12 @@ export default function ShoppingCart({
                   }}
                   className={`
                     border rounded p-2 transition-all duration-300 relative
+                    border-l-4 border-gray-200 bg-white
                     ${isInvalid 
-                      ? 'border-orange-200 bg-orange-50 opacity-75' 
+                      ? 'border-orange-200 bg-orange-50 opacity-75 !border-l-orange-400' 
                       : hasConflict 
-                        ? 'border-red-200 bg-red-50' 
-                        : 'border-gray-200 bg-white'
+                        ? 'border-red-200 bg-red-50 !border-l-red-400' 
+                        : ''
                     }
                     ${!isVisible && !isInvalid ? 'opacity-60' : ''}
                     ${isSelected && isVisible && !isInvalid
@@ -192,6 +193,9 @@ export default function ShoppingCart({
                     }
                     ${!isVisible || isInvalid ? 'cursor-default' : 'cursor-pointer'}
                   `}
+                  style={(!isInvalid && !hasConflict && enrollment.color) ? {
+                    borderLeftColor: getComputedBorderColor(enrollment.color)
+                  } : {}}
                   onClick={() => {
                     // Only allow selection if the enrollment is visible and not invalid
                     if (isVisible && !isInvalid && onSelectEnrollment) {
@@ -203,7 +207,7 @@ export default function ShoppingCart({
                   {/* Course Header */}
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1">
                         <span className="font-semibold text-sm">
                           {enrollment.course.subject}{enrollment.course.courseCode}
                         </span>
