@@ -172,10 +172,10 @@ export function transformExternalCourse(external: unknown): InternalCourse {
     )
     
     // Parse and validate credits
-    let credits = 3.0 // Default value
+    let credits = 0.0 // Default value
     if (validated.credits) {
       const parsed = parseFloat(validated.credits)
-      if (!isNaN(parsed) && parsed > 0) {
+      if (!isNaN(parsed) && parsed >= 0) {
         credits = parsed
       }
     }
