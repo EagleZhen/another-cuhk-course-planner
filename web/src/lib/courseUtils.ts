@@ -920,7 +920,7 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
 
 /**
  * Captures a calendar screenshot with term name header and website attribution
- * Uses modern html-to-image library for better compatibility
+ * Clean, simple implementation that captures the full calendar content
  */
 export async function captureCalendarScreenshot(
   calendarElement: HTMLElement,
@@ -929,155 +929,118 @@ export async function captureCalendarScreenshot(
 ): Promise<void> {
   const { toPng } = await import('html-to-image')
   
-  // Find the actual calendar grid content (not the scrollable container)
-  const calendarGrid = calendarElement.querySelector('.grid[style*="gridTemplateColumns"]') as HTMLElement
-  const calendarHeader = calendarElement.querySelector('.grid.border-b.bg-white.sticky') as HTMLElement
-  
-  if (!calendarGrid || !calendarHeader) {
-    throw new Error('Could not find calendar grid or header elements')
-  }
-  
-  // Get the full content dimensions (including scrolled content)
-  const headerRect = calendarHeader.getBoundingClientRect()
-  const gridRect = calendarGrid.getBoundingClientRect()
-  
-  // Calculate the natural size of the content (without scroll constraints)
-  const scrollContainer = calendarElement.querySelector('.overflow-y-auto') as HTMLElement
-  const naturalHeight = scrollContainer ? scrollContainer.scrollHeight : gridRect.height
-  const naturalWidth = Math.max(gridRect.width, 800) // Minimum width
-  
-  const padding = 40
-  const headerHeight = 80
-  const footerHeight = 40
-  
-  // Calculate final dimensions based on natural content size
-  const canvasWidth = Math.max(naturalWidth + (padding * 2), 800)
-  const canvasHeight = naturalHeight + headerRect.height + headerHeight + footerHeight + (padding * 2)
+  const padding = 60
+  const headerHeight = 100
+  const footerHeight = 60
   
   try {
-    // Temporarily remove overflow constraints for full content capture
-    const originalStyles = new Map()
-    const elementsToModify = [
-      calendarElement.querySelector('.overflow-hidden'),
-      calendarElement.querySelector('.overflow-x-auto'),
-      calendarElement.querySelector('.overflow-y-auto'),
-      calendarElement.querySelector('[style*="max-h"]')
-    ].filter(Boolean) as HTMLElement[]
+    // First, temporarily remove all scroll constraints to capture full content
+    const scrollParent = calendarElement.closest('.overflow-y-auto') as HTMLElement
+    const overflowParent = calendarElement.closest('.overflow-hidden') as HTMLElement
     
-    elementsToModify.forEach(el => {
-      originalStyles.set(el, {
-        overflow: el.style.overflow,
-        overflowX: el.style.overflowX,
-        overflowY: el.style.overflowY,
-        maxHeight: el.style.maxHeight,
-        height: el.style.height
-      })
-      
-      // Temporarily set to visible and auto height
-      el.style.overflow = 'visible'
-      el.style.overflowX = 'visible'
-      el.style.overflowY = 'visible'
-      el.style.maxHeight = 'none'
-      el.style.height = 'auto'
-    })
+    // Store original styles
+    const originalScrollStyle = scrollParent?.style.cssText || ''
+    const originalOverflowStyle = overflowParent?.style.cssText || ''
+    const originalCalendarStyle = calendarElement.style.cssText || ''
     
-    // Create a wrapper div that includes both header and content
-    const tempWrapper = document.createElement('div')
-    tempWrapper.style.backgroundColor = '#ffffff'
-    tempWrapper.style.width = `${naturalWidth}px`
-    tempWrapper.style.minHeight = `${naturalHeight + headerRect.height}px`
+    // Remove all constraints temporarily
+    if (scrollParent) {
+      scrollParent.style.overflow = 'visible'
+      scrollParent.style.maxHeight = 'none'
+      scrollParent.style.height = 'auto'
+    }
+    if (overflowParent) {
+      overflowParent.style.overflow = 'visible'
+    }
+    calendarElement.style.height = 'auto'
+    calendarElement.style.maxHeight = 'none'
     
-    // Clone the header and content
-    const headerClone = calendarHeader.cloneNode(true) as HTMLElement
-    const gridClone = calendarGrid.cloneNode(true) as HTMLElement
+    // Force layout recalculation
+    calendarElement.getBoundingClientRect()
     
-    tempWrapper.appendChild(headerClone)
-    tempWrapper.appendChild(gridClone)
+    // Get the full expanded dimensions
+    const rect = calendarElement.getBoundingClientRect()
+    const calendarWidth = Math.max(rect.width, 800)
+    const calendarHeight = rect.height
     
-    // Temporarily add to DOM for capture
-    document.body.appendChild(tempWrapper)
-    
-    // Generate PNG data URL from the temporary wrapper
-    const calendarDataUrl = await toPng(tempWrapper, {
+    // Capture the calendar content
+    const calendarDataUrl = await toPng(calendarElement, {
       quality: 0.95,
       backgroundColor: '#ffffff',
-      pixelRatio: 2, // High resolution
+      pixelRatio: 1.5, // Good quality without being too large
       style: {
-        color: 'inherit',
-        backgroundColor: 'inherit'
+        transform: 'scale(1)',
+        transformOrigin: 'top left',
       }
     })
     
-    // Clean up temporary element
-    document.body.removeChild(tempWrapper)
+    // Restore original styles immediately
+    if (scrollParent) scrollParent.style.cssText = originalScrollStyle
+    if (overflowParent) overflowParent.style.cssText = originalOverflowStyle
+    calendarElement.style.cssText = originalCalendarStyle
     
-    // Restore original styles
-    elementsToModify.forEach(el => {
-      const originalStyle = originalStyles.get(el)
-      el.style.overflow = originalStyle.overflow
-      el.style.overflowX = originalStyle.overflowX
-      el.style.overflowY = originalStyle.overflowY
-      el.style.maxHeight = originalStyle.maxHeight
-      el.style.height = originalStyle.height
-    })
+    // Create final canvas
+    const finalWidth = calendarWidth + (padding * 2)
+    const finalHeight = calendarHeight + headerHeight + footerHeight + (padding * 2)
     
-    // Create a new canvas for final composition
-    const finalCanvas = document.createElement('canvas')
-    finalCanvas.width = canvasWidth
-    finalCanvas.height = canvasHeight
-    const ctx = finalCanvas.getContext('2d')
+    const canvas = document.createElement('canvas')
+    canvas.width = finalWidth
+    canvas.height = finalHeight
+    const ctx = canvas.getContext('2d')
     
     if (!ctx) {
       throw new Error('Failed to get canvas context')
     }
     
-    // Fill background
+    // Fill white background
     ctx.fillStyle = '#ffffff'
-    ctx.fillRect(0, 0, canvasWidth, canvasHeight)
+    ctx.fillRect(0, 0, finalWidth, finalHeight)
     
-    // Draw term name header
-    ctx.fillStyle = '#1f2937' // gray-800
-    ctx.font = 'bold 32px system-ui, -apple-system, sans-serif'
+    // Draw header
+    ctx.fillStyle = '#1f2937'
+    ctx.font = 'bold 36px system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
     ctx.textAlign = 'center'
-    ctx.fillText(termName, canvasWidth / 2, padding + 40)
+    ctx.fillText(termName, finalWidth / 2, padding + 50)
     
-    // Create image from calendar data URL and draw it
+    // Load and draw calendar image
     const calendarImage = new Image()
     
     return new Promise<void>((resolve, reject) => {
       calendarImage.onload = () => {
-        // Draw the calendar image
-        const calendarX = (canvasWidth - naturalWidth) / 2
+        // Draw calendar
+        const calendarX = (finalWidth - calendarWidth) / 2
         const calendarY = padding + headerHeight
-        ctx.drawImage(calendarImage, calendarX, calendarY)
+        ctx.drawImage(calendarImage, calendarX, calendarY, calendarWidth, calendarHeight)
         
-        // Draw website attribution footer
-        ctx.fillStyle = '#6b7280' // gray-500
-        ctx.font = '14px system-ui, -apple-system, sans-serif'
+        // Draw footer with website attribution
+        ctx.fillStyle = '#6b7280'
+        ctx.font = '16px system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
         ctx.textAlign = 'center'
         ctx.fillText(
-          `Generated from ${websiteUrl}`, 
-          canvasWidth / 2, 
-          canvasHeight - padding + 20
+          `Generated from ${websiteUrl}`,
+          finalWidth / 2,
+          finalHeight - padding + 20
         )
         
-        // Convert to blob and download
-        finalCanvas.toBlob((blob) => {
+        // Download the image
+        canvas.toBlob((blob) => {
           if (!blob) {
             reject(new Error('Failed to create image blob'))
             return
           }
           
           const url = URL.createObjectURL(blob)
-          const a = document.createElement('a')
-          a.href = url
-          a.download = `${termName}-${new Date().toISOString().split('T')[0]}.png`
-          document.body.appendChild(a)
-          a.click()
-          document.body.removeChild(a)
+          const link = document.createElement('a')
+          link.href = url
+          link.download = `${termName.replace(/\s+/g, '-')}-schedule-${new Date().toISOString().split('T')[0]}.png`
+          
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
           URL.revokeObjectURL(url)
+          
           resolve()
-        }, 'image/png', 0.95)
+        }, 'image/png', 0.9)
       }
       
       calendarImage.onerror = () => {
@@ -1088,7 +1051,7 @@ export async function captureCalendarScreenshot(
     })
     
   } catch (error) {
-    console.error('Screenshot capture error:', error)
+    console.error('Screenshot capture failed:', error)
     throw error
   }
 }
