@@ -521,6 +521,17 @@ export function formatInstructorCompact(instructor: string): string {
   return instructor.replace('Professor ', 'Prof. ')
 }
 
+/**
+ * Remove titles from instructor name for consistent operations (sorting, searching)
+ * Used for alphabetical sorting and search optimization across the app
+ */
+export function removeInstructorTitle(instructor: string): string {
+  if (!instructor || instructor === 'TBD') return 'TBD'
+  
+  return formatInstructorCompact(instructor)
+    .replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+}
+
 // ========================================
 // Section Compatibility & Selection Logic
 // ========================================
