@@ -965,17 +965,18 @@ export async function captureCalendarScreenshot(
     
     console.log(`📏 Expanded to: ${actualWidth}x${actualHeight}`)
     
-    // Step 5: Capture the expanded content
+    // Step 5: Capture the expanded content with high resolution
     const calendarDataUrl = await toPng(scrollableElement, {
-      quality: 0.95,
+      quality: 1.0, // Maximum quality
       backgroundColor: '#ffffff',
-      pixelRatio: 2.5, // High resolution for crisp output
+      pixelRatio: 5.0, // Very high resolution for crisp output
       width: actualWidth,
       height: actualHeight,
       style: {
         transform: 'scale(1)',
         transformOrigin: 'top left',
-      }
+      },
+      skipAutoScale: true, // Prevent auto-scaling issues
     })
     
     // Step 6: Restore original styles immediately
@@ -985,29 +986,33 @@ export async function captureCalendarScreenshot(
     }
     
     // Step 7: Create final image with header and footer
-    const padding = 80
-    const headerHeight = 140
-    const footerHeight = 80
+    const padding = 40 // Reduced padding for less white space
+    const headerHeight = 100 // Tighter header
+    const footerHeight = 60 // Tighter footer
     
-    const finalWidth = Math.max(actualWidth + (padding * 2), 1200)
+    const finalWidth = Math.max(actualWidth + (padding * 2), 1000)
     const finalHeight = actualHeight + headerHeight + footerHeight + (padding * 2)
     
     const canvas = document.createElement('canvas')
-    canvas.width = finalWidth
-    canvas.height = finalHeight
+    const scale = 2 // High DPI scaling for crisp text
+    canvas.width = finalWidth * scale
+    canvas.height = finalHeight * scale
     const ctx = canvas.getContext('2d')
     
     if (!ctx) throw new Error('Failed to get canvas context')
+    
+    // Scale the context for high-DPI rendering
+    ctx.scale(scale, scale)
     
     // White background
     ctx.fillStyle = '#ffffff'
     ctx.fillRect(0, 0, finalWidth, finalHeight)
     
-    // Modern header with Inter-style font
+    // Header with your app's Geist font (exactly matching Next.js)
     ctx.fillStyle = '#111827'
-    ctx.font = 'bold 48px "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+    ctx.font = 'bold 44px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
     ctx.textAlign = 'center'
-    ctx.fillText(termName, finalWidth / 2, padding + 70)
+    ctx.fillText(termName, finalWidth / 2, padding + 55)
     
     // Load and draw calendar
     const calendarImage = new Image()
@@ -1019,14 +1024,14 @@ export async function captureCalendarScreenshot(
         const calendarY = padding + headerHeight
         ctx.drawImage(calendarImage, calendarX, calendarY, actualWidth, actualHeight)
         
-        // Modern footer attribution
+        // Footer with matching Geist font - larger text
         ctx.fillStyle = '#6b7280'
-        ctx.font = '20px "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+        ctx.font = '20px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
         ctx.textAlign = 'center'
         ctx.fillText(
           `Generated from ${websiteUrl}`,
           finalWidth / 2,
-          finalHeight - padding + 35
+          finalHeight - padding + 30
         )
         
         // Download
