@@ -90,7 +90,80 @@ python resilient_scraper.py --retry  # Retry failed only
 - **Fully decoupled CourseCard** with local state management for maximum maintainability
 - **Legacy-free codebase** with simplified data formats and eliminated technical debt
 
-### **✅ Latest Achievement: Smart Section Filtering & Component Decoupling (January 2025)**
+### **✅ Latest Achievement: Visual Polish & UX Refinements (January 2025)**
+
+**Major Visual & UX Improvements**: 
+1. **Selection Ring Visibility Fix**: Replaced problematic blue rings with diagonal stripe patterns that work on all background colors
+2. **Shopping Cart Color Indicators**: Added course-colored left borders with proper margin compensation
+3. **Conflict Indication Enhancement**: Moved from border-based to background-based conflict warnings for better visibility
+4. **Invalid Course Display Polish**: Improved layout with proper alignment of alert triangles, reasons, and timestamps
+5. **Component Decoupling Success**: Achieved fully self-contained CourseCard with local state management
+
+**1. Selection Pattern System**
+```typescript
+// Problem: Blue selection rings invisible on blue course cards
+// Solution: Universal diagonal stripe patterns that work on all backgrounds
+
+// ✅ WeeklyCalendar.tsx: Applied to 3 locations
+style={{
+  ...(isSelected && {
+    backgroundImage: `repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.15) 8px,
+      rgba(255,255,255,0.15) 10px
+    )`
+  })
+}}
+```
+
+**2. Shopping Cart Visual Enhancement**
+```typescript
+// ✅ Course-colored left borders with conflict background indication
+className={`
+  border rounded p-2 transition-all duration-300 relative
+  border-l-4 border-gray-200
+  ${isInvalid 
+    ? 'bg-orange-50 opacity-75' 
+    : hasConflict 
+      ? 'bg-red-50' 
+      : 'bg-white'
+  }
+`}
+style={{
+  ...(isInvalid ? {
+    borderLeftColor: '#fb923c' // orange-400 for invalid courses
+  } : enrollment.color ? {
+    borderLeftColor: getComputedBorderColor(enrollment.color)
+  } : {})
+}}
+```
+
+**3. Invalid Course UX Pattern**
+```typescript
+// ✅ Dual-layer invalid indication for better UX
+// Header: Quick visual indicator + hover tooltip
+{isInvalid && (
+  <div title={enrollment.invalidReason || 'Course data is outdated'}>
+    <AlertTriangle className="w-3 h-3 text-orange-500" />
+  </div>
+)}
+
+// Content: Full details with proper layout
+<div className="flex items-center gap-2 text-xs text-orange-600">
+  <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
+  <span>{enrollment.invalidReason}</span>
+</div>
+{enrollment.lastSynced && (
+  <div className="text-xs text-gray-500 mt-2">Last synced:</div>
+)}
+{enrollment.lastSynced && (
+  <div className="text-xs text-gray-500">{enrollment.lastSynced.toLocaleString()}</div>
+)}
+```
+
+### **✅ Previous Achievement: Smart Section Filtering & Component Decoupling**
 
 **Major UX & Architecture Improvements**: 
 1. **Smart Section Filtering**: Hide irrelevant sections to reduce cognitive load
@@ -207,7 +280,14 @@ console.log(`⚡ Performance Summary:
 - **Engineering Pragmatism**: "Dump everything" to localStorage is often the most maintainable approach
 - **Impact over Perfection**: Focus on real production issues before theoretical optimizations
 
-**New Architectural Insights (Latest Work):**
+**Latest Architectural Insights (Visual Polish Work):**
+- **Visual Accessibility**: Selection indicators must work on all background colors - universal patterns > color-dependent rings
+- **Mutually Exclusive CSS Classes**: Avoid Tailwind class conflicts by using conditional logic instead of layering classes
+- **Dual-Layer UX Patterns**: Quick indicators (header) + detailed information (content) provide optimal user experience
+- **Color System Integration**: Consistent color mapping between components improves user mental model
+- **Layout Hierarchy**: Proper spacing and alignment communicate information priority effectively
+
+**Previous Architectural Insights:**
 - **Avoid Side Effects**: Local actions should have local effects - global state creates debugging nightmares
 - **Eliminate Legacy Code**: Tech debt accumulates fast - remove it immediately for maintainability
 - **User Context Matters**: Smart filtering based on user actions reduces cognitive load dramatically
@@ -388,4 +468,4 @@ Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 
 ---
 
-*Last updated: January 2025 - Major architectural achievement: Smart Section Filtering & Component Decoupling completed. CourseCard now fully self-contained with context-aware filtering that dramatically improves UX by hiding irrelevant sections. Mobile-responsive design ensures excellent experience across devices. Legacy code eliminated for maximum maintainability. System demonstrates engineering excellence: maintainable architecture + pragmatic UX improvements.*
+*Last updated: January 2025 - Latest achievement: Visual Polish & UX Refinements completed. Fixed selection ring visibility with universal diagonal stripe patterns, enhanced shopping cart with course-colored borders and conflict backgrounds, improved invalid course display with proper layout hierarchy. Combined with previous Smart Section Filtering & Component Decoupling, the system now demonstrates engineering excellence: maintainable architecture + polished user experience + visual accessibility.*
