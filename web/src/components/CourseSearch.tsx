@@ -1280,7 +1280,7 @@ function CourseCard({
               
               return (
                 <div key={typeGroup.type}>
-                  <h4 className="flex items-center gap-2 font-medium text-sm text-gray-700 mb-2">
+                  <h4 className="flex flex-wrap items-center gap-2 font-medium text-sm text-gray-700 mb-2">
                     <span>{typeGroup.icon}</span>
                     <span>{typeGroup.displayName}</span>
                     <Badge variant="outline" className="text-xs">
