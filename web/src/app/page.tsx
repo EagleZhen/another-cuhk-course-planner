@@ -411,7 +411,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
 
         {/* Top Section - Calendar + Shopping Cart */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
@@ -451,7 +451,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <Card className="gap-0">
             <CardHeader>
-              <div className="space-y-4">
+              <div className="space-y-2">
                 <div>
                   <CardTitle>Search & Add Courses</CardTitle>
                   <CardDescription>
