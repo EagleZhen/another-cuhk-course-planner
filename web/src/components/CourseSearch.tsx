@@ -1270,6 +1270,12 @@ function CourseCard({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {typeGroup.sections
                     .filter(section => {
+                      // Step 1: Same-type filtering - if a section is selected, show only selected section
+                      const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
+                      if (selectedSectionId) {
+                        return section.id === selectedSectionId
+                      }
+                      
                       // If no instructors are selected, show all sections
                       if (selectedInstructors.size === 0) return true
                       
