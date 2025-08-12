@@ -70,8 +70,8 @@ export default function CourseSearch({
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   
-  // Step 4: Power user controls - track courses showing all sections
-  const [coursesShowingAllSections, setCoursesShowingAllSections] = useState<Set<string>>(new Set())
+  // Simplified: Track which section types show all sections (per-course basis)
+  const [sectionTypesShowingAll, setSectionTypesShowingAll] = useState<Set<string>>(new Set())
 
   // Calculate subjects that actually have courses in current term
   const subjectsWithCourses = useMemo(() => {
@@ -724,14 +724,14 @@ export default function CourseSearch({
                   selectedSections={selectedSections}
                   onSearchReviews={searchCourseReviews}
                   onSearchInstructor={searchInstructor}
-                  coursesShowingAllSections={coursesShowingAllSections}
-                  onToggleShowAllSections={(courseKey) => {
-                    setCoursesShowingAllSections(prev => {
+                  sectionTypesShowingAll={sectionTypesShowingAll}
+                  onToggleShowAllForType={(sectionType) => {
+                    setSectionTypesShowingAll(prev => {
                       const updated = new Set(prev)
-                      if (updated.has(courseKey)) {
-                        updated.delete(courseKey)
+                      if (updated.has(sectionType)) {
+                        updated.delete(sectionType)
                       } else {
-                        updated.add(courseKey)
+                        updated.add(sectionType)
                       }
                       return updated
                     })
@@ -745,12 +745,11 @@ export default function CourseSearch({
                       newMap.delete(selectionKey)
                       onSelectedSectionsChange(newMap)
                       
-                      // Step 5: Reset "show all sections" state if no sections remain for this course
-                      const courseHasAnySelections = Array.from(newMap.keys()).some(key => key.startsWith(courseKey + '_'))
-                      if (!courseHasAnySelections && coursesShowingAllSections.has(courseKey)) {
-                        setCoursesShowingAllSections(prev => {
+                      // Step 5: Reset "show all sections" state for this specific type when selection cleared
+                      if (sectionTypesShowingAll.has(sectionType)) {
+                        setSectionTypesShowingAll(prev => {
                           const updated = new Set(prev)
-                          updated.delete(courseKey)
+                          updated.delete(sectionType)
                           return updated
                         })
                       }
@@ -868,8 +867,8 @@ function CourseCard({
   onSearchReviews,
   onSearchInstructor,
   onSectionToggle, 
-  coursesShowingAllSections,
-  onToggleShowAllSections,
+  sectionTypesShowingAll,
+  onToggleShowAllForType,
   onAddCourse,
   onRemoveCourse, 
   isAdded,
@@ -883,8 +882,8 @@ function CourseCard({
   onSearchReviews: (course: InternalCourse) => void
   onSearchInstructor: (instructorName: string) => void
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
-  coursesShowingAllSections: Set<string>
-  onToggleShowAllSections: (courseKey: string) => void
+  sectionTypesShowingAll: Set<string>
+  onToggleShowAllForType: (sectionType: string) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
@@ -895,6 +894,15 @@ function CourseCard({
   const [expanded, setExpanded] = useState(false)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const courseKey = `${course.subject}${course.courseCode}`
+  
+  // Simplified: Extract course-specific selections as sectionType -> sectionId
+  const courseSelections = new Map<string, string>()
+  for (const [key, sectionId] of selectedSections) {
+    if (key.startsWith(courseKey + '_')) {
+      const sectionType = key.substring(courseKey.length + 1)
+      courseSelections.set(sectionType, sectionId)
+    }
+  }
   const sectionTypes = parseSectionTypes(course, currentTerm)
   
   // Get enrolled course for this course
@@ -1257,7 +1265,7 @@ function CourseCard({
                     )}
                     {/* Step 3: Contextual badge messaging based on selection state */}
                     {(() => {
-                      const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
+                      const selectedSectionId = courseSelections.get(typeGroup.type)
                       
                       // If this type has a selection, show "locked" state
                       if (selectedSectionId) {
@@ -1304,29 +1312,29 @@ function CourseCard({
                     })()}
                   </h4>
                   
-                  {/* Step 4: Toggle controls for power users */}
+                  {/* Step 4: Type-specific toggle controls for power users */}
                   {(() => {
-                    const showingAll = coursesShowingAllSections.has(courseKey)
-                    const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
-                    const hasHiddenSections = !showingAll && (!selectedSectionId && incompatible.length > 0) || (selectedSectionId && typeGroup.sections.length > 1)
+                    const showingAllForType = sectionTypesShowingAll.has(typeGroup.type)
+                    const selectedSectionId = courseSelections.get(typeGroup.type)
+                    const hasHiddenSections = !showingAllForType && ((!selectedSectionId && incompatible.length > 0) || (selectedSectionId && typeGroup.sections.length > 1))
                     
-                    if (hasHiddenSections || showingAll) {
+                    if (hasHiddenSections || showingAllForType) {
                       return (
                         <div className="text-xs text-gray-500 flex items-center gap-2 mb-3">
                           <span>
-                            {showingAll 
-                              ? `Showing all ${typeGroup.sections.length} sections` 
-                              : `${selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length} section${(selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length) === 1 ? '' : 's'} hidden`
+                            {showingAllForType 
+                              ? `Showing all ${typeGroup.sections.length} ${typeGroup.displayName} sections` 
+                              : `${selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length} ${typeGroup.displayName} section${(selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length) === 1 ? '' : 's'} hidden`
                             }
                           </span>
                           <Button 
                             variant="ghost" 
                             size="sm"
-                            onClick={() => onToggleShowAllSections(courseKey)}
+                            onClick={() => onToggleShowAllForType(typeGroup.type)}
                             className="h-5 px-2 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full"
-                            title={showingAll ? "Hide filtered sections" : "Show all sections including filtered ones"}
+                            title={showingAllForType ? `Hide filtered ${typeGroup.displayName} sections` : `Show all ${typeGroup.displayName} sections including filtered ones`}
                           >
-                            {showingAll ? "Hide filtered" : "Show all"}
+                            {showingAllForType ? "Hide filtered" : "Show all"}
                           </Button>
                         </div>
                       )
@@ -1338,13 +1346,13 @@ function CourseCard({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {typeGroup.sections
                     .filter(section => {
-                      // Power user override: show all sections if explicitly enabled
-                      if (coursesShowingAllSections.has(courseKey)) {
-                        return true // Skip all smart filtering
+                      // Power user override: show all sections for this type if explicitly enabled
+                      if (sectionTypesShowingAll.has(typeGroup.type)) {
+                        return true // Skip all smart filtering for this section type
                       }
                       
                       // Step 1: Same-type filtering - if a section is selected, show only selected section
-                      const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
+                      const selectedSectionId = courseSelections.get(typeGroup.type)
                       if (selectedSectionId) {
                         return section.id === selectedSectionId
                       }
@@ -1371,7 +1379,7 @@ function CourseCard({
                       })
                     })
                     .map(section => {
-                    const isSelected = selectedSections.get(`${courseKey}_${typeGroup.type}`) === section.id
+                    const isSelected = courseSelections.get(typeGroup.type) === section.id
                     const isIncompatible = incompatible.includes(section)
                     const sectionPrefix = getSectionPrefix(section.sectionCode)
                     
