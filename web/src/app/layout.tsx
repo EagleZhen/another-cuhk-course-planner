@@ -49,7 +49,7 @@ export default function RootLayout({
             rel="noopener noreferrer"
             className="underline hover:text-amber-900 font-medium"
           >
-            official catalog
+            the official course catalog
           </a>
           <span>. </span>
           <span className="font-semibold">Always verify in </span>
