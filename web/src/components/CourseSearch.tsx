@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -1399,6 +1399,40 @@ function CourseCard({
                             } else {
                               // Set new selection
                               newSelections.set(typeGroup.type, section.id)
+                              
+                              // Cascade clearing: if this is a higher-priority selection, 
+                              // clear incompatible lower-priority selections
+                              const newSectionPriority = getSectionTypePriority(typeGroup.type as SectionType, sectionTypes)
+                              
+                              // Find lower-priority selections to potentially clear
+                              const selectionsToCheck = Array.from(newSelections.entries())
+                              for (const [otherType, otherSectionId] of selectionsToCheck) {
+                                if (otherType === typeGroup.type) continue // Skip self
+                                
+                                const otherPriority = getSectionTypePriority(otherType as SectionType, sectionTypes)
+                                
+                                // Only clear LOWER priority selections (higher number = lower priority)
+                                if (otherPriority > newSectionPriority) {
+                                  // Check if the new selection makes the other selection incompatible
+                                  const otherTypeGroup = sectionTypes.find(tg => tg.type === otherType)
+                                  if (otherTypeGroup) {
+                                    const otherSection = otherTypeGroup.sections.find(s => s.id === otherSectionId)
+                                    
+                                    // Check compatibility using the new selection as constraint
+                                    if (otherSection) {
+                                      const { incompatible } = categorizeCompatibleSections(
+                                        otherTypeGroup.sections,
+                                        [section] // New higher-priority selection as constraint
+                                      )
+                                      
+                                      // If the other section is now incompatible, clear it
+                                      if (incompatible.includes(otherSection)) {
+                                        newSelections.delete(otherType)
+                                      }
+                                    }
+                                  }
+                                }
+                              }
                             }
                             setLocalSelections(newSelections)
                             onSectionsChange(course, newSelections)
