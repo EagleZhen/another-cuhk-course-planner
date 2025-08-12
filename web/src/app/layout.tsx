@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import FeedbackButton from '@/components/FeedbackButton'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,6 +64,7 @@ export default function RootLayout({
           <span className="font-semibold"> before enrolling.</span>
         </div>
         {children}
+        <FeedbackButton />
         <Analytics/>
         <SpeedInsights/>
       </body>
