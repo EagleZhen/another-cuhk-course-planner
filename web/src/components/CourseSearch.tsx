@@ -69,6 +69,9 @@ export default function CourseSearch({
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
+  
+  // Step 4: Power user controls - track courses showing all sections
+  const [coursesShowingAllSections, setCoursesShowingAllSections] = useState<Set<string>>(new Set())
 
   // Calculate subjects that actually have courses in current term
   const subjectsWithCourses = useMemo(() => {
@@ -721,6 +724,18 @@ export default function CourseSearch({
                   selectedSections={selectedSections}
                   onSearchReviews={searchCourseReviews}
                   onSearchInstructor={searchInstructor}
+                  coursesShowingAllSections={coursesShowingAllSections}
+                  onToggleShowAllSections={(courseKey) => {
+                    setCoursesShowingAllSections(prev => {
+                      const updated = new Set(prev)
+                      if (updated.has(courseKey)) {
+                        updated.delete(courseKey)
+                      } else {
+                        updated.add(courseKey)
+                      }
+                      return updated
+                    })
+                  }}
                   onSectionToggle={(courseKey, sectionType, sectionId) => {
                     const newMap = new Map(selectedSections)
                     const selectionKey = `${courseKey}_${sectionType}`
@@ -729,6 +744,16 @@ export default function CourseSearch({
                       // Remove selection
                       newMap.delete(selectionKey)
                       onSelectedSectionsChange(newMap)
+                      
+                      // Step 5: Reset "show all sections" state if no sections remain for this course
+                      const courseHasAnySelections = Array.from(newMap.keys()).some(key => key.startsWith(courseKey + '_'))
+                      if (!courseHasAnySelections && coursesShowingAllSections.has(courseKey)) {
+                        setCoursesShowingAllSections(prev => {
+                          const updated = new Set(prev)
+                          updated.delete(courseKey)
+                          return updated
+                        })
+                      }
                     } else {
                       // Set new selection (replaces any existing selection for this type)
                       newMap.set(selectionKey, sectionId)
@@ -843,6 +868,8 @@ function CourseCard({
   onSearchReviews,
   onSearchInstructor,
   onSectionToggle, 
+  coursesShowingAllSections,
+  onToggleShowAllSections,
   onAddCourse,
   onRemoveCourse, 
   isAdded,
@@ -856,6 +883,8 @@ function CourseCard({
   onSearchReviews: (course: InternalCourse) => void
   onSearchInstructor: (instructorName: string) => void
   onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
+  coursesShowingAllSections: Set<string>
+  onToggleShowAllSections: (courseKey: string) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
@@ -1226,54 +1255,104 @@ function CourseCard({
                         Filtered by {selectedInstructors.size} instructor{selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
                     )}
-                    {/* Show positive availability messaging */}
+                    {/* Step 3: Contextual badge messaging based on selection state */}
                     {(() => {
-                      // Filter sections by instructor if filters are active
-                      const filteredSections = selectedInstructors.size > 0 
-                        ? typeGroup.sections.filter(section => 
-                            section.meetings.some(meeting => {
-                              if (!meeting.instructor) return false
-                              const instructorNames = meeting.instructor.split(',').map(name => name.trim())
-                              return instructorNames.some(instructorName => {
-                                const formattedName = formatInstructorCompact(instructorName)
-                                return selectedInstructors.has(formattedName)
-                              })
-                            })
-                          )
-                        : typeGroup.sections
+                      const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
                       
-                      const filteredCompatible = compatible.filter(section => filteredSections.includes(section))
+                      // If this type has a selection, show "locked" state
+                      if (selectedSectionId) {
+                        return (
+                          <Badge variant="outline" className="text-xs text-indigo-700 border-indigo-300 bg-indigo-50">
+                            Selection locked
+                          </Badge>
+                        )
+                      }
                       
-                      if (hasNoCompatible || filteredCompatible.length === 0) {
+                      // If no selection in this type, show compatibility info
+                      const compatibleSections = compatible.filter(section => {
+                        // Apply instructor filter if active
+                        if (selectedInstructors.size === 0) return true
+                        return section.meetings.some(meeting => {
+                          if (!meeting.instructor) return false
+                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          return instructorNames.some(instructorName => {
+                            const formattedName = formatInstructorCompact(instructorName)
+                            return selectedInstructors.has(formattedName)
+                          })
+                        })
+                      })
+                      
+                      if (hasNoCompatible || compatibleSections.length === 0) {
                         return (
                           <Badge variant="secondary" className="text-xs">
                             {selectedInstructors.size > 0 ? 'No matching sections' : 'No compatible options'}
                           </Badge>
                         )
-                      } else if (filteredCompatible.length < filteredSections.length) {
+                      } else if (compatible.length < typeGroup.sections.length) {
                         return (
                           <Badge variant="outline" className="text-xs text-green-700 border-green-300 bg-green-50">
-                            {filteredCompatible.length} available
+                            {compatibleSections.length} compatible
                           </Badge>
                         )
                       } else {
                         return (
                           <Badge variant="outline" className="text-xs text-blue-700 border-blue-300 bg-blue-50">
-                            All {filteredSections.length} available
+                            All {compatibleSections.length} available
                           </Badge>
                         )
                       }
                     })()}
                   </h4>
+                  
+                  {/* Step 4: Toggle controls for power users */}
+                  {(() => {
+                    const showingAll = coursesShowingAllSections.has(courseKey)
+                    const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
+                    const hasHiddenSections = !showingAll && (!selectedSectionId && incompatible.length > 0) || (selectedSectionId && typeGroup.sections.length > 1)
+                    
+                    if (hasHiddenSections || showingAll) {
+                      return (
+                        <div className="text-xs text-gray-500 flex items-center gap-2 mb-3">
+                          <span>
+                            {showingAll 
+                              ? `Showing all ${typeGroup.sections.length} sections` 
+                              : `${selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length} section${(selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length) === 1 ? '' : 's'} hidden`
+                            }
+                          </span>
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => onToggleShowAllSections(courseKey)}
+                            className="h-5 px-2 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full"
+                            title={showingAll ? "Hide filtered sections" : "Show all sections including filtered ones"}
+                          >
+                            {showingAll ? "Hide filtered" : "Show all"}
+                          </Button>
+                        </div>
+                      )
+                    }
+                    return null
+                  })()}
                 
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {typeGroup.sections
                     .filter(section => {
+                      // Power user override: show all sections if explicitly enabled
+                      if (coursesShowingAllSections.has(courseKey)) {
+                        return true // Skip all smart filtering
+                      }
+                      
                       // Step 1: Same-type filtering - if a section is selected, show only selected section
                       const selectedSectionId = selectedSections.get(`${courseKey}_${typeGroup.type}`)
                       if (selectedSectionId) {
                         return section.id === selectedSectionId
+                      }
+                      
+                      // Step 2: Cross-type compatibility filtering - hide incompatible sections 
+                      const isIncompatible = incompatible.includes(section)
+                      if (isIncompatible) {
+                        return false
                       }
                       
                       // If no instructors are selected, show all sections
