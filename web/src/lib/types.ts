@@ -58,6 +58,7 @@ export const SECTION_TYPE_CONFIG = {
   'PRA': { displayName: 'Practicum', icon: '⚙️', aliases: ['PRA'] },
   'FLD': { displayName: 'Field Study', icon: '🌍', aliases: ['FLD'] },
   'CLW': { displayName: 'Classwork', icon: '✏️', aliases: ['CLW'] },
+  'ASB': { displayName: 'Assembly', icon: '👂', aliases: ['ASB'] },
   'OTHER': { displayName: 'Other', icon: '📋', aliases: ['OTHER'] }
 } as const
 
