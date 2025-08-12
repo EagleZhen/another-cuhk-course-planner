@@ -894,6 +894,46 @@ function CourseCard({
     if (newSelected.size > 0 && !expanded) {
       setExpanded(true)
     }
+
+    // Critical fix: Clear section selections that don't match the new instructor filter
+    // This maintains logical consistency between filtered view and selected sections
+    if (newSelected.size > 0) {
+      const updatedSelections = new Map<string, string>()
+      
+      // Check each current selection to see if it matches the instructor filter
+      for (const [sectionType, sectionId] of localSelections) {
+        const typeGroup = sectionTypes.find(tg => tg.type === sectionType)
+        if (typeGroup) {
+          const section = typeGroup.sections.find(s => s.id === sectionId)
+          if (section) {
+            // Check if this section has instructors matching the new filter
+            const sectionMatchesFilter = section.meetings.some(meeting => {
+              if (!meeting.instructor) return false
+              const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+              return instructorNames.some(instructorName => {
+                const formattedName = formatInstructorCompact(instructorName)
+                return newSelected.has(formattedName)
+              })
+            })
+            
+            // Only keep selections that match the instructor filter
+            if (sectionMatchesFilter) {
+              updatedSelections.set(sectionType, sectionId)
+            } else {
+              console.log(`🔄 Cleared ${sectionType} selection: ${section.sectionCode} (instructor doesn't match filter)`)
+            }
+          }
+        }
+      }
+      
+      // Update local state and notify parent if selections changed
+      if (updatedSelections.size !== localSelections.size || 
+          Array.from(updatedSelections.entries()).some(([type, id]) => localSelections.get(type) !== id)) {
+        setLocalSelections(updatedSelections)
+        onSectionsChange(course, updatedSelections)
+      }
+    }
+    // Note: When instructor filter is cleared (size = 0), we keep all existing selections
   }
 
   // Get unique instructors from current term, sorted alphabetically
@@ -1295,16 +1335,60 @@ function CourseCard({
                   {(() => {
                     const showingAllForType = showAllSectionTypes.has(typeGroup.type)
                     const selectedSectionId = localSelections.get(typeGroup.type)
-                    const hasHiddenSections = !showingAllForType && ((!selectedSectionId && incompatible.length > 0) || (selectedSectionId && typeGroup.sections.length > 1))
                     
-                    if (hasHiddenSections || showingAllForType) {
+                    // Calculate instructor-filtered sections count for smart visibility logic
+                    const instructorFilteredSections = selectedInstructors.size > 0 
+                      ? typeGroup.sections.filter(section => {
+                          return section.meetings.some(meeting => {
+                            if (!meeting.instructor) return false
+                            const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                            return instructorNames.some(instructorName => {
+                              const formattedName = formatInstructorCompact(instructorName)
+                              return selectedInstructors.has(formattedName)
+                            })
+                          })
+                        })
+                      : typeGroup.sections
+                    
+                    const hasHiddenSections = !showingAllForType && (
+                      (!selectedSectionId && incompatible.length > 0) || 
+                      (selectedSectionId && instructorFilteredSections.length > 1)
+                    )
+                    
+                    // Auto-hide logic: Don't show button when it provides no value
+                    const shouldShowButton = (() => {
+                      // Case 1: If showing all, always show button to allow hiding
+                      if (showingAllForType) return true
+                      
+                      // Case 2: If instructor filter is active and results in 0 or 1 sections, button is meaningless
+                      if (selectedInstructors.size > 0 && instructorFilteredSections.length <= 1) {
+                        return false // No point showing "show all" for 0 or 1 sections
+                      }
+                      
+                      // Case 3: If no sections are hidden, button is meaningless
+                      if (!hasHiddenSections) return false
+                      
+                      // Case 4: Normal cases where button adds value
+                      return true
+                    })()
+                    
+                    if (shouldShowButton) {
                       return (
                         <div className="text-xs text-gray-500 flex items-center gap-2 mb-3">
                           <span>
-                            {showingAllForType 
-                              ? `Showing all ${typeGroup.sections.length} ${typeGroup.displayName} sections` 
-                              : `${selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length} ${typeGroup.displayName} section${(selectedSectionId ? typeGroup.sections.length - 1 : incompatible.length) === 1 ? '' : 's'} hidden`
-                            }
+                            {(() => {
+                              // Use already calculated instructor-filtered sections
+                              const countToShow = instructorFilteredSections.length
+                              
+                              if (showingAllForType) {
+                                return selectedInstructors.size > 0 
+                                  ? `Showing all ${countToShow} ${typeGroup.displayName} sections (by selected instructor${selectedInstructors.size > 1 ? 's' : ''})`
+                                  : `Showing all ${countToShow} ${typeGroup.displayName} sections`
+                              } else {
+                                const hiddenCount = selectedSectionId ? countToShow - 1 : incompatible.length
+                                return `${hiddenCount} ${typeGroup.displayName} section${hiddenCount === 1 ? '' : 's'} hidden`
+                              }
+                            })()}
                           </span>
                           <Button 
                             variant="ghost" 
@@ -1321,9 +1405,25 @@ function CourseCard({
                               })
                             }}
                             className="h-5 px-2 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full"
-                            title={showingAllForType ? `Hide filtered ${typeGroup.displayName} sections` : `Show all ${typeGroup.displayName} sections including filtered ones`}
+                            title={(() => {
+                              if (selectedInstructors.size > 0) {
+                                return showingAllForType 
+                                  ? `Hide filtered ${typeGroup.displayName} sections (instructor filter still active)` 
+                                  : `Show all ${typeGroup.displayName} sections taught by selected instructor${selectedInstructors.size > 1 ? 's' : ''}`
+                              } else {
+                                return showingAllForType 
+                                  ? `Hide filtered ${typeGroup.displayName} sections` 
+                                  : `Show all ${typeGroup.displayName} sections including filtered ones`
+                              }
+                            })()}
                           >
-                            {showingAllForType ? "Hide filtered" : "Show all"}
+                            {(() => {
+                              if (selectedInstructors.size > 0) {
+                                return showingAllForType ? "Hide filtered" : "Show matching"
+                              } else {
+                                return showingAllForType ? "Hide filtered" : "Show all"
+                              }
+                            })()}
                           </Button>
                         </div>
                       )
@@ -1335,9 +1435,28 @@ function CourseCard({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {typeGroup.sections
                     .filter(section => {
+                      // ALWAYS apply instructor filter first (highest priority constraint)
+                      if (selectedInstructors.size > 0) {
+                        const matchesInstructorFilter = section.meetings.some(meeting => {
+                          if (!meeting.instructor) return false
+                          
+                          // Split instructor names by comma and check each one
+                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          return instructorNames.some(instructorName => {
+                            const formattedName = formatInstructorCompact(instructorName)
+                            return selectedInstructors.has(formattedName)
+                          })
+                        })
+                        
+                        if (!matchesInstructorFilter) {
+                          return false // Always filter out sections that don't match instructor filter
+                        }
+                      }
+                      
                       // Power user override: show all sections for this type if explicitly enabled
+                      // (but still respecting instructor filter above)
                       if (showAllSectionTypes.has(typeGroup.type)) {
-                        return true // Skip all smart filtering for this section type
+                        return true // Skip smart filtering but keep instructor constraint
                       }
                       
                       // Step 1: Same-type filtering - if a section is selected, show only selected section
@@ -1352,20 +1471,8 @@ function CourseCard({
                         return false
                       }
                       
-                      // If no instructors are selected, show all sections
-                      if (selectedInstructors.size === 0) return true
-                      
-                      // Check if any of the section's meetings have instructors matching the filter
-                      return section.meetings.some(meeting => {
-                        if (!meeting.instructor) return false
-                        
-                        // Split instructor names by comma and check each one
-                        const instructorNames = meeting.instructor.split(',').map(name => name.trim())
-                        return instructorNames.some(instructorName => {
-                          const formattedName = formatInstructorCompact(instructorName)
-                          return selectedInstructors.has(formattedName)
-                        })
-                      })
+                      // All remaining sections pass the filters
+                      return true
                     })
                     .map(section => {
                     const isSelected = localSelections.get(typeGroup.type) === section.id
