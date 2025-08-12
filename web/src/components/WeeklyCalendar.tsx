@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, Eye, EyeOff, Download } from 'lucide-react'
+import { ChevronDown, Eye, EyeOff, Camera } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 // Clean calendar architecture - time-first approach
@@ -180,8 +180,8 @@ export default function WeeklyCalendar({
               className="flex items-center gap-2 cursor-pointer"
               title="Download schedule as image"
             >
-              <Download className="w-4 h-4" />
-              {isCapturing ? 'Capturing...' : 'Save'}
+              <Camera className="w-4 h-4" />
+              {isCapturing ? 'Capturing...' : 'Screenshot'}
             </Button>
             
             <TermSelector 
@@ -205,7 +205,7 @@ export default function WeeklyCalendar({
                 className="flex items-center gap-1 cursor-pointer"
                 title="Download schedule as image"
               >
-                <Download className="w-4 h-4" />
+                <Camera className="w-4 h-4" />
                 {isCapturing ? 'Capturing...' : 'Save'}
               </Button>
               
