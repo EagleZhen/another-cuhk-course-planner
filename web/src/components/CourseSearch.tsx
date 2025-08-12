@@ -47,6 +47,31 @@ export default function CourseSearch({
   onAvailableSubjectsUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
+  const [isSearching, setIsSearching] = useState(false)
+  
+  // Smooth debouncing for search performance
+  useEffect(() => {
+    // Immediate update for empty search (instant clear)
+    if (searchTerm === '') {
+      setDebouncedSearchTerm('')
+      setIsSearching(false)
+      return
+    }
+    
+    // Show searching state when user is typing
+    setIsSearching(true)
+    
+    // Short delay for single characters (responsive but not overwhelming)
+    const delay = searchTerm.length === 1 ? 400 : 200
+    
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm)
+      setIsSearching(false)
+    }, delay)
+    
+    return () => clearTimeout(timer)
+  }, [searchTerm])
   
   // Expose search function to parent
   useEffect(() => {
@@ -383,12 +408,12 @@ export default function CourseSearch({
     }
     
     // Determine if user has applied any filters or search
-    const hasFiltersOrSearch = searchTerm.trim() || selectedSubjects.size > 0
+    const hasFiltersOrSearch = debouncedSearchTerm.trim() || selectedSubjects.size > 0
     
     // Apply search term filter if provided
     let finalCourses = filteredCourses
-    if (searchTerm.trim()) {
-      const searchLower = searchTerm.toLowerCase()
+    if (debouncedSearchTerm.trim()) {
+      const searchLower = debouncedSearchTerm.toLowerCase()
       finalCourses = filteredCourses.filter(course => {
         // Create full course code without space for searching
         const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
@@ -416,15 +441,15 @@ export default function CourseSearch({
       total: finalCourses.length,
       isLimited: finalCourses.length > limit
     }
-  }, [searchTerm, allCourses, currentTerm, selectedSubjects])
+  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects])
 
   // Track search analytics - simplified for MVP
   useEffect(() => {
-    if (searchTerm.trim() && searchTerm.length > 2) {
+    if (debouncedSearchTerm.trim() && debouncedSearchTerm.length > 2) {
       const foundResults = searchResults.total > 0
       analytics.searchUsed(foundResults)
     }
-  }, [searchTerm, searchResults.total])
+  }, [debouncedSearchTerm, searchResults.total])
 
   // No complex filter tracking - keep it simple for MVP
 
@@ -433,13 +458,20 @@ export default function CourseSearch({
       {/* Sticky Search Input with Term Filter Hint */}
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
         <div className="w-full space-y-2">
-          <Input
-            type="text"
-            placeholder="Search courses (e.g., UGFH1000, In Dialogue with Nature, YU Bei)"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full"
-          />
+          <div className="relative">
+            <Input
+              type="text"
+              placeholder="Search courses (e.g., UGFH1000, In Dialogue with Nature, YU Bei)"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className={`w-full transition-all duration-200 ${isSearching ? 'pr-8' : ''}`}
+            />
+            {isSearching && (
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                <div className="w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+              </div>
+            )}
+          </div>
           <div className="flex items-center gap-2 text-xs text-gray-600">
             <Info className="w-3 h-3" />
             <span>Showing courses available in</span>
