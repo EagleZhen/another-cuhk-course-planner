@@ -8,7 +8,7 @@ import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { detectConflicts, enrollmentsToCalendarEvents, getSelectedSectionsForCourse, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, type InternalCourse, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
 import { analytics } from '@/lib/analytics'
 
 // Color assignment is now handled in courseUtils.ts
@@ -259,11 +259,22 @@ export default function Home() {
     )
   }
 
-  const handleAddCourse = (course: InternalCourse, sectionsMap: Map<string, string>) => {
+  const handleAddCourse = (course: InternalCourse, termName: string, localSelections: Map<string, string>) => {
     const courseKey = `${course.subject}${course.courseCode}`
     
-    // Get selected sections for this course
-    const selectedSectionsForCourse = getSelectedSectionsForCourse(course, currentTerm, sectionsMap)
+    // Convert local selections to actual section objects directly
+    const sectionTypes = parseSectionTypes(course, termName)
+    const selectedSectionsForCourse: InternalSection[] = []
+    
+    for (const [sectionType, sectionId] of localSelections) {
+      const typeGroup = sectionTypes.find(tg => tg.type === sectionType)
+      if (typeGroup) {
+        const section = typeGroup.sections.find(s => s.id === sectionId)
+        if (section) {
+          selectedSectionsForCourse.push(section)
+        }
+      }
+    }
     
     if (selectedSectionsForCourse.length === 0) {
       return // No valid sections selected
@@ -306,9 +317,9 @@ export default function Home() {
       setCourseEnrollments(prev => [...prev, newEnrollment])
     }
     
-    // Clear section selections for this course after adding/updating
-    const newSectionsMap = new Map(sectionsMap)
-    Array.from(sectionsMap.keys()).forEach(key => {
+    // Clear global section selections for this course after adding/updating
+    const newSectionsMap = new Map(selectedSections)
+    Array.from(selectedSections.keys()).forEach(key => {
       if (key.startsWith(`${courseKey}_`)) {
         newSectionsMap.delete(key)
       }

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSelectedSectionsForCourse, clearIncompatibleLowerSelections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -14,7 +14,7 @@ import { analytics } from '@/lib/analytics'
 
 
 interface CourseSearchProps {
-  onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  onAddCourse: (course: InternalCourse, termName: string, localSelections: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
@@ -115,15 +115,21 @@ export default function CourseSearch({
     const enrolled = getEnrolledCourse(course)
     if (!enrolled) return false
     
-    const currentSelections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
+    // Convert global selections to local format for this course
+    const courseKey = `${course.subject}${course.courseCode}`
+    const currentLocalSelections = new Map<string, string>()
+    for (const [key, sectionId] of selectedSections) {
+      if (key.startsWith(courseKey + '_')) {
+        const sectionType = key.substring(courseKey.length + 1)
+        currentLocalSelections.set(sectionType, sectionId)
+      }
+    }
     
-    // Compare section IDs
-    if (currentSelections.length !== enrolled.selectedSections.length) return true
+    // Compare with enrolled sections
+    if (currentLocalSelections.size !== enrolled.selectedSections.length) return true
     
-    return currentSelections.some(currentSection => 
-      !enrolled.selectedSections.some(enrolledSection => 
-        enrolledSection.id === currentSection.id
-      )
+    return enrolled.selectedSections.some(enrolledSection => 
+      currentLocalSelections.get(enrolledSection.sectionType) !== enrolledSection.id
     )
   }
 
@@ -752,7 +758,7 @@ export default function CourseSearch({
                     
                     onSelectedSectionsChange(newMap)
                   }}
-                  onAddCourse={onAddCourse}
+                  onAddCourse={(course, localSelections) => onAddCourse(course, currentTerm, localSelections)}
                   onRemoveCourse={onRemoveCourse}
                   isAdded={isCourseAdded(course)}
                   hasSelectionsChanged={hasSelectionsChanged(course)}
@@ -855,7 +861,7 @@ function CourseCard({
   onSearchReviews: (course: InternalCourse) => void
   onSearchInstructor: (instructorName: string) => void
   onSectionsChange: (course: InternalCourse, selections: Map<string, string>) => void
-  onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
+  onAddCourse: (course: InternalCourse, localSelections: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
   hasSelectionsChanged: boolean
