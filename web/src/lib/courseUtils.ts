@@ -935,38 +935,62 @@ export async function captureCalendarScreenshot(
     // Step 1: Store original styles and get full content dimensions
     const originalStyle = scrollableElement.style.cssText
     const fullContentHeight = scrollableElement.scrollHeight
-    const contentWidth = scrollableElement.scrollWidth
+    const contentWidth = Math.max(scrollableElement.scrollWidth, 800)
     
-    console.log(`📏 Content dimensions: ${contentWidth}x${fullContentHeight} (was constrained to 720px)`)
+    console.log(`📏 Original visible: ${scrollableElement.clientHeight}px, Full content: ${fullContentHeight}px`)
     
-    // Step 2: Temporarily expand to show all content
+    // Step 2: Temporarily expand to show ALL content (remove all constraints)
     scrollableElement.style.maxHeight = 'none'
-    scrollableElement.style.height = `${fullContentHeight}px`
+    scrollableElement.style.height = 'auto' // Let it expand naturally
     scrollableElement.style.overflow = 'visible'
+    scrollableElement.style.overflowY = 'visible'
+    
+    // Also ensure parent containers don't constrain us
+    const parentContainer = scrollableElement.parentElement
+    let originalParentStyle = ''
+    if (parentContainer) {
+      originalParentStyle = parentContainer.style.cssText
+      parentContainer.style.height = 'auto'
+      parentContainer.style.maxHeight = 'none'
+    }
     
     // Step 3: Force layout and wait for rendering
     scrollableElement.getBoundingClientRect()
-    await new Promise(resolve => setTimeout(resolve, 100))
+    await new Promise(resolve => setTimeout(resolve, 200)) // More time for layout
     
-    // Step 4: Capture the expanded content
+    // Step 4: Get actual expanded dimensions
+    const expandedRect = scrollableElement.getBoundingClientRect()
+    const actualWidth = Math.max(expandedRect.width, contentWidth)
+    const actualHeight = Math.max(expandedRect.height, fullContentHeight)
+    
+    console.log(`📏 Expanded to: ${actualWidth}x${actualHeight}`)
+    
+    // Step 5: Capture the expanded content
     const calendarDataUrl = await toPng(scrollableElement, {
       quality: 0.95,
       backgroundColor: '#ffffff',
       pixelRatio: 2.5, // High resolution for crisp output
-      width: contentWidth,
-      height: fullContentHeight,
+      width: actualWidth,
+      height: actualHeight,
+      style: {
+        transform: 'scale(1)',
+        transformOrigin: 'top left',
+      }
     })
     
-    // Step 5: Restore original styles immediately
+    // Step 6: Restore original styles immediately
     scrollableElement.style.cssText = originalStyle
+    if (parentContainer) {
+      parentContainer.style.cssText = originalParentStyle
+    }
     
-    // Step 6: Create final image with header and footer
+    // Step 7: Create final image with header and footer
     const padding = 80
-    const headerHeight = 120
+    const headerHeight = 140
     const footerHeight = 80
     
-    const finalWidth = Math.max(contentWidth + (padding * 2), 1000)
-    const finalHeight = fullContentHeight + headerHeight + footerHeight + (padding * 2)
+    const finalWidth = Math.max(actualWidth + (padding * 2), 1200)
+    const finalHeight = actualHeight + headerHeight + footerHeight + (padding * 2)
     
     const canvas = document.createElement('canvas')
     canvas.width = finalWidth
@@ -979,11 +1003,11 @@ export async function captureCalendarScreenshot(
     ctx.fillStyle = '#ffffff'
     ctx.fillRect(0, 0, finalWidth, finalHeight)
     
-    // Header with Geist font (matching your app)
-    ctx.fillStyle = '#1f2937'
-    ctx.font = 'bold 42px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    // Modern header with Inter-style font
+    ctx.fillStyle = '#111827'
+    ctx.font = 'bold 48px "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
     ctx.textAlign = 'center'
-    ctx.fillText(termName, finalWidth / 2, padding + 60)
+    ctx.fillText(termName, finalWidth / 2, padding + 70)
     
     // Load and draw calendar
     const calendarImage = new Image()
@@ -991,18 +1015,18 @@ export async function captureCalendarScreenshot(
     return new Promise<void>((resolve, reject) => {
       calendarImage.onload = () => {
         // Draw calendar centered
-        const calendarX = (finalWidth - contentWidth) / 2
+        const calendarX = (finalWidth - actualWidth) / 2
         const calendarY = padding + headerHeight
-        ctx.drawImage(calendarImage, calendarX, calendarY)
+        ctx.drawImage(calendarImage, calendarX, calendarY, actualWidth, actualHeight)
         
-        // Footer attribution
+        // Modern footer attribution
         ctx.fillStyle = '#6b7280'
-        ctx.font = '18px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+        ctx.font = '20px "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
         ctx.textAlign = 'center'
         ctx.fillText(
           `Generated from ${websiteUrl}`,
           finalWidth / 2,
-          finalHeight - padding + 30
+          finalHeight - padding + 35
         )
         
         // Download
