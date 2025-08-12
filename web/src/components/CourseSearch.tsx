@@ -70,8 +70,7 @@ export default function CourseSearch({
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   
-  // Simplified: Track which section types show all sections (per-course basis)
-  const [sectionTypesShowingAll, setSectionTypesShowingAll] = useState<Set<string>>(new Set())
+  // Removed global state - CourseCard now manages its own state
 
   // Calculate subjects that actually have courses in current term
   const subjectsWithCourses = useMemo(() => {
@@ -721,61 +720,37 @@ export default function CourseSearch({
                   key={`${course.subject}-${course.courseCode}-${index}`} 
                   course={course}
                   currentTerm={currentTerm}
-                  selectedSections={selectedSections}
                   onSearchReviews={searchCourseReviews}
                   onSearchInstructor={searchInstructor}
-                  sectionTypesShowingAll={sectionTypesShowingAll}
-                  onToggleShowAllForType={(sectionType) => {
-                    setSectionTypesShowingAll(prev => {
-                      const updated = new Set(prev)
-                      if (updated.has(sectionType)) {
-                        updated.delete(sectionType)
-                      } else {
-                        updated.add(sectionType)
-                      }
-                      return updated
-                    })
-                  }}
-                  onSectionToggle={(courseKey, sectionType, sectionId) => {
-                    const newMap = new Map(selectedSections)
-                    const selectionKey = `${courseKey}_${sectionType}`
-                    
-                    if (newMap.get(selectionKey) === sectionId) {
-                      // Remove selection
-                      newMap.delete(selectionKey)
-                      onSelectedSectionsChange(newMap)
-                      
-                      // Step 5: Reset "show all sections" state for this specific type when selection cleared
-                      if (sectionTypesShowingAll.has(sectionType)) {
-                        setSectionTypesShowingAll(prev => {
-                          const updated = new Set(prev)
-                          updated.delete(sectionType)
-                          return updated
-                        })
-                      }
-                    } else {
-                      // Set new selection (replaces any existing selection for this type)
-                      newMap.set(selectionKey, sectionId)
-                      
-                      // Find the course to get section types for cascade clearing
-                      const targetCourse = searchResults.courses.find(c => `${c.subject}${c.courseCode}` === courseKey)
-                      if (targetCourse) {
-                        const sectionTypes = parseSectionTypes(targetCourse, currentTerm)
-                        // Clear any lower-priority incompatible selections
-                        const clearedMap = clearIncompatibleLowerSelections(
-                          newMap, 
-                          courseKey, 
-                          sectionType as SectionType, // Type assertion for section type compatibility
-                          sectionId, 
-                          sectionTypes, 
-                          targetCourse, 
-                          currentTerm
-                        )
-                        onSelectedSectionsChange(clearedMap)
-                      } else {
-                        onSelectedSectionsChange(newMap)
+                  initialSelections={(() => {
+                    const courseKey = `${course.subject}${course.courseCode}`
+                    const courseSelections = new Map<string, string>()
+                    for (const [key, sectionId] of selectedSections) {
+                      if (key.startsWith(courseKey + '_')) {
+                        const sectionType = key.substring(courseKey.length + 1)
+                        courseSelections.set(sectionType, sectionId)
                       }
                     }
+                    return courseSelections
+                  })()}
+                  onSectionsChange={(course, newSelections) => {
+                    // Convert back to global format and update
+                    const courseKey = `${course.subject}${course.courseCode}`
+                    const newMap = new Map(selectedSections)
+                    
+                    // Remove old selections for this course
+                    for (const key of newMap.keys()) {
+                      if (key.startsWith(courseKey + '_')) {
+                        newMap.delete(key)
+                      }
+                    }
+                    
+                    // Add new selections
+                    for (const [sectionType, sectionId] of newSelections) {
+                      newMap.set(`${courseKey}_${sectionType}`, sectionId)
+                    }
+                    
+                    onSelectedSectionsChange(newMap)
                   }}
                   onAddCourse={onAddCourse}
                   onRemoveCourse={onRemoveCourse}
@@ -863,12 +838,10 @@ function InstructorFilters({
 function CourseCard({ 
   course, 
   currentTerm, 
-  selectedSections, 
+  initialSelections = new Map(),
   onSearchReviews,
   onSearchInstructor,
-  onSectionToggle, 
-  sectionTypesShowingAll,
-  onToggleShowAllForType,
+  onSectionsChange,
   onAddCourse,
   onRemoveCourse, 
   isAdded,
@@ -878,12 +851,10 @@ function CourseCard({
 }: { 
   course: InternalCourse
   currentTerm: string
-  selectedSections: Map<string, string>
+  initialSelections?: Map<string, string>
   onSearchReviews: (course: InternalCourse) => void
   onSearchInstructor: (instructorName: string) => void
-  onSectionToggle: (courseKey: string, sectionType: string, sectionId: string) => void
-  sectionTypesShowingAll: Set<string>
-  onToggleShowAllForType: (sectionType: string) => void
+  onSectionsChange: (course: InternalCourse, selections: Map<string, string>) => void
   onAddCourse: (course: InternalCourse, sectionsMap: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
@@ -893,23 +864,21 @@ function CourseCard({
 }) {
   const [expanded, setExpanded] = useState(false)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
-  const courseKey = `${course.subject}${course.courseCode}`
   
-  // Simplified: Extract course-specific selections as sectionType -> sectionId
-  const courseSelections = new Map<string, string>()
-  for (const [key, sectionId] of selectedSections) {
-    if (key.startsWith(courseKey + '_')) {
-      const sectionType = key.substring(courseKey.length + 1)
-      courseSelections.set(sectionType, sectionId)
-    }
-  }
+  // Fully decoupled: CourseCard manages its own state
+  const [localSelections, setLocalSelections] = useState<Map<string, string>>(initialSelections)
+  const [showAllSectionTypes, setShowAllSectionTypes] = useState<Set<string>>(new Set())
+  
+  const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
   
   // Get enrolled course for this course
   const enrolledCourse = courseEnrollments.find(enrollment => 
     enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
   )
-  const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, selectedSections)
+  
+  // Use local format directly - much simpler!
+  const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, localSelections)
 
   // Instructor filter toggle function
   const toggleInstructorFilter = (instructor: string) => {
@@ -1040,7 +1009,7 @@ function CourseCard({
                   onClick={(e) => {
                     e.stopPropagation()
                     if (hasSelectionsChanged && isEnrollmentComplete) {
-                      onAddCourse(course, selectedSections)
+                      onAddCourse(course, localSelections)
                     }
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
@@ -1060,7 +1029,7 @@ function CourseCard({
                 onClick={(e) => {
                   e.stopPropagation()
                   if (isEnrollmentComplete) {
-                    onAddCourse(course, selectedSections)
+                    onAddCourse(course, localSelections)
                   }
                 }}
                 disabled={!isEnrollmentComplete}
@@ -1144,7 +1113,7 @@ function CourseCard({
                   onClick={(e) => {
                     e.stopPropagation()
                     if (hasSelectionsChanged && isEnrollmentComplete) {
-                      onAddCourse(course, selectedSections)
+                      onAddCourse(course, localSelections)
                     }
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
@@ -1197,7 +1166,7 @@ function CourseCard({
                 onClick={(e) => {
                   e.stopPropagation()
                   if (isEnrollmentComplete) {
-                    onAddCourse(course, selectedSections)
+                    onAddCourse(course, localSelections)
                   }
                 }}
                 disabled={!isEnrollmentComplete}
@@ -1233,7 +1202,17 @@ function CourseCard({
             {/* Section Selection */}
             {sectionTypes.map(typeGroup => {
               // Get currently selected sections for this course to check compatibility
-              const currentlySelectedSections = getSelectedSectionsForCourse(course, currentTerm, selectedSections)
+              // Get currently selected sections from local selections
+              const currentlySelectedSections: InternalSection[] = []
+              for (const [sectionType, sectionId] of localSelections) {
+                const typeGroup = sectionTypes.find(t => t.type === sectionType)
+                if (typeGroup) {
+                  const section = typeGroup.sections.find(s => s.id === sectionId)
+                  if (section) {
+                    currentlySelectedSections.push(section)
+                  }
+                }
+              }
               
               // Only constrain by HIGHER priority selections (hierarchical flow)
               const higherPrioritySelections = currentlySelectedSections.filter(s => {
@@ -1265,7 +1244,7 @@ function CourseCard({
                     )}
                     {/* Step 3: Contextual badge messaging based on selection state */}
                     {(() => {
-                      const selectedSectionId = courseSelections.get(typeGroup.type)
+                      const selectedSectionId = localSelections.get(typeGroup.type)
                       
                       // If this type has a selection, show "locked" state
                       if (selectedSectionId) {
@@ -1314,8 +1293,8 @@ function CourseCard({
                   
                   {/* Step 4: Type-specific toggle controls for power users */}
                   {(() => {
-                    const showingAllForType = sectionTypesShowingAll.has(typeGroup.type)
-                    const selectedSectionId = courseSelections.get(typeGroup.type)
+                    const showingAllForType = showAllSectionTypes.has(typeGroup.type)
+                    const selectedSectionId = localSelections.get(typeGroup.type)
                     const hasHiddenSections = !showingAllForType && ((!selectedSectionId && incompatible.length > 0) || (selectedSectionId && typeGroup.sections.length > 1))
                     
                     if (hasHiddenSections || showingAllForType) {
@@ -1330,7 +1309,17 @@ function CourseCard({
                           <Button 
                             variant="ghost" 
                             size="sm"
-                            onClick={() => onToggleShowAllForType(typeGroup.type)}
+                            onClick={() => {
+                              setShowAllSectionTypes(prev => {
+                                const updated = new Set(prev)
+                                if (updated.has(typeGroup.type)) {
+                                  updated.delete(typeGroup.type)
+                                } else {
+                                  updated.add(typeGroup.type)
+                                }
+                                return updated
+                              })
+                            }}
                             className="h-5 px-2 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full"
                             title={showingAllForType ? `Hide filtered ${typeGroup.displayName} sections` : `Show all ${typeGroup.displayName} sections including filtered ones`}
                           >
@@ -1347,12 +1336,12 @@ function CourseCard({
                   {typeGroup.sections
                     .filter(section => {
                       // Power user override: show all sections for this type if explicitly enabled
-                      if (sectionTypesShowingAll.has(typeGroup.type)) {
+                      if (showAllSectionTypes.has(typeGroup.type)) {
                         return true // Skip all smart filtering for this section type
                       }
                       
                       // Step 1: Same-type filtering - if a section is selected, show only selected section
-                      const selectedSectionId = courseSelections.get(typeGroup.type)
+                      const selectedSectionId = localSelections.get(typeGroup.type)
                       if (selectedSectionId) {
                         return section.id === selectedSectionId
                       }
@@ -1379,7 +1368,7 @@ function CourseCard({
                       })
                     })
                     .map(section => {
-                    const isSelected = courseSelections.get(typeGroup.type) === section.id
+                    const isSelected = localSelections.get(typeGroup.type) === section.id
                     const isIncompatible = incompatible.includes(section)
                     const sectionPrefix = getSectionPrefix(section.sectionCode)
                     
@@ -1393,7 +1382,28 @@ function CourseCard({
                               ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale' 
                               : 'border border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
                         }`}
-                        onClick={() => !isIncompatible && onSectionToggle(courseKey, typeGroup.type, section.id)}
+                        onClick={() => {
+                          if (!isIncompatible) {
+                            const newSelections = new Map(localSelections)
+                            if (newSelections.get(typeGroup.type) === section.id) {
+                              // Remove selection
+                              newSelections.delete(typeGroup.type)
+                              // Reset "show all" state when clearing selection
+                              if (showAllSectionTypes.has(typeGroup.type)) {
+                                setShowAllSectionTypes(prev => {
+                                  const updated = new Set(prev)
+                                  updated.delete(typeGroup.type)
+                                  return updated
+                                })
+                              }
+                            } else {
+                              // Set new selection
+                              newSelections.set(typeGroup.type, section.id)
+                            }
+                            setLocalSelections(newSelections)
+                            onSectionsChange(course, newSelections)
+                          }
+                        }}
                         title={isIncompatible ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections` : undefined}
                       >
                         <div className="flex items-center justify-between mb-2">
