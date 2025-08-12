@@ -986,9 +986,9 @@ export async function captureCalendarScreenshot(
     }
     
     // Step 7: Create final image with header and footer
-    const padding = 40 // Reduced padding for less white space
-    const headerHeight = 100 // Tighter header
-    const footerHeight = 60 // Tighter footer
+    const padding = 50 // Minimal padding for tight layout
+    const headerHeight = 90 // Compact header
+    const footerHeight = 5 // Compact footer
     
     const finalWidth = Math.max(actualWidth + (padding * 2), 1000)
     const finalHeight = actualHeight + headerHeight + footerHeight + (padding * 2)
@@ -1010,7 +1010,7 @@ export async function captureCalendarScreenshot(
     
     // Header with your app's Geist font (exactly matching Next.js)
     ctx.fillStyle = '#111827'
-    ctx.font = 'bold 44px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+    ctx.font = 'bold 40px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
     ctx.textAlign = 'center'
     ctx.fillText(termName, finalWidth / 2, padding + 55)
     
