@@ -310,9 +310,9 @@ export default function WeeklyCalendar({
                                 backgroundImage: `repeating-linear-gradient(
                                   45deg,
                                   transparent,
-                                  transparent 4px,
-                                  rgba(255,255,255,0.3) 4px,
-                                  rgba(255,255,255,0.3) 8px
+                                  transparent 8px,
+                                  rgba(255,255,255,0.15) 8px,
+                                  rgba(255,255,255,0.15) 10px
                                 )`
                               })
                             }}
@@ -536,9 +536,9 @@ function UnscheduledSectionsCard({
                         backgroundImage: `repeating-linear-gradient(
                           45deg,
                           transparent,
-                          transparent 4px,
-                          rgba(255,255,255,0.3) 4px,
-                          rgba(255,255,255,0.3) 8px
+                          transparent 8px,
+                          rgba(255,255,255,0.15) 8px,
+                          rgba(255,255,255,0.15) 10px
                         )`
                       } : {}}
                       onClick={(e) => {
@@ -586,9 +586,9 @@ function UnscheduledSectionsCard({
                         backgroundImage: `repeating-linear-gradient(
                           45deg,
                           transparent,
-                          transparent 4px,
-                          rgba(255,255,255,0.3) 4px,
-                          rgba(255,255,255,0.3) 8px
+                          transparent 8px,
+                          rgba(255,255,255,0.15) 8px,
+                          rgba(255,255,255,0.15) 10px
                         )`
                       })
                     }}

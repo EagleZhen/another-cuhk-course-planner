@@ -179,12 +179,12 @@ export default function ShoppingCart({
                   }}
                   className={`
                     border rounded p-2 transition-all duration-300 relative
-                    border-l-4 border-gray-200 bg-white
+                    border-l-4 border-gray-200
                     ${isInvalid 
-                      ? 'border-orange-200 bg-orange-50 opacity-75 !border-l-orange-400' 
+                      ? 'bg-orange-50 opacity-75' 
                       : hasConflict 
-                        ? 'border-red-200 bg-red-50 !border-l-red-400' 
-                        : ''
+                        ? 'bg-red-50' 
+                        : 'bg-white'
                     }
                     ${!isVisible && !isInvalid ? 'opacity-60' : ''}
                     ${isSelected && isVisible && !isInvalid
@@ -193,9 +193,13 @@ export default function ShoppingCart({
                     }
                     ${!isVisible || isInvalid ? 'cursor-default' : 'cursor-pointer'}
                   `}
-                  style={(!isInvalid && !hasConflict && enrollment.color) ? {
-                    borderLeftColor: getComputedBorderColor(enrollment.color)
-                  } : {}}
+                  style={{
+                    ...(isInvalid ? {
+                      borderLeftColor: '#fb923c' // orange-400 for invalid courses
+                    } : enrollment.color ? {
+                      borderLeftColor: getComputedBorderColor(enrollment.color) // course color for normal/conflict courses
+                    } : {})
+                  }}
                   onClick={() => {
                     // Only allow selection if the enrollment is visible and not invalid
                     if (isVisible && !isInvalid && onSelectEnrollment) {
