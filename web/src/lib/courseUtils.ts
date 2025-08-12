@@ -342,33 +342,41 @@ export function getSectionTypeIcon(type: SectionType): string {
  * Check if a course enrollment is complete (has all required section types selected)
  * Now considers compatibility constraints - allows enrollment with orphan sections
  */
+// Clean, simple version - no legacy code!
 export function isCourseEnrollmentComplete(
   course: InternalCourse, 
   termName: string, 
-  selectedSections: Map<string, string>
+  localSelections: Map<string, string>
 ): boolean {
   const sectionTypes = parseSectionTypes(course, termName)
-  const courseKey = `${course.subject}${course.courseCode}`
-  
-  // Get currently selected sections
-  const currentlySelected = getSelectedSectionsForCourse(course, termName, selectedSections)
   
   // If no selections, not complete
-  if (currentlySelected.length === 0) return false
+  if (localSelections.size === 0) return false
+  
+  // Get currently selected sections (actual InternalSection objects)
+  const currentlySelected: InternalSection[] = []
+  for (const [sectionType, sectionId] of localSelections) {
+    const typeGroup = sectionTypes.find(t => t.type === sectionType)
+    if (typeGroup) {
+      const section = typeGroup.sections.find(s => s.id === sectionId)
+      if (section) {
+        currentlySelected.push(section)
+      }
+    }
+  }
   
   // For each section type, check if:
   // 1. User has selected it, OR
   // 2. No compatible sections exist for this type given current selections
   return sectionTypes.every(typeGroup => {
-    const selectionKey = `${courseKey}_${typeGroup.type}`
-    const hasSelection = selectedSections.has(selectionKey)
+    const hasSelection = localSelections.has(typeGroup.type)
     
     if (hasSelection) return true // User selected this type
     
     // Check if there are any compatible sections for this type
     // Only consider HIGHER priority selections as constraints (hierarchical)
     const higherPrioritySelections = currentlySelected.filter(s => {
-      const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+      const sPriority = getSectionTypePriority(s.sectionType as SectionType, sectionTypes)
       return sPriority < typeGroup.priority
     })
     
