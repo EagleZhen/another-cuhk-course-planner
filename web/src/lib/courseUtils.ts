@@ -917,3 +917,87 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
     className: 'bg-green-100 text-green-800 border-green-300'
   }
 }
+
+/**
+ * Captures a calendar screenshot with term name header and website attribution
+ */
+export async function captureCalendarScreenshot(
+  calendarElement: HTMLElement,
+  termName: string,
+  websiteUrl: string = typeof window !== 'undefined' ? window.location.origin : ''
+): Promise<void> {
+  const html2canvas = (await import('html2canvas')).default
+  
+  // Get the calendar element dimensions
+  const rect = calendarElement.getBoundingClientRect()
+  const padding = 40
+  const headerHeight = 80
+  const footerHeight = 40
+  
+  // Create a canvas with extra space for header and footer
+  const canvasWidth = Math.max(rect.width + (padding * 2), 800) // Minimum width
+  const canvasHeight = rect.height + headerHeight + footerHeight + (padding * 2)
+  
+  // Capture the calendar element
+  const calendarCanvas = await html2canvas(calendarElement, {
+    scrollX: 0,
+    scrollY: 0,
+    width: rect.width,
+    height: rect.height,
+    backgroundColor: '#ffffff',
+    scale: 2, // Higher resolution
+    useCORS: true,
+    allowTaint: true
+  })
+  
+  // Create a new canvas for the final image
+  const finalCanvas = document.createElement('canvas')
+  finalCanvas.width = canvasWidth
+  finalCanvas.height = canvasHeight
+  const ctx = finalCanvas.getContext('2d')
+  
+  if (!ctx) {
+    throw new Error('Failed to get canvas context')
+  }
+  
+  // Fill background
+  ctx.fillStyle = '#ffffff'
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight)
+  
+  // Draw term name header
+  ctx.fillStyle = '#1f2937' // gray-800
+  ctx.font = 'bold 32px system-ui, -apple-system, sans-serif'
+  ctx.textAlign = 'center'
+  ctx.fillText(termName, canvasWidth / 2, padding + 40)
+  
+  // Draw the calendar
+  const calendarX = (canvasWidth - rect.width) / 2
+  const calendarY = padding + headerHeight
+  ctx.drawImage(calendarCanvas, calendarX, calendarY)
+  
+  // Draw website attribution footer
+  ctx.fillStyle = '#6b7280' // gray-500
+  ctx.font = '14px system-ui, -apple-system, sans-serif'
+  ctx.textAlign = 'center'
+  ctx.fillText(
+    `Generated from ${websiteUrl}`, 
+    canvasWidth / 2, 
+    canvasHeight - padding + 20
+  )
+  
+  // Convert to blob and download
+  finalCanvas.toBlob((blob) => {
+    if (!blob) {
+      throw new Error('Failed to create image blob')
+    }
+    
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${termName}-${new Date().toISOString().split('T')[0]}.png`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }, 'image/png', 0.95)
+}

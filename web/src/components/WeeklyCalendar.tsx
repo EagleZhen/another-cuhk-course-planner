@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, Eye, EyeOff } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
+import { ChevronDown, Eye, EyeOff, Download } from 'lucide-react'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 // Clean calendar architecture - time-first approach
 interface CalendarDisplayConfig {
@@ -106,11 +106,33 @@ export default function WeeklyCalendar({
 }: WeeklyCalendarProps) {
   // Local state for display configuration testing
   const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
+  const [isCapturing, setIsCapturing] = useState(false)
+  
+  // Ref for capturing the calendar component
+  const calendarRef = useRef<HTMLDivElement>(null)
   
   // Toggle functions
   const toggleTime = () => setLocalDisplayConfig(prev => ({ ...prev, showTime: !prev.showTime }))
   const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
   const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
+  
+  // Screenshot function
+  const handleScreenshot = async () => {
+    if (!calendarRef.current) {
+      console.error('Calendar element not found')
+      return
+    }
+
+    setIsCapturing(true)
+    try {
+      await captureCalendarScreenshot(calendarRef.current, selectedTerm)
+    } catch (error) {
+      console.error('Screenshot capture failed:', error)
+      // You could show a toast notification here
+    } finally {
+      setIsCapturing(false)
+    }
+  }
   
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
   
@@ -143,22 +165,50 @@ export default function WeeklyCalendar({
             />
           </div>
           
-          <TermSelector 
-            selectedTerm={selectedTerm}
-            availableTerms={availableTerms}
-            onTermChange={onTermChange}
-          />
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleScreenshot}
+              disabled={isCapturing}
+              className="flex items-center gap-2 cursor-pointer"
+              title="Download schedule as image"
+            >
+              <Download className="w-4 h-4" />
+              {isCapturing ? 'Capturing...' : 'Save'}
+            </Button>
+            
+            <TermSelector 
+              selectedTerm={selectedTerm}
+              availableTerms={availableTerms}
+              onTermChange={onTermChange}
+            />
+          </div>
         </div>
 
         {/* Mobile layout: title row, then buttons row */}
         <div className="md:hidden">
           <div className="flex items-center justify-between mb-2">
             <CardTitle>Weekly Schedule</CardTitle>
-            <TermSelector 
-              selectedTerm={selectedTerm}
-              availableTerms={availableTerms}
-              onTermChange={onTermChange}
-            />
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleScreenshot}
+                disabled={isCapturing}
+                className="flex items-center gap-1 cursor-pointer"
+                title="Download schedule as image"
+              >
+                <Download className="w-4 h-4" />
+                {isCapturing ? 'Capturing...' : 'Save'}
+              </Button>
+              
+              <TermSelector 
+                selectedTerm={selectedTerm}
+                availableTerms={availableTerms}
+                onTermChange={onTermChange}
+              />
+            </div>
           </div>
           
           <DisplayToggleButtons
@@ -183,7 +233,7 @@ export default function WeeklyCalendar({
       <CardContent className="flex-1 px-4 py-0 overflow-hidden">
         {/* Mobile horizontal scroll wrapper */}
         <div className="overflow-x-auto h-full">
-          <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
+          <div className="min-w-[640px] h-full" ref={calendarRef}> {/* Wider minimum width for better course code display */}
             <div className="h-full max-h-[720px] overflow-y-auto">
               {/* Sticky Header Row */}
               <div className="grid border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
