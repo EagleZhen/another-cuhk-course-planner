@@ -821,7 +821,7 @@ function CourseCard({
     }
   }
 
-  // Get unique instructors from current term
+  // Get unique instructors from current term, sorted alphabetically
   const currentTermData = course.terms.find(term => term.termName === currentTerm)
   const instructors = Array.from(new Set(
     currentTermData?.sections.flatMap(section =>
@@ -831,7 +831,12 @@ function CourseCard({
         return instructorString.split(',').map(name => name.trim()).filter(Boolean)
       })
     ) || []
-  )).filter(Boolean)
+  )).filter(Boolean).sort((a, b) => {
+    // Sort alphabetically by the name part (without title like "Prof", "Dr", etc.)
+    const nameA = formatInstructorCompact(a).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+    const nameB = formatInstructorCompact(b).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+    return nameA.localeCompare(nameB)
+  })
 
   return (
     <Card 
@@ -877,16 +882,15 @@ function CourseCard({
               {/* Show all instructors as filter toggle buttons */}
               {instructors.length > 0 && (
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xs text-gray-500 font-medium">Instructors:</span>
                   {instructors.map(instructor => {
                     const formattedInstructor = formatInstructorCompact(instructor)
                     const isSelected = selectedInstructors.has(formattedInstructor)
                     return (
-                      <div key={formattedInstructor} className="flex items-center gap-1">
+                      <div key={formattedInstructor} className="flex items-center">
                         <Button 
                           variant={isSelected ? "default" : "outline"}
                           size="sm"
-                          className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                          className="h-6 pl-2 pr-1 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group"
                           onClick={(e) => {
                             e.stopPropagation()
                             toggleInstructorFilter(formattedInstructor)
@@ -894,34 +898,32 @@ function CourseCard({
                           title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
                         >
                           {formattedInstructor}
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-6 w-6 p-0 text-gray-400 hover:text-gray-600 cursor-pointer"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            onSearchInstructor(formattedInstructor)
-                          }}
-                          title={`Search Google for "${formattedInstructor}"`}
-                        >
-                          <Search className="w-3 h-3" />
+                          <div
+                            className="h-4 w-4 p-0 ml-1 flex items-center justify-center rounded hover:bg-black/10 cursor-pointer transition-colors"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onSearchInstructor(formattedInstructor)
+                            }}
+                            title={`Search Google for "${formattedInstructor}"`}
+                          >
+                            <Search className="w-2.5 h-2.5" />
+                          </div>
                         </Button>
                       </div>
                     )
                   })}
                   {selectedInstructors.size > 0 && (
                     <Button
-                      variant="ghost"
+                      variant="secondary"
                       size="sm"
-                      className="h-6 px-2 text-xs font-normal text-gray-500 hover:text-gray-700 cursor-pointer"
+                      className="h-6 px-3 text-xs font-medium cursor-pointer bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
                       onClick={(e) => {
                         e.stopPropagation()
                         setSelectedInstructors(new Set())
                       }}
                       title="Clear all instructor filters"
                     >
-                      Clear
+                      Clear All
                     </Button>
                   )}
                 </div>
@@ -1052,16 +1054,15 @@ function CourseCard({
               {/* Show instructors as filter toggle buttons on mobile */}
               {instructors.length > 0 && (
                 <div className="flex items-center gap-2 flex-wrap w-full">
-                  <span className="text-xs text-gray-500 font-medium">Instructors:</span>
                   {instructors.map(instructor => {
                     const formattedInstructor = formatInstructorCompact(instructor)
                     const isSelected = selectedInstructors.has(formattedInstructor)
                     return (
-                      <div key={formattedInstructor} className="flex items-center gap-1">
+                      <div key={formattedInstructor} className="flex items-center">
                         <Button 
                           variant={isSelected ? "default" : "outline"}
                           size="sm"
-                          className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                          className="h-6 pl-2 pr-1 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group"
                           onClick={(e) => {
                             e.stopPropagation()
                             toggleInstructorFilter(formattedInstructor)
@@ -1069,34 +1070,32 @@ function CourseCard({
                           title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
                         >
                           {formattedInstructor}
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-6 w-6 p-0 text-gray-400 hover:text-gray-600 cursor-pointer"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            onSearchInstructor(formattedInstructor)
-                          }}
-                          title={`Search Google for "${formattedInstructor}"`}
-                        >
-                          <Search className="w-3 h-3" />
+                          <div
+                            className="h-4 w-4 p-0 ml-1 flex items-center justify-center rounded hover:bg-black/10 cursor-pointer transition-colors"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onSearchInstructor(formattedInstructor)
+                            }}
+                            title={`Search Google for "${formattedInstructor}"`}
+                          >
+                            <Search className="w-2.5 h-2.5" />
+                          </div>
                         </Button>
                       </div>
                     )
                   })}
                   {selectedInstructors.size > 0 && (
                     <Button
-                      variant="ghost"
+                      variant="secondary"
                       size="sm"
-                      className="h-6 px-2 text-xs font-normal text-gray-500 hover:text-gray-700 cursor-pointer"
+                      className="h-6 px-3 text-xs font-medium cursor-pointer bg-red-50 text-red-700 border-red-200 hover:bg-red-100"
                       onClick={(e) => {
                         e.stopPropagation()
                         setSelectedInstructors(new Set())
                       }}
                       title="Clear all instructor filters"
                     >
-                      Clear
+                      Clear All
                     </Button>
                   )}
                 </div>
