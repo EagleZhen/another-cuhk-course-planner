@@ -444,7 +444,7 @@ function TermSelector({
         variant="outline"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 cursor-pointer ${isOpen ? 'relative z-50' : ''}`}
+        className={`flex items-center gap-2 cursor-pointer ${isOpen ? 'relative z-[60]' : ''}`}
       >
         <span className="text-sm">{selectedTerm}</span>
         <ChevronDown className="w-3 h-3" />
@@ -453,11 +453,11 @@ function TermSelector({
       {isOpen && (
         <>
           <div 
-            className="fixed inset-0 z-40 cursor-pointer" 
+            className="fixed inset-0 z-[55] cursor-pointer" 
             onClick={() => setIsOpen(false)}
           />
           
-          <div className="absolute right-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
+          <div className="absolute right-0 top-full mt-1 z-[60] bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
             <div className="py-1">
               {availableTerms.map(term => (
                 <button
