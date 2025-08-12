@@ -313,7 +313,7 @@ export default function ShoppingCart({
                       const sectionPosition = `${currentIndex + 1}/${compatible.length}`
                       
                       return (
-                        <div key={section.id} className="bg-gray-50 rounded px-2 py-2">
+                        <div key={section.id} className="bg-gray-50 rounded px-2 py-2 border">
                           {/* Section header with cycling buttons */}
                           <div className="flex items-center justify-between mb-1">
                             <div className="flex items-center gap-2">
