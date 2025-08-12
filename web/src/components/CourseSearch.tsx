@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, startTransition } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -66,8 +66,12 @@ export default function CourseSearch({
     const delay = searchTerm.length === 1 ? 400 : 200
     
     const timer = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm)
-      setIsSearching(false)
+      // Use startTransition to mark search updates as non-urgent
+      // This prevents search processing from blocking user input
+      startTransition(() => {
+        setDebouncedSearchTerm(searchTerm)
+        setIsSearching(false)
+      })
     }, delay)
     
     return () => clearTimeout(timer)
