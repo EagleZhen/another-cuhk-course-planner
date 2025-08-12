@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-10T08:50:52.926556",
+    "scraped_at": "2025-08-12T02:21:29.926694",
     "subject": "GNBF",
     "total_courses": 8,
     "scraper_version": "memory-safe-v2.0"
@@ -65,15 +65,21 @@
                   "time": "Sa 1:30PM - 3:45PM",
                   "location": "Yasumoto Int'l Acad Park LT7",
                   "instructor": "Dr. HUANG Yongjie",
-                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12, 13/12, 20/12"
+                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12, 13/12"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "20/12"
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "90",
                 "enrolled": "74",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -164,7 +170,13 @@
                   "time": "Sa 4:00PM - 6:15PM",
                   "location": "Yasumoto Int'l Acad Park LT7",
                   "instructor": "Dr. WONG Kwong Fai",
-                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12, 13/12, 20/12"
+                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12, 13/12"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. WONG Kwong Fai",
+                  "dates": "20/12"
                 }
               ],
               "availability": {

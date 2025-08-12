@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-10T09:19:21.939540",
+    "scraped_at": "2025-08-12T02:52:41.317690",
     "subject": "IEMS",
     "total_courses": 24,
     "scraper_version": "memory-safe-v2.0"
@@ -21,43 +21,43 @@
               "meetings": [
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT6",
                   "instructor": "Professor CHEN He",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT6",
                   "instructor": "Professor CHEN He",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT6",
                   "instructor": "Professor CHEN He",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT6",
                   "instructor": "Professor CHEN He",
                   "dates": "14/4"
                 },
                 {
                   "time": "Th 2:30PM - 3:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT5",
                   "instructor": "Professor CHEN He",
                   "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
                   "time": "Th 2:30PM - 3:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT5",
                   "instructor": "Professor CHEN He",
                   "dates": "26/2"
                 },
                 {
                   "time": "Th 2:30PM - 3:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT5",
                   "instructor": "Professor CHEN He",
                   "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
@@ -179,12 +179,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
-                "enrolled": "70",
-                "waitlist_capacity": "10",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "capacity": "80",
+                "enrolled": "79",
+                "waitlist_capacity": "30",
+                "waitlist_total": "1",
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -236,7 +236,7 @@
               "availability": {
                 "capacity": "80",
                 "enrolled": "80",
-                "waitlist_capacity": "10",
+                "waitlist_capacity": "30",
                 "waitlist_total": "10",
                 "available_seats": "0",
                 "status": "Waitlisted"
@@ -309,12 +309,12 @@
                 }
               ],
               "availability": {
-                "capacity": "120",
-                "enrolled": "120",
+                "capacity": "130",
+                "enrolled": "129",
                 "waitlist_capacity": "10",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "waitlist_total": "1",
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -404,7 +404,7 @@
               "availability": {
                 "capacity": "20",
                 "enrolled": "20",
-                "waitlist_capacity": "10",
+                "waitlist_capacity": "20",
                 "waitlist_total": "10",
                 "available_seats": "0",
                 "status": "Waitlisted"
@@ -707,12 +707,12 @@
                 }
               ],
               "availability": {
-                "capacity": "140",
-                "enrolled": "140",
+                "capacity": "160",
+                "enrolled": "148",
                 "waitlist_capacity": "10",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "waitlist_total": "2",
+                "available_seats": "12",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -805,12 +805,12 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
-                "enrolled": "80",
+                "capacity": "100",
+                "enrolled": "90",
                 "waitlist_capacity": "10",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -854,12 +854,12 @@
                 }
               ],
               "availability": {
-                "capacity": "140",
-                "enrolled": "140",
+                "capacity": "150",
+                "enrolled": "147",
                 "waitlist_capacity": "10",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "waitlist_total": "3",
+                "available_seats": "3",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -941,12 +941,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
-                "enrolled": "70",
-                "waitlist_capacity": "10",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "capacity": "85",
+                "enrolled": "80",
+                "waitlist_capacity": "30",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
