@@ -239,8 +239,8 @@ export default function WeeklyCalendar({
       <CardContent className="flex-1 px-4 py-0 overflow-hidden">
         {/* Mobile horizontal scroll wrapper */}
         <div className="overflow-x-auto h-full">
-          <div className="min-w-[640px] h-full" ref={calendarRef}> {/* Wider minimum width for better course code display */}
-            <div className="h-full max-h-[720px] overflow-y-auto">
+          <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
+            <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef}>
               {/* Sticky Header Row */}
               <div className="grid border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
                 <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
