@@ -280,12 +280,13 @@ console.log(`⚡ Performance Summary:
 - **Engineering Pragmatism**: "Dump everything" to localStorage is often the most maintainable approach
 - **Impact over Perfection**: Focus on real production issues before theoretical optimizations
 
-**Latest Architectural Insights (Visual Polish Work):**
+**Latest Architectural Insights (Performance & UX Complete):**
+- **Load Performance Solved**: Parallel JSON loading achieves <1s initial load time (47s → <1s)
+- **Data Architecture Success**: Simple "load everything" approach more maintainable than complex lazy loading
 - **Visual Accessibility**: Selection indicators must work on all background colors - universal patterns > color-dependent rings
-- **Mutually Exclusive CSS Classes**: Avoid Tailwind class conflicts by using conditional logic instead of layering classes
 - **Dual-Layer UX Patterns**: Quick indicators (header) + detailed information (content) provide optimal user experience
-- **Color System Integration**: Consistent color mapping between components improves user mental model
-- **Layout Hierarchy**: Proper spacing and alignment communicate information priority effectively
+- **Screenshot Over URL Sharing**: Image sharing more universal than state encoding for user collaboration
+- **Privacy-First Analytics**: Student trust > detailed tracking - Vercel basic metrics sufficient for academic tools
 
 **Previous Architectural Insights:**
 - **Avoid Side Effects**: Local actions should have local effects - global state creates debugging nightmares
@@ -317,45 +318,40 @@ if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
 
 ### **🔧 Current Technical Priorities & Next Steps**
 
-**Priority 1: Performance Optimization (Critical)**
-- **Current Issue**: Initial 47-second load time (202 subjects, 32-45MB) - Only affects first page load
-- **Status**: Term switching now instant (session caching implemented)
-- **Next Step**: Index-based lazy loading for faster initial experience
+**System Status**: Core functionality complete and performant ✅
+- ✅ **Load Performance**: <1s initial load via parallel JSON requests  
+- ✅ **Data Sync**: Shopping cart syncs with scraped data
+- ✅ **State Management**: Clean localStorage with proper hydration
+- ✅ **UI/UX Polish**: Selection patterns, conflict visualization, screenshot system
+- ✅ **Component Architecture**: Decoupled, self-contained components
 
-**Planned Solution Strategy**: 
-```typescript
-// Phase 1: Load lightweight term index (~1.5MB, 2-3 seconds)
-const indexData = await fetch(`/data/Index ${currentTerm}.json`)
-// Show searchable course cards immediately with basic info
+**Current Development Status** (August 2025):
+- **Public Launch**: >100 visitors from school forums
+- **Performance**: <1s load times, stable core functionality
+- **Daily Scraping**: Automated data updates during enrollment periods
 
-// Phase 2: Load full subject data on-demand when cards expand
-const loadSubjectOnDemand = async (subject: string) => {
-  if (!isSubjectLoaded(subject)) {
-    const subjectData = await fetch(`/data/${subject}.json`)
-    // Show full section details, availability, etc.
-  }
-}
-```
+**Immediate Priorities** (Prioritized by impact + effort):
 
-**Architecture Approach**: Simple utility functions over complex hooks for maintainability
+**Priority 1: User Analytics (Completed - Ethical Decision Made)**
+- **Decision**: Reverted from PostHog to Vercel Analytics only
+- **Reason**: Privacy-first approach - uBlock Origin blocked PostHog (strong user signal)
+- **Student Trust**: Academic tools should respect privacy, not track secretly
+- **Current Analytics**: Basic Vercel metrics (page views, performance) - non-invasive
 
-**Priority 2: CourseSearch Component Refactoring ✅ COMPLETED**  
-**Issues Successfully Resolved:**
-- ✅ **Component Decoupling**: CourseCard now fully self-contained with local state
-- ✅ **Smart Section Filtering**: Context-aware filtering reduces cognitive load
-- ✅ **Mobile Responsiveness**: Complete touch-friendly mobile experience  
-- ✅ **Legacy Code Removal**: Eliminated complex global state and conversion logic
-- ✅ **Maintainability**: Clean architecture with no side effects between components
+**Priority 2: SEO Implementation (Planned)**
+- **Static Course Pages**: Google-indexable course information
+- **Organic Discovery**: Students googling courses find the tool
+- **Impact**: 10x user acquisition potential through search traffic
+- **Effort**: ~3-4 hours (Next.js static generation)
 
-**Current Status**: CourseCard is now enterprise-ready with excellent maintainability
+**Priority 3: Content Enhancement**
+- **Course Outcomes Scraping**: Add Learning Outcomes and Assessment Types
+- **Language Filtering**: Smart detection of teaching language
+- **Impact**: Enhanced academic planning information
 
-**Priority 3: Shopping Cart Section Cycling Enhancement**
-- Orphan section cycling doesn't reveal newly compatible types (F-LEC → A-LEC compatibility display)
-- Need full availability display instead of selectedSections-only approach
-
-**Priority 4: Advanced Features**
-- URL state encoding for shareable schedules with compressed data
-- Mobile touch interactions and responsive calendar scaling
+**Priority 4: UI/UX Polish**
+- **Visual Improvements**: Color refinements, mobile experience
+- **Impact**: Enhanced user experience and accessibility
 
 ## Core Implementation Details
 
@@ -466,6 +462,172 @@ Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 - `courseUtils.ts`: Pure functions using internal types
 - Components: Internal types exclusively
 
+## ✅ Latest Achievement: Scraper Infrastructure Modernization (August 2025)
+
+**Major Scraper Improvements & Architecture Cleanup**: 
+1. **Timezone-Aware Timestamps**: All timestamps now use UTC with timezone information for international users
+2. **Progress Tracking Optimization**: Simplified session-based progress tracking with clean separation of concerns
+3. **Dead Code Elimination**: Removed unused index file generation and streamlined core scraper functionality
+4. **React Portal Screenshot System**: Complete screenshot functionality with unscheduled sections and clean layout
+
+### **🌍 Timezone Infrastructure Modernization**
+
+**Problem Solved**: Ambiguous timestamps confused international users
+**Solution**: UTC-based timestamp system with automatic local conversion
+
+```python
+# Before: Ambiguous local timestamps
+"last_scraped": "2025-08-12T02:13:03.992733"  # What timezone?
+
+# After: Clear UTC timestamps with timezone info
+"last_scraped": "2025-08-13T05:21:32.257086+00:00"  # Clearly UTC
+
+# Frontend automatically converts to user's timezone:
+lastDataUpdate.toLocaleString()
+// Los Angeles: "8/12/2025, 10:21:32 PM"
+// London: "8/13/2025, 6:21:32 AM"  
+// Hong Kong: "8/13/2025, 1:21:32 PM"
+```
+
+**Implementation Details:**
+- ✅ **UTC Utility Function**: `utc_now_iso()` for consistent timestamp generation
+- ✅ **Automatic Frontend Conversion**: JavaScript `toLocaleString()` handles timezone display
+- ✅ **Backward Compatibility**: Seamless upgrade from naive timestamps
+- ✅ **International UX**: Clear context for users worldwide
+
+### **📊 Progress Tracking Architecture Cleanup**
+
+**Problem Solved**: Confusing `created_at` vs session start, overly complex progress loading
+**Solution**: Clean session-based tracking with preserved subject data
+
+```python
+# Before: Confusing historical timestamps
+"created_at": "2025-07-29T19:02:27.927695",     # When was this created?
+"last_updated": "2025-08-13T05:25:41.366178+00:00"
+
+# After: Clear session tracking
+"started_at": "2025-08-13T06:02:23.348263+00:00",    # THIS session start
+"last_updated": "2025-08-13T06:02:23.348388+00:00"   # Latest activity
+```
+
+**Key Architecture Principles:**
+- ✅ **Session Focus**: Track current scraping session, not historical file creation
+- ✅ **Subject Preservation**: Keep existing subject data for subjects not being scraped
+- ✅ **Fresh Session Logic**: Each new scraping run gets fresh `started_at`
+- ✅ **Simplified Loading**: No unnecessary resume logic in core scraper
+
+### **🧹 Code Cleanup & Maintainability**
+
+**Removed Dead Code:**
+- ✅ **Index File Generation**: 61 lines of unused code + 4 scattered calls eliminated
+- ✅ **Legacy Timestamp Fields**: `created_at` automatically converted/removed
+- ✅ **Documentation Updates**: Removed outdated references
+
+**Architectural Insights Gained:**
+- **Keep Core Focused**: Scraper should scrape, orchestration logic belongs in external scripts
+- **File-Level Safety**: Per-subject JSON files provide natural protection against data loss
+- **Session vs Historical**: Clear separation between current session tracking and historical data
+- **Maintainable Simplicity**: Sometimes the simplest approach is the most maintainable
+
+### **📸 React Portal Screenshot System**
+
+**Complete Screenshot Infrastructure:**
+- ✅ **React Portal Approach**: Clean overlay without affecting main layout
+- ✅ **Complete Schedule Capture**: Calendar + unscheduled sections in one image
+- ✅ **Interactive Display Controls**: Live toggle of time/location/instructor/title visibility
+- ✅ **Clean Layout**: Professional header, proper spacing, website attribution
+
+**Technical Implementation:**
+```typescript
+// Clean portal-based approach avoiding DOM cloning issues
+<Portal>
+  <ScreenshotOverlay 
+    events={events}
+    unscheduledSections={unscheduledSections}
+    displayConfig={localDisplayConfig}
+    onClose={() => setShowScreenshotOverlay(false)}
+  />
+</Portal>
+```
+
+### **🔒 Analytics Privacy Decision (August 2025)**
+
+**Problem Discovered**: PostHog tracking blocked by uBlock Origin - strong signal about student privacy expectations
+**Solution**: Privacy-first approach using only Vercel basic analytics
+
+**Critical Learning:**
+- **Student Demographics**: University students highly privacy-conscious (ad blockers, privacy tools)
+- **Trust Implications**: Academic tools must prioritize student trust over detailed tracking  
+- **Data Quality**: Privacy-aware users opting out creates biased analytics data
+- **Ethical Alignment**: Course planning is personal academic data - invasive tracking inappropriate
+
+**Implementation Decision:**
+```typescript
+// ❌ REJECTED: Detailed user tracking (PostHog, Google Analytics)
+// ✅ CHOSEN: Basic performance metrics only (Vercel Analytics)
+import { Analytics } from '@vercel/analytics/react'  // Non-invasive page views
+import { SpeedInsights } from '@vercel/speed-insights/next'  // Performance data
+```
+
+**Alternative Data Sources:**
+- Forum feedback and user testimonials  
+- Return visitor patterns (basic Vercel metrics)
+- Direct user feedback through FeedbackButton component
+- Screenshot usage as engagement indicator
+
+**Architectural Impact:**
+- Simplified analytics architecture
+- Enhanced student trust and forum reputation  
+- Focus on qualitative feedback over quantitative tracking
+- Privacy-by-design approach aligns with academic tool expectations
+
+## Current System Status (August 2025)
+
+### **🏗️ Production Infrastructure Status**
+
+**Scraper System: ENTERPRISE-GRADE**
+- ✅ **Timezone-Aware**: UTC timestamps with international user support
+- ✅ **Session-Based Progress**: Clean current session tracking
+- ✅ **Crash-Resistant**: JSONL recovery with per-subject file protection
+- ✅ **Maintainable Architecture**: Dead code eliminated, focused responsibilities
+
+**Frontend System: PRODUCTION-READY** 
+- ✅ **Complete Screenshot System**: React Portal with interactive controls
+- ✅ **Visual Polish**: Universal selection patterns, course-colored indicators
+- ✅ **Component Architecture**: Fully decoupled, self-contained components
+- ✅ **Type Safety**: Zero `any` types, complete runtime validation
+
+**Key Architecture Evolution:**
+```
+August 2025: Clean Separation of Concerns
+├── Core Scraper: Pure scraping functionality
+├── External Scripts: Orchestration & retry logic  
+├── Progress Tracking: Session-focused, subject-preserving
+└── Frontend: Portal-based features, timezone-aware display
+```
+
+## Future Maintenance Opportunities
+
+### **Scraper Code Cleanup (Low Priority)**
+
+**Potential Refactoring Areas** (Only when system stability allows):
+
+1. **Method Usage Analysis**: Some methods may have overlapping responsibilities
+   - `scrape_all_subjects()` vs `scrape_and_export_production()` - Similar functionality with different optimizations
+   - `export_to_json()` vs direct export in production methods - Manual export vs automated export
+   
+2. **Parameter Complexity Reduction**: 
+   - `scrape_subject()` has many parameter combinations, some rarely used
+   - Consider splitting into focused methods for common use cases
+
+3. **Legacy Testing Code**: 
+   - Main function contains extensive demonstration code
+   - Could be simplified to focus on core functionality
+
+**Recommendation**: Only pursue these cleanups after major user-facing features are complete and system is fully stable in production. Current architecture works well and is maintainable.
+
+**Priority Ranking**: User-facing performance improvements >> Feature completeness >> Code cleanup
+
 ---
 
-*Last updated: January 2025 - Latest achievement: Visual Polish & UX Refinements completed. Fixed selection ring visibility with universal diagonal stripe patterns, enhanced shopping cart with course-colored borders and conflict backgrounds, improved invalid course display with proper layout hierarchy. Combined with previous Smart Section Filtering & Component Decoupling, the system now demonstrates engineering excellence: maintainable architecture + polished user experience + visual accessibility.*
+*Last updated: August 2025 - Public Launch Success: >100 users from school forums with enterprise-grade performance (<1s load times, intelligent course management, polished UX). Core infrastructure complete - scraper modernization, timezone handling, screenshot system, component architecture. Key Decision: Privacy-first analytics approach using basic Vercel metrics only, prioritizing student trust over detailed tracking. Current focus: SEO implementation for organic user acquisition through Google search.*

@@ -3,13 +3,17 @@ import json
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any
 from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import time
 import logging
 import ddddocr
 import onnxruntime
 import os
 import gc
+
+def utc_now_iso():
+    """Get current UTC timestamp in ISO format with timezone info"""
+    return datetime.now(timezone.utc).isoformat()
 
 @dataclass
 class ScrapingConfig:
@@ -106,25 +110,32 @@ class ScrapingProgressTracker:
         self.progress_data = self._load_progress()
     
     def _load_progress(self) -> Dict:
-        """Load existing progress or create new structure"""
+        """Load existing subject data but start fresh session tracking"""
+        existing_subjects = {}
+        
+        # Load existing subject data if progress file exists
         if os.path.exists(self.progress_file):
             try:
                 with open(self.progress_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                self.logger.info(f"Loaded existing progress from {self.progress_file}")
-                return data
+                
+                # Preserve existing subject data (so we don't lose completed subjects)
+                if "scraping_log" in data and "subjects" in data["scraping_log"]:
+                    existing_subjects = data["scraping_log"]["subjects"]
+                    self.logger.info(f"Preserved data for {len(existing_subjects)} existing subjects")
+                
             except Exception as e:
-                self.logger.warning(f"Could not load progress file: {e}, starting fresh")
+                self.logger.warning(f"Could not load progress file: {e}, starting with fresh session")
         
-        # Create new progress structure
+        # Always start with fresh session tracking, but preserve existing subject data
         return {
             "scraping_log": {
-                "created_at": datetime.now().isoformat(),
-                "last_updated": datetime.now().isoformat(),
-                "total_subjects": 0,
-                "completed": 0,
-                "failed": 0,
-                "subjects": {}
+                "started_at": utc_now_iso(),    # Fresh session start time
+                "last_updated": utc_now_iso(),  # Fresh session activity
+                "total_subjects": 0,            # Will be set by scrape_all_subjects
+                "completed": 0,                 # Fresh counts for current session
+                "failed": 0,                    # Fresh counts for current session
+                "subjects": existing_subjects   # Preserve existing subject data
             }
         }
     
@@ -136,7 +147,7 @@ class ScrapingProgressTracker:
             if dir_path:  # Only create directory if path contains a directory
                 os.makedirs(dir_path, exist_ok=True)
             
-            self.progress_data["scraping_log"]["last_updated"] = datetime.now().isoformat()
+            self.progress_data["scraping_log"]["last_updated"] = utc_now_iso()
             
             with open(self.progress_file, 'w', encoding='utf-8') as f:
                 json.dump(self.progress_data, f, ensure_ascii=False, indent=2)
@@ -150,12 +161,12 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["scraping_log"]["subjects"]
         subjects[subject] = {
             "status": "in_progress",
-            "started_at": datetime.now().isoformat(),
+            "started_at": utc_now_iso(),
             "estimated_courses": estimated_courses,
             "courses_scraped": 0,
             "completed_courses": [],  # Track completed course codes
             "last_course_completed": "",
-            "last_progress_update": datetime.now().isoformat(),
+            "last_progress_update": utc_now_iso(),
             "retry_count": subjects.get(subject, {}).get("retry_count", 0)
         }
         self._save_progress()
@@ -168,7 +179,7 @@ class ScrapingProgressTracker:
             subject_data = subjects[subject]
             subject_data["courses_scraped"] = total_courses_scraped
             subject_data["last_course_completed"] = course_code
-            subject_data["last_progress_update"] = datetime.now().isoformat()
+            subject_data["last_progress_update"] = utc_now_iso()
             
             # Add to completed courses list if not already there
             completed_courses = subject_data.get("completed_courses", [])
@@ -196,7 +207,7 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["scraping_log"]["subjects"]
         subjects[subject] = {
             "status": "completed",
-            "last_scraped": datetime.now().isoformat(),
+            "last_scraped": utc_now_iso(),
             "courses_count": courses_count,
             "courses_scraped": courses_count,
             "output_file": output_file,
@@ -220,7 +231,7 @@ class ScrapingProgressTracker:
         
         subjects[subject] = {
             "status": "failed",
-            "last_attempt": datetime.now().isoformat(),
+            "last_attempt": utc_now_iso(),
             "error": str(error_message)[:200],  # Limit error message length
             "retry_count": retry_count,
             "courses_scraped": current_data.get("courses_scraped", 0)
@@ -1219,12 +1230,7 @@ class CuhkScraper:
         if self.progress_tracker:
             self.progress_tracker.print_summary()
         
-        # Generate index file for frontend discovery
-        if completed_subjects:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Final summary
         self.logger.info(f"🎉 SCRAPING COMPLETED!")
         self.logger.info(f"✅ Completed: {len(completed_subjects)} subjects")
@@ -1246,12 +1252,7 @@ class CuhkScraper:
         
         results = self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
-        # Generate index file for frontend discovery
-        if results['completed']:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
         completed_count = len(results['completed'])
         failed_count = len(results['failed'])
@@ -1284,12 +1285,7 @@ class CuhkScraper:
         # Continue scraping remaining subjects
         results = self.scrape_all_subjects(remaining_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
-        # Generate index file for frontend discovery
-        if results['completed']:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
         completed_count = len(results['completed'])
         failed_count = len(results['failed'])
@@ -1314,12 +1310,7 @@ class CuhkScraper:
         # Retry failed subjects
         results = self.scrape_all_subjects(failed_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
-        # Generate index file for frontend discovery
-        if results['completed']:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
         completed_count = len(results['completed'])
         failed_count = len(results['failed'])
@@ -1331,7 +1322,7 @@ class CuhkScraper:
             # Create subject data structure with timestamp in metadata (not filename)
             subject_data = {
                 "metadata": {
-                    "scraped_at": datetime.now().isoformat(),
+                    "scraped_at": utc_now_iso(),
                     "subject": subject,
                     "total_courses": len(courses),
                     "scraper_version": "memory-safe-v2.0"
@@ -1351,68 +1342,6 @@ class CuhkScraper:
         except Exception as e:
             self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
             return None
-    
-    def generate_index_file(self, output_dir: str = "data") -> str:
-        """Generate index.json file listing all available subjects"""
-        try:
-            if not os.path.exists(output_dir):
-                self.logger.warning(f"Output directory {output_dir} does not exist")
-                return ""
-            
-            subjects = []
-            total_courses = 0
-            
-            # Scan for subject JSON files
-            for filename in os.listdir(output_dir):
-                if filename.endswith('.json') and filename != 'index.json' and filename != 'scraping_progress.json':
-                    subject_code = filename.replace('.json', '')
-                    
-                    # Try to read the file to get metadata
-                    try:
-                        filepath = os.path.join(output_dir, filename)
-                        with open(filepath, 'r', encoding='utf-8') as f:
-                            data = json.load(f)
-                        
-                        if 'metadata' in data and 'courses' in data:
-                            course_count = data['metadata'].get('total_courses', len(data['courses']))
-                            scraped_at = data['metadata'].get('scraped_at', '')
-                            
-                            subjects.append({
-                                'code': subject_code,
-                                'course_count': course_count,
-                                'last_updated': scraped_at,
-                                'file': filename
-                            })
-                            total_courses += course_count
-                            
-                    except Exception as e:
-                        self.logger.warning(f"Could not read {filename}: {e}")
-            
-            # Sort subjects by code
-            subjects.sort(key=lambda x: x['code'])
-            
-            # Create index data
-            index_data = {
-                'metadata': {
-                    'generated_at': datetime.now().isoformat(),
-                    'total_subjects': len(subjects),
-                    'total_courses': total_courses,
-                    'version': '1.0'
-                },
-                'subjects': subjects
-            }
-            
-            # Save index file
-            index_path = os.path.join(output_dir, 'index.json')
-            with open(index_path, 'w', encoding='utf-8') as f:
-                json.dump(index_data, f, ensure_ascii=False, indent=2)
-            
-            self.logger.info(f"📋 Generated index.json: {len(subjects)} subjects, {total_courses} total courses")
-            return index_path
-            
-        except Exception as e:
-            self.logger.error(f"Failed to generate index file: {e}")
-            return ""
     
     def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: Optional[str] = None) -> str:
         """Export data to JSON with metadata, supporting both single file and per-subject modes"""
@@ -1437,7 +1366,7 @@ class CuhkScraper:
         # Structure for web app consumption
         json_data = {
             "metadata": {
-                "scraped_at": datetime.now().isoformat(),
+                "scraped_at": utc_now_iso(),
                 "total_subjects": len(data),
                 "total_courses": sum(len(courses) for courses in data.values()),
                 "output_mode": "single_file"
@@ -1463,7 +1392,7 @@ class CuhkScraper:
             # Create per-subject JSON structure
             subject_data = {
                 "metadata": {
-                    "scraped_at": datetime.now().isoformat(),
+                    "scraped_at": utc_now_iso(),
                     "subject": subject,
                     "total_courses": len(courses),
                     "output_mode": "per_subject"
@@ -1537,7 +1466,7 @@ def main():
         print("\n=== PRODUCTION MODE EXAMPLES ===")
         print("For complete production workflow (recommended):")
         print("  summary = scraper.scrape_and_export_production(subjects)")
-        print("  # Creates per-subject files in /data/ directory with index.json")
+        print("  # Creates per-subject files in /data/ directory")
         print()
         print("For production scraping only:")
         print("  results = scraper.scrape_for_production(subjects)")
