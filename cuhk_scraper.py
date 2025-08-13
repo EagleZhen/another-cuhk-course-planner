@@ -1223,12 +1223,7 @@ class CuhkScraper:
         if self.progress_tracker:
             self.progress_tracker.print_summary()
         
-        # Generate index file for frontend discovery
-        if completed_subjects:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Final summary
         self.logger.info(f"🎉 SCRAPING COMPLETED!")
         self.logger.info(f"✅ Completed: {len(completed_subjects)} subjects")
@@ -1250,12 +1245,7 @@ class CuhkScraper:
         
         results = self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
-        # Generate index file for frontend discovery
-        if results['completed']:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
         completed_count = len(results['completed'])
         failed_count = len(results['failed'])
@@ -1288,12 +1278,7 @@ class CuhkScraper:
         # Continue scraping remaining subjects
         results = self.scrape_all_subjects(remaining_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
-        # Generate index file for frontend discovery
-        if results['completed']:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
         completed_count = len(results['completed'])
         failed_count = len(results['failed'])
@@ -1318,12 +1303,7 @@ class CuhkScraper:
         # Retry failed subjects
         results = self.scrape_all_subjects(failed_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
-        # Generate index file for frontend discovery
-        if results['completed']:
-            index_file = self.generate_index_file(config.output_directory)
-            if index_file:
-                self.logger.info(f"📋 Generated index file: {index_file}")
-        
+        # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
         completed_count = len(results['completed'])
         failed_count = len(results['failed'])
@@ -1355,68 +1335,6 @@ class CuhkScraper:
         except Exception as e:
             self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
             return None
-    
-    def generate_index_file(self, output_dir: str = "data") -> str:
-        """Generate index.json file listing all available subjects"""
-        try:
-            if not os.path.exists(output_dir):
-                self.logger.warning(f"Output directory {output_dir} does not exist")
-                return ""
-            
-            subjects = []
-            total_courses = 0
-            
-            # Scan for subject JSON files
-            for filename in os.listdir(output_dir):
-                if filename.endswith('.json') and filename != 'index.json' and filename != 'scraping_progress.json':
-                    subject_code = filename.replace('.json', '')
-                    
-                    # Try to read the file to get metadata
-                    try:
-                        filepath = os.path.join(output_dir, filename)
-                        with open(filepath, 'r', encoding='utf-8') as f:
-                            data = json.load(f)
-                        
-                        if 'metadata' in data and 'courses' in data:
-                            course_count = data['metadata'].get('total_courses', len(data['courses']))
-                            scraped_at = data['metadata'].get('scraped_at', '')
-                            
-                            subjects.append({
-                                'code': subject_code,
-                                'course_count': course_count,
-                                'last_updated': scraped_at,
-                                'file': filename
-                            })
-                            total_courses += course_count
-                            
-                    except Exception as e:
-                        self.logger.warning(f"Could not read {filename}: {e}")
-            
-            # Sort subjects by code
-            subjects.sort(key=lambda x: x['code'])
-            
-            # Create index data
-            index_data = {
-                'metadata': {
-                    'generated_at': utc_now_iso(),
-                    'total_subjects': len(subjects),
-                    'total_courses': total_courses,
-                    'version': '1.0'
-                },
-                'subjects': subjects
-            }
-            
-            # Save index file
-            index_path = os.path.join(output_dir, 'index.json')
-            with open(index_path, 'w', encoding='utf-8') as f:
-                json.dump(index_data, f, ensure_ascii=False, indent=2)
-            
-            self.logger.info(f"📋 Generated index.json: {len(subjects)} subjects, {total_courses} total courses")
-            return index_path
-            
-        except Exception as e:
-            self.logger.error(f"Failed to generate index file: {e}")
-            return ""
     
     def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: Optional[str] = None) -> str:
         """Export data to JSON with metadata, supporting both single file and per-subject modes"""
