@@ -1,11 +1,10 @@
 {
   "scraping_log": {
-    "started_at": "2025-08-13T06:04:49.881918+00:00",
-    "last_updated": "2025-08-13T06:04:53.180655+00:00",
-    "total_subjects": 263,
-    "completed": 263,
-    "failed": 8,
-    "skipped": 8,
+    "started_at": "2025-08-13T06:17:53.232970+00:00",
+    "last_updated": "2025-08-13T06:22:50.204504+00:00",
+    "total_subjects": 1,
+    "completed": 262,
+    "failed": 0,
     "subjects": {
       "CSCI": {
         "status": "completed",
@@ -649,11 +648,11 @@
       },
       "UGFN": {
         "status": "completed",
-        "last_scraped": "2025-08-12T08:43:05.609537",
+        "last_scraped": "2025-08-13T06:22:50.204456+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/UGFN.json",
-        "duration_minutes": 4.66,
+        "duration_minutes": 4.95,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,

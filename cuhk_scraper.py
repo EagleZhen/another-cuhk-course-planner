@@ -110,35 +110,32 @@ class ScrapingProgressTracker:
         self.progress_data = self._load_progress()
     
     def _load_progress(self) -> Dict:
-        """Load existing progress or create new structure"""
+        """Load existing subject data but start fresh session tracking"""
+        existing_subjects = {}
+        
+        # Load existing subject data if progress file exists
         if os.path.exists(self.progress_file):
             try:
                 with open(self.progress_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                self.logger.info(f"Loaded existing progress from {self.progress_file}")
                 
-                # IMPORTANT: Reset started_at for NEW scraping session
-                # Keep existing subject progress but mark this as a new session
-                if "scraping_log" in data:
-                    data["scraping_log"]["started_at"] = utc_now_iso()
-                    data["scraping_log"]["last_updated"] = utc_now_iso()
-                    # Handle legacy data - remove created_at field if it exists
-                    if "created_at" in data["scraping_log"]:
-                        del data["scraping_log"]["created_at"]  # Remove legacy field
+                # Preserve existing subject data (so we don't lose completed subjects)
+                if "scraping_log" in data and "subjects" in data["scraping_log"]:
+                    existing_subjects = data["scraping_log"]["subjects"]
+                    self.logger.info(f"Preserved data for {len(existing_subjects)} existing subjects")
                 
-                return data
             except Exception as e:
-                self.logger.warning(f"Could not load progress file: {e}, starting fresh")
+                self.logger.warning(f"Could not load progress file: {e}, starting with fresh session")
         
-        # Create new progress structure
+        # Always start with fresh session tracking, but preserve existing subject data
         return {
             "scraping_log": {
-                "started_at": utc_now_iso(),    # When THIS scraping session started
-                "last_updated": utc_now_iso(),  # Latest activity in THIS session
-                "total_subjects": 0,
-                "completed": 0,
-                "failed": 0,
-                "subjects": {}
+                "started_at": utc_now_iso(),    # Fresh session start time
+                "last_updated": utc_now_iso(),  # Fresh session activity
+                "total_subjects": 0,            # Will be set by scrape_all_subjects
+                "completed": 0,                 # Fresh counts for current session
+                "failed": 0,                    # Fresh counts for current session
+                "subjects": existing_subjects   # Preserve existing subject data
             }
         }
     
