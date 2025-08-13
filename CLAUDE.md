@@ -286,6 +286,7 @@ console.log(`⚡ Performance Summary:
 - **Visual Accessibility**: Selection indicators must work on all background colors - universal patterns > color-dependent rings
 - **Dual-Layer UX Patterns**: Quick indicators (header) + detailed information (content) provide optimal user experience
 - **Screenshot Over URL Sharing**: Image sharing more universal than state encoding for user collaboration
+- **Privacy-First Analytics**: Student trust > detailed tracking - Vercel basic metrics sufficient for academic tools
 
 **Previous Architectural Insights:**
 - **Avoid Side Effects**: Local actions should have local effects - global state creates debugging nightmares
@@ -331,11 +332,11 @@ if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
 
 **Immediate Priorities** (Prioritized by impact + effort):
 
-**Priority 1: User Analytics (In Progress)**
-- **PostHog Integration**: Minimal essential events tracking
-- **Key Metrics**: Course additions, schedule completion, feature usage
-- **Impact**: Understanding user behavior for data-driven iteration
-- **Effort**: ~30 minutes setup
+**Priority 1: User Analytics (Completed - Ethical Decision Made)**
+- **Decision**: Reverted from PostHog to Vercel Analytics only
+- **Reason**: Privacy-first approach - uBlock Origin blocked PostHog (strong user signal)
+- **Student Trust**: Academic tools should respect privacy, not track secretly
+- **Current Analytics**: Basic Vercel metrics (page views, performance) - non-invasive
 
 **Priority 2: SEO Implementation (Planned)**
 - **Static Course Pages**: Google-indexable course information
@@ -549,6 +550,37 @@ lastDataUpdate.toLocaleString()
 </Portal>
 ```
 
+### **🔒 Analytics Privacy Decision (August 2025)**
+
+**Problem Discovered**: PostHog tracking blocked by uBlock Origin - strong signal about student privacy expectations
+**Solution**: Privacy-first approach using only Vercel basic analytics
+
+**Critical Learning:**
+- **Student Demographics**: University students highly privacy-conscious (ad blockers, privacy tools)
+- **Trust Implications**: Academic tools must prioritize student trust over detailed tracking  
+- **Data Quality**: Privacy-aware users opting out creates biased analytics data
+- **Ethical Alignment**: Course planning is personal academic data - invasive tracking inappropriate
+
+**Implementation Decision:**
+```typescript
+// ❌ REJECTED: Detailed user tracking (PostHog, Google Analytics)
+// ✅ CHOSEN: Basic performance metrics only (Vercel Analytics)
+import { Analytics } from '@vercel/analytics/react'  // Non-invasive page views
+import { SpeedInsights } from '@vercel/speed-insights/next'  // Performance data
+```
+
+**Alternative Data Sources:**
+- Forum feedback and user testimonials  
+- Return visitor patterns (basic Vercel metrics)
+- Direct user feedback through FeedbackButton component
+- Screenshot usage as engagement indicator
+
+**Architectural Impact:**
+- Simplified analytics architecture
+- Enhanced student trust and forum reputation  
+- Focus on qualitative feedback over quantitative tracking
+- Privacy-by-design approach aligns with academic tool expectations
+
 ## Current System Status (August 2025)
 
 ### **🏗️ Production Infrastructure Status**
@@ -598,4 +630,4 @@ August 2025: Clean Separation of Concerns
 
 ---
 
-*Last updated: August 2025 - Public Launch Success: >100 users from school forums with enterprise-grade performance (<1s load times, intelligent course management, polished UX). Core infrastructure complete - scraper modernization, timezone handling, screenshot system, component architecture. Current focus: user analytics for data-driven iteration, then SEO implementation for organic user acquisition through Google search.*
+*Last updated: August 2025 - Public Launch Success: >100 users from school forums with enterprise-grade performance (<1s load times, intelligent course management, polished UX). Core infrastructure complete - scraper modernization, timezone handling, screenshot system, component architecture. Key Decision: Privacy-first analytics approach using basic Vercel metrics only, prioritizing student trust over detailed tracking. Current focus: SEO implementation for organic user acquisition through Google search.*
