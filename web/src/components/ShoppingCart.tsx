@@ -124,23 +124,30 @@ export default function ShoppingCart({
     <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
       <CardHeader className="pb-0 pt-2 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <div className="flex flex-col">
-            <CardTitle className="text-base">My Schedule</CardTitle>
-            {/* Data freshness indicator - shows actual scraping time */}
-            <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-              {lastDataUpdate ? (
-                <span>Last Data Refresh: {lastDataUpdate.toLocaleString()}</span>
-              ) : (
-                <span>Loading Data...</span>
-              )}
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Badge variant="secondary" className="text-xs">
-              {courseEnrollments.length}
-            </Badge>
-          </div>
+          <CardTitle className="text-base">My Schedule</CardTitle>
+          <Badge variant="outline" className="text-xs">
+            {(() => {
+              const visibleCount = courseEnrollments.filter(enrollment => enrollment.isVisible).length
+              const totalCount = courseEnrollments.length
+              
+              // Show simple count when all are visible (like credits logic)
+              if (visibleCount === totalCount) {
+                return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
+              }
+              
+              // Show visible/total when some are hidden
+              return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
+            })()}
+          </Badge>
+        </div>
+        {/* Data freshness indicator - shows actual scraping time */}
+        <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-1">
+          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+          {lastDataUpdate ? (
+            <span>Last Data Refresh: {lastDataUpdate.toLocaleDateString()} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+          ) : (
+            <span>Loading Data...</span>
+          )}
         </div>
       </CardHeader>
       
