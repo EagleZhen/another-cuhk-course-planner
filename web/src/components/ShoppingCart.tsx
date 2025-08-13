@@ -188,7 +188,7 @@ export default function ShoppingCart({
                     }
                     ${!isVisible && !isInvalid ? 'opacity-60' : ''}
                     ${isSelected && isVisible && !isInvalid
-                      ? `ring-1 shadow-lg scale-[1.02] ${enrollment.color?.replace('bg-', 'ring-')}` 
+                      ? `ring-1 shadow-lg scale-[1.02]` 
                       : ''
                     }
                     ${!isVisible || isInvalid ? 'cursor-default' : 'cursor-pointer'}
@@ -198,6 +198,10 @@ export default function ShoppingCart({
                       borderLeftColor: '#fb923c' // orange-400 for invalid courses
                     } : enrollment.color ? {
                       borderLeftColor: getComputedBorderColor(enrollment.color) // course color for normal/conflict courses
+                    } : {}),
+                    // Ring color matches the left border color when selected
+                    ...(isSelected && isVisible && !isInvalid && enrollment.color ? {
+                      '--tw-ring-color': getComputedBorderColor(enrollment.color)
                     } : {})
                   }}
                   onClick={() => {
