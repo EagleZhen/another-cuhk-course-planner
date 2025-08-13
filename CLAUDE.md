@@ -466,6 +466,119 @@ Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 - `courseUtils.ts`: Pure functions using internal types
 - Components: Internal types exclusively
 
+## ✅ Latest Achievement: Scraper Infrastructure Modernization (August 2025)
+
+**Major Scraper Improvements & Architecture Cleanup**: 
+1. **Timezone-Aware Timestamps**: All timestamps now use UTC with timezone information for international users
+2. **Progress Tracking Optimization**: Simplified session-based progress tracking with clean separation of concerns
+3. **Dead Code Elimination**: Removed unused index file generation and streamlined core scraper functionality
+4. **React Portal Screenshot System**: Complete screenshot functionality with unscheduled sections and clean layout
+
+### **🌍 Timezone Infrastructure Modernization**
+
+**Problem Solved**: Ambiguous timestamps confused international users
+**Solution**: UTC-based timestamp system with automatic local conversion
+
+```python
+# Before: Ambiguous local timestamps
+"last_scraped": "2025-08-12T02:13:03.992733"  # What timezone?
+
+# After: Clear UTC timestamps with timezone info
+"last_scraped": "2025-08-13T05:21:32.257086+00:00"  # Clearly UTC
+
+# Frontend automatically converts to user's timezone:
+lastDataUpdate.toLocaleString()
+// Los Angeles: "8/12/2025, 10:21:32 PM"
+// London: "8/13/2025, 6:21:32 AM"  
+// Hong Kong: "8/13/2025, 1:21:32 PM"
+```
+
+**Implementation Details:**
+- ✅ **UTC Utility Function**: `utc_now_iso()` for consistent timestamp generation
+- ✅ **Automatic Frontend Conversion**: JavaScript `toLocaleString()` handles timezone display
+- ✅ **Backward Compatibility**: Seamless upgrade from naive timestamps
+- ✅ **International UX**: Clear context for users worldwide
+
+### **📊 Progress Tracking Architecture Cleanup**
+
+**Problem Solved**: Confusing `created_at` vs session start, overly complex progress loading
+**Solution**: Clean session-based tracking with preserved subject data
+
+```python
+# Before: Confusing historical timestamps
+"created_at": "2025-07-29T19:02:27.927695",     # When was this created?
+"last_updated": "2025-08-13T05:25:41.366178+00:00"
+
+# After: Clear session tracking
+"started_at": "2025-08-13T06:02:23.348263+00:00",    # THIS session start
+"last_updated": "2025-08-13T06:02:23.348388+00:00"   # Latest activity
+```
+
+**Key Architecture Principles:**
+- ✅ **Session Focus**: Track current scraping session, not historical file creation
+- ✅ **Subject Preservation**: Keep existing subject data for subjects not being scraped
+- ✅ **Fresh Session Logic**: Each new scraping run gets fresh `started_at`
+- ✅ **Simplified Loading**: No unnecessary resume logic in core scraper
+
+### **🧹 Code Cleanup & Maintainability**
+
+**Removed Dead Code:**
+- ✅ **Index File Generation**: 61 lines of unused code + 4 scattered calls eliminated
+- ✅ **Legacy Timestamp Fields**: `created_at` automatically converted/removed
+- ✅ **Documentation Updates**: Removed outdated references
+
+**Architectural Insights Gained:**
+- **Keep Core Focused**: Scraper should scrape, orchestration logic belongs in external scripts
+- **File-Level Safety**: Per-subject JSON files provide natural protection against data loss
+- **Session vs Historical**: Clear separation between current session tracking and historical data
+- **Maintainable Simplicity**: Sometimes the simplest approach is the most maintainable
+
+### **📸 React Portal Screenshot System**
+
+**Complete Screenshot Infrastructure:**
+- ✅ **React Portal Approach**: Clean overlay without affecting main layout
+- ✅ **Complete Schedule Capture**: Calendar + unscheduled sections in one image
+- ✅ **Interactive Display Controls**: Live toggle of time/location/instructor/title visibility
+- ✅ **Clean Layout**: Professional header, proper spacing, website attribution
+
+**Technical Implementation:**
+```typescript
+// Clean portal-based approach avoiding DOM cloning issues
+<Portal>
+  <ScreenshotOverlay 
+    events={events}
+    unscheduledSections={unscheduledSections}
+    displayConfig={localDisplayConfig}
+    onClose={() => setShowScreenshotOverlay(false)}
+  />
+</Portal>
+```
+
+## Current System Status (August 2025)
+
+### **🏗️ Production Infrastructure Status**
+
+**Scraper System: ENTERPRISE-GRADE**
+- ✅ **Timezone-Aware**: UTC timestamps with international user support
+- ✅ **Session-Based Progress**: Clean current session tracking
+- ✅ **Crash-Resistant**: JSONL recovery with per-subject file protection
+- ✅ **Maintainable Architecture**: Dead code eliminated, focused responsibilities
+
+**Frontend System: PRODUCTION-READY** 
+- ✅ **Complete Screenshot System**: React Portal with interactive controls
+- ✅ **Visual Polish**: Universal selection patterns, course-colored indicators
+- ✅ **Component Architecture**: Fully decoupled, self-contained components
+- ✅ **Type Safety**: Zero `any` types, complete runtime validation
+
+**Key Architecture Evolution:**
+```
+August 2025: Clean Separation of Concerns
+├── Core Scraper: Pure scraping functionality
+├── External Scripts: Orchestration & retry logic  
+├── Progress Tracking: Session-focused, subject-preserving
+└── Frontend: Portal-based features, timezone-aware display
+```
+
 ---
 
-*Last updated: January 2025 - Latest achievement: Visual Polish & UX Refinements completed. Fixed selection ring visibility with universal diagonal stripe patterns, enhanced shopping cart with course-colored borders and conflict backgrounds, improved invalid course display with proper layout hierarchy. Combined with previous Smart Section Filtering & Component Decoupling, the system now demonstrates engineering excellence: maintainable architecture + polished user experience + visual accessibility.*
+*Last updated: August 2025 - Latest achievement: Scraper Infrastructure Modernization completed. Implemented timezone-aware timestamps for international users, simplified progress tracking with session focus, eliminated dead code for better maintainability, and built complete React Portal screenshot system. The project now demonstrates clean architectural separation: core scraper handles scraping, external scripts handle orchestration, and frontend provides polished user experience with modern screenshot capabilities.*
