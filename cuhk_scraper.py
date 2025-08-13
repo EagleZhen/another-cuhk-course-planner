@@ -116,6 +116,16 @@ class ScrapingProgressTracker:
                 with open(self.progress_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 self.logger.info(f"Loaded existing progress from {self.progress_file}")
+                
+                # IMPORTANT: Reset started_at for NEW scraping session
+                # Keep existing subject progress but mark this as a new session
+                if "scraping_log" in data:
+                    data["scraping_log"]["started_at"] = utc_now_iso()
+                    data["scraping_log"]["last_updated"] = utc_now_iso()
+                    # Handle legacy data - remove created_at field if it exists
+                    if "created_at" in data["scraping_log"]:
+                        del data["scraping_log"]["created_at"]  # Remove legacy field
+                
                 return data
             except Exception as e:
                 self.logger.warning(f"Could not load progress file: {e}, starting fresh")
@@ -123,8 +133,8 @@ class ScrapingProgressTracker:
         # Create new progress structure
         return {
             "scraping_log": {
-                "created_at": utc_now_iso(),
-                "last_updated": utc_now_iso(),
+                "started_at": utc_now_iso(),    # When THIS scraping session started
+                "last_updated": utc_now_iso(),  # Latest activity in THIS session
                 "total_subjects": 0,
                 "completed": 0,
                 "failed": 0,
@@ -1459,7 +1469,7 @@ def main():
         print("\n=== PRODUCTION MODE EXAMPLES ===")
         print("For complete production workflow (recommended):")
         print("  summary = scraper.scrape_and_export_production(subjects)")
-        print("  # Creates per-subject files in /data/ directory with index.json")
+        print("  # Creates per-subject files in /data/ directory")
         print()
         print("For production scraping only:")
         print("  results = scraper.scrape_for_production(subjects)")
