@@ -124,7 +124,7 @@ export default function ShoppingCart({
     <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
       <CardHeader className="pb-0 pt-2 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base">My Schedule</CardTitle>
+          <CardTitle className="text-base">Shopping Cart</CardTitle>
           <Badge variant="outline" className="text-xs">
             {(() => {
               const visibleCount = courseEnrollments.filter(enrollment => enrollment.isVisible).length
