@@ -186,7 +186,6 @@ export default function ShoppingCart({
                         ? 'bg-red-50' 
                         : 'bg-white'
                     }
-                    ${!isVisible && !isInvalid ? 'opacity-50' : ''}
                     ${isSelected && isVisible && !isInvalid
                       ? `ring-1 shadow-lg scale-[1.02]` 
                       : ''
@@ -221,7 +220,7 @@ export default function ShoppingCart({
                 >
                   {/* Course Header */}
                   <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
+                    <div className={`flex items-center gap-2 flex-1 min-w-0 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                       <div className="flex items-center gap-1">
                         <span className="font-semibold text-sm">
                           {enrollment.course.subject}{enrollment.course.courseCode}
@@ -285,7 +284,7 @@ export default function ShoppingCart({
                   </div>
 
                   {/* Course Title */}
-                  <p className="text-xs text-gray-600 mb-2">
+                  <p className={`text-xs text-gray-600 mb-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                     {enrollment.course.title}
                   </p>
 
@@ -310,7 +309,7 @@ export default function ShoppingCart({
                     </div>
                   ) : (
                     /* Show normal section details */
-                    <div className="space-y-2">
+                    <div className={`space-y-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                       {enrollment.selectedSections.map((section) => {
                       // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
                       const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
