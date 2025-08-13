@@ -186,12 +186,12 @@ export default function ShoppingCart({
                         ? 'bg-red-50' 
                         : 'bg-white'
                     }
-                    ${!isVisible && !isInvalid ? 'opacity-60' : ''}
+                    ${!isVisible && !isInvalid ? 'opacity-50' : ''}
                     ${isSelected && isVisible && !isInvalid
                       ? `ring-1 shadow-lg scale-[1.02]` 
                       : ''
                     }
-                    ${!isVisible || isInvalid ? 'cursor-default' : 'cursor-pointer'}
+                    ${!isVisible || isInvalid ? 'cursor-not-allowed' : 'cursor-pointer'}
                   `}
                   style={{
                     ...(isInvalid ? {
@@ -204,6 +204,13 @@ export default function ShoppingCart({
                       '--tw-ring-color': getComputedBorderColor(enrollment.color)
                     } : {})
                   }}
+                  title={
+                    !isVisible && !isInvalid 
+                      ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
+                      : isInvalid
+                        ? enrollment.invalidReason || 'Course data is outdated'
+                        : undefined
+                  }
                   onClick={() => {
                     // Only allow selection if the enrollment is visible and not invalid
                     if (isVisible && !isInvalid && onSelectEnrollment) {
