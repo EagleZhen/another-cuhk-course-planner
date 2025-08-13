@@ -3,13 +3,17 @@ import json
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any
 from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import time
 import logging
 import ddddocr
 import onnxruntime
 import os
 import gc
+
+def utc_now_iso():
+    """Get current UTC timestamp in ISO format with timezone info"""
+    return datetime.now(timezone.utc).isoformat()
 
 @dataclass
 class ScrapingConfig:
@@ -119,8 +123,8 @@ class ScrapingProgressTracker:
         # Create new progress structure
         return {
             "scraping_log": {
-                "created_at": datetime.now().isoformat(),
-                "last_updated": datetime.now().isoformat(),
+                "created_at": utc_now_iso(),
+                "last_updated": utc_now_iso(),
                 "total_subjects": 0,
                 "completed": 0,
                 "failed": 0,
@@ -136,7 +140,7 @@ class ScrapingProgressTracker:
             if dir_path:  # Only create directory if path contains a directory
                 os.makedirs(dir_path, exist_ok=True)
             
-            self.progress_data["scraping_log"]["last_updated"] = datetime.now().isoformat()
+            self.progress_data["scraping_log"]["last_updated"] = utc_now_iso()
             
             with open(self.progress_file, 'w', encoding='utf-8') as f:
                 json.dump(self.progress_data, f, ensure_ascii=False, indent=2)
@@ -150,12 +154,12 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["scraping_log"]["subjects"]
         subjects[subject] = {
             "status": "in_progress",
-            "started_at": datetime.now().isoformat(),
+            "started_at": utc_now_iso(),
             "estimated_courses": estimated_courses,
             "courses_scraped": 0,
             "completed_courses": [],  # Track completed course codes
             "last_course_completed": "",
-            "last_progress_update": datetime.now().isoformat(),
+            "last_progress_update": utc_now_iso(),
             "retry_count": subjects.get(subject, {}).get("retry_count", 0)
         }
         self._save_progress()
@@ -168,7 +172,7 @@ class ScrapingProgressTracker:
             subject_data = subjects[subject]
             subject_data["courses_scraped"] = total_courses_scraped
             subject_data["last_course_completed"] = course_code
-            subject_data["last_progress_update"] = datetime.now().isoformat()
+            subject_data["last_progress_update"] = utc_now_iso()
             
             # Add to completed courses list if not already there
             completed_courses = subject_data.get("completed_courses", [])
@@ -196,7 +200,7 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["scraping_log"]["subjects"]
         subjects[subject] = {
             "status": "completed",
-            "last_scraped": datetime.now().isoformat(),
+            "last_scraped": utc_now_iso(),
             "courses_count": courses_count,
             "courses_scraped": courses_count,
             "output_file": output_file,
@@ -220,7 +224,7 @@ class ScrapingProgressTracker:
         
         subjects[subject] = {
             "status": "failed",
-            "last_attempt": datetime.now().isoformat(),
+            "last_attempt": utc_now_iso(),
             "error": str(error_message)[:200],  # Limit error message length
             "retry_count": retry_count,
             "courses_scraped": current_data.get("courses_scraped", 0)
@@ -1331,7 +1335,7 @@ class CuhkScraper:
             # Create subject data structure with timestamp in metadata (not filename)
             subject_data = {
                 "metadata": {
-                    "scraped_at": datetime.now().isoformat(),
+                    "scraped_at": utc_now_iso(),
                     "subject": subject,
                     "total_courses": len(courses),
                     "scraper_version": "memory-safe-v2.0"
@@ -1394,7 +1398,7 @@ class CuhkScraper:
             # Create index data
             index_data = {
                 'metadata': {
-                    'generated_at': datetime.now().isoformat(),
+                    'generated_at': utc_now_iso(),
                     'total_subjects': len(subjects),
                     'total_courses': total_courses,
                     'version': '1.0'
@@ -1437,7 +1441,7 @@ class CuhkScraper:
         # Structure for web app consumption
         json_data = {
             "metadata": {
-                "scraped_at": datetime.now().isoformat(),
+                "scraped_at": utc_now_iso(),
                 "total_subjects": len(data),
                 "total_courses": sum(len(courses) for courses in data.values()),
                 "output_mode": "single_file"
@@ -1463,7 +1467,7 @@ class CuhkScraper:
             # Create per-subject JSON structure
             subject_data = {
                 "metadata": {
-                    "scraped_at": datetime.now().isoformat(),
+                    "scraped_at": utc_now_iso(),
                     "subject": subject,
                     "total_courses": len(courses),
                     "output_mode": "per_subject"
