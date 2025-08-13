@@ -1079,3 +1079,16 @@ export async function captureCalendarScreenshot(
     throw error
   }
 }
+
+// === SEARCH UTILITIES ===
+
+/**
+ * Creates a Google search URL with the given keywords
+ * @param keywords Array of search terms to combine
+ * @returns Google search URL
+ */
+export const createGoogleSearch = (keywords: string[]): string => {
+  const query = keywords.filter(Boolean).join(' ')
+  const params = new URLSearchParams({ q: query })
+  return `https://www.google.com/search?${params.toString()}`
+}

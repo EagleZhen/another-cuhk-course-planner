@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, createGoogleSearch, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -1021,6 +1021,20 @@ function CourseCard({
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
+                  const searchUrl = createGoogleSearch(['CUHK', course.subject + course.courseCode, course.title, 'outline'])
+                  window.open(searchUrl, '_blank', 'noopener,noreferrer')
+                }}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
+              >
+                <Search className="w-3 h-3 mr-1" />
+                Outline
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
                   onSearchReviews(course)
                 }}
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
@@ -1147,6 +1161,20 @@ function CourseCard({
             <CardTitle className="text-lg">
               {course.subject}{course.courseCode}
             </CardTitle>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                const searchUrl = createGoogleSearch(['CUHK', course.subject + course.courseCode, course.title, 'outline'])
+                window.open(searchUrl, '_blank', 'noopener,noreferrer')
+              }}
+              className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+              title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
+            >
+              <Search className="w-3 h-3 mr-1" />
+              Outline
+            </Button>
             <Button
               variant="ghost"
               size="sm"
