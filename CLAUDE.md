@@ -579,6 +579,28 @@ August 2025: Clean Separation of Concerns
 └── Frontend: Portal-based features, timezone-aware display
 ```
 
+## Future Maintenance Opportunities
+
+### **Scraper Code Cleanup (Low Priority)**
+
+**Potential Refactoring Areas** (Only when system stability allows):
+
+1. **Method Usage Analysis**: Some methods may have overlapping responsibilities
+   - `scrape_all_subjects()` vs `scrape_and_export_production()` - Similar functionality with different optimizations
+   - `export_to_json()` vs direct export in production methods - Manual export vs automated export
+   
+2. **Parameter Complexity Reduction**: 
+   - `scrape_subject()` has many parameter combinations, some rarely used
+   - Consider splitting into focused methods for common use cases
+
+3. **Legacy Testing Code**: 
+   - Main function contains extensive demonstration code
+   - Could be simplified to focus on core functionality
+
+**Recommendation**: Only pursue these cleanups after major user-facing features are complete and system is fully stable in production. Current architecture works well and is maintainable.
+
+**Priority Ranking**: User-facing performance improvements >> Feature completeness >> Code cleanup
+
 ---
 
-*Last updated: August 2025 - Latest achievement: Scraper Infrastructure Modernization completed. Implemented timezone-aware timestamps for international users, simplified progress tracking with session focus, eliminated dead code for better maintainability, and built complete React Portal screenshot system. The project now demonstrates clean architectural separation: core scraper handles scraping, external scripts handle orchestration, and frontend provides polished user experience with modern screenshot capabilities.*
+*Last updated: August 2025 - Latest achievement: Scraper Infrastructure Modernization completed. Implemented timezone-aware timestamps for international users, simplified progress tracking with session focus, eliminated dead code for better maintainability, and built complete React Portal screenshot system. Added documentation of future maintenance opportunities prioritized below user experience improvements.*
