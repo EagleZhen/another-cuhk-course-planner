@@ -96,6 +96,7 @@ export default function CourseSearch({
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
+  const [isShuffled, setIsShuffled] = useState(false)
   
   // Removed global state - CourseCard now manages its own state
 
@@ -420,15 +421,26 @@ export default function CourseSearch({
       })
     }
 
+    // Apply shuffle if enabled
+    if (isShuffled) {
+      // Create a copy and shuffle using Fisher-Yates algorithm
+      finalCourses = [...finalCourses]
+      for (let i = finalCourses.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [finalCourses[i], finalCourses[j]] = [finalCourses[j], finalCourses[i]]
+      }
+    }
+
     // Simple limiting logic based on user intent
     const limit = hasFiltersOrSearch ? 100 : 10
 
     return {
       courses: finalCourses.slice(0, limit),
       total: finalCourses.length,
-      isLimited: finalCourses.length > limit
+      isLimited: finalCourses.length > limit,
+      isShuffled
     }
-  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects])
+  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, isShuffled])
 
   // Track search analytics - simplified for MVP
   useEffect(() => {
@@ -721,12 +733,37 @@ export default function CourseSearch({
           </div>
         ) : (
           <>
-            <div className="text-sm text-gray-600 mb-3">
-              Showing {searchResults.courses.length} course{searchResults.courses.length !== 1 ? 's' : ''}
-              {searchResults.total > searchResults.courses.length && (
-                <span className="font-medium"> of {searchResults.total} total</span>
+            <div className="flex items-center justify-between mb-3">
+              <div className="text-sm text-gray-600">
+                Showing {searchResults.courses.length} course{searchResults.courses.length !== 1 ? 's' : ''}
+                {searchResults.total > searchResults.courses.length && (
+                  <span className="font-medium"> of {searchResults.total} total</span>
+                )}
+                {searchTerm && ` matching "${searchTerm}"`}
+                {searchResults.isShuffled && (
+                  <span className="text-blue-600 font-medium"> (shuffled)</span>
+                )}
+              </div>
+              
+              {searchResults.total > 1 && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsShuffled(!isShuffled)}
+                  className="h-6 px-2 text-xs cursor-pointer"
+                  title={isShuffled ? "Reset to default order" : "Shuffle courses for discovery"}
+                >
+                  {isShuffled ? (
+                    <>
+                      ↻ Reset Order
+                    </>
+                  ) : (
+                    <>
+                      🎲 Shuffle
+                    </>
+                  )}
+                </Button>
               )}
-              {searchTerm && ` matching "${searchTerm}"`}
             </div>
             
             {/* Show helpful message when results are limited */}
