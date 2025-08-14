@@ -887,7 +887,6 @@ function CourseCard({
 }) {
   const [expanded, setExpanded] = useState(false)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
-  const [hideConflictSections, setHideConflictSections] = useState(false)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
   
   // Fully decoupled: CourseCard manages its own state
@@ -897,14 +896,6 @@ function CourseCard({
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
   
-  // Check if any sections have conflicts (memoized for performance)
-  const hasAnyConflicts = useMemo(() => {
-    return sectionTypes.some(typeGroup => 
-      typeGroup.sections.some(section => 
-        checkSectionConflict(section, courseEnrollments).hasConflict
-      )
-    )
-  }, [sectionTypes, courseEnrollments])
   
   // Get enrolled course for this course
   const enrolledCourse = courseEnrollments.find(enrollment => 
@@ -1323,23 +1314,6 @@ function CourseCard({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-medium text-gray-700">Filters:</span>
               
-              {/* Only show conflict filter if conflicts exist */}
-              {hasAnyConflicts && (
-                <Button
-                  variant={hideConflictSections ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setHideConflictSections(!hideConflictSections)}
-                  className={`h-6 px-2 text-xs cursor-pointer transition-all ${
-                    hideConflictSections 
-                      ? 'bg-red-600 text-white border-red-600 hover:bg-red-700' 
-                      : 'text-red-700 border-red-300 bg-red-50 hover:bg-red-100'
-                  }`}
-                  title={hideConflictSections ? "Show conflict sections" : "Hide conflict sections"}
-                >
-                  {hideConflictSections ? "Show Conflicts" : "Hide Conflicts"}
-                </Button>
-              )}
-              
               {/* Day filter buttons */}
               {(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const).map((dayName, dayIndex) => {
                 const isSelected = selectedDays.has(dayIndex)
@@ -1360,13 +1334,12 @@ function CourseCard({
               })}
               
               {/* Clear all filters button */}
-              {(selectedDays.size > 0 || hideConflictSections || selectedInstructors.size > 0) && (
+              {(selectedDays.size > 0 || selectedInstructors.size > 0) && (
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => {
                     setSelectedDays(new Set())
-                    setHideConflictSections(false)
                     setSelectedInstructors(new Set())
                   }}
                   className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100"
@@ -1474,18 +1447,9 @@ function CourseCard({
                     const showingAllForType = showAllSectionTypes.has(typeGroup.type)
                     const selectedSectionId = localSelections.get(typeGroup.type)
                     
-                    // Simple logic: only show button when there are hidden sections to reveal
-                    const hasInstructorFilter = selectedInstructors.size > 0
-                    
                     // Calculate sections using the EXACT same logic as shouldShowSection
                     const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
-                      // Priority 1: Conflict filter (always applied first)
-                      if (hideConflictSections) {
-                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
-                        if (conflictInfo.hasConflict) return false
-                      }
-                      
-                      // Priority 2: Instructor filter (always applied)
+                      // Priority 1: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
                           if (!meeting.instructor) return false
@@ -1498,15 +1462,15 @@ function CourseCard({
                         if (!matchesInstructorFilter) return false
                       }
                       
-                      // Priority 3: Day filter (always applied)
+                      // Priority 2: Day filter (always applied)
                       if (!sectionMatchesDayFilter(section)) return false
                       
-                      // Priority 4: Show all override (user explicitly wants to see everything)
+                      // Priority 3: Show all override (user explicitly wants to see everything)
                       if (showingAllForType) {
                         return true
                       }
                       
-                      // Priority 5: Smart filtering (only if requested)
+                      // Priority 4: Smart filtering (only if requested)
                       if (applySmartFiltering) {
                         if (selectedSectionId) return section.id === selectedSectionId
                         return !incompatible.includes(section)
@@ -1570,13 +1534,7 @@ function CourseCard({
                   {(() => {
                     // Simplified filtering logic - single function with clear priorities
                     const shouldShowSection = (section: InternalSection) => {
-                      // Priority 1: Conflict filter (always applied first)
-                      if (hideConflictSections) {
-                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
-                        if (conflictInfo.hasConflict) return false
-                      }
-                      
-                      // Priority 2: Instructor filter (always applied)
+                      // Priority 1: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
                           if (!meeting.instructor) return false
@@ -1589,15 +1547,15 @@ function CourseCard({
                         if (!matchesInstructorFilter) return false
                       }
                       
-                      // Priority 3: Day filter (always applied)
+                      // Priority 2: Day filter (always applied)
                       if (!sectionMatchesDayFilter(section)) return false
                       
-                      // Priority 4: Show all override (user explicitly wants to see everything)
+                      // Priority 3: Show all override (user explicitly wants to see everything)
                       if (showAllSectionTypes.has(typeGroup.type)) {
                         return true
                       }
                       
-                      // Priority 5: Smart filtering
+                      // Priority 4: Smart filtering
                       const selectedSectionId = localSelections.get(typeGroup.type)
                       
                       // If section is selected, only show selected section
