@@ -1658,7 +1658,7 @@ function CourseCard({
                           </div>
                         )}
                         
-                        {/* Meetings displayed compactly with time+instructor on same row */}
+                        {/* Meetings displayed in unified 3-row emoji format */}
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
@@ -1667,21 +1667,23 @@ function CourseCard({
                             
                             return (
                               <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
-                                <div className="flex items-center justify-between text-[11px] gap-2">
-                                  <span className="font-medium font-mono text-gray-900 flex-shrink-0">{formattedTime}</span>
-                                  <span 
-                                    className="text-gray-600 truncate text-right flex-1 min-w-0"
-                                    title={formattedInstructor}
-                                  >
+                                {/* Row 1: Time */}
+                                <div className="flex items-center gap-1 text-[11px]">
+                                  <span>⏰</span>
+                                  <span className="font-mono text-gray-600">{formattedTime}</span>
+                                </div>
+                                {/* Row 2: Instructor */}
+                                <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                  <span>👨‍🏫</span>
+                                  <span className="truncate" title={formattedInstructor}>
                                     {formattedInstructor}
                                   </span>
                                 </div>
-                                {location !== 'TBD' && (
-                                  <div className="flex items-center gap-1 text-gray-500 text-[10px] mt-1">
-                                    <span>📍</span>
-                                    <span className="truncate" title={location}>{location}</span>
-                                  </div>
-                                )}
+                                {/* Row 3: Location */}
+                                <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                  <span>📍</span>
+                                  <span className="truncate" title={location}>{location}</span>
+                                </div>
                               </div>
                             )
                           })}

@@ -430,7 +430,7 @@ export default function ShoppingCart({
                                 {/* Row 2: Instructor */}
                                 <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
                                   <span>👨‍🏫</span>
-                                  <span className="font-medium truncate" title={formattedInstructor}>
+                                  <span className="truncate" title={formattedInstructor}>
                                     {formattedInstructor}
                                   </span>
                                 </div>
