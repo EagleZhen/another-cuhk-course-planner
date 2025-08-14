@@ -120,6 +120,54 @@ export default function ShoppingCart({
 
   const conflictCount = calendarEvents.filter(event => event.hasConflict).length
 
+  // Helper function to calculate visible/total counts for different statuses
+  const getStatusCounts = () => {
+    const validEnrollments = courseEnrollments.filter(enrollment => !enrollment.isInvalid)
+    const visibleValidEnrollments = validEnrollments.filter(enrollment => enrollment.isVisible)
+    
+    return {
+      // Credit counts
+      visibleCredits: visibleValidEnrollments.reduce((sum, enrollment) => sum + enrollment.course.credits, 0),
+      totalCredits: validEnrollments.reduce((sum, enrollment) => sum + enrollment.course.credits, 0),
+      
+      // Status counts
+      open: {
+        visible: visibleValidEnrollments.filter(enrollment => 
+          enrollment.selectedSections.every(section => section.availability.status === 'Open')
+        ).length,
+        total: validEnrollments.filter(enrollment => 
+          enrollment.selectedSections.every(section => section.availability.status === 'Open')
+        ).length
+      },
+      waitlisted: {
+        visible: visibleValidEnrollments.filter(enrollment => 
+          enrollment.selectedSections.some(section => section.availability.status === 'Waitlisted')
+        ).length,
+        total: validEnrollments.filter(enrollment => 
+          enrollment.selectedSections.some(section => section.availability.status === 'Waitlisted')
+        ).length
+      },
+      closed: {
+        visible: visibleValidEnrollments.filter(enrollment => 
+          enrollment.selectedSections.some(section => section.availability.status === 'Closed')
+        ).length,
+        total: validEnrollments.filter(enrollment => 
+          enrollment.selectedSections.some(section => section.availability.status === 'Closed')
+        ).length
+      },
+      conflicts: {
+        visible: calendarEvents.filter(event => event.hasConflict && event.isVisible).length,
+        total: conflictCount
+      },
+      invalid: {
+        visible: courseEnrollments.filter(enrollment => enrollment.isInvalid && enrollment.isVisible).length,
+        total: courseEnrollments.filter(enrollment => enrollment.isInvalid).length
+      }
+    }
+  }
+
+  const statusCounts = getStatusCounts()
+
   return (
     <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
       <CardHeader className="pb-0 pt-2 flex-shrink-0">
@@ -174,6 +222,14 @@ export default function ShoppingCart({
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
               
+              // Check section availability states
+              const hasClosedSections = enrollment.selectedSections.some(section => 
+                section.availability.status === 'Closed'
+              )
+              const hasWaitlistedSections = enrollment.selectedSections.some(section => 
+                section.availability.status === 'Waitlisted'
+              )
+              
               return (
                 <div
                   key={enrollment.courseId}
@@ -190,8 +246,12 @@ export default function ShoppingCart({
                     ${isInvalid 
                       ? 'bg-orange-50 opacity-75' 
                       : hasConflict 
-                        ? 'bg-red-50' 
-                        : 'bg-white'
+                        ? 'bg-purple-50'     // Purple for time conflicts
+                        : hasClosedSections
+                          ? 'bg-red-50'      // Red for closed sections
+                          : hasWaitlistedSections
+                            ? 'bg-yellow-50' // Yellow for waitlisted sections
+                            : 'bg-white'
                     }
                     ${isSelected && isVisible && !isInvalid
                       ? `ring-1 shadow-lg scale-[1.02]` 
@@ -233,7 +293,7 @@ export default function ShoppingCart({
                           {enrollment.course.subject}{enrollment.course.courseCode}
                         </span>
                       </div>
-                      {/* Always reserve space for status indicators */}
+                      {/* Status indicators only for critical issues not shown in badges */}
                       <div className="flex items-center gap-1 flex-shrink-0">
                         {isInvalid && (
                           <div title={enrollment.invalidReason || 'Course data is outdated'}>
@@ -242,7 +302,7 @@ export default function ShoppingCart({
                         )}
                         {hasConflict && !isInvalid && (
                           <div title="Time conflict detected">
-                            <AlertTriangle className="w-3 h-3 text-red-500" />
+                            <AlertTriangle className="w-3 h-3 text-purple-500" />
                           </div>
                         )}
                       </div>
@@ -457,40 +517,82 @@ export default function ShoppingCart({
       
       {/* Schedule Summary - Outside scrollable area */}
       {courseEnrollments.length > 0 && (
-        <div className="border-t px-3 py-2 flex-shrink-0">
+        <div className="border-t px-3 py-2 flex-shrink-0 space-y-1">
+          {/* Row 1: Credits + Conflicts (optional) */}
           <div className="flex justify-between text-xs text-gray-600">
             <span>
-              {(() => {
-                const visibleCredits = courseEnrollments
-                  .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
-                  .reduce((sum, enrollment) => sum + enrollment.course.credits, 0)
-                const totalCredits = courseEnrollments
-                  .filter(enrollment => !enrollment.isInvalid)
-                  .reduce((sum, enrollment) => sum + enrollment.course.credits, 0)
-                
-                return visibleCredits === totalCredits 
-                  ? `${totalCredits.toFixed(1)} credits`
-                  : `${visibleCredits.toFixed(1)} / ${totalCredits.toFixed(1)} credits`
-              })()}
+              {statusCounts.visibleCredits === statusCounts.totalCredits 
+                ? `${statusCounts.totalCredits.toFixed(1)} credits`
+                : `${statusCounts.visibleCredits.toFixed(1)} / ${statusCounts.totalCredits.toFixed(1)} credits`
+              }
             </span>
-            <div className="flex items-center gap-3">
-              {conflictCount > 0 && (
-                <div className="flex items-center gap-1 text-red-500">
-                  <AlertTriangle className="w-3 h-3" />
-                  <span>Conflicts</span>
-                </div>
-              )}
-              {(() => {
-                const invalidCount = courseEnrollments.filter(enrollment => enrollment.isInvalid).length
-                return invalidCount > 0 && (
+            {statusCounts.conflicts.total > 0 && (
+              <div className="flex items-center gap-1 text-purple-500">
+                <AlertTriangle className="w-3 h-3" />
+                <span>
+                  {statusCounts.conflicts.visible === statusCounts.conflicts.total
+                    ? 'Conflicts'
+                    : `${statusCounts.conflicts.visible}/${statusCounts.conflicts.total} Conflicts`
+                  }
+                </span>
+              </div>
+            )}
+          </div>
+          
+          {/* Row 2: Open, Waitlisted, Closed (all optional) */}
+          {(() => {
+            // Only show row 2 if there's any status info to display
+            const hasStatusInfo = statusCounts.open.total > 0 || statusCounts.waitlisted.total > 0 || statusCounts.closed.total > 0 || statusCounts.invalid.total > 0
+            
+            return hasStatusInfo && (
+              <div className="flex items-center justify-between text-xs">
+                {statusCounts.open.total > 0 && (
+                  <div className="flex items-center gap-1 text-green-600">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    <span>
+                      {statusCounts.open.visible === statusCounts.open.total
+                        ? `${statusCounts.open.total} Open`
+                        : `${statusCounts.open.visible}/${statusCounts.open.total} Open`
+                      }
+                    </span>
+                  </div>
+                )}
+                {statusCounts.waitlisted.total > 0 && (
+                  <div className="flex items-center gap-1 text-yellow-500">
+                    <AlertTriangle className="w-3 h-3" />
+                    <span>
+                      {statusCounts.waitlisted.visible === statusCounts.waitlisted.total
+                        ? `${statusCounts.waitlisted.total} Waitlisted`
+                        : `${statusCounts.waitlisted.visible}/${statusCounts.waitlisted.total} Waitlisted`
+                      }
+                    </span>
+                  </div>
+                )}
+                {statusCounts.closed.total > 0 && (
+                  <div className="flex items-center gap-1 text-red-500">
+                    <AlertTriangle className="w-3 h-3" />
+                    <span>
+                      {statusCounts.closed.visible === statusCounts.closed.total
+                        ? `${statusCounts.closed.total} Closed`
+                        : `${statusCounts.closed.visible}/${statusCounts.closed.total} Closed`
+                      }
+                    </span>
+                  </div>
+                )}
+                {statusCounts.invalid.total > 0 && (
                   <div className="flex items-center gap-1 text-orange-500">
                     <AlertTriangle className="w-3 h-3" />
-                    <span>Invalid ({invalidCount})</span>
+                    <span>
+                      {statusCounts.invalid.visible === statusCounts.invalid.total
+                        ? `${statusCounts.invalid.total} Invalid`
+                        : `${statusCounts.invalid.visible}/${statusCounts.invalid.total} Invalid`
+                      }
+                    </span>
                   </div>
-                )
-              })()}
-            </div>
-          </div>
+                )}
+              </div>
+            )
+          })()}
         </div>
       )}
     </Card>
