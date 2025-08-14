@@ -17,7 +17,34 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Another CUHK Course Planner",
-  description: "Another CUHK Course Planner",
+  description: "A CUHK course planner that actually makes sense! Visual weekly calendar, smart conflict detection, and easy section swapping.",
+
+  // Open Graph (Facebook, WhatsApp, Discord, Instagram, etc.)
+  openGraph: {
+    title: "Another CUHK Course Planner",
+    description: "A CUHK course planner that actually makes sense! Visual weekly calendar, smart conflict detection, and easy section swapping.",
+    url: "https://another-cuhk-course-planner.vercel.app",
+    siteName: "Another CUHK Course Planner",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CUHK Course Planner - Weekly calendar and shopping cart interface showing course scheduling with conflict detection",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  
+  // Twitter Card (X, Threads)
+  twitter: {
+    card: "summary_large_image",
+    title: "Another CUHK Course Planner",
+    description: "A CUHK course planner that actually makes sense! Visual weekly calendar, smart conflict detection, and easy section swapping.",
+    images: ["/og-image.png"],
+  },
+
   icons: {
     icon: [
       { url: '/favicon.ico' },
