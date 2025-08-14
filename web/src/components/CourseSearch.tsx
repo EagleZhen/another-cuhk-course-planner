@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -888,6 +888,7 @@ function CourseCard({
   const [expanded, setExpanded] = useState(false)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const [hideConflictSections, setHideConflictSections] = useState(false)
+  const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
   
   // Fully decoupled: CourseCard manages its own state
   const [localSelections, setLocalSelections] = useState<Map<string, string>>(initialSelections)
@@ -967,6 +968,28 @@ function CourseCard({
       }
     }
     // Note: When instructor filter is cleared (size = 0), we keep all existing selections
+  }
+
+  // Day filter toggle function
+  const toggleDayFilter = (dayIndex: number) => {
+    const newSelected = new Set(selectedDays)
+    if (newSelected.has(dayIndex)) {
+      newSelected.delete(dayIndex)
+    } else {
+      newSelected.add(dayIndex)
+    }
+    setSelectedDays(newSelected)
+  }
+
+  // Helper function to check if a section matches selected days
+  // Uses inclusive approach: section is shown if ANY meeting falls on selected days
+  const sectionMatchesDayFilter = (section: InternalSection): boolean => {
+    if (selectedDays.size === 0) return true // No day filter applied
+    
+    return section.meetings.some(meeting => {
+      const dayIndex = getDayIndex(meeting.time)
+      return dayIndex !== -1 && selectedDays.has(dayIndex)
+    })
   }
 
   // Get unique instructors from current term, sorted alphabetically
@@ -1317,7 +1340,41 @@ function CourseCard({
                 </Button>
               )}
               
-              {/* Future filters will go here */}
+              {/* Day filter buttons */}
+              {(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const).map((dayName, dayIndex) => {
+                const isSelected = selectedDays.has(dayIndex)
+                const shortName = dayName.slice(0, 3) // Mon, Tue, Wed, Thu, Fri
+                
+                return (
+                  <Button
+                    key={dayName}
+                    variant={isSelected ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => toggleDayFilter(dayIndex)}
+                    className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                    title={isSelected ? `Remove ${dayName} filter` : `Filter by ${dayName}`}
+                  >
+                    {shortName}
+                  </Button>
+                )
+              })}
+              
+              {/* Clear all filters button */}
+              {(selectedDays.size > 0 || hideConflictSections || selectedInstructors.size > 0) && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setSelectedDays(new Set())
+                    setHideConflictSections(false)
+                    setSelectedInstructors(new Set())
+                  }}
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                  title="Clear all filters"
+                >
+                  Clear All
+                </Button>
+              )}
             </div>
             
             {/* Section Selection */}
@@ -1436,6 +1493,9 @@ function CourseCard({
                           if (!matchesInstructorFilter) return false
                         }
                         
+                        // Apply day filter
+                        if (!sectionMatchesDayFilter(section)) return false
+                        
                         if (showingAllForType) return true
                         if (selectedSectionId) return section.id === selectedSectionId
                         return !incompatible.includes(section)
@@ -1519,12 +1579,15 @@ function CourseCard({
                         if (!matchesInstructorFilter) return false
                       }
                       
-                      // Priority 3: Show all override (user explicitly wants to see everything)
+                      // Priority 3: Day filter (always applied)
+                      if (!sectionMatchesDayFilter(section)) return false
+                      
+                      // Priority 4: Show all override (user explicitly wants to see everything)
                       if (showAllSectionTypes.has(typeGroup.type)) {
                         return true
                       }
                       
-                      // Priority 4: Smart filtering
+                      // Priority 5: Smart filtering
                       const selectedSectionId = localSelections.get(typeGroup.type)
                       
                       // If section is selected, only show selected section
