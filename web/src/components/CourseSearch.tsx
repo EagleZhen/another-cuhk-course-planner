@@ -846,16 +846,16 @@ function InstructorFilters({
       })}
       {selectedInstructors.size > 0 && (
         <Button
-          variant="secondary"
+          variant="destructive"
           size="sm"
-          className="h-6 px-3 text-xs font-medium cursor-pointer bg-red-50 text-red-700 border-red-200 hover:bg-red-100 transition-colors"
+          className="h-6 px-2 text-xs font-medium cursor-pointer"
           onClick={(e) => {
             e.stopPropagation()
             onClearAll()
           }}
           title="Clear all instructor filters"
         >
-          Clear All
+          Clear Instructors
         </Button>
       )}
     </div>
@@ -1333,19 +1333,18 @@ function CourseCard({
                 )
               })}
               
-              {/* Clear all filters button */}
-              {(selectedDays.size > 0 || selectedInstructors.size > 0) && (
+              {/* Clear day filters button */}
+              {selectedDays.size > 0 && (
                 <Button
-                  variant="ghost"
+                  variant="destructive"
                   size="sm"
                   onClick={() => {
                     setSelectedDays(new Set())
-                    setSelectedInstructors(new Set())
                   }}
-                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-100"
-                  title="Clear all filters"
+                  className="h-6 px-2 text-xs font-medium cursor-pointer"
+                  title="Clear all day filters"
                 >
-                  Clear All
+                  Clear Days
                 </Button>
               )}
             </div>
@@ -1384,7 +1383,7 @@ function CourseCard({
                   <h4 className="flex flex-wrap items-center gap-2 font-medium text-sm text-gray-700 mb-2">
                     <span>{typeGroup.icon}</span>
                     <span>{typeGroup.displayName}</span>
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="secondary" className="text-xs">
                       Pick 1
                     </Badge>
                     {/* Show instructor filter status */}
