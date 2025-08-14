@@ -741,7 +741,18 @@ export default function CourseSearch({
                 )}
                 {searchTerm && ` matching "${searchTerm}"`}
                 {searchResults.isShuffled && (
-                  <span className="text-blue-600 font-medium"> (shuffled)</span>
+                  <>
+                    <span className="text-blue-600 font-medium"> (shuffled)</span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setShuffleTrigger(0)}
+                      className="h-6 px-2 text-xs cursor-pointer ml-2"
+                      title="Reset to original order"
+                    >
+                      ↻ Reset
+                    </Button>
+                  </>
                 )}
               </div>
               
