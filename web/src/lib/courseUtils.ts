@@ -500,6 +500,47 @@ export function getComputedBorderColor(bgColor: string): string {
 }
 
 /**
+ * Get subtle background color for subject filter buttons based on first letter
+ * Provides visual grouping to help users scan through 259+ subjects
+ */
+export function getSubjectGroupColor(subject: string): string {
+  const firstLetter = subject.charAt(0).toUpperCase()
+  
+  // Subtle color mapping spread across spectrum for good differentiation
+  // Using -50 backgrounds and -200 borders for neutral, professional look
+  const colorMap: Record<string, string> = {
+    'A': 'bg-red-50 border-red-200 hover:bg-red-100',
+    'B': 'bg-orange-50 border-orange-200 hover:bg-orange-100', 
+    'C': 'bg-amber-50 border-amber-200 hover:bg-amber-100',
+    'D': 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100',
+    'E': 'bg-lime-50 border-lime-200 hover:bg-lime-100',
+    'F': 'bg-green-50 border-green-200 hover:bg-green-100',
+    'G': 'bg-emerald-50 border-emerald-200 hover:bg-emerald-100',
+    'H': 'bg-teal-50 border-teal-200 hover:bg-teal-100',
+    'I': 'bg-cyan-50 border-cyan-200 hover:bg-cyan-100',
+    'J': 'bg-sky-50 border-sky-200 hover:bg-sky-100',
+    'K': 'bg-blue-50 border-blue-200 hover:bg-blue-100',
+    'L': 'bg-indigo-50 border-indigo-200 hover:bg-indigo-100',
+    'M': 'bg-violet-50 border-violet-200 hover:bg-violet-100',
+    'N': 'bg-purple-50 border-purple-200 hover:bg-purple-100',
+    'O': 'bg-fuchsia-50 border-fuchsia-200 hover:bg-fuchsia-100',
+    'P': 'bg-pink-50 border-pink-200 hover:bg-pink-100',
+    'Q': 'bg-rose-50 border-rose-200 hover:bg-rose-100',
+    'R': 'bg-slate-50 border-slate-200 hover:bg-slate-100',
+    'S': 'bg-gray-50 border-gray-200 hover:bg-gray-100',
+    'T': 'bg-zinc-50 border-zinc-200 hover:bg-zinc-100',
+    'U': 'bg-stone-50 border-stone-200 hover:bg-stone-100',
+    'V': 'bg-neutral-50 border-neutral-200 hover:bg-neutral-100',
+    'W': 'bg-red-50 border-red-200 hover:bg-red-100', // Wrap around for rare letters
+    'X': 'bg-orange-50 border-orange-200 hover:bg-orange-100',
+    'Y': 'bg-amber-50 border-amber-200 hover:bg-amber-100',
+    'Z': 'bg-yellow-50 border-yellow-200 hover:bg-yellow-100'
+  }
+  
+  return colorMap[firstLetter] || 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+}
+
+/**
  * Generate deterministic color for course based on course code
  */
 export function getDeterministicColor(courseCode: string): string {

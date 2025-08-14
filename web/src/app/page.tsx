@@ -8,7 +8,7 @@ import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, getSubjectGroupColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
 import { analytics } from '@/lib/analytics'
 
 // Color assignment is now handled in courseUtils.ts
@@ -578,12 +578,18 @@ function SubjectToggle({
   isSelected: boolean
   onSubjectToggle: (subject: string) => void 
 }) {
+  const groupColor = getSubjectGroupColor(subject)
+  
   return (
     <Button
       variant={isSelected ? "default" : "outline"}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
-      className="h-6 px-2 text-xs font-mono font-normal"
+      className={`h-6 px-2 text-xs font-mono font-normal ${
+        isSelected 
+          ? '' // Keep default styling when selected
+          : groupColor // Apply subtle color when not selected
+      }`}
       title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
     >
       {subject}
