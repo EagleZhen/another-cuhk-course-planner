@@ -896,6 +896,15 @@ function CourseCard({
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
   
+  // Check if any sections have conflicts (memoized for performance)
+  const hasAnyConflicts = useMemo(() => {
+    return sectionTypes.some(typeGroup => 
+      typeGroup.sections.some(section => 
+        checkSectionConflict(section, courseEnrollments).hasConflict
+      )
+    )
+  }, [sectionTypes, courseEnrollments])
+  
   // Get enrolled course for this course
   const enrolledCourse = courseEnrollments.find(enrollment => 
     enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
@@ -1290,19 +1299,25 @@ function CourseCard({
             {/* Section Filters */}
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-medium text-gray-700">Filters:</span>
-              <Button
-                variant={hideConflictSections ? "default" : "outline"}
-                size="sm"
-                onClick={() => setHideConflictSections(!hideConflictSections)}
-                className={`h-6 px-2 text-xs cursor-pointer transition-all ${
-                  hideConflictSections 
-                    ? 'bg-red-600 text-white border-red-600 hover:bg-red-700' 
-                    : 'text-red-700 border-red-300 bg-red-50 hover:bg-red-100'
-                }`}
-                title={hideConflictSections ? "Show conflict sections" : "Hide conflict sections"}
-              >
-                {hideConflictSections ? "Show Conflicts" : "Hide Conflicts"}
-              </Button>
+              
+              {/* Only show conflict filter if conflicts exist */}
+              {hasAnyConflicts && (
+                <Button
+                  variant={hideConflictSections ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setHideConflictSections(!hideConflictSections)}
+                  className={`h-6 px-2 text-xs cursor-pointer transition-all ${
+                    hideConflictSections 
+                      ? 'bg-red-600 text-white border-red-600 hover:bg-red-700' 
+                      : 'text-red-700 border-red-300 bg-red-50 hover:bg-red-100'
+                  }`}
+                  title={hideConflictSections ? "Show conflict sections" : "Hide conflict sections"}
+                >
+                  {hideConflictSections ? "Show Conflicts" : "Hide Conflicts"}
+                </Button>
+              )}
+              
+              {/* Future filters will go here */}
             </div>
             
             {/* Section Selection */}
