@@ -546,7 +546,6 @@ export default function Home() {
               onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
               onDataUpdate={handleDataUpdate}         // Data freshness callback
               selectedSubjects={selectedSubjects}     // Subject filter state
-              onSubjectFiltersChange={setSelectedSubjects}   // Subject filter callback
               onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
               />
             </CardContent>
