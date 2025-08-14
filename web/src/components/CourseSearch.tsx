@@ -96,7 +96,7 @@ export default function CourseSearch({
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
-  const [isShuffled, setIsShuffled] = useState(false)
+  const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
   
   // Removed global state - CourseCard now manages its own state
 
@@ -421,8 +421,8 @@ export default function CourseSearch({
       })
     }
 
-    // Apply shuffle if enabled
-    if (isShuffled) {
+    // Apply shuffle if triggered (one-off action based on shuffleTrigger counter)
+    if (shuffleTrigger > 0) {
       // Create a copy and shuffle using Fisher-Yates algorithm
       finalCourses = [...finalCourses]
       for (let i = finalCourses.length - 1; i > 0; i--) {
@@ -438,9 +438,9 @@ export default function CourseSearch({
       courses: finalCourses.slice(0, limit),
       total: finalCourses.length,
       isLimited: finalCourses.length > limit,
-      isShuffled
+      isShuffled: shuffleTrigger > 0
     }
-  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, isShuffled])
+  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, shuffleTrigger])
 
   // Track search analytics - simplified for MVP
   useEffect(() => {
@@ -749,19 +749,11 @@ export default function CourseSearch({
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setIsShuffled(!isShuffled)}
+                  onClick={() => setShuffleTrigger(prev => prev + 1)}
                   className="h-6 px-2 text-xs cursor-pointer"
-                  title={isShuffled ? "Reset to default order" : "Shuffle courses for discovery"}
+                  title="Shuffle courses for discovery"
                 >
-                  {isShuffled ? (
-                    <>
-                      ↻ Reset Order
-                    </>
-                  ) : (
-                    <>
-                      🎲 Shuffle
-                    </>
-                  )}
+                  🎲 Shuffle
                 </Button>
               )}
             </div>
