@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Users, Clock } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, createGoogleSearch, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, googleSearchAndOpen, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -382,21 +382,6 @@ export default function CourseSearch({
   }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
 
   // Real-time search with useMemo for performance, filtered by current term
-  // Helper function to open Google search for course reviews
-  const searchCourseReviews = (course: InternalCourse) => {
-    const query = `CUHK ${course.subject} ${course.courseCode} review`
-    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
-    window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
-  }
-
-  // Helper function to open Google search for instructor
-  const searchInstructor = (instructorName: string) => {
-    // Use name without title for better search results (titles can change over time)
-    const searchName = removeInstructorTitle(instructorName)
-    const query = `${searchName}`
-    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`
-    window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
-  }
 
   const searchResults = useMemo(() => {
     // First filter by term - only show courses available in current term
@@ -766,8 +751,6 @@ export default function CourseSearch({
                   key={`${course.subject}-${course.courseCode}-${index}`} 
                   course={course}
                   currentTerm={currentTerm}
-                  onSearchReviews={searchCourseReviews}
-                  onSearchInstructor={searchInstructor}
                   initialSelections={(() => {
                     const courseKey = `${course.subject}${course.courseCode}`
                     const courseSelections = new Map<string, string>()
@@ -819,14 +802,12 @@ function InstructorFilters({
   instructors,
   selectedInstructors,
   onToggleInstructor,
-  onSearchInstructor,
   onClearAll,
   isMobile = false
 }: {
   instructors: string[]
   selectedInstructors: Set<string>
   onToggleInstructor: (instructor: string) => void
-  onSearchInstructor: (instructor: string) => void
   onClearAll: () => void
   isMobile?: boolean
 }) {
@@ -853,7 +834,7 @@ function InstructorFilters({
                 className="h-4 w-4 p-0 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
                 onClick={(e) => {
                   e.stopPropagation()
-                  onSearchInstructor(formattedInstructor)
+                  googleSearchAndOpen(removeInstructorTitle(formattedInstructor))
                 }}
                 title={`Search Google for "${removeInstructorTitle(formattedInstructor)}" (without title for better results)`}
               >
@@ -885,8 +866,6 @@ function CourseCard({
   course, 
   currentTerm, 
   initialSelections = new Map(),
-  onSearchReviews,
-  onSearchInstructor,
   onSectionsChange,
   onAddCourse,
   onRemoveCourse, 
@@ -898,8 +877,6 @@ function CourseCard({
   course: InternalCourse
   currentTerm: string
   initialSelections?: Map<string, string>
-  onSearchReviews: (course: InternalCourse) => void
-  onSearchInstructor: (instructorName: string) => void
   onSectionsChange: (course: InternalCourse, selections: Map<string, string>) => void
   onAddCourse: (course: InternalCourse, localSelections: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
@@ -1021,27 +998,26 @@ function CourseCard({
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
-                  const searchUrl = createGoogleSearch(['CUHK', course.subject + course.courseCode, course.title, 'outline'])
-                  window.open(searchUrl, '_blank', 'noopener,noreferrer')
+                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
                 }}
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
               >
                 <Search className="w-3 h-3 mr-1" />
-                Outline
+                Course Outline
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
-                  onSearchReviews(course)
+                  googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
                 }}
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
               >
                 <Search className="w-3 h-3 mr-1" />
-                Reviews
+                Course Reviews
               </Button>
             </div>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
@@ -1060,7 +1036,6 @@ function CourseCard({
                   instructors={instructors}
                   selectedInstructors={selectedInstructors}
                   onToggleInstructor={toggleInstructorFilter}
-                  onSearchInstructor={onSearchInstructor}
                   onClearAll={() => setSelectedInstructors(new Set())}
                   isMobile={false}
                 />
@@ -1166,27 +1141,26 @@ function CourseCard({
               size="sm"
               onClick={(e) => {
                 e.stopPropagation()
-                const searchUrl = createGoogleSearch(['CUHK', course.subject + course.courseCode, course.title, 'outline'])
-                window.open(searchUrl, '_blank', 'noopener,noreferrer')
+                googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
               }}
               className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
               title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
             >
               <Search className="w-3 h-3 mr-1" />
-              Outline
+              Course Outline
             </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={(e) => {
                 e.stopPropagation()
-                onSearchReviews(course)
+                googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
               }}
               className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
               title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
             >
               <Search className="w-3 h-3 mr-1" />
-              Reviews
+              Course Reviews
             </Button>
           </div>
 
@@ -1208,7 +1182,6 @@ function CourseCard({
                   instructors={instructors}
                   selectedInstructors={selectedInstructors}
                   onToggleInstructor={toggleInstructorFilter}
-                  onSearchInstructor={onSearchInstructor}
                   onClearAll={() => setSelectedInstructors(new Set())}
                   isMobile={true}
                 />

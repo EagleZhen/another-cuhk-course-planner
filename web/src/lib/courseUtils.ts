@@ -1083,12 +1083,11 @@ export async function captureCalendarScreenshot(
 // === SEARCH UTILITIES ===
 
 /**
- * Creates a Google search URL with the given keywords
- * @param keywords Array of search terms to combine
- * @returns Google search URL
+ * Performs a Google search with the given query and opens in new tab
+ * @param query Search query string
  */
-export const createGoogleSearch = (keywords: string[]): string => {
-  const query = keywords.filter(Boolean).join(' ')
+export const googleSearchAndOpen = (query: string): void => {
   const params = new URLSearchParams({ q: query })
-  return `https://www.google.com/search?${params.toString()}`
+  const url = `https://www.google.com/search?${params.toString()}`
+  window.open(url, '_blank', 'noopener,noreferrer')
 }
