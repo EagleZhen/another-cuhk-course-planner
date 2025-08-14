@@ -59,6 +59,7 @@ export const SECTION_TYPE_CONFIG = {
   'FLD': { displayName: 'Field Study', icon: '🌍', aliases: ['FLD'] },
   'CLW': { displayName: 'Classwork', icon: '✏️', aliases: ['CLW'] },
   'ASB': { displayName: 'Assembly', icon: '👂', aliases: ['ASB'] },
+  'STD': { displayName: 'Studio', icon: '🧠', aliases: ['STD'] },
   'OTHER': { displayName: 'Other', icon: '📋', aliases: ['OTHER'] }
 } as const
 
