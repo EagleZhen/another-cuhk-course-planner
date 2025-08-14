@@ -26,7 +26,6 @@ interface CourseSearchProps {
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
-  onSubjectFiltersChange?: (subjects: Set<string>) => void // Subject filter callback
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
@@ -43,7 +42,6 @@ export default function CourseSearch({
   onSearchControlReady,
   onDataUpdate,
   selectedSubjects = new Set(),
-  onSubjectFiltersChange,
   onAvailableSubjectsUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -834,9 +832,9 @@ function InstructorFilters({
                 className="h-4 w-4 p-0 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
                 onClick={(e) => {
                   e.stopPropagation()
-                  googleSearchAndOpen(removeInstructorTitle(formattedInstructor))
+                  googleSearchAndOpen(`CUHK ${formattedInstructor}`)
                 }}
-                title={`Search Google for "${removeInstructorTitle(formattedInstructor)}" (without title for better results)`}
+                title={`Search Google for "CUHK ${formattedInstructor}" for more relevant results`}
               >
                 <Search className={`w-2.5 h-2.5 transition-opacity ${isSelected ? 'text-white opacity-90 hover:opacity-100' : 'text-gray-600 opacity-70 hover:opacity-100'}`} />
               </div>
@@ -1371,7 +1369,7 @@ function CourseCard({
               })
               
               // Categorize sections as compatible/incompatible based on higher priority selections only
-              const { compatible, incompatible, hasNoCompatible } = categorizeCompatibleSections(
+              const { incompatible } = categorizeCompatibleSections(
                 typeGroup.sections, 
                 higherPrioritySelections
               )
