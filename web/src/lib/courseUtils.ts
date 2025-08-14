@@ -1114,6 +1114,51 @@ export async function captureCalendarScreenshot(
   }
 }
 
+/**
+ * Check if a section conflicts with current visible enrollments
+ * Used for showing conflict warnings in course search
+ */
+export function checkSectionConflict(
+  candidateSection: InternalSection,
+  currentEnrollments: CourseEnrollment[]
+): {
+  hasConflict: boolean
+  conflictingCourses: string[]
+} {
+  const conflictingCourses: string[] = []
+  
+  // Get all meetings from the candidate section
+  for (const candidateMeeting of candidateSection.meetings) {
+    const candidateTime = parseTimeRange(candidateMeeting.time)
+    if (!candidateTime) continue // Skip TBA meetings
+    
+    // Check against all visible enrolled sections
+    for (const enrollment of currentEnrollments) {
+      if (!enrollment.isVisible || enrollment.isInvalid) continue
+      
+      for (const enrolledSection of enrollment.selectedSections) {
+        for (const enrolledMeeting of enrolledSection.meetings) {
+          const enrolledTime = parseTimeRange(enrolledMeeting.time)
+          if (!enrolledTime) continue
+          
+          // Check for time overlap
+          if (doTimesOverlap(candidateTime, enrolledTime)) {
+            const courseName = `${enrollment.course.subject}${enrollment.course.courseCode}`
+            if (!conflictingCourses.includes(courseName)) {
+              conflictingCourses.push(courseName)
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  return {
+    hasConflict: conflictingCourses.length > 0,
+    conflictingCourses
+  }
+}
+
 // === SEARCH UTILITIES ===
 
 /**

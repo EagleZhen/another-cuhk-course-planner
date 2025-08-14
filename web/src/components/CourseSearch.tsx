@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, googleSearchAndOpen, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle } from 'lucide-react'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -1503,6 +1503,10 @@ function CourseCard({
                     const isIncompatible = incompatible.includes(section)
                     const sectionPrefix = getSectionPrefix(section.sectionCode)
                     
+                    // Check for time conflicts with current schedule
+                    const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                    const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
+                    
                     return (
                       <div 
                         key={section.id}
@@ -1510,8 +1514,10 @@ function CourseCard({
                           isSelected 
                             ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer' 
                             : isIncompatible 
-                              ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale' 
-                              : 'border border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
+                              ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
+                              : hasTimeConflict
+                                ? 'border border-red-300 bg-white hover:bg-red-50 cursor-pointer shadow-sm'
+                                : 'border border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
                         }`}
                         onClick={() => {
                           if (!isIncompatible) {
@@ -1563,11 +1569,25 @@ function CourseCard({
                             // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
                           }
                         }}
-                        title={isIncompatible ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections` : undefined}
+                        title={
+                          isIncompatible 
+                            ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
+                            : hasTimeConflict
+                              ? `Time conflict with: ${conflictInfo.conflictingCourses.join(', ')}`
+                              : undefined
+                        }
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-sm font-medium">{section.sectionCode}</span>
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            <span className="font-mono text-sm font-medium flex-shrink-0">{section.sectionCode}</span>
+                            {hasTimeConflict && (
+                              <div className="flex items-center gap-1 text-red-600 text-xs min-w-0 flex-1">
+                                <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0" />
+                                <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingCourses.join(', ')}`}>
+                                  {conflictInfo.conflictingCourses.join(', ')}
+                                </span>
+                              </div>
+                            )}
                           </div>
                           
                           <div className="flex items-center gap-2 flex-shrink-0">
