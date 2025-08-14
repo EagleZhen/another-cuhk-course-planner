@@ -222,13 +222,6 @@ export default function ShoppingCart({
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
               
-              // Check section availability states
-              const hasClosedSections = enrollment.selectedSections.some(section => 
-                section.availability.status === 'Closed'
-              )
-              const hasWaitlistedSections = enrollment.selectedSections.some(section => 
-                section.availability.status === 'Waitlisted'
-              )
               
               return (
                 <div
@@ -245,13 +238,7 @@ export default function ShoppingCart({
                     border-l-4 border-gray-200
                     ${isInvalid 
                       ? 'bg-orange-50 opacity-75' 
-                      : hasConflict 
-                        ? 'bg-purple-50'     // Purple for time conflicts
-                        : hasClosedSections
-                          ? 'bg-red-50'      // Red for closed sections
-                          : hasWaitlistedSections
-                            ? 'bg-yellow-50' // Yellow for waitlisted sections
-                            : 'bg-white'
+                      : 'bg-white'
                     }
                     ${isSelected && isVisible && !isInvalid
                       ? `ring-1 shadow-lg scale-[1.02]` 
