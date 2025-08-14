@@ -1591,7 +1591,7 @@ function CourseCard({
                           {getAvailabilityBadges(section.availability).map((badge) => (
                             <Badge
                               key={badge.type}
-                              className={`text-[10px] ${badge.style.className}`}
+                              className={`text-[10px] px-1 py-0 ${badge.style.className}`}
                               title={
                                 badge.type === 'status' 
                                   ? `Course status: ${badge.text}`
