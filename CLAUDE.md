@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 1. **Course Data Scraper** (`cuhk_scraper.py`): ✅ **PRODUCTION READY** - Python scraper with crash-resistant JSONL recovery
 2. **Web Interface**: 🏆 **ENTERPRISE-GRADE** - Type-safe React frontend with clean architecture
 
-## Current System Status (January 2025)
+## Current System Status (August 2025)
 
 ### **🏗️ Production-Ready Architecture**
 
@@ -580,6 +580,313 @@ import { SpeedInsights } from '@vercel/speed-insights/next'  // Performance data
 - Enhanced student trust and forum reputation  
 - Focus on qualitative feedback over quantitative tracking
 - Privacy-by-design approach aligns with academic tool expectations
+
+## ✅ Latest Achievement: Modern UX & Conflict Management System (August 2025)
+
+**Major UI/UX & Architecture Improvements**: 
+1. **Professional Badge System**: Text-based badges with proper capitalization and modern styling
+2. **Visual Conflict Detection**: Proactive conflict indicators in course search with filtering
+3. **Clean Google Search Integration**: Centralized search utilities with direct implementation
+4. **Modern FeedbackButton**: TermSelector-pattern implementation for better performance
+5. **Smart Section Filtering**: Conditional conflict filter with intelligent visibility
+
+### **🎨 Professional Badge System Redesign**
+
+**Problem Solved**: Icon-based badges were ambiguous and took up unnecessary space
+**Solution**: Clean text-based system with semantic color coding and information hierarchy
+
+```typescript
+// ✅ Modern 3-Row Layout with Clear Text Badges
+Row 1: Section Code + Action Button
+Row 2: [Open] [25 Available Seats] [12 on Waitlist] ← All enrollment info
+Row 3: 🌐 Teaching Language ← Separate concern
+Row 4: Time + Instructor + Location
+
+// ✅ Status Badge Styling - Traffic Light System
+case 'Open':     // Green - safe to enroll
+  return { className: 'bg-green-700 text-white border-green-600 font-medium' }
+case 'Waitlisted': // Yellow - proceed with caution  
+  return { className: 'bg-yellow-600 text-white border-yellow-500 font-medium' }
+case 'Closed':   // Red - enrollment blocked
+  return { className: 'bg-red-700 text-white border-red-600 font-medium' }
+```
+
+**Key Improvements:**
+- ✅ **Clear Information Hierarchy**: Status gets dark background, supporting info gets light
+- ✅ **Proper Capitalization**: Professional text like "25 Available Seats", "12 on Waitlist"
+- ✅ **Traffic Light Logic**: Green=Go, Yellow=Caution, Red=Stop (universal understanding)
+- ✅ **Space Efficient**: 3-row layout separates concerns logically
+
+### **⚠️ Visual Conflict Detection System**
+
+**Problem Solved**: Users accidentally selected conflicting sections without warning
+**Solution**: Proactive conflict visualization with smart filtering options
+
+```typescript
+// ✅ Conflict Detection Infrastructure
+export function checkSectionConflict(
+  candidateSection: InternalSection,
+  currentEnrollments: CourseEnrollment[]
+): { hasConflict: boolean; conflictingCourses: string[] }
+
+// ✅ Visual Conflict Indicators
+className={`border rounded transition-all ${
+  hasTimeConflict
+    ? 'border-red-300 bg-white hover:bg-red-50 cursor-pointer shadow-sm'
+    : 'border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
+}`}
+
+// ✅ Inline Conflict Information  
+{hasTimeConflict && (
+  <div className="flex items-center gap-1 text-red-600 text-xs min-w-0">
+    <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0" />
+    <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingCourses.join(', ')}`}>
+      {conflictInfo.conflictingCourses.join(', ')}
+    </span>
+  </div>
+)}
+```
+
+**Key Features:**
+- ✅ **Proactive Prevention**: Shows conflicts before selection
+- ✅ **Clear Visual Feedback**: Red border + conflict course names displayed
+- ✅ **Smart Filtering**: Optional "Hide Conflicts" toggle (only shows when conflicts exist)
+- ✅ **Performance Optimized**: Memoized conflict detection, efficient rendering
+
+### **🔍 Clean Google Search Integration**
+
+**Problem Solved**: Over-engineered search wrapper functions and unnecessary abstraction
+**Solution**: Simple, centralized utility with direct implementation
+
+```typescript
+// ❌ REMOVED: Complex wrapper functions and prop drilling
+const searchCourseReviews = (course) => { /* complex logic */ }
+const searchInstructor = (name) => { /* complex logic */ }
+<CourseCard onSearchReviews={searchCourseReviews} onSearchInstructor={searchInstructor} />
+
+// ✅ CLEAN: Direct utility function usage
+export const googleSearchAndOpen = (query: string): void => {
+  const params = new URLSearchParams({ q: query })
+  const url = `https://www.google.com/search?${params.toString()}`
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
+
+// ✅ Direct implementation in components
+onClick={(e) => {
+  e.stopPropagation()
+  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} outline OR syllabus`)
+}}
+```
+
+**Architectural Benefits:**
+- ✅ **Simplified Interfaces**: Removed unnecessary props and wrapper functions
+- ✅ **Direct Implementation**: Keywords constructed at call site for clarity
+- ✅ **Maintainable**: Single utility function handles all search opening logic
+- ✅ **Flexible**: Easy to customize search queries per use case
+
+### **⚡ Modern FeedbackButton Architecture**
+
+**Problem Solved**: Complex event listeners and heavy DOM operations caused 1-second lag
+**Solution**: TermSelector-pattern implementation with lightweight backdrop
+
+```typescript
+// ❌ REMOVED: Complex useEffect/useRef event listener management
+useEffect(() => {
+  const handleClickOutside = (e: MouseEvent) => { /* complex logic */ }
+  const handleEscape = (e: KeyboardEvent) => { /* complex logic */ }
+  document.addEventListener('mousedown', handleClickOutside)
+  return () => { /* cleanup */ }
+}, [isOpen])
+
+// ✅ CLEAN: Simple backdrop pattern (borrowed from TermSelector)
+{isOpen && (
+  <>
+    <div className="fixed inset-0 z-[55] cursor-pointer" onClick={() => setIsOpen(false)} />
+    <div className="absolute bottom-full right-0 mb-2 z-[60] bg-white border rounded-lg shadow-lg">
+      {/* Simple menu items */}
+    </div>
+  </>
+)}
+```
+
+**Performance Gains:**
+- ✅ **Eliminated Lag**: From 1-second delay to instant response
+- ✅ **Simpler Code**: 50% fewer lines, no complex event management
+- ✅ **Consistent Pattern**: Follows established TermSelector architecture
+- ✅ **Better UX**: Backdrop click, button toggle, clean animations
+
+### **🎛️ Smart Section Filtering System**
+
+**Problem Solved**: Need to hide conflict sections without permanent UI clutter
+**Solution**: Conditional filter button with intelligent visibility
+
+```typescript
+// ✅ Conditional Filter Display (only when relevant)
+const hasAnyConflicts = useMemo(() => {
+  return sectionTypes.some(typeGroup => 
+    typeGroup.sections.some(section => 
+      checkSectionConflict(section, courseEnrollments).hasConflict
+    )
+  )
+}, [sectionTypes, courseEnrollments])
+
+// ✅ Smart Filter Integration
+<div className="flex items-center gap-2 flex-wrap">
+  <span className="text-sm font-medium text-gray-700">Filters:</span>
+  {hasAnyConflicts && <ConflictFilterButton />}
+  {/* Future filters will go here */}
+</div>
+
+// ✅ Filter Logic Priority System
+Priority 1: Conflict filter - Hide/show based on time conflicts
+Priority 2: Instructor filter - Filter by selected instructors  
+Priority 3: Show all override - Power user bypass
+Priority 4: Smart filtering - Compatibility and selection logic
+```
+
+**UX Benefits:**
+- ✅ **Context-Aware**: Only shows conflict filter when conflicts exist
+- ✅ **Progressive Disclosure**: Hides complexity when not needed
+- ✅ **Extensible Design**: Ready for additional filters like "Available Only"
+- ✅ **Intelligent Defaults**: Shows conflicts by default (they can be resolved)
+
+## ✅ Latest Achievement: Shopping Cart Enhancement & Code Optimization (August 2025)
+
+**Major Shopping Cart & UX Improvements**: 
+1. **Clean Visual Design**: Removed visual noise while maintaining clear status indication
+2. **Unified Display Format**: Consistent 3-row emoji layout across shopping cart and course search
+3. **Smart Status Management**: Visibility-aware counts with clean two-row summary layout
+4. **Enhanced Google Search**: Improved instructor search with CUHK prefix and full titles
+5. **Code Cleanup**: Eliminated dead code and unused variables for better maintainability
+
+### **🎨 Clean Visual Design Philosophy**
+
+**Problem Solved**: Colored backgrounds added visual noise without improving clarity
+**Solution**: Clean white backgrounds with targeted status indicators only where needed
+
+```typescript
+// ❌ REMOVED: Visual noise from multiple background colors
+className={`
+  ${hasConflict ? 'bg-purple-50' : ''}     // Removed
+  ${hasClosedSections ? 'bg-red-50' : ''}  // Removed  
+  ${hasWaitlistedSections ? 'bg-yellow-50' : ''}  // Removed
+`}
+
+// ✅ CLEAN: Simple white backgrounds with targeted indicators
+className={`
+  border rounded p-2 transition-all duration-300 relative
+  border-l-4 border-gray-200
+  ${isInvalid ? 'bg-orange-50 opacity-75' : 'bg-white'}  // Only for critical data issues
+`}
+```
+
+**Design Benefits:**
+- ✅ **Professional Appearance**: Clean white cards look more polished
+- ✅ **Better Readability**: No color interference with text content
+- ✅ **Status Still Clear**: Icons, badges, and summary provide all needed information
+- ✅ **Reduced Visual Noise**: Focus on content rather than background colors
+
+### **📋 Unified Display Format System**
+
+**Problem Solved**: Inconsistent meeting information display between shopping cart and course search
+**Solution**: Standardized 3-row emoji format with proper information hierarchy
+
+```typescript
+// ✅ UNIFIED: Both shopping cart and course search now use identical format
+{/* Row 1: Time */}
+<div className="flex items-center gap-1 text-[11px]">
+  <span>⏰</span>
+  <span className="font-mono text-gray-600">{formattedTime}</span>
+</div>
+{/* Row 2: Instructor */}
+<div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+  <span>👨‍🏫</span>
+  <span className="truncate" title={formattedInstructor}>
+    {formattedInstructor}
+  </span>
+</div>
+{/* Row 3: Location */}
+<div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+  <span>📍</span>
+  <span className="truncate" title={location}>{location}</span>
+</div>
+```
+
+**Information Hierarchy Rationale:**
+1. **Time** (⏰) - Most critical for scheduling decisions
+2. **Instructor** (👨‍🏫) - Important for course quality assessment  
+3. **Location** (📍) - Important but often consistent within buildings
+
+### **📊 Smart Status Management System**
+
+**Problem Solved**: Status counts should reflect visibility settings and be organized logically
+**Solution**: Clean two-row summary with visibility-aware counting
+
+```typescript
+// ✅ SMART: Centralized count calculation with visibility awareness
+const getStatusCounts = () => {
+  const validEnrollments = courseEnrollments.filter(enrollment => !enrollment.isInvalid)
+  const visibleValidEnrollments = validEnrollments.filter(enrollment => enrollment.isVisible)
+  
+  return {
+    // Credit counts
+    visibleCredits: visibleValidEnrollments.reduce((sum, enrollment) => sum + enrollment.course.credits, 0),
+    totalCredits: validEnrollments.reduce((sum, enrollment) => sum + enrollment.course.credits, 0),
+    
+    // Status counts with visible/total tracking
+    open: {
+      visible: visibleValidEnrollments.filter(enrollment => /* logic */).length,
+      total: validEnrollments.filter(enrollment => /* logic */).length
+    },
+    // ... other status types
+  }
+}
+
+// ✅ CLEAN: Two-row summary layout
+Row 1: Credits (left) + Conflicts (right, optional)
+Row 2: Open | Waitlisted | Closed | Invalid (distributed, all optional)
+```
+
+**Summary Benefits:**
+- ✅ **Visibility-Aware**: All counts properly reflect hidden/visible courses
+- ✅ **DRY Principle**: Single function handles all count calculations  
+- ✅ **Clean Layout**: Logical two-row organization with proper spacing
+- ✅ **Smart Display**: Only shows status types that have courses
+
+### **🔍 Enhanced Google Search Integration**
+
+**Problem Solved**: Instructor searches returned generic results instead of CUHK-specific information
+**Solution**: CUHK prefix and full title inclusion for relevant results
+
+```typescript
+// ❌ BEFORE: Generic search with title removed
+googleSearchAndOpen(removeInstructorTitle(formattedInstructor))
+// Search: "John Smith" → Generic worldwide results
+
+// ✅ AFTER: CUHK-specific search with full title
+googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+// Search: "CUHK Prof. John Smith" → Specific CUHK faculty results
+```
+
+**Search Benefits:**
+- ✅ **Relevant Results**: CUHK prefix filters to university context
+- ✅ **Complete Information**: Includes academic titles for better identification
+- ✅ **Better UX**: Students find actual faculty pages and research information
+- ✅ **Academic Context**: Results focused on teaching and research activities
+
+### **🧹 Code Optimization & Cleanup**
+
+**Major Cleanup Areas:**
+1. **Unused Variables Removal**: Eliminated `hasClosedSections`, `hasWaitlistedSections`, `compatible`, `hasNoCompatible`
+2. **Dead Code Elimination**: Removed unused `onSubjectFiltersChange` prop throughout component tree
+3. **Import Optimization**: Cleaned up unused imports and destructuring assignments
+4. **Logic Simplification**: Streamlined complex conditional logic into cleaner patterns
+
+**Maintainability Benefits:**
+- ✅ **Cleaner Codebase**: No unused variables or dead code paths
+- ✅ **Simpler Interfaces**: Reduced component props and complexity
+- ✅ **Better Performance**: Fewer unused calculations and re-renders
+- ✅ **Easier Debugging**: Less code to navigate and understand
 
 ## Current System Status (August 2025)
 
