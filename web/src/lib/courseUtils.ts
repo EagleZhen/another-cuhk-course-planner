@@ -1143,9 +1143,9 @@ export function checkSectionConflict(
           
           // Check for time overlap
           if (doTimesOverlap(candidateTime, enrolledTime)) {
-            const courseName = `${enrollment.course.subject}${enrollment.course.courseCode}`
-            if (!conflictingCourses.includes(courseName)) {
-              conflictingCourses.push(courseName)
+            const courseWithSection = `${enrollment.course.subject}${enrollment.course.courseCode} ${enrolledSection.sectionType}`
+            if (!conflictingCourses.includes(courseWithSection)) {
+              conflictingCourses.push(courseWithSection)
             }
           }
         }

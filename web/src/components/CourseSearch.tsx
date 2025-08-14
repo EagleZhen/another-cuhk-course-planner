@@ -1392,53 +1392,6 @@ function CourseCard({
                         Filtered by {selectedInstructors.size} instructor{selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
                     )}
-                    {/* Step 3: Contextual badge messaging based on selection state */}
-                    {(() => {
-                      const selectedSectionId = localSelections.get(typeGroup.type)
-                      
-                      // If this type has a selection, show "locked" state
-                      if (selectedSectionId) {
-                        return (
-                          <Badge variant="outline" className="text-xs text-indigo-700 border-indigo-300 bg-indigo-50">
-                            Selection locked
-                          </Badge>
-                        )
-                      }
-                      
-                      // If no selection in this type, show compatibility info
-                      const compatibleSections = compatible.filter(section => {
-                        // Apply instructor filter if active
-                        if (selectedInstructors.size === 0) return true
-                        return section.meetings.some(meeting => {
-                          if (!meeting.instructor) return false
-                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
-                          return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorCompact(instructorName)
-                            return selectedInstructors.has(formattedName)
-                          })
-                        })
-                      })
-                      
-                      if (hasNoCompatible || compatibleSections.length === 0) {
-                        return (
-                          <Badge variant="secondary" className="text-xs">
-                            {selectedInstructors.size > 0 ? 'No matching sections' : 'No compatible options'}
-                          </Badge>
-                        )
-                      } else if (compatible.length < typeGroup.sections.length) {
-                        return (
-                          <Badge variant="outline" className="text-xs text-green-700 border-green-300 bg-green-50">
-                            {compatibleSections.length} compatible
-                          </Badge>
-                        )
-                      } else {
-                        return (
-                          <Badge variant="outline" className="text-xs text-blue-700 border-blue-300 bg-blue-50">
-                            All {compatibleSections.length} available
-                          </Badge>
-                        )
-                      }
-                    })()}
                   </h4>
                   
                   {/* Simplified show all toggle - always available for user control */}
@@ -1648,10 +1601,10 @@ function CourseCard({
                         }
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2 flex-1 min-w-0">
-                            <span className="font-mono text-sm font-medium flex-shrink-0">{section.sectionCode}</span>
+                          <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                            <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">{section.sectionCode}</span>
                             {hasTimeConflict && (
-                              <div className="flex items-center gap-1 text-red-600 text-xs min-w-0 flex-1">
+                              <div className="flex items-center gap-0.5 text-red-600 text-xs min-w-0 flex-1">
                                 <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0" />
                                 <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingCourses.join(', ')}`}>
                                   {conflictInfo.conflictingCourses.join(', ')}
