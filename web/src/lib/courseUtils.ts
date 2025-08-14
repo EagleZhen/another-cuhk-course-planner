@@ -1123,10 +1123,10 @@ export function checkSectionConflict(
   currentEnrollments: CourseEnrollment[]
 ): {
   hasConflict: boolean
-  conflictingCourses: string[]
+  conflictingSections: string[]
 } {
-  const conflictingCourses: string[] = []
-  
+  const conflictingSections: string[] = []
+
   // Get all meetings from the candidate section
   for (const candidateMeeting of candidateSection.meetings) {
     const candidateTime = parseTimeRange(candidateMeeting.time)
@@ -1139,13 +1139,14 @@ export function checkSectionConflict(
       for (const enrolledSection of enrollment.selectedSections) {
         for (const enrolledMeeting of enrolledSection.meetings) {
           const enrolledTime = parseTimeRange(enrolledMeeting.time)
-          if (!enrolledTime) continue
-          
+          // Skip itself from checking
+          if (!enrolledTime || enrolledSection.id === candidateSection.id) continue
+
           // Check for time overlap
           if (doTimesOverlap(candidateTime, enrolledTime)) {
             const courseWithSection = `${enrollment.course.subject}${enrollment.course.courseCode} ${enrolledSection.sectionType}`
-            if (!conflictingCourses.includes(courseWithSection)) {
-              conflictingCourses.push(courseWithSection)
+            if (!conflictingSections.includes(courseWithSection)) {
+              conflictingSections.push(courseWithSection)
             }
           }
         }
@@ -1154,8 +1155,8 @@ export function checkSectionConflict(
   }
   
   return {
-    hasConflict: conflictingCourses.length > 0,
-    conflictingCourses
+    hasConflict: conflictingSections.length > 0,
+    conflictingSections: conflictingSections
   }
 }
 

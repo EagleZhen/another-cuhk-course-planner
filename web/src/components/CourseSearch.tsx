@@ -1594,7 +1594,7 @@ function CourseCard({
                           isIncompatible 
                             ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
                             : hasTimeConflict
-                              ? `Time conflict with: ${conflictInfo.conflictingCourses.join(', ')}`
+                              ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
                               : undefined
                         }
                       >
@@ -1604,8 +1604,8 @@ function CourseCard({
                             {hasTimeConflict && (
                               <div className="flex items-center gap-0.5 text-red-600 text-xs min-w-0 flex-1">
                                 <AlertTriangle className="w-3 h-3 text-red-500 flex-shrink-0" />
-                                <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingCourses.join(', ')}`}>
-                                  {conflictInfo.conflictingCourses.join(', ')}
+                                <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}>
+                                  {conflictInfo.conflictingSections.join(', ')}
                                 </span>
                               </div>
                             )}
