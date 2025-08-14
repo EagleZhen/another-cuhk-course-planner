@@ -1,9 +1,233 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-14T08:41:20.592509+00:00",
+    "scraped_at": "2025-08-14T22:15:44.542660+00:00",
     "subject": "BEHM",
-    "total_courses": 0,
+    "total_courses": 4,
     "scraper_version": "memory-safe-v2.0"
   },
-  "courses": []
+  "courses": [
+    {
+      "subject": "BEHM",
+      "course_code": "3000",
+      "title": "Zero to IPO: Introduction to Biomedical Enterprises",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an overview of the full life cycle of biomedical enterprises, from research idea to Initial Public Offering (IPO). Covering broad topics such as company incorporation, financial assessment, licensing, regulatory requirements, and development strategy, students will complete the course well-equipped with the core concepts necessary to work in biomedical business development, management, and venture capital roles.",
+      "enrollment_requirement": "",
+      "course_attributes": "All Face-to-Face Teaching",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture Project",
+      "campus": "Main Campus",
+      "academic_group": "Biotech, Entrep&Healthc Mgt PC",
+      "academic_org": "Biotech, Entrep&Healthc Mgt PC"
+    },
+    {
+      "subject": "BEHM",
+      "course_code": "4000",
+      "title": "Internship",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9842)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Wing Tak Jack",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "7",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Internship"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9590)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Wing Tak Jack",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Internship"
+            }
+          ]
+        }
+      ],
+      "description": "The BEHM4000 Summer Internship Program is designed to provide Year 3 or above BEHM students with practical hands-on experience in the field of Biotechnology, Entrepreneurship, and Healthcare Management. Through this internship, students will have the opportunity to integrate their knowledge and skills acquired in previous courses into real-world settings. They will develop problem-solving abilities, enhance teamwork skills, and gain valuable industry experience to support their career development.",
+      "enrollment_requirement": "",
+      "course_attributes": "Internship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Biotech, Entrep&Healthc Mgt PC",
+      "academic_org": "Biotech, Entrep&Healthc Mgt PC"
+    },
+    {
+      "subject": "BEHM",
+      "course_code": "4001",
+      "title": "Capstone Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (9058)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Wing Tak Jack",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "17",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (8857)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Wing Tak Jack",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course is part I of the capstone project in which students will conduct critical analyses of the existing business models and policies related to the biotechnology industry and healthcare system. It allows students to conduct independent studies related to biotechnology, entrepreneurship and healthcare management. Students will form groups to critically analyze selected companies or policies on healthcare and/or environmental sustainability so that they will be motivated by how these companies, policies, or management strategies are running and their significance in contributing to society. Students will apply knowledge and techniques learned from courses of the relevant concentration areas and conduct a deeper study into specific topics of their interests in biotechnology, entrepreneurship and/or healthcare management. Students and instructors will conduct progress meetings on a regular basis. Students are expected to give oral presentations and submit their reports at the end of the course.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Biotech, Entrep&Healthc Mgt PC",
+      "academic_org": "Biotech, Entrep&Healthc Mgt PC"
+    },
+    {
+      "subject": "BEHM",
+      "course_code": "4002",
+      "title": "Capstone Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-T01-TUT (9843)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Wing Tak Jack",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Capstone Course"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-T01-TUT (9591)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Wing Tak Jack",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English Capstone Course"
+            }
+          ]
+        }
+      ],
+      "description": "This course is part II of the capstone project which is a continuation of the analytical work undertaken by students in the BEHM4001 Capstone Project I, focusing on utilizing research findings to enhance business models and policies within the biotechnology and healthcare sectors. After critically evaluating the companies or policies investigated in Capstone Project I, students should ideate and design a prototype based on the recommendations they developed for optimizing these business practices, improving operational efficiency, and fostering sustainable development. Students are encouraged to test and improve their prototypes, establish their start-ups or NGOs wherever practicable to foster entrepreneurial skills, and provide them with practical experience in developing and implementing strategies, through applying their knowledge and skills acquired from the previous coursework and employing innovative thinking to address real-world challenges. Guidance will be provided by the instructor and regular consultations will ensure the alignment of project objectives. By the end of this course, students will present their proposals through comprehensive oral presentations and provide detailed portfolios, demonstrating their ability to apply theoretical concepts to practical scenarios and contribute meaningfully to biotechnology or healthcare management.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Biotech, Entrep&Healthc Mgt PC",
+      "academic_org": "Biotech, Entrep&Healthc Mgt PC"
+    }
+  ]
 }
