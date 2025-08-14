@@ -1539,8 +1539,8 @@ function CourseCard({
                             : isIncompatible 
                               ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
                               : hasTimeConflict
-                                ? 'border border-red-300 bg-white hover:bg-red-50 cursor-pointer shadow-sm'
-                                : 'border border-green-200 hover:border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
+                                ? 'border border-red-300 hover:bg-red-50 cursor-pointer shadow-sm'
+                                : 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
                         }`}
                         onClick={() => {
                           if (!isIncompatible) {
