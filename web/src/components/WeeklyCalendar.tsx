@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Eye, EyeOff, Camera } from 'lucide-react'
@@ -239,6 +239,7 @@ export default function WeeklyCalendar({
           unscheduledSections={unscheduledSections} 
           selectedEnrollment={selectedEnrollment}
           onSelectEnrollment={onSelectEnrollment}
+          onToggleVisibility={onToggleVisibility}
           displayConfig={localDisplayConfig}
         />
       )}
@@ -575,6 +576,7 @@ function UnscheduledSectionsCard({
   unscheduledSections,
   selectedEnrollment,
   onSelectEnrollment,
+  onToggleVisibility,
   displayConfig
 }: {
   unscheduledSections: Array<{
@@ -584,9 +586,22 @@ function UnscheduledSectionsCard({
   }>
   selectedEnrollment?: string | null
   onSelectEnrollment?: (enrollmentId: string | null) => void
+  onToggleVisibility?: (enrollmentId: string) => void
   displayConfig: CalendarDisplayConfig
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
+  
+  // Auto-expand when shopping cart item is selected and it's in unscheduled
+  useEffect(() => {
+    if (selectedEnrollment) {
+      const hasSelectedInUnscheduled = unscheduledSections.some(
+        item => item.enrollment.courseId === selectedEnrollment
+      )
+      if (hasSelectedInUnscheduled) {
+        setIsExpanded(true)
+      }
+    }
+  }, [selectedEnrollment, unscheduledSections])
   
   return (
     <div className="px-4 py-1 bg-white">
@@ -706,6 +721,26 @@ function UnscheduledSectionsCard({
                       <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
                         {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBD'}
                       </div>
+                    )}
+                    
+                    {/* Visibility toggle button for unscheduled sections */}
+                    {onToggleVisibility && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          onToggleVisibility(item.enrollment.courseId)
+                        }}
+                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
+                      >
+                        {item.enrollment.isVisible ? (
+                          <Eye className="w-2.5 h-2.5 text-white" />
+                        ) : (
+                          <EyeOff className="w-2.5 h-2.5 text-white" />
+                        )}
+                      </Button>
                     )}
                   </div>
                 )
