@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Users, Clock } from 'lucide-react'
+import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react'
 import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor } from '@/lib/courseUtils'
 
 interface ShoppingCartProps {
@@ -384,36 +384,32 @@ export default function ShoppingCart({
                             )}
                           </div>
                         
-                        {/* Teaching Language + Availability - section level */}
-                        {(section.classAttributes || section.availability) && (
-                          <div className="flex items-center justify-between mb-2 gap-2">
-                            {section.classAttributes ? (
-                              <div className="flex items-center gap-1 text-gray-500 text-[10px] min-w-0 flex-1">
-                                <span className="flex-shrink-0">🌐</span>
-                                <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                                  {section.classAttributes}
-                                </span>
-                              </div>
-                            ) : <div className="flex-1" />}
-                            
-                            <div className="flex items-center gap-1">
-                              {getAvailabilityBadges(section.availability).map((badge) => (
-                                <Badge
-                                  key={badge.type}
-                                  className={`text-[9px] flex-shrink-0 px-1 py-0 flex items-center gap-0.5 ${badge.style.className}`}
-                                  title={badge.type === 'availability' 
-                                    ? `${section.availability.status}: ${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                    : `Waitlist: ${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
-                                  }
-                                >
-                                  {badge.type === 'availability' ? (
-                                    <><Users className="w-2 h-2" />{badge.text}</>
-                                  ) : (
-                                    <><Clock className="w-2 h-2" />{badge.text}</>
-                                  )}
-                                </Badge>
-                              ))}
-                            </div>
+                        {/* Row 2: Enrollment Badges */}
+                        <div className="flex items-center gap-1 mb-2">
+                          {getAvailabilityBadges(section.availability).map((badge) => (
+                            <Badge
+                              key={badge.type}
+                              className={`text-[9px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
+                              title={
+                                badge.type === 'status' 
+                                  ? `Course status: ${badge.text}`
+                                  : badge.type === 'availability' 
+                                    ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                    : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                              }
+                            >
+                              {badge.text}
+                            </Badge>
+                          ))}
+                        </div>
+                        
+                        {/* Row 3: Teaching Language */}
+                        {section.classAttributes && (
+                          <div className="flex items-center gap-1 text-gray-500 text-[9px] mb-2">
+                            <span className="flex-shrink-0">🌐</span>
+                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                              {section.classAttributes}
+                            </span>
                           </div>
                         )}
                         

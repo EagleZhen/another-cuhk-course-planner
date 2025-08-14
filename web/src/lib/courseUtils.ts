@@ -851,27 +851,61 @@ export function autoCompleteEnrollmentSections(
  * Determine which badges to show based on course status and availability
  */
 export function getAvailabilityBadges(availability: SectionAvailability) {
-  const { availableSeats, capacity, status, waitlistTotal, waitlistCapacity } = availability
+  const { availableSeats, status, waitlistTotal, waitlistCapacity } = availability
   
   const badges = []
   
-  // Always show availability badge
+  // 1. Course Status Badge (leftmost, most important)
   badges.push({
-    type: 'availability' as const,
-    text: `${availableSeats}/${capacity}`,
-    style: getAvailabilityBadgeStyle(availability)
+    type: 'status' as const,
+    text: status,
+    style: getCourseStatusStyle(status)
   })
   
-  // Show waitlist badge when relevant (has waitlist or is closed with waitlist capacity)
+  // 2. Availability Badge (only show if has available seats)
+  if (availableSeats > 0) {
+    badges.push({
+      type: 'availability' as const,
+      text: `${availableSeats} Available Seats`,
+      style: getAvailabilityBadgeStyle(availability)
+    })
+  }
+  
+  // 3. Waitlist Badge (only show if waitlist exists)
   if (waitlistTotal > 0 || (status === 'Waitlisted' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
-      text: `${waitlistTotal}/${waitlistCapacity}`,
+      text: `${waitlistTotal} on Waitlist`,
       style: getWaitlistBadgeStyle(waitlistTotal)
     })
   }
   
   return badges
+}
+
+/**
+ * Get course status badge styling based on status - dark badge with light text for prominence
+ */
+function getCourseStatusStyle(status: string) {
+  switch (status) {
+    case 'Open':
+      return {
+        className: 'bg-green-700 text-white border-green-600 font-medium'
+      }
+    case 'Waitlisted':
+      return {
+        className: 'bg-orange-700 text-white border-orange-600 font-medium'
+      }
+    case 'Closed':
+      return {
+        className: 'bg-red-700 text-white border-red-600 font-medium'
+      }
+    default:
+      // Unknown status - gray
+      return {
+        className: 'bg-gray-700 text-white border-gray-600 font-medium'
+      }
+  }
 }
 
 /**
