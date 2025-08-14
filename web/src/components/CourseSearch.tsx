@@ -887,6 +887,7 @@ function CourseCard({
 }) {
   const [expanded, setExpanded] = useState(false)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
+  const [hideConflictSections, setHideConflictSections] = useState(false)
   
   // Fully decoupled: CourseCard manages its own state
   const [localSelections, setLocalSelections] = useState<Map<string, string>>(initialSelections)
@@ -1286,6 +1287,24 @@ function CourseCard({
       {expanded && (
         <CardContent className="pt-0">
           <div className="space-y-4 pt-3 border-t">
+            {/* Section Filters */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-sm font-medium text-gray-700">Filters:</span>
+              <Button
+                variant={hideConflictSections ? "default" : "outline"}
+                size="sm"
+                onClick={() => setHideConflictSections(!hideConflictSections)}
+                className={`h-6 px-2 text-xs cursor-pointer transition-all ${
+                  hideConflictSections 
+                    ? 'bg-red-600 text-white border-red-600 hover:bg-red-700' 
+                    : 'text-red-700 border-red-300 bg-red-50 hover:bg-red-100'
+                }`}
+                title={hideConflictSections ? "Show conflict sections" : "Hide conflict sections"}
+              >
+                {hideConflictSections ? "Show Conflicts" : "Hide Conflicts"}
+              </Button>
+            </div>
+            
             {/* Section Selection */}
             {sectionTypes.map(typeGroup => {
               // Get currently selected sections for this course to check compatibility
@@ -1466,7 +1485,13 @@ function CourseCard({
                   {(() => {
                     // Simplified filtering logic - single function with clear priorities
                     const shouldShowSection = (section: InternalSection) => {
-                      // Priority 1: Instructor filter (always applied)
+                      // Priority 1: Conflict filter (always applied first)
+                      if (hideConflictSections) {
+                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        if (conflictInfo.hasConflict) return false
+                      }
+                      
+                      // Priority 2: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
                           if (!meeting.instructor) return false
@@ -1479,12 +1504,12 @@ function CourseCard({
                         if (!matchesInstructorFilter) return false
                       }
                       
-                      // Priority 2: Show all override (user explicitly wants to see everything)
+                      // Priority 3: Show all override (user explicitly wants to see everything)
                       if (showAllSectionTypes.has(typeGroup.type)) {
                         return true
                       }
                       
-                      // Priority 3: Smart filtering
+                      // Priority 4: Smart filtering
                       const selectedSectionId = localSelections.get(typeGroup.type)
                       
                       // If section is selected, only show selected section
