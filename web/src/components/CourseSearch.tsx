@@ -1477,43 +1477,53 @@ function CourseCard({
                     // Simple logic: only show button when there are hidden sections to reveal
                     const hasInstructorFilter = selectedInstructors.size > 0
                     
-                    // Calculate how many sections are actually hidden
-                    const visibleSectionsCount = (() => {
-                      return typeGroup.sections.filter(section => {
-                        // Apply the same filtering logic as the main display
-                        if (hasInstructorFilter) {
-                          const matchesInstructorFilter = section.meetings.some(meeting => {
-                            if (!meeting.instructor) return false
-                            const instructorNames = meeting.instructor.split(',').map(name => name.trim())
-                            return instructorNames.some(instructorName => {
-                              const formattedName = formatInstructorCompact(instructorName)
-                              return selectedInstructors.has(formattedName)
-                            })
+                    // Calculate sections using the EXACT same logic as shouldShowSection
+                    const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
+                      // Priority 1: Conflict filter (always applied first)
+                      if (hideConflictSections) {
+                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        if (conflictInfo.hasConflict) return false
+                      }
+                      
+                      // Priority 2: Instructor filter (always applied)
+                      if (selectedInstructors.size > 0) {
+                        const matchesInstructorFilter = section.meetings.some(meeting => {
+                          if (!meeting.instructor) return false
+                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          return instructorNames.some(instructorName => {
+                            const formattedName = formatInstructorCompact(instructorName)
+                            return selectedInstructors.has(formattedName)
                           })
-                          if (!matchesInstructorFilter) return false
-                        }
-                        
-                        // Apply day filter
-                        if (!sectionMatchesDayFilter(section)) return false
-                        
-                        if (showingAllForType) return true
+                        })
+                        if (!matchesInstructorFilter) return false
+                      }
+                      
+                      // Priority 3: Day filter (always applied)
+                      if (!sectionMatchesDayFilter(section)) return false
+                      
+                      // Priority 4: Show all override (user explicitly wants to see everything)
+                      if (showingAllForType) {
+                        return true
+                      }
+                      
+                      // Priority 5: Smart filtering (only if requested)
+                      if (applySmartFiltering) {
                         if (selectedSectionId) return section.id === selectedSectionId
                         return !incompatible.includes(section)
-                      }).length
-                    })()
+                      }
+                      
+                      return true
+                    }
                     
-                    const totalAvailableSections = hasInstructorFilter 
-                      ? typeGroup.sections.filter(section => {
-                          return section.meetings.some(meeting => {
-                            if (!meeting.instructor) return false
-                            const instructorNames = meeting.instructor.split(',').map(name => name.trim())
-                            return instructorNames.some(instructorName => {
-                              const formattedName = formatInstructorCompact(instructorName)
-                              return selectedInstructors.has(formattedName)
-                            })
-                          })
-                        }).length
-                      : typeGroup.sections.length
+                    // Count sections after applying all filters but WITHOUT smart filtering (base available count)
+                    const totalAvailableSections = typeGroup.sections.filter(section => 
+                      countSectionWithFilters(section, false)
+                    ).length
+                    
+                    // Count sections after applying all filters INCLUDING smart filtering (actually visible count)
+                    const visibleSectionsCount = typeGroup.sections.filter(section => 
+                      countSectionWithFilters(section, true)
+                    ).length
                     
                     const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
                     
