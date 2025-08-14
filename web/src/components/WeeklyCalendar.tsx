@@ -23,21 +23,21 @@ const CALENDAR_CONSTANTS = {
   MIN_CARD_HEIGHT: 24,    // Absolute minimum for very short events
 } as const
 
-// Typography styles for consistent rendering
+// Typography styles for consistent rendering - timetable priorities
 const TEXT_STYLES = {
-  COURSE_CODE: 'text-xs font-semibold leading-tight',
-  TITLE: 'text-[9px] leading-tight opacity-85', // Course title - smaller than course code
-  TIME: 'text-[10px] leading-tight opacity-90', 
-  LOCATION: 'text-[9px] leading-tight opacity-80',
-  INSTRUCTOR: 'text-[8px] leading-tight opacity-70',
+  COURSE_CODE: 'text-xs font-semibold leading-tight',       // Most important: What course
+  TITLE: 'text-[9px] leading-tight opacity-85',            // Course title - smaller than course code
+  TIME: 'text-[10px] leading-tight opacity-90',            // Critical: When to go
+  LOCATION: 'text-[10px] leading-tight opacity-85',        // Critical: Where to go
+  INSTRUCTOR: 'text-[8px] leading-tight opacity-70',       // Less critical: Who teaches
 } as const
 
-// Row height constants based on typography (in pixels)
+// Row height constants based on typography (in pixels) - timetable priorities
 const ROW_HEIGHTS = {
   COURSE_CODE: 14,     // text-xs with leading-tight (course code + section type)
   TITLE: 11,           // text-[9px] with leading-tight (course title)
   TIME: 12,            // text-[10px] with leading-tight
-  LOCATION: 11,        // text-[9px] with leading-tight  
+  LOCATION: 12,        // text-[10px] with leading-tight  
   INSTRUCTOR: 10,      // text-[8px] with leading-tight
 } as const
 
