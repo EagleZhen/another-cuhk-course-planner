@@ -209,7 +209,7 @@ export default function ShoppingCart({
         ) : (
           <div 
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 py-2"
+            className="space-y-3 overflow-y-auto h-full p-1 pr-2 py-2"
           >
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
