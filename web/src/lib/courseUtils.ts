@@ -872,7 +872,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   }
   
   // 3. Waitlist Badge (only show if waitlist exists)
-  if (waitlistTotal > 0 || (status === 'Waitlisted' && waitlistCapacity > 0) || (status === 'Closed' && waitlistCapacity > 0)) {
+  if (waitlistTotal > 0 || (status === 'Waitlisted' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal} on Waitlist`,
@@ -884,7 +884,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
 }
 
 /**
- * Get course status badge styling based on status - dark badge with light text for prominence
+ * Get course status badge styling based on status - intuitive warning system
  */
 function getCourseStatusStyle(status: string) {
   switch (status) {
@@ -894,7 +894,7 @@ function getCourseStatusStyle(status: string) {
       }
     case 'Waitlisted':
       return {
-        className: 'bg-orange-700 text-white border-orange-600 font-medium'
+        className: 'bg-yellow-600 text-white border-yellow-500 font-medium'
       }
     case 'Closed':
       return {
