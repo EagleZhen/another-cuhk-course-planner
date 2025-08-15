@@ -1,0 +1,1229 @@
+🔍 CUHK Course Data Analysis
+==================================================
+🕒 Analysis timestamp: 20250815_032219
+📂 Found 264 JSON files in data/
+✅ Successfully loaded 264 subjects
+
+📋 CORE SECTION TYPES ANALYSIS
+-----------------------------------
+🔢 Found 18 core section types
+🎯 Core types: ASB, CLW, DIS, EXR, FLD, IND, LAB, LEC, OTH, PRA, PRJ, SEM, STD, TMC, TUT, VST, WBL, WKS
+
+Section types with examples:
+
+ASB: 22 sections
+  📚 Example: GESC1000 - College Assembly
+  📋 Section: -A01-ASB (8171)
+  ⏰ Time: Fr 11:30AM - 1:15PM
+  📍 Location: TBA
+
+CLW: 833 sections
+  📚 Example: ITAL1000 - Italian I
+  📋 Section: AC01-CLW (5749)
+  ⏰ Time: Th 9:30AM - 12:15PM
+  📍 Location: Wu Ho Man Yuen Bldg 508
+
+DIS: 46 sections
+  📚 Example: UGEC2858 - Animals and Society : A philosophical approach
+  📋 Section: -D01-DIS (9279)
+  ⏰ Time: Tu 5:30PM - 6:15PM
+  📍 Location: Lee Shau Kee Building 515
+
+EXR: 123 sections
+  📚 Example: MATH3340 - Mathematics of Machine Learning
+  📋 Section: -E01-EXR (7482)
+  ⏰ Time: Tu 5:30PM - 6:15PM
+  📍 Location: Science Centre L1
+
+FLD: 361 sections
+  📚 Example: DBAC7119 - Global Business and Management Field Study
+  📋 Section: LF01-FLD (1003)
+  ⏰ Time: Mo 8:30AM - 6:30PM
+  📍 Location: No Room Required
+
+IND: 161 sections
+  📚 Example: EMBA6072 - Guided Learning in Global Business
+  📋 Section: AEI1-IND (1016)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+LAB: 605 sections
+  📚 Example: ROSE5910 - M.Sc.Projects
+  📋 Section: -L01-LAB (3689)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+LEC: 6679 sections
+  📚 Example: UGEC1016 - Experiencing Architecture
+  📋 Section: --LEC (5533)
+  ⏰ Time: We 9:30AM - 12:15PM
+  📍 Location: Lee Shau Kee Archi Bldg G04
+
+OTH: 70 sections
+  📚 Example: MEDF1011 - Foundation Course for Health Sciences I
+  📋 Section: -O01-OTH (6443)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+PRA: 245 sections
+  📚 Example: EPSY6501 - Practicum (I)
+  📋 Section: AP01-PRA (1195)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+PRJ: 1283 sections
+  📚 Example: GESC1230 - Caring Heart Service Learning
+  📋 Section: AAJ1-PRJ (8148)
+  ⏰ Time: Fr 2:30PM - 5:15PM
+  📍 Location: No Room Required
+
+SEM: 659 sections
+  📚 Example: DBAC7104 - Seminar on Applied Business Management Research (I)
+  📋 Section: LS01-SEM (2916)
+  ⏰ Time: Th 8:30AM - 6:30PM
+  📍 Location: No Room Required
+
+STD: 143 sections
+  📚 Example: URSP3200 - Advanced Urban Design Studio
+  📋 Section: -U01-STD (7943)
+  ⏰ Time: Mo 5:30PM - 6:15PM
+  📍 Location: Chen Kou Bun Bldg 510
+
+TMC: 3360 sections
+  📚 Example: DBAC8101 - Thesis Research
+  📋 Section: LAM1-TMC (2936)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+TUT: 2645 sections
+  📚 Example: UGEC1209 - Thinking Gender: An Introduction to Gender Studies
+  📋 Section: -T01-TUT (7519)
+  ⏰ Time: Tu 4:30PM - 5:15PM
+  📍 Location: Sino Building LT2
+
+VST: 2 sections
+  📚 Example: SBMS2201 - Traditional Chinese Medicine and Pharmacognosy
+  📋 Section: -V01-VST (8917)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+WBL: 198 sections
+  📚 Example: GESC2060 - Debating Globalization
+  📋 Section: -X01-WBL (6376)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+WKS: 57 sections
+  📚 Example: DBAC7106 - Workshop for Thesis Proposal
+  📋 Section: LW01-WKS (1175)
+  ⏰ Time: Sa 8:30AM - 6:30PM
+  📍 Location: TBA
+
+⏰ TIME RANGE ANALYSIS
+-------------------------
+🌅 Earliest class start: 00:00
+   📚 Example: MBAC6061 - Orientation and Business Simulation
+   📋 Section: SAJ1-PRJ (3761)
+   ⏰ Time: Fr 12:00AM - 12:00AM
+   📍 Location: TBA
+   📅 Term: 2025-26 Term 1
+
+🌆 Latest class end: 22:15
+   📚 Example: ACCT5140 - Introductory Accounting Data Analytics
+   📋 Section: CA-LEC (2152)
+   ⏰ Time: Th 7:00PM - 10:15PM
+   📍 Location: Cheng Yu Tung Bldg 615
+   📅 Term: 2025-26 Term 2
+
+📊 Total time slots analyzed: 29620
+🔄 Unique time patterns: 531
+
+Most common time patterns:
+  Tu 2:30PM - 5:15PM             : 727 times
+  We 2:30PM - 4:15PM             : 685 times
+  Tu 2:30PM - 4:15PM             : 640 times
+  Tu 10:30AM - 12:15PM           : 633 times
+  We 2:30PM - 5:15PM             : 622 times
+  Mo 2:30PM - 4:15PM             : 595 times
+  We 10:30AM - 12:15PM           : 502 times
+  Th 2:30PM - 5:15PM             : 498 times
+  Mo 2:30PM - 5:15PM             : 453 times
+  Tu 10:30AM - 1:15PM            : 435 times
+
+📊 HOURLY DISTRIBUTION ANALYSIS
+-----------------------------------
+📈 Total sections analyzed: 29620
+🔥 Peak hours: ['16:00'] (10768 sections)
+😴 Quietest hours: ['07:00'] (0 sections)
+
+📅 Hourly breakdown (sections active per hour - all 24 hours):
+  00:00 │  73 sections │ ⚠️ UNUSUAL
+  01:00 │   0 sections │
+  02:00 │   0 sections │
+  03:00 │   0 sections │
+  04:00 │   0 sections │
+  05:00 │   0 sections │
+  06:00 │   0 sections │
+  07:00 │   0 sections │
+  08:00 │2329 sections │██████████
+  09:00 │5992 sections │███████████████████████████
+  10:00 │9486 sections │████████████████████████████████████████████
+  11:00 │9586 sections │████████████████████████████████████████████
+  12:00 │9504 sections │████████████████████████████████████████████
+  13:00 │7505 sections │██████████████████████████████████
+  14:00 │10688 sections │█████████████████████████████████████████████████
+  15:00 │9889 sections │█████████████████████████████████████████████
+  16:00 │10768 sections │██████████████████████████████████████████████████
+  17:00 │8131 sections │█████████████████████████████████████
+  18:00 │6002 sections │███████████████████████████
+  19:00 │3092 sections │██████████████
+  20:00 │3033 sections │██████████████
+  21:00 │2549 sections │███████████
+  22:00 │   5 sections │ ⚠️ UNUSUAL
+  23:00 │   0 sections │
+
+⚠️ UNUSUAL HOURS DETECTED:
+   00:00 - 73 sections
+      📚 Example: PHAR5902 - Clinical Pharmacy Practice Exposure: Internal Medicine (Ambulatory Care)
+      📋 Section: -F01-FLD (1125)
+      ⏰ Time: Mo 12:00AM - 12:00AM
+      📍 Location: No Room Required
+   22:00 - 5 sections
+      📚 Example: ACCT6141 - Accounting Data Analytics and Business Intelligence
+      📋 Section: CA-LEC (1928)
+      ⏰ Time: Tu 7:00PM - 10:15PM
+      📍 Location: Cheng Yu Tung Bldg 615
+
+🎯 Top 3 busiest hours with examples:
+
+1. 16:00 - 10768 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+2. 14:00 - 10688 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+3. 15:00 - 9889 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+📝 COURSE ATTRIBUTES ANALYSIS
+--------------------------------
+📚 Total courses: 8829
+📋 Total sections: 17492
+
+🏷️ All unique class attributes (171 types):
+
+ 1. "English only" - 11087 sections
+    📚 Example: UGEC1016 - Experiencing Architecture
+    📋 Section: --LEC (5533)
+    📅 Term: 2025-26 Term 2
+
+ 2. "Cantonese only" - 1170 sections
+    📚 Example: UGEC1120 - Understanding Guangdong-Hong Kong-Macao Greater Bay Area
+    📋 Section: --LEC (9397)
+    📅 Term: 2025-26 Term 1
+
+ 3. "Cantonese and English" - 1134 sections
+    📚 Example: UGEC1560 - Basic Banking and Finance
+    📋 Section: A-LEC (4845)
+    📅 Term: 2025-26 Term 1
+
+ 4. "English only Capstone Course" - 710 sections
+    📚 Example: MAEG4998 - Final Year Project I
+    📋 Section: -J01-PRJ (8909)
+    📅 Term: 2025-26 Term 1
+
+ 5. "Cantonese, English and Putonghua" - 586 sections
+    📚 Example: UGEC1681 - Humans and Culture
+    📋 Section: -T01-TUT (6054)
+    📅 Term: 2025-26 Term 2
+
+ 6. "Putonghua only" - 448 sections
+    📚 Example: UGEC2436 - Emotional Landscapes of Contemporary China
+    📋 Section: --LEC (5155)
+    📅 Term: 2025-26 Term 2
+
+ 7. "Putonghua and English" - 320 sections
+    📚 Example: UGEC2634 - Media and Social Development in Mainland China
+    📋 Section: --LEC (7776)
+    📅 Term: 2025-26 Term 2
+
+ 8. "English only STOT Course" - 146 sections
+    📚 Example: BECE2110 - Principles of Curriculum and Instruction Design for Early Childhood Education
+    📋 Section: --LEC (6264)
+    📅 Term: 2025-26 Term 1
+
+ 9. "For female only Can, change to Eng if needed" - 133 sections
+    📚 Example: PHED1012 - Track and Field
+    📋 Section: A-LEC (8403)
+    📅 Term: 2025-26 Term 1
+
+10. "For male only Can, change to Eng if needed" - 122 sections
+    📚 Example: PHED1015 - Swimming
+    📋 Section: A-LEC (8165)
+    📅 Term: 2025-26 Term 1
+
+11. "Can, change to Eng if needed" - 102 sections
+    📚 Example: COMM2850 - Introduction to Integrated Marketing Communications
+    📋 Section: A-LEC (5780)
+    📅 Term: 2025-26 Term 1
+
+12. "Putonghua and Cantonese" - 97 sections
+    📚 Example: COMM3920 - Creative Writing in Media
+    📋 Section: A-LEC (8596)
+    📅 Term: 2025-26 Term 1
+
+13. "Cantonese and English STOT Course" - 86 sections
+    📚 Example: BECE2130 - Language and Literacy in the Early Years
+    📋 Section: --LEC (7975)
+    📅 Term: 2025-26 Term 2
+
+14. "Cantonese and English Capstone Course Experiential Learning Course" - 78 sections
+    📚 Example: PSYC4900 - Psychology in Action I
+    📋 Section: --LEC (6947)
+    📅 Term: 2025-26 Term 1
+
+15. "English only All Face-to-Face Teaching" - 76 sections
+    📚 Example: EMBA6061 - Seminar on Business and Management Issues
+    📋 Section: AES1-SEM (1011)
+    📅 Term: 2025-26 Term 4
+
+16. "Cantonese and English Capstone Course STOT Course" - 69 sections
+    📚 Example: MUSC4000 - Senior Recital Preparation
+    📋 Section: --LEC (8640)
+    📅 Term: 2025-26 Term 1
+
+17. "English only Capstone Course STOT Course" - 50 sections
+    📚 Example: MUSC4813 - Senior Thesis I
+    📋 Section: D-LEC (7766)
+    📅 Term: 2025-26 Term 1
+
+18. "Cantonese, English and Putonghua STOT Course Service Learning Course" - 49 sections
+    📚 Example: GECC1132 - Learning through Serving : Student-Oriented Teaching
+    📋 Section: -F01-FLD (8199)
+    📅 Term: 2025-26 Term 1
+
+19. "Cantonese and English Capstone Course" - 45 sections
+    📚 Example: CUMT4102 - Research Project
+    📋 Section: -M01-TMC (6185)
+    📅 Term: 2025-26 Term 2
+
+20. "Korean and English" - 44 sections
+    📚 Example: KORE1000 - Korean I
+    📋 Section: AC01-CLW (4750)
+    📅 Term: 2025-26 Term 1
+
+21. "Putonghua and English Capstone Course" - 40 sections
+    📚 Example: TRAN4510 - Translation Project: English-Chinese
+    📋 Section: A-LEC (4620)
+    📅 Term: 2025-26 Term 1
+
+22. "French and English" - 38 sections
+    📚 Example: FREN1000 - French I
+    📋 Section: AC01-CLW (6625)
+    📅 Term: 2025-26 Term 1
+
+23. "Spanish and English" - 38 sections
+    📚 Example: SPAN1000 - Spanish I
+    📋 Section: AC01-CLW (6673)
+    📅 Term: 2025-26 Term 1
+
+24. "Japanese and Cantonese" - 36 sections
+    📚 Example: JASP1450 - New Practical Japanese I
+    📋 Section: A-LEC (5769)
+    📅 Term: 2025-26 Term 1
+
+25. "Hong Kong Sign Language" - 31 sections
+    📚 Example: HKSL1000 - Hong Kong Sign Language I
+    📋 Section: AC01-CLW (6730)
+    📅 Term: 2025-26 Term 1
+
+26. "Japanese and English" - 31 sections
+    📚 Example: JASP1450 - New Practical Japanese I
+    📋 Section: B-LEC (6660)
+    📅 Term: 2025-26 Term 1
+
+27. "SDG-GE #3 Good Health and Well-being SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality Cantonese only Service Learning Course" - 28 sections
+    📚 Example: GENA1116 - Service Learning – Creating a Better World through Diversity and Inclusion
+    📋 Section: A-LEC (5217)
+    📅 Term: 2025-26 Term 1
+
+28. "Cantonese only STOT Course" - 27 sections
+    📚 Example: MUSC2252 - Materials and Structures of Music
+    📋 Section: --LEC (8400)
+    📅 Term: 2025-26 Term 1
+
+29. "PTH, change to Eng if needed" - 26 sections
+    📚 Example: DBAC5101 - Introduction to Applied Business Research
+    📋 Section: L-LEC (4315)
+    📅 Term: 2025-26 Term 1
+
+30. "Cantonese only Service Learning Course" - 26 sections
+    📚 Example: GEUC2101 - Social Service: Participation and Reflection
+    📋 Section: AF01-FLD (4666)
+    📅 Term: 2025-26 Term 1
+
+31. "For male only English only" - 25 sections
+    📚 Example: PHED1017 - Physical Conditioning
+    📋 Section: E-LEC (8450)
+    📅 Term: 2025-26 Term 1
+
+32. "English only Internship" - 24 sections
+    📚 Example: CHEM4471 - Internship
+    📋 Section: -P01-PRA (6385)
+    📅 Term: 2025-26 Term 1
+
+33. "German and English" - 24 sections
+    📚 Example: GERM1000 - German I
+    📋 Section: AC01-CLW (9558)
+    📅 Term: 2025-26 Term 1
+
+34. "English only Experiential Learning Course Virtual Teaching & Learning Course" - 23 sections
+    📚 Example: MGNT2511 - Global Experiential Learning I
+    📋 Section: A-LEC (4640)
+    📅 Term: 2025-26 Term 1
+
+35. "English only Experiential Learning Course" - 21 sections
+    📚 Example: COMM3210 - Field Study I
+    📋 Section: -F01-FLD (4850)
+    📅 Term: 2025-26 Term 1
+
+36. "For female only English only" - 20 sections
+    📚 Example: PHED1016 - Swimming
+    📋 Section: B-LEC (8412)
+    📅 Term: 2025-26 Term 1
+
+37. "Can, change to Eng if needed STOT Course" - 15 sections
+    📚 Example: GEUC4011 - Senior Seminar
+    📋 Section: AJ01-PRJ (7417)
+    📅 Term: 2025-26 Term 1
+
+38. "Cantonese and English Internship" - 15 sections
+    📚 Example: BEHM4000 - Internship
+    📋 Section: -P01-PRA (9842)
+    📅 Term: 2025-26 Term 1
+
+39. "English only Capstone Course Experiential Learning Course" - 15 sections
+    📚 Example: PHAR4201 - Community Pharmacy Clerkship
+    📋 Section: -F01-FLD (6424)
+    📅 Term: 2025-26 Term 2
+
+40. "Cantonese and English Experiential Learning Course Service Learning Course" - 14 sections
+    📚 Example: GESC1230 - Caring Heart Service Learning
+    📋 Section: BAJ1-PRJ (5298)
+    📅 Term: 2025-26 Term 1
+
+41. "English only Service Learning Course" - 14 sections
+    📚 Example: GEUC2101 - Social Service: Participation and Reflection
+    📋 Section: BF01-FLD (4667)
+    📅 Term: 2025-26 Term 1
+
+42. "English only Capstone Course Experiential Learning Course Internship" - 14 sections
+    📚 Example: GDRS4009 - Internship
+    📋 Section: -O01-OTH (8883)
+    📅 Term: 2025-26 Term 1
+
+43. "Japanese and Putonghua" - 14 sections
+    📚 Example: HIST6016 - Selected Themes in Comparative History
+    📋 Section: KWS1-SEM (3631)
+    📅 Term: 2025-26 Term 2
+
+44. "Putonghua only STOT Course" - 12 sections
+    📚 Example: CHLL4001 - Independent Research I
+    📋 Section: AJ01-PRJ (8542)
+    📅 Term: 2025-26 Term 1
+
+45. "PTH, change to Eng if needed STOT Course" - 10 sections
+    📚 Example: GEUC4011 - Senior Seminar
+    📋 Section: GJ01-PRJ (7410)
+    📅 Term: 2025-26 Term 1
+
+46. "Cantonese, English and Putonghua Service Learning Course" - 10 sections
+    📚 Example: GECW4022 - College Project (Service)
+    📋 Section: AT01-TUT (6239)
+    📅 Term: 2025-26 Term 1
+
+47. "SDG-GE #1 No Poverty SDG-GE #7 Affordable and Clean Energy SDG-GE #14 Life Below Water Cantonese only Service Learning Course" - 10 sections
+    📚 Example: GENA1115 - Service Learning – Make a Difference to Our Community
+    📋 Section: A-LEC (7240)
+    📅 Term: 2025-26 Term 1
+
+48. "English only Capstone Course Internship" - 10 sections
+    📚 Example: GLEF4070 - Internship Experience in Global Economics and Finance
+    📋 Section: AP01-PRA (9828)
+    📅 Term: 2025-26 Term 1
+
+49. "Cantonese and English Experiential Learning Course" - 9 sections
+    📚 Example: UGEC2693 - Mission-driven Social Enterprise
+    📋 Section: --LEC (9551)
+    📅 Term: 2025-26 Term 2
+
+50. "SDG-SE #11 Sustainable Cities and Communities Cantonese only Service Learning Course" - 9 sections
+    📚 Example: GEUC2211 - Social Service in action: Participation and Reflection
+    📋 Section: AF01-FLD (9599)
+    📅 Term: 2025-26 Term 1
+
+51. "Putonghua and English STOT Course Service Learning Course" - 9 sections
+    📚 Example: GECC1132 - Learning through Serving : Student-Oriented Teaching
+    📋 Section: CEF1-FLD (4660)
+    📅 Term: 2025-26 Term 1
+
+52. "SDG-GE #5 Gender Equality English only" - 8 sections
+    📚 Example: UGEC1209 - Thinking Gender: An Introduction to Gender Studies
+    📋 Section: --LEC (7515)
+    📅 Term: 2025-26 Term 1
+
+53. "SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality English only" - 8 sections
+    📚 Example: UGEC3215 - Media Representations of Minorities in Hong Kong
+    📋 Section: --LEC (7557)
+    📅 Term: 2025-26 Term 2
+
+54. "Cantonese only Experiential Learning Course" - 7 sections
+    📚 Example: UGEC2684 - Social Work and Cultural Diversity
+    📋 Section: --LEC (6918)
+    📅 Term: 2025-26 Term 2
+
+55. "English only Virtual Teaching & Learning Course" - 7 sections
+    📚 Example: SBMS3207 - Introduction to Good Manufacturing Practice for Advanced Therapy Products
+    📋 Section: --LEC (9124)
+    📅 Term: 2025-26 Term 1
+
+56. "SDG-GE #5 Gender Equality SDG-GE #12 Responsible Consumption and Production SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals Cantonese, English and Putonghua" - 6 sections
+    📚 Example: UGEC1835 - Culture of Hong Kong
+    📋 Section: -T01-TUT (6007)
+    📅 Term: 2025-26 Term 1
+
+57. "SDG-GE #2 Zero Hunger SDG-GE #13 Climate Action SDG-GE #16 Peace, Justice and Strong Institutions English only" - 6 sections
+    📚 Example: UGEC2950 - Environmental Crises and Cultures of Survival
+    📋 Section: --LEC (6815)
+    📅 Term: 2025-26 Term 2
+
+58. "Can, change to PTH if needed" - 6 sections
+    📚 Example: COMM2100 - Audience Analysis and Strategy
+    📋 Section: A-LEC (7874)
+    📅 Term: 2025-26 Term 2
+
+59. "SDG-GE #6 Clean Water and Sanitation SDG-GE #7 Affordable and Clean Energy SDG-GE #13 Climate Action English only" - 6 sections
+    📚 Example: ANTH2410 - Chinese Culture and Society
+    📋 Section: --LEC (8266)
+    📅 Term: 2025-26 Term 2
+
+60. "English only STOT Course Service Learning Course" - 6 sections
+    📚 Example: GECC1132 - Learning through Serving : Student-Oriented Teaching
+    📋 Section: CAF1-FLD (4678)
+    📅 Term: 2025-26 Term 1
+
+61. "Putonghua only Part-Time Course" - 6 sections
+    📚 Example: FINA6514 - Special Topics in Finance
+    📋 Section: PA-LEC (9796)
+    📅 Term: 2025-26 Term 1
+
+62. "Cantonese and English SPOR" - 5 sections
+    📚 Example: FAAS4180 - Thesis Research I
+    📋 Section: A-LEC (8997)
+    📅 Term: 2025-26 Term 1
+
+63. "English only Capstone Course Practicum" - 5 sections
+    📚 Example: NURS4122 - Clinical Practice V
+    📋 Section: -F01-FLD (7893)
+    📅 Term: 2025-26 Term 1
+
+64. "Cantonese and English Capstone Course Internship" - 5 sections
+    📚 Example: CURE4038 - Summer Internship
+    📋 Section: --LEC (8969)
+    📅 Term: 2025-26 Term 1
+
+65. "Japanese only" - 5 sections
+    📚 Example: JASP4100 - Japanese Dialectology
+    📋 Section: --LEC (7793)
+    📅 Term: 2025-26 Term 2
+
+66. "Italian and English" - 4 sections
+    📚 Example: ITAL1000 - Italian I
+    📋 Section: AC01-CLW (5749)
+    📅 Term: 2025-26 Term 1
+
+67. "SDG-GE #1 No Poverty SDG-GE #2 Zero Hunger SDG-GE #3 Good Health and Well-being SDG-GE #6 Clean Water and Sanitation SDG-GE #7 Affordable and Clean Energy SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #12 Responsible Consumption and Production SDG-GE #13 Climate Action SDG-GE #15 Life On Land English only" - 4 sections
+    📚 Example: UGEC2171 - Sustainable Development
+    📋 Section: --LEC (6866)
+    📅 Term: 2025-26 Term 1
+
+68. "SDG-GE #1 No Poverty SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #12 Responsible Consumption and Production SDG-GE #17 Partnerships for the Goals English only Experiential Learning Course" - 4 sections
+    📚 Example: UGEC2662 - Culture and Business
+    📋 Section: --LEC (6055)
+    📅 Term: 2025-26 Term 2
+
+69. "SDG-GE #5 Gender Equality SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals English only" - 4 sections
+    📚 Example: UGEC3204 - Living Feminisms: Creating a Nonviolent and Collaborative Future
+    📋 Section: --LEC (7554)
+    📅 Term: 2025-26 Term 2
+
+70. "SDG-SE #11 Sustainable Cities and Communities English only Service Learning Course" - 4 sections
+    📚 Example: GEUC2211 - Social Service in action: Participation and Reflection
+    📋 Section: CF01-FLD (9602)
+    📅 Term: 2025-26 Term 1
+
+71. "SDG-SE #11 Sustainable Cities and Communities SDG-SE #12 Responsible Consumption and Production Cantonese only Internship Service Learning Course" - 4 sections
+    📚 Example: GEUC4012 - Social Enterprise and Innovation: Internship
+    📋 Section: AP01-PRA (7392)
+    📅 Term: 2025-26 Term 1
+
+72. "SDG-GE #14 Life Below Water SDG-GE #15 Life On Land Cantonese only" - 4 sections
+    📚 Example: UGEB2113 - Nature Conservation in Hong Kong
+    📋 Section: --LEC (6152)
+    📅 Term: 2025-26 Term 2
+
+73. "SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action SDG-GE #15 Life On Land Cantonese only" - 4 sections
+    📚 Example: UGEB2132 - Earth as Seen From Space
+    📋 Section: A-LEC (6684)
+    📅 Term: 2025-26 Term 1
+
+74. "English only Part-Time Course" - 4 sections
+    📚 Example: SEEM5830 - Stochastic Investment Models
+    📋 Section: --LEC (1849)
+    📅 Term: 2025-26 Term 2
+
+75. "SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality Cantonese and English" - 4 sections
+    📚 Example: GDRS3012 - Engendering Chinese Cultures
+    📋 Section: --LEC (7494)
+    📅 Term: 2025-26 Term 1
+
+76. "Cantonese, English and Putonghua Capstone Course" - 4 sections
+    📚 Example: GPAD4601 - Independent Studies I
+    📋 Section: -I01-IND (6208)
+    📅 Term: 2025-26 Term 2
+
+77. "Putonghua and English Virtual Teaching & Learning Course" - 4 sections
+    📚 Example: UGCP1001 - Understanding China
+    📋 Section: -X01-WBL (8641)
+    📅 Term: 2025-26 Term 1
+
+78. "Cantonese and English Capstone Course Experiential Learning Course Internship" - 4 sections
+    📚 Example: PSYC4902 - Practicum in Education and Human Development
+    📋 Section: -P01-PRA (8190)
+    📅 Term: 2025-26 Term 1
+
+79. "Arabic and English" - 4 sections
+    📚 Example: ARAB1000 - Arabic I
+    📋 Section: AC01-CLW (5123)
+    📅 Term: 2025-26 Term 1
+
+80. "Russian and English" - 4 sections
+    📚 Example: RUSS1000 - Russian I
+    📋 Section: -C01-CLW (9197)
+    📅 Term: 2025-26 Term 1
+
+81. "SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #12 Responsible Consumption and Production SDG-GE #16 Peace, Justice and Strong Institutions English only" - 4 sections
+    📚 Example: UGEA2334 - China Today
+    📋 Section: --LEC (5861)
+    📅 Term: 2025-26 Term 1
+
+82. "Thai and English" - 4 sections
+    📚 Example: THAI1000 - Thai I
+    📋 Section: AC01-CLW (6752)
+    📅 Term: 2025-26 Term 1
+
+83. "Cantonese only Experiential Learning Course Service Learning Course" - 3 sections
+    📚 Example: GESC1230 - Caring Heart Service Learning
+    📋 Section: CAJ1-PRJ (5216)
+    📅 Term: 2025-26 Term 1
+
+84. "Cantonese only All Face-to-Face Teaching" - 3 sections
+    📚 Example: EMBA6063 - Contemporary Perspectives of Effective Management
+    📋 Section: AES1-SEM (3714)
+    📅 Term: 2025-26 Term 2
+
+85. "SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land Cantonese only" - 3 sections
+    📚 Example: UGEB2240 - Natural Wonders of the World
+    📋 Section: --LEC (8583)
+    📅 Term: 2025-26 Term 1
+
+86. "Cantonese and English Experiential Learning Course Practicum" - 3 sections
+    📚 Example: SPED3400 - Teaching Practice in Primary School
+    📋 Section: -P01-PRA (8381)
+    📅 Term: 2025-26 Term 2
+
+87. "Putonghua only SPOR" - 3 sections
+    📚 Example: FAAS4280 - Graduation Workshop I
+    📋 Section: B-LEC (8689)
+    📅 Term: 2025-26 Term 1
+
+88. "Can, change to Eng if needed Capstone Course" - 3 sections
+    📚 Example: GPAD4801 - Professional Practicum I
+    📋 Section: -P01-PRA (9594)
+    📅 Term: 2025-26 Term 1
+
+89. "Putonghua and English Capstone Course STOT Course" - 3 sections
+    📚 Example: GECC4130 - Senior Seminar
+    📋 Section: HS01-SEM (6204)
+    📅 Term: 2025-26 Term 1
+
+90. "Cantonese only Capstone Course" - 3 sections
+    📚 Example: CURE4014 - Graduation Thesis
+    📋 Section: --LEC (8604)
+    📅 Term: 2025-26 Term 2
+
+91. "SDG-GE #11 Sustainable Cities and Communities Cantonese and English" - 2 sections
+    📚 Example: UGEC1372 - Tourism and Sustainable Development
+    📋 Section: --LEC (5427)
+    📅 Term: 2025-26 Term 2
+
+92. "SDG-GE #5 Gender Equality SDG-GE #12 Responsible Consumption and Production SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals Cantonese only" - 2 sections
+    📚 Example: UGEC1835 - Culture of Hong Kong
+    📋 Section: --LEC (6006)
+    📅 Term: 2025-26 Term 1
+
+93. "SDG-GE #12 Responsible Consumption and Production SDG-GE #14 Life Below Water SDG-GE #15 Life On Land Cantonese only Experiential Learning Course" - 2 sections
+    📚 Example: UGEC2192 - Understanding Ecotourism
+    📋 Section: --LEC (6100)
+    📅 Term: 2025-26 Term 1
+
+94. "SDG-GE #7 Affordable and Clean Energy SDG-GE #13 Climate Action English only" - 2 sections
+    📚 Example: UGEC2354 - Global Sustainability
+    📋 Section: --LEC (6180)
+    📅 Term: 2025-26 Term 1
+
+95. "SDG-GE #3 Good Health and Well-being SDG-GE #14 Life Below Water SDG-GE #15 Life On Land Cantonese and English" - 2 sections
+    📚 Example: UGEC2858 - Animals and Society : A philosophical approach
+    📋 Section: --LEC (9311)
+    📅 Term: 2025-26 Term 1
+
+96. "SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #16 Peace, Justice and Strong Institutions Cantonese only" - 2 sections
+    📚 Example: UGEC2945 - History of Hong Kong
+    📋 Section: --LEC (7671)
+    📅 Term: 2025-26 Term 1
+
+97. "SDG-GE #10 Reducing Inequality English only" - 2 sections
+    📚 Example: UGEC3227 - LGBTQI+ Studies: Identities and social change
+    📋 Section: --LEC (7556)
+    📅 Term: 2025-26 Term 2
+
+98. "SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #5 Gender Equality SDG-GE #8 Decent Work and Economic Growth SDG-GE #13 Climate Action SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals English only" - 2 sections
+    📚 Example: UGEC3893 - Introduction to Global Sociology
+    📋 Section: --LEC (6868)
+    📅 Term: 2025-26 Term 1
+
+99. "SDG-GE #1 No Poverty SDG-GE #2 Zero Hunger SDG-GE #3 Good Health and Well-being SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #12 Responsible Consumption and Production SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals Cantonese only" - 2 sections
+    📚 Example: GESC2060 - Debating Globalization
+    📋 Section: --LEC (9255)
+    📅 Term: 2025-26 Term 2
+
+100. "French and English Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: FREN1001 - Invitation to French Online
+    📋 Section: --LEC (8744)
+    📅 Term: 2025-26 Term 1
+
+101. "SDG-GE #1 No Poverty SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities English only" - 2 sections
+    📚 Example: GEJC1020 - The Hong Kong Story
+    📋 Section: --LEC (9504)
+    📅 Term: 2025-26 Term 1
+
+102. "Spanish and English Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: SPAN1001 - First Step in Spanish
+    📋 Section: --LEC (8748)
+    📅 Term: 2025-26 Term 1
+
+103. "Can, change to Eng if needed Internship" - 2 sections
+    📚 Example: COMM3200 - Communication Professional Internship
+    📋 Section: AP01-PRA (8857)
+    📅 Term: 2025-26 Term 1
+
+104. "SDG-SE #8 Decent Work and Economic Growth SDG-SE #10 Reducing Inequality SDG-SE #11 Sustainable Cities and Communities Cantonese only Service Learning Course" - 2 sections
+    📚 Example: GEUC2213 - Social Innovation: Social Entrepreneurship and Service
+    📋 Section: -F01-FLD (9607)
+    📅 Term: 2025-26 Term 1
+
+105. "SDG-SE #15 Life On Land Cantonese only Experiential Learning Course Service Learning Course" - 2 sections
+    📚 Example: GEUC2214 - Leadership in Practice: Service
+    📋 Section: -F01-FLD (9608)
+    📅 Term: 2025-26 Term 1
+
+106. "SDG-GE #7 Affordable and Clean Energy SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #13 Climate Action English only" - 2 sections
+    📚 Example: UGEB1307 - Energy and Green Society
+    📋 Section: --LEC (5541)
+    📅 Term: 2025-26 Term 2
+
+107. "SDG-GE #7 Affordable and Clean Energy SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land English only Experiential Learning Course" - 2 sections
+    📚 Example: UGEB1870 - Exploring Earth and Environmental Sciences
+    📋 Section: --LEC (7561)
+    📅 Term: 2025-26 Term 1
+
+108. "SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action Cantonese and English" - 2 sections
+    📚 Example: UGEB2222 - Natural Hazards
+    📋 Section: A-LEC (6893)
+    📅 Term: 2025-26 Term 1
+
+109. "Cantonese, English and Putonghua All Face-to-Face Teaching" - 2 sections
+    📚 Example: MRGO6306 - Robotic Rehabilitation Therapy
+    📋 Section: --LEC (1019)
+    📅 Term: 2025-26 Term 3
+
+110. "Cantonese only Internship" - 2 sections
+    📚 Example: FAAS4101 - Art and Social Engagement: Summer Internship
+    📋 Section: -S01-SEM (8687)
+    📅 Term: 2025-26 Term 1
+
+111. "English only SPOR" - 2 sections
+    📚 Example: FAAS4180 - Thesis Research I
+    📋 Section: B-LEC (9111)
+    📅 Term: 2025-26 Term 1
+
+112. "Hong Kong Sign Language Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: HKSL1001 - Hong Kong Sign Language Taster
+    📋 Section: --LEC (8746)
+    📅 Term: 2025-26 Term 1
+
+113. "SDG-GE #3 Good Health and Well-being English only" - 2 sections
+    📚 Example: UGED1252 - The Successful Self
+    📋 Section: A-LEC (5188)
+    📅 Term: 2025-26 Term 1
+
+114. "SDG-GE #3 Good Health and Well-being Putonghua only" - 2 sections
+    📚 Example: UGED1252 - The Successful Self
+    📋 Section: B-LEC (5309)
+    📅 Term: 2025-26 Term 2
+
+115. "SDG-GE #3 Good Health and Well-being SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals English only" - 2 sections
+    📚 Example: UGED2919 - Inter/Transdisciplinary Research and Environmental Art Co-Creation
+    📋 Section: -J01-PRJ (9565)
+    📅 Term: 2025-26 Term 1
+
+116. "SDG-GE #1 No Poverty SDG-GE #3 Good Health and Well-being SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #16 Peace, Justice and Strong Institutions Cantonese and English" - 2 sections
+    📚 Example: GEYS1010 - Creative Social Responsibility and Sustainable Development
+    📋 Section: --LEC (9121)
+    📅 Term: 2025-26 Term 1
+
+117. "SDG-GE #1 No Poverty SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality SDG-GE #13 Climate Action SDG-GE #14 Life Below Water Cantonese, English and Putonghua Experiential Learning Course Service Learning Course" - 2 sections
+    📚 Example: GESH2011 - Service-learning: Bringing Knowledge to Life
+    📋 Section: --LEC (9146)
+    📅 Term: 2025-26 Term 1
+
+118. "SDG-SE #1 No Poverty SDG-SE #3 Good Health and Well-being SDG-SE #4 Quality Education SDG-SE #5 Gender Equality SDG-SE #10 Reducing Inequality SDG-SE #13 Climate Action SDG-SE #14 Life Below Water SDG-SE #17 Partnerships for the Goals Cantonese, English and Putonghua Experiential Learning Course Service Learning Course" - 2 sections
+    📚 Example: GESH2012 - Service-learning: Action towards Personhood
+    📋 Section: -J01-PRJ (7472)
+    📅 Term: 2025-26 Term 1
+
+119. "Cantonese, English and Putonghua Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: UGCP1002 - Hong Kong in the Wider Constitutional Order
+    📋 Section: -X01-WBL (8602)
+    📅 Term: 2025-26 Term 1
+
+120. "English only Practicum" - 2 sections
+    📚 Example: EPIN3040 - Entrepreneurship Practicum
+    📋 Section: --LEC (8516)
+    📅 Term: 2025-26 Term 2
+
+121. "German and English Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: GERM1001 - First Step in German
+    📋 Section: --LEC (8745)
+    📅 Term: 2025-26 Term 1
+
+122. "Cantonese and English Capstone Course Service Learning Course" - 2 sections
+    📚 Example: BMBL4201 - Service Learning I
+    📋 Section: -P01-PRA (6325)
+    📅 Term: 2025-26 Term 1
+
+123. "Korean and English Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: KORE1001 - Invitation to Korean Online
+    📋 Section: --LEC (8747)
+    📅 Term: 2025-26 Term 1
+
+124. "Cantonese and English Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: CLCC1001 - Cantonese Taster Course for CUHK International Students
+    📋 Section: -X01-WBL (8727)
+    📅 Term: 2025-26 Term 1
+
+125. "Cantonese only Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: CLCC1101 - Cantonese Taster Course for CUHK Mandarin-speaking Students
+    📋 Section: -X01-WBL (8728)
+    📅 Term: 2025-26 Term 1
+
+126. "Hokkien, Cantonese and Putonghua" - 2 sections
+    📚 Example: CLCH1702 - Learning Hokkinese/ Southern Min through Poems and Songs
+    📋 Section: A-LEC (4731)
+    📅 Term: 2025-26 Term 1
+
+127. "Cantonese and English Service Learning Course Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: SOWK2100 - Service-learning Online Course
+    📋 Section: AX01-WBL (7300)
+    📅 Term: 2025-26 Term 1
+
+128. "Japanese and English Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: JASP1350 - Japanese Language Tasting
+    📋 Section: A-LEC (8643)
+    📅 Term: 2025-26 Term 1
+
+129. "SDG-GE #3 Good Health and Well-being SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality English only Service Learning Course" - 2 sections
+    📚 Example: GENA1116 - Service Learning – Creating a Better World through Diversity and Inclusion
+    📋 Section: P-LEC (5527)
+    📅 Term: 2025-26 Term 2
+
+130. "SDG-GE #4 Quality Education SDG-GE #17 Partnerships for the Goals Cantonese only Service Learning Course" - 2 sections
+    📚 Example: GENA1117 - Service Learning - Integrating and Applying STEAM Skills in the Community
+    📋 Section: A-LEC (5325)
+    📅 Term: 2025-26 Term 2
+
+131. "Putonghua only Virtual Teaching & Learning Course" - 2 sections
+    📚 Example: CLCP1101 - Putonghua Taster Course for Local Students
+    📋 Section: -X01-WBL (8642)
+    📅 Term: 2025-26 Term 1
+
+132. "English only Internship STOT Course" - 2 sections
+    📚 Example: BCHE2070 - Research Internship
+    📋 Section: -J01-PRJ (8741)
+    📅 Term: 2025-26 Term 1
+
+133. "Putonghua only Experiential Learning Course" - 2 sections
+    📚 Example: CLED1030 - Immersion Experience - Putonghua
+    📋 Section: AF01-FLD (8614)
+    📅 Term: 2025-26 Term 1
+
+134. "SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #11 Sustainable Cities and Communities Cantonese and English Experiential Learning Course" - 1 sections
+    📚 Example: UGEC1915 - Experiencing the City Through Walking
+    📋 Section: --LEC (7808)
+    📅 Term: 2025-26 Term 2
+
+135. "SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities Cantonese only" - 1 sections
+    📚 Example: UGEC2020 - History of Macau: The Encounter of Eastern and Western Cultures
+    📋 Section: --LEC (7673)
+    📅 Term: 2025-26 Term 1
+
+136. "SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land English only" - 1 sections
+    📚 Example: UGEC2022 - The Effectiveness of the Law Intended to Safeguard Cultural Heritage in Hong Kong
+    📋 Section: --LEC (9801)
+    📅 Term: 2025-26 Term 1
+
+137. "SDG-GE #1 No Poverty SDG-GE #2 Zero Hunger SDG-GE #3 Good Health and Well-being SDG-GE #5 Gender Equality SDG-GE #8 Decent Work and Economic Growth SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #16 Peace, Justice and Strong Institutions English only" - 1 sections
+    📚 Example: UGEC2033 - Challenges of World Population
+    📋 Section: --LEC (7327)
+    📅 Term: 2025-26 Term 2
+
+138. "SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality SDG-GE #16 Peace, Justice and Strong Institutions Cantonese only" - 1 sections
+    📚 Example: UGEC2041 - History of Women in Modern China
+    📋 Section: --LEC (7623)
+    📅 Term: 2025-26 Term 2
+
+139. "SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities English only" - 1 sections
+    📚 Example: UGEC2117 - Cities of the World: A Cultural and Historical Exploration of Urban Development
+    📋 Section: --LEC (7326)
+    📅 Term: 2025-26 Term 1
+
+140. "SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action Cantonese only" - 1 sections
+    📚 Example: UGEC2201 - Pursuit of Ideal Living Environment
+    📋 Section: A-LEC (7290)
+    📅 Term: 2025-26 Term 1
+
+141. "SDG-GE #2 Zero Hunger Cantonese only" - 1 sections
+    📚 Example: UGEC2210 - Food and Hunger
+    📋 Section: --LEC (8582)
+    📅 Term: 2025-26 Term 1
+
+142. "SDG-GE #1 No Poverty SDG-GE #2 Zero Hunger SDG-GE #5 Gender Equality SDG-GE #6 Clean Water and Sanitation SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #11 Sustainable Cities and Communities SDG-GE #14 Life Below Water SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals English only" - 1 sections
+    📚 Example: UGEC2226 - Discovering Africa: Environment, Society and Prospects
+    📋 Section: --LEC (9040)
+    📅 Term: 2025-26 Term 2
+
+143. "SDG-GE #1 No Poverty SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities Cantonese only" - 1 sections
+    📚 Example: UGEC2231 - Decoding Cities
+    📋 Section: --LEC (6544)
+    📅 Term: 2025-26 Term 1
+
+144. "SDG-GE #1 No Poverty SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #5 Gender Equality SDG-GE #8 Decent Work and Economic Growth English only" - 1 sections
+    📚 Example: UGEC2703 - Youth Problem in Modern Society
+    📋 Section: --LEC (8334)
+    📅 Term: 2025-26 Term 2
+
+145. "SDG-GE #11 Sustainable Cities and Communities SDG-GE #17 Partnerships for the Goals Cantonese only" - 1 sections
+    📚 Example: UGEC2942 - Museum and Heritage
+    📋 Section: --LEC (9231)
+    📅 Term: 2025-26 Term 2
+
+146. "English only Experiential Learning Course Service Learning Course" - 1 sections
+    📚 Example: GESC1230 - Caring Heart Service Learning
+    📋 Section: AAJ1-PRJ (8148)
+    📅 Term: 2025-26 Term 1
+
+147. "Putonghua and English Experiential Learning Course Service Learning Course" - 1 sections
+    📚 Example: GESC1230 - Caring Heart Service Learning
+    📋 Section: MAJ1-PRJ (5518)
+    📅 Term: 2025-26 Term 1
+
+148. "SDG-GE #3 Good Health and Well-being Putonghua and Cantonese" - 1 sections
+    📚 Example: GESC1240 - Buddhism As Lived: Mind, Body and Contemporary Issues
+    📋 Section: --LEC (7237)
+    📅 Term: 2025-26 Term 1
+
+149. "SDG-GE #1 No Poverty SDG-GE #2 Zero Hunger SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #5 Gender Equality SDG-GE #6 Clean Water and Sanitation SDG-GE #7 Affordable and Clean Energy SDG-GE #8 Decent Work and Economic Growth SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #12 Responsible Consumption and Production SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land SDG-GE #16 Peace, Justice and Strong Institutions SDG-GE #17 Partnerships for the Goals Cantonese and English" - 1 sections
+    📚 Example: GESC1250 - Startup Exploration
+    📋 Section: --LEC (5880)
+    📅 Term: 2025-26 Term 1
+
+150. "SDG-SE #10 Reducing Inequality Cantonese only Experiential Learning Course Service Learning Course" - 1 sections
+    📚 Example: GESC2330 - Service Learning: Human Concern
+    📋 Section: -F01-FLD (9322)
+    📅 Term: 2025-26 Term 2
+
+151. "SDG-SE #1 No Poverty SDG-SE #2 Zero Hunger SDG-SE #3 Good Health and Well-being SDG-SE #6 Clean Water and Sanitation SDG-SE #7 Affordable and Clean Energy SDG-SE #10 Reducing Inequality SDG-SE #11 Sustainable Cities and Communities SDG-SE #12 Responsible Consumption and Production SDG-SE #13 Climate Action SDG-SE #14 Life Below Water SDG-SE #15 Life On Land English only Experiential Learning Course Service Learning Course" - 1 sections
+    📚 Example: GESC2360 - Environmental Justice in Action
+    📋 Section: --LEC (7198)
+    📅 Term: 2025-26 Term 2
+
+152. "English only Putonghua and English All Face-to-Face Teaching" - 1 sections
+    📚 Example: EMBA6062 - Selected Topics in Business and Management
+    📋 Section: AEF1-FLD (1012)
+    📅 Term: 2025-26 Term 4
+
+153. "SDG-GE #6 Clean Water and Sanitation SDG-GE #7 Affordable and Clean Energy SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #12 Responsible Consumption and Production SDG-GE #13 Climate Action English only" - 1 sections
+    📚 Example: UGEB2123 - Environmental Crises – China and the World
+    📋 Section: --LEC (6545)
+    📅 Term: 2025-26 Term 1
+
+154. "SDG-GE #6 Clean Water and Sanitation SDG-GE #7 Affordable and Clean Energy SDG-GE #13 Climate Action SDG-GE #17 Partnerships for the Goals Putonghua only" - 1 sections
+    📚 Example: UGEB2151 - China's Mega-Projects in the New Millennium
+    📋 Section: --LEC (8346)
+    📅 Term: 2025-26 Term 2
+
+155. "SDG-GE #2 Zero Hunger SDG-GE #10 Reducing Inequality SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land SDG-GE #16 Peace, Justice and Strong Institutions English only" - 1 sections
+    📚 Example: UGEB2161 - Resource Issues in the Age of Globalization
+    📋 Section: --LEC (9513)
+    📅 Term: 2025-26 Term 1
+
+156. "SDG-GE #3 Good Health and Well-being SDG-GE #7 Affordable and Clean Energy SDG-GE #13 Climate Action SDG-GE #15 Life On Land Cantonese and English" - 1 sections
+    📚 Example: UGEB2360 - Wonders and Insights in Biology
+    📋 Section: --LEC (7777)
+    📅 Term: 2025-26 Term 2
+
+157. "SDG-GE #3 Good Health and Well-being SDG-GE #12 Responsible Consumption and Production Cantonese and English" - 1 sections
+    📚 Example: UGEB2362 - Nutrition For Healthy Living
+    📋 Section: --LEC (9230)
+    📅 Term: 2025-26 Term 2
+
+158. "SDG-GE #3 Good Health and Well-being SDG-GE #7 Affordable and Clean Energy SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #12 Responsible Consumption and Production SDG-GE #13 Climate Action English only" - 1 sections
+    📚 Example: UGEB2381 - Chemistry for a Sustainable Future
+    📋 Section: A-LEC (7161)
+    📅 Term: 2025-26 Term 2
+
+159. "SDG-GE #7 Affordable and Clean Energy SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land SDG-GE #17 Partnerships for the Goals Cantonese only" - 1 sections
+    📚 Example: UGEB2640 - Perspectives in Meteorology
+    📋 Section: --LEC (7296)
+    📅 Term: 2025-26 Term 1
+
+160. "SDG-GE #7 Affordable and Clean Energy SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #10 Reducing Inequality SDG-GE #12 Responsible Consumption and Production SDG-GE #14 Life Below Water Cantonese only" - 1 sections
+    📚 Example: UGEB2650 - Materials Science for a Sustainable World
+    📋 Section: --LEC (7218)
+    📅 Term: 2025-26 Term 1
+
+161. "SDG-GE #3 Good Health and Well-being SDG-GE #7 Affordable and Clean Energy SDG-GE #13 Climate Action English only" - 1 sections
+    📚 Example: UGEB2871 - Climate Change and Extreme Weather
+    📋 Section: --LEC (5274)
+    📅 Term: 2025-26 Term 2
+
+162. "SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #10 Reducing Inequality Cantonese and English" - 1 sections
+    📚 Example: UGEB2991 - Viewing Communication from Speech Therapy
+    📋 Section: --LEC (5975)
+    📅 Term: 2025-26 Term 2
+
+163. "SDG-GE #13 Climate Action SDG-GE #14 Life Below Water Cantonese and English" - 1 sections
+    📚 Example: UGEB3630 - Exploring the Enigmatic Oceans
+    📋 Section: --LEC (5705)
+    📅 Term: 2025-26 Term 1
+
+164. "English only Blended-mode class available" - 1 sections
+    📚 Example: PEDU6405 - Multi-dimensional and Multi-causal Analysis in Educational Research
+    📋 Section: --LEC (1835)
+    📅 Term: 2025-26 Term 2
+
+165. "Putonghua and English SPOR" - 1 sections
+    📚 Example: FAAS4180 - Thesis Research I
+    📋 Section: E-LEC (9016)
+    📅 Term: 2025-26 Term 1
+
+166. "SDG-GE #3 Good Health and Well-being SDG-GE #4 Quality Education SDG-GE #10 Reducing Inequality English only Virtual Teaching & Learning Course" - 1 sections
+    📚 Example: UGED1998 - Understanding Attention-Deficit/Hyperactivity Disorder and Neurodiversity
+    📋 Section: -X01-WBL (9319)
+    📅 Term: 2025-26 Term 2
+
+167. "SDG-GE #3 Good Health and Well-being SDG-GE #10 Reducing Inequality English only Virtual Teaching & Learning Course" - 1 sections
+    📚 Example: UGED1999 - Understanding Neurodiverse Condition – Autism
+    📋 Section: -X01-WBL (9320)
+    📅 Term: 2025-26 Term 2
+
+168. "SDG-GE #3 Good Health and Well-being SDG-GE #11 Sustainable Cities and Communities SDG-GE #13 Climate Action SDG-GE #14 Life Below Water SDG-GE #15 Life On Land English only Experiential Learning Course" - 1 sections
+    📚 Example: UGED2859 - Humanity and Nature in Crisis: Values, Lifeways, and the Future
+    📋 Section: --LEC (5102)
+    📅 Term: 2025-26 Term 1
+
+169. "Cantonese and English Service Learning Course" - 1 sections
+    📚 Example: GEWS2151 - Promotion of Emotional Wellness: Concepts and Practices
+    📋 Section: -T01-TUT (7197)
+    📅 Term: 2025-26 Term 1
+
+170. "SDG-GE #8 Decent Work and Economic Growth SDG-GE #9 Industry, Innovation and Infrastructure SDG-GE #10 Reducing Inequality Cantonese only" - 1 sections
+    📚 Example: UGEA1333 - Multiculturalism and China
+    📋 Section: --LEC (6247)
+    📅 Term: 2025-26 Term 1
+
+171. "SDG-GE #5 Gender Equality SDG-GE #10 Reducing Inequality SDG-GE #16 Peace, Justice and Strong Institutions English only Experiential Learning Course" - 1 sections
+    📚 Example: GENA2392 - Empowerment through Nonviolent Communication: Theory and Practice
+    📋 Section: --LEC (9576)
+    📅 Term: 2025-26 Term 1
+
+🌐 Language breakdown:
+  English         : 15080 sections
+  Putonghua       :  590 sections
+
+📋 ENROLLMENT REQUIREMENTS ANALYSIS
+--------------------------------------
+📊 Overview:
+   Total courses: 8829
+   Courses with requirements: 6526
+   Unique requirement patterns: 2975
+   Coverage: 73.9%
+
+🔑 Most common dependency keywords:
+   pre-requisite   : 741 courses
+   prerequisite    : 559 courses
+   co-requisite    : 389 courses
+   year            : 224 courses
+   permission      : 177 courses
+   consent         :  89 courses
+   gpa             :  29 courses
+   grade           :  24 courses
+   credit          :  24 courses
+   corequisite     :   9 courses
+
+📚 Requirements by category:
+
+🏷️ Other Requirements (1528 patterns):
+   1. [160x] "For students in Juris Doctor, LLB-JD, BBA-JD Programme Double Degree, Juris Doctor/MBA Double Degree, LLM Chinese Business Law, LLM Common Law, LLM International Economic Law, LLM Energy and Environmental Law, LLM Legal History"
+      📚 Example: LAWS6001 - Legal System
+
+   2. [104x] "For PGDE students only"
+      📚 Example: PGDE5001 - Subject Curriculum and Teaching (Major: Chinese Language)
+
+   3. [84x] "-"
+      📚 Example: MATH4250 - Game Theory
+
+   ... and 1525 more patterns (4391 courses)
+
+
+🏷️ Prerequisites (1051 patterns):
+   1. [18x] "Prerequisite: FINA2010 or FINA2310 or permission from instructor."
+      📚 Example: FINA3020 - International Finance
+
+   2. [13x] "Pre-requisite: BIOL2120."
+      📚 Example: CMBI2200 - Literature Survey in CMB and Scientific Communication
+
+   3. [10x] "Prerequisite: FINA3080 or permission from instructor."
+      📚 Example: FINA4120 - Fixed Income Securities Analysis
+
+   ... and 1048 more patterns (1257 courses)
+
+
+🏷️ Co-requisites (330 patterns):
+   1. [ 7x] "Not for Geography and Resource Management Majors. Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
+      📚 Example: UGEC2210 - Food and Hunger
+
+   2. [ 5x] "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
+      📚 Example: UGEB2296 - Experiencing and Rethinking Science and Technology in Agriculture
+
+   3. [ 5x] "Not for Philosophy Majors. Co-requisite: UGFH1000, UGFN1000 or UGFN1001 (only applicable to students admitted to the 4-year curriculum)"
+      📚 Example: UGED1815 - Philosophy as a Way of Life
+
+   ... and 327 more patterns (343 courses)
+
+
+🏷️ Academic Standing (44 patterns):
+   1. [13x] "For Medical Study Year 4 (MYR4)"
+      📚 Example: MEDU3110 - Junior Medical Clerkship
+
+   2. [10x] "For Medical Study Year 3 (MYR3)"
+      📚 Example: MEDU3160 - Resilience Building in Professional and Personal Development II
+
+   3. [ 9x] "For Medical Study Year 5 (MYR5)"
+      📚 Example: MEDU4010 - Community and Family Medicine Module
+
+   ... and 41 more patterns (58 courses)
+
+
+🏷️ Grade Requirements (11 patterns):
+   1. [ 1x] "For Shaw College Students only. This course is double-coded with GPAD1046. Government and Public Administration Majors and students who have taken GPAD1045,1046, GELD2111, 2112 or 3113 cannot take this course to fulfill General Education requirements."
+      📚 Example: GESC2120 - The Art of Leadership
+
+   2. [ 1x] "Not for students who have taken GPAD1045, or GELD2111, 2112 and 3113."
+      📚 Example: GPAD1046 - The Art of Leadership
+
+   3. [ 1x] "Not for students who have taken UGED2550 or GPAD1090."
+      📚 Example: GPAD2065 - Values and Public Affairs
+
+   ... and 8 more patterns (8 courses)
+
+
+🏷️ Credit Requirements (5 patterns):
+   1. [11x] "Students from MSc of Accreditation Chemistry only."
+      📚 Example: CHEM5501 - Laboratory Accreditation Based on ISO/IEC 17025
+
+   2. [ 7x] "Students from MSc of Accreditation Chemistry only"
+      📚 Example: CHEM5507 - Forensic Sciences and Doping Control
+
+   3. [ 2x] "For students of Master of Arts Programme in Family Counselling and Family Education (Specialization: Accredited Programme on Marriage and Family Therapy) only"
+      📚 Example: SOWK6217 - Practical Skills in Marriage and Family Therapy
+
+   ... and 2 more patterns (2 courses)
+
+
+🏷️ Permission Required (6 patterns):
+   1. [ 1x] "Students who have taken GPAD1077 cannot take this course, unless teacher's consent has been obtained."
+      📚 Example: GPAD2015 - Selected Topics in Hong Kong Politics I
+
+   2. [ 1x] "1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees. 2. For non-JUPAS students, please seek advice and permission from the Department of Physics."
+      📚 Example: PHYS1001 - Essential Physics
+
+   3. [ 1x] "PHYS3041 or its equivalents, or permission of instructor."
+      📚 Example: PHYS4450 - Optical Physics
+
+   ... and 3 more patterns (3 courses)
+
+
+📊 SUBJECT SUMMARY
+--------------------
+Top subjects by course count:
+  LAWS                                : 330 courses,  291 sections
+  MUSC                                : 230 courses,  177 sections
+  COMM                                : 211 courses,  203 sections
+  HIST                                : 210 courses,  246 sections
+  THEO                                : 198 courses,  123 sections
+  CHLL                                : 187 courses,  222 sections
+  FINA                                : 162 courses,  234 sections
+  ENGE                                : 158 courses,  332 sections
+  ANTH                                : 155 courses,  222 sections
+  CURE                                : 150 courses,  133 sections
+  PHIL                                : 134 courses,  152 sections
+  PSYC                                : 134 courses,  189 sections
+  BCME                                : 132 courses,  137 sections
+  ESTR                                : 132 courses,  129 sections
+  ECON                                : 130 courses,  137 sections
+
+💡 RECOMMENDATIONS
+--------------------
+Based on this analysis:
+
+🕒 Calendar Time Range:
+   - Suggested start: 07:00 (earliest class at 00:00)
+   - Suggested end: 23:00 (latest class ends at 22:15)
+
+📋 Section Type Handling:
+   - Core types to handle: ASB, CLW, DIS, EXR, FLD, IND, LAB, LEC, OTH, PRA, PRJ, SEM, STD, TMC, TUT, VST, WBL, WKS
+   - All section patterns are now consolidated into core types
+
+🌐 Language Support:
+   - Languages found: English, Putonghua
+   - Consider adding language indicators in UI

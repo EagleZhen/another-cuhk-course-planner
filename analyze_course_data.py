@@ -387,6 +387,82 @@ def generate_subject_summary(subjects_data: Dict[str, any]) -> Dict[str, any]:
     
     return subject_stats
 
+def analyze_enrollment_requirements(subjects_data: Dict[str, any]) -> Dict[str, any]:
+    """Analyze enrollment requirements to identify course dependency patterns"""
+    requirements = Counter()
+    requirement_examples = {}
+    dependency_keywords = Counter()
+    
+    # Keywords that indicate course dependencies
+    dep_keywords = ['prerequisite', 'pre-requisite', 'corequisite', 'co-requisite', 
+                   'concurrent', 'prior', 'completion', 'grade', 'consent', 'permission',
+                   'standing', 'year', 'credit', 'gpa', 'cgpa']
+    
+    total_courses = 0
+    courses_with_requirements = 0
+    
+    for subject_code, subject_data in subjects_data.items():
+        courses = subject_data.get('courses', [])
+        total_courses += len(courses)
+        
+        for course in courses:
+            enrollment_req = course.get('enrollment_requirement', '').strip()
+            if enrollment_req:
+                courses_with_requirements += 1
+                requirements[enrollment_req] += 1
+                
+                # Store example if we don't have one yet
+                if enrollment_req not in requirement_examples:
+                    requirement_examples[enrollment_req] = {
+                        'course_code': f"{subject_code}{course.get('course_code', '')}",
+                        'course_title': course.get('title', ''),
+                        'subject': subject_code
+                    }
+                
+                # Count dependency keywords
+                req_lower = enrollment_req.lower()
+                for keyword in dep_keywords:
+                    if keyword in req_lower:
+                        dependency_keywords[keyword] += 1
+    
+    # Group similar requirements (simple grouping by length and common words)
+    requirement_groups = {}
+    for req, count in requirements.items():
+        # Simple categorization based on content
+        req_lower = req.lower()
+        if 'prerequisite' in req_lower or 'pre-requisite' in req_lower:
+            category = 'Prerequisites'
+        elif 'corequisite' in req_lower or 'co-requisite' in req_lower:
+            category = 'Co-requisites'
+        elif 'consent' in req_lower or 'permission' in req_lower:
+            category = 'Permission Required'
+        elif 'standing' in req_lower or 'year' in req_lower:
+            category = 'Academic Standing'
+        elif 'grade' in req_lower or 'gpa' in req_lower or 'cgpa' in req_lower:
+            category = 'Grade Requirements'
+        elif 'credit' in req_lower:
+            category = 'Credit Requirements'
+        else:
+            category = 'Other Requirements'
+        
+        if category not in requirement_groups:
+            requirement_groups[category] = []
+        requirement_groups[category].append((req, count))
+    
+    # Sort each category by frequency
+    for category in requirement_groups:
+        requirement_groups[category].sort(key=lambda x: x[1], reverse=True)
+    
+    return {
+        'total_courses': total_courses,
+        'courses_with_requirements': courses_with_requirements,
+        'unique_requirements': len(requirements),
+        'all_requirements': dict(requirements.most_common()),
+        'requirement_examples': requirement_examples,
+        'dependency_keywords': dict(dependency_keywords.most_common()),
+        'requirement_groups': requirement_groups
+    }
+
 def save_analysis_results(console_output: str, timestamp: str):
     """Save console output to timestamped text file"""
     # Create analysis directory
@@ -592,7 +668,51 @@ def main():
         
         print()
         
-        # 5. Subject Summary
+        # 5. Enrollment Requirements Analysis  
+        print("📋 ENROLLMENT REQUIREMENTS ANALYSIS")
+        print("-" * 38)
+        req_analysis = analyze_enrollment_requirements(subjects_data)
+        
+        print(f"📊 Overview:")
+        print(f"   Total courses: {req_analysis['total_courses']}")
+        print(f"   Courses with requirements: {req_analysis['courses_with_requirements']}")
+        print(f"   Unique requirement patterns: {req_analysis['unique_requirements']}")
+        print(f"   Coverage: {req_analysis['courses_with_requirements']/req_analysis['total_courses']*100:.1f}%")
+        print()
+        
+        # Show most common dependency keywords
+        print("🔑 Most common dependency keywords:")
+        dep_keywords = req_analysis['dependency_keywords']
+        for keyword, count in list(dep_keywords.items())[:10]:
+            print(f"   {keyword:<15} : {count:>3} courses")
+        print()
+        
+        # Show grouped requirements
+        requirement_groups = req_analysis['requirement_groups']
+        requirement_examples = req_analysis['requirement_examples']
+        
+        print("📚 Requirements by category:")
+        for category, requirements in requirement_groups.items():
+            print(f"\n🏷️ {category} ({len(requirements)} patterns):")
+            
+            # Show top 3 most common patterns in this category
+            for i, (req_text, count) in enumerate(requirements[:3]):
+                print(f"   {i+1}. [{count:>2}x] \"{req_text}\"")
+                if req_text in requirement_examples:
+                    example = requirement_examples[req_text]
+                    print(f"      📚 Example: {example['course_code']} - {example['course_title']}")
+                print()
+            
+            # If there are more than 3, show summary
+            if len(requirements) > 3:
+                remaining = len(requirements) - 3
+                remaining_count = sum(count for _, count in requirements[3:])
+                print(f"   ... and {remaining} more patterns ({remaining_count} courses)")
+                print()
+        
+        print()
+        
+        # 6. Subject Summary
         print("📊 SUBJECT SUMMARY")
         print("-" * 20)
         subject_stats = generate_subject_summary(subjects_data)
