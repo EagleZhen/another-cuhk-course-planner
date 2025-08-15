@@ -290,9 +290,10 @@ def analyze_hourly_distribution(subjects_data: Dict[str, any]) -> Dict[str, any]
     }
 
 def analyze_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
-    """Analyze course and class attributes for insights"""
+    """Analyze course and class attributes for insights with examples"""
     course_attributes = Counter()
     class_attributes = Counter()
+    class_attributes_examples = {}  # Store examples for each unique class attribute
     languages = Counter()
     components = Counter()
     academic_careers = Counter()
@@ -322,11 +323,21 @@ def analyze_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
                 total_sections += len(schedule)
                 
                 for section in schedule:
-                    if section.get('class_attributes'):
-                        class_attributes[section['class_attributes']] += 1
+                    class_attr = section.get('class_attributes', '').strip()
+                    if class_attr:
+                        class_attributes[class_attr] += 1
+                        
+                        # Store example for this class attribute if we don't have one yet
+                        if class_attr not in class_attributes_examples:
+                            class_attributes_examples[class_attr] = {
+                                'course_code': f"{subject_code}{course.get('course_code', '')}",
+                                'course_title': course.get('title', ''),
+                                'section': section.get('section', ''),
+                                'term': term.get('term_name', ''),
+                                'subject': subject_code
+                            }
                         
                         # Extract language information
-                        class_attr = section['class_attributes']
                         if 'English' in class_attr:
                             languages['English'] += 1
                         elif 'Chinese' in class_attr:
@@ -339,6 +350,7 @@ def analyze_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
         'total_sections': total_sections,
         'course_attributes': dict(course_attributes.most_common()),
         'class_attributes': dict(class_attributes.most_common()),
+        'class_attributes_examples': class_attributes_examples,
         'languages': dict(languages),
         'components': dict(components.most_common()),
         'academic_careers': dict(academic_careers)
@@ -557,7 +569,24 @@ def main():
         print(f"📚 Total courses: {attr_analysis['total_courses']}")
         print(f"📋 Total sections: {attr_analysis['total_sections']}")
         print()
-        print("Languages of instruction:")
+        
+        # Show all unique class attributes with examples
+        class_attributes = attr_analysis['class_attributes']
+        class_examples = attr_analysis['class_attributes_examples']
+        
+        print(f"🏷️ All unique class attributes ({len(class_attributes)} types):")
+        print()
+        for i, (attr, count) in enumerate(class_attributes.items(), 1):
+            print(f"{i:2d}. \"{attr}\" - {count} sections")
+            if attr in class_examples:
+                example = class_examples[attr]
+                print(f"    📚 Example: {example['course_code']} - {example['course_title']}")
+                print(f"    📋 Section: {example['section']}")
+                print(f"    📅 Term: {example['term']}")
+            print()
+        
+        # Language summary
+        print("🌐 Language breakdown:")
         for lang, count in attr_analysis['languages'].items():
             print(f"  {lang:<15} : {count:>4} sections")
         
