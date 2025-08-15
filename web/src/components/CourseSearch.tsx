@@ -1717,7 +1717,7 @@ function CourseCard({
                                     <span className="truncate" title={formattedInstructor}>
                                       {formattedInstructor}
                                     </span>
-                                    {formattedInstructor !== 'TBD' && (
+                                    {formattedInstructor !== 'Staff' && (
                                       <button
                                         onClick={(e) => {
                                         e.stopPropagation()
@@ -1738,7 +1738,7 @@ function CourseCard({
                                     <span className="truncate" title={location}>
                                       {location}
                                     </span>
-                                    {location !== 'TBD' && (
+                                    {location !== 'TBA' && location !== 'No Room Required' && (
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation()

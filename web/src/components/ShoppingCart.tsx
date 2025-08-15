@@ -481,7 +481,7 @@ export default function ShoppingCart({
                                     <span className="truncate" title={formattedInstructor}>
                                       {formattedInstructor}
                                     </span>
-                                    {formattedInstructor !== 'TBD' && (
+                                    {formattedInstructor !== 'Staff' && (
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation()
@@ -502,7 +502,7 @@ export default function ShoppingCart({
                                     <span className="truncate" title={location}>
                                       {location}
                                     </span>
-                                    {location !== 'TBD' && (
+                                    {location !== 'TBA' && location !== 'No Room Required' && (
                                       <button
                                         onClick={(e) => {
                                           e.stopPropagation()
