@@ -1713,9 +1713,23 @@ function CourseCard({
                                 {/* Row 2: Instructor */}
                                 <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
                                   <span>👨‍🏫</span>
-                                  <span className="truncate" title={formattedInstructor}>
-                                    {formattedInstructor}
-                                  </span>
+                                  <div className="flex items-center gap-1 min-w-0 flex-1">
+                                    <span className="truncate" title={formattedInstructor}>
+                                      {formattedInstructor}
+                                    </span>
+                                    {formattedInstructor !== 'TBD' && (
+                                      <button
+                                        onClick={(e) => {
+                                        e.stopPropagation()
+                                          googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                                        }}
+                                        className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                        title={`Search Google for "CUHK ${formattedInstructor}"`}
+                                      >
+                                        <Search className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                      </button>
+                                    )}
+                                  </div>
                                 </div>
                                 {/* Row 3: Location */}
                                 <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
