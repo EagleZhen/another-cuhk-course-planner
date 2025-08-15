@@ -48,19 +48,6 @@ class ScrapingConfig:
             progress_file="data/scraping_progress.json",
             progress_update_interval=60  # 1-minute periodic saves
         )
-    
-    @classmethod
-    def for_validation(cls, max_courses: int = 10):
-        """Validation configuration - limited courses for testing"""
-        return cls(
-            max_courses_per_subject=max_courses,
-            save_debug_files=False,
-            request_delay=1.5,
-            max_retries=3,
-            output_mode="single_file",  # Keep single file for validation
-            output_directory="tests/output",
-            track_progress=False  # No progress tracking for validation
-        )
 
 @dataclass
 class TermInfo:
