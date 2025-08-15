@@ -22,7 +22,8 @@ export default function Home() {
     "2025-26 Term 2", 
     "2025-26 Term 3",
     "2025-26 Term 4",
-    "2025-26 Summer Session"
+    "2025-26 Summer Session",
+    "2025-26 Acad Year (Medicine)"
   ]
   
   // Current term state
