@@ -312,6 +312,9 @@ class CuhkScraper:
         self.base_url = "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
         self.progress_tracker: Optional[ScrapingProgressTracker] = None
         
+        # Set up file logging automatically
+        self._setup_file_logging()
+        
         # Context management - eliminates parameter propagation
         self.current_config: Optional[ScrapingConfig] = None
         self.current_course_context: Optional[Dict] = None
@@ -327,6 +330,40 @@ class CuhkScraper:
             'Accept-Language': 'en-US,en;q=0.5',
             'Connection': 'keep-alive',
         })
+    
+    def _setup_file_logging(self, logs_directory: str = "logs", log_level: int = logging.INFO) -> str:
+        """
+        Set up file logging for the scraper with timestamped log files.
+        Called automatically during scraper initialization.
+        
+        Args:
+            logs_directory: Directory to store log files (default: "logs")
+            log_level: Logging level (default: logging.INFO)
+            
+        Returns:
+            str: Path to the created log file
+        """
+        # Create logs directory if it doesn't exist
+        os.makedirs(logs_directory, exist_ok=True)
+        
+        # Create timestamped log filename
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        log_filename = os.path.join(logs_directory, f'scraper_{timestamp}.log')
+        
+        # Add file handler to the existing logger
+        file_handler = logging.FileHandler(log_filename, encoding='utf-8')
+        file_handler.setLevel(log_level)
+        
+        # Use the same format as console output
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        file_handler.setFormatter(formatter)
+        
+        # Add handler to logger (keeps existing console output)
+        self.logger.addHandler(file_handler)
+        self.logger.setLevel(log_level)
+        
+        self.logger.info(f"📝 File logging initialized: {log_filename}")
+        return log_filename
     
     def _set_context(self, config: ScrapingConfig, course: Optional[Course] = None):
         """Set current scraping context to eliminate parameter propagation"""
