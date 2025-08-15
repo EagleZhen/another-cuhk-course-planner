@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { X } from 'lucide-react'
+import { Monitor } from 'lucide-react'
 
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
@@ -34,7 +34,10 @@ export default function MobileDesktopNotice() {
       >
         {/* Header */}
         <div className="text-center mb-4">
-          <h2 className="text-lg font-bold text-gray-900 mb-2">Better Experience on Computer</h2>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Monitor className="w-5 h-5 text-blue-600" />
+            <h2 className="text-lg font-bold text-gray-900">Better Experience on Computer</h2>
+          </div>
           <p className="text-gray-600 text-sm">
             This tool works best on desktop with features like side-by-side layout, live preview, and better search.
           </p>
@@ -64,14 +67,6 @@ export default function MobileDesktopNotice() {
             Got it, thanks!
           </button>
         </div>
-        
-        {/* Close button */}
-        <button
-          onClick={dismissNotice}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 p-2"
-        >
-          <X className="w-5 h-5" />
-        </button>
       </div>
     </div>
   )
