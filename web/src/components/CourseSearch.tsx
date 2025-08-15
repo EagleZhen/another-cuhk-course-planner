@@ -1699,9 +1699,9 @@ function CourseCard({
                         {/* Meetings displayed in unified 3-row emoji format */}
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                            const formattedTime = formatTimeCompact(meeting?.time || 'TBD')
-                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBD')
-                            const location = meeting?.location || 'TBD'
+                            const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
+                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBA')
+                            const location = meeting?.location || 'TBA'
                             
                             return (
                               <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">

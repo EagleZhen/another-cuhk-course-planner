@@ -7,10 +7,10 @@ import { SECTION_TYPE_CONFIG } from './types'
 
 // External data schemas (for runtime validation)
 const ExternalMeetingSchema = z.object({
-  time: z.string().optional().default('TBD'),
-  location: z.string().optional().default('TBD'),
-  instructor: z.string().optional().default('TBD'),
-  dates: z.string().optional().default('TBD')
+  time: z.string().optional().default('TBA'),
+  location: z.string().optional().default('TBA'),
+  instructor: z.string().optional().default('TBA'),
+  dates: z.string().optional().default('TBA')
 })
 
 const ExternalAvailabilitySchema = z.object({
@@ -123,10 +123,10 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
 // Transform external meeting to internal
 function transformMeeting(external: z.infer<typeof ExternalMeetingSchema>): InternalMeeting {
   return {
-    time: external.time || 'TBD',
-    location: external.location || 'TBD',
-    instructor: external.instructor || 'TBD',
-    dates: external.dates || 'TBD'
+    time: external.time || 'TBA',
+    location: external.location || 'TBA',
+    instructor: external.instructor || 'TBA',
+    dates: external.dates || 'TBA'
   }
 }
 

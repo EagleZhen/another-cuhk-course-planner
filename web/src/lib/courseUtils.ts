@@ -573,7 +573,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
   const meetingGroups = new Map<string, InternalMeeting[]>()
   
   meetings.forEach((meeting) => {
-    const key = `${meeting?.time || 'TBD'}-${meeting?.location || 'TBD'}-${meeting?.instructor || 'TBD'}`
+    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructor || 'TBA'}`
     if (!meetingGroups.has(key)) {
       meetingGroups.set(key, [])
     }
@@ -588,7 +588,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
  * Format time string for compact display: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
  */
 export function formatTimeCompact(timeStr: string): string {
-  if (!timeStr || timeStr === 'TBD') return 'TBD'
+  if (!timeStr || timeStr === 'TBA') return 'TBA'
   
   return timeStr
     .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
@@ -606,7 +606,7 @@ export function formatTimeCompact(timeStr: string): string {
  * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
  */
 export function formatInstructorCompact(instructor: string): string {
-  if (!instructor || instructor === 'TBD') return 'TBD'
+  if (!instructor || instructor === 'TBA') return 'TBA'
   
   return instructor.replace('Professor ', 'Prof. ')
 }
@@ -616,7 +616,7 @@ export function formatInstructorCompact(instructor: string): string {
  * Used for alphabetical sorting and search optimization across the app
  */
 export function removeInstructorTitle(instructor: string): string {
-  if (!instructor || instructor === 'TBD') return 'TBD'
+  if (!instructor || instructor === 'TBA') return 'TBA'
   
   return formatInstructorCompact(instructor)
     .replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
