@@ -124,22 +124,59 @@ def find_course_files() -> List[str]:
     
     return sorted(course_files)
 
-def calculate_total_scraping_time(progress_data: Optional[Dict]) -> Optional[float]:
-    """Calculate total time spent scraping"""
+def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
+    """Calculate detailed scraping statistics"""
     if not progress_data or 'subjects' not in progress_data:
         return None
     
     total_minutes = 0
     completed_subjects = 0
+    failed_subjects = 0
+    total_courses = 0
+    total_sections_scraped = 0
+    fastest_subject = None
+    slowest_subject = None
+    min_time = float('inf')
+    max_time = 0
     
     for subject_code, subject_data in progress_data['subjects'].items():
-        if subject_data.get('status') == 'completed':
-            duration = subject_data.get('duration_minutes', 0)
+        status = subject_data.get('status')
+        duration = subject_data.get('duration_minutes', 0)
+        courses_count = subject_data.get('courses_scraped', 0)
+        
+        if status == 'completed':
+            completed_subjects += 1
+            total_courses += courses_count
+            
             if duration > 0:
                 total_minutes += duration
-                completed_subjects += 1
+                
+                # Track fastest/slowest subjects
+                if duration < min_time:
+                    min_time = duration
+                    fastest_subject = (subject_code, duration, courses_count)
+                
+                if duration > max_time:
+                    max_time = duration
+                    slowest_subject = (subject_code, duration, courses_count)
+        
+        elif status == 'failed':
+            failed_subjects += 1
     
-    return total_minutes
+    # Calculate average time per course
+    avg_time_per_course = total_minutes / total_courses if total_courses > 0 else 0
+    avg_time_per_subject = total_minutes / completed_subjects if completed_subjects > 0 else 0
+    
+    return {
+        'total_minutes': total_minutes,
+        'completed_subjects': completed_subjects,
+        'failed_subjects': failed_subjects,
+        'total_courses': total_courses,
+        'avg_time_per_course': avg_time_per_course,
+        'avg_time_per_subject': avg_time_per_subject,
+        'fastest_subject': fastest_subject,
+        'slowest_subject': slowest_subject
+    }
 
 def format_duration(minutes: float) -> str:
     """Format duration in a human-readable way"""
@@ -175,7 +212,12 @@ def main():
     # Generate log filename with timestamp
     from datetime import datetime
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_filename = f"migration_log_{timestamp}.txt"
+    
+    # Create logs directory structure
+    log_dir = "logs/migration"
+    os.makedirs(log_dir, exist_ok=True)
+    
+    log_filename = os.path.join(log_dir, f"migration_log_{timestamp}.txt")
     
     # Set up console logging
     logger = ConsoleLogger(log_filename)
@@ -199,10 +241,23 @@ def main():
             print(f"   ✅ Completed: {log_data.get('completed', 'unknown')}")
             print(f"   ❌ Failed: {log_data.get('failed', 'unknown')}")
             
-            # Calculate and display total scraping time
-            total_time = calculate_total_scraping_time(progress_data)
-            if total_time:
-                print(f"   ⏱️ Total scraping time: {format_duration(total_time)}")
+            # Calculate and display detailed scraping statistics
+            stats = calculate_scraping_statistics(progress_data)
+            if stats:
+                print()
+                print("📊 Scraping Performance Analysis:")
+                print(f"   ⏱️ Total time: {format_duration(stats['total_minutes'])}")
+                print(f"   📚 Total courses: {stats['total_courses']:,}")
+                print(f"   📋 Average per subject: {format_duration(stats['avg_time_per_subject'])}")
+                print(f"   📖 Average per course: {stats['avg_time_per_course']:.2f} minutes")
+                
+                if stats['fastest_subject']:
+                    subj, time, courses = stats['fastest_subject']
+                    print(f"   🏃 Fastest: {subj} - {format_duration(time)} ({courses} courses)")
+                
+                if stats['slowest_subject']:
+                    subj, time, courses = stats['slowest_subject'] 
+                    print(f"   🐌 Slowest: {subj} - {format_duration(time)} ({courses} courses)")
             print()
         
         # Find course files
@@ -249,8 +304,8 @@ def main():
         # Report subjects with no courses
         if empty_subjects:
             print(f"📭 Subjects with no courses ({len(empty_subjects)}):")
-            for subject in empty_subjects:
-                print(f"   - {subject}")
+            for i, subject in enumerate(empty_subjects, 1):
+                print(f"   {i:2d}. {subject}")
         else:
             print("✅ All subjects have courses")
         
@@ -343,11 +398,31 @@ def main():
         if not dry_run:
             print(f"📂 Destination: {os.path.abspath(dest_dir)}")
         
+        # Show final scraping statistics
         if progress_data:
-            total_time = calculate_total_scraping_time(progress_data)
-            if total_time:
-                print(f"⏱️ Original scraping time: {format_duration(total_time)}")
+            stats = calculate_scraping_statistics(progress_data)
+            if stats:
+                print()
+                print("📈 SCRAPING PERFORMANCE SUMMARY:")
+                print(f"   ⏱️ Total scraping time: {format_duration(stats['total_minutes'])}")
+                print(f"   📚 Total courses scraped: {stats['total_courses']:,}")
+                print(f"   📋 Subjects completed: {stats['completed_subjects']}")
+                print(f"   📖 Efficiency: {stats['avg_time_per_course']:.2f} minutes per course")
+                
+                # Performance insights
+                if stats['fastest_subject'] and stats['slowest_subject']:
+                    fast_subj, fast_time, fast_courses = stats['fastest_subject']
+                    slow_subj, slow_time, slow_courses = stats['slowest_subject']
+                    
+                    print()
+                    print("🔍 Performance Insights:")
+                    print(f"   🏆 Most efficient: {fast_subj} ({fast_time/fast_courses:.2f} min/course)")
+                    print(f"   🐢 Least efficient: {slow_subj} ({slow_time/slow_courses:.2f} min/course)")
+                    
+                    efficiency_ratio = (slow_time/slow_courses) / (fast_time/fast_courses) if fast_courses > 0 else 0
+                    print(f"   📊 Efficiency range: {efficiency_ratio:.1f}x difference")
         
+        print()
         print(f"📝 Log saved to: {log_filename}")
         
     finally:
