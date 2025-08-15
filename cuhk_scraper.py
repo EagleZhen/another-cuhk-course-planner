@@ -1,4 +1,5 @@
 import requests
+from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
 import json
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any
@@ -299,13 +300,114 @@ class CuhkScraper:
         onnxruntime.set_default_logger_severity(3)
         self.ocr = ddddocr.DdddOcr()
         
-        # Browser headers
+        # Browser headers and network resilience settings
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.5',
             'Connection': 'keep-alive',
         })
+        
+        # Network resilience settings
+        self._session_start_time = time.time()
+        self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
+    
+    def _robust_request(self, method: str, url: str, max_retries: int = 3, **kwargs) -> requests.Response:
+        """
+        Robust HTTP request with automatic retry for network issues
+        
+        Args:
+            method: 'GET' or 'POST'
+            url: URL to request
+            max_retries: Maximum retry attempts for network issues
+            **kwargs: Additional arguments for requests (data, params, etc.)
+            
+        Returns:
+            Response object
+            
+        Raises:
+            RequestException: After all retries exhausted
+        """
+        # Set default timeout if not provided
+        if 'timeout' not in kwargs:
+            kwargs['timeout'] = self._request_timeout
+            
+        # Refresh session if it's been running too long (prevent stale cookies)
+        if time.time() - self._session_start_time > 3600:  # 1 hour
+            self.logger.info("🔄 Refreshing session after 1 hour")
+            self._refresh_session()
+        
+        last_exception = None
+        
+        for attempt in range(max_retries):
+            try:
+                # Make the request
+                if method.upper() == 'GET':
+                    response = self.session.get(url, **kwargs)
+                elif method.upper() == 'POST':
+                    response = self.session.post(url, **kwargs)
+                else:
+                    raise ValueError(f"Unsupported HTTP method: {method}")
+                
+                # Check for HTTP errors with specific handling
+                response.raise_for_status()
+                return response
+                
+            except Timeout as e:
+                last_exception = e
+                wait_time = min(30, 2 ** attempt)  # Cap at 30 seconds
+                self.logger.warning(f"⏱️ Request timeout (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s")
+                if attempt < max_retries - 1:
+                    time.sleep(wait_time)
+                    
+            except ConnectionError as e:
+                last_exception = e
+                wait_time = min(60, 5 * (attempt + 1))  # Progressive delay for connection issues
+                self.logger.warning(f"🌐 Connection error (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s")
+                if attempt < max_retries - 1:
+                    time.sleep(wait_time)
+                    # Try refreshing session on connection errors
+                    self._refresh_session()
+                    
+            except HTTPError as e:
+                if e.response.status_code == 429:  # Rate limited
+                    wait_time = min(120, 10 * (2 ** attempt))  # Exponential backoff, cap at 2 minutes
+                    self.logger.warning(f"⚠️ Rate limited (429), waiting {wait_time}s before retry")
+                    if attempt < max_retries - 1:
+                        time.sleep(wait_time)
+                        continue
+                elif e.response.status_code in [502, 503, 504]:  # Server issues
+                    wait_time = min(60, 10 * (attempt + 1))  # Progressive delay
+                    self.logger.warning(f"🔧 Server error {e.response.status_code} (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s")
+                    if attempt < max_retries - 1:
+                        time.sleep(wait_time)
+                        continue
+                # For other HTTP errors (4xx), don't retry
+                self.logger.error(f"❌ HTTP error {e.response.status_code}: {e}")
+                raise e
+                
+            except RequestException as e:
+                last_exception = e
+                wait_time = min(30, 3 * (attempt + 1))  # Progressive delay for other network issues
+                self.logger.warning(f"🔌 Network error (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s: {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(wait_time)
+        
+        # All retries exhausted
+        self.logger.error(f"💥 All {max_retries} attempts failed for {method} {url}")
+        if last_exception:
+            raise last_exception
+        else:
+            raise RequestException(f"All {max_retries} attempts failed for {method} {url}")
+    
+    def _refresh_session(self):
+        """Refresh the session to clear stale cookies and connection state"""
+        old_headers = self.session.headers.copy()
+        self.session.close()
+        self.session = requests.Session()
+        self.session.headers.update(old_headers)
+        self._session_start_time = time.time()
+        self.logger.debug("🔄 Session refreshed")
     
     def _setup_file_logging(self, logs_directory: str = "logs", log_level: int = logging.INFO) -> str:
         """
@@ -478,8 +580,7 @@ class CuhkScraper:
     def get_subjects_from_live_site(self) -> List[str]:
         """Extract subject codes from live website"""
         try:
-            response = self.session.get(self.base_url)
-            response.raise_for_status()
+            response = self._robust_request('GET', self.base_url)
             
             soup = BeautifulSoup(response.text, 'html.parser')
             select = soup.find('select', {'name': 'ddl_subject'})
@@ -514,8 +615,7 @@ class CuhkScraper:
                 self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
                 
                 # Get the initial page to extract form data
-                response = self.session.get(self.base_url)
-                response.raise_for_status()
+                response = self._robust_request('GET', self.base_url)
                 
                 soup = BeautifulSoup(response.text, 'html.parser')
                 
@@ -524,8 +624,7 @@ class CuhkScraper:
                 form_data['ddl_subject'] = subject_code
                 
                 # Submit the form
-                response = self.session.post(self.base_url, data=form_data)
-                response.raise_for_status()
+                response = self._robust_request('POST', self.base_url, data=form_data)
                 
                 # Validate captcha was accepted by server
                 validation = self._validate_captcha_response(response.text)
@@ -635,7 +734,7 @@ class CuhkScraper:
                     captcha_url = base_parts + '/' + captcha_url
                 
                 # Get captcha image
-                captcha_response = self.session.get(captcha_url)
+                captcha_response = self._robust_request('GET', captcha_url)
                 captcha_text = self._solve_captcha(captcha_response.content)
                 
                 if not captcha_text:
@@ -745,8 +844,7 @@ class CuhkScraper:
             form_data['__EVENTARGUMENT'] = ''
             
             # Submit the postback to get course details page
-            response = self.session.post(self.base_url, data=form_data)
-            response.raise_for_status()
+            response = self._robust_request('POST', self.base_url, data=form_data)
             
             # Get course details with all available terms
             detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details, config=config)
@@ -842,8 +940,7 @@ class CuhkScraper:
                 form_data['__EVENTARGUMENT'] = ''
                 
                 # Submit term change
-                response = self.session.post(self.base_url, data=form_data)
-                response.raise_for_status()
+                response = self._robust_request('POST', self.base_url, data=form_data)
                 html = response.text
                 soup = BeautifulSoup(html, 'html.parser')
             
@@ -869,8 +966,7 @@ class CuhkScraper:
                     form_data['uc_course$ddl_class_term'] = term_code
                     
                     # Submit show sections
-                    response = self.session.post(self.base_url, data=form_data)
-                    response.raise_for_status()
+                    response = self._robust_request('POST', self.base_url, data=form_data)
                     html = response.text
                     
                     # Save debug file for sections HTML (using smart saving)
@@ -1140,8 +1236,7 @@ class CuhkScraper:
                 form_data['__EVENTARGUMENT'] = ''
                 
                 # Submit the postback to get class details
-                response = self.session.post(self.base_url, data=form_data)
-                response.raise_for_status()
+                response = self._robust_request('POST', self.base_url, data=form_data)
                 class_details_html = response.text
                 
                 # Save debug file for class details HTML (using smart saving)
