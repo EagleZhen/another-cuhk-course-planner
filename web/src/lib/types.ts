@@ -47,20 +47,25 @@ export interface SectionAvailability {
 
 // Centralized section type configuration - SINGLE SOURCE OF TRUTH
 export const SECTION_TYPE_CONFIG = {
-  'LEC': { displayName: 'Lecture', icon: '📚', aliases: ['LEC'] },
-  'TUT': { displayName: 'Interactive Tutorial', icon: '📝', aliases: ['TUT'] },
-  'LAB': { displayName: 'Laboratory', icon: '🧪', aliases: ['LAB'] },
-  'EXR': { displayName: 'Exercise', icon: '💪', aliases: ['EXR'] },
-  'SEM': { displayName: 'Seminar', icon: '🗣️', aliases: ['SEM'] },
+  'ASB': { displayName: 'Assembly', icon: '🦻', aliases: ['ASB'] },
+  'CLW': { displayName: 'Classwork', icon: '✍️', aliases: ['CLW'] },
   'DIS': { displayName: 'Discussion', icon: '💬', aliases: ['DIS'] },
-  'PRJ': { displayName: 'Project', icon: '🛠️', aliases: ['PRJ'] },
-  'WKS': { displayName: 'Workshop', icon: '🔧', aliases: ['WKS'] },
-  'PRA': { displayName: 'Practicum', icon: '⚙️', aliases: ['PRA'] },
+  'EXR': { displayName: 'Exercise', icon: '✏️', aliases: ['EXR'] },
   'FLD': { displayName: 'Field Study', icon: '🌍', aliases: ['FLD'] },
-  'CLW': { displayName: 'Classwork', icon: '✏️', aliases: ['CLW'] },
-  'ASB': { displayName: 'Assembly', icon: '👂', aliases: ['ASB'] },
-  'STD': { displayName: 'Studio', icon: '🧠', aliases: ['STD'] },
-  'OTHER': { displayName: 'Other', icon: '📋', aliases: ['OTHER'] }
+  'IND': { displayName: 'Independent Study', icon: '🧑‍🎓', aliases: ['IND'] },
+  'LAB': { displayName: 'Laboratory', icon: '🧪', aliases: ['LAB'] },
+  'LEC': { displayName: 'Lecture', icon: '🧑‍🏫', aliases: ['LEC'] },
+  'PRA': { displayName: 'Practicum', icon: '💪', aliases: ['PRA'] },
+  'PRJ': { displayName: 'Project', icon: '🚀', aliases: ['PRJ'] },
+  'SEM': { displayName: 'Seminar', icon: '🗣️', aliases: ['SEM'] },
+  'STD': { displayName: 'Studio', icon: '🎨', aliases: ['STD'] },
+  'TMC': { displayName: 'Thesis Monitoring', icon: '📝', aliases: ['TMC'] },
+  'TUT': { displayName: 'Interactive Tutorial', icon: '🙌', aliases: ['TUT'] },
+  'VST': { displayName: 'Visit', icon: '👁️', aliases: ['VST'] },
+  'WBL': { displayName: 'Web-enhanced Teaching', icon: '💻', aliases: ['WBL'] },
+  'WKS': { displayName: 'Workshop', icon: '🔨', aliases: ['WKS'] },
+
+  'OTH': { displayName: 'Other', icon: '?', aliases: ['OTH'] },
 } as const
 
 // Derive the type from the config keys - automatically stays in sync
