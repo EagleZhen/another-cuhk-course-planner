@@ -671,7 +671,7 @@ function SubjectFilterControls({
               className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
               title="Clear all subject filters"
             >
-              ✕ Clear All
+              ✕ Clear Subjects
             </Button>
           )}
         </div>
