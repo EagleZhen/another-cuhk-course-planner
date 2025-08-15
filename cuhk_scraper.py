@@ -282,6 +282,7 @@ class CuhkScraper:
         # Context management - eliminates parameter propagation
         self.current_config: Optional[ScrapingConfig] = None
         self.current_course_context: Optional[Dict] = None
+        self.subject_titles_cache: Dict[str, str] = {}  # Cache for subject code -> title mapping
         
         # Suppress ONNX warnings
         onnxruntime.set_default_logger_severity(3)
@@ -542,6 +543,34 @@ class CuhkScraper:
             
         except Exception as e:
             self.logger.error(f"Error getting subjects from live site: {e}")
+            return []
+    
+    def get_subjects_with_titles_from_live_site(self) -> List[Dict[str, str]]:
+        """Extract subject codes and titles from live website"""
+        try:
+            response = self._robust_request('GET', self.base_url)
+            soup = BeautifulSoup(response.text, 'html.parser')
+            select = soup.find('select', {'name': 'ddl_subject'})
+            
+            if not select:
+                self.logger.error("Could not find subject dropdown on live site")
+                return []
+            
+            subjects = []
+            for option in select.find_all('option'):
+                value = option.get('value', '').strip()
+                text = option.get_text().strip()
+                if value and text:  # Skip empty options
+                    subjects.append({
+                        "code": value,
+                        "title": text
+                    })
+            
+            self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
+            return subjects
+            
+        except Exception as e:
+            self.logger.error(f"❌ Error getting subjects with titles: {e}")
             return []
     
     def scrape_subject(self, subject_code: str, get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> List[Course]:
@@ -1409,6 +1438,17 @@ class CuhkScraper:
         self.logger.info(f"Starting PRODUCTION scraping and export for {len(subjects)} subjects")
         self.logger.info(f"Output: per-subject files in {config.output_directory}/")
         
+        # Fetch and cache subject titles at the start
+        self.logger.info("📋 Fetching subject titles from live website...")
+        subjects_with_titles = self.get_subjects_with_titles_from_live_site()
+        
+        # Build cache for fast lookup during scraping
+        self.subject_titles_cache = {}
+        for subject_info in subjects_with_titles:
+            self.subject_titles_cache[subject_info["code"]] = subject_info["title"]
+        
+        self.logger.info(f"✅ Cached {len(self.subject_titles_cache)} subject titles for metadata")
+        
         results = self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
         
         # Index file generation removed - frontend loads individual JSON files directly
@@ -1421,11 +1461,15 @@ class CuhkScraper:
     def _save_subject_immediately(self, subject: str, courses: List[Course], config: ScrapingConfig) -> Optional[str]:
         """Save single subject immediately to prevent data loss"""
         try:
+            # Get subject title from cache (fetched at start of production scraping)
+            subject_title = self.subject_titles_cache.get(subject, subject)  # Fallback to code if title not found
+            
             # Create subject data structure with timestamp in metadata (not filename)
             subject_data = {
                 "metadata": {
                     "scraped_at": utc_now_iso(),
                     "subject": subject,
+                    "subject_title": subject_title,  # Add subject title to metadata
                     "total_courses": len(courses),
                     "scraper_version": "memory-safe-v2.0"
                 },
