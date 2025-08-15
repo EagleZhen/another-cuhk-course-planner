@@ -1348,10 +1348,38 @@ class CuhkScraper:
     
     
     def _clean_text(self, text: str) -> str:
-        """Clean and normalize text content"""
+        """Clean and normalize HTML text content with proper structure preservation"""
         if not text:
             return ""
-        return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
+        
+        # Handle HTML content properly
+        if '<' in text and '>' in text:
+            import re
+            # First, convert <br> tags to newlines before parsing
+            text = re.sub(r'<br\s*/?>', '\n', text, flags=re.IGNORECASE)
+            
+            # Parse as HTML to handle entities
+            soup = BeautifulSoup(text, 'html.parser')
+            
+            # Extract text (handles HTML entities like &nbsp; automatically)
+            text = soup.get_text()
+        
+        # Normalize all types of whitespace characters
+        # Replace various Unicode spaces with regular spaces
+        import re
+        # \u00a0 = non-breaking space, \u2003 = em space, \u2002 = en space, etc.
+        text = re.sub(r'[\u00a0\u2003\u2002\u2009\u200a\u200b]+', ' ', text)
+        
+        # Split into lines and clean each line
+        lines = []
+        for line in text.split('\n'):
+            # Strip whitespace and normalize internal spaces
+            cleaned_line = re.sub(r'\s+', ' ', line.strip())
+            if cleaned_line:  # Only keep non-empty lines
+                lines.append(cleaned_line)
+        
+        # Join with newlines to preserve structure
+        return '\n'.join(lines)
     
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
