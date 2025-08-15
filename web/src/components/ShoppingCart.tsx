@@ -564,7 +564,13 @@ export default function ShoppingCart({
             return hasStatusInfo && (
               <div className="flex items-center justify-between text-xs">
                 {statusCounts.open.total > 0 && (
-                  <div className="flex items-center gap-1 text-green-600">
+                  <div 
+                    className="flex items-center gap-1 text-green-600"
+                    title={statusCounts.open.visible === statusCounts.open.total
+                      ? `${statusCounts.open.total} courses are open for enrollment`
+                      : `${statusCounts.open.visible} visible, ${statusCounts.open.total} total courses are open for enrollment`
+                    }
+                  >
                     <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                     <span>
                       {statusCounts.open.visible === statusCounts.open.total
@@ -575,7 +581,13 @@ export default function ShoppingCart({
                   </div>
                 )}
                 {statusCounts.waitlisted.total > 0 && (
-                  <div className="flex items-center gap-1 text-yellow-500">
+                  <div 
+                    className="flex items-center gap-1 text-yellow-500"
+                    title={statusCounts.waitlisted.visible === statusCounts.waitlisted.total
+                      ? `${statusCounts.waitlisted.total} courses require waitlist enrollment`
+                      : `${statusCounts.waitlisted.visible} visible, ${statusCounts.waitlisted.total} total courses require waitlist enrollment`
+                    }
+                  >
                     <AlertTriangle className="w-3 h-3" />
                     <span>
                       {statusCounts.waitlisted.visible === statusCounts.waitlisted.total
@@ -586,7 +598,13 @@ export default function ShoppingCart({
                   </div>
                 )}
                 {statusCounts.closed.total > 0 && (
-                  <div className="flex items-center gap-1 text-red-500">
+                  <div 
+                    className="flex items-center gap-1 text-red-500"
+                    title={statusCounts.closed.visible === statusCounts.closed.total
+                      ? `${statusCounts.closed.total} courses are closed for enrollment`
+                      : `${statusCounts.closed.visible} visible, ${statusCounts.closed.total} total courses are closed for enrollment`
+                    }
+                  >
                     <AlertTriangle className="w-3 h-3" />
                     <span>
                       {statusCounts.closed.visible === statusCounts.closed.total
@@ -597,7 +615,13 @@ export default function ShoppingCart({
                   </div>
                 )}
                 {statusCounts.invalid.total > 0 && (
-                  <div className="flex items-center gap-1 text-orange-500">
+                  <div 
+                    className="flex items-center gap-1 text-orange-500"
+                    title={statusCounts.invalid.visible === statusCounts.invalid.total
+                      ? `${statusCounts.invalid.total} courses have outdated or invalid data`
+                      : `${statusCounts.invalid.visible} visible, ${statusCounts.invalid.total} total courses have outdated or invalid data`
+                    }
+                  >
                     <AlertTriangle className="w-3 h-3" />
                     <span>
                       {statusCounts.invalid.visible === statusCounts.invalid.total
