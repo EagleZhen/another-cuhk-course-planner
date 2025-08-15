@@ -48,7 +48,7 @@ export default function MobileDesktopNotice() {
         
         {/* Desktop Preview Image */}
         <div className="mb-4">
-          <div className="w-full aspect-[1200/630] bg-gray-100 rounded-lg border border-gray-200 overflow-hidden relative">
+          <div className="w-full aspect-[8/5] bg-gray-100 rounded-lg border border-gray-200 overflow-hidden relative">
             {!imageLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-3">
