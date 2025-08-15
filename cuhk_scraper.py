@@ -1352,34 +1352,17 @@ class CuhkScraper:
         if not text:
             return ""
         
-        # Handle HTML content properly
-        if '<' in text and '>' in text:
-            import re
-            # First, convert <br> tags to newlines before parsing
-            text = re.sub(r'<br\s*/?>', '\n', text, flags=re.IGNORECASE)
-            
-            # Parse as HTML to handle entities
-            soup = BeautifulSoup(text, 'html.parser')
-            
-            # Extract text (handles HTML entities like &nbsp; automatically)
-            text = soup.get_text()
+        # Use BeautifulSoup's built-in text extraction with newline preservation
+        soup = BeautifulSoup(text, 'html.parser')
         
-        # Normalize all types of whitespace characters
-        # Replace various Unicode spaces with regular spaces
+        # separator='\n' converts <br> tags to newlines, strip=True removes extra whitespace
+        cleaned_text = soup.get_text(separator='\n', strip=True)
+        
+        # Basic cleanup: normalize multiple consecutive newlines
         import re
-        # \u00a0 = non-breaking space, \u2003 = em space, \u2002 = en space, etc.
-        text = re.sub(r'[\u00a0\u2003\u2002\u2009\u200a\u200b]+', ' ', text)
+        cleaned_text = re.sub(r'\n\s*\n', '\n', cleaned_text)  # Remove empty lines
         
-        # Split into lines and clean each line
-        lines = []
-        for line in text.split('\n'):
-            # Strip whitespace and normalize internal spaces
-            cleaned_line = re.sub(r'\s+', ' ', line.strip())
-            if cleaned_line:  # Only keep non-empty lines
-                lines.append(cleaned_line)
-        
-        # Join with newlines to preserve structure
-        return '\n'.join(lines)
+        return cleaned_text.strip()
     
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
@@ -1420,12 +1403,12 @@ class CuhkScraper:
         # Extract Learning Outcomes
         learning_outcome_span = soup.find('span', {'id': 'uc_course_outcome_lbl_learning_outcome'})
         if learning_outcome_span:
-            course.learning_outcomes = self._clean_text(learning_outcome_span.get_text())
+            course.learning_outcomes = self._clean_text(str(learning_outcome_span))
         
         # Extract Course Syllabus  
         syllabus_span = soup.find('span', {'id': 'uc_course_outcome_lbl_course_syllabus'})
         if syllabus_span:
-            course.course_syllabus = self._clean_text(syllabus_span.get_text())
+            course.course_syllabus = self._clean_text(str(syllabus_span))
         
         # Extract Assessment Types (table structure)
         assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
@@ -1435,17 +1418,17 @@ class CuhkScraper:
         # Extract Feedback for Evaluation
         feedback_span = soup.find('span', {'id': 'uc_course_outcome_lbl_feedback'})
         if feedback_span:
-            course.feedback_evaluation = self._clean_text(feedback_span.get_text())
+            course.feedback_evaluation = self._clean_text(str(feedback_span))
         
         # Extract Required Readings
         required_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_req_reading'})
         if required_reading_span:
-            course.required_readings = self._clean_text(required_reading_span.get_text())
+            course.required_readings = self._clean_text(str(required_reading_span))
         
         # Extract Recommended Readings
         recommended_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_rec_reading'})
         if recommended_reading_span:
-            course.recommended_readings = self._clean_text(recommended_reading_span.get_text())
+            course.recommended_readings = self._clean_text(str(recommended_reading_span))
         
         self.logger.info(f"Course Outcome parsed for {course.course_code}")
     
