@@ -1,0 +1,259 @@
+🔍 CUHK Course Data Analysis
+==================================================
+🕒 Analysis timestamp: 20250815_030046
+📂 Found 264 JSON files in data/
+✅ Successfully loaded 264 subjects
+
+📋 CORE SECTION TYPES ANALYSIS
+-----------------------------------
+🔢 Found 18 core section types
+🎯 Core types: ASB, CLW, DIS, EXR, FLD, IND, LAB, LEC, OTH, PRA, PRJ, SEM, STD, TMC, TUT, VST, WBL, WKS
+
+Section types with examples:
+
+ASB: 22 sections
+  📚 Example: GESC1000 - College Assembly
+  📋 Section: -A01-ASB (8171)
+  ⏰ Time: Fr 11:30AM - 1:15PM
+  📍 Location: TBA
+
+CLW: 833 sections
+  📚 Example: ITAL1000 - Italian I
+  📋 Section: AC01-CLW (5749)
+  ⏰ Time: Th 9:30AM - 12:15PM
+  📍 Location: Wu Ho Man Yuen Bldg 508
+
+DIS: 46 sections
+  📚 Example: UGEC2858 - Animals and Society : A philosophical approach
+  📋 Section: -D01-DIS (9279)
+  ⏰ Time: Tu 5:30PM - 6:15PM
+  📍 Location: Lee Shau Kee Building 515
+
+EXR: 123 sections
+  📚 Example: MATH3340 - Mathematics of Machine Learning
+  📋 Section: -E01-EXR (7482)
+  ⏰ Time: Tu 5:30PM - 6:15PM
+  📍 Location: Science Centre L1
+
+FLD: 361 sections
+  📚 Example: DBAC7119 - Global Business and Management Field Study
+  📋 Section: LF01-FLD (1003)
+  ⏰ Time: Mo 8:30AM - 6:30PM
+  📍 Location: No Room Required
+
+IND: 161 sections
+  📚 Example: EMBA6072 - Guided Learning in Global Business
+  📋 Section: AEI1-IND (1016)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+LAB: 605 sections
+  📚 Example: ROSE5910 - M.Sc.Projects
+  📋 Section: -L01-LAB (3689)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+LEC: 6679 sections
+  📚 Example: UGEC1016 - Experiencing Architecture
+  📋 Section: --LEC (5533)
+  ⏰ Time: We 9:30AM - 12:15PM
+  📍 Location: Lee Shau Kee Archi Bldg G04
+
+OTH: 70 sections
+  📚 Example: MEDF1011 - Foundation Course for Health Sciences I
+  📋 Section: -O01-OTH (6443)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+PRA: 245 sections
+  📚 Example: EPSY6501 - Practicum (I)
+  📋 Section: AP01-PRA (1195)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+PRJ: 1283 sections
+  📚 Example: GESC1230 - Caring Heart Service Learning
+  📋 Section: AAJ1-PRJ (8148)
+  ⏰ Time: Fr 2:30PM - 5:15PM
+  📍 Location: No Room Required
+
+SEM: 659 sections
+  📚 Example: DBAC7104 - Seminar on Applied Business Management Research (I)
+  📋 Section: LS01-SEM (2916)
+  ⏰ Time: Th 8:30AM - 6:30PM
+  📍 Location: No Room Required
+
+STD: 143 sections
+  📚 Example: URSP3200 - Advanced Urban Design Studio
+  📋 Section: -U01-STD (7943)
+  ⏰ Time: Mo 5:30PM - 6:15PM
+  📍 Location: Chen Kou Bun Bldg 510
+
+TMC: 3360 sections
+  📚 Example: DBAC8101 - Thesis Research
+  📋 Section: LAM1-TMC (2936)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+TUT: 2645 sections
+  📚 Example: UGEC1209 - Thinking Gender: An Introduction to Gender Studies
+  📋 Section: -T01-TUT (7519)
+  ⏰ Time: Tu 4:30PM - 5:15PM
+  📍 Location: Sino Building LT2
+
+VST: 2 sections
+  📚 Example: SBMS2201 - Traditional Chinese Medicine and Pharmacognosy
+  📋 Section: -V01-VST (8917)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+WBL: 198 sections
+  📚 Example: GESC2060 - Debating Globalization
+  📋 Section: -X01-WBL (6376)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+WKS: 57 sections
+  📚 Example: DBAC7106 - Workshop for Thesis Proposal
+  📋 Section: LW01-WKS (1175)
+  ⏰ Time: Sa 8:30AM - 6:30PM
+  📍 Location: TBA
+
+⏰ TIME RANGE ANALYSIS
+-------------------------
+🌅 Earliest class start: 00:00
+   📚 Example: MBAC6061 - Orientation and Business Simulation
+   📋 Section: SAJ1-PRJ (3761)
+   ⏰ Time: Fr 12:00AM - 12:00AM
+   📍 Location: TBA
+   📅 Term: 2025-26 Term 1
+
+🌆 Latest class end: 22:15
+   📚 Example: ACCT5140 - Introductory Accounting Data Analytics
+   📋 Section: CA-LEC (2152)
+   ⏰ Time: Th 7:00PM - 10:15PM
+   📍 Location: Cheng Yu Tung Bldg 615
+   📅 Term: 2025-26 Term 2
+
+📊 Total time slots analyzed: 29620
+🔄 Unique time patterns: 531
+
+Most common time patterns:
+  Tu 2:30PM - 5:15PM             : 727 times
+  We 2:30PM - 4:15PM             : 685 times
+  Tu 2:30PM - 4:15PM             : 640 times
+  Tu 10:30AM - 12:15PM           : 633 times
+  We 2:30PM - 5:15PM             : 622 times
+  Mo 2:30PM - 4:15PM             : 595 times
+  We 10:30AM - 12:15PM           : 502 times
+  Th 2:30PM - 5:15PM             : 498 times
+  Mo 2:30PM - 5:15PM             : 453 times
+  Tu 10:30AM - 1:15PM            : 435 times
+
+📊 HOURLY DISTRIBUTION ANALYSIS
+-----------------------------------
+📈 Total sections analyzed: 29620
+🔥 Peak hours: ['16:00'] (10768 sections)
+😴 Quietest hours: ['07:00'] (0 sections)
+
+📅 Hourly breakdown (sections active per hour - all 24 hours):
+  00:00 │  73 sections │ ⚠️ UNUSUAL
+  01:00 │   0 sections │
+  02:00 │   0 sections │
+  03:00 │   0 sections │
+  04:00 │   0 sections │
+  05:00 │   0 sections │
+  06:00 │   0 sections │
+  07:00 │   0 sections │
+  08:00 │2329 sections │██████████
+  09:00 │5992 sections │███████████████████████████
+  10:00 │9486 sections │████████████████████████████████████████████
+  11:00 │9586 sections │████████████████████████████████████████████
+  12:00 │9504 sections │████████████████████████████████████████████
+  13:00 │7505 sections │██████████████████████████████████
+  14:00 │10688 sections │█████████████████████████████████████████████████
+  15:00 │9889 sections │█████████████████████████████████████████████
+  16:00 │10768 sections │██████████████████████████████████████████████████
+  17:00 │8131 sections │█████████████████████████████████████
+  18:00 │6002 sections │███████████████████████████
+  19:00 │3092 sections │██████████████
+  20:00 │3033 sections │██████████████
+  21:00 │2549 sections │███████████
+  22:00 │   5 sections │ ⚠️ UNUSUAL
+  23:00 │   0 sections │
+
+⚠️ UNUSUAL HOURS DETECTED:
+   00:00 - 73 sections
+      📚 Example: PHAR5902 - Clinical Pharmacy Practice Exposure: Internal Medicine (Ambulatory Care)
+      📋 Section: -F01-FLD (1125)
+      ⏰ Time: Mo 12:00AM - 12:00AM
+      📍 Location: No Room Required
+   22:00 - 5 sections
+      📚 Example: ACCT6141 - Accounting Data Analytics and Business Intelligence
+      📋 Section: CA-LEC (1928)
+      ⏰ Time: Tu 7:00PM - 10:15PM
+      📍 Location: Cheng Yu Tung Bldg 615
+
+🎯 Top 3 busiest hours with examples:
+
+1. 16:00 - 10768 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+2. 14:00 - 10688 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+3. 15:00 - 9889 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+📝 COURSE ATTRIBUTES ANALYSIS
+--------------------------------
+📚 Total courses: 8829
+📋 Total sections: 17492
+
+Languages of instruction:
+  English         : 15080 sections
+  Putonghua       :  590 sections
+
+📊 SUBJECT SUMMARY
+--------------------
+Top subjects by course count:
+  LAWS                                : 330 courses,  291 sections
+  MUSC                                : 230 courses,  177 sections
+  COMM                                : 211 courses,  203 sections
+  HIST                                : 210 courses,  246 sections
+  THEO                                : 198 courses,  123 sections
+  CHLL                                : 187 courses,  222 sections
+  FINA                                : 162 courses,  234 sections
+  ENGE                                : 158 courses,  332 sections
+  ANTH                                : 155 courses,  222 sections
+  CURE                                : 150 courses,  133 sections
+  PHIL                                : 134 courses,  152 sections
+  PSYC                                : 134 courses,  189 sections
+  BCME                                : 132 courses,  137 sections
+  ESTR                                : 132 courses,  129 sections
+  ECON                                : 130 courses,  137 sections
+
+💡 RECOMMENDATIONS
+--------------------
+Based on this analysis:
+
+🕒 Calendar Time Range:
+   - Suggested start: 07:00 (earliest class at 00:00)
+   - Suggested end: 23:00 (latest class ends at 22:15)
+
+📋 Section Type Handling:
+   - Core types to handle: ASB, CLW, DIS, EXR, FLD, IND, LAB, LEC, OTH, PRA, PRJ, SEM, STD, TMC, TUT, VST, WBL, WKS
+   - All section patterns are now consolidated into core types
+
+🌐 Language Support:
+   - Languages found: English, Putonghua
+   - Consider adding language indicators in UI

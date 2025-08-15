@@ -193,6 +193,102 @@ def analyze_time_ranges(subjects_data: Dict[str, any]) -> Dict[str, any]:
         'common_time_patterns': time_patterns.most_common(10)
     }
 
+def analyze_hourly_distribution(subjects_data: Dict[str, any]) -> Dict[str, any]:
+    """Analyze how many sections are active in each hour of the day"""
+    # Track sections active in each hour (0-23)
+    hourly_counts = [0] * 24
+    hourly_examples = {}  # Store examples for busy hours
+    
+    total_sections_analyzed = 0
+    
+    for subject_code, subject_data in subjects_data.items():
+        courses = subject_data.get('courses', [])
+        
+        for course in courses:
+            terms = course.get('terms', [])
+            
+            for term in terms:
+                schedule = term.get('schedule', [])
+                
+                for section in schedule:
+                    meetings = section.get('meetings', [])
+                    
+                    for meeting in meetings:
+                        time_str = meeting.get('time', '')
+                        
+                        if time_str and time_str.upper() != 'TBA':
+                            start_h, start_m, end_h, end_m = parse_time_string(time_str)
+                            
+                            if start_h != -1:  # Valid time
+                                total_sections_analyzed += 1
+                                
+                                # Count this section for each hour it spans
+                                current_hour = start_h
+                                
+                                # Special case: if start and end are the same time, it's likely a data error
+                                # but we should still count it for the start hour
+                                if start_h == end_h and start_m == end_m:
+                                    hourly_counts[current_hour] += 1
+                                    # Store example for this unusual case
+                                    if (current_hour not in hourly_examples or 
+                                        hourly_counts[current_hour] > hourly_examples[current_hour]['count']):
+                                        hourly_examples[current_hour] = {
+                                            'count': hourly_counts[current_hour],
+                                            'course_code': f"{subject_code}{course.get('course_code', '')}",
+                                            'course_title': course.get('title', ''),
+                                            'section': section.get('section', ''),
+                                            'time_str': time_str,
+                                            'location': meeting.get('location', ''),
+                                            'term': term.get('term_name', '')
+                                        }
+                                else:
+                                    # Normal case: count for each hour spanned
+                                    while current_hour <= end_h:
+                                        # For the last hour, only count if the class doesn't end exactly at the hour start
+                                        if current_hour == end_h and end_m == 0:
+                                            break
+                                        
+                                        hourly_counts[current_hour] += 1
+                                        
+                                        # Store example for this hour if we don't have one or this hour is busier
+                                        if (current_hour not in hourly_examples or 
+                                            hourly_counts[current_hour] > hourly_examples[current_hour]['count']):
+                                            hourly_examples[current_hour] = {
+                                                'count': hourly_counts[current_hour],
+                                                'course_code': f"{subject_code}{course.get('course_code', '')}",
+                                                'course_title': course.get('title', ''),
+                                                'section': section.get('section', ''),
+                                                'time_str': time_str,
+                                                'location': meeting.get('location', ''),
+                                                'term': term.get('term_name', '')
+                                            }
+                                        
+                                        current_hour += 1
+    
+    # Find peak hours
+    max_count = max(hourly_counts)
+    peak_hours = [hour for hour, count in enumerate(hourly_counts) if count == max_count]
+    
+    # Find quiet hours (excluding midnight-6am which are expected to be empty)
+    daytime_counts = hourly_counts[7:22]  # 7am to 9pm
+    min_daytime_count = min(daytime_counts) if daytime_counts else 0
+    quiet_hours = [hour for hour in range(7, 22) if hourly_counts[hour] == min_daytime_count]
+    
+    return {
+        'hourly_counts': hourly_counts,
+        'hourly_examples': hourly_examples,
+        'total_sections_analyzed': total_sections_analyzed,
+        'peak_hours': peak_hours,
+        'peak_count': max_count,
+        'quiet_hours': quiet_hours,
+        'quiet_count': min_daytime_count,
+        'busiest_period': {
+            'start_hour': peak_hours[0] if peak_hours else 0,
+            'end_hour': peak_hours[-1] if peak_hours else 0,
+            'section_count': max_count
+        }
+    }
+
 def analyze_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
     """Analyze course and class attributes for insights"""
     course_attributes = Counter()
@@ -379,7 +475,81 @@ def main():
         
         print()
         
-        # 3. Course Attributes Analysis
+        # 3. Hourly Distribution Analysis
+        print("📊 HOURLY DISTRIBUTION ANALYSIS")
+        print("-" * 35)
+        hourly_analysis = analyze_hourly_distribution(subjects_data)
+        
+        hourly_counts = hourly_analysis['hourly_counts']
+        peak_hours = hourly_analysis['peak_hours']
+        quiet_hours = hourly_analysis['quiet_hours']
+        
+        print(f"📈 Total sections analyzed: {hourly_analysis['total_sections_analyzed']}")
+        print(f"🔥 Peak hours: {[f'{h:02d}:00' for h in peak_hours]} ({hourly_analysis['peak_count']} sections)")
+        print(f"😴 Quietest hours: {[f'{h:02d}:00' for h in quiet_hours]} ({hourly_analysis['quiet_count']} sections)")
+        print()
+        
+        print("📅 Hourly breakdown (sections active per hour - all 24 hours):")
+        # Show all 24 hours to catch unusual scheduling
+        max_count = max(hourly_counts) if hourly_counts else 1
+        for hour in range(24):
+            count = hourly_counts[hour]
+            # Create a simple bar chart using characters (scale based on max)
+            if max_count > 0:
+                bar_length = min(50, (count * 50) // max_count)  # Scale relative to max
+            else:
+                bar_length = 0
+            bar = '█' * bar_length
+            
+            # Add special indicators for unusual hours
+            if count > 0 and (hour < 7 or hour > 21):
+                indicator = " ⚠️ UNUSUAL"
+            elif count == 0:
+                indicator = ""
+            else:
+                indicator = ""
+            
+            print(f"  {hour:02d}:00 │{count:>4} sections │{bar}{indicator}")
+        
+        print()
+        
+        # Check for unusual hours (before 7am or after 9pm)
+        unusual_hours = []
+        for hour in range(24):
+            if hourly_counts[hour] > 0 and (hour < 7 or hour > 21):
+                unusual_hours.append((hour, hourly_counts[hour]))
+        
+        if unusual_hours:
+            print("⚠️ UNUSUAL HOURS DETECTED:")
+            for hour, count in unusual_hours:
+                print(f"   {hour:02d}:00 - {count} sections")
+                if hour in hourly_analysis['hourly_examples']:
+                    example = hourly_analysis['hourly_examples'][hour]
+                    print(f"      📚 Example: {example['course_code']} - {example['course_title']}")
+                    print(f"      📋 Section: {example['section']}")
+                    print(f"      ⏰ Time: {example['time_str']}")
+                    print(f"      📍 Location: {example['location']}")
+            print()
+        else:
+            print("✅ No unusual hours detected (all classes between 7:00-21:59)")
+            print()
+        
+        print("🎯 Top 3 busiest hours with examples:")
+        # Sort hours by count and show top 3
+        sorted_hours = sorted(enumerate(hourly_counts), key=lambda x: x[1], reverse=True)
+        for i, (hour, count) in enumerate(sorted_hours[:3]):
+            if count > 0:
+                print(f"\n{i+1}. {hour:02d}:00 - {count} sections")
+                if hour in hourly_analysis['hourly_examples']:
+                    example = hourly_analysis['hourly_examples'][hour]
+                    print(f"   📚 Example: {example['course_code']} - {example['course_title']}")
+                    print(f"   📋 Section: {example['section']}")
+                    print(f"   ⏰ Time: {example['time_str']}")
+                    print(f"   📍 Location: {example['location']}")
+        
+        print()
+        
+        # 4. Course Attributes Analysis
         print("📝 COURSE ATTRIBUTES ANALYSIS")
         print("-" * 32)
         attr_analysis = analyze_course_attributes(subjects_data)
@@ -393,7 +563,7 @@ def main():
         
         print()
         
-        # 4. Subject Summary
+        # 5. Subject Summary
         print("📊 SUBJECT SUMMARY")
         print("-" * 20)
         subject_stats = generate_subject_summary(subjects_data)
