@@ -3,7 +3,7 @@ from requests.exceptions import RequestException, Timeout, ConnectionError, HTTP
 import json
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from datetime import datetime, timezone
 import time
 import logging
@@ -80,6 +80,14 @@ class Course:
     campus: str = ""           # e.g., "Main Campus"
     academic_group: str = ""   # e.g., "Dept of Computer Sci & Engg"
     academic_org: str = ""     # e.g., "Dept of Computer Sci & Engg"
+    
+    # Course Outcome details (optional, scraped from Course Outcome page)
+    learning_outcomes: str = ""      # Learning objectives and outcomes
+    course_syllabus: str = ""        # Course syllabus (might be same as description)  
+    assessment_types: Dict[str, str] = field(default_factory=dict)  # {"Presentation": "20", "Project": "30", ...}
+    feedback_evaluation: str = ""    # Feedback for evaluation
+    required_readings: str = ""      # Required reading materials
+    recommended_readings: str = ""   # Recommended reading materials
     
     def to_dict(self) -> Dict:
         data = asdict(self)
