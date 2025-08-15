@@ -546,7 +546,7 @@ function TermSelector({
             onClick={() => setIsOpen(false)}
           />
           
-          <div className="absolute right-0 top-full mt-1 z-[60] bg-white border border-gray-200 rounded-md shadow-lg min-w-[200px]">
+          <div className="absolute right-0 top-full mt-1 z-[60] bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
             <div className="py-1">
               {availableTerms.map(term => (
                 <button
