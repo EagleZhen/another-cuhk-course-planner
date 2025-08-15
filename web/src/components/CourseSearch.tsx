@@ -47,6 +47,20 @@ export default function CourseSearch({
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isSearching, setIsSearching] = useState(false)
+  const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
+  
+  // Day filter toggle function
+  const toggleDayFilter = (dayIndex: number) => {
+    setSelectedDays(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(dayIndex)) {
+        newSet.delete(dayIndex)
+      } else {
+        newSet.add(dayIndex)
+      }
+      return newSet
+    })
+  }
   
   // Smooth debouncing for search performance
   useEffect(() => {
@@ -395,8 +409,24 @@ export default function CourseSearch({
       )
     }
     
+    // Apply day filter if any days are selected
+    if (selectedDays.size > 0) {
+      filteredCourses = filteredCourses.filter(course => {
+        const currentTermData = course.terms.find(term => term.termName === currentTerm)
+        if (!currentTermData) return false
+        
+        // Check if course has any sections on selected days
+        return currentTermData.sections.some(section => 
+          section.meetings.some(meeting => {
+            const dayIndex = getDayIndex(meeting.time)
+            return dayIndex !== null && selectedDays.has(dayIndex)
+          })
+        )
+      })
+    }
+    
     // Determine if user has applied any filters or search
-    const hasFiltersOrSearch = debouncedSearchTerm.trim() || selectedSubjects.size > 0
+    const hasFiltersOrSearch = debouncedSearchTerm.trim() || selectedSubjects.size > 0 || selectedDays.size > 0
     
     // Apply search term filter if provided
     let finalCourses = filteredCourses
@@ -440,7 +470,7 @@ export default function CourseSearch({
       isLimited: finalCourses.length > limit,
       isShuffled: shuffleTrigger > 0
     }
-  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, shuffleTrigger])
+  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, selectedDays, shuffleTrigger])
 
   // Track search analytics - simplified for MVP
   useEffect(() => {
@@ -527,6 +557,45 @@ export default function CourseSearch({
                 </span>
                 <span>({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})</span>
               </>
+            )}
+          </div>
+          
+          {/* Course-level Day Filters */}
+          <div className="flex items-center gap-2 flex-wrap mt-2 pt-2 border-t border-gray-100">
+            <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
+            
+            {/* Day filter buttons */}
+            {(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const).map((dayName, dayIndex) => {
+              const isSelected = selectedDays.has(dayIndex)
+              const shortName = dayName.slice(0, 3) // Mon, Tue, Wed, Thu, Fri
+              
+              return (
+                <Button
+                  key={dayName}
+                  variant={isSelected ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => toggleDayFilter(dayIndex)}
+                  className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                  title={isSelected ? `Remove ${dayName} filter` : `Show only courses with classes on ${dayName}`}
+                >
+                  {shortName}
+                </Button>
+              )
+            })}
+            
+            {/* Clear day filters button */}
+            {selectedDays.size > 0 && (
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => {
+                  setSelectedDays(new Set())
+                }}
+                className="h-6 px-2 text-xs font-medium cursor-pointer"
+                title="Clear all day filters"
+              >
+                Clear Days
+              </Button>
             )}
           </div>
         </div>
