@@ -1,0 +1,11 @@
+2025-08-14 22:23:33,021 - INFO - 📝 File logging initialized: logs/scraper_20250814_222333.log
+2025-08-14 22:23:33,062 - INFO - 📋 Scraping CSCI, attempt 1
+2025-08-14 22:23:33,846 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR01
+2025-08-14 22:23:34,241 - WARNING - 🚫 Captcha rejected for CSCI (attempt 1): captcha_failed - Invalid Verification Code
+2025-08-14 22:23:35,244 - INFO - 📋 Scraping CSCI, attempt 2
+2025-08-14 22:23:35,674 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR02
+2025-08-14 22:23:36,064 - WARNING - 🚫 Captcha rejected for CSCI (attempt 2): captcha_failed - Invalid Verification Code
+2025-08-14 22:23:37,068 - INFO - 📋 Scraping CSCI, attempt 3
+2025-08-14 22:23:37,485 - INFO - 🧪 TEST: Switching to real OCR after 2 wrong attempts
+2025-08-14 22:23:37,515 - WARNING - ❌ Invalid OCR format: 'ECQ' (expected 4 alphanumeric)
+2025-08-14 22:23:37,515 - ERROR - Attempt 3 failed for CSCI: list indices must be integers or slices, not str

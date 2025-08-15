@@ -1,0 +1,14 @@
+2025-08-14 22:24:20,034 - INFO - 📝 File logging initialized: logs/scraper_20250814_222420.log
+2025-08-14 22:24:20,074 - INFO - 📋 Scraping CSCI, attempt 1
+2025-08-14 22:24:20,905 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR01
+2025-08-14 22:24:21,310 - WARNING - 🚫 Captcha rejected for CSCI (attempt 1): captcha_failed - Invalid Verification Code
+2025-08-14 22:24:22,315 - INFO - 📋 Scraping CSCI, attempt 2
+2025-08-14 22:24:22,770 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR02
+2025-08-14 22:24:23,185 - WARNING - 🚫 Captcha rejected for CSCI (attempt 2): captcha_failed - Invalid Verification Code
+2025-08-14 22:24:24,190 - INFO - 📋 Scraping CSCI, attempt 3
+2025-08-14 22:24:24,615 - INFO - 🧪 TEST: Switching to real OCR after 2 wrong attempts
+2025-08-14 22:24:24,643 - INFO - 🔤 OCR produced: HZQM (awaiting server validation)
+2025-08-14 22:24:25,209 - INFO - ✅ Captcha accepted for CSCI: has_courses
+2025-08-14 22:24:25,209 - INFO - Saved debug HTML: tests/output/debug_html/response_CSCI_attempt_3.html
+2025-08-14 22:24:25,232 - INFO - Parsed 83 courses from results table
+2025-08-14 22:24:25,232 - INFO - 🔍 CSCI: Found 83 courses

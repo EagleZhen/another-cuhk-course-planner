@@ -1,0 +1,13 @@
+2025-08-14 22:18:30,791 - INFO - 📝 File logging initialized: logs/scraper_20250814_221830.log
+2025-08-14 22:18:30,830 - INFO - 📋 Scraping CSCI, attempt 1
+2025-08-14 22:18:31,664 - INFO - 🔤 OCR produced: 92AK (awaiting server validation)
+2025-08-14 22:18:32,464 - INFO - ✅ Captcha accepted for CSCI: has_courses
+2025-08-14 22:18:32,465 - INFO - Saved debug HTML: tests/output/debug_html/response_CSCI_attempt_1.html
+2025-08-14 22:18:32,477 - INFO - Parsed 83 courses from results table
+2025-08-14 22:18:32,477 - INFO - 🔍 CSCI: Found 83 courses
+2025-08-14 22:18:32,477 - INFO - 📋 Scraping AENP, attempt 1
+2025-08-14 22:18:32,928 - INFO - 🔤 OCR produced: PH0R (awaiting server validation)
+2025-08-14 22:18:33,189 - WARNING - 🚫 Captcha rejected for AENP (attempt 1): captcha_failed - Invalid Verification Code
+2025-08-14 22:18:34,194 - INFO - 📋 Scraping AENP, attempt 2
+2025-08-14 22:18:34,631 - INFO - 🔤 OCR produced: ZT88 (awaiting server validation)
+2025-08-14 22:18:35,026 - WARNING - 🚫 Captcha rejected for AENP (attempt 2): captcha_failed - Invalid Verification Code

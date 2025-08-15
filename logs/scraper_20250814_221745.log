@@ -1,0 +1,19 @@
+2025-08-14 22:17:45,992 - INFO - 📝 File logging initialized: logs/scraper_20250814_221745.log
+2025-08-14 22:17:46,041 - INFO - 📋 Scraping CSCI, attempt 1
+2025-08-14 22:17:46,941 - INFO - 🔤 OCR produced: 6SBK (awaiting server validation)
+2025-08-14 22:17:47,365 - WARNING - 🚫 Captcha rejected for CSCI (attempt 1): captcha_failed - Invalid Verification Code
+2025-08-14 22:17:48,370 - INFO - 📋 Scraping CSCI, attempt 2
+2025-08-14 22:17:48,861 - INFO - 🔤 OCR produced: N4D3 (awaiting server validation)
+2025-08-14 22:17:49,698 - INFO - ✅ Captcha accepted for CSCI: has_courses
+2025-08-14 22:17:49,699 - INFO - Saved debug HTML: tests/output/debug_html/response_CSCI_attempt_2.html
+2025-08-14 22:17:49,721 - INFO - Parsed 83 courses from results table
+2025-08-14 22:17:49,722 - INFO - 🔍 CSCI: Found 83 courses
+2025-08-14 22:17:49,722 - INFO - 📋 Scraping AENP, attempt 1
+2025-08-14 22:17:50,189 - INFO - 🔤 OCR produced: C5FE (awaiting server validation)
+2025-08-14 22:17:50,746 - INFO - ✅ Captcha accepted for AENP: no_records
+2025-08-14 22:17:50,747 - INFO - Saved debug HTML: tests/output/debug_html/response_AENP_attempt_1.html
+2025-08-14 22:17:50,757 - WARNING - No course data rows found
+2025-08-14 22:17:50,757 - INFO - 🔍 AENP: Valid search, no courses found (empty subject)
+2025-08-14 22:17:51,762 - INFO - 📋 Scraping AENP, attempt 2
+2025-08-14 22:17:52,220 - WARNING - ❌ Invalid OCR format: 'B>TX' (expected 4 alphanumeric)
+2025-08-14 22:17:52,220 - ERROR - Attempt 2 failed for AENP: list indices must be integers or slices, not str

@@ -1,0 +1,35 @@
+2025-08-14 23:03:37,264 - INFO - 📝 File logging initialized: logs/scraper_20250814_230337.log
+2025-08-14 23:03:37,875 - INFO - Found 263 subjects from live site
+2025-08-14 23:03:37,876 - INFO - Starting PRODUCTION scraping and export for 263 subjects
+2025-08-14 23:03:37,876 - INFO - Output: per-subject files in data/
+2025-08-14 23:03:37,876 - INFO - 🛡️  Starting scraping for 263 subjects
+2025-08-14 23:03:37,876 - INFO - 📁 Saving to: data/
+2025-08-14 23:03:37,876 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-08-14 23:03:37,878 - INFO - Preserved data for 263 existing subjects
+2025-08-14 23:03:37,878 - INFO - 📊 Progress tracking enabled: data/scraping_progress.json
+2025-08-14 23:03:37,878 - INFO - 🔄 Processing ACCT (1/263)
+2025-08-14 23:03:37,878 - INFO - 📋 Scraping ACCT, attempt 1
+2025-08-14 23:03:38,459 - INFO - 🔤 OCR produced: L8CN (awaiting server validation)
+2025-08-14 23:03:39,241 - INFO - ✅ Captcha accepted for ACCT: has_courses
+2025-08-14 23:03:39,252 - INFO - Parsed 95 courses from results table
+2025-08-14 23:03:39,254 - INFO - 🚀 Started scraping ACCT
+2025-08-14 23:03:39,254 - INFO - Getting details for all 95 courses...
+2025-08-14 23:03:39,254 - INFO - 📖 Getting details for course 1/95: 1111
+2025-08-14 23:03:39,907 - INFO - Found 2 terms for 1111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:03:39,907 - INFO - Scraping term 1/2: 2025-26 Term 1 for 1111
+2025-08-14 23:03:39,916 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:03:40,326 - INFO - Getting enrollment details for section: A-LEC (6949)
+2025-08-14 23:03:41,275 - INFO - Getting enrollment details for section: B-LEC (6012)
+2025-08-14 23:03:42,275 - INFO - Getting enrollment details for section: C-LEC (6946)
+2025-08-14 23:03:43,946 - INFO - Scraping term 2/2: 2025-26 Term 2 for 1111
+2025-08-14 23:03:43,963 - INFO - Switching to 2025-26 Term 2 for 1111
+2025-08-14 23:03:44,406 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:03:44,817 - INFO - Getting enrollment details for section: D-LEC (5845)
+2025-08-14 23:03:45,504 - INFO - Getting enrollment details for section: E-LEC (9004)
+2025-08-14 23:03:46,109 - INFO - Extracted details for 1111: Credits=3.00, Terms=2
+2025-08-14 23:03:47,114 - INFO - 📖 Getting details for course 2/95: 2111
+2025-08-14 23:03:47,908 - INFO - Found 2 terms for 2111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:03:47,908 - INFO - Scraping term 1/2: 2025-26 Term 1 for 2111
+2025-08-14 23:03:47,914 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:03:48,749 - INFO - Getting enrollment details for section: A-LEC (6688)
+2025-08-14 23:03:49,423 - INFO - Getting enrollment details for section: B-LEC (9383)

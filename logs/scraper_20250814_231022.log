@@ -1,0 +1,941 @@
+2025-08-14 23:10:22,418 - INFO - 📝 File logging initialized: logs/scraper_20250814_231022.log
+2025-08-14 23:10:23,412 - INFO - Found 263 subjects from live site
+2025-08-14 23:10:23,413 - INFO - Starting PRODUCTION scraping and export for 263 subjects
+2025-08-14 23:10:23,413 - INFO - Output: per-subject files in data/
+2025-08-14 23:10:23,413 - INFO - 🛡️  Starting scraping for 263 subjects
+2025-08-14 23:10:23,413 - INFO - 📁 Saving to: data/
+2025-08-14 23:10:23,413 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-08-14 23:10:23,415 - INFO - Preserved data for 263 existing subjects
+2025-08-14 23:10:23,415 - INFO - 📊 Progress tracking enabled: data/scraping_progress.json
+2025-08-14 23:10:23,415 - INFO - 🔄 Processing ACCT (1/263)
+2025-08-14 23:10:23,416 - INFO - 📋 Scraping ACCT, attempt 1
+2025-08-14 23:10:24,001 - INFO - 🔤 OCR produced: L7VH (awaiting server validation)
+2025-08-14 23:10:25,385 - INFO - ✅ Captcha accepted for ACCT: has_courses
+2025-08-14 23:10:25,402 - INFO - Parsed 95 courses from results table
+2025-08-14 23:10:25,405 - INFO - 🚀 Started scraping ACCT
+2025-08-14 23:10:25,405 - INFO - Getting details for all 95 courses...
+2025-08-14 23:10:25,405 - INFO - 📖 Getting details for course 1/95: 1111
+2025-08-14 23:10:26,328 - INFO - Found 2 terms for 1111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:10:26,328 - INFO - Scraping term 1/2: 2025-26 Term 1 for 1111
+2025-08-14 23:10:26,337 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:10:26,732 - INFO - Getting enrollment details for section: A-LEC (6949)
+2025-08-14 23:10:27,449 - INFO - Getting enrollment details for section: B-LEC (6012)
+2025-08-14 23:10:28,299 - INFO - Getting enrollment details for section: C-LEC (6946)
+2025-08-14 23:10:30,009 - INFO - Scraping term 2/2: 2025-26 Term 2 for 1111
+2025-08-14 23:10:30,020 - INFO - Switching to 2025-26 Term 2 for 1111
+2025-08-14 23:10:48,568 - WARNING - 🌐 Network issue (attempt 1), retrying in 5s: ReadTimeout
+2025-08-14 23:10:53,578 - WARNING - 🌐 Network issue (attempt 2), retrying in 10s: ConnectionError
+2025-08-14 23:11:03,588 - WARNING - 🌐 Network issue (attempt 3), retrying in 15s: ConnectionError
+2025-08-14 23:11:18,597 - WARNING - 🌐 Network issue (attempt 4), retrying in 20s: ConnectionError
+2025-08-14 23:11:43,388 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:11:43,951 - INFO - Getting enrollment details for section: D-LEC (5845)
+2025-08-14 23:11:44,561 - INFO - Getting enrollment details for section: E-LEC (9004)
+2025-08-14 23:11:45,239 - INFO - Extracted details for 1111: Credits=3.00, Terms=2
+2025-08-14 23:11:45,244 - INFO - 💾 Progress saved: ACCT - 1/95 courses completed
+2025-08-14 23:11:46,249 - INFO - 📖 Getting details for course 2/95: 2111
+2025-08-14 23:11:46,887 - INFO - Found 2 terms for 2111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:11:46,887 - INFO - Scraping term 1/2: 2025-26 Term 1 for 2111
+2025-08-14 23:11:46,898 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:11:47,296 - INFO - Getting enrollment details for section: A-LEC (6688)
+2025-08-14 23:11:47,896 - INFO - Getting enrollment details for section: B-LEC (9383)
+2025-08-14 23:11:48,436 - INFO - Getting enrollment details for section: C-LEC (6604)
+2025-08-14 23:11:49,064 - INFO - Getting enrollment details for section: D-LEC (9505)
+2025-08-14 23:11:49,652 - INFO - Getting enrollment details for section: E-LEC (6686)
+2025-08-14 23:11:50,234 - INFO - Getting enrollment details for section: F-LEC (6687)
+2025-08-14 23:11:50,808 - INFO - Getting enrollment details for section: G-LEC (9266)
+2025-08-14 23:11:51,583 - INFO - Getting enrollment details for section: H-LEC (5751)
+2025-08-14 23:11:53,207 - INFO - Scraping term 2/2: 2025-26 Term 2 for 2111
+2025-08-14 23:11:53,221 - INFO - Switching to 2025-26 Term 2 for 2111
+2025-08-14 23:11:53,675 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:11:54,075 - INFO - Getting enrollment details for section: I-LEC (6121)
+2025-08-14 23:11:54,684 - INFO - Getting enrollment details for section: J-LEC (9068)
+2025-08-14 23:11:55,291 - INFO - Getting enrollment details for section: K-LEC (6120)
+2025-08-14 23:11:56,043 - INFO - Extracted details for 2111: Credits=3.00, Terms=2
+2025-08-14 23:11:57,048 - INFO - 📖 Getting details for course 3/95: 2121
+2025-08-14 23:11:58,639 - INFO - Found 2 terms for 2121: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:11:58,640 - INFO - Scraping term 1/2: 2025-26 Term 1 for 2121
+2025-08-14 23:11:58,651 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:11:59,687 - INFO - Getting enrollment details for section: A-LEC (6157)
+2025-08-14 23:12:00,778 - INFO - Getting enrollment details for section: B-LEC (5984)
+2025-08-14 23:12:01,430 - INFO - Getting enrollment details for section: C-LEC (5534)
+2025-08-14 23:12:03,089 - INFO - Scraping term 2/2: 2025-26 Term 2 for 2121
+2025-08-14 23:12:03,108 - INFO - Switching to 2025-26 Term 2 for 2121
+2025-08-14 23:12:03,521 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:03,950 - INFO - Getting enrollment details for section: D-LEC (4739)
+2025-08-14 23:12:04,555 - INFO - Getting enrollment details for section: E-LEC (4756)
+2025-08-14 23:12:05,356 - INFO - Getting enrollment details for section: F-LEC (4759)
+2025-08-14 23:12:06,043 - INFO - Getting enrollment details for section: G-LEC (4758)
+2025-08-14 23:12:06,676 - INFO - Extracted details for 2121: Credits=3.00, Terms=2
+2025-08-14 23:12:07,681 - INFO - 📖 Getting details for course 4/95: 2151
+2025-08-14 23:12:08,323 - INFO - Found 2 terms for 2151: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:08,323 - INFO - Scraping term 1/2: 2025-26 Term 1 for 2151
+2025-08-14 23:12:08,337 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:08,745 - INFO - Getting enrollment details for section: A-LEC (9551)
+2025-08-14 23:12:09,387 - INFO - Getting enrollment details for section: B-LEC (5707)
+2025-08-14 23:12:10,060 - INFO - Getting enrollment details for section: C-LEC (9552)
+2025-08-14 23:12:11,678 - INFO - Scraping term 2/2: 2025-26 Term 2 for 2151
+2025-08-14 23:12:11,697 - INFO - Switching to 2025-26 Term 2 for 2151
+2025-08-14 23:12:12,131 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:12,538 - INFO - Getting enrollment details for section: D-LEC (9315)
+2025-08-14 23:12:13,287 - INFO - Getting enrollment details for section: E-LEC (9311)
+2025-08-14 23:12:13,874 - INFO - Extracted details for 2151: Credits=2.00, Terms=2
+2025-08-14 23:12:14,881 - INFO - 📖 Getting details for course 5/95: 3001
+2025-08-14 23:12:15,469 - INFO - No term dropdown found for 3001, using current data
+2025-08-14 23:12:16,482 - INFO - 📖 Getting details for course 6/95: 3002
+2025-08-14 23:12:17,058 - INFO - No term dropdown found for 3002, using current data
+2025-08-14 23:12:18,074 - INFO - 📖 Getting details for course 7/95: 3003
+2025-08-14 23:12:18,793 - INFO - Found 1 terms for 3003: ['2025-26 Term 2']
+2025-08-14 23:12:18,793 - INFO - Scraping term 1/1: 2025-26 Term 2 for 3003
+2025-08-14 23:12:18,807 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:12:18,815 - INFO - Getting enrollment details for section: AS01-SEM (9263)
+2025-08-14 23:12:19,428 - INFO - Getting enrollment details for section: BS01-SEM (9123)
+2025-08-14 23:12:20,013 - INFO - Getting enrollment details for section: CS01-SEM (9124)
+2025-08-14 23:12:20,610 - INFO - Getting enrollment details for section: DS01-SEM (9125)
+2025-08-14 23:12:21,592 - INFO - Getting enrollment details for section: ES01-SEM (5615)
+2025-08-14 23:12:22,199 - INFO - Getting enrollment details for section: FS01-SEM (9313)
+2025-08-14 23:12:22,774 - INFO - Extracted details for 3003: Credits=1.00, Terms=1
+2025-08-14 23:12:23,780 - INFO - 📖 Getting details for course 8/95: 3004
+2025-08-14 23:12:24,316 - INFO - Found 2 terms for 3004: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:24,316 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3004
+2025-08-14 23:12:24,327 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:24,735 - INFO - Getting enrollment details for section: AP01-PRA (8887)
+2025-08-14 23:12:26,569 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3004
+2025-08-14 23:12:26,588 - INFO - Switching to 2025-26 Term 2 for 3004
+2025-08-14 23:12:27,182 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:27,579 - INFO - Getting enrollment details for section: BP01-PRA (8491)
+2025-08-14 23:12:28,212 - INFO - Extracted details for 3004: Credits=2.00, Terms=2
+2025-08-14 23:12:29,215 - INFO - 📖 Getting details for course 9/95: 3005
+2025-08-14 23:12:29,819 - INFO - No term dropdown found for 3005, using current data
+2025-08-14 23:12:30,832 - INFO - 📖 Getting details for course 10/95: 3111
+2025-08-14 23:12:31,491 - INFO - Found 2 terms for 3111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:31,491 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3111
+2025-08-14 23:12:31,504 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:31,943 - INFO - Getting enrollment details for section: A-LEC (6689)
+2025-08-14 23:12:33,537 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3111
+2025-08-14 23:12:33,555 - INFO - Switching to 2025-26 Term 2 for 3111
+2025-08-14 23:12:33,971 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:34,435 - INFO - Getting enrollment details for section: B-LEC (5547)
+2025-08-14 23:12:35,371 - INFO - Getting enrollment details for section: C-LEC (9262)
+2025-08-14 23:12:36,081 - INFO - Getting enrollment details for section: D-LEC (8976)
+2025-08-14 23:12:36,707 - INFO - Extracted details for 3111: Credits=3.00, Terms=2
+2025-08-14 23:12:37,707 - INFO - 📖 Getting details for course 11/95: 3112
+2025-08-14 23:12:38,361 - INFO - Found 2 terms for 3112: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:38,361 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3112
+2025-08-14 23:12:38,373 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:38,786 - INFO - Getting enrollment details for section: A-LEC (8013)
+2025-08-14 23:12:39,524 - INFO - Getting enrollment details for section: B-LEC (9344)
+2025-08-14 23:12:40,090 - INFO - Getting enrollment details for section: C-LEC (9209)
+2025-08-14 23:12:41,694 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3112
+2025-08-14 23:12:41,716 - INFO - Switching to 2025-26 Term 2 for 3112
+2025-08-14 23:12:42,143 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:42,596 - INFO - Getting enrollment details for section: D-LEC (9072)
+2025-08-14 23:12:43,212 - INFO - Extracted details for 3112: Credits=3.00, Terms=2
+2025-08-14 23:12:44,216 - INFO - 📖 Getting details for course 12/95: 3121
+2025-08-14 23:12:44,968 - INFO - Found 2 terms for 3121: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:44,968 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3121
+2025-08-14 23:12:44,984 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:45,463 - INFO - Getting enrollment details for section: A-LEC (4656)
+2025-08-14 23:12:46,142 - INFO - Getting enrollment details for section: B-LEC (9246)
+2025-08-14 23:12:46,802 - INFO - Getting enrollment details for section: C-LEC (7268)
+2025-08-14 23:12:48,432 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3121
+2025-08-14 23:12:48,455 - INFO - Switching to 2025-26 Term 2 for 3121
+2025-08-14 23:12:48,882 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:49,500 - INFO - Getting enrollment details for section: D-LEC (6145)
+2025-08-14 23:12:50,233 - INFO - Extracted details for 3121: Credits=3.00, Terms=2
+2025-08-14 23:12:50,241 - INFO - 💾 Progress saved: ACCT - 12/95 courses completed
+2025-08-14 23:12:51,244 - INFO - 📖 Getting details for course 13/95: 3142
+2025-08-14 23:12:51,851 - INFO - Found 2 terms for 3142: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:51,851 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3142
+2025-08-14 23:12:51,860 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:52,283 - INFO - Getting enrollment details for section: A-LEC (5830)
+2025-08-14 23:12:52,874 - INFO - Getting enrollment details for section: B-LEC (5570)
+2025-08-14 23:12:54,718 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3142
+2025-08-14 23:12:54,742 - INFO - Switching to 2025-26 Term 2 for 3142
+2025-08-14 23:12:55,189 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:12:55,662 - INFO - Getting enrollment details for section: C-LEC (5682)
+2025-08-14 23:12:56,265 - INFO - Getting enrollment details for section: D-LEC (6094)
+2025-08-14 23:12:56,902 - INFO - Extracted details for 3142: Credits=3.00, Terms=2
+2025-08-14 23:12:57,908 - INFO - 📖 Getting details for course 14/95: 3151
+2025-08-14 23:12:58,508 - INFO - Found 2 terms for 3151: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:12:58,508 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3151
+2025-08-14 23:12:58,520 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:12:58,939 - INFO - Getting enrollment details for section: A-LEC (5289)
+2025-08-14 23:12:59,558 - INFO - Getting enrollment details for section: B-LEC (5259)
+2025-08-14 23:13:01,237 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3151
+2025-08-14 23:13:01,254 - INFO - Switching to 2025-26 Term 2 for 3151
+2025-08-14 23:13:01,669 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:13:02,096 - INFO - Getting enrollment details for section: C-LEC (8881)
+2025-08-14 23:13:02,775 - INFO - Extracted details for 3151: Credits=3.00, Terms=2
+2025-08-14 23:13:03,776 - INFO - 📖 Getting details for course 15/95: 3152
+2025-08-14 23:13:04,391 - INFO - Found 2 terms for 3152: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:13:04,392 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3152
+2025-08-14 23:13:04,404 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:13:04,826 - INFO - Getting enrollment details for section: A-LEC (9137)
+2025-08-14 23:13:06,439 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3152
+2025-08-14 23:13:06,459 - INFO - Switching to 2025-26 Term 2 for 3152
+2025-08-14 23:13:06,930 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:13:07,357 - INFO - Getting enrollment details for section: B-LEC (5847)
+2025-08-14 23:13:07,972 - INFO - Getting enrollment details for section: C-LEC (8882)
+2025-08-14 23:13:08,649 - INFO - Extracted details for 3152: Credits=3.00, Terms=2
+2025-08-14 23:13:09,654 - INFO - 📖 Getting details for course 16/95: 3161
+2025-08-14 23:13:10,330 - INFO - Found 2 terms for 3161: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:13:10,330 - INFO - Scraping term 1/2: 2025-26 Term 1 for 3161
+2025-08-14 23:13:10,342 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:13:10,774 - INFO - Getting enrollment details for section: A-LEC (6690)
+2025-08-14 23:13:11,398 - INFO - Getting enrollment details for section: B-LEC (9126)
+2025-08-14 23:13:13,048 - INFO - Scraping term 2/2: 2025-26 Term 2 for 3161
+2025-08-14 23:13:13,067 - INFO - Switching to 2025-26 Term 2 for 3161
+2025-08-14 23:13:13,512 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:13:13,951 - INFO - Getting enrollment details for section: C-LEC (5846)
+2025-08-14 23:13:14,622 - INFO - Getting enrollment details for section: D-LEC (5756)
+2025-08-14 23:13:15,281 - INFO - Extracted details for 3161: Credits=3.00, Terms=2
+2025-08-14 23:13:16,284 - INFO - 📖 Getting details for course 17/95: 3241
+2025-08-14 23:13:16,896 - INFO - Found 1 terms for 3241: ['2025-26 Term 1']
+2025-08-14 23:13:16,896 - INFO - Scraping term 1/1: 2025-26 Term 1 for 3241
+2025-08-14 23:13:16,906 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:13:16,910 - INFO - Getting enrollment details for section: A-LEC (6962)
+2025-08-14 23:13:17,512 - INFO - Getting enrollment details for section: AT01-TUT (6963)
+2025-08-14 23:13:18,182 - INFO - Extracted details for 3241: Credits=3.00, Terms=1
+2025-08-14 23:13:19,186 - INFO - 📖 Getting details for course 18/95: 4001
+2025-08-14 23:13:19,834 - INFO - Found 2 terms for 4001: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:13:19,834 - INFO - Scraping term 1/2: 2025-26 Term 1 for 4001
+2025-08-14 23:13:19,843 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:13:20,367 - INFO - Getting enrollment details for section: AJ01-PRJ (5522)
+2025-08-14 23:13:21,082 - INFO - Getting enrollment details for section: BJ01-PRJ (5523)
+2025-08-14 23:13:22,806 - INFO - Scraping term 2/2: 2025-26 Term 2 for 4001
+2025-08-14 23:13:22,830 - INFO - Switching to 2025-26 Term 2 for 4001
+2025-08-14 23:13:23,324 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:13:23,805 - INFO - Getting enrollment details for section: CJ01-PRJ (4762)
+2025-08-14 23:13:24,522 - INFO - Getting enrollment details for section: DJ01-PRJ (4763)
+2025-08-14 23:13:25,187 - INFO - Getting enrollment details for section: EJ01-PRJ (9003)
+2025-08-14 23:13:25,854 - INFO - Getting enrollment details for section: FJ01-PRJ (6074)
+2025-08-14 23:13:26,549 - INFO - Extracted details for 4001: Credits=2.00, Terms=2
+2025-08-14 23:13:27,553 - INFO - 📖 Getting details for course 19/95: 4011
+2025-08-14 23:13:28,186 - INFO - No term dropdown found for 4011, using current data
+2025-08-14 23:13:29,201 - INFO - 📖 Getting details for course 20/95: 4111
+2025-08-14 23:13:29,908 - INFO - Found 2 terms for 4111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:13:29,908 - INFO - Scraping term 1/2: 2025-26 Term 1 for 4111
+2025-08-14 23:13:29,914 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:13:30,344 - INFO - Getting enrollment details for section: A-LEC (5691)
+2025-08-14 23:13:30,969 - INFO - Getting enrollment details for section: B-LEC (5692)
+2025-08-14 23:13:31,638 - INFO - Getting enrollment details for section: C-LEC (6156)
+2025-08-14 23:13:33,310 - INFO - Scraping term 2/2: 2025-26 Term 2 for 4111
+2025-08-14 23:13:33,331 - INFO - Switching to 2025-26 Term 2 for 4111
+2025-08-14 23:13:33,823 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:13:34,250 - INFO - Getting enrollment details for section: D-LEC (5658)
+2025-08-14 23:13:34,888 - INFO - Extracted details for 4111: Credits=3.00, Terms=2
+2025-08-14 23:13:35,889 - INFO - 📖 Getting details for course 21/95: 4131
+2025-08-14 23:13:36,527 - INFO - Found 2 terms for 4131: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:13:36,528 - INFO - Scraping term 1/2: 2025-26 Term 1 for 4131
+2025-08-14 23:13:36,540 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:13:36,977 - INFO - Getting enrollment details for section: A-LEC (9127)
+2025-08-14 23:13:37,719 - INFO - Getting enrollment details for section: B-LEC (6029)
+2025-08-14 23:13:38,321 - INFO - Getting enrollment details for section: C-LEC (9549)
+2025-08-14 23:13:39,914 - INFO - Scraping term 2/2: 2025-26 Term 2 for 4131
+2025-08-14 23:13:39,936 - INFO - Switching to 2025-26 Term 2 for 4131
+2025-08-14 23:13:40,381 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:13:40,819 - INFO - Getting enrollment details for section: D-LEC (6715)
+2025-08-14 23:13:41,443 - INFO - Extracted details for 4131: Credits=3.00, Terms=2
+2025-08-14 23:13:42,448 - INFO - 📖 Getting details for course 22/95: 4211
+2025-08-14 23:13:42,970 - INFO - No term dropdown found for 4211, using current data
+2025-08-14 23:13:43,983 - INFO - 📖 Getting details for course 23/95: 4212
+2025-08-14 23:13:44,680 - INFO - No term dropdown found for 4212, using current data
+2025-08-14 23:13:45,691 - INFO - 📖 Getting details for course 24/95: 4213
+2025-08-14 23:13:46,482 - INFO - Found 1 terms for 4213: ['2025-26 Term 2']
+2025-08-14 23:13:46,482 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4213
+2025-08-14 23:13:46,488 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:13:46,494 - INFO - Getting enrollment details for section: B-LEC (8908)
+2025-08-14 23:13:47,117 - INFO - Extracted details for 4213: Credits=3.00, Terms=1
+2025-08-14 23:13:48,117 - INFO - 📖 Getting details for course 25/95: 4214
+2025-08-14 23:13:48,791 - INFO - No term dropdown found for 4214, using current data
+2025-08-14 23:13:49,802 - INFO - 📖 Getting details for course 26/95: 4215
+2025-08-14 23:13:50,432 - INFO - Found 1 terms for 4215: ['2025-26 Term 1']
+2025-08-14 23:13:50,432 - INFO - Scraping term 1/1: 2025-26 Term 1 for 4215
+2025-08-14 23:13:50,440 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:13:50,447 - INFO - Getting enrollment details for section: A-LEC (6068)
+2025-08-14 23:13:51,028 - INFO - Extracted details for 4215: Credits=3.00, Terms=1
+2025-08-14 23:13:51,035 - INFO - 💾 Progress saved: ACCT - 26/95 courses completed
+2025-08-14 23:13:52,037 - INFO - 📖 Getting details for course 27/95: 4221
+2025-08-14 23:13:52,697 - INFO - No term dropdown found for 4221, using current data
+2025-08-14 23:13:53,708 - INFO - 📖 Getting details for course 28/95: 4231
+2025-08-14 23:13:54,335 - INFO - No term dropdown found for 4231, using current data
+2025-08-14 23:13:55,350 - INFO - 📖 Getting details for course 29/95: 4232
+2025-08-14 23:13:56,040 - INFO - No term dropdown found for 4232, using current data
+2025-08-14 23:13:57,053 - INFO - 📖 Getting details for course 30/95: 4242
+2025-08-14 23:13:57,759 - INFO - Found 1 terms for 4242: ['2025-26 Term 2']
+2025-08-14 23:13:57,759 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4242
+2025-08-14 23:13:57,772 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:13:57,780 - INFO - Getting enrollment details for section: A-LEC (5914)
+2025-08-14 23:13:58,368 - INFO - Extracted details for 4242: Credits=3.00, Terms=1
+2025-08-14 23:13:59,372 - INFO - 📖 Getting details for course 31/95: 4243
+2025-08-14 23:13:59,940 - INFO - No term dropdown found for 4243, using current data
+2025-08-14 23:14:00,952 - INFO - 📖 Getting details for course 32/95: 4244
+2025-08-14 23:14:01,638 - INFO - Found 1 terms for 4244: ['2025-26 Term 1']
+2025-08-14 23:14:01,638 - INFO - Scraping term 1/1: 2025-26 Term 1 for 4244
+2025-08-14 23:14:01,650 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:14:01,661 - INFO - Getting enrollment details for section: A-LEC (5877)
+2025-08-14 23:14:02,636 - INFO - Extracted details for 4244: Credits=3.00, Terms=1
+2025-08-14 23:14:03,638 - INFO - 📖 Getting details for course 33/95: 4251
+2025-08-14 23:14:04,344 - INFO - No term dropdown found for 4251, using current data
+2025-08-14 23:14:05,357 - INFO - 📖 Getting details for course 34/95: 4252
+2025-08-14 23:14:06,002 - INFO - Found 1 terms for 4252: ['2025-26 Term 1']
+2025-08-14 23:14:06,003 - INFO - Scraping term 1/1: 2025-26 Term 1 for 4252
+2025-08-14 23:14:06,013 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:14:06,022 - INFO - Getting enrollment details for section: A-LEC (5250)
+2025-08-14 23:14:06,670 - INFO - Extracted details for 4252: Credits=3.00, Terms=1
+2025-08-14 23:14:07,675 - INFO - 📖 Getting details for course 35/95: 4253
+2025-08-14 23:14:08,709 - INFO - Found 1 terms for 4253: ['2025-26 Term 2']
+2025-08-14 23:14:08,709 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4253
+2025-08-14 23:14:08,723 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:14:08,728 - INFO - Getting enrollment details for section: A-LEC (5745)
+2025-08-14 23:14:09,387 - INFO - Extracted details for 4253: Credits=3.00, Terms=1
+2025-08-14 23:14:10,393 - INFO - 📖 Getting details for course 36/95: 4261
+2025-08-14 23:14:11,108 - INFO - Found 1 terms for 4261: ['2025-26 Term 2']
+2025-08-14 23:14:11,109 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4261
+2025-08-14 23:14:11,123 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:14:11,131 - INFO - Getting enrollment details for section: A-LEC (6002)
+2025-08-14 23:14:11,834 - INFO - Extracted details for 4261: Credits=3.00, Terms=1
+2025-08-14 23:14:12,836 - INFO - 📖 Getting details for course 37/95: 4262
+2025-08-14 23:14:13,443 - INFO - Found 1 terms for 4262: ['2025-26 Term 1']
+2025-08-14 23:14:13,443 - INFO - Scraping term 1/1: 2025-26 Term 1 for 4262
+2025-08-14 23:14:13,455 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:14:13,464 - INFO - Getting enrollment details for section: A-LEC (5904)
+2025-08-14 23:14:14,072 - INFO - Extracted details for 4262: Credits=3.00, Terms=1
+2025-08-14 23:14:15,078 - INFO - 📖 Getting details for course 38/95: 4263
+2025-08-14 23:14:15,764 - INFO - Found 1 terms for 4263: ['2025-26 Term 2']
+2025-08-14 23:14:15,764 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4263
+2025-08-14 23:14:15,776 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:14:15,785 - INFO - Getting enrollment details for section: A-LEC (5913)
+2025-08-14 23:14:16,528 - INFO - Extracted details for 4263: Credits=3.00, Terms=1
+2025-08-14 23:14:17,531 - INFO - 📖 Getting details for course 39/95: 4271
+2025-08-14 23:14:18,113 - INFO - No term dropdown found for 4271, using current data
+2025-08-14 23:14:19,129 - INFO - 📖 Getting details for course 40/95: 4272
+2025-08-14 23:14:19,778 - INFO - No term dropdown found for 4272, using current data
+2025-08-14 23:14:20,789 - INFO - 📖 Getting details for course 41/95: 4281
+2025-08-14 23:14:21,380 - INFO - No term dropdown found for 4281, using current data
+2025-08-14 23:14:22,397 - INFO - 📖 Getting details for course 42/95: 4282
+2025-08-14 23:14:23,029 - INFO - Found 1 terms for 4282: ['2025-26 Term 2']
+2025-08-14 23:14:23,030 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4282
+2025-08-14 23:14:23,044 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:14:23,051 - INFO - Getting enrollment details for section: A-LEC (6565)
+2025-08-14 23:14:23,690 - INFO - Extracted details for 4282: Credits=3.00, Terms=1
+2025-08-14 23:14:24,696 - INFO - 📖 Getting details for course 43/95: 4290
+2025-08-14 23:14:25,433 - INFO - Found 2 terms for 4290: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:14:25,434 - INFO - Scraping term 1/2: 2025-26 Term 1 for 4290
+2025-08-14 23:14:25,448 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:14:25,941 - INFO - Getting enrollment details for section: AP01-PRA (9802)
+2025-08-14 23:14:27,685 - INFO - Scraping term 2/2: 2025-26 Term 2 for 4290
+2025-08-14 23:14:27,705 - INFO - Switching to 2025-26 Term 2 for 4290
+2025-08-14 23:14:28,169 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:14:28,645 - INFO - Getting enrollment details for section: BP01-PRA (9583)
+2025-08-14 23:14:29,365 - INFO - Extracted details for 4290: Credits=3.00, Terms=2
+2025-08-14 23:14:30,368 - INFO - 📖 Getting details for course 44/95: 5110
+2025-08-14 23:14:31,020 - INFO - Found 2 terms for 5110: ['2025-26 Term 2', '2025-26 Term 3']
+2025-08-14 23:14:31,021 - INFO - Scraping term 1/2: 2025-26 Term 2 for 5110
+2025-08-14 23:14:31,028 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:14:31,484 - INFO - Getting enrollment details for section: CB-LEC (3578)
+2025-08-14 23:14:32,184 - INFO - Getting enrollment details for section: CC-LEC (3739)
+2025-08-14 23:14:33,872 - INFO - Scraping term 2/2: 2025-26 Term 3 for 5110
+2025-08-14 23:14:33,902 - INFO - Switching to 2025-26 Term 3 for 5110
+2025-08-14 23:14:34,382 - INFO - Clicking 'Show sections' for 2025-26 Term 3
+2025-08-14 23:14:34,843 - INFO - Getting enrollment details for section: CA-LEC (1128)
+2025-08-14 23:14:35,514 - INFO - Extracted details for 5110: Credits=3.00, Terms=2
+2025-08-14 23:14:36,518 - INFO - 📖 Getting details for course 45/95: 5111
+2025-08-14 23:14:37,573 - INFO - Found 2 terms for 5111: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:14:37,573 - INFO - Scraping term 1/2: 2025-26 Term 1 for 5111
+2025-08-14 23:14:37,579 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:14:38,097 - INFO - Getting enrollment details for section: D-LEC (4485)
+2025-08-14 23:14:38,842 - INFO - Getting enrollment details for section: F-LEC (4509)
+2025-08-14 23:14:39,571 - INFO - Getting enrollment details for section: W-LEC (1767)
+2025-08-14 23:14:41,272 - INFO - Scraping term 2/2: 2025-26 Term 2 for 5111
+2025-08-14 23:14:41,291 - INFO - Switching to 2025-26 Term 2 for 5111
+2025-08-14 23:14:41,841 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:14:42,352 - INFO - Getting enrollment details for section: FA-LEC (1797)
+2025-08-14 23:14:43,112 - INFO - Getting enrollment details for section: FB-LEC (1796)
+2025-08-14 23:14:43,893 - INFO - Getting enrollment details for section: FC-LEC (2781)
+2025-08-14 23:14:44,581 - INFO - Getting enrollment details for section: FD-LEC (2780)
+2025-08-14 23:14:45,323 - INFO - Getting enrollment details for section: FE-LEC (1899)
+2025-08-14 23:14:46,059 - INFO - Extracted details for 5111: Credits=3.00, Terms=2
+2025-08-14 23:14:47,062 - INFO - 📖 Getting details for course 46/95: 5112
+2025-08-14 23:14:47,624 - INFO - Found 1 terms for 5112: ['2025-26 Term 1']
+2025-08-14 23:14:47,624 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5112
+2025-08-14 23:14:47,636 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:14:47,643 - INFO - Getting enrollment details for section: G-LEC (2751)
+2025-08-14 23:14:48,244 - INFO - Getting enrollment details for section: GA-LEC (3606)
+2025-08-14 23:14:48,860 - INFO - Extracted details for 5112: Credits=1.50, Terms=1
+2025-08-14 23:14:49,865 - INFO - 📖 Getting details for course 47/95: 5120
+2025-08-14 23:14:50,472 - INFO - Found 1 terms for 5120: ['2025-26 Term 1']
+2025-08-14 23:14:50,472 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5120
+2025-08-14 23:14:50,484 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:14:50,489 - INFO - Getting enrollment details for section: CA-LEC (2111)
+2025-08-14 23:14:51,136 - INFO - Getting enrollment details for section: CB-LEC (3617)
+2025-08-14 23:14:51,756 - INFO - Extracted details for 5120: Credits=3.00, Terms=1
+2025-08-14 23:14:51,765 - INFO - 💾 Progress saved: ACCT - 47/95 courses completed
+2025-08-14 23:14:52,771 - INFO - 📖 Getting details for course 48/95: 5130
+2025-08-14 23:14:53,405 - INFO - Found 2 terms for 5130: ['2025-26 Term 2', '2025-26 Term 3']
+2025-08-14 23:14:53,405 - INFO - Scraping term 1/2: 2025-26 Term 2 for 5130
+2025-08-14 23:14:53,419 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:14:53,839 - INFO - Getting enrollment details for section: CB-LEC (3574)
+2025-08-14 23:14:55,434 - INFO - Scraping term 2/2: 2025-26 Term 3 for 5130
+2025-08-14 23:14:55,452 - INFO - Switching to 2025-26 Term 3 for 5130
+2025-08-14 23:14:55,929 - INFO - Clicking 'Show sections' for 2025-26 Term 3
+2025-08-14 23:14:56,587 - INFO - Getting enrollment details for section: CA-LEC (1127)
+2025-08-14 23:14:57,245 - INFO - Extracted details for 5130: Credits=3.00, Terms=2
+2025-08-14 23:14:58,249 - INFO - 📖 Getting details for course 49/95: 5140
+2025-08-14 23:14:58,890 - INFO - Found 2 terms for 5140: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:14:58,890 - INFO - Scraping term 1/2: 2025-26 Term 1 for 5140
+2025-08-14 23:14:58,901 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:14:59,367 - INFO - Getting enrollment details for section: CB-LEC (3774)
+2025-08-14 23:15:00,018 - INFO - Getting enrollment details for section: CC-LEC (3775)
+2025-08-14 23:15:01,688 - INFO - Scraping term 2/2: 2025-26 Term 2 for 5140
+2025-08-14 23:15:01,697 - INFO - Switching to 2025-26 Term 2 for 5140
+2025-08-14 23:15:02,148 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:15:02,630 - INFO - Getting enrollment details for section: CA-LEC (2152)
+2025-08-14 23:15:03,572 - INFO - Extracted details for 5140: Credits=3.00, Terms=2
+2025-08-14 23:15:04,574 - INFO - 📖 Getting details for course 50/95: 5150
+2025-08-14 23:15:05,365 - INFO - Found 2 terms for 5150: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:15:05,365 - INFO - Scraping term 1/2: 2025-26 Term 1 for 5150
+2025-08-14 23:15:05,376 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:15:05,846 - INFO - Getting enrollment details for section: CA-LEC (2131)
+2025-08-14 23:15:06,575 - INFO - Getting enrollment details for section: CB-LEC (3657)
+2025-08-14 23:15:08,186 - INFO - Scraping term 2/2: 2025-26 Term 2 for 5150
+2025-08-14 23:15:08,203 - INFO - Switching to 2025-26 Term 2 for 5150
+2025-08-14 23:15:08,643 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:15:09,075 - INFO - Getting enrollment details for section: CC-LEC (2816)
+2025-08-14 23:15:09,696 - INFO - Extracted details for 5150: Credits=3.00, Terms=2
+2025-08-14 23:15:10,697 - INFO - 📖 Getting details for course 51/95: 5160
+2025-08-14 23:15:11,355 - INFO - Found 3 terms for 5160: ['2025-26 Term 1', '2025-26 Term 2', '2025-26 Term 3']
+2025-08-14 23:15:11,355 - INFO - Scraping term 1/3: 2025-26 Term 1 for 5160
+2025-08-14 23:15:11,365 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:15:11,798 - INFO - Getting enrollment details for section: CB-LEC (3593)
+2025-08-14 23:15:13,432 - INFO - Scraping term 2/3: 2025-26 Term 2 for 5160
+2025-08-14 23:15:13,438 - INFO - Switching to 2025-26 Term 2 for 5160
+2025-08-14 23:15:13,854 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:15:14,612 - INFO - Getting enrollment details for section: CA-LEC (2059)
+2025-08-14 23:15:16,316 - INFO - Scraping term 3/3: 2025-26 Term 3 for 5160
+2025-08-14 23:15:16,330 - INFO - Switching to 2025-26 Term 3 for 5160
+2025-08-14 23:15:16,777 - INFO - Clicking 'Show sections' for 2025-26 Term 3
+2025-08-14 23:15:17,208 - INFO - Getting enrollment details for section: CC-LEC (1133)
+2025-08-14 23:15:17,864 - INFO - Extracted details for 5160: Credits=3.00, Terms=3
+2025-08-14 23:15:18,868 - INFO - 📖 Getting details for course 52/95: 5510
+2025-08-14 23:15:19,604 - INFO - Found 1 terms for 5510: ['2025-26 Term 1']
+2025-08-14 23:15:19,604 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5510
+2025-08-14 23:15:19,619 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:15:19,623 - INFO - Getting enrollment details for section: P-LEC (4251)
+2025-08-14 23:15:20,309 - INFO - Extracted details for 5510: Credits=3.00, Terms=1
+2025-08-14 23:15:21,315 - INFO - 📖 Getting details for course 53/95: 5511
+2025-08-14 23:15:22,046 - INFO - Found 1 terms for 5511: ['2025-26 Term 2']
+2025-08-14 23:15:22,047 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5511
+2025-08-14 23:15:22,059 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:15:22,067 - INFO - Getting enrollment details for section: AE-LEC (3708)
+2025-08-14 23:15:22,747 - INFO - Extracted details for 5511: Credits=3.00, Terms=1
+2025-08-14 23:15:23,748 - INFO - 📖 Getting details for course 54/95: 5550
+2025-08-14 23:15:24,447 - INFO - Found 1 terms for 5550: ['2025-26 Term 3']
+2025-08-14 23:15:24,447 - INFO - Scraping term 1/1: 2025-26 Term 3 for 5550
+2025-08-14 23:15:24,459 - INFO - 'Show sections' button disabled for 2025-26 Term 3 - sections should already be visible
+2025-08-14 23:15:24,467 - INFO - Getting enrollment details for section: P-LEC (1213)
+2025-08-14 23:15:25,104 - INFO - Extracted details for 5550: Credits=3.00, Terms=1
+2025-08-14 23:15:26,108 - INFO - 📖 Getting details for course 55/95: 5551
+2025-08-14 23:15:26,686 - INFO - No term dropdown found for 5551, using current data
+2025-08-14 23:15:27,702 - INFO - 📖 Getting details for course 56/95: 5610
+2025-08-14 23:15:28,381 - INFO - Found 1 terms for 5610: ['2025-26 Term 1']
+2025-08-14 23:15:28,382 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5610
+2025-08-14 23:15:28,392 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:15:28,398 - INFO - Getting enrollment details for section: SA-LEC (1869)
+2025-08-14 23:15:29,063 - INFO - Getting enrollment details for section: SB-LEC (1729)
+2025-08-14 23:15:29,736 - INFO - Extracted details for 5610: Credits=3.00, Terms=1
+2025-08-14 23:15:30,739 - INFO - 📖 Getting details for course 57/95: 5620
+2025-08-14 23:15:31,389 - INFO - Found 1 terms for 5620: ['2025-26 Term 2']
+2025-08-14 23:15:31,389 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5620
+2025-08-14 23:15:31,400 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:15:31,407 - INFO - Getting enrollment details for section: D-LEC (3537)
+2025-08-14 23:15:32,430 - INFO - Extracted details for 5620: Credits=3.00, Terms=1
+2025-08-14 23:15:33,432 - INFO - 📖 Getting details for course 58/95: 5650
+2025-08-14 23:15:34,017 - INFO - No term dropdown found for 5650, using current data
+2025-08-14 23:15:35,031 - INFO - 📖 Getting details for course 59/95: 6001
+2025-08-14 23:15:35,753 - INFO - Found 1 terms for 6001: ['2025-26 Term 3']
+2025-08-14 23:15:35,754 - INFO - Scraping term 1/1: 2025-26 Term 3 for 6001
+2025-08-14 23:15:35,768 - INFO - 'Show sections' button disabled for 2025-26 Term 3 - sections should already be visible
+2025-08-14 23:15:35,777 - INFO - Getting enrollment details for section: CAF1-FLD (1114)
+2025-08-14 23:15:36,433 - INFO - Getting enrollment details for section: CBF1-FLD (1115)
+2025-08-14 23:15:37,082 - INFO - Getting enrollment details for section: CCF1-FLD (1176)
+2025-08-14 23:15:37,664 - INFO - Extracted details for 6001: Credits=3.00, Terms=1
+2025-08-14 23:15:38,669 - INFO - 📖 Getting details for course 60/95: 6002
+2025-08-14 23:15:39,311 - INFO - No term dropdown found for 6002, using current data
+2025-08-14 23:15:40,326 - INFO - 📖 Getting details for course 61/95: 6040
+2025-08-14 23:15:40,941 - INFO - Found 1 terms for 6040: ['2025-26 Term 1']
+2025-08-14 23:15:40,941 - INFO - Scraping term 1/1: 2025-26 Term 1 for 6040
+2025-08-14 23:15:40,946 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:15:40,949 - INFO - Getting enrollment details for section: CA-LEC (1777)
+2025-08-14 23:15:41,529 - INFO - Getting enrollment details for section: CB-LEC (3656)
+2025-08-14 23:15:42,142 - INFO - Extracted details for 6040: Credits=3.00, Terms=1
+2025-08-14 23:15:43,148 - INFO - 📖 Getting details for course 62/95: 6110
+2025-08-14 23:15:43,794 - INFO - No term dropdown found for 6110, using current data
+2025-08-14 23:15:44,806 - INFO - 📖 Getting details for course 63/95: 6111
+2025-08-14 23:15:45,432 - INFO - Found 3 terms for 6111: ['2025-26 Term 2', '2025-26 Term 3', '2025-26 Term 4']
+2025-08-14 23:15:45,432 - INFO - Scraping term 1/3: 2025-26 Term 2 for 6111
+2025-08-14 23:15:45,444 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:15:45,921 - INFO - Getting enrollment details for section: D-LEC (3538)
+2025-08-14 23:15:47,610 - INFO - Scraping term 2/3: 2025-26 Term 3 for 6111
+2025-08-14 23:15:47,627 - INFO - Switching to 2025-26 Term 3 for 6111
+2025-08-14 23:15:48,096 - INFO - Clicking 'Show sections' for 2025-26 Term 3
+2025-08-14 23:15:48,569 - INFO - Getting enrollment details for section: CA-LEC (1123)
+2025-08-14 23:15:49,220 - INFO - Getting enrollment details for section: E-LEC (1038)
+2025-08-14 23:15:50,901 - INFO - Scraping term 3/3: 2025-26 Term 4 for 6111
+2025-08-14 23:15:50,916 - INFO - Switching to 2025-26 Term 4 for 6111
+2025-08-14 23:15:51,500 - INFO - Clicking 'Show sections' for 2025-26 Term 4
+2025-08-14 23:15:51,952 - INFO - Getting enrollment details for section: S-LEC (1025)
+2025-08-14 23:15:52,929 - INFO - Extracted details for 6111: Credits=3.00, Terms=3
+2025-08-14 23:15:52,949 - INFO - 💾 Progress saved: ACCT - 63/95 courses completed
+2025-08-14 23:15:53,955 - INFO - 📖 Getting details for course 64/95: 6112
+2025-08-14 23:15:54,704 - INFO - Found 1 terms for 6112: ['2025-26 Term 1']
+2025-08-14 23:15:54,704 - INFO - Scraping term 1/1: 2025-26 Term 1 for 6112
+2025-08-14 23:15:54,718 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:15:54,725 - INFO - Getting enrollment details for section: C-LEC (3543)
+2025-08-14 23:15:55,311 - INFO - Getting enrollment details for section: CA-LEC (2132)
+2025-08-14 23:15:55,981 - INFO - Extracted details for 6112: Credits=3.00, Terms=1
+2025-08-14 23:15:56,982 - INFO - 📖 Getting details for course 65/95: 6113
+2025-08-14 23:15:57,668 - INFO - No term dropdown found for 6113, using current data
+2025-08-14 23:15:58,682 - INFO - 📖 Getting details for course 66/95: 6120
+2025-08-14 23:15:59,341 - INFO - No term dropdown found for 6120, using current data
+2025-08-14 23:16:00,353 - INFO - 📖 Getting details for course 67/95: 6121
+2025-08-14 23:16:01,339 - INFO - No term dropdown found for 6121, using current data
+2025-08-14 23:16:02,356 - INFO - 📖 Getting details for course 68/95: 6130
+2025-08-14 23:16:02,997 - INFO - No term dropdown found for 6130, using current data
+2025-08-14 23:16:04,014 - INFO - 📖 Getting details for course 69/95: 6131
+2025-08-14 23:16:04,634 - INFO - Found 1 terms for 6131: ['2025-26 Term 1']
+2025-08-14 23:16:04,635 - INFO - Scraping term 1/1: 2025-26 Term 1 for 6131
+2025-08-14 23:16:04,648 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:16:04,656 - INFO - Getting enrollment details for section: CA-LEC (2031)
+2025-08-14 23:16:05,307 - INFO - Extracted details for 6131: Credits=3.00, Terms=1
+2025-08-14 23:16:06,310 - INFO - 📖 Getting details for course 70/95: 6140
+2025-08-14 23:16:07,004 - INFO - Found 1 terms for 6140: ['2025-26 Term 1']
+2025-08-14 23:16:07,004 - INFO - Scraping term 1/1: 2025-26 Term 1 for 6140
+2025-08-14 23:16:07,009 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:16:07,014 - INFO - Getting enrollment details for section: C-LEC (4484)
+2025-08-14 23:16:07,637 - INFO - Extracted details for 6140: Credits=3.00, Terms=1
+2025-08-14 23:16:08,642 - INFO - 📖 Getting details for course 71/95: 6141
+2025-08-14 23:16:09,326 - INFO - Found 3 terms for 6141: ['2025-26 Term 1', '2025-26 Term 2', '2025-26 Term 3']
+2025-08-14 23:16:09,326 - INFO - Scraping term 1/3: 2025-26 Term 1 for 6141
+2025-08-14 23:16:09,337 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:16:09,820 - INFO - Getting enrollment details for section: C-LEC (3542)
+2025-08-14 23:16:11,572 - INFO - Scraping term 2/3: 2025-26 Term 2 for 6141
+2025-08-14 23:16:11,588 - INFO - Switching to 2025-26 Term 2 for 6141
+2025-08-14 23:16:12,039 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:16:12,481 - INFO - Getting enrollment details for section: CA-LEC (1928)
+2025-08-14 23:16:14,127 - INFO - Scraping term 3/3: 2025-26 Term 3 for 6141
+2025-08-14 23:16:14,142 - INFO - Switching to 2025-26 Term 3 for 6141
+2025-08-14 23:16:14,625 - INFO - Clicking 'Show sections' for 2025-26 Term 3
+2025-08-14 23:16:15,072 - INFO - Getting enrollment details for section: CB-LEC (1076)
+2025-08-14 23:16:15,702 - INFO - Extracted details for 6141: Credits=3.00, Terms=3
+2025-08-14 23:16:16,706 - INFO - 📖 Getting details for course 72/95: 6142
+2025-08-14 23:16:17,390 - INFO - Found 1 terms for 6142: ['2025-26 Term 2']
+2025-08-14 23:16:17,390 - INFO - Scraping term 1/1: 2025-26 Term 2 for 6142
+2025-08-14 23:16:17,401 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:16:17,411 - INFO - Getting enrollment details for section: CA-LEC (1814)
+2025-08-14 23:16:17,985 - INFO - Extracted details for 6142: Credits=3.00, Terms=1
+2025-08-14 23:16:18,990 - INFO - 📖 Getting details for course 73/95: 6143
+2025-08-14 23:16:19,624 - INFO - Found 1 terms for 6143: ['2025-26 Term 1']
+2025-08-14 23:16:19,625 - INFO - Scraping term 1/1: 2025-26 Term 1 for 6143
+2025-08-14 23:16:19,636 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:16:19,646 - INFO - Getting enrollment details for section: CA-LEC (2034)
+2025-08-14 23:16:20,324 - INFO - Extracted details for 6143: Credits=3.00, Terms=1
+2025-08-14 23:16:21,325 - INFO - 📖 Getting details for course 74/95: 6145
+2025-08-14 23:16:21,918 - INFO - No term dropdown found for 6145, using current data
+2025-08-14 23:16:22,927 - INFO - 📖 Getting details for course 75/95: 6150
+2025-08-14 23:16:23,623 - INFO - No term dropdown found for 6150, using current data
+2025-08-14 23:16:24,636 - INFO - 📖 Getting details for course 76/95: 6160
+2025-08-14 23:16:25,281 - INFO - Found 2 terms for 6160: ['2025-26 Term 1', '2025-26 Term 3']
+2025-08-14 23:16:25,281 - INFO - Scraping term 1/2: 2025-26 Term 1 for 6160
+2025-08-14 23:16:25,295 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:16:25,865 - INFO - Getting enrollment details for section: CB-LEC (3575)
+2025-08-14 23:16:27,848 - INFO - Scraping term 2/2: 2025-26 Term 3 for 6160
+2025-08-14 23:16:27,862 - INFO - Switching to 2025-26 Term 3 for 6160
+2025-08-14 23:16:28,516 - INFO - Clicking 'Show sections' for 2025-26 Term 3
+2025-08-14 23:16:29,091 - INFO - Getting enrollment details for section: CA-LEC (1062)
+2025-08-14 23:16:30,152 - INFO - Extracted details for 6160: Credits=3.00, Terms=2
+2025-08-14 23:16:31,156 - INFO - 📖 Getting details for course 77/95: 6161
+2025-08-14 23:16:31,884 - INFO - Found 1 terms for 6161: ['2025-26 Term 3']
+2025-08-14 23:16:31,885 - INFO - Scraping term 1/1: 2025-26 Term 3 for 6161
+2025-08-14 23:16:31,897 - INFO - 'Show sections' button disabled for 2025-26 Term 3 - sections should already be visible
+2025-08-14 23:16:31,902 - INFO - Getting enrollment details for section: CA-LEC (1080)
+2025-08-14 23:16:32,533 - INFO - Extracted details for 6161: Credits=3.00, Terms=1
+2025-08-14 23:16:33,538 - INFO - 📖 Getting details for course 78/95: 6162
+2025-08-14 23:16:34,205 - INFO - No term dropdown found for 6162, using current data
+2025-08-14 23:16:35,221 - INFO - 📖 Getting details for course 79/95: 6170
+2025-08-14 23:16:36,022 - INFO - Found 1 terms for 6170: ['2025-26 Term 4']
+2025-08-14 23:16:36,022 - INFO - Scraping term 1/1: 2025-26 Term 4 for 6170
+2025-08-14 23:16:36,033 - INFO - 'Show sections' button disabled for 2025-26 Term 4 - sections should already be visible
+2025-08-14 23:16:36,042 - INFO - Getting enrollment details for section: S-LEC (1019)
+2025-08-14 23:16:36,720 - INFO - Extracted details for 6170: Credits=3.00, Terms=1
+2025-08-14 23:16:37,724 - INFO - 📖 Getting details for course 80/95: 6171
+2025-08-14 23:16:38,339 - INFO - No term dropdown found for 6171, using current data
+2025-08-14 23:16:39,353 - INFO - 📖 Getting details for course 81/95: 6172
+2025-08-14 23:16:40,004 - INFO - No term dropdown found for 6172, using current data
+2025-08-14 23:16:41,022 - INFO - 📖 Getting details for course 82/95: 6173
+2025-08-14 23:16:41,717 - INFO - Found 2 terms for 6173: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:16:41,717 - INFO - Scraping term 1/2: 2025-26 Term 1 for 6173
+2025-08-14 23:16:41,729 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:16:42,567 - INFO - Getting enrollment details for section: CA-LEC (3530)
+2025-08-14 23:16:44,271 - INFO - Scraping term 2/2: 2025-26 Term 2 for 6173
+2025-08-14 23:16:44,294 - INFO - Switching to 2025-26 Term 2 for 6173
+2025-08-14 23:16:44,804 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:16:45,288 - INFO - Getting enrollment details for section: CB-LEC (2795)
+2025-08-14 23:16:45,934 - INFO - Getting enrollment details for section: N-LEC (1839)
+2025-08-14 23:16:46,625 - INFO - Extracted details for 6173: Credits=3.00, Terms=2
+2025-08-14 23:16:47,627 - INFO - 📖 Getting details for course 83/95: 6180
+2025-08-14 23:16:48,213 - INFO - No term dropdown found for 6180, using current data
+2025-08-14 23:16:49,226 - INFO - 📖 Getting details for course 84/95: 6181
+2025-08-14 23:16:49,870 - INFO - Found 1 terms for 6181: ['2025-26 Term 2']
+2025-08-14 23:16:49,871 - INFO - Scraping term 1/1: 2025-26 Term 2 for 6181
+2025-08-14 23:16:49,883 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:16:49,887 - INFO - Getting enrollment details for section: CA-LEC (1815)
+2025-08-14 23:16:50,510 - INFO - Extracted details for 6181: Credits=3.00, Terms=1
+2025-08-14 23:16:51,514 - INFO - 📖 Getting details for course 85/95: 6190
+2025-08-14 23:16:52,121 - INFO - No term dropdown found for 6190, using current data
+2025-08-14 23:16:53,131 - INFO - 📖 Getting details for course 86/95: 6191
+2025-08-14 23:16:53,685 - INFO - No term dropdown found for 6191, using current data
+2025-08-14 23:16:53,698 - INFO - 💾 Progress saved: ACCT - 86/95 courses completed
+2025-08-14 23:16:54,699 - INFO - 📖 Getting details for course 87/95: 6199
+2025-08-14 23:16:55,547 - INFO - No term dropdown found for 6199, using current data
+2025-08-14 23:16:56,562 - INFO - 📖 Getting details for course 88/95: 7110
+2025-08-14 23:16:57,242 - INFO - No term dropdown found for 7110, using current data
+2025-08-14 23:16:58,252 - INFO - 📖 Getting details for course 89/95: 7111
+2025-08-14 23:16:58,871 - INFO - No term dropdown found for 7111, using current data
+2025-08-14 23:16:59,885 - INFO - 📖 Getting details for course 90/95: 7120
+2025-08-14 23:17:00,507 - INFO - No term dropdown found for 7120, using current data
+2025-08-14 23:17:01,521 - INFO - 📖 Getting details for course 91/95: 7190
+2025-08-14 23:17:02,185 - INFO - Found 1 terms for 7190: ['2025-26 Term 2']
+2025-08-14 23:17:02,187 - INFO - Scraping term 1/1: 2025-26 Term 2 for 7190
+2025-08-14 23:17:02,198 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:17:02,204 - INFO - Getting enrollment details for section: -S01-SEM (2119)
+2025-08-14 23:17:02,858 - INFO - Extracted details for 7190: Credits=3.00, Terms=1
+2025-08-14 23:17:03,863 - INFO - 📖 Getting details for course 92/95: 7199
+2025-08-14 23:17:04,535 - INFO - Found 1 terms for 7199: ['2025-26 Term 2']
+2025-08-14 23:17:04,535 - INFO - Scraping term 1/1: 2025-26 Term 2 for 7199
+2025-08-14 23:17:04,549 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-14 23:17:04,555 - INFO - Getting enrollment details for section: -S01-SEM (3264)
+2025-08-14 23:17:05,198 - INFO - Extracted details for 7199: Credits=3.00, Terms=1
+2025-08-14 23:17:06,204 - INFO - 📖 Getting details for course 93/95: 8003
+2025-08-14 23:17:07,105 - INFO - Found 2 terms for 8003: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:07,106 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8003
+2025-08-14 23:17:07,116 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:07,603 - INFO - Getting enrollment details for section: -M01-TMC (3083)
+2025-08-14 23:17:09,290 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8003
+2025-08-14 23:17:09,309 - INFO - Switching to 2025-26 Term 2 for 8003
+2025-08-14 23:17:09,820 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:10,272 - INFO - Getting enrollment details for section: -M01-TMC (3143)
+2025-08-14 23:17:10,922 - INFO - Extracted details for 8003: Credits=3.00, Terms=2
+2025-08-14 23:17:11,927 - INFO - 📖 Getting details for course 94/95: 8006
+2025-08-14 23:17:12,586 - INFO - Found 2 terms for 8006: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:12,586 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8006
+2025-08-14 23:17:12,622 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:13,058 - INFO - Getting enrollment details for section: -M01-TMC (2138)
+2025-08-14 23:17:14,710 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8006
+2025-08-14 23:17:14,730 - INFO - Switching to 2025-26 Term 2 for 8006
+2025-08-14 23:17:15,174 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:15,666 - INFO - Getting enrollment details for section: -M01-TMC (2975)
+2025-08-14 23:17:16,329 - INFO - Extracted details for 8006: Credits=6.00, Terms=2
+2025-08-14 23:17:17,335 - INFO - 📖 Getting details for course 95/95: 8012
+2025-08-14 23:17:17,968 - INFO - Found 2 terms for 8012: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:17,968 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8012
+2025-08-14 23:17:17,979 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:18,478 - INFO - Getting enrollment details for section: -M01-TMC (2994)
+2025-08-14 23:17:20,211 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8012
+2025-08-14 23:17:20,224 - INFO - Switching to 2025-26 Term 2 for 8012
+2025-08-14 23:17:20,677 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:21,131 - INFO - Getting enrollment details for section: -M01-TMC (2976)
+2025-08-14 23:17:21,766 - INFO - Extracted details for 8012: Credits=12.00, Terms=2
+2025-08-14 23:17:21,766 - INFO - 🔍 ACCT: Found 95 courses
+2025-08-14 23:17:21,780 - INFO - 💾 SAVED ACCT → data/ACCT.json
+2025-08-14 23:17:21,783 - INFO - ✅ Completed ACCT: 95 courses in 7.0 minutes
+2025-08-14 23:17:21,783 - INFO - ✅ ACCT completed: 95 courses in 7.0min → data/ACCT.json
+2025-08-14 23:17:22,802 - INFO - 🔄 Processing ACPY (2/263)
+2025-08-14 23:17:22,803 - INFO - 📋 Scraping ACPY, attempt 1
+2025-08-14 23:17:23,274 - INFO - 🔤 OCR produced: ERZ5 (awaiting server validation)
+2025-08-14 23:17:23,847 - INFO - ✅ Captcha accepted for ACPY: has_courses
+2025-08-14 23:17:23,860 - INFO - Parsed 19 courses from results table
+2025-08-14 23:17:23,863 - INFO - 🚀 Started scraping ACPY
+2025-08-14 23:17:23,863 - INFO - Getting details for all 19 courses...
+2025-08-14 23:17:23,863 - INFO - 📖 Getting details for course 1/19: 8512
+2025-08-14 23:17:24,669 - INFO - Found 2 terms for 8512: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:24,669 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8512
+2025-08-14 23:17:24,681 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:25,119 - INFO - Getting enrollment details for section: -M01-TMC (4332)
+2025-08-14 23:17:26,727 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8512
+2025-08-14 23:17:26,740 - INFO - Switching to 2025-26 Term 2 for 8512
+2025-08-14 23:17:27,219 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:27,633 - INFO - Getting enrollment details for section: -M01-TMC (4351)
+2025-08-14 23:17:28,633 - INFO - Extracted details for 8512: Credits=2.00, Terms=2
+2025-08-14 23:17:29,638 - INFO - 📖 Getting details for course 2/19: 8521
+2025-08-14 23:17:30,243 - INFO - Found 2 terms for 8521: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:30,243 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8521
+2025-08-14 23:17:30,254 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:30,649 - INFO - Getting enrollment details for section: -M01-TMC (4333)
+2025-08-14 23:17:32,413 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8521
+2025-08-14 23:17:32,431 - INFO - Switching to 2025-26 Term 2 for 8521
+2025-08-14 23:17:32,900 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:33,303 - INFO - Getting enrollment details for section: -M01-TMC (4352)
+2025-08-14 23:17:33,887 - INFO - Extracted details for 8521: Credits=1.00, Terms=2
+2025-08-14 23:17:34,892 - INFO - 📖 Getting details for course 3/19: 8532
+2025-08-14 23:17:35,479 - INFO - Found 2 terms for 8532: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:35,479 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8532
+2025-08-14 23:17:35,490 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:35,898 - INFO - Getting enrollment details for section: -M01-TMC (1033)
+2025-08-14 23:17:37,556 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8532
+2025-08-14 23:17:37,571 - INFO - Switching to 2025-26 Term 2 for 8532
+2025-08-14 23:17:37,994 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:38,389 - INFO - Getting enrollment details for section: -M01-TMC (4436)
+2025-08-14 23:17:39,383 - INFO - Extracted details for 8532: Credits=2.00, Terms=2
+2025-08-14 23:17:40,389 - INFO - 📖 Getting details for course 4/19: 8533
+2025-08-14 23:17:40,965 - INFO - Found 2 terms for 8533: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:40,966 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8533
+2025-08-14 23:17:40,977 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:41,371 - INFO - Getting enrollment details for section: -M01-TMC (4334)
+2025-08-14 23:17:42,984 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8533
+2025-08-14 23:17:43,029 - INFO - Switching to 2025-26 Term 2 for 8533
+2025-08-14 23:17:43,434 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:43,843 - INFO - Getting enrollment details for section: -M01-TMC (1369)
+2025-08-14 23:17:44,391 - INFO - Extracted details for 8533: Credits=3.00, Terms=2
+2025-08-14 23:17:45,397 - INFO - 📖 Getting details for course 5/19: 8535
+2025-08-14 23:17:45,963 - INFO - Found 2 terms for 8535: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:45,963 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8535
+2025-08-14 23:17:45,975 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:46,367 - INFO - Getting enrollment details for section: -M01-TMC (1373)
+2025-08-14 23:17:48,065 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8535
+2025-08-14 23:17:48,080 - INFO - Switching to 2025-26 Term 2 for 8535
+2025-08-14 23:17:48,515 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:48,914 - INFO - Getting enrollment details for section: -M01-TMC (1372)
+2025-08-14 23:17:49,535 - INFO - Extracted details for 8535: Credits=5.00, Terms=2
+2025-08-14 23:17:50,536 - INFO - 📖 Getting details for course 6/19: 8612
+2025-08-14 23:17:51,181 - INFO - Found 2 terms for 8612: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:51,181 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8612
+2025-08-14 23:17:51,192 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:51,599 - INFO - Getting enrollment details for section: -M01-TMC (1372)
+2025-08-14 23:17:53,181 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8612
+2025-08-14 23:17:53,198 - INFO - Switching to 2025-26 Term 2 for 8612
+2025-08-14 23:17:53,602 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:53,999 - INFO - Getting enrollment details for section: -M01-TMC (3948)
+2025-08-14 23:17:54,607 - INFO - Extracted details for 8612: Credits=2.00, Terms=2
+2025-08-14 23:17:55,611 - INFO - 📖 Getting details for course 7/19: 8621
+2025-08-14 23:17:56,212 - INFO - Found 2 terms for 8621: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:17:56,213 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8621
+2025-08-14 23:17:56,223 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:17:56,620 - INFO - Getting enrollment details for section: -M01-TMC (1370)
+2025-08-14 23:17:58,219 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8621
+2025-08-14 23:17:58,235 - INFO - Switching to 2025-26 Term 2 for 8621
+2025-08-14 23:17:58,640 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:17:59,032 - INFO - Getting enrollment details for section: -M01-TMC (1085)
+2025-08-14 23:17:59,606 - INFO - Extracted details for 8621: Credits=1.00, Terms=2
+2025-08-14 23:18:00,612 - INFO - 📖 Getting details for course 8/19: 8622
+2025-08-14 23:18:01,204 - INFO - Found 2 terms for 8622: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:01,204 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8622
+2025-08-14 23:18:01,214 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:01,838 - INFO - Getting enrollment details for section: -M01-TMC (3963)
+2025-08-14 23:18:03,514 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8622
+2025-08-14 23:18:03,564 - INFO - Switching to 2025-26 Term 2 for 8622
+2025-08-14 23:18:04,348 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:04,800 - INFO - Getting enrollment details for section: -M01-TMC (4353)
+2025-08-14 23:18:05,906 - INFO - Extracted details for 8622: Credits=2.00, Terms=2
+2025-08-14 23:18:06,910 - INFO - 📖 Getting details for course 9/19: 8623
+2025-08-14 23:18:07,600 - INFO - Found 2 terms for 8623: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:07,600 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8623
+2025-08-14 23:18:07,610 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:08,333 - INFO - Getting enrollment details for section: -M01-TMC (3960)
+2025-08-14 23:18:09,979 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8623
+2025-08-14 23:18:09,994 - INFO - Switching to 2025-26 Term 2 for 8623
+2025-08-14 23:18:10,455 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:10,911 - INFO - Getting enrollment details for section: -M01-TMC (1367)
+2025-08-14 23:18:11,849 - INFO - Extracted details for 8623: Credits=3.00, Terms=2
+2025-08-14 23:18:12,851 - INFO - 📖 Getting details for course 10/19: 8624
+2025-08-14 23:18:13,463 - INFO - Found 2 terms for 8624: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:13,463 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8624
+2025-08-14 23:18:13,476 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:13,921 - INFO - Getting enrollment details for section: -M01-TMC (3962)
+2025-08-14 23:18:15,507 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8624
+2025-08-14 23:18:15,521 - INFO - Switching to 2025-26 Term 2 for 8624
+2025-08-14 23:18:15,952 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:16,443 - INFO - Getting enrollment details for section: -M01-TMC (3949)
+2025-08-14 23:18:17,074 - INFO - Extracted details for 8624: Credits=4.00, Terms=2
+2025-08-14 23:18:18,076 - INFO - 📖 Getting details for course 11/19: 8625
+2025-08-14 23:18:18,708 - INFO - Found 2 terms for 8625: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:18,709 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8625
+2025-08-14 23:18:18,722 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:19,152 - INFO - Getting enrollment details for section: -M01-TMC (1371)
+2025-08-14 23:18:20,798 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8625
+2025-08-14 23:18:20,813 - INFO - Switching to 2025-26 Term 2 for 8625
+2025-08-14 23:18:21,261 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:21,690 - INFO - Getting enrollment details for section: -M01-TMC (3947)
+2025-08-14 23:18:22,686 - INFO - Extracted details for 8625: Credits=5.00, Terms=2
+2025-08-14 23:18:23,688 - INFO - 📖 Getting details for course 12/19: 8626
+2025-08-14 23:18:24,308 - INFO - Found 2 terms for 8626: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:24,308 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8626
+2025-08-14 23:18:24,322 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:24,753 - INFO - Getting enrollment details for section: -M01-TMC (3959)
+2025-08-14 23:18:26,359 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8626
+2025-08-14 23:18:26,375 - INFO - Switching to 2025-26 Term 2 for 8626
+2025-08-14 23:18:27,213 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:27,639 - INFO - Getting enrollment details for section: -M01-TMC (1368)
+2025-08-14 23:18:28,663 - INFO - Extracted details for 8626: Credits=6.00, Terms=2
+2025-08-14 23:18:28,671 - INFO - 💾 Progress saved: ACPY - 12/19 courses completed
+2025-08-14 23:18:29,676 - INFO - 📖 Getting details for course 13/19: 8633
+2025-08-14 23:18:30,331 - INFO - Found 2 terms for 8633: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:30,331 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8633
+2025-08-14 23:18:30,344 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:30,772 - INFO - Getting enrollment details for section: -M01-TMC (1034)
+2025-08-14 23:18:32,548 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8633
+2025-08-14 23:18:32,562 - INFO - Switching to 2025-26 Term 2 for 8633
+2025-08-14 23:18:32,976 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:33,402 - INFO - Getting enrollment details for section: -M01-TMC (1023)
+2025-08-14 23:18:34,000 - INFO - Extracted details for 8633: Credits=3.00, Terms=2
+2025-08-14 23:18:35,001 - INFO - 📖 Getting details for course 14/19: 8634
+2025-08-14 23:18:35,652 - INFO - Found 2 terms for 8634: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:35,652 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8634
+2025-08-14 23:18:35,662 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:36,282 - INFO - Getting enrollment details for section: -M01-TMC (3965)
+2025-08-14 23:18:37,875 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8634
+2025-08-14 23:18:37,891 - INFO - Switching to 2025-26 Term 2 for 8634
+2025-08-14 23:18:38,305 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:38,720 - INFO - Getting enrollment details for section: -M01-TMC (1334)
+2025-08-14 23:18:39,353 - INFO - Extracted details for 8634: Credits=4.00, Terms=2
+2025-08-14 23:18:40,358 - INFO - 📖 Getting details for course 15/19: 8635
+2025-08-14 23:18:40,958 - INFO - Found 2 terms for 8635: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:40,958 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8635
+2025-08-14 23:18:40,970 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:41,384 - INFO - Getting enrollment details for section: -M01-TMC (3964)
+2025-08-14 23:18:42,999 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8635
+2025-08-14 23:18:43,016 - INFO - Switching to 2025-26 Term 2 for 8635
+2025-08-14 23:18:43,633 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:44,057 - INFO - Getting enrollment details for section: -M01-TMC (1371)
+2025-08-14 23:18:44,683 - INFO - Extracted details for 8635: Credits=5.00, Terms=2
+2025-08-14 23:18:45,688 - INFO - 📖 Getting details for course 16/19: 8636
+2025-08-14 23:18:46,240 - INFO - Found 2 terms for 8636: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:46,240 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8636
+2025-08-14 23:18:46,254 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:46,689 - INFO - Getting enrollment details for section: -M01-TMC (3961)
+2025-08-14 23:18:48,291 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8636
+2025-08-14 23:18:48,310 - INFO - Switching to 2025-26 Term 2 for 8636
+2025-08-14 23:18:48,784 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:49,566 - INFO - Getting enrollment details for section: -M01-TMC (3950)
+2025-08-14 23:18:50,155 - INFO - Extracted details for 8636: Credits=6.00, Terms=2
+2025-08-14 23:18:51,160 - INFO - 📖 Getting details for course 17/19: 8637
+2025-08-14 23:18:51,830 - INFO - Found 2 terms for 8637: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:51,830 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8637
+2025-08-14 23:18:51,842 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:52,262 - INFO - Getting enrollment details for section: -M01-TMC (3958)
+2025-08-14 23:18:53,886 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8637
+2025-08-14 23:18:53,901 - INFO - Switching to 2025-26 Term 2 for 8637
+2025-08-14 23:18:54,587 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:18:55,082 - INFO - Getting enrollment details for section: -M01-TMC (1370)
+2025-08-14 23:18:55,790 - INFO - Extracted details for 8637: Credits=7.00, Terms=2
+2025-08-14 23:18:56,790 - INFO - 📖 Getting details for course 18/19: 8638
+2025-08-14 23:18:57,539 - INFO - Found 2 terms for 8638: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:18:57,541 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8638
+2025-08-14 23:18:57,552 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:18:58,057 - INFO - Getting enrollment details for section: -M01-TMC (3903)
+2025-08-14 23:19:00,031 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8638
+2025-08-14 23:19:00,049 - INFO - Switching to 2025-26 Term 2 for 8638
+2025-08-14 23:19:00,512 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:19:00,963 - INFO - Getting enrollment details for section: -M01-TMC (3952)
+2025-08-14 23:19:01,974 - INFO - Extracted details for 8638: Credits=8.00, Terms=2
+2025-08-14 23:19:02,980 - INFO - 📖 Getting details for course 19/19: 8639
+2025-08-14 23:19:03,623 - INFO - Found 2 terms for 8639: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-14 23:19:03,624 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8639
+2025-08-14 23:19:03,634 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-14 23:19:04,162 - INFO - Getting enrollment details for section: -M01-TMC (3966)
+2025-08-14 23:19:05,817 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8639
+2025-08-14 23:19:05,825 - INFO - Switching to 2025-26 Term 2 for 8639
+2025-08-14 23:19:06,288 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-14 23:19:06,717 - INFO - Getting enrollment details for section: -M01-TMC (3951)
+2025-08-14 23:19:07,663 - INFO - Extracted details for 8639: Credits=9.00, Terms=2
+2025-08-14 23:19:07,663 - INFO - 🔍 ACPY: Found 19 courses
+2025-08-14 23:19:07,670 - INFO - 💾 SAVED ACPY → data/ACPY.json
+2025-08-14 23:19:07,679 - INFO - ✅ Completed ACPY: 19 courses in 1.7 minutes
+2025-08-14 23:19:07,679 - INFO - ✅ ACPY completed: 19 courses in 1.7min → data/ACPY.json
+2025-08-14 23:19:08,705 - INFO - 🔄 Processing AENP (3/263)
+2025-08-14 23:19:08,705 - INFO - 📋 Scraping AENP, attempt 1
+2025-08-14 23:19:09,250 - INFO - 🔤 OCR produced: W648 (awaiting server validation)
+2025-08-14 23:19:09,841 - INFO - ✅ Captcha accepted for AENP: no_records
+2025-08-14 23:19:09,855 - WARNING - No course data rows found
+2025-08-14 23:19:09,860 - INFO - 🚀 Started scraping AENP
+2025-08-14 23:19:09,860 - INFO - 🔍 AENP: Valid search, no courses found (empty subject)
+2025-08-14 23:19:10,865 - INFO - 📋 Scraping AENP, attempt 2
+2025-08-14 23:19:11,330 - INFO - 🔤 OCR produced: FE4H (awaiting server validation)
+2025-08-14 23:19:11,726 - WARNING - 🚫 Captcha rejected for AENP (attempt 2): captcha_failed - Invalid Verification Code
+2025-08-14 23:19:12,731 - INFO - 📋 Scraping AENP, attempt 3
+2025-08-14 23:19:13,221 - INFO - 🔤 OCR produced: 7E5G (awaiting server validation)
+2025-08-14 23:19:13,628 - WARNING - 🚫 Captcha rejected for AENP (attempt 3): captcha_failed - Invalid Verification Code
+2025-08-14 23:19:14,633 - INFO - 📋 Scraping AENP, attempt 4
+2025-08-14 23:19:15,111 - INFO - 🔤 OCR produced: TX22 (awaiting server validation)
+2025-08-14 23:19:15,658 - INFO - ✅ Captcha accepted for AENP: no_records
+2025-08-14 23:19:15,671 - WARNING - No course data rows found
+2025-08-14 23:19:15,675 - INFO - 🚀 Started scraping AENP
+2025-08-14 23:19:15,675 - INFO - 🔍 AENP: Valid search, no courses found (empty subject)
+2025-08-14 23:19:23,680 - INFO - 📋 Scraping AENP, attempt 5
+2025-08-14 23:19:24,137 - INFO - 🔤 OCR produced: 9ST8 (awaiting server validation)
+2025-08-14 23:19:24,688 - INFO - ✅ Captcha accepted for AENP: no_records
+2025-08-14 23:19:24,702 - WARNING - No course data rows found
+2025-08-14 23:19:24,708 - INFO - 🚀 Started scraping AENP
+2025-08-14 23:19:24,708 - INFO - 🔍 AENP: Valid search, no courses found (empty subject)
+2025-08-14 23:19:24,708 - INFO - 💾 SAVED AENP → data/AENP.json
+2025-08-14 23:19:24,712 - INFO - ✅ Completed AENP: 0 courses in 0.3 minutes
+2025-08-14 23:19:24,712 - INFO - ✅ AENP completed: no courses (empty subject) in 0.3min → data/AENP.json
+2025-08-14 23:19:25,722 - INFO - 🔄 Processing AEPT (4/263)
+2025-08-14 23:19:25,722 - INFO - 📋 Scraping AEPT, attempt 1
+2025-08-14 23:19:26,180 - WARNING - ❌ Invalid OCR format: 'DFP/' (expected 4 alphanumeric)
+2025-08-14 23:19:26,428 - WARNING - 🚫 Captcha rejected for AEPT (attempt 1): captcha_failed_no_table - No results table found, search form redisplayed
+2025-08-14 23:19:27,432 - INFO - 📋 Scraping AEPT, attempt 2
+2025-08-14 23:19:27,884 - INFO - 🔤 OCR produced: 6FLU (awaiting server validation)
+2025-08-14 23:19:28,436 - INFO - ✅ Captcha accepted for AEPT: no_records
+2025-08-14 23:19:28,450 - WARNING - No course data rows found
+2025-08-14 23:19:28,455 - INFO - 🚀 Started scraping AEPT
+2025-08-14 23:19:28,455 - INFO - 🔍 AEPT: Valid search, no courses found (empty subject)
+2025-08-14 23:19:30,460 - INFO - 📋 Scraping AEPT, attempt 3
+2025-08-14 23:19:30,918 - INFO - 🔤 OCR produced: P4YV (awaiting server validation)
+2025-08-14 23:19:31,468 - INFO - ✅ Captcha accepted for AEPT: no_records
+2025-08-14 23:19:31,481 - WARNING - No course data rows found
+2025-08-14 23:19:31,486 - INFO - 🚀 Started scraping AEPT
+2025-08-14 23:19:31,486 - INFO - 🔍 AEPT: Valid search, no courses found (empty subject)
+2025-08-14 23:19:35,490 - INFO - 📋 Scraping AEPT, attempt 4
+2025-08-14 23:19:35,940 - INFO - 🔤 OCR produced: QLJG (awaiting server validation)
+2025-08-14 23:19:36,499 - INFO - ✅ Captcha accepted for AEPT: no_records
+2025-08-14 23:19:36,512 - WARNING - No course data rows found
+2025-08-14 23:19:36,517 - INFO - 🚀 Started scraping AEPT
+2025-08-14 23:19:36,517 - INFO - 🔍 AEPT: Valid search, no courses found (empty subject)
+2025-08-14 23:19:44,523 - INFO - 📋 Scraping AEPT, attempt 5
+2025-08-14 23:19:44,994 - INFO - 🔤 OCR produced: C2TF (awaiting server validation)
+2025-08-14 23:19:45,587 - INFO - ✅ Captcha accepted for AEPT: no_records
+2025-08-14 23:19:45,621 - WARNING - No course data rows found
+2025-08-14 23:19:45,626 - INFO - 🚀 Started scraping AEPT
+2025-08-14 23:19:45,626 - INFO - 🔍 AEPT: Valid search, no courses found (empty subject)
+2025-08-14 23:19:45,627 - INFO - 💾 SAVED AEPT → data/AEPT.json
+2025-08-14 23:19:45,629 - INFO - ✅ Completed AEPT: 0 courses in 0.3 minutes
+2025-08-14 23:19:45,629 - INFO - ✅ AEPT completed: no courses (empty subject) in 0.3min → data/AEPT.json
+2025-08-14 23:19:46,646 - INFO - 🔄 Processing AIMS (5/263)
+2025-08-14 23:19:46,646 - INFO - 📋 Scraping AIMS, attempt 1
+2025-08-14 23:19:47,097 - INFO - 🔤 OCR produced: 1XX3 (awaiting server validation)
+2025-08-14 23:19:47,657 - INFO - ✅ Captcha accepted for AIMS: has_courses
+2025-08-14 23:19:47,670 - INFO - Parsed 12 courses from results table
+2025-08-14 23:19:47,672 - INFO - 🚀 Started scraping AIMS
+2025-08-14 23:19:47,672 - INFO - Getting details for all 12 courses...
+2025-08-14 23:19:47,672 - INFO - 📖 Getting details for course 1/12: 5701
+2025-08-14 23:19:48,321 - INFO - Found 1 terms for 5701: ['2025-26 Term 1']
+2025-08-14 23:19:48,322 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5701
+2025-08-14 23:19:48,331 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:19:48,338 - INFO - Getting enrollment details for section: --LEC (3747)
+2025-08-14 23:19:49,186 - INFO - Extracted details for 5701: Credits=3.00, Terms=1
+2025-08-14 23:19:50,193 - INFO - 📖 Getting details for course 2/12: 5702
+2025-08-14 23:19:51,454 - INFO - Found 1 terms for 5702: ['2025-26 Term 1']
+2025-08-14 23:19:51,455 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5702
+2025-08-14 23:19:51,466 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:19:51,474 - INFO - Getting enrollment details for section: --LEC (3748)
+2025-08-14 23:19:52,140 - INFO - Extracted details for 5702: Credits=3.00, Terms=1
+2025-08-14 23:19:53,142 - INFO - 📖 Getting details for course 3/12: 5703
+2025-08-14 23:19:53,752 - INFO - Found 1 terms for 5703: ['2025-26 Term 1']
+2025-08-14 23:19:53,752 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5703
+2025-08-14 23:19:53,763 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-14 23:19:53,768 - INFO - Getting enrollment details for section: --LEC (2214)
+2025-08-14 23:19:54,413 - INFO - Extracted details for 5703: Credits=3.00, Terms=1
+2025-08-14 23:19:55,417 - INFO - 📖 Getting details for course 4/12: 5710
+2025-08-14 23:19:56,041 - INFO - Found 1 terms for 5710: ['2025-26 Term 2']
+2025-08-14 23:19:56,042 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5710

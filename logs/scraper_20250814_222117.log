@@ -1,0 +1,10 @@
+2025-08-14 22:21:17,005 - INFO - 📝 File logging initialized: logs/scraper_20250814_222117.log
+2025-08-14 22:21:17,049 - INFO - 📋 Scraping CSCI, attempt 1
+2025-08-14 22:21:17,817 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR01
+2025-08-14 22:21:18,217 - WARNING - 🚫 Captcha rejected for CSCI (attempt 1): captcha_failed - Invalid Verification Code
+2025-08-14 22:21:19,222 - INFO - 📋 Scraping CSCI, attempt 2
+2025-08-14 22:21:19,652 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR02
+2025-08-14 22:21:20,034 - WARNING - 🚫 Captcha rejected for CSCI (attempt 2): captcha_failed - Invalid Verification Code
+2025-08-14 22:21:21,037 - INFO - 📋 Scraping CSCI, attempt 3
+2025-08-14 22:21:21,467 - INFO - 🧪 TEST: Intentionally returning wrong captcha: WR03
+2025-08-14 22:21:21,856 - WARNING - 🚫 Captcha rejected for CSCI (attempt 3): captcha_failed - Invalid Verification Code
