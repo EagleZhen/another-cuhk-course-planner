@@ -58,49 +58,11 @@ def main():
     except KeyboardInterrupt:
         logger.info("Scraping interrupted by user")
         
-        # Try to resume if progress tracking was enabled
-        try:
-            logger.info("You can resume scraping later with:")
-            logger.info("  python scrape_all_subjects.py --resume")
-        except:
-            pass
             
     except Exception as e:
         logger.error(f"Scraping failed: {e}")
-        logger.info("You can retry failed subjects with:")
-        logger.info("  python scrape_all_subjects.py --retry")
-
-def resume_scraping():
-    """Resume scraping from previous progress"""
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    logger = logging.getLogger(__name__)
-    
-    logger.info("Resuming scraping from previous progress...")
-    
-    scraper = CuhkScraper()
-    summary = scraper.resume_production_scraping()
-    logger.info(f"Resume completed: {summary}")
-
-def retry_failed():
-    """Retry failed subjects"""
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-    logger = logging.getLogger(__name__)
-    
-    logger.info("Retrying failed subjects...")
-    
-    scraper = CuhkScraper()
-    summary = scraper.retry_failed_subjects()
-    logger.info(f"Retry completed: {summary}")
+        logger.info("Check the progress file to see completed subjects.")
+        logger.info("Re-run with specific subjects to retry failures.")
 
 if __name__ == "__main__":
-    import sys
-    
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "--resume":
-            resume_scraping()
-        elif sys.argv[1] == "--retry":
-            retry_failed()
-        else:
-            print("Usage: python scrape_all_subjects.py [--resume|--retry]")
-    else:
-        main()
+    main()

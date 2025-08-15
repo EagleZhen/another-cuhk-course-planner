@@ -244,34 +244,10 @@ class ScrapingProgressTracker:
         self._save_progress()
         self.logger.error(f"Failed {subject} (attempt {retry_count}): {error_message}")
     
-    def get_remaining_subjects(self, all_subjects: List[str]) -> List[str]:
-        """Get list of subjects that still need to be scraped"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
-        remaining = []
-        
-        for subject in all_subjects:
-            if subject not in subjects or subjects[subject].get("status") != "completed":
-                remaining.append(subject)
-        
-        return remaining
-    
     def get_failed_subjects(self) -> List[str]:
-        """Get list of failed subjects for retry"""
+        """Get list of failed subjects for summary/retry purposes"""
         subjects = self.progress_data["scraping_log"]["subjects"]
         return [subject for subject, data in subjects.items() if data.get("status") == "failed"]
-    
-    def get_remaining_courses_for_subject(self, subject: str, all_course_codes: List[str]) -> List[str]:
-        """Get list of courses that still need to be scraped for a subject"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
-        if subject not in subjects:
-            return all_course_codes
-        
-        subject_data = subjects[subject]
-        if subject_data.get("status") == "completed":
-            return []  # Subject already completed
-        
-        completed_courses = subject_data.get("completed_courses", [])
-        return [course for course in all_course_codes if course not in completed_courses]
     
     def get_progress_percentage(self, subject: str) -> float:
         """Get completion percentage for a subject"""
@@ -1404,63 +1380,6 @@ class CuhkScraper:
         failed_count = len(results['failed'])
         return f"Production scraping completed: {completed_count} subjects successful, {failed_count} failed"
     
-    def resume_production_scraping(self, all_subjects: Optional[List[str]] = None, get_details: bool = True, get_enrollment_details: bool = True) -> str:
-        """Resume production scraping from previous progress"""
-        config = ScrapingConfig.for_production()
-        
-        # Get all subjects if not provided
-        if all_subjects is None:
-            all_subjects = self.get_subjects_from_live_site()
-            if not all_subjects:
-                return "Could not get subjects from live website"
-        
-        # Initialize progress tracker to check existing progress
-        progress_tracker = ScrapingProgressTracker(config.progress_file, self.logger)
-        
-        # Get remaining subjects to scrape
-        remaining_subjects = progress_tracker.get_remaining_subjects(all_subjects)
-        
-        if not remaining_subjects:
-            self.logger.info("All subjects already completed!")
-            progress_tracker.print_summary()
-            return "All subjects already completed"
-        
-        self.logger.info(f"Resuming scraping for {len(remaining_subjects)} remaining subjects")
-        self.logger.info(f"Remaining: {remaining_subjects[:10]}{'...' if len(remaining_subjects) > 10 else ''}")
-        
-        # Continue scraping remaining subjects
-        results = self.scrape_all_subjects(remaining_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-        
-        # Index file generation removed - frontend loads individual JSON files directly
-        # Return summary based on scraping results
-        completed_count = len(results['completed'])
-        failed_count = len(results['failed'])
-        return f"Resume scraping completed: {completed_count} subjects successful, {failed_count} failed"
-    
-    def retry_failed_subjects(self, get_details: bool = True, get_enrollment_details: bool = True) -> str:
-        """Retry previously failed subjects"""
-        config = ScrapingConfig.for_production()
-        
-        # Initialize progress tracker to check existing progress
-        progress_tracker = ScrapingProgressTracker(config.progress_file, self.logger)
-        
-        # Get failed subjects
-        failed_subjects = progress_tracker.get_failed_subjects()
-        
-        if not failed_subjects:
-            self.logger.info("No failed subjects to retry!")
-            return "No failed subjects to retry"
-        
-        self.logger.info(f"Retrying {len(failed_subjects)} failed subjects: {failed_subjects}")
-        
-        # Retry failed subjects
-        results = self.scrape_all_subjects(failed_subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
-        
-        # Index file generation removed - frontend loads individual JSON files directly
-        # Return summary based on scraping results
-        completed_count = len(results['completed'])
-        failed_count = len(results['failed'])
-        return f"Retry scraping completed: {completed_count} subjects successful, {failed_count} failed"
     
     def _save_subject_immediately(self, subject: str, courses: List[Course], config: ScrapingConfig) -> Optional[str]:
         """Save single subject immediately to prevent data loss"""
