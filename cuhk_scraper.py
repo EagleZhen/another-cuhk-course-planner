@@ -309,37 +309,30 @@ class CuhkScraper:
         })
         
         # Network resilience settings
-        self._session_start_time = time.time()
         self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
     
-    def _robust_request(self, method: str, url: str, max_retries: int = 3, **kwargs) -> requests.Response:
+    def _robust_request(self, method: str, url: str, **kwargs) -> requests.Response:
         """
-        Robust HTTP request with automatic retry for network issues
+        Robust HTTP request with infinite retry for network issues
         
         Args:
             method: 'GET' or 'POST'
             url: URL to request
-            max_retries: Maximum retry attempts for network issues
             **kwargs: Additional arguments for requests (data, params, etc.)
             
         Returns:
             Response object
             
-        Raises:
-            RequestException: After all retries exhausted
+        Note:
+            Retries infinitely for network issues (ConnectionError, Timeout, server errors)
+            Does not retry for client errors (4xx)
         """
         # Set default timeout if not provided
         if 'timeout' not in kwargs:
             kwargs['timeout'] = self._request_timeout
-            
-        # Refresh session if it's been running too long (prevent stale cookies)
-        if time.time() - self._session_start_time > 3600:  # 1 hour
-            self.logger.info("🔄 Refreshing session after 1 hour")
-            self._refresh_session()
         
-        last_exception = None
-        
-        for attempt in range(max_retries):
+        attempt = 0
+        while True:
             try:
                 # Make the request
                 if method.upper() == 'GET':
@@ -349,65 +342,27 @@ class CuhkScraper:
                 else:
                     raise ValueError(f"Unsupported HTTP method: {method}")
                 
-                # Check for HTTP errors with specific handling
+                # Check for HTTP errors
                 response.raise_for_status()
                 return response
                 
-            except Timeout as e:
-                last_exception = e
-                wait_time = min(30, 2 ** attempt)  # Cap at 30 seconds
-                self.logger.warning(f"⏱️ Request timeout (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s")
-                if attempt < max_retries - 1:
-                    time.sleep(wait_time)
-                    
-            except ConnectionError as e:
-                last_exception = e
-                wait_time = min(60, 5 * (attempt + 1))  # Progressive delay for connection issues
-                self.logger.warning(f"🌐 Connection error (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s")
-                if attempt < max_retries - 1:
-                    time.sleep(wait_time)
-                    # Try refreshing session on connection errors
-                    self._refresh_session()
-                    
-            except HTTPError as e:
-                if e.response.status_code == 429:  # Rate limited
-                    wait_time = min(120, 10 * (2 ** attempt))  # Exponential backoff, cap at 2 minutes
-                    self.logger.warning(f"⚠️ Rate limited (429), waiting {wait_time}s before retry")
-                    if attempt < max_retries - 1:
-                        time.sleep(wait_time)
-                        continue
-                elif e.response.status_code in [502, 503, 504]:  # Server issues
-                    wait_time = min(60, 10 * (attempt + 1))  # Progressive delay
-                    self.logger.warning(f"🔧 Server error {e.response.status_code} (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s")
-                    if attempt < max_retries - 1:
-                        time.sleep(wait_time)
-                        continue
-                # For other HTTP errors (4xx), don't retry
-                self.logger.error(f"❌ HTTP error {e.response.status_code}: {e}")
-                raise e
+            except (ConnectionError, Timeout) as e:
+                attempt += 1
+                # Progressive delay: 5s, 10s, 15s, ..., max 5 minutes
+                wait_time = min(300, 5 * attempt)
+                self.logger.warning(f"🌐 Network issue (attempt {attempt}), retrying in {wait_time}s: {type(e).__name__}")
+                time.sleep(wait_time)
                 
-            except RequestException as e:
-                last_exception = e
-                wait_time = min(30, 3 * (attempt + 1))  # Progressive delay for other network issues
-                self.logger.warning(f"🔌 Network error (attempt {attempt + 1}/{max_retries}), retrying in {wait_time}s: {e}")
-                if attempt < max_retries - 1:
+            except HTTPError as e:
+                if e.response.status_code in [502, 503, 504]:  # Server errors - retry
+                    attempt += 1
+                    wait_time = min(60, 10 * attempt)  # Max 1 minute for server issues
+                    self.logger.warning(f"🔧 Server error {e.response.status_code} (attempt {attempt}), retrying in {wait_time}s")
                     time.sleep(wait_time)
-        
-        # All retries exhausted
-        self.logger.error(f"💥 All {max_retries} attempts failed for {method} {url}")
-        if last_exception:
-            raise last_exception
-        else:
-            raise RequestException(f"All {max_retries} attempts failed for {method} {url}")
-    
-    def _refresh_session(self):
-        """Refresh the session to clear stale cookies and connection state"""
-        old_headers = self.session.headers.copy()
-        self.session.close()
-        self.session = requests.Session()
-        self.session.headers.update(old_headers)
-        self._session_start_time = time.time()
-        self.logger.debug("🔄 Session refreshed")
+                else:
+                    # Don't retry client errors (4xx) or other server errors
+                    self.logger.error(f"❌ HTTP error {e.response.status_code}: {e}")
+                    raise
     
     def _setup_file_logging(self, logs_directory: str = "logs", log_level: int = logging.INFO) -> str:
         """
