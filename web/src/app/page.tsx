@@ -481,7 +481,10 @@ export default function Home() {
                     showSelectedOnly={showSelectedOnly}
                     subjectSearchTerm={subjectSearchTerm}
                     onToggleShowSelected={() => setShowSelectedOnly(!showSelectedOnly)}
-                    onClearAll={() => setSelectedSubjects(new Set())}
+                    onClearAll={() => {
+                      setSelectedSubjects(new Set())
+                      setSubjectSearchTerm('')
+                    }}
                     onSubjectSearchChange={setSubjectSearchTerm}
                     className="hidden sm:flex"
                   />
@@ -494,7 +497,10 @@ export default function Home() {
                     showSelectedOnly={showSelectedOnly}
                     subjectSearchTerm={subjectSearchTerm}
                     onToggleShowSelected={() => setShowSelectedOnly(!showSelectedOnly)}
-                    onClearAll={() => setSelectedSubjects(new Set())}
+                    onClearAll={() => {
+                      setSelectedSubjects(new Set())
+                      setSubjectSearchTerm('')
+                    }}
                     onSubjectSearchChange={setSubjectSearchTerm}
                     className="sm:hidden"
                   />
@@ -669,7 +675,7 @@ function SubjectFilterControls({
               size="sm"
               onClick={onClearAll}
               className="h-5 px-2 text-xs font-normal cursor-pointer"
-              title="Clear all subject filters"
+              title="Clear all subject filters and search"
             >
               ✕ Clear Subjects
             </Button>
