@@ -198,21 +198,21 @@ export default function WeeklyCalendar({
           </div>
         </div>
 
-        {/* Mobile layout: title row, then buttons row */}
+        {/* Mobile layout: title row, then controls row */}
         <div className="md:hidden">
+          <CardTitle className="mb-3">Weekly Schedule</CardTitle>
           <div className="flex items-center justify-between mb-2">
-            <CardTitle>Weekly Schedule</CardTitle>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleScreenshot}
                 disabled={isCapturing}
-                className="flex items-center gap-1 cursor-pointer"
+                className="flex items-center gap-1 cursor-pointer flex-shrink-0"
                 title="Download schedule as image"
               >
                 <Camera className="w-4 h-4" />
-                {isCapturing ? 'Capturing...' : 'Screenshot'}
+                <span className="hidden xs:inline">{isCapturing ? 'Capturing...' : 'Screenshot'}</span>
               </Button>
               
               <TermSelector 

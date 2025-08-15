@@ -1191,50 +1191,56 @@ function CourseCard({
           </div>
         </div>
 
-        {/* Mobile Layout: Clean title row + action buttons below */}
+        {/* Mobile Layout: Course header + search buttons below */}
         <div className="sm:hidden space-y-3">
-          {/* Clean title row */}
-          <div className="flex items-center gap-2">
+          {/* Course header */}
+          <div>
             <CardTitle className="text-lg">
               {course.subject}{course.courseCode}
             </CardTitle>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
-              }}
-              className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
-              title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
-            >
-              <Search className="w-3 h-3 mr-1" />
-              Course Outline
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
-              }}
-              className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
-              title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
-            >
-              <Search className="w-3 h-3 mr-1" />
-              Course Reviews
-            </Button>
-          </div>
-
-          {/* Course info */}
-          <div>
-            <CardDescription className="text-base font-medium text-gray-700">
+            <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
             </CardDescription>
+            
+            {/* Search buttons below course header */}
+            <div className="flex items-center gap-2 mt-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
+                }}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
+              >
+                <Search className="w-3 h-3 mr-1" />
+                <span className="hidden xs:inline">Course Outline</span>
+                <span className="xs:hidden">Outline</span>
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
+                }}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
+              >
+                <Search className="w-3 h-3 mr-1" />
+                <span className="hidden xs:inline">Course Reviews</span>
+                <span className="xs:hidden">Reviews</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Course metadata */}
+          <div>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
-              <Badge variant="outline">{course.credits} credits</Badge>
+              <Badge variant="secondary">{course.credits} credits</Badge>
               {course.gradingBasis && (
-                <Badge variant="outline" className="text-xs">
+                <Badge variant="secondary" className="text-xs">
                   {course.gradingBasis}
                 </Badge>
               )}
