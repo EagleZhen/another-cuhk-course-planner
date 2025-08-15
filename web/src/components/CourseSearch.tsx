@@ -5,8 +5,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 
@@ -1734,7 +1734,23 @@ function CourseCard({
                                 {/* Row 3: Location */}
                                 <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
                                   <span>📍</span>
-                                  <span className="truncate" title={location}>{location}</span>
+                                  <div className="flex items-center gap-1 min-w-0 flex-1">
+                                    <span className="truncate" title={location}>
+                                      {location}
+                                    </span>
+                                    {location !== 'TBD' && (
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation()
+                                          googleMapsSearchAndOpen(location)
+                                        }}
+                                        className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                        title={`View "${location}" on Google Maps`}
+                                      >
+                                        <MapPin className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                      </button>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
                             )

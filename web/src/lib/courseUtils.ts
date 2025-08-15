@@ -1212,3 +1212,13 @@ export const googleSearchAndOpen = (query: string): void => {
   const url = `https://www.google.com/search?${params.toString()}`
   window.open(url, '_blank', 'noopener,noreferrer')
 }
+
+/**
+ * Opens Google Maps search for the given location and opens in new tab
+ * @param location Location string to search for
+ */
+export const googleMapsSearchAndOpen = (location: string): void => {
+  const encodedLocation = encodeURIComponent(location)
+  const url = `https://www.google.com/maps/search/${encodedLocation}`
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
