@@ -476,6 +476,68 @@ def save_analysis_results(console_output: str, timestamp: str):
     
     print(f"📁 Results saved to: {txt_filename}")
 
+def analyze_weekend_courses(subjects_data: Dict[str, any]) -> Dict[str, any]:
+    """Analyze courses that have classes on weekends (Saturday/Sunday)"""
+    weekend_courses = []
+    weekend_sections_count = 0
+    total_courses_analyzed = 0
+    
+    # Weekend day patterns
+    weekend_patterns = [
+        r'\bSa\b', r'\bSat\b', r'\bSaturday\b',  # Saturday patterns
+        r'\bSu\b', r'\bSun\b', r'\bSunday\b'     # Sunday patterns
+    ]
+    
+    for subject_code, subject_data in subjects_data.items():
+        courses = subject_data.get('courses', [])
+        
+        for course in courses:
+            total_courses_analyzed += 1
+            course_has_weekend = False
+            weekend_sections = []
+            
+            terms = course.get('terms', [])
+            
+            for term in terms:
+                schedule = term.get('schedule', [])
+                
+                for section in schedule:
+                    meetings = section.get('meetings', [])
+                    
+                    for meeting in meetings:
+                        time_str = meeting.get('time', '')
+                        
+                        if time_str and time_str.upper() != 'TBA':
+                            # Check if time string contains weekend day patterns
+                            for pattern in weekend_patterns:
+                                if re.search(pattern, time_str, re.IGNORECASE):
+                                    course_has_weekend = True
+                                    weekend_sections_count += 1
+                                    weekend_sections.append({
+                                        'section': section.get('section', ''),
+                                        'time': time_str,
+                                        'location': meeting.get('location', ''),
+                                        'instructor': meeting.get('instructor', ''),
+                                        'term': term.get('term_name', '')
+                                    })
+                                    break
+            
+            if course_has_weekend:
+                weekend_courses.append({
+                    'subject': subject_code,
+                    'course_code': course.get('course_code', ''),
+                    'title': course.get('title', ''),
+                    'credits': course.get('credits', ''),
+                    'sections': weekend_sections
+                })
+    
+    return {
+        'weekend_courses': weekend_courses,
+        'weekend_sections_count': weekend_sections_count,
+        'total_courses_analyzed': total_courses_analyzed,
+        'weekend_course_count': len(weekend_courses)
+    }
+
 def main():
     """Main analysis function"""
     import sys
@@ -712,7 +774,45 @@ def main():
         
         print()
         
-        # 6. Subject Summary
+        # 6. Weekend Course Analysis  
+        print("🏖️ WEEKEND COURSE ANALYSIS")
+        print("-" * 30)
+        weekend_analysis = analyze_weekend_courses(subjects_data)
+        
+        weekend_count = weekend_analysis['weekend_course_count']
+        sections_count = weekend_analysis['weekend_sections_count']
+        total_analyzed = weekend_analysis['total_courses_analyzed']
+        
+        print(f"📊 Weekend Course Statistics:")
+        print(f"   Total courses analyzed: {total_analyzed:,}")
+        print(f"   Courses with weekend classes: {weekend_count}")
+        print(f"   Weekend sections found: {sections_count}")
+        print(f"   Percentage: {(weekend_count/total_analyzed*100):.2f}% of courses have weekend classes")
+        print()
+        
+        if weekend_count > 0:
+            print("📋 Weekend Courses Found:")
+            for course in weekend_analysis['weekend_courses'][:3]:  # Show first 3 examples
+                print(f"   📚 {course['subject']}{course['course_code']} - {course['title']}")
+                print(f"      Credits: {course['credits']}")
+                for section in course['sections'][:2]:  # Show first 2 sections per course
+                    print(f"      └─ {section['section']}: {section['time']}")
+                    if section['location']:
+                        print(f"         📍 {section['location']}")
+                    if section['instructor']:
+                        print(f"         👨‍🏫 {section['instructor']}")
+                print()
+            
+            if weekend_count > 3:
+                print(f"   ... and {weekend_count - 3} more weekend courses")
+                print()
+        else:
+            print("   ✅ No weekend courses found - all classes are on weekdays")
+            print()
+        
+        print()
+        
+        # 7. Subject Summary
         print("📊 SUBJECT SUMMARY")
         print("-" * 20)
         subject_stats = generate_subject_summary(subjects_data)
