@@ -400,15 +400,104 @@ class CuhkScraper:
             
             # Validate captcha format (4 alphanumeric characters)
             if len(text) == 4 and text.isalnum():
-                self.logger.info(f"Captcha solved: {text}")
+                self.logger.info(f"🔤 OCR produced: {text} (awaiting server validation)")
                 return text
             else:
-                self.logger.warning(f"Invalid captcha format: {text}")
+                self.logger.warning(f"❌ Invalid OCR format: '{text}' (expected 4 alphanumeric)")
             
         except Exception as e:
-            self.logger.error(f"Captcha solving failed: {e}")
+            self.logger.error(f"❌ OCR processing failed: {e}")
         
         return None
+    
+    def _validate_captcha_response(self, response_html: str) -> dict:
+        """
+        Analyze server response to determine captcha status and result type
+        
+        Args:
+            response_html: HTML response from server after captcha submission
+            
+        Returns:
+            dict: {
+                'captcha_accepted': bool,
+                'has_results': bool,
+                'result_type': str,  # 'captcha_failed' | 'no_records' | 'has_courses' | 'server_error' | etc.
+                'error_message': str | None
+            }
+        """
+        soup = BeautifulSoup(response_html, 'html.parser')
+        
+        # 1. Check for explicit captcha error message
+        error_span = soup.find('span', {'id': 'lbl_error', 'class': 'errorLabel'})
+        if error_span:
+            error_text = error_span.get_text(strip=True)
+            if error_text:  # Non-empty error message
+                if 'Invalid Verification Code' in error_text:
+                    return {
+                        'captcha_accepted': False,
+                        'has_results': False,
+                        'result_type': 'captcha_failed',
+                        'error_message': error_text
+                    }
+                else:
+                    # Other server errors
+                    return {
+                        'captcha_accepted': False,
+                        'has_results': False,
+                        'result_type': 'server_error',
+                        'error_message': error_text
+                    }
+        
+        # 2. If no error message, check for results table
+        results_table = soup.find('table', {'id': 'gv_detail'})
+        if not results_table:
+            # No results table = captcha might have failed (form redisplay)
+            # Double-check: if search form is still present = captcha failed
+            search_form = soup.find('input', {'name': 'txt_captcha'})
+            if search_form:
+                return {
+                    'captcha_accepted': False,
+                    'has_results': False,
+                    'result_type': 'captcha_failed_no_table',
+                    'error_message': 'No results table found, search form redisplayed'
+                }
+            else:
+                return {
+                    'captcha_accepted': True,  # Uncertain but likely accepted
+                    'has_results': False,
+                    'result_type': 'unknown_error',
+                    'error_message': 'No results table, no search form'
+                }
+        
+        # 3. Results table exists - check if it has actual data
+        empty_row = results_table.find('tr', class_='normalGridViewEmptyDataRowStyle')
+        if empty_row:
+            empty_text = empty_row.get_text(strip=True)
+            if 'No record found' in empty_text:
+                return {
+                    'captcha_accepted': True,
+                    'has_results': False,
+                    'result_type': 'no_records',
+                    'error_message': None
+                }
+        
+        # 4. Check for actual course data rows
+        course_links = results_table.find_all('a', {'id': lambda x: x and 'lbtn_course_nbr' in x})
+        if course_links:
+            return {
+                'captcha_accepted': True,
+                'has_results': True,
+                'result_type': 'has_courses',
+                'error_message': None
+            }
+        
+        # 5. Fallback: table exists but unclear content
+        return {
+            'captcha_accepted': True,  # Assume accepted if we got to results
+            'has_results': False,
+            'result_type': 'empty_unclear',
+            'error_message': 'Results table exists but content unclear'
+        }
     
     def get_subjects_from_live_site(self) -> List[str]:
         """Extract subject codes from live website"""
@@ -462,6 +551,21 @@ class CuhkScraper:
                 response = self.session.post(self.base_url, data=form_data)
                 response.raise_for_status()
                 
+                # Validate captcha was accepted by server
+                validation = self._validate_captcha_response(response.text)
+                if not validation['captcha_accepted']:
+                    self.logger.warning(
+                        f"🚫 Captcha rejected for {subject_code} (attempt {attempt + 1}): "
+                        f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
+                    )
+                    # Continue to next attempt
+                    if attempt < config.max_retries - 1:
+                        time.sleep(1)  # Brief delay before retry
+                    continue
+                
+                # Captcha accepted! Log result type
+                self.logger.info(f"✅ Captcha accepted for {subject_code}: {validation['result_type']}")
+                
                 # Debug: save response to understand structure (using smart saving)
                 self._save_debug_html(response.text, f"response_{subject_code}_attempt_{attempt + 1}.html")
                 
@@ -514,8 +618,13 @@ class CuhkScraper:
                         detailed_courses.extend(courses[config.max_courses_per_subject:])
                     courses = detailed_courses
                 
+                # Log results based on validation type and course count
+                if validation['result_type'] == 'no_records':
+                    self.logger.info(f"🔍 {subject_code}: Valid search, no courses found (empty subject)")
+                elif validation['result_type'] == 'has_courses':
+                    self.logger.info(f"🔍 {subject_code}: Found {len(courses)} courses")
+                
                 if courses:
-                    self.logger.info(f"Found {len(courses)} courses for {subject_code}")
                     return courses
                 
                 if attempt < config.max_retries - 1:
