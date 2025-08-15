@@ -797,7 +797,7 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
     
-    def get_course_details(self, course: Course, current_html: str, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Optional[Course]:
+    def get_course_details(self, course: Course, current_html: str, get_enrollment_details: bool = False, get_course_outcome: bool = False, config: Optional[ScrapingConfig] = None) -> Optional[Course]:
         """Get detailed course information by simulating postback"""
         if config is None:
             config = ScrapingConfig()  # Use testing defaults
@@ -826,7 +826,7 @@ class CuhkScraper:
             response = self._robust_request('POST', self.base_url, data=form_data)
             
             # Get course details with all available terms
-            detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details, config=config)
+            detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details, get_course_outcome=get_course_outcome, config=config)
             
             # Debug: save detailed response (using smart saving)
             self._set_context(config, course)  # Set course context
@@ -838,7 +838,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting course details for {course.course_code}: {e}")
             return course
     
-    def _get_course_details_with_term_selection(self, html: str, base_course: Course, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Course:
+    def _get_course_details_with_term_selection(self, html: str, base_course: Course, get_enrollment_details: bool = False, get_course_outcome: bool = False, config: Optional[ScrapingConfig] = None) -> Course:
         """Get course details for all available terms"""
         soup = BeautifulSoup(html, 'html.parser')
         
@@ -847,6 +847,10 @@ class CuhkScraper:
         
         # Extract additional course details
         self._extract_additional_course_details(soup, base_course)
+        
+        # Extract Course Outcome details if requested
+        if get_course_outcome:
+            self._scrape_course_outcome(html, base_course)
         
         # Check for term dropdown
         term_select = soup.find('select', {'id': 'uc_course_ddl_class_term'})
@@ -1342,6 +1346,104 @@ class CuhkScraper:
         if not text:
             return ""
         return text.strip().replace('\n', ' ').replace('\r', '').replace('\t', ' ')
+    
+    def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
+        """Navigate to Course Outcome page and extract detailed course information"""
+        try:
+            soup = BeautifulSoup(current_html, 'html.parser')
+            
+            # Check if Course Outcome button exists
+            outcome_btn = soup.find('input', {'id': 'btn_course_outcome'})
+            if not outcome_btn:
+                self.logger.info(f"No Course Outcome button found for {course.course_code}")
+                return
+            
+            # Extract form data for Course Outcome navigation
+            form_data = {}
+            for input_elem in soup.find_all('input', {'type': 'hidden'}):
+                name = input_elem.get('name')
+                value = input_elem.get('value', '')
+                if name:
+                    form_data[name] = value
+            
+            # Set Course Outcome postback data
+            form_data['btn_course_outcome'] = 'Course Outcome'
+            
+            # Submit Course Outcome request
+            self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
+            response = self._robust_request('POST', self.base_url, data=form_data)
+            
+            # Parse Course Outcome page
+            self._parse_course_outcome_content(response.text, course)
+            
+        except Exception as e:
+            self.logger.error(f"Error scraping Course Outcome for {course.course_code}: {e}")
+    
+    def _parse_course_outcome_content(self, html: str, course: Course) -> None:
+        """Parse Course Outcome page content and extract all relevant information"""
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Extract Learning Outcomes
+        learning_outcome_span = soup.find('span', {'id': 'uc_course_outcome_lbl_learning_outcome'})
+        if learning_outcome_span:
+            course.learning_outcomes = self._clean_text(learning_outcome_span.get_text())
+            self.logger.debug(f"Extracted learning outcomes for {course.course_code}")
+        
+        # Extract Course Syllabus  
+        syllabus_span = soup.find('span', {'id': 'uc_course_outcome_lbl_course_syllabus'})
+        if syllabus_span:
+            course.course_syllabus = self._clean_text(syllabus_span.get_text())
+            self.logger.debug(f"Extracted course syllabus for {course.course_code}")
+        
+        # Extract Assessment Types (table structure)
+        assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
+        if assessment_table:
+            course.assessment_types = self._parse_assessment_table(assessment_table)
+            self.logger.debug(f"Extracted {len(course.assessment_types)} assessment types for {course.course_code}")
+        
+        # Extract Feedback for Evaluation
+        feedback_span = soup.find('span', {'id': 'uc_course_outcome_lbl_feedback'})
+        if feedback_span:
+            course.feedback_evaluation = self._clean_text(feedback_span.get_text())
+            self.logger.debug(f"Extracted feedback evaluation for {course.course_code}")
+        
+        # Extract Required Readings
+        required_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_req_reading'})
+        if required_reading_span:
+            course.required_readings = self._clean_text(required_reading_span.get_text())
+            self.logger.debug(f"Extracted required readings for {course.course_code}")
+        
+        # Extract Recommended Readings
+        recommended_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_rec_reading'})
+        if recommended_reading_span:
+            course.recommended_readings = self._clean_text(recommended_reading_span.get_text())
+            self.logger.debug(f"Extracted recommended readings for {course.course_code}")
+        
+        self.logger.info(f"Successfully parsed Course Outcome for {course.course_code}")
+    
+    def _parse_assessment_table(self, table) -> Dict[str, str]:
+        """Parse assessment types table and return as key-value pairs"""
+        assessment_types = {}
+        
+        try:
+            # Find all data rows (skip header row)
+            rows = table.find_all('tr')
+            for row in rows[1:]:  # Skip header row
+                cells = row.find_all('td')
+                if len(cells) >= 3:
+                    # Extract assessment type and percentage
+                    assessment_type = self._clean_text(cells[1].get_text())
+                    percentage = self._clean_text(cells[2].get_text())
+                    
+                    if assessment_type and percentage:
+                        assessment_types[assessment_type] = percentage
+            
+            self.logger.debug(f"Parsed assessment table: {assessment_types}")
+            
+        except Exception as e:
+            self.logger.warning(f"Error parsing assessment table: {e}")
+        
+        return assessment_types
     
     def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, Any]:
         """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup"""
