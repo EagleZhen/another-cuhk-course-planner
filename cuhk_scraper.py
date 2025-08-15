@@ -25,12 +25,17 @@ class ScrapingConfig:
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = "tests/output/debug_html"  # Separate from JSON results
     request_delay: float = 2.0
-    max_retries: int = 3
+    max_retries: int = 5
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
     progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename
     progress_update_interval: int = 60  # Save progress every N seconds
+    
+    # Scraping scope configuration
+    get_details: bool = False  # Get detailed course information beyond basic listings
+    get_enrollment_details: bool = False  # Get section-level enrollment numbers and availability
+    get_course_outcome: bool = False  # Get Course Outcome page data (learning outcomes, assessments, etc.)
     
     @classmethod
     def for_production(cls):
@@ -41,12 +46,16 @@ class ScrapingConfig:
             save_debug_on_error=True,     # Only save HTML on parsing errors
             debug_html_directory="data/debug_html",  # Separate debug folder
             request_delay=1.0,
-            max_retries=5,
+            max_retries=10,
             output_mode="per_subject",  # Per-subject files for production
             output_directory="data",     # Production data directory
             track_progress=True,         # Enable progress tracking
             progress_file="data/scraping_progress.json",
-            progress_update_interval=60  # 1-minute periodic saves
+            progress_update_interval=60,  # 1-minute periodic saves
+            # Full scraping scope for production
+            get_details=True,
+            get_enrollment_details=True,
+            get_course_outcome=True  # Include Course Outcome data for comprehensive course information
         )
 
 @dataclass
@@ -278,16 +287,19 @@ class ScrapingProgressTracker:
 class CuhkScraper:
     """Simplified CUHK course scraper"""
     
-    def __init__(self):
+    def __init__(self, config: Optional[ScrapingConfig] = None):
         self.session = requests.Session()
         self.logger = logging.getLogger(__name__)
         self.base_url = "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
         self.progress_tracker: Optional[ScrapingProgressTracker] = None
         
+        # Primary configuration for this scraper instance
+        self.config = config or ScrapingConfig()
+        
         # Set up file logging automatically
         self._setup_file_logging()
         
-        # Context management - eliminates parameter propagation
+        # Context management - eliminates parameter propagation (kept for debugging context)
         self.current_config: Optional[ScrapingConfig] = None
         self.current_course_context: Optional[Dict] = None
         self.subject_titles_cache: Dict[str, str] = {}  # Cache for subject code -> title mapping
@@ -581,15 +593,12 @@ class CuhkScraper:
             self.logger.error(f"❌ Error getting subjects with titles: {e}")
             return []
     
-    def scrape_subject(self, subject_code: str, get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> List[Course]:
+    def scrape_subject(self, subject_code: str) -> List[Course]:
         """Scrape courses for a specific subject"""
-        if config is None:
-            config = ScrapingConfig()  # Use testing defaults
-        
         # Set context for this subject
-        self._set_context(config)
+        self._set_context(self.config)
             
-        for attempt in range(config.max_retries):
+        for attempt in range(self.config.max_retries):
             try:
                 self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
                 
@@ -613,7 +622,7 @@ class CuhkScraper:
                         f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
                     )
                     # Continue to next attempt
-                    if attempt < config.max_retries - 1:
+                    if attempt < self.config.max_retries - 1:
                         time.sleep(1)  # Brief delay before retry
                     continue
                 
@@ -631,14 +640,14 @@ class CuhkScraper:
                     course.subject = subject_code
                 
                 # Mark subject as started in progress tracker with course count estimate
-                if self.progress_tracker and config.track_progress:
+                if self.progress_tracker and self.config.track_progress:
                     self.progress_tracker.start_subject(subject_code, len(courses))
                 
                 # Get detailed information if requested
-                if get_details and courses:
+                if self.config.get_details and courses:
                     # Apply course limit based on configuration
-                    if config.max_courses_per_subject is not None:
-                        courses_to_detail = courses[:config.max_courses_per_subject]
+                    if self.config.max_courses_per_subject is not None:
+                        courses_to_detail = courses[:self.config.max_courses_per_subject]
                         self.logger.info(f"Getting details for {len(courses_to_detail)} courses (limited by config)...")
                     else:
                         courses_to_detail = courses
@@ -649,27 +658,27 @@ class CuhkScraper:
                     
                     for i, course in enumerate(courses_to_detail):
                         self.logger.info(f"📖 Getting details for course {i+1}/{len(courses_to_detail)}: {course.course_code}")
-                        detailed_course = self.get_course_details(course, response.text, get_enrollment_details=get_enrollment_details, config=config)
+                        detailed_course = self.get_course_details(course, response.text)
                         detailed_courses.append(detailed_course)
                         
                         # Update course-level progress tracking
-                        if self.progress_tracker and config.track_progress:
+                        if self.progress_tracker and self.config.track_progress:
                             courses_completed = i + 1
                             self.progress_tracker.update_course_progress(subject_code, course.course_code, courses_completed)
                             
                             # Periodic progress save based on interval
-                            if self.progress_tracker.should_save_periodic_progress(last_progress_save, config.progress_update_interval):
+                            if self.progress_tracker.should_save_periodic_progress(last_progress_save, self.config.progress_update_interval):
                                 self.progress_tracker.save_periodic_progress()
                                 last_progress_save = time.time()
                                 self.logger.info(f"💾 Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed")
                         
                         # Be polite to the server
                         if i < len(courses_to_detail) - 1:
-                            time.sleep(config.request_delay)
+                            time.sleep(self.config.request_delay)
                     
                     # Add remaining courses without details for complete list (if limited)
-                    if config.max_courses_per_subject is not None:
-                        detailed_courses.extend(courses[config.max_courses_per_subject:])
+                    if self.config.max_courses_per_subject is not None:
+                        detailed_courses.extend(courses[self.config.max_courses_per_subject:])
                     courses = detailed_courses
                 
                 # Log results based on validation type and course count
@@ -681,12 +690,12 @@ class CuhkScraper:
                 if courses:
                     return courses
                 
-                if attempt < config.max_retries - 1:
+                if attempt < self.config.max_retries - 1:
                     time.sleep(2 ** attempt)  # Exponential backoff
                     
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
-                if attempt < config.max_retries - 1:
+                if attempt < self.config.max_retries - 1:
                     time.sleep(2 ** attempt)
         
         return []
@@ -797,11 +806,8 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
     
-    def get_course_details(self, course: Course, current_html: str, get_enrollment_details: bool = False, get_course_outcome: bool = False, config: Optional[ScrapingConfig] = None) -> Optional[Course]:
+    def get_course_details(self, course: Course, current_html: str) -> Optional[Course]:
         """Get detailed course information by simulating postback"""
-        if config is None:
-            config = ScrapingConfig()  # Use testing defaults
-            
         if not course.postback_target:
             self.logger.warning(f"No postback target for course {course.course_code}")
             return course
@@ -826,10 +832,10 @@ class CuhkScraper:
             response = self._robust_request('POST', self.base_url, data=form_data)
             
             # Get course details with all available terms
-            detailed_course = self._get_course_details_with_term_selection(response.text, course, get_enrollment_details=get_enrollment_details, get_course_outcome=get_course_outcome, config=config)
+            detailed_course = self._get_course_details_with_term_selection(response.text, course)
             
             # Debug: save detailed response (using smart saving)
-            self._set_context(config, course)  # Set course context
+            self._set_context(self.config, course)  # Set course context
             self._save_debug_html(response.text, f"course_details_{course.subject}_{course.course_code}.html")
             
             return detailed_course
@@ -838,7 +844,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting course details for {course.course_code}: {e}")
             return course
     
-    def _get_course_details_with_term_selection(self, html: str, base_course: Course, get_enrollment_details: bool = False, get_course_outcome: bool = False, config: Optional[ScrapingConfig] = None) -> Course:
+    def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
         soup = BeautifulSoup(html, 'html.parser')
         
@@ -849,7 +855,7 @@ class CuhkScraper:
         self._extract_additional_course_details(soup, base_course)
         
         # Extract Course Outcome details if requested
-        if get_course_outcome:
+        if self.config.get_course_outcome:
             self._scrape_course_outcome(html, base_course)
         
         # Check for term dropdown
@@ -877,7 +883,7 @@ class CuhkScraper:
         for i, (term_code, term_name) in enumerate(available_terms):
             try:
                 self.logger.info(f"Scraping term {i+1}/{len(available_terms)}: {term_name} for {base_course.course_code}")
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name, get_enrollment_details=get_enrollment_details)
+                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
                 if term_info:
                     all_term_info.append(term_info)
                 
@@ -895,7 +901,7 @@ class CuhkScraper:
                        f"Terms={len(all_term_info)}")
         return base_course
     
-    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
+    def _scrape_term_details(self, html: str, base_course: Course, term_code: str, term_name: str) -> Optional[TermInfo]:
         """Scrape details for a specific term"""
         try:
             soup = BeautifulSoup(html, 'html.parser')
@@ -963,7 +969,7 @@ class CuhkScraper:
                     self._save_debug_html(html, filename)
             
             # Parse the term-specific information
-            return self._parse_term_info(html, term_code, term_name, get_enrollment_details)
+            return self._parse_term_info(html, term_code, term_name)
             
         except Exception as e:
             self.logger.error(f"Error scraping term {term_name}: {e}")
@@ -1336,9 +1342,9 @@ class CuhkScraper:
         """Parse term info when no dropdown is available"""
         return self._create_term_info(html)
     
-    def _parse_term_info(self, html: str, term_code: str, term_name: str, get_enrollment_details: bool = False) -> Optional[TermInfo]:
+    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
         """Parse term-specific information from HTML"""
-        return self._create_term_info(html, term_code, term_name, get_enrollment_details)
+        return self._create_term_info(html, term_code, term_name, self.config.get_enrollment_details)
     
     
     def _clean_text(self, text: str) -> str:
@@ -1437,23 +1443,21 @@ class CuhkScraper:
         
         return assessment_types
     
-    def scrape_all_subjects(self, subjects: List[str], get_details: bool = False, get_enrollment_details: bool = False, config: Optional[ScrapingConfig] = None) -> Dict[str, Any]:
+    def scrape_all_subjects(self, subjects: List[str]) -> Dict[str, Any]:
         """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup"""
-        if config is None:
-            config = ScrapingConfig()  # Use testing defaults
         
         self.logger.info(f"🛡️  Starting scraping for {len(subjects)} subjects")
-        self.logger.info(f"📁 Saving to: {config.output_directory}/")
+        self.logger.info(f"📁 Saving to: {self.config.output_directory}/")
         self.logger.info(f"💾 Mode: Memory-safe with immediate saves")
         
         # Ensure output directory exists
-        os.makedirs(config.output_directory, exist_ok=True)
+        os.makedirs(self.config.output_directory, exist_ok=True)
         
         # Initialize progress tracker if enabled
-        if config.track_progress:
-            self.progress_tracker = ScrapingProgressTracker(config.progress_file, self.logger)
+        if self.config.track_progress:
+            self.progress_tracker = ScrapingProgressTracker(self.config.progress_file, self.logger)
             self.progress_tracker.progress_data["scraping_log"]["total_subjects"] = len(subjects)
-            self.logger.info(f"📊 Progress tracking enabled: {config.progress_file}")
+            self.logger.info(f"📊 Progress tracking enabled: {self.config.progress_file}")
         
         completed_subjects = []
         failed_subjects = []
@@ -1466,10 +1470,10 @@ class CuhkScraper:
             start_time = time.time()
             
             try:
-                courses = self.scrape_subject(subject, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
+                courses = self.scrape_subject(subject)
                 
                 # Always try to save, even if no courses (some subjects legitimately have no courses)
-                saved_file = self._save_subject_immediately(subject, courses or [], config)
+                saved_file = self._save_subject_immediately(subject, courses or [], self.config)
                 
                 if saved_file:
                     completed_subjects.append(subject)
@@ -1479,9 +1483,9 @@ class CuhkScraper:
                     duration_minutes = (time.time() - start_time) / 60
                     if self.progress_tracker:
                         config_info = {
-                            "get_details": get_details,
-                            "get_enrollment_details": get_enrollment_details,
-                            "max_courses": config.max_courses_per_subject
+                            "get_details": self.config.get_details,
+                            "get_enrollment_details": self.config.get_enrollment_details,
+                            "max_courses": self.config.max_courses_per_subject
                         }
                         self.progress_tracker.complete_subject(subject, len(courses or []), saved_file, duration_minutes, config_info)
                     
@@ -1534,11 +1538,10 @@ class CuhkScraper:
             'saved_files': saved_files
         }
     
-    def scrape_and_export_production(self, subjects: List[str], get_details: bool = True, get_enrollment_details: bool = True) -> str:
-        """Complete production workflow: scrape + export to per-subject files in /data"""
-        config = ScrapingConfig.for_production()
+    def scrape_and_export_production(self, subjects: List[str]) -> str:
+        """Complete production workflow: scrape + export to per-subject files using instance config"""
         self.logger.info(f"Starting PRODUCTION scraping and export for {len(subjects)} subjects")
-        self.logger.info(f"Output: per-subject files in {config.output_directory}/")
+        self.logger.info(f"Output: per-subject files in {self.config.output_directory}/")
         
         # Fetch and cache subject titles at the start
         self.logger.info("📋 Fetching subject titles from live website...")
@@ -1551,7 +1554,7 @@ class CuhkScraper:
         
         self.logger.info(f"✅ Cached {len(self.subject_titles_cache)} subject titles for metadata")
         
-        results = self.scrape_all_subjects(subjects, get_details=get_details, get_enrollment_details=get_enrollment_details, config=config)
+        results = self.scrape_all_subjects(subjects)
         
         # Index file generation removed - frontend loads individual JSON files directly
         # Return summary based on scraping results
@@ -1700,7 +1703,11 @@ def main():
         print("- 2.0s delays between requests")
         
         # Testing mode (default behavior)
-        results = scraper.scrape_all_subjects(test_subjects, get_details=True, get_enrollment_details=True)
+        # Configure scraper for detailed testing
+        scraper.config.get_details = True
+        scraper.config.get_enrollment_details = True
+        scraper.config.get_course_outcome = True
+        results = scraper.scrape_all_subjects(test_subjects)
         
         # Show summary
         completed_count = len(results['completed'])
