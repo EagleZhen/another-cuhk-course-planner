@@ -669,10 +669,10 @@ function SubjectFilterControls({
       {hasSubjects && (
         <div className="flex items-center gap-1.5">
           <Button
-            variant="outline"
+            variant="ghost"
             size="sm"
             onClick={onToggleShowSelected}
-            className="h-5 px-2 text-xs font-normal cursor-pointer"
+            className="h-5 px-2 text-xs font-normal text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full cursor-pointer"
             title={showSelectedOnly ? "Show all subjects" : "Show selected subjects only"}
           >
             {showSelectedOnly ? "Show All" : "Show Selected Only"}
