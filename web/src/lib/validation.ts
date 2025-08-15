@@ -81,7 +81,7 @@ function parseSectionType(sectionCode: string): SectionType {
     const foundAlias = dashMatch[1]
     // Find which type this alias belongs to
     const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
-    return typeEntry?.type as SectionType || 'OTHER'
+    return typeEntry?.type as SectionType || 'UNK'
   }
   
   // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
@@ -91,10 +91,12 @@ function parseSectionType(sectionCode: string): SectionType {
     const foundAlias = startMatch[1]
     // Find which type this alias belongs to
     const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
-    return typeEntry?.type as SectionType || 'OTHER'
+    return typeEntry?.type as SectionType || 'UNK'
   }
   
-  return 'OTHER'
+  // Log unrecognized section codes for debugging and pattern improvement
+  console.warn(`⚠️ Unrecognized section code pattern: "${sectionCode}"`)
+  return 'UNK'
 }
 
 // Transform external availability to internal

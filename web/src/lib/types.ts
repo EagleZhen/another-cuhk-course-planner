@@ -55,6 +55,7 @@ export const SECTION_TYPE_CONFIG = {
   'IND': { displayName: 'Independent Study', icon: '🧑‍🎓', aliases: ['IND'] },
   'LAB': { displayName: 'Laboratory', icon: '🧪', aliases: ['LAB'] },
   'LEC': { displayName: 'Lecture', icon: '🧑‍🏫', aliases: ['LEC'] },
+  'OTH': { displayName: 'Other', icon: '?', aliases: ['OTH'] },
   'PRA': { displayName: 'Practicum', icon: '💪', aliases: ['PRA'] },
   'PRJ': { displayName: 'Project', icon: '🚀', aliases: ['PRJ'] },
   'SEM': { displayName: 'Seminar', icon: '🗣️', aliases: ['SEM'] },
@@ -64,8 +65,8 @@ export const SECTION_TYPE_CONFIG = {
   'VST': { displayName: 'Visit', icon: '👁️', aliases: ['VST'] },
   'WBL': { displayName: 'Web-enhanced Teaching', icon: '💻', aliases: ['WBL'] },
   'WKS': { displayName: 'Workshop', icon: '🔨', aliases: ['WKS'] },
-
-  'OTH': { displayName: 'Other', icon: '?', aliases: ['OTH'] },
+  // Unrecognized section types
+  'UNK': { displayName: 'Unknown', icon: '❓', aliases: ['UNKNOWN'] },
 } as const
 
 // Derive the type from the config keys - automatically stays in sync
