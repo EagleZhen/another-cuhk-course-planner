@@ -44,8 +44,9 @@ def main():
         logger.info("  - Enrollment details enabled")
         logger.info("  - Per-subject JSON files in /data/")
         logger.info("  - Progress tracking enabled")
+        logger.info("  - Subject titles included in metadata")
         
-        # Use production workflow
+        # Use production workflow (now includes subject title metadata)
         summary = scraper.scrape_and_export_production(
             subjects=subjects,
             get_details=True,
