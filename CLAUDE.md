@@ -750,14 +750,112 @@ Priority 4: Smart filtering - Compatibility and selection logic
 - ✅ **Extensible Design**: Ready for additional filters like "Available Only"
 - ✅ **Intelligent Defaults**: Shows conflicts by default (they can be resolved)
 
-## ✅ Latest Achievement: Shopping Cart Enhancement & Code Optimization (August 2025)
+## ✅ Latest Achievement: Interactive Search & Course Discovery (August 2025)
 
-**Major Shopping Cart & UX Improvements**: 
-1. **Clean Visual Design**: Removed visual noise while maintaining clear status indication
-2. **Unified Display Format**: Consistent 3-row emoji layout across shopping cart and course search
-3. **Smart Status Management**: Visibility-aware counts with clean two-row summary layout
-4. **Enhanced Google Search**: Improved instructor search with CUHK prefix and full titles
-5. **Code Cleanup**: Eliminated dead code and unused variables for better maintainability
+**Major UX & Search Functionality Improvements**: 
+1. **Interactive Instructor Search**: Click-to-search functionality for all instructor names with CUHK context
+2. **Google Maps Location Search**: One-click location lookup for all classroom and building locations
+3. **Intuitive Course Shuffle**: Manual shuffle button with smart reset functionality for course discovery
+4. **Enhanced Social Media Presence**: Professional Open Graph metadata with optimized descriptions
+5. **Smart Search Logic**: Intelligent filtering to hide search icons for placeholder values ("Staff", "TBA", "No Room Required")
+6. **Status Tooltips**: Helpful explanations for shopping cart status indicators to reduce confusion
+
+### **🔍 Interactive Search System**
+
+**Problem Solved**: Students needed quick access to instructor information and classroom locations
+**Solution**: Contextual search icons next to all instructor and location data
+
+```typescript
+// ✅ Instructor Search Integration
+{formattedInstructor !== 'Staff' && (
+  <button onClick={() => googleSearchAndOpen(`CUHK ${formattedInstructor}`)}>
+    <Search className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+  </button>
+)}
+
+// ✅ Location Search Integration  
+{location !== 'TBA' && location !== 'No Room Required' && (
+  <button onClick={() => googleMapsSearchAndOpen(location)}>
+    <MapPin className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+  </button>
+)}
+```
+
+**Implementation Benefits:**
+- ✅ **Universal Coverage**: Search icons in both course search and shopping cart
+- ✅ **Smart Filtering**: Only shows for actionable data (excludes "Staff", "TBA", "No Room Required")
+- ✅ **Contextual Results**: CUHK prefix for instructors, direct Maps integration for locations
+- ✅ **Consistent Layout**: Icons positioned right next to relevant information
+
+### **🎲 Course Discovery Enhancement**
+
+**Problem Solved**: Students needed ways to discover new courses beyond search and filters
+**Solution**: Manual shuffle functionality with clear state management
+
+```typescript
+// ✅ One-off Shuffle Action (not toggle state)
+const [shuffleTrigger, setShuffleTrigger] = useState(0)
+
+// Button click increments trigger → new shuffle applied
+onClick={() => setShuffleTrigger(prev => prev + 1)}
+
+// ✅ Reset Button (appears with shuffled indicator)
+{searchResults.isShuffled && (
+  <Button onClick={() => setShuffleTrigger(0)}>↻ Reset</Button>
+)}
+```
+
+**User Experience:**
+- ✅ **Intuitive Action**: Each click = new shuffle (no confusing toggle states)
+- ✅ **Clear Feedback**: "(shuffled)" indicator with adjacent reset button
+- ✅ **Contextual Reset**: Reset button only appears when needed
+- ✅ **Discovery Focus**: Helps students find courses they might not have searched for
+
+### **📱 Social Media & SEO Optimization**
+
+**Problem Solved**: App links shared on social platforms showed blank previews
+**Solution**: Comprehensive Open Graph and Twitter Card metadata
+
+```typescript
+// ✅ Professional Social Media Description
+description: "Interactive weekly calendar for CUHK courses with automatic conflict detection and flexible section management."
+
+// ✅ Complete Metadata Coverage
+openGraph: {
+  title, description, url, siteName,
+  images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  locale: "en_US", type: "website"
+},
+twitter: {
+  card: "summary_large_image", title, description,
+  images: ["/og-image.png"]
+}
+```
+
+**Platform Coverage:**
+- ✅ **WhatsApp, Facebook, Instagram**: Open Graph metadata
+- ✅ **X (Twitter), Threads**: Twitter Card metadata
+- ✅ **Discord, LinkedIn, Telegram**: Open Graph support
+- ✅ **Professional Tone**: Focused, descriptive without marketing fluff
+
+### **🛠️ Smart Logic & Maintainability**
+
+**Problem Solved**: Search icons appeared for non-searchable placeholder values
+**Solution**: Intelligent condition checking for meaningful search actions
+
+```typescript
+// ✅ Instructor Search Logic
+formattedInstructor !== 'Staff'  // Hide for generic placeholders
+
+// ✅ Location Search Logic  
+location !== 'TBA' && location !== 'No Room Required'  // Hide for non-physical locations
+```
+
+**Maintainability Focus:**
+- ✅ **Native Tooltips**: Used browser defaults over custom implementation for simplicity
+- ✅ **Consistent Patterns**: Same search icon logic across all components
+- ✅ **Minimal Dependencies**: No additional libraries for core functionality
+- ✅ **Clean Conditionals**: Simple boolean logic for easy debugging
 
 ### **🎨 Clean Visual Design Philosophy**
 
@@ -937,4 +1035,4 @@ August 2025: Clean Separation of Concerns
 
 ---
 
-*Last updated: August 2025 - Public Launch Success: >100 users from school forums with enterprise-grade performance (<1s load times, intelligent course management, polished UX). Core infrastructure complete - scraper modernization, timezone handling, screenshot system, component architecture. Key Decision: Privacy-first analytics approach using basic Vercel metrics only, prioritizing student trust over detailed tracking. Current focus: SEO implementation for organic user acquisition through Google search.*
+*Last updated: August 2025 - Interactive Search & Discovery Complete: Added comprehensive search functionality for instructors and locations, course discovery shuffle system, professional social media optimization, and intelligent UX patterns. System now features complete click-to-search integration across all instructor names and classroom locations, with smart filtering to show search icons only for actionable data. Focus on maintainability over complexity - using native browser tooltips and minimal dependencies. Next priorities: SEO implementation for organic discovery and continued user experience refinements based on student feedback.*
