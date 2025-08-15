@@ -26,8 +26,8 @@ Raw scraped     Runtime check    Clean domain    Type-safe UI
 web/src/
 ├── app/page.tsx              # State hub + localStorage persistence
 ├── components/
-│   ├── CourseSearch.tsx      # Search + section compatibility  
-│   ├── WeeklyCalendar.tsx    # Dynamic config + conflict zones
+│   ├── CourseSearch.tsx      # Search + course-level day filtering + section compatibility  
+│   ├── WeeklyCalendar.tsx    # Dynamic config + mobile optimized + conflict zones
 │   └── ShoppingCart.tsx      # Section cycling + enrollment mgmt
 └── lib/
     ├── types.ts              # Internal models (zero `any`)
@@ -89,6 +89,9 @@ python resilient_scraper.py --retry  # Retry failed only
 - **Mobile-responsive** course cards with proper touch targets and layouts
 - **Fully decoupled CourseCard** with local state management for maximum maintainability
 - **Legacy-free codebase** with simplified data formats and eliminated technical debt
+- **Course-level day filtering** for efficient course discovery by schedule preferences
+- **Mobile UI optimization** with fixed overflow issues and professional popups
+- **Interactive search integration** with Google search for course outlines and instructor info
 
 ### **✅ Latest Achievement: Visual Polish & UX Refinements (January 2025)**
 
@@ -316,42 +319,44 @@ if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
 }
 ```
 
+### **✅ Latest Achievement: Mobile Experience & Day Filtering (August 2025)**
+
+**Major UX & Backend Improvements**:
+1. **Course-Level Day Filtering**: Students can filter entire courses by preferred days (Mon-Fri) before expansion
+2. **Mobile Overflow Fixes**: Calendar headers, course cards, and search elements now fit properly on mobile
+3. **Modern Mobile Popup**: Professional glassmorphism effect for desktop recommendation notice
+4. **Scraper Data Enhancement**: Added course attributes extraction to separate teaching language from other course metadata
+5. **Weekend Course Analysis**: Found 313 weekend courses (mostly postgraduate 5XXX intensive programs)
+
+**Technical Achievements**:
+- **Course-Level Filtering**: More efficient than section-level filtering - eliminates courses before expansion
+- **Mobile-First UI**: Fixed element overflow, optimized touch targets, professional blur effects
+- **Scraper Architecture**: Course attributes now properly scraped and available for frontend processing
+- **Data Analysis**: Comprehensive weekend course analysis revealed postgraduate focus
+
 ### **🔧 Current Technical Priorities & Next Steps**
 
-**System Status**: Core functionality complete and performant ✅
+**System Status**: Production-ready with mobile optimization complete ✅
 - ✅ **Load Performance**: <1s initial load via parallel JSON requests  
 - ✅ **Data Sync**: Shopping cart syncs with scraped data
-- ✅ **State Management**: Clean localStorage with proper hydration
-- ✅ **UI/UX Polish**: Selection patterns, conflict visualization, screenshot system
+- ✅ **Mobile Experience**: Fixed overflow issues, professional popups, touch-friendly
+- ✅ **Day Filtering**: Course-level filtering for efficient schedule planning
 - ✅ **Component Architecture**: Decoupled, self-contained components
 
 **Current Development Status** (August 2025):
-- **Public Launch**: >100 visitors from school forums
-- **Performance**: <1s load times, stable core functionality
-- **Daily Scraping**: Automated data updates during enrollment periods
+- **Public Launch**: Active user base from school forums
+- **Performance**: <1s load times, stable mobile/desktop functionality
+- **Daily Scraping**: Automated data updates with course attributes
 
-**Immediate Priorities** (Prioritized by impact + effort):
+**In Progress: Enhanced Course Data**
+- **Course Outcome Scraping**: Adding learning outcomes, assessment types, and readings
+- **Data Structure**: Designed with `Dict[str, str]` for assessment types (clean key-value mapping)
+- **Implementation**: Navigation, parsing, and integration phases planned
 
-**Priority 1: User Analytics (Completed - Ethical Decision Made)**
-- **Decision**: Reverted from PostHog to Vercel Analytics only
-- **Reason**: Privacy-first approach - uBlock Origin blocked PostHog (strong user signal)
-- **Student Trust**: Academic tools should respect privacy, not track secretly
-- **Current Analytics**: Basic Vercel metrics (page views, performance) - non-invasive
-
-**Priority 2: SEO Implementation (Planned)**
-- **Static Course Pages**: Google-indexable course information
-- **Organic Discovery**: Students googling courses find the tool
-- **Impact**: 10x user acquisition potential through search traffic
-- **Effort**: ~3-4 hours (Next.js static generation)
-
-**Priority 3: Content Enhancement**
-- **Course Outcomes Scraping**: Add Learning Outcomes and Assessment Types
-- **Language Filtering**: Smart detection of teaching language
-- **Impact**: Enhanced academic planning information
-
-**Priority 4: UI/UX Polish**
-- **Visual Improvements**: Color refinements, mobile experience
-- **Impact**: Enhanced user experience and accessibility
+**Next Priorities**:
+1. **Complete Course Outcomes**: Finish scraping learning objectives and assessment information
+2. **SEO Implementation**: Static course pages for organic discovery
+3. **Weekend Support**: Consider adding Sat/Sun filters if postgraduate demand emerges
 
 ## Core Implementation Details
 
