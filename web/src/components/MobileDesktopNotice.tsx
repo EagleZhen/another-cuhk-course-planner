@@ -5,6 +5,7 @@ import { Monitor } from 'lucide-react'
 
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
   
   useEffect(() => {
     // Check if user is on mobile and hasn't seen the notice
@@ -47,11 +48,22 @@ export default function MobileDesktopNotice() {
         
         {/* Desktop Preview Image */}
         <div className="mb-4">
-          <div className="w-full aspect-[1200/630] bg-gray-100 rounded-lg border border-gray-200 overflow-hidden">
+          <div className="w-full aspect-[1200/630] bg-gray-100 rounded-lg border border-gray-200 overflow-hidden relative">
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+                  <span className="text-sm text-gray-500">Loading preview...</span>
+                </div>
+              </div>
+            )}
             <img 
               src="/og-image.png" 
               alt="Desktop view showing shopping cart and weekly calendar side by side"
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover transition-opacity duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
         </div>
