@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Course Data Migration Script
+Course Data Copy Script
 
-Validates and moves course JSON files from /data to /web/public/data with comprehensive checks.
+Validates and copies course JSON files from /data to /web/public/data with comprehensive checks.
 - Validates scraped data integrity
 - Checks against scraping_progress.json
 - Reports total scraping time and statistics
 - Saves console output to file
+- Preserves original files in /data
 
 Usage: python move_course_data.py [--dry-run]
 """
@@ -69,8 +70,8 @@ def validate_course_file(file_path: str, subject_code: str, progress_data: Optio
         issues.append("No courses found in file")
     
     # Validate against progress data if available
-    if progress_data and 'subjects' in progress_data:
-        subject_progress = progress_data['subjects'].get(subject_code)
+    if progress_data and 'scraping_log' in progress_data and 'subjects' in progress_data['scraping_log']:
+        subject_progress = progress_data['scraping_log']['subjects'].get(subject_code)
         if subject_progress:
             # Check completion status
             if subject_progress.get('status') != 'completed':
@@ -126,20 +127,23 @@ def find_course_files() -> List[str]:
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
     """Calculate detailed scraping statistics"""
-    if not progress_data or 'subjects' not in progress_data:
+    if not progress_data or 'scraping_log' not in progress_data:
+        return None
+    
+    scraping_log = progress_data['scraping_log']
+    if 'subjects' not in scraping_log:
         return None
     
     total_minutes = 0
     completed_subjects = 0
     failed_subjects = 0
     total_courses = 0
-    total_sections_scraped = 0
     fastest_subject = None
     slowest_subject = None
     min_time = float('inf')
     max_time = 0
     
-    for subject_code, subject_data in progress_data['subjects'].items():
+    for subject_code, subject_data in scraping_log['subjects'].items():
         status = subject_data.get('status')
         duration = subject_data.get('duration_minutes', 0)
         courses_count = subject_data.get('courses_scraped', 0)
@@ -227,7 +231,7 @@ def main():
         # Check for dry-run flag
         dry_run = '--dry-run' in sys.argv
         if dry_run:
-            print("🔍 DRY RUN MODE - No files will be moved")
+            print("🔍 DRY RUN MODE - No files will be copied")
             print()
         
         # Load progress data
@@ -246,7 +250,7 @@ def main():
             if stats:
                 print()
                 print("📊 Scraping Performance Analysis:")
-                print(f"   ⏱️ Total time: {format_duration(stats['total_minutes'])}")
+                print(f"   ⏱️ Total time: {format_duration(stats['total_minutes'])} ({stats['total_minutes']:.1f} minutes)")
                 print(f"   📚 Total courses: {stats['total_courses']:,}")
                 print(f"   📋 Average per subject: {format_duration(stats['avg_time_per_subject'])}")
                 print(f"   📖 Average per course: {stats['avg_time_per_course']:.2f} minutes")
@@ -267,7 +271,7 @@ def main():
         print()
         
         if not course_files:
-            print("❌ No course files found to move")
+            print("❌ No course files found to copy")
             return
         
         # Create destination directory
@@ -324,87 +328,12 @@ def main():
         
         print()
         
-        # Determine files to move (all valid files by default)
-        files_to_move = valid_files.copy()
-        
-        # Ask if user wants to include problematic files (single confirmation)
-        if problematic_files:
-            print(f"📊 Summary:")
-            print(f"   ✅ Valid files ready to move: {len(valid_files)}")
-            print(f"   ⚠️ Problematic files: {len(problematic_files)}")
-            print()
-            
-            # Restore original stdout for user input
-            sys.stdout = logger.terminal
-            include_problematic = input("Include problematic files in migration? [y/N]: ").strip().lower()
-            sys.stdout = logger  # Restore logging
-            
-            if include_problematic in ['y', 'yes']:
-                files_to_move.extend([file_path for file_path, _ in problematic_files])
-                print("➡️ Including all problematic files in migration")
-            else:
-                print("⏭️ Skipping problematic files")
-            print()
-        
-        # Final confirmation
-        print(f"📋 FINAL SUMMARY:")
-        print(f"   Files to move: {len(files_to_move)}")
-        print(f"   Files to skip: {len(course_files) - len(files_to_move)}")
-        print()
-        
-        if not files_to_move:
-            print("❌ No files to move")
-            return
-        
-        if not dry_run:
-            # Restore original stdout for user input
-            sys.stdout = logger.terminal
-            proceed = input("Proceed with moving files? [Y/n]: ").strip().lower()
-            sys.stdout = logger  # Restore logging
-            
-            if proceed in ['n', 'no']:
-                print("❌ Operation cancelled by user")
-                return
-        
-        # Move files
-        print()
-        print("🚀 Moving files...")
-        moved_count = 0
-        
-        for file_path in files_to_move:
-            filename = os.path.basename(file_path)
-            dest_path = os.path.join(dest_dir, filename)
-            
-            try:
-                if not dry_run:
-                    shutil.copy2(file_path, dest_path)
-                moved_count += 1
-            except Exception as e:
-                print(f"❌ Failed to move {filename}: {e}")
-        
-        if not dry_run:
-            print(f"✅ Successfully moved {moved_count} files")
-        else:
-            print(f"✅ Would move {moved_count} files")
-        
-        # Final report
-        print()
-        print("🎉 MIGRATION COMPLETE!")
-        print("=" * 30)
-        print(f"📁 Total files processed: {len(course_files)}")
-        print(f"✅ Files moved: {moved_count}")
-        print(f"⏭️ Files skipped: {len(course_files) - moved_count}")
-        
-        if not dry_run:
-            print(f"📂 Destination: {os.path.abspath(dest_dir)}")
-        
-        # Show final scraping statistics
+        # Show detailed scraping statistics BEFORE any user decisions
         if progress_data:
             stats = calculate_scraping_statistics(progress_data)
             if stats:
-                print()
-                print("📈 SCRAPING PERFORMANCE SUMMARY:")
-                print(f"   ⏱️ Total scraping time: {format_duration(stats['total_minutes'])}")
+                print("📈 DETAILED SCRAPING STATISTICS:")
+                print(f"   ⏱️ Total scraping time: {format_duration(stats['total_minutes'])} ({stats['total_minutes']:.1f} minutes)")
                 print(f"   📚 Total courses scraped: {stats['total_courses']:,}")
                 print(f"   📋 Subjects completed: {stats['completed_subjects']}")
                 print(f"   📖 Efficiency: {stats['avg_time_per_course']:.2f} minutes per course")
@@ -421,6 +350,80 @@ def main():
                     
                     efficiency_ratio = (slow_time/slow_courses) / (fast_time/fast_courses) if fast_courses > 0 else 0
                     print(f"   📊 Efficiency range: {efficiency_ratio:.1f}x difference")
+                print()
+        
+        # Determine files to copy (all valid files by default)
+        files_to_copy = valid_files.copy()
+        
+        # Ask if user wants to include problematic files (single confirmation)
+        if problematic_files:
+            print(f"📊 Summary:")
+            print(f"   ✅ Valid files ready to copy: {len(valid_files)}")
+            print(f"   ⚠️ Problematic files: {len(problematic_files)}")
+            print()
+            
+            # Restore original stdout for user input
+            sys.stdout = logger.terminal
+            include_problematic = input("Include problematic files in migration? [y/N]: ").strip().lower()
+            sys.stdout = logger  # Restore logging
+            
+            if include_problematic in ['y', 'yes']:
+                files_to_copy.extend([file_path for file_path, _ in problematic_files])
+                print("➡️ Including all problematic files in copy operation")
+            else:
+                print("⏭️ Skipping problematic files")
+            print()
+        
+        print(f"📋 FINAL SUMMARY:")
+        print(f"   Files to copy: {len(files_to_copy)}")
+        print(f"   Files to skip: {len(course_files) - len(files_to_copy)}")
+        print()
+        
+        if not files_to_copy:
+            print("❌ No files to copy")
+            return
+        
+        if not dry_run:
+            # Restore original stdout for user input
+            sys.stdout = logger.terminal
+            proceed = input("Proceed with copying files? [Y/n]: ").strip().lower()
+            sys.stdout = logger  # Restore logging
+            
+            if proceed in ['n', 'no']:
+                print("❌ Operation cancelled by user")
+                return
+        
+        # Copy files
+        print()
+        print("🚀 Copying files...")
+        copied_count = 0
+        
+        for file_path in files_to_copy:
+            filename = os.path.basename(file_path)
+            dest_path = os.path.join(dest_dir, filename)
+            
+            try:
+                if not dry_run:
+                    shutil.copy2(file_path, dest_path)
+                copied_count += 1
+            except Exception as e:
+                print(f"❌ Failed to copy {filename}: {e}")
+        
+        if not dry_run:
+            print(f"✅ Successfully copied {copied_count} files")
+        else:
+            print(f"✅ Would copy {copied_count} files")
+        
+        # Final report
+        print()
+        print("🎉 COPY OPERATION COMPLETE!")
+        print("=" * 30)
+        print(f"📁 Total files processed: {len(course_files)}")
+        print(f"✅ Files copied: {copied_count}")
+        print(f"⏭️ Files skipped: {len(course_files) - copied_count}")
+        
+        if not dry_run:
+            print(f"📂 Destination: {os.path.abspath(dest_dir)}")
         
         print()
         print(f"📝 Log saved to: {log_filename}")
