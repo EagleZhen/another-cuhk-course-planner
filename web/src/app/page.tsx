@@ -8,7 +8,7 @@ import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, getSubjectGroupColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
+import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
 import { analytics } from '@/lib/analytics'
 
 // Color assignment is now handled in courseUtils.ts
@@ -39,6 +39,7 @@ export default function Home() {
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
+  const [subjectSearchTerm, setSubjectSearchTerm] = useState('')
   const [isHydrated, setIsHydrated] = useState<boolean>(false)
   
   // Term-specific subject filter persistence (session state only)
@@ -478,8 +479,10 @@ export default function Home() {
                     availableSubjects={availableSubjects}
                     selectedSubjects={selectedSubjects}
                     showSelectedOnly={showSelectedOnly}
+                    subjectSearchTerm={subjectSearchTerm}
                     onToggleShowSelected={() => setShowSelectedOnly(!showSelectedOnly)}
                     onClearAll={() => setSelectedSubjects(new Set())}
+                    onSubjectSearchChange={setSubjectSearchTerm}
                     className="hidden sm:flex"
                   />
 
@@ -489,16 +492,29 @@ export default function Home() {
                     availableSubjects={availableSubjects}
                     selectedSubjects={selectedSubjects}
                     showSelectedOnly={showSelectedOnly}
+                    subjectSearchTerm={subjectSearchTerm}
                     onToggleShowSelected={() => setShowSelectedOnly(!showSelectedOnly)}
                     onClearAll={() => setSelectedSubjects(new Set())}
+                    onSubjectSearchChange={setSubjectSearchTerm}
                     className="sm:hidden"
                   />
                   <div className="flex gap-2 flex-wrap">
                     {availableSubjects.length > 0 ? (
                       (() => {
-                        const subjectsToShow = showSelectedOnly 
-                          ? availableSubjects.filter(subject => selectedSubjects.has(subject))
-                          : availableSubjects
+                        // Apply both search filter and selection filter
+                        let subjectsToShow = availableSubjects
+                        
+                        // Apply search filter first
+                        if (subjectSearchTerm.trim()) {
+                          subjectsToShow = subjectsToShow.filter(subject => 
+                            subject.toLowerCase().includes(subjectSearchTerm.toLowerCase().trim())
+                          )
+                        }
+                        
+                        // Then apply selection filter if needed
+                        if (showSelectedOnly) {
+                          subjectsToShow = subjectsToShow.filter(subject => selectedSubjects.has(subject))
+                        }
                         
                         if (subjectsToShow.length === 0 && showSelectedOnly) {
                           return (
@@ -578,18 +594,12 @@ function SubjectToggle({
   isSelected: boolean
   onSubjectToggle: (subject: string) => void 
 }) {
-  const groupColor = getSubjectGroupColor(subject)
-  
   return (
     <Button
       variant={isSelected ? "default" : "outline"}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
-      className={`h-6 px-2 text-xs font-mono font-normal ${
-        isSelected 
-          ? '' // Keep default styling when selected
-          : groupColor // Apply subtle color when not selected
-      }`}
+      className="h-6 px-2 text-xs font-mono font-normal"
       title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
     >
       {subject}
@@ -603,16 +613,20 @@ function SubjectFilterControls({
   availableSubjects,
   selectedSubjects,
   showSelectedOnly,
+  subjectSearchTerm,
   onToggleShowSelected,
   onClearAll,
+  onSubjectSearchChange,
   className
 }: {
   layout?: 'horizontal' | 'vertical'
   availableSubjects: string[]
   selectedSubjects: Set<string>
   showSelectedOnly: boolean
+  subjectSearchTerm: string
   onToggleShowSelected: () => void
   onClearAll: () => void
+  onSubjectSearchChange: (term: string) => void
   className?: string
 }) {
   const isVertical = layout === 'vertical'
@@ -620,8 +634,21 @@ function SubjectFilterControls({
   
   return (
     <div className={`${isVertical ? 'space-y-2' : 'text-sm font-medium text-gray-700 items-center gap-3'} ${className || ''}`}>
-      <div className={isVertical ? 'text-sm font-medium text-gray-700' : ''}>
-        Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
+      <div className={`flex items-center gap-3 ${isVertical ? 'flex-col items-start' : ''}`}>
+        <div className={isVertical ? 'text-sm font-medium text-gray-700' : ''}>
+          Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
+        </div>
+        
+        {/* Compact search input */}
+        {hasSubjects && (
+          <input
+            type="text"
+            placeholder="Search subjects..."
+            value={subjectSearchTerm}
+            onChange={(e) => onSubjectSearchChange(e.target.value)}
+            className="h-6 px-2 text-xs border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 w-32"
+          />
+        )}
       </div>
       
       {/* Show controls when subjects are selected OR when there are available subjects */}
