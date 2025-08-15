@@ -1387,39 +1387,33 @@ class CuhkScraper:
         learning_outcome_span = soup.find('span', {'id': 'uc_course_outcome_lbl_learning_outcome'})
         if learning_outcome_span:
             course.learning_outcomes = self._clean_text(learning_outcome_span.get_text())
-            self.logger.debug(f"Extracted learning outcomes for {course.course_code}")
         
         # Extract Course Syllabus  
         syllabus_span = soup.find('span', {'id': 'uc_course_outcome_lbl_course_syllabus'})
         if syllabus_span:
             course.course_syllabus = self._clean_text(syllabus_span.get_text())
-            self.logger.debug(f"Extracted course syllabus for {course.course_code}")
         
         # Extract Assessment Types (table structure)
         assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
         if assessment_table:
             course.assessment_types = self._parse_assessment_table(assessment_table)
-            self.logger.debug(f"Extracted {len(course.assessment_types)} assessment types for {course.course_code}")
         
         # Extract Feedback for Evaluation
         feedback_span = soup.find('span', {'id': 'uc_course_outcome_lbl_feedback'})
         if feedback_span:
             course.feedback_evaluation = self._clean_text(feedback_span.get_text())
-            self.logger.debug(f"Extracted feedback evaluation for {course.course_code}")
         
         # Extract Required Readings
         required_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_req_reading'})
         if required_reading_span:
             course.required_readings = self._clean_text(required_reading_span.get_text())
-            self.logger.debug(f"Extracted required readings for {course.course_code}")
         
         # Extract Recommended Readings
         recommended_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_rec_reading'})
         if recommended_reading_span:
             course.recommended_readings = self._clean_text(recommended_reading_span.get_text())
-            self.logger.debug(f"Extracted recommended readings for {course.course_code}")
         
-        self.logger.info(f"Successfully parsed Course Outcome for {course.course_code}")
+        self.logger.info(f"Course Outcome parsed for {course.course_code}")
     
     def _parse_assessment_table(self, table) -> Dict[str, str]:
         """Parse assessment types table and return as key-value pairs"""
@@ -1437,8 +1431,6 @@ class CuhkScraper:
                     
                     if assessment_type and percentage:
                         assessment_types[assessment_type] = percentage
-            
-            self.logger.debug(f"Parsed assessment table: {assessment_types}")
             
         except Exception as e:
             self.logger.warning(f"Error parsing assessment table: {e}")
