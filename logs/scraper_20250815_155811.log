@@ -1,0 +1,11 @@
+2025-08-15 15:58:11,520 - INFO - 📝 File logging initialized: logs/scraper_20250815_155811.log
+2025-08-15 15:58:12,627 - INFO - Found 263 subjects from live site
+2025-08-15 15:58:12,628 - INFO - 🛡️  Starting scraping for 1 subjects
+2025-08-15 15:58:12,628 - INFO - 📁 Saving to: tests/output/
+2025-08-15 15:58:12,628 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-08-15 15:58:12,628 - INFO - 🔄 Processing CSCI (1/1)
+2025-08-15 15:58:12,628 - ERROR - ❌ CSCI failed with exception: CuhkScraper.scrape_subject() got an unexpected keyword argument 'get_details'
+2025-08-15 15:58:12,635 - INFO - 🎉 SCRAPING COMPLETED!
+2025-08-15 15:58:12,635 - INFO - ✅ Completed: 0 subjects
+2025-08-15 15:58:12,635 - INFO - ❌ Failed: 1 subjects
+2025-08-15 15:58:12,636 - INFO - 🔄 Failed subjects: CSCI
