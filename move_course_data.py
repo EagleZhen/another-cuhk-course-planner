@@ -221,10 +221,12 @@ def main():
     log_dir = "logs/migration"
     os.makedirs(log_dir, exist_ok=True)
     
-    log_filename = os.path.join(log_dir, f"migration_log_{timestamp}.txt")
+    # Create both timestamped and latest log files
+    timestamped_log = os.path.join(log_dir, f"migration_log_{timestamp}.txt")
+    latest_log = os.path.join(log_dir, "latest_migration.txt")
     
-    # Set up console logging
-    logger = ConsoleLogger(log_filename)
+    # Set up console logging (write to timestamped file)
+    logger = ConsoleLogger(timestamped_log)
     sys.stdout = logger
     
     try:
@@ -426,12 +428,20 @@ def main():
             print(f"📂 Destination: {os.path.abspath(dest_dir)}")
         
         print()
-        print(f"📝 Log saved to: {log_filename}")
+        print(f"📝 Logs saved to:")
+        print(f"   📄 {timestamped_log}")
+        print(f"   🔄 {latest_log} (git tracked)")
         
     finally:
         # Restore original stdout and close log file
         sys.stdout = logger.terminal
         logger.close()
+        
+        # Copy timestamped log to latest log for git tracking
+        try:
+            shutil.copy2(timestamped_log, latest_log)
+        except Exception as e:
+            print(f"⚠️ Warning: Could not create latest log: {e}")
 
 if __name__ == "__main__":
     main()
