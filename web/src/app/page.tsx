@@ -655,20 +655,20 @@ function SubjectFilterControls({
       {hasSubjects && (
         <div className="flex items-center gap-1.5">
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
             onClick={onToggleShowSelected}
-            className="h-5 px-2 text-xs font-normal text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full cursor-pointer"
+            className="h-5 px-2 text-xs font-normal cursor-pointer"
             title={showSelectedOnly ? "Show all subjects" : "Show selected subjects only"}
           >
             {showSelectedOnly ? "Show All" : "Show Selected Only"}
           </Button>
           {selectedSubjects.size > 0 && (
             <Button
-              variant="ghost"
+              variant="destructive"
               size="sm"
               onClick={onClearAll}
-              className="h-5 px-2 text-xs font-normal text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full cursor-pointer"
+              className="h-5 px-2 text-xs font-normal cursor-pointer"
               title="Clear all subject filters"
             >
               ✕ Clear Subjects
