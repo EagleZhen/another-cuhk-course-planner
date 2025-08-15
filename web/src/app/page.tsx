@@ -522,12 +522,20 @@ export default function Home() {
                           subjectsToShow = subjectsToShow.filter(subject => selectedSubjects.has(subject))
                         }
                         
-                        if (subjectsToShow.length === 0 && showSelectedOnly) {
-                          return (
-                            <div className="text-xs text-gray-500">
-                              No subjects selected. Select some subjects or click &ldquo;Show All&rdquo; to see available options.
-                            </div>
-                          )
+                        if (subjectsToShow.length === 0) {
+                          if (showSelectedOnly) {
+                            return (
+                              <div className="text-xs text-gray-500">
+                                No subjects selected. Select some subjects or click &ldquo;Show All&rdquo; to see available options.
+                              </div>
+                            )
+                          } else if (subjectSearchTerm.trim()) {
+                            return (
+                              <div className="text-xs text-gray-500">
+                                No subjects found matching &ldquo;{subjectSearchTerm}&rdquo;. Try a different search term.
+                              </div>
+                            )
+                          }
                         }
                         
                         return subjectsToShow.map((subject) => (
