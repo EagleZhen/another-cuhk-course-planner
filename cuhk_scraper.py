@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any
 from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 import time
 import logging
 import ddddocr
@@ -639,15 +639,15 @@ class CuhkScraper:
                 captcha_text = self._solve_captcha(captcha_response.content)
                 
                 if not captcha_text:
-                    return []
+                    return {}
                 
                 form_data['txt_captcha'] = captcha_text
             else:
                 self.logger.error("Could not find captcha URL")
-                return []
+                return {}
         else:
             self.logger.error("Could not find captcha image")
-            return []
+            return {}
         
         # Add other form fields
         form_data['ddl_subject'] = ''  # Will be set per subject
