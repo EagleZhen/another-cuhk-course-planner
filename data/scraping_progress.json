@@ -1,7 +1,7 @@
 {
   "scraping_log": {
-    "started_at": "2025-08-16T01:31:56.449773+00:00",
-    "last_updated": "2025-08-16T01:32:30.016011+00:00",
+    "started_at": "2025-08-16T03:04:27.809615+00:00",
+    "last_updated": "2025-08-16T03:05:02.009077+00:00",
     "total_subjects": 1,
     "completed": 262,
     "failed": 0,
@@ -186,11 +186,11 @@
       },
       "ARTS": {
         "status": "completed",
-        "last_scraped": "2025-08-16T01:32:30.015764+00:00",
+        "last_scraped": "2025-08-16T03:05:02.009005+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/ARTS.json",
-        "duration_minutes": 0.56,
+        "duration_minutes": 0.57,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,

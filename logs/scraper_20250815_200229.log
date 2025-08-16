@@ -1,0 +1,141 @@
+2025-08-15 20:02:29,197 - INFO - 📝 File logging initialized: logs/scraper_20250815_200229.log
+2025-08-15 20:02:30,870 - INFO - Found 263 subjects from live site
+2025-08-15 20:02:30,878 - INFO - 🛡️  Starting scraping for 1 subjects
+2025-08-15 20:02:30,878 - INFO - 📁 Saving to: data/
+2025-08-15 20:02:30,878 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-08-15 20:02:30,878 - INFO - 📋 Fetching subject titles from live website...
+2025-08-15 20:02:31,265 - INFO - 📋 Found 263 subjects with titles from live site
+2025-08-15 20:02:31,265 - INFO - ✅ Cached 263 subject titles for metadata
+2025-08-15 20:02:31,280 - INFO - Preserved data for 263 existing subjects
+2025-08-15 20:02:31,286 - INFO - 📊 Progress tracking enabled: data/scraping_progress.json
+2025-08-15 20:02:31,288 - INFO - 🔄 Processing ARTS (1/1)
+2025-08-15 20:02:31,291 - INFO - 📋 Scraping ARTS, attempt 1
+2025-08-15 20:02:32,988 - INFO - 🔤 OCR produced: A8KF (awaiting server validation)
+2025-08-15 20:02:34,192 - INFO - ✅ Captcha accepted for ARTS: has_courses
+2025-08-15 20:02:34,207 - INFO - Parsed 11 courses from results table
+2025-08-15 20:02:34,212 - INFO - 🚀 Started scraping ARTS
+2025-08-15 20:02:34,212 - INFO - Getting details for all 11 courses...
+2025-08-15 20:02:34,212 - INFO - 📖 Getting details for course 1/11: 1001
+2025-08-15 20:02:34,849 - INFO - Navigating to Course Outcome page for 1001
+2025-08-15 20:02:35,503 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:35,504 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:35,507 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:35,508 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:35,509 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:35,509 - INFO - Course Outcome parsed for 1001
+2025-08-15 20:02:35,509 - INFO - No term dropdown found for 1001, using current data
+2025-08-15 20:02:36,514 - INFO - 📖 Getting details for course 2/11: 1002
+2025-08-15 20:02:37,302 - INFO - Navigating to Course Outcome page for 1002
+2025-08-15 20:02:38,157 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:38,158 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:38,158 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:38,159 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:38,162 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:38,163 - INFO - Course Outcome parsed for 1002
+2025-08-15 20:02:38,163 - INFO - No term dropdown found for 1002, using current data
+2025-08-15 20:02:39,171 - INFO - 📖 Getting details for course 3/11: 1003
+2025-08-15 20:02:40,017 - INFO - Navigating to Course Outcome page for 1003
+2025-08-15 20:02:40,810 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:40,812 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:40,816 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:40,816 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:40,820 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:40,821 - INFO - Course Outcome parsed for 1003
+2025-08-15 20:02:40,824 - INFO - No term dropdown found for 1003, using current data
+2025-08-15 20:02:41,856 - INFO - 📖 Getting details for course 4/11: 1005
+2025-08-15 20:02:42,562 - INFO - Navigating to Course Outcome page for 1005
+2025-08-15 20:02:43,465 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:43,468 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:43,493 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:43,494 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:43,496 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:43,496 - INFO - Course Outcome parsed for 1005
+2025-08-15 20:02:43,497 - INFO - No term dropdown found for 1005, using current data
+2025-08-15 20:02:44,519 - INFO - 📖 Getting details for course 5/11: 1007
+2025-08-15 20:02:45,398 - INFO - Navigating to Course Outcome page for 1007
+2025-08-15 20:02:46,061 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:46,061 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:46,062 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:46,062 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:46,063 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:46,063 - INFO - Course Outcome parsed for 1007
+2025-08-15 20:02:46,063 - INFO - No term dropdown found for 1007, using current data
+2025-08-15 20:02:47,071 - INFO - 📖 Getting details for course 6/11: 1008
+2025-08-15 20:02:47,953 - INFO - Navigating to Course Outcome page for 1008
+2025-08-15 20:02:48,666 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:48,668 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:48,668 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:48,669 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:48,669 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:48,669 - INFO - Course Outcome parsed for 1008
+2025-08-15 20:02:48,669 - INFO - No term dropdown found for 1008, using current data
+2025-08-15 20:02:49,675 - INFO - 📖 Getting details for course 7/11: 1010
+2025-08-15 20:02:50,413 - INFO - Navigating to Course Outcome page for 1010
+2025-08-15 20:02:51,897 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:51,898 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:51,904 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:51,904 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:51,905 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:51,906 - INFO - Course Outcome parsed for 1010
+2025-08-15 20:02:51,906 - INFO - Found 1 terms for 1010: ['2025-26 Term 1']
+2025-08-15 20:02:51,907 - INFO - Scraping term 1/1: 2025-26 Term 1 for 1010
+2025-08-15 20:02:51,915 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-15 20:02:51,934 - INFO - Getting enrollment details for section: --LEC (5033)
+2025-08-15 20:02:52,713 - INFO - Getting enrollment details for section: -T01-TUT (5034)
+2025-08-15 20:02:54,040 - INFO - Extracted details for 1010: Credits=3.00, Terms=1
+2025-08-15 20:02:55,046 - INFO - 📖 Getting details for course 8/11: 6000
+2025-08-15 20:02:55,784 - INFO - Navigating to Course Outcome page for 6000
+2025-08-15 20:02:56,519 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:56,519 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:56,520 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:56,520 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:56,521 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:56,521 - INFO - Course Outcome parsed for 6000
+2025-08-15 20:02:56,521 - INFO - No term dropdown found for 6000, using current data
+2025-08-15 20:02:57,530 - INFO - 📖 Getting details for course 9/11: 6002
+2025-08-15 20:02:58,333 - INFO - Navigating to Course Outcome page for 6002
+2025-08-15 20:02:59,451 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:59,451 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:59,452 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:59,453 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:59,453 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:02:59,454 - INFO - Course Outcome parsed for 6002
+2025-08-15 20:02:59,454 - INFO - Found 2 terms for 6002: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-15 20:02:59,454 - INFO - Scraping term 1/2: 2025-26 Term 1 for 6002
+2025-08-15 20:02:59,458 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-15 20:03:00,667 - INFO - Getting enrollment details for section: --LEC (2870)
+2025-08-15 20:03:03,040 - INFO - Scraping term 2/2: 2025-26 Term 2 for 6002
+2025-08-15 20:03:03,130 - INFO - Switching to 2025-26 Term 2 for 6002
+2025-08-15 20:03:04,316 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-15 20:03:05,186 - INFO - Getting enrollment details for section: --LEC (4505)
+2025-08-15 20:03:06,084 - INFO - Extracted details for 6002: Credits=3.00, Terms=2
+2025-08-15 20:03:07,087 - INFO - 📖 Getting details for course 10/11: 7001
+2025-08-15 20:03:08,068 - INFO - Navigating to Course Outcome page for 7001
+2025-08-15 20:03:09,061 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:09,062 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:09,064 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:09,065 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:09,066 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:09,068 - INFO - Course Outcome parsed for 7001
+2025-08-15 20:03:09,068 - INFO - No term dropdown found for 7001, using current data
+2025-08-15 20:03:10,080 - INFO - 📖 Getting details for course 11/11: 7002
+2025-08-15 20:03:11,168 - INFO - Navigating to Course Outcome page for 7002
+2025-08-15 20:03:11,880 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:11,881 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:11,883 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:11,884 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:11,885 - WARNING - markdownify not available, falling back to text extraction
+2025-08-15 20:03:11,885 - INFO - Course Outcome parsed for 7002
+2025-08-15 20:03:11,886 - INFO - Found 1 terms for 7002: ['2025-26 Term 2']
+2025-08-15 20:03:11,886 - INFO - Scraping term 1/1: 2025-26 Term 2 for 7002
+2025-08-15 20:03:11,900 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-15 20:03:11,905 - INFO - Getting enrollment details for section: --LEC (2227)
+2025-08-15 20:03:12,979 - INFO - Getting enrollment details for section: -T01-TUT (2228)
+2025-08-15 20:03:15,224 - INFO - Extracted details for 7002: Credits=3.00, Terms=1
+2025-08-15 20:03:15,226 - INFO - 🔍 ARTS: Found 11 courses
+2025-08-15 20:03:15,231 - INFO - 💾 SAVED ARTS → data/ARTS.json
+2025-08-15 20:03:15,237 - INFO - ✅ Completed ARTS: 11 courses in 0.7 minutes
+2025-08-15 20:03:15,238 - INFO - ✅ ARTS completed: 11 courses in 0.7min → data/ARTS.json
+2025-08-15 20:03:15,314 - INFO - 🎉 SCRAPING COMPLETED!
+2025-08-15 20:03:15,314 - INFO - ✅ Completed: 1 subjects
+2025-08-15 20:03:15,314 - INFO - ❌ Failed: 0 subjects

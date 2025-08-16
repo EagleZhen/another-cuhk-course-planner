@@ -1,0 +1,86 @@
+2025-08-15 20:04:26,517 - INFO - 📝 File logging initialized: logs/scraper_20250815_200426.log
+2025-08-15 20:04:27,396 - INFO - Found 263 subjects from live site
+2025-08-15 20:04:27,396 - INFO - 🛡️  Starting scraping for 1 subjects
+2025-08-15 20:04:27,396 - INFO - 📁 Saving to: data/
+2025-08-15 20:04:27,396 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-08-15 20:04:27,396 - INFO - 📋 Fetching subject titles from live website...
+2025-08-15 20:04:27,783 - INFO - 📋 Found 263 subjects with titles from live site
+2025-08-15 20:04:27,794 - INFO - ✅ Cached 263 subject titles for metadata
+2025-08-15 20:04:27,809 - INFO - Preserved data for 263 existing subjects
+2025-08-15 20:04:27,810 - INFO - 📊 Progress tracking enabled: data/scraping_progress.json
+2025-08-15 20:04:27,810 - INFO - 🔄 Processing ARTS (1/1)
+2025-08-15 20:04:27,810 - INFO - 📋 Scraping ARTS, attempt 1
+2025-08-15 20:04:28,469 - INFO - 🔤 OCR produced: BW83 (awaiting server validation)
+2025-08-15 20:04:29,093 - INFO - ✅ Captcha accepted for ARTS: has_courses
+2025-08-15 20:04:29,098 - INFO - Parsed 11 courses from results table
+2025-08-15 20:04:29,102 - INFO - 🚀 Started scraping ARTS
+2025-08-15 20:04:29,102 - INFO - Getting details for all 11 courses...
+2025-08-15 20:04:29,102 - INFO - 📖 Getting details for course 1/11: 1001
+2025-08-15 20:04:29,835 - INFO - Navigating to Course Outcome page for 1001
+2025-08-15 20:04:30,602 - INFO - Course Outcome parsed for 1001
+2025-08-15 20:04:30,602 - INFO - No term dropdown found for 1001, using current data
+2025-08-15 20:04:31,611 - INFO - 📖 Getting details for course 2/11: 1002
+2025-08-15 20:04:32,200 - INFO - Navigating to Course Outcome page for 1002
+2025-08-15 20:04:32,960 - INFO - Course Outcome parsed for 1002
+2025-08-15 20:04:32,961 - INFO - No term dropdown found for 1002, using current data
+2025-08-15 20:04:33,993 - INFO - 📖 Getting details for course 3/11: 1003
+2025-08-15 20:04:34,643 - INFO - Navigating to Course Outcome page for 1003
+2025-08-15 20:04:35,212 - INFO - Course Outcome parsed for 1003
+2025-08-15 20:04:35,212 - INFO - No term dropdown found for 1003, using current data
+2025-08-15 20:04:36,220 - INFO - 📖 Getting details for course 4/11: 1005
+2025-08-15 20:04:36,820 - INFO - Navigating to Course Outcome page for 1005
+2025-08-15 20:04:37,502 - INFO - Course Outcome parsed for 1005
+2025-08-15 20:04:37,504 - INFO - No term dropdown found for 1005, using current data
+2025-08-15 20:04:38,520 - INFO - 📖 Getting details for course 5/11: 1007
+2025-08-15 20:04:39,315 - INFO - Navigating to Course Outcome page for 1007
+2025-08-15 20:04:39,901 - INFO - Course Outcome parsed for 1007
+2025-08-15 20:04:39,902 - INFO - No term dropdown found for 1007, using current data
+2025-08-15 20:04:40,913 - INFO - 📖 Getting details for course 6/11: 1008
+2025-08-15 20:04:41,567 - INFO - Navigating to Course Outcome page for 1008
+2025-08-15 20:04:42,353 - INFO - Course Outcome parsed for 1008
+2025-08-15 20:04:42,354 - INFO - No term dropdown found for 1008, using current data
+2025-08-15 20:04:43,370 - INFO - 📖 Getting details for course 7/11: 1010
+2025-08-15 20:04:44,088 - INFO - Navigating to Course Outcome page for 1010
+2025-08-15 20:04:44,850 - INFO - Course Outcome parsed for 1010
+2025-08-15 20:04:44,850 - INFO - Found 1 terms for 1010: ['2025-26 Term 1']
+2025-08-15 20:04:44,850 - INFO - Scraping term 1/1: 2025-26 Term 1 for 1010
+2025-08-15 20:04:44,854 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-08-15 20:04:44,859 - INFO - Getting enrollment details for section: --LEC (5033)
+2025-08-15 20:04:45,644 - INFO - Getting enrollment details for section: -T01-TUT (5034)
+2025-08-15 20:04:46,375 - INFO - Extracted details for 1010: Credits=3.00, Terms=1
+2025-08-15 20:04:47,381 - INFO - 📖 Getting details for course 8/11: 6000
+2025-08-15 20:04:48,039 - INFO - Navigating to Course Outcome page for 6000
+2025-08-15 20:04:48,757 - INFO - Course Outcome parsed for 6000
+2025-08-15 20:04:48,759 - INFO - No term dropdown found for 6000, using current data
+2025-08-15 20:04:49,772 - INFO - 📖 Getting details for course 9/11: 6002
+2025-08-15 20:04:50,634 - INFO - Navigating to Course Outcome page for 6002
+2025-08-15 20:04:51,260 - INFO - Course Outcome parsed for 6002
+2025-08-15 20:04:51,260 - INFO - Found 2 terms for 6002: ['2025-26 Term 1', '2025-26 Term 2']
+2025-08-15 20:04:51,260 - INFO - Scraping term 1/2: 2025-26 Term 1 for 6002
+2025-08-15 20:04:51,264 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-08-15 20:04:51,960 - INFO - Getting enrollment details for section: --LEC (2870)
+2025-08-15 20:04:53,987 - INFO - Scraping term 2/2: 2025-26 Term 2 for 6002
+2025-08-15 20:04:54,010 - INFO - Switching to 2025-26 Term 2 for 6002
+2025-08-15 20:04:54,621 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-08-15 20:04:55,065 - INFO - Getting enrollment details for section: --LEC (4505)
+2025-08-15 20:04:55,814 - INFO - Extracted details for 6002: Credits=3.00, Terms=2
+2025-08-15 20:04:56,819 - INFO - 📖 Getting details for course 10/11: 7001
+2025-08-15 20:04:57,497 - INFO - Navigating to Course Outcome page for 7001
+2025-08-15 20:04:58,267 - INFO - Course Outcome parsed for 7001
+2025-08-15 20:04:58,268 - INFO - No term dropdown found for 7001, using current data
+2025-08-15 20:04:59,276 - INFO - 📖 Getting details for course 11/11: 7002
+2025-08-15 20:04:59,974 - INFO - Navigating to Course Outcome page for 7002
+2025-08-15 20:05:00,530 - INFO - Course Outcome parsed for 7002
+2025-08-15 20:05:00,530 - INFO - Found 1 terms for 7002: ['2025-26 Term 2']
+2025-08-15 20:05:00,530 - INFO - Scraping term 1/1: 2025-26 Term 2 for 7002
+2025-08-15 20:05:00,534 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-15 20:05:00,540 - INFO - Getting enrollment details for section: --LEC (2227)
+2025-08-15 20:05:01,259 - INFO - Getting enrollment details for section: -T01-TUT (2228)
+2025-08-15 20:05:02,007 - INFO - Extracted details for 7002: Credits=3.00, Terms=1
+2025-08-15 20:05:02,007 - INFO - 🔍 ARTS: Found 11 courses
+2025-08-15 20:05:02,008 - INFO - 💾 SAVED ARTS → data/ARTS.json
+2025-08-15 20:05:02,012 - INFO - ✅ Completed ARTS: 11 courses in 0.6 minutes
+2025-08-15 20:05:02,012 - INFO - ✅ ARTS completed: 11 courses in 0.6min → data/ARTS.json
+2025-08-15 20:05:02,028 - INFO - 🎉 SCRAPING COMPLETED!
+2025-08-15 20:05:02,028 - INFO - ✅ Completed: 1 subjects
+2025-08-15 20:05:02,028 - INFO - ❌ Failed: 0 subjects
