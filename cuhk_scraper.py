@@ -684,12 +684,13 @@ class CuhkScraper:
                 # Log results based on validation type and course count
                 if validation['result_type'] == 'no_records':
                     self.logger.info(f"🔍 {subject_code}: Valid search, no courses found (empty subject)")
+                    return []  # Success - empty subject, no retry needed
                 elif validation['result_type'] == 'has_courses':
                     self.logger.info(f"🔍 {subject_code}: Found {len(courses)} courses")
+                    return courses  # Success - return found courses
                 
-                if courses:
-                    return courses
-                
+                # If we reach here, something unexpected happened - retry
+                self.logger.warning(f"⚠️ Unexpected validation result: {validation['result_type']}")
                 if attempt < self.config.max_retries - 1:
                     time.sleep(2 ** attempt)  # Exponential backoff
                     
