@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Al
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
+import ReactMarkdown from 'react-markdown'
 
 // Using clean internal types only
 
@@ -201,34 +202,36 @@ export default function CourseSearch({
         console.log(`📂 Loading ALL subjects for complete coverage...`)
         setLoadingProgress({ loaded: 0, total: 1, currentSubject: 'Preparing complete subject list...' })
         
-        const ALL_SUBJECTS = [
-          'ACCT', 'ACPY', 'AENP', 'AEPT', 'AIMS', 'AIST', 'ANAT', 'ANIC', 'ANTH', 'APEP', 
-          'ARAB', 'ARCH', 'ARTS', 'ASEI', 'BAMS', 'BASA', 'BBMS', 'BCHE', 'BCHM', 'BCJC',
-          'BCME', 'BECE', 'BEHM', 'BEST', 'BIOL', 'BIOS', 'BMBL', 'BMED', 'BMEG', 'BMJC',
-          'BSCG', 'BUDS', 'CCNU', 'CCSS', 'CDAS', 'CENG', 'CGEN', 'CHCU', 'CHED', 'CHEM',
-          'CHES', 'CHLL', 'CHLT', 'CHPR', 'CHPY', 'CLCC', 'CLCE', 'CLCH', 'CLCP', 'CLED',
-          'CLGY', 'CMBI', 'CMSC', 'CNGT', 'CODS', 'COMM', 'COOP', 'CSCI', 'CULS', 'CUMT',
-          'CURE', 'CVSM', 'DBAC', 'DIUS', 'DOTE', 'DROI', 'DSME', 'DSPS', 'EASC', 'ECLT',
-          'ECON', 'ECTM', 'EDUC', 'EEEN', 'EESC', 'EIHP', 'ELED', 'ELEG', 'ELTU', 'EMBA',
-          'EMBF', 'ENGE', 'ENGG', 'ENLC', 'ENLT', 'ENSC', 'EPBI', 'EPID', 'EPIN', 'EPSY',
-          'ESGS', 'ESSC', 'ESTR', 'EXSC', 'FAAS', 'FAME', 'FINA', 'FNSC', 'FREN', 'FTEC',
-          'GAST', 'GDRS', 'GECC', 'GECW', 'GEJC', 'GEMC', 'GENA', 'GEOR', 'GERM', 'GESC',
-          'GESH', 'GEUC', 'GEWS', 'GEYS', 'GISM', 'GLBS', 'GLEF', 'GLOF', 'GLSD', 'GNBF',
-          'GNED', 'GPAD', 'GPEC', 'GPGC', 'GPSU', 'GRMD', 'GRON', 'HIST', 'HKSL', 'HPSB',
-          'HSGS', 'HSOC', 'HSYS', 'HTMG', 'IASP', 'IBBA', 'IEMS', 'IERG', 'IMSC', 'INDA',
-          'INFD', 'ITAL', 'JASP', 'KORE', 'LAWS', 'LDTE', 'LING', 'LSCI', 'LSCM', 'LSED',
-          'MAED', 'MAEG', 'MAPE', 'MASE', 'MATH', 'MAVE', 'MBAC', 'MBTE', 'MCLE', 'MCLS',
-          'MCNS', 'MECM', 'MEDF', 'MEDM', 'MEDP', 'MEDU', 'MESC', 'MFMD', 'MGNT', 'MHLS',
-          'MICY', 'MIEG', 'MITE', 'MKTG', 'MLSC', 'MMAT', 'MPTE', 'MPUP', 'MRGO', 'MSAE',
-          'MSEG', 'MSMR', 'MTCI', 'MUSC', 'NSCI', 'NSSC', 'NURS', 'OBGY', 'OBSC', 'OENV',
-          'OMBA', 'ORLC', 'ORTY', 'OVSC', 'PBHT', 'PEDU', 'PGDC', 'PGDE', 'PGDP', 'PHAR',
-          'PHEC', 'PHED', 'PHIL', 'PHMA', 'PHPC', 'PHUG', 'PHYS', 'PHYY', 'POPG', 'POPN',
-          'PRHC', 'PSYC', 'PUBH', 'REES', 'RELS', 'RMCE', 'RMED', 'RMSC', 'ROSE', 'RUSS',
-          'SBMS', 'SEEM', 'SENV', 'SGCL', 'SILP', 'SLPA', 'SOCI', 'SOSC', 'SOWK', 'SPAN',
-          'SPED', 'SPSY', 'SSMU', 'SSPA', 'SSPE', 'STAR', 'STAT', 'SURY', 'SUTM', 'TESL',
-          'THAI', 'THEO', 'TRAN', 'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN',
-          'URBD', 'URSP', 'WOHS', 'XCBS', 'XCCS', 'XFUD', 'XUNC', 'XUSC', 'XWAS'
-        ]
+        // const ALL_SUBJECTS = [
+        //   'ACCT', 'ACPY', 'AENP', 'AEPT', 'AIMS', 'AIST', 'ANAT', 'ANIC', 'ANTH', 'APEP', 
+        //   'ARAB', 'ARCH', 'ARTS', 'ASEI', 'BAMS', 'BASA', 'BBMS', 'BCHE', 'BCHM', 'BCJC',
+        //   'BCME', 'BECE', 'BEHM', 'BEST', 'BIOL', 'BIOS', 'BMBL', 'BMED', 'BMEG', 'BMJC',
+        //   'BSCG', 'BUDS', 'CCNU', 'CCSS', 'CDAS', 'CENG', 'CGEN', 'CHCU', 'CHED', 'CHEM',
+        //   'CHES', 'CHLL', 'CHLT', 'CHPR', 'CHPY', 'CLCC', 'CLCE', 'CLCH', 'CLCP', 'CLED',
+        //   'CLGY', 'CMBI', 'CMSC', 'CNGT', 'CODS', 'COMM', 'COOP', 'CSCI', 'CULS', 'CUMT',
+        //   'CURE', 'CVSM', 'DBAC', 'DIUS', 'DOTE', 'DROI', 'DSME', 'DSPS', 'EASC', 'ECLT',
+        //   'ECON', 'ECTM', 'EDUC', 'EEEN', 'EESC', 'EIHP', 'ELED', 'ELEG', 'ELTU', 'EMBA',
+        //   'EMBF', 'ENGE', 'ENGG', 'ENLC', 'ENLT', 'ENSC', 'EPBI', 'EPID', 'EPIN', 'EPSY',
+        //   'ESGS', 'ESSC', 'ESTR', 'EXSC', 'FAAS', 'FAME', 'FINA', 'FNSC', 'FREN', 'FTEC',
+        //   'GAST', 'GDRS', 'GECC', 'GECW', 'GEJC', 'GEMC', 'GENA', 'GEOR', 'GERM', 'GESC',
+        //   'GESH', 'GEUC', 'GEWS', 'GEYS', 'GISM', 'GLBS', 'GLEF', 'GLOF', 'GLSD', 'GNBF',
+        //   'GNED', 'GPAD', 'GPEC', 'GPGC', 'GPSU', 'GRMD', 'GRON', 'HIST', 'HKSL', 'HPSB',
+        //   'HSGS', 'HSOC', 'HSYS', 'HTMG', 'IASP', 'IBBA', 'IEMS', 'IERG', 'IMSC', 'INDA',
+        //   'INFD', 'ITAL', 'JASP', 'KORE', 'LAWS', 'LDTE', 'LING', 'LSCI', 'LSCM', 'LSED',
+        //   'MAED', 'MAEG', 'MAPE', 'MASE', 'MATH', 'MAVE', 'MBAC', 'MBTE', 'MCLE', 'MCLS',
+        //   'MCNS', 'MECM', 'MEDF', 'MEDM', 'MEDP', 'MEDU', 'MESC', 'MFMD', 'MGNT', 'MHLS',
+        //   'MICY', 'MIEG', 'MITE', 'MKTG', 'MLSC', 'MMAT', 'MPTE', 'MPUP', 'MRGO', 'MSAE',
+        //   'MSEG', 'MSMR', 'MTCI', 'MUSC', 'NSCI', 'NSSC', 'NURS', 'OBGY', 'OBSC', 'OENV',
+        //   'OMBA', 'ORLC', 'ORTY', 'OVSC', 'PBHT', 'PEDU', 'PGDC', 'PGDE', 'PGDP', 'PHAR',
+        //   'PHEC', 'PHED', 'PHIL', 'PHMA', 'PHPC', 'PHUG', 'PHYS', 'PHYY', 'POPG', 'POPN',
+        //   'PRHC', 'PSYC', 'PUBH', 'REES', 'RELS', 'RMCE', 'RMED', 'RMSC', 'ROSE', 'RUSS',
+        //   'SBMS', 'SEEM', 'SENV', 'SGCL', 'SILP', 'SLPA', 'SOCI', 'SOSC', 'SOWK', 'SPAN',
+        //   'SPED', 'SPSY', 'SSMU', 'SSPA', 'SSPE', 'STAR', 'STAT', 'SURY', 'SUTM', 'TESL',
+        //   'THAI', 'THEO', 'TRAN', 'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN',
+        //   'URBD', 'URSP', 'WOHS', 'XCBS', 'XCCS', 'XFUD', 'XUNC', 'XUSC', 'XWAS'
+        // ]
+
+        const ALL_SUBJECTS = ['ARTS', 'HIST'] // For testing, use a single subject
         
         console.log(`📂 Complete subject list: ${ALL_SUBJECTS.length} subjects (no term filtering)`)
         console.log(`🎯 Benefits: Complete coverage, simple logic, browser caching optimized`)
@@ -1856,10 +1859,194 @@ function CourseCard({
                   <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
                 </div>
               )}
+
+              {/* Course Outcome Sections */}
+              <CourseOutcomeSections course={course} />
             </div>
           </div>
         </CardContent>
       )}
     </Card>
   )
+}
+
+// Course Outcome Sections Component with smart filtering
+function CourseOutcomeSections({ course }: { course: InternalCourse }) {
+  // Helper function to check if content is same as description
+  const isDuplicateOfDescription = (content: string) => {
+    if (!content || !course.description) return false
+    
+    // Normalize both strings for comparison (remove extra whitespace, convert to lowercase)
+    const normalizeText = (text: string) => text.replace(/\s+/g, ' ').trim().toLowerCase()
+    const normalizedContent = normalizeText(content)
+    const normalizedDescription = normalizeText(course.description)
+    
+    // Consider it duplicate if they're identical or if content is contained in description
+    return normalizedContent === normalizedDescription || 
+           normalizedDescription.includes(normalizedContent) ||
+           normalizedContent.includes(normalizedDescription)
+  }
+
+  // Define display order as requested
+  const sections = [
+    {
+      key: 'assessmentTypes',
+      title: 'Assessment Types',
+      content: course.assessmentTypes,
+      isTable: true
+    },
+    {
+      key: 'learningOutcomes', 
+      title: 'Learning Outcomes',
+      content: course.learningOutcomes,
+      isTable: false
+    },
+    {
+      key: 'requiredReadings',
+      title: 'Required Readings', 
+      content: course.requiredReadings,
+      isTable: false
+    },
+    {
+      key: 'recommendedReadings',
+      title: 'Recommended Readings',
+      content: course.recommendedReadings, 
+      isTable: false
+    },
+    {
+      key: 'feedbackEvaluation',
+      title: 'Feedback for Evaluation',
+      content: course.feedbackEvaluation,
+      isTable: false
+    }
+  ]
+
+  // Filter sections based on smart filtering rules
+  const visibleSections = sections.filter(section => {
+    // Rule 1: Skip if empty
+    if (!section.content) return false
+    
+    // Rule 2: Skip if same as description (except for assessment types which are structured differently)
+    if (!section.isTable && typeof section.content === 'string' && isDuplicateOfDescription(section.content)) return false
+    
+    // Rule 3: For assessment types, check if it's an empty object
+    if (section.isTable && typeof section.content === 'object') {
+      return Object.keys(section.content).length > 0
+    }
+    
+    return true
+  })
+
+  // Don't render anything if no sections to show
+  if (visibleSections.length === 0) return null
+
+  return (
+    <div className="space-y-4">
+      {visibleSections.map(section => (
+        <CourseOutcomeSection 
+          key={section.key}
+          title={section.title}
+          content={section.content}
+          isTable={section.isTable}
+        />
+      ))}
+    </div>
+  )
+}
+
+// Individual Course Outcome Section Component
+function CourseOutcomeSection({ 
+  title, 
+  content, 
+  isTable 
+}: { 
+  title: string
+  content: string | Record<string, string> | undefined
+  isTable: boolean 
+}) {
+  // Early return if no content
+  if (!content) return null
+  if (isTable && typeof content === 'object') {
+    // Render assessment types as a clean table
+    const assessmentEntries = Object.entries(content)
+    if (assessmentEntries.length === 0) return null
+
+    return (
+      <div>
+        <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
+        <div className="bg-gray-50 rounded-lg p-3">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-gray-200">
+                <th className="text-left py-1 pr-4 font-medium text-gray-700">Assessment Type</th>
+                <th className="text-left py-1 font-medium text-gray-700">Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              {assessmentEntries.map(([type, percentage], index) => (
+                <tr key={index} className={index < assessmentEntries.length - 1 ? 'border-b border-gray-100' : ''}>
+                  <td className="py-1 pr-4 text-gray-600">{type}</td>
+                  <td className="py-1 text-gray-600">{String(percentage)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )
+  }
+
+  // Render markdown content
+  if (typeof content === 'string') {
+    return (
+      <div>
+        <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
+        <div className="bg-gray-50 rounded-lg p-3">
+          <div className="prose prose-sm max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-li:text-gray-600">
+            <ReactMarkdown 
+              components={{
+              // Custom table styling to match design
+              table: ({ children }) => (
+                <table className="w-full text-sm border-collapse border border-gray-300 my-2">
+                  {children}
+                </table>
+              ),
+              th: ({ children }) => (
+                <th className="border border-gray-300 bg-gray-100 px-2 py-1 text-left font-medium text-gray-700">
+                  {children}
+                </th>
+              ),
+              td: ({ children }) => (
+                <td className="border border-gray-300 px-2 py-1 text-gray-600">
+                  {children}
+                </td>
+              ),
+              // Style lists nicely
+              ol: ({ children }) => (
+                <ol className="list-decimal list-inside space-y-1 ml-2">
+                  {children}
+                </ol>
+              ),
+              ul: ({ children }) => (
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  {children}
+                </ul>
+              ),
+              // Keep paragraphs compact
+              p: ({ children }) => (
+                <p className="mb-2 last:mb-0">
+                  {children}
+                </p>
+              )
+              }}
+            >
+              {content as string}
+            </ReactMarkdown>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return null
 }
