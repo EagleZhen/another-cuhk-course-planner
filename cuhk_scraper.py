@@ -1364,6 +1364,59 @@ class CuhkScraper:
         
         return cleaned_text.strip()
     
+    def _html_to_markdown(self, html_content: str) -> str:
+        """Convert HTML content to clean Markdown format with proper table headers"""
+        if not html_content:
+            return ""
+        
+        try:
+            # Try to import markdownify
+            import markdownify
+            
+            # Convert HTML to Markdown
+            markdown = markdownify.markdownify(html_content, heading_style="ATX")
+            
+            # Fix empty table headers issue
+            markdown = self._fix_table_headers(markdown)
+            
+            return markdown.strip()
+            
+        except ImportError:
+            self.logger.warning("markdownify not available, falling back to text extraction")
+            return self._clean_text(html_content)
+        except Exception as e:
+            self.logger.warning(f"Error converting HTML to Markdown: {e}, falling back to text extraction")
+            return self._clean_text(html_content)
+    
+    def _fix_table_headers(self, markdown_text: str) -> str:
+        """Fix empty header rows in markdown tables"""
+        lines = markdown_text.split('\n')
+        result = []
+        
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            
+            # Detect empty header pattern: |  |  |
+            if line.strip().startswith('|') and line.strip().endswith('|'):
+                # Split by | and check if all cells are empty (ignoring first/last empty splits)
+                cells = line.split('|')[1:-1]  # Remove first and last empty elements
+                if all(cell.strip() == '' for cell in cells):
+                    # Check if next line is separator: | --- | --- |
+                    if i + 1 < len(lines) and '---' in lines[i + 1]:
+                        # Check if line after separator has content
+                        if i + 2 < len(lines) and lines[i + 2].strip().startswith('|'):
+                            # Replace empty header with first data row
+                            result.append(lines[i + 2])  # Use first data row as header
+                            result.append(lines[i + 1])  # Keep separator
+                            i += 3  # Skip empty header, separator, and used data row
+                            continue
+            
+            result.append(line)
+            i += 1
+        
+        return '\n'.join(result)
+    
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
         try:
@@ -1400,35 +1453,35 @@ class CuhkScraper:
         """Parse Course Outcome page content and extract all relevant information"""
         soup = BeautifulSoup(html, 'html.parser')
         
-        # Extract Learning Outcomes
+        # Extract Learning Outcomes (convert to Markdown for rich formatting)
         learning_outcome_span = soup.find('span', {'id': 'uc_course_outcome_lbl_learning_outcome'})
         if learning_outcome_span:
-            course.learning_outcomes = self._clean_text(str(learning_outcome_span))
+            course.learning_outcomes = self._html_to_markdown(str(learning_outcome_span))
         
-        # Extract Course Syllabus  
+        # Extract Course Syllabus (convert to Markdown for tables and lists)
         syllabus_span = soup.find('span', {'id': 'uc_course_outcome_lbl_course_syllabus'})
         if syllabus_span:
-            course.course_syllabus = self._clean_text(str(syllabus_span))
+            course.course_syllabus = self._html_to_markdown(str(syllabus_span))
         
         # Extract Assessment Types (table structure)
         assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
         if assessment_table:
             course.assessment_types = self._parse_assessment_table(assessment_table)
         
-        # Extract Feedback for Evaluation
+        # Extract Feedback for Evaluation (convert to Markdown)
         feedback_span = soup.find('span', {'id': 'uc_course_outcome_lbl_feedback'})
         if feedback_span:
-            course.feedback_evaluation = self._clean_text(str(feedback_span))
+            course.feedback_evaluation = self._html_to_markdown(str(feedback_span))
         
-        # Extract Required Readings
+        # Extract Required Readings (convert to Markdown for lists)
         required_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_req_reading'})
         if required_reading_span:
-            course.required_readings = self._clean_text(str(required_reading_span))
+            course.required_readings = self._html_to_markdown(str(required_reading_span))
         
-        # Extract Recommended Readings
+        # Extract Recommended Readings (convert to Markdown for lists)
         recommended_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_rec_reading'})
         if recommended_reading_span:
-            course.recommended_readings = self._clean_text(str(recommended_reading_span))
+            course.recommended_readings = self._html_to_markdown(str(recommended_reading_span))
         
         self.logger.info(f"Course Outcome parsed for {course.course_code}")
     
