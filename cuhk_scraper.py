@@ -1592,7 +1592,7 @@ class CuhkScraper:
             
             # Be polite to the server
             if i < len(subjects) - 1:
-                time.sleep(config.request_delay)
+                time.sleep(self.config.request_delay)
         
         # Print progress summary if tracking enabled
         if self.progress_tracker:
