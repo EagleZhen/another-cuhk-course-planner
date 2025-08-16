@@ -50,7 +50,14 @@ const ExternalCourseSchema = z.object({
   description: z.string().optional(),
   enrollment_requirement: z.string().optional(),
   grading_basis: z.string().optional(),
-  terms: z.array(ExternalTermSchema).optional().default([])
+  terms: z.array(ExternalTermSchema).optional().default([]),
+  // Course Outcome fields (snake_case from scraper)
+  learning_outcomes: z.string().optional(),
+  course_syllabus: z.string().optional(),
+  assessment_types: z.record(z.string(), z.string()).optional(),
+  feedback_evaluation: z.string().optional(),
+  required_readings: z.string().optional(),
+  recommended_readings: z.string().optional()
 })
 
 // Course data file schema
@@ -190,7 +197,14 @@ export function transformExternalCourse(external: unknown): InternalCourse {
       description: validated.description,
       enrollmentRequirement: validated.enrollment_requirement,
       gradingBasis: validated.grading_basis,
-      terms
+      terms,
+      // Course Outcome fields (snake_case → camelCase transformation)
+      learningOutcomes: validated.learning_outcomes,
+      courseSyllabus: validated.course_syllabus,
+      assessmentTypes: validated.assessment_types,
+      feedbackEvaluation: validated.feedback_evaluation,
+      requiredReadings: validated.required_readings,
+      recommendedReadings: validated.recommended_readings
     }
   } catch (error) {
     if (error instanceof z.ZodError) {

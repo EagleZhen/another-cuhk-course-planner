@@ -10,6 +10,13 @@ export interface InternalCourse {
   enrollmentRequirement?: string
   gradingBasis?: string
   terms: InternalTerm[]
+  // Course Outcome fields
+  learningOutcomes?: string
+  courseSyllabus?: string
+  assessmentTypes?: Record<string, string>
+  feedbackEvaluation?: string
+  requiredReadings?: string
+  recommendedReadings?: string
 }
 
 export interface InternalTerm {
