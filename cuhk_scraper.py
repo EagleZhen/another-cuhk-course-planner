@@ -356,15 +356,15 @@ class CuhkScraper:
                 
             except (ConnectionError, Timeout) as e:
                 attempt += 1
-                # Progressive delay: 5s, 10s, 15s, ..., max 5 minutes
-                wait_time = min(300, 5 * attempt)
+                # Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, max 60s
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.warning(f"🌐 Network issue (attempt {attempt}), retrying in {wait_time}s: {type(e).__name__}")
                 time.sleep(wait_time)
                 
             except HTTPError as e:
                 if e.response.status_code in [502, 503, 504]:  # Server errors - retry
                     attempt += 1
-                    wait_time = min(60, 10 * attempt)  # Max 1 minute for server issues
+                    wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Exponential backoff, max 60s
                     self.logger.warning(f"🔧 Server error {e.response.status_code} (attempt {attempt}), retrying in {wait_time}s")
                     time.sleep(wait_time)
                 else:
@@ -692,12 +692,12 @@ class CuhkScraper:
                 # If we reach here, something unexpected happened - retry
                 self.logger.warning(f"⚠️ Unexpected validation result: {validation['result_type']}")
                 if attempt < self.config.max_retries - 1:
-                    time.sleep(2 ** attempt)  # Exponential backoff
+                    time.sleep(min(60, 2 ** attempt))  # Exponential backoff, max 60s
                     
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
                 if attempt < self.config.max_retries - 1:
-                    time.sleep(2 ** attempt)
+                    time.sleep(min(60, 2 ** attempt))  # Exponential backoff, max 60s
         
         return []
     
