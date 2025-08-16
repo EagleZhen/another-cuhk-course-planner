@@ -1,23 +1,19 @@
 {
   "scraping_log": {
-    "started_at": "2025-08-15T06:23:53.494513+00:00",
-    "last_updated": "2025-08-15T17:26:25.493680+00:00",
-    "total_subjects": 263,
-    "completed": 263,
+    "started_at": "2025-08-16T01:31:56.449773+00:00",
+    "last_updated": "2025-08-16T01:32:30.016011+00:00",
+    "total_subjects": 1,
+    "completed": 262,
     "failed": 0,
     "subjects": {
       "CSCI": {
-        "status": "completed",
-        "last_scraped": "2025-08-15T08:28:39.246833+00:00",
-        "courses_count": 83,
-        "courses_scraped": 83,
-        "output_file": "data/CSCI.json",
-        "duration_minutes": 8.15,
-        "config": {
-          "get_details": true,
-          "get_enrollment_details": true,
-          "max_courses": null
-        },
+        "status": "in_progress",
+        "started_at": "2025-08-16T01:30:53.808369+00:00",
+        "estimated_courses": 83,
+        "courses_scraped": 0,
+        "completed_courses": [],
+        "last_course_completed": "",
+        "last_progress_update": "2025-08-16T01:30:53.808376+00:00",
         "retry_count": 0
       },
       "ACCT": {
@@ -190,11 +186,11 @@
       },
       "ARTS": {
         "status": "completed",
-        "last_scraped": "2025-08-15T06:54:18.205181+00:00",
+        "last_scraped": "2025-08-16T01:32:30.015764+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/ARTS.json",
-        "duration_minutes": 0.45,
+        "duration_minutes": 0.56,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,

@@ -31,6 +31,8 @@ def main():
         logger.info("Getting subjects from live website...")
         subjects = scraper.get_subjects_from_live_site()
         
+        subjects = ['ARTS']
+        
         if not subjects:
             logger.error("Could not get subjects from live website")
             return
