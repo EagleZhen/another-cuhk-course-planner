@@ -54,34 +54,47 @@ def clean_word_html(html_content: str) -> str:
     
     return str(soup)
 
-def normalize_whitespace(text: str) -> str:
-    """Normalize whitespace while preserving markdown structure"""
-    # Replace any remaining non-breaking spaces
+def normalize_whitespace_markdown_aware(text: str) -> str:
+    """Clean whitespace while preserving markdown syntax for proper rendering"""
+    # Step 1: Replace non-breaking spaces (Word HTML artifact)
     text = text.replace('\xa0', ' ')
     
-    # Normalize whitespace within lines while preserving list structure
     lines = text.split('\n')
-    normalized_lines = []
+    cleaned_lines = []
     
     for line in lines:
-        # For list items, preserve structure but clean excessive spaces
-        if re.match(r'^\s*\d+\.', line.strip()):
-            # Numbered list item: normalize spacing around number
-            line = re.sub(r'^\s*(\d+)\.\s+', r'\1. ', line.strip())
-        elif line.strip().startswith(('-', '*')):
-            # Bullet list item
-            line = re.sub(r'^\s*(\-|\*)\s+', r'\1 ', line.strip())
-        else:
-            # Regular line: remove leading whitespace, clean excessive spaces
-            line = line.strip()
+        # Remove leading/trailing whitespace from each line
+        stripped = line.strip()
         
-        # Clean excessive spaces within content (but preserve single spaces)
-        line = re.sub(r' {2,}', ' ', line)
-        normalized_lines.append(line)
+        if not stripped:
+            # Empty line - preserve for markdown structure
+            cleaned_lines.append('')
+            continue
+        
+        # Step 2: Handle markdown syntax elements
+        if re.match(r'^\d+\.', stripped):
+            # Numbered list: ensure exactly "1. " format (space required for markdown)
+            line = re.sub(r'^(\d+)\.\s*', r'\1. ', stripped)
+        elif re.match(r'^[-*+]', stripped):
+            # Bullet list: ensure exactly "- " format  
+            line = re.sub(r'^([-*+])\s*', r'\1 ', stripped)
+        elif re.match(r'^#{1,6}', stripped):
+            # Headers: ensure exactly "# " format
+            line = re.sub(r'^(#{1,6})\s*', r'\1 ', stripped)
+        else:
+            # Regular line: just use stripped version
+            line = stripped
+        
+        # Step 3: Clean excessive internal spaces (but preserve single spaces)
+        line = re.sub(r'  +', ' ', line)
+        
+        cleaned_lines.append(line)
     
-    # Rejoin and normalize line breaks
-    text = '\n'.join(normalized_lines)
-    text = re.sub(r'\n\s*\n\s*\n+', '\n\n', text)  # Multiple blank lines → double line break
+    # Step 4: Join and normalize line breaks (preserve structure)
+    text = '\n'.join(cleaned_lines)
+    
+    # Multiple consecutive blank lines → single blank line (for readability)
+    text = re.sub(r'\n\s*\n\s*\n+', '\n\n', text)
     
     return text.strip()
 
@@ -149,8 +162,8 @@ def test_robust_html_processing():
         markdown_result = markdownify.markdownify(cleaned_html, heading_style="ATX")
         print(f"Raw markdown length: {len(markdown_result)} characters")
         
-        # Apply semantic whitespace normalization
-        final_markdown = normalize_whitespace(markdown_result)
+        # Apply markdown-aware whitespace normalization
+        final_markdown = normalize_whitespace_markdown_aware(markdown_result)
         print(f"Final markdown length: {len(final_markdown)} characters")
         print(f"Final reduction: {len(markdown_result) - len(final_markdown)} characters")
         print()
@@ -211,6 +224,18 @@ def test_robust_html_processing():
     print(f"   Leading whitespace: {leading_spaces_raw} → {leading_spaces_final}")
     print(f"   Non-breaking spaces in final: {final_markdown.count(chr(160))}")
     print(f"   Multiple spaces in final: {bool(re.search(r'  +', final_markdown))}")
+    
+    # Check markdown syntax preservation
+    numbered_lists_raw = len(re.findall(r'^\d+\. ', markdown_result, re.MULTILINE))
+    numbered_lists_final = len(re.findall(r'^\d+\. ', final_markdown, re.MULTILINE))
+    print(f"   Numbered list syntax preserved: {numbered_lists_raw} → {numbered_lists_final}")
+    
+    # Show first line comparison
+    first_line_raw = markdown_result.split('\n')[0] if markdown_result else ""
+    first_line_final = final_markdown.split('\n')[0] if final_markdown else ""
+    print(f"   First line transformation:")
+    print(f"     Raw:   {repr(first_line_raw)}")
+    print(f"     Final: {repr(first_line_final)}")
     print()
     
     # Step 6: Preview final results
