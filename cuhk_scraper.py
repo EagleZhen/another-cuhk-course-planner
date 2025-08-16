@@ -1464,6 +1464,16 @@ class CuhkScraper:
         # Ensure output directory exists
         os.makedirs(self.config.output_directory, exist_ok=True)
         
+        # Always cache subject titles for metadata (essential for usability)
+        self.logger.info("📋 Fetching subject titles from live website...")
+        subjects_with_titles = self.get_subjects_with_titles_from_live_site()
+        
+        # Build cache for fast lookup during scraping
+        self.subject_titles_cache = {}
+        for subject_info in subjects_with_titles:
+            self.subject_titles_cache[subject_info["code"]] = subject_info["title"]
+        self.logger.info(f"✅ Cached {len(self.subject_titles_cache)} subject titles for metadata")
+        
         # Initialize progress tracker if enabled
         if self.config.track_progress:
             self.progress_tracker = ScrapingProgressTracker(self.config.progress_file, self.logger)
@@ -1548,31 +1558,6 @@ class CuhkScraper:
             'failed': failed_subjects,
             'saved_files': saved_files
         }
-    
-    def scrape_and_export_production(self, subjects: List[str]) -> str:
-        """Complete production workflow: scrape + export to per-subject files using instance config"""
-        self.logger.info(f"Starting PRODUCTION scraping and export for {len(subjects)} subjects")
-        self.logger.info(f"Output: per-subject files in {self.config.output_directory}/")
-        
-        # Fetch and cache subject titles at the start
-        self.logger.info("📋 Fetching subject titles from live website...")
-        subjects_with_titles = self.get_subjects_with_titles_from_live_site()
-        
-        # Build cache for fast lookup during scraping
-        self.subject_titles_cache = {}
-        for subject_info in subjects_with_titles:
-            self.subject_titles_cache[subject_info["code"]] = subject_info["title"]
-        
-        self.logger.info(f"✅ Cached {len(self.subject_titles_cache)} subject titles for metadata")
-        
-        results = self.scrape_all_subjects(subjects)
-        
-        # Index file generation removed - frontend loads individual JSON files directly
-        # Return summary based on scraping results
-        completed_count = len(results['completed'])
-        failed_count = len(results['failed'])
-        return f"Production scraping completed: {completed_count} subjects successful, {failed_count} failed"
-    
     
     def _save_subject_immediately(self, subject: str, courses: List[Course], config: ScrapingConfig) -> Optional[str]:
         """Save single subject immediately to prevent data loss"""
