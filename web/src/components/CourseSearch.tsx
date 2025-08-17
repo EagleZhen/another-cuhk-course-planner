@@ -1937,6 +1937,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     return true
   })
 
+
   // Don't render anything if no sections to show
   if (visibleSections.length === 0) return null
 
