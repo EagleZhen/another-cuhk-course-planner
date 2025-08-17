@@ -572,7 +572,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                             exact_matches += 1
                             cleaned_attributes[''] += 1  # Empty after cleaning
                         elif class_attrs.endswith(course_attrs):
-                            # Pattern match - fits our rule
+                            # Pattern match - class ends with course (original hypothesis)
                             pattern_matches += 1
                             # Clean the class attributes
                             cleaned = class_attrs[:-len(course_attrs)].strip('\n ')
@@ -585,8 +585,22 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                                     'course_attrs': course_attrs,
                                     'cleaned': cleaned
                                 })
+                        elif class_attrs.startswith(course_attrs):
+                            # NEW PATTERN: class starts with course (appears to be the real pattern!)
+                            pattern_matches += 1
+                            # Clean the class attributes by removing course attrs from start
+                            cleaned = class_attrs[len(course_attrs):].strip('\n ')
+                            cleaned_attributes[cleaned] += 1
+                            
+                            if len(cleaning_examples) < 10 and cleaned:
+                                cleaning_examples.append({
+                                    'course': course_id,
+                                    'original': class_attrs,
+                                    'course_attrs': course_attrs,
+                                    'cleaned': cleaned
+                                })
                         else:
-                            # Rule violation - doesn't end with course_attrs
+                            # Rule violation - doesn't start or end with course_attrs
                             rule_violations += 1
                             if len(rule_violation_examples) < 10:
                                 rule_violation_examples.append({
@@ -604,11 +618,11 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
     print()
     
     if sections_with_both_attrs > 0:
-        rule_followers = exact_matches + pattern_matches
         print("🔍 RULE VALIDATION:")
-        print(f"  ✅ Follows rule (class ends with course): {rule_followers:,} ({rule_followers/sections_with_both_attrs*100:.1f}%)")
+        rule_followers = pattern_matches + exact_matches
+        print(f"  ✅ Follows containment rule: {rule_followers:,} ({rule_followers/sections_with_both_attrs*100:.1f}%)")
         print(f"     └─ Exact matches: {exact_matches:,}")
-        print(f"     └─ Pattern matches: {pattern_matches:,}")
+        print(f"     └─ Pattern matches (start OR end): {pattern_matches:,}")
         print(f"  ❌ Rule violations: {rule_violations:,} ({rule_violations/sections_with_both_attrs*100:.1f}%)")
         print()
         
