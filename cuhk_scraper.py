@@ -1608,59 +1608,6 @@ class CuhkScraper:
             self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
             return None
     
-    def export_to_json(self, data: Dict[str, List[Course]], config: Optional[ScrapingConfig] = None, filename: Optional[str] = None) -> str:
-        """Export data to JSON with metadata, supporting both single file and per-subject modes"""
-        if config is None:
-            config = ScrapingConfig()  # Use testing defaults
-        
-        # Ensure output directory exists
-        import os
-        os.makedirs(config.output_directory, exist_ok=True)
-        
-        if config.output_mode == "per_subject":
-            return self._export_per_subject(data, config)
-        else:
-            return self._export_single_file(data, config, filename)
-    
-    def _export_single_file(self, data: Dict[str, List[Course]], config: ScrapingConfig, filename: Optional[str] = None) -> str:
-        """Export all data to a single JSON file"""
-        if not filename:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"{config.output_directory}/cuhk_courses_{timestamp}.json"
-        
-        # Structure for web app consumption
-        scraped_at = utc_now_iso()
-        metadata = {
-            "scraped_at": scraped_at,
-            "total_subjects": len(data),
-            "total_courses": sum(len(courses) for courses in data.values()),
-            "output_mode": "single_file"
-        }
-        
-        # Add human-readable duration if we have progress tracker with session start time
-        if (self.progress_tracker and 
-            self.progress_tracker.progress_data and 
-            'scraping_log' in self.progress_tracker.progress_data and 
-            'started_at' in self.progress_tracker.progress_data['scraping_log']):
-            started_at = self.progress_tracker.progress_data['scraping_log']['started_at']
-            duration_seconds = calculate_duration_seconds(started_at)
-            if duration_seconds is not None:
-                metadata["duration_human"] = format_duration_human(duration_seconds)
-        
-        json_data = {
-            "metadata": metadata,
-            "subjects": {}
-        }
-        
-        for subject, courses in data.items():
-            json_data["subjects"][subject] = [course.to_dict() for course in courses]
-        
-        with open(filename, 'w', encoding='utf-8') as f:
-            json.dump(json_data, f, ensure_ascii=False, indent=2)
-        
-        self.logger.info(f"Exported to {filename}")
-        return filename
-    
     def _export_per_subject(self, data: Dict[str, List[Course]], config: ScrapingConfig) -> str:
         """Export each subject to its own JSON file"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
