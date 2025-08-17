@@ -567,40 +567,35 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                     if course_attrs and class_attrs:
                         sections_with_both_attrs += 1
                         
+                        # LINE-BY-LINE APPROACH: Split by newlines and compare line by line
+                        class_lines = [line.strip() for line in class_attrs.split('\n') if line.strip()]
+                        course_lines = [line.strip() for line in course_attrs.split('\n') if line.strip()]
+                        
+                        # Find lines in class_attrs that are NOT in course_attrs
+                        class_specific_lines = [line for line in class_lines if line not in course_lines]
+                        cleaned = '\n'.join(class_specific_lines)
+                        
                         if class_attrs == course_attrs:
-                            # Exact match - fits our rule (remove everything = empty)
+                            # Exact match - no class-specific attributes
                             exact_matches += 1
                             cleaned_attributes[''] += 1  # Empty after cleaning
-                        elif class_attrs.endswith(course_attrs):
-                            # Pattern match - class ends with course (original hypothesis)
+                        elif len(class_specific_lines) < len(class_lines):
+                            # Successfully extracted some course attributes
                             pattern_matches += 1
-                            # Clean the class attributes
-                            cleaned = class_attrs[:-len(course_attrs)].strip('\n ')
                             cleaned_attributes[cleaned] += 1
                             
-                            if len(cleaning_examples) < 5 and cleaned:
+                            
+                            if len(cleaning_examples) < 10:
                                 cleaning_examples.append({
                                     'course': course_id,
                                     'original': class_attrs,
                                     'course_attrs': course_attrs,
-                                    'cleaned': cleaned
-                                })
-                        elif class_attrs.startswith(course_attrs):
-                            # NEW PATTERN: class starts with course (appears to be the real pattern!)
-                            pattern_matches += 1
-                            # Clean the class attributes by removing course attrs from start
-                            cleaned = class_attrs[len(course_attrs):].strip('\n ')
-                            cleaned_attributes[cleaned] += 1
-                            
-                            if len(cleaning_examples) < 10 and cleaned:
-                                cleaning_examples.append({
-                                    'course': course_id,
-                                    'original': class_attrs,
-                                    'course_attrs': course_attrs,
-                                    'cleaned': cleaned
+                                    'cleaned': cleaned,
+                                    'lines_removed': len(class_lines) - len(class_specific_lines),
+                                    'lines_total': len(class_lines)
                                 })
                         else:
-                            # Rule violation - doesn't start or end with course_attrs
+                            # No overlap found - course attributes not found in class attributes
                             rule_violations += 1
                             if len(rule_violation_examples) < 10:
                                 rule_violation_examples.append({
@@ -618,12 +613,12 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
     print()
     
     if sections_with_both_attrs > 0:
-        print("🔍 RULE VALIDATION:")
+        print("🔍 LINE-BY-LINE CLEANING ANALYSIS:")
         rule_followers = pattern_matches + exact_matches
-        print(f"  ✅ Follows containment rule: {rule_followers:,} ({rule_followers/sections_with_both_attrs*100:.1f}%)")
-        print(f"     └─ Exact matches: {exact_matches:,}")
-        print(f"     └─ Pattern matches (start OR end): {pattern_matches:,}")
-        print(f"  ❌ Rule violations: {rule_violations:,} ({rule_violations/sections_with_both_attrs*100:.1f}%)")
+        print(f"  ✅ Successfully cleaned: {rule_followers:,} ({rule_followers/sections_with_both_attrs*100:.1f}%)")
+        print(f"     └─ Exact matches (no class-specific attrs): {exact_matches:,}")
+        print(f"     └─ Partial matches (extracted course attrs): {pattern_matches:,}")
+        print(f"  ❌ No overlap found: {rule_violations:,} ({rule_violations/sections_with_both_attrs*100:.1f}%)")
         print()
         
         # Show cleaned attributes summary
@@ -640,17 +635,18 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
         
         # Show cleaning examples
         if cleaning_examples:
-            print("📝 CLEANING EXAMPLES:")
-            for ex in cleaning_examples[:3]:
+            print("📝 LINE-BY-LINE CLEANING EXAMPLES:")
+            for ex in cleaning_examples[:5]:
                 print(f"  Course: {ex['course']}")
-                print(f"    Original:     '{ex['original']}'")
+                print(f"    Original class attrs: '{ex['original']}'")
                 print(f"    Course attrs: '{ex['course_attrs']}'")
-                print(f"    After clean:  '{ex['cleaned']}'")
+                print(f"    Cleaned result: '{ex['cleaned']}'")
+                print(f"    Lines removed: {ex['lines_removed']}/{ex['lines_total']}")
                 print()
         
         # Show rule violations
         if rule_violation_examples:
-            print("⚠️  RULE VIOLATIONS (class attrs don't end with course attrs):")
+            print("⚠️  NO OVERLAP CASES (course attrs not found in class attrs):")
             for ex in rule_violation_examples[:5]:
                 print(f"  Course: {ex['course']}")
                 print(f"    Course attrs: '{ex['course_attrs']}'")
@@ -658,8 +654,28 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                 print()
             
             if len(rule_violation_examples) > 5:
-                print(f"    ... and {len(rule_violation_examples) - 5} more violations")
+                print(f"    ... and {len(rule_violation_examples) - 5} more cases")
                 print()
+        
+        # NEW: Show all unique class-specific attributes for verification
+        print("📋 ALL UNIQUE CLASS-SPECIFIC ATTRIBUTES:")
+        print("   (These should be meaningful class attributes like languages, teaching methods)")
+        print()
+        
+        # Sort by frequency for easier analysis
+        all_unique_attrs = sorted(cleaned_attributes.items(), key=lambda x: x[1], reverse=True)
+        
+        for attr, count in all_unique_attrs:
+            if attr:  # Skip empty
+                # Show first 50 characters for readability
+                display_attr = attr if len(attr) <= 50 else attr[:47] + "..."
+                print(f"  \"{display_attr}\": {count:,} sections")
+        
+        print()
+        print(f"📊 SUMMARY: {len(all_unique_attrs)} unique attribute combinations found")
+        non_empty = len([attr for attr, count in all_unique_attrs if attr])
+        print(f"📊 Non-empty class-specific attributes: {non_empty}")
+        print()
     
     return {
         'total_sections': total_sections,
