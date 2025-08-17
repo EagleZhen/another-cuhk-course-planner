@@ -1072,7 +1072,7 @@ wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # 1s, 2s, 4s, 8s, 16s, 32s, max
 ## ✅ Latest Achievement: Production-Ready Course Outcome UI & Modular HTML Processing (August 2025)
 
 **Major Frontend & Architecture Improvements**: 
-1. **Modular HTML Processing**: Extracted 150+ lines of HTML/markdown logic into reusable `html_utils.py` module
+1. **Modular Data Processing**: Extracted 150+ lines of HTML/markdown logic into reusable `data_utils.py` module
 2. **Production-Ready Assessment Tables**: Content-fitting tables with proper visual styling for critical enrollment information
 3. **Collapsible Course Outcome UI**: Smart progressive disclosure with polished interaction design
 4. **Typography Integration**: All Course Outcome content now uses app's Geist Sans font consistently
@@ -1084,7 +1084,7 @@ wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # 1s, 2s, 4s, 8s, 16s, 32s, max
 **Solution**: Clean separation into focused, testable modules
 
 ```python
-# html_utils.py - Standalone, reusable module
+# data_utils.py - Standalone, reusable module
 def html_to_clean_markdown(html_content: str) -> Tuple[str, bool]:
     """Complete HTML-to-markdown pipeline with Word HTML preprocessing"""
     

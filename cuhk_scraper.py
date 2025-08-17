@@ -12,7 +12,7 @@ import ddddocr
 import onnxruntime
 import os
 import gc
-from html_utils import html_to_clean_markdown
+from data_utils import html_to_clean_markdown
 
 def utc_now_iso() -> str:
     """Get current UTC timestamp in ISO format with timezone info
