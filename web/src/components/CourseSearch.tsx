@@ -1974,11 +1974,11 @@ function CourseOutcomeSection({
     return (
       <div>
         <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
-        <div className="bg-gray-50 rounded-lg p-3">
-          <table className="w-full text-sm">
+        <div className="bg-gray-50 rounded-lg p-3 w-fit">
+          <table className="w-fit text-sm">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-1 pr-4 font-medium text-gray-700">Assessment Type</th>
+                <th className="text-left py-1 pr-4 font-medium text-gray-700">Type</th>
                 <th className="text-left py-1 font-medium text-gray-700">Percentage</th>
               </tr>
             </thead>
@@ -2003,12 +2003,12 @@ function CourseOutcomeSection({
         <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
         {/* Integrated markdown content using app's Geist Sans font */}
         <div className="text-sm leading-relaxed">
-          <ReactMarkdown 
+          <ReactMarkdown
             components={{
               // Content-fitting tables with app design system
               table: ({ children }) => (
                 <div className="overflow-x-auto my-3">
-                  <table className="table-auto text-sm border-collapse border border-gray-200 rounded-md">
+                  <table className="w-fit border-collapse border border-gray-200 rounded-md text-sm">
                     {children}
                   </table>
                 </div>
@@ -2075,7 +2075,7 @@ function CourseOutcomeSection({
               ),
             }}
           >
-            {content as string}
+            {content}
           </ReactMarkdown>
         </div>
       </div>
