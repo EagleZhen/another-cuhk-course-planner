@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
 import ReactMarkdown from 'react-markdown'
@@ -1127,7 +1127,8 @@ function CourseCard({
               <CardTitle className="text-lg">
                 {course.subject}{course.courseCode}
               </CardTitle>
-              <Button
+              <div className="flex items-center gap-0">
+                <Button
                 variant="ghost"
                 size="sm"
                 onClick={(e) => {
@@ -1137,7 +1138,7 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
               >
-                <Search className="w-3 h-3 mr-1" />
+                <Search className="w-3 h-3" />
                 Course Outline
               </Button>
               <Button
@@ -1150,9 +1151,23 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
               >
-                <Search className="w-3 h-3 mr-1" />
+                <Search className="w-3 h-3" />
                 Course Reviews
               </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
+                  }}
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                  title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
+                >
+                  <Search className="w-3 h-3" />
+                  Past Papers
+                </Button>
+              </div>
             </div>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
@@ -1275,7 +1290,7 @@ function CourseCard({
             </CardDescription>
             
             {/* Search buttons below course header */}
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-1 mt-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -1286,7 +1301,7 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
               >
-                <Search className="w-3 h-3 mr-1" />
+                <Search className="w-3 h-3" />
                 <span className="hidden xs:inline">Course Outline</span>
                 <span className="xs:hidden">Outline</span>
               </Button>
@@ -1300,9 +1315,23 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
                 title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
               >
-                <Search className="w-3 h-3 mr-1" />
+                <Search className="w-3 h-3" />
                 <span className="hidden xs:inline">Course Reviews</span>
                 <span className="xs:hidden">Reviews</span>
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
+                }}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
+              >
+                <Search className="w-3 h-3" />
+                <span className="hidden xs:inline">Past Papers</span>
+                <span className="xs:hidden">Papers</span>
               </Button>
             </div>
           </div>

@@ -1181,3 +1181,19 @@ export const googleMapsSearchAndOpen = (location: string): void => {
   const url = `https://www.google.com/maps/search/${encodedLocation}`
   window.open(url, '_blank', 'noopener,noreferrer')
 }
+
+/**
+ * Opens CUHK Library search for past papers of the given course and opens in new tab
+ * @param courseCode Course code string (e.g., "CSCI3100")
+ */
+export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
+  const params = new URLSearchParams({
+    query: `any,contains,${courseCode}`,
+    tab: 'default_tab',
+    search_scope: 'All',
+    vid: '852JULAC_CUHK:CUHK',
+    offset: '0'
+  })
+  const url = `https://julac-cuhk.primo.exlibrisgroup.com/discovery/search?${params.toString()}`
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
