@@ -702,7 +702,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
         for attr, count in all_unique_attrs:
             if attr:  # Skip empty
                 line_count = len([line for line in attr.split('\n') if line.strip()])
-                if line_count > 1 and len(complex_examples) < 10:
+                if line_count > 1:  # Remove limit - show ALL complex cases
                     examples = attribute_examples.get(attr, [])
                     complex_examples.append({
                         'attr': attr,
@@ -713,11 +713,72 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
         
         for ex in complex_examples:  # Show ALL complex cases
             print(f"  📄 {ex['line_count']} lines, {ex['count']:,} sections:")
-            for line in ex['attr'].split('\n'):  # Show ALL lines, not just first 3
+            for line in ex['attr'].split('\n'):  # Show ALL lines
                 if line.strip():
                     print(f"     └─ \"{line.strip()}\"")
             if ex['examples']:
                 print(f"     📚 Examples: {', '.join(ex['examples'])}")
+            print()
+        
+        # Course level analysis for complex cases
+        if complex_examples:
+            print("📊 COURSE LEVEL ANALYSIS FOR COMPLEX CASES:")
+            print("   (Analysis of course numbers to see if postgraduate courses are the issue)")
+            print()
+            
+            # Collect all course codes from complex cases
+            complex_courses = []
+            for ex in complex_examples:
+                complex_courses.extend(ex['examples'])
+            
+            # Analyze course level distribution 
+            level_distribution = {'1000s': 0, '2000s': 0, '3000s': 0, '4000s': 0, '5000s+': 0, 'Other': 0}
+            
+            for course_code in complex_courses:
+                # Extract course number (e.g., ACCT5511 -> 5511)
+                if len(course_code) >= 4:
+                    # Find the first digit in the course code
+                    for i, char in enumerate(course_code):
+                        if char.isdigit():
+                            course_num = course_code[i:i+4] if i+4 <= len(course_code) else course_code[i:]
+                            if len(course_num) >= 4 and course_num.isdigit():
+                                first_digit = int(course_num[0])
+                                if first_digit == 1:
+                                    level_distribution['1000s'] += 1
+                                elif first_digit == 2:
+                                    level_distribution['2000s'] += 1
+                                elif first_digit == 3:
+                                    level_distribution['3000s'] += 1
+                                elif first_digit == 4:
+                                    level_distribution['4000s'] += 1
+                                elif first_digit >= 5:
+                                    level_distribution['5000s+'] += 1
+                                else:
+                                    level_distribution['Other'] += 1
+                                break
+                            else:
+                                level_distribution['Other'] += 1
+                                break
+                    else:
+                        level_distribution['Other'] += 1
+                else:
+                    level_distribution['Other'] += 1
+            
+            total_complex_courses = sum(level_distribution.values())
+            print(f"   📚 Analyzed {total_complex_courses} example courses from complex cases:")
+            for level, count in level_distribution.items():
+                if count > 0:
+                    percentage = count / total_complex_courses * 100 if total_complex_courses > 0 else 0
+                    level_type = "Undergraduate" if level in ['1000s', '2000s', '3000s', '4000s'] else "Postgraduate" if level == '5000s+' else "Unknown"
+                    print(f"     {level}: {count} courses ({percentage:.1f}%) - {level_type}")
+            
+            postgrad_count = level_distribution['5000s+']
+            undergrad_count = sum([level_distribution[k] for k in ['1000s', '2000s', '3000s', '4000s']])
+            
+            if total_complex_courses > 0:
+                print()
+                print(f"   🎓 Summary: {undergrad_count}/{total_complex_courses} ({undergrad_count/total_complex_courses*100:.1f}%) Undergraduate")
+                print(f"   🎓 Summary: {postgrad_count}/{total_complex_courses} ({postgrad_count/total_complex_courses*100:.1f}%) Postgraduate")
             print()
     
     return {
