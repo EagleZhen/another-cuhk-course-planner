@@ -1844,19 +1844,19 @@ function CourseCard({
 
             {/* Course Details */}
             <div className="border-t pt-4 space-y-3">
+              {/* Enrollment Requirement - Show first for student decision making */}
+              {course.enrollmentRequirement && (
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
+                  <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
+                </div>
+              )}
+
               {/* Description */}
               {course.description && (
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Description</h4>
                   <p className="text-sm text-gray-600">{course.description}</p>
-                </div>
-              )}
-
-              {/* Enrollment Requirement */}
-              {course.enrollmentRequirement && (
-                <div>
-                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
-                  <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
                 </div>
               )}
 
