@@ -404,3 +404,49 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
         return "Waitlisted"
     else:
         return "Unknown"
+
+
+def format_duration_human(seconds: int) -> str:
+    """Format duration in seconds to human-readable string
+    
+    Converts seconds into a readable format like '2h 45m 30s' for easy interpretation
+    of scraping durations and other time measurements.
+    
+    Args:
+        seconds: Duration in seconds
+        
+    Returns:
+        str: Human-readable duration string
+        
+    Examples:
+        >>> format_duration_human(90)
+        '1m 30s'
+        
+        >>> format_duration_human(3661)
+        '1h 1m 1s'
+        
+        >>> format_duration_human(7200)
+        '2h'
+        
+        >>> format_duration_human(45)
+        '45s'
+        
+        >>> format_duration_human(0)
+        '0s'
+    """
+    if seconds < 0:
+        return "0s"
+    
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    secs = seconds % 60
+    
+    parts = []
+    if hours > 0:
+        parts.append(f"{hours}h")
+    if minutes > 0:
+        parts.append(f"{minutes}m")
+    if secs > 0 or not parts:  # Always show seconds if nothing else, or if there are leftover seconds
+        parts.append(f"{secs}s")
+    
+    return " ".join(parts)
