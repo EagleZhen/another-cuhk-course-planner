@@ -1848,7 +1848,7 @@ function CourseCard({
               {course.enrollmentRequirement && (
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
-                  <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
+                  <p className="text-sm text-gray-600 whitespace-pre-line">{course.enrollmentRequirement}</p>
                 </div>
               )}
 
