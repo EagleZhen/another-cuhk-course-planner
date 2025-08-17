@@ -552,6 +552,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
     cleaned_attributes = Counter()  # Count unique cleaned class attributes
     rule_violation_examples = []
     cleaning_examples = []
+    attribute_examples = {}  # Store example courses for each cleaned attribute
     
     for subject, data in subjects_data.items():
         for course in data.get('courses', []):
@@ -584,6 +585,11 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                             pattern_matches += 1
                             cleaned_attributes[cleaned] += 1
                             
+                            # Store example courses for this cleaned attribute
+                            if cleaned not in attribute_examples:
+                                attribute_examples[cleaned] = []
+                            if len(attribute_examples[cleaned]) < 3:  # Keep 3 examples per attribute
+                                attribute_examples[cleaned].append(course_id)
                             
                             if len(cleaning_examples) < 10:
                                 cleaning_examples.append({
@@ -604,8 +610,14 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                                     'class_attrs': class_attrs
                                 })
                     elif class_attrs and not course_attrs:
-                        # Class attrs only - no rule to apply
+                        # Class attrs only - no rule to apply, keep everything
                         cleaned_attributes[class_attrs] += 1
+                        
+                        # Store example courses for this attribute
+                        if class_attrs not in attribute_examples:
+                            attribute_examples[class_attrs] = []
+                        if len(attribute_examples[class_attrs]) < 3:
+                            attribute_examples[class_attrs].append(course_id)
     
     # Print results
     print(f"📊 Total sections analyzed: {total_sections:,}")
@@ -621,17 +633,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
         print(f"  ❌ No overlap found: {rule_violations:,} ({rule_violations/sections_with_both_attrs*100:.1f}%)")
         print()
         
-        # Show cleaned attributes summary
-        non_empty_cleaned = {k: v for k, v in cleaned_attributes.items() if k}
-        print(f"🏷️ UNIQUE CLEANED CLASS ATTRIBUTES: {len(non_empty_cleaned)} types")
-        print(f"   (After removing course attributes from class attributes)")
-        print()
-        
-        if non_empty_cleaned:
-            print("Top 15 most common cleaned class attributes:")
-            for attr, count in Counter(non_empty_cleaned).most_common(15):
-                print(f"  \"{attr}\": {count} sections")
-            print()
+        # Cleaned attributes summary moved to enhanced section below
         
         # Show cleaning examples
         if cleaning_examples:
@@ -657,7 +659,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                 print(f"    ... and {len(rule_violation_examples) - 5} more cases")
                 print()
         
-        # NEW: Show all unique class-specific attributes for verification
+        # NEW: Show all unique class-specific attributes with examples
         print("📋 ALL UNIQUE CLASS-SPECIFIC ATTRIBUTES:")
         print("   (These should be meaningful class attributes like languages, teaching methods)")
         print()
@@ -665,17 +667,62 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
         # Sort by frequency for easier analysis
         all_unique_attrs = sorted(cleaned_attributes.items(), key=lambda x: x[1], reverse=True)
         
+        # Count multi-line attributes (complex cases)
+        multi_line_attrs = 0
+        multi_line_sections = 0
+        
         for attr, count in all_unique_attrs:
             if attr:  # Skip empty
+                # Check if this is a multi-line attribute (complex case)
+                line_count = len([line for line in attr.split('\n') if line.strip()])
+                if line_count > 1:
+                    multi_line_attrs += 1
+                    multi_line_sections += count
+                
                 # Show first 50 characters for readability
                 display_attr = attr if len(attr) <= 50 else attr[:47] + "..."
-                print(f"  \"{display_attr}\": {count:,} sections")
+                examples = attribute_examples.get(attr, [])
+                example_str = f" (e.g., {', '.join(examples[:2])})" if examples else ""
+                
+                print(f"  \"{display_attr}\": {count:,} sections{example_str}")
         
         print()
         print(f"📊 SUMMARY: {len(all_unique_attrs)} unique attribute combinations found")
         non_empty = len([attr for attr, count in all_unique_attrs if attr])
         print(f"📊 Non-empty class-specific attributes: {non_empty}")
         print()
+        
+        # Special analysis for complex (multi-line) cases
+        print("🚨 COMPLEX MULTI-LINE CLEANED ATTRIBUTES:")
+        print("   (Cases where cleaned result still contains multiple attributes)")
+        print(f"   📊 {multi_line_attrs} attribute types affect {multi_line_sections:,} sections")
+        print()
+        
+        complex_examples = []
+        for attr, count in all_unique_attrs:
+            if attr:  # Skip empty
+                line_count = len([line for line in attr.split('\n') if line.strip()])
+                if line_count > 1 and len(complex_examples) < 10:
+                    examples = attribute_examples.get(attr, [])
+                    complex_examples.append({
+                        'attr': attr,
+                        'count': count,
+                        'line_count': line_count,
+                        'examples': examples[:3]
+                    })
+        
+        for ex in complex_examples[:5]:
+            print(f"  📄 {ex['line_count']} lines, {ex['count']:,} sections:")
+            for line in ex['attr'].split('\n')[:3]:  # Show first 3 lines
+                if line.strip():
+                    print(f"     └─ \"{line.strip()}\"")
+            if ex['examples']:
+                print(f"     📚 Examples: {', '.join(ex['examples'])}")
+            print()
+        
+        if len(complex_examples) > 5:
+            print(f"    ... and {len(complex_examples) - 5} more complex cases")
+            print()
     
     return {
         'total_sections': total_sections,
@@ -683,7 +730,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
         'pattern_matches': pattern_matches,
         'exact_matches': exact_matches,
         'rule_violations': rule_violations,
-        'cleaned_attributes_count': len(non_empty_cleaned) if 'non_empty_cleaned' in locals() else 0,
+        'cleaned_attributes_count': len([attr for attr in cleaned_attributes.keys() if attr]),
         'rule_violation_examples': rule_violation_examples
     }
 
