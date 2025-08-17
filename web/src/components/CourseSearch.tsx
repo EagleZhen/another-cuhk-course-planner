@@ -1887,42 +1887,52 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
            normalizedContent.includes(normalizedDescription)
   }
 
-  // Define display order as requested
-  const sections = [
+  // Section configuration with visibility and collapsible settings
+  const sectionConfigs = [
     {
       key: 'assessmentTypes',
       title: 'Assessment Types',
       content: course.assessmentTypes,
-      isTable: true
+      isTable: true,
+      alwaysVisible: true,  // Critical info - always shown
+      defaultExpanded: true  // Always expanded (not collapsible)
     },
     {
       key: 'learningOutcomes', 
       title: 'Learning Outcomes',
       content: course.learningOutcomes,
-      isTable: false
+      isTable: false,
+      alwaysVisible: true,  // Can be hidden when formatting is poor
+      defaultExpanded: false  // Collapsed by default
     },
     {
       key: 'requiredReadings',
       title: 'Required Readings', 
       content: course.requiredReadings,
-      isTable: false
+      isTable: false,
+      alwaysVisible: true,  // Can be hidden when formatting is poor
+      defaultExpanded: false  // Collapsed by default
     },
     {
       key: 'recommendedReadings',
       title: 'Recommended Readings',
       content: course.recommendedReadings, 
-      isTable: false
+      isTable: false,
+      alwaysVisible: true,  // Can be hidden when formatting is poor
+      defaultExpanded: false  // Collapsed by default
     },
     {
       key: 'feedbackEvaluation',
       title: 'Feedback for Evaluation',
       content: course.feedbackEvaluation,
-      isTable: false
+      isTable: false,
+      alwaysVisible: true,  // Can be hidden when formatting is poor
+      defaultExpanded: false  // Collapsed by default
     }
   ]
 
-  // Filter sections based on smart filtering rules
-  const visibleSections = sections.filter(section => {
+  // Filter sections: check content availability and quality
+  const availableSections = sectionConfigs.filter(section => {
     // Rule 1: Skip if empty
     if (!section.content) return false
     
@@ -1937,18 +1947,21 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     return true
   })
 
+  // Filter by visibility (for future hiding of poor-quality content)
+  const visibleSections = availableSections.filter(section => section.alwaysVisible)
 
   // Don't render anything if no sections to show
   if (visibleSections.length === 0) return null
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {visibleSections.map(section => (
-        <CourseOutcomeSection 
+        <CollapsibleCourseOutcomeSection 
           key={section.key}
           title={section.title}
           content={section.content}
           isTable={section.isTable}
+          defaultExpanded={section.defaultExpanded}
         />
       ))}
     </div>
@@ -1980,15 +1993,15 @@ function CourseOutcomeSection({
           <table className="w-fit text-sm">
             <thead>
               <tr className="border-b border-gray-400">
-                <th className="text-left py-1 pr-4 font-medium text-gray-700">Type</th>
-                <th className="text-left py-1 font-medium text-gray-700">Percentage</th>
+                <th className="text-left py-1 pr-4 font-medium text-gray-700 border-r border-gray-400">Type</th>
+                <th className="text-left py-1 pl-4 font-medium text-gray-700">Percentage</th>
               </tr>
             </thead>
             <tbody>
               {assessmentEntries.map(([type, percentage], index) => (
                 <tr key={index} className={index < assessmentEntries.length - 1 ? 'border-b border-gray-200' : ''}>
-                  <td className="py-1 pr-4 text-gray-600">{type}</td>
-                  <td className="py-1 text-gray-600">{String(percentage)}</td>
+                  <td className="py-1 pr-4 text-gray-600 border-r border-gray-400">{type}</td>
+                  <td className="py-1 pl-4 text-gray-600">{String(percentage)}</td>
                 </tr>
               ))}
             </tbody>
@@ -2060,7 +2073,9 @@ function CourseOutcomeSection({
               // Paragraphs with consistent spacing - fix list item wrapping
               p: ({ children, node }) => {
                 // If paragraph is direct child of list item, render inline without wrapper
-                if (node?.parent?.tagName === 'li') {
+                if (node && typeof node === 'object' && 'parent' in node && 
+                    node.parent && typeof node.parent === 'object' && 'tagName' in node.parent && 
+                    node.parent.tagName === 'li') {
                   return <>{children}</>;
                 }
                 return (
@@ -2095,4 +2110,50 @@ function CourseOutcomeSection({
   }
 
   return null
+}
+
+// Collapsible Course Outcome Section Component with expand/collapse functionality
+function CollapsibleCourseOutcomeSection({ 
+  title, 
+  content, 
+  isTable,
+  defaultExpanded 
+}: { 
+  title: string
+  content: string | Record<string, string> | undefined
+  isTable: boolean
+  defaultExpanded: boolean
+}) {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded)
+  
+  // Early return if no content
+  if (!content) return null
+
+  // For assessment types (always expanded), use the original component
+  if (defaultExpanded && isTable) {
+    return <CourseOutcomeSection title={title} content={content} isTable={isTable} />
+  }
+
+  // For collapsible sections
+  return (
+    <div>
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="group flex items-center gap-2 w-fit text-left font-semibold text-sm text-gray-700 hover:text-blue-600 transition-colors py-1 cursor-pointer"
+      >
+        <span>{title}</span>
+        {isExpanded ? (
+          <ChevronUp className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
+        ) : (
+          <ChevronDown className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
+        )}
+      </button>
+      
+      {isExpanded && (
+        <div className="mt-2">
+          <CourseOutcomeSection title="" content={content} isTable={isTable} />
+        </div>
+      )}
+    </div>
+  )
 }
