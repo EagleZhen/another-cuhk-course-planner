@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T07:21:12.170004+00:00",
+    "scraped_at": "2025-08-16T05:29:03.230245+00:00",
     "subject": "CENG",
+    "subject_title": "CENG - Computer Engineering",
     "total_courses": 12,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -44,10 +45,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Lecture",
+      "component": "Laboratory\nLecture",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. apply concepts and methods of digital system design techniques;   \n2. design combinational and sequential digital systems using hardware description language (HDL);   \n3. analyze the results of logic and timing simulations and debug digital systems.",
+      "course_syllabus": "This course aims at providing an intensive hands-on introduction to digital system design using a hardware description language (e.g. VHDL). Students will learn how to design, simulate and debug digital systems through lab exercises. Topics include the basic language syntax, signals/variables/constants declaration, data types, basic operators, concurrent and sequential statements, and structural modelings.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire;   \n2. Results of assignments and examination;   \n3. Question-and-Answer sessions during class;   \n4. Student consultation during office hours or online;",
+      "required_readings": "",
+      "recommended_readings": "1. Digital Design with RTL Design, VHDL, and Verilog, 2/e, by Frank Vahid;   \n2. VHDL for Digital Design, by Frank Vahid & Roman Lysecky"
     },
     {
       "subject": "CENG",
@@ -131,10 +141,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Lecture",
+      "component": "Laboratory\nLecture",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. Draw 3D engineering drawings using SolidWorks   \n2. Solve and analyze electronic circuits   \n3. Understand the basic principles of digital signal processing   \n4. Develop basic microcontroller-based embedded systems",
+      "course_syllabus": "Week 1: 3D Drawing Using SolidWorks  \nWeek 2: 3D Parts Assembling Using SolidWorks  \nWeek 3: Lab Instrumentation  \nWeek 4: Circuit Analysis  \nWeek 5: Op-amp Circuits  \nWeek 6: Digital Signal Processing I – Frequency Analysis  \nWeek 7: Digital Signal Processing II – Sampling, ADC & DAC  \nWeek 8: Project 1 Week 1  \nWeek 9: Project 1 Week 2  \nWeek 10: Microcontroller Interfacing  \nWeek 11: Sensors and Actuators  \nWeek 12: Project 2 Week 1  \nWeek 13: Project 2 Week 2",
+      "assessment_types": {
+        "Homework or assignment": "10",
+        "Lab reports": "60",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. James W. Nilsson, Susan A. Riedel, “Electric Circuits”, Upper Saddle River, N.J. : Prentice Hall   \n2. McClellan, James H., “Signal Processing First”, Upper Saddle River, N.J. : Prentice Hall   \n3. Evans, Brian, “Beginning Arduino Programming”, Berkeley, CA : Apress"
     },
     {
       "subject": "CENG",
@@ -196,14 +216,25 @@
         }
       ],
       "description": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
-      "enrollment_requirement": "Prerequisite: ENGG2020 or ENGG2120 or ESTR2104. Not for students who have taken ESTR2100.",
+      "enrollment_requirement": "Prerequisite: ENGG2020 or ENGG2120 or ESTR2104.\nNot for students who have taken ESTR2100.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Lecture Interactive Tutorial",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "Student will be able to   \n1. design, implement, program and debug microprocessor-based embedded systems to solve real life problems;   \n2. write assembly language programs;   \n3. interface an embedded system with other devices such as integrated circuit devices and displays.",
+      "course_syllabus": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced that includes: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Lab reports": "20",
+        "Presentation": "5",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "1. Midterm evaluation;   \n2. Questions in labs/tutorials;",
+      "required_readings": "-",
+      "recommended_readings": "1. Furber, ARM System-on-Chip Architecture, 2000;   \n2. Web-based data sheets and teaching materials;"
     },
     {
       "subject": "CENG",
@@ -216,10 +247,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Lecture Interactive Tutorial",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. Understand the limitations and benefits of various sensors used in smart hardware systems;   \n2. Choose the right devices, system architecture, and communication protocol to implement a particular smart hardware system;   \n3. Mange a small smart hardware development project.",
+      "course_syllabus": "Week 1: Introduction to smart hardware   \nWeek 2-3: Microcontroller architecture and programming   \nWeek 4-5: Sensors and applications   \nWeek 6: Camera   \nWeek 7: Actuator   \nWeek 8-9: Communication (Bluetooth, Wifi, 3G, etc.)   \nWeek 10: Battery and low power design   \nWeek 11: Put it all together: smart band design   \nWeek 12-13: Student presentation",
+      "assessment_types": {
+        "Lab reports": "20",
+        "Others": "60",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "1. Quiz;    \n2. Course evaluation and questionnaire;   \n3. Question-and-answer sessions during class;   \n4. Student consultation during office hours or online;   \n5. Peer review;",
+      "required_readings": "-",
+      "recommended_readings": "1. Ubiquitous Computing: Smart Devices, Environments and Interactions;   \n2. Make: Sensors: A Hands-On Primer for Monitoring the Real World with Arduino and Raspberry Pi;"
     },
     {
       "subject": "CENG",
@@ -361,14 +402,23 @@
         }
       ],
       "description": "This course introduces the organization and design of modem computer systems. The scope includes instruction set architecture, performance evaluation, design of arithmetic logic units, datapath and control, pipelining, memory hierarchy, interfacing processors and peripherals, and multi-core processors.",
-      "enrollment_requirement": "Not for students who have taken CSCI3420. Prerequisite: ENGG2020 or ENGG2120 or ESTR2104. For 2nd-year entrants, the prerequisite will be waived.",
+      "enrollment_requirement": "Not for students who have taken CSCI3420.\nPrerequisite: ENGG2020 or ENGG2120 or ESTR2104.\nFor 2nd-year entrants, the prerequisite will be waived.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "Student will be able to   \n1. design pipelined microprocessor using Hardware Description Language;   \n2. evaluate the performance of computer systems;   \n3. measure the memory access performance of a processor, and tune cache design parameters to improve performance;   \n4. translate simple programs from C to machine language.",
+      "course_syllabus": "This course introduces the organization and design of modem computer systems. The scope includes instruction set architecture, performance evaluation, design of arithmetic logic units, datapath and control, pipelining, memory hierarchy, interfacing processors and peripherals, and multi-core processors.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "1. Mid-term evaluation;   \n2. Office hours;   \n3. In-class and tutorial questions;",
+      "required_readings": "1. Patterson and Hennessy, Computer Organisation & Design, The Hardware/Software Interface, 3rd edition",
+      "recommended_readings": ""
     },
     {
       "subject": "CENG",
@@ -454,14 +504,24 @@
         }
       ],
       "description": "This course introduces digital prototyping techniques such as the use of a hardware description language for hardware system development, and the methods for interfacing field programmable devices to microprocessors, memory systems, and peripheral devices.",
-      "enrollment_requirement": "Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent For senior-year entrants, the prerequisite will be waived. Not for students who have taken ESTR3100",
+      "enrollment_requirement": "Prerequisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent\nFor senior-year entrants, the prerequisite will be waived.\nNot for students who have taken ESTR3100",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Lecture Interactive Tutorial",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "Students will be able to   \n1. use a hardware description language to prototype a digital system;   \n2. interface a computer with the outside world using field programmed devices;   \n3. build reliable digital systems.",
+      "course_syllabus": "This course introduces digital prototyping techniques such as the use of a hardware description language for hardware system development, and the methods for interfacing field programmable devices to microprocessors, memory systems, and peripheral devices.",
+      "assessment_types": {
+        "Lab reports": "40",
+        "Project": "50",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "1. Mid-term course and teaching evaluation;   \n2. Final course and teaching evaluation;",
+      "required_readings": "1. Digital Design Principles and Practices by John F. Wakerly The fourth edition, Prentice Hall;   \n2. Advanced Signal Integrity for High-Speed Digital Design, Stephen H. Hall and Howard L. Heck , Wiley;",
+      "recommended_readings": ""
     },
     {
       "subject": "CENG",
@@ -569,10 +629,22 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. Use some EDA tools from vendors like Cadence and Synopsys.   \n2. Understand the objectives and constraints in different stages of an EDA flow.   \n3. Understand the basic methodologies and algorithms to solve problems in different stages of an EDA flow.   \n4. Innovate and develop some new methods in solving EDA problems.   \n5. Know and appreciate the new developments in the EDA industry.",
+      "course_syllabus": "This course aims at providing students basic knowledge and background on VLSI CAD. The course will cover various topics on automation across the design of a VLSI circuit including but not limited to, Boolean matching, logic optimization, chip planning, placement, routing, interconnect optimization, testing and manufacturing. Students will learn to use some EDA tools and also develop some algorithms to solve EDA problems.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "20",
+        "Lab reports": "10",
+        "Presentation": "10",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. “VLSI Physical Design: From Graph Partitioning to Timing Closure” by A.B. Kahng, J. Lienig, I.L. Markov and J. Hu. (Publisher: Springer)   \n2. “Practical Problems in VLSI Physical Design Automation” by Sung Kyu Lim, (Publisher: Springer)   \n3. “VHDL for Logic Synthesis”, Andrew Rushton, 3rd. Ed. (Publisher: Wiley)   \n4. \"CMOS VLSI Design - A Circuits and Systems Perspective\" by Neil H.E., Weste and D. Harris 3rd. Ed. (Publisher: Addison-Wesley)"
     },
     {
       "subject": "CENG",
@@ -658,14 +730,24 @@
         }
       ],
       "description": "This course aims at enhancing students’ skills in developing embedded systems. Advanced techniques in the use of real-time operating systems, interfacing, integration and applications of sensors and actuators for signal analysis and control will be discussed. Project development methods and management skills will be introduced.",
-      "enrollment_requirement": "Not for students who have taken CENG3480 in 2008-09 and before;Prerequisite: CENG2400 or ESTR2100. For 2nd-year entrants, the prerequisite will be waived.",
+      "enrollment_requirement": "Not for students who have taken CENG3480 in 2008-09 and before;Prerequisite: CENG2400 or ESTR2100.\nFor 2nd-year entrants, the prerequisite will be waived.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Lecture Interactive Tutorial",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "1. Students should be able to mange an embedded system development project.   \n2. Students should understand the difficulties of sensing signals from sensors and control actuators in an embedded system and be able to address them.   \n3. Students should understand the skills required to design a reliable embedded system.",
+      "course_syllabus": "This course aims at enhancing students’ skills in developing embedded systems. Advanced techniques in the use of real-time operating systems, interfacing, integration and applications of sensors and actuators for signal analysis and control will be discussed. Project development methods and management skills will be introduced.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Lab reports": "40",
+        "Presentation": "10"
+      },
+      "feedback_evaluation": "1. Course evaluation   \n2. Feedback though discussions in laboratory classes.",
+      "required_readings": "-",
+      "recommended_readings": "1. MicroC OS II: The Real Time Kernel (With CD-ROM) by Jean J. Labrosse   \n2. High-Speed Digital Design: A Handbook of Black Magic by Howard W. Johnson and Martin Graham Prentice Hall"
     },
     {
       "subject": "CENG",
@@ -695,7 +777,7 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ABJ1-PRJ (6192)",
@@ -715,7 +797,7 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ACJ1-PRJ (8783)",
@@ -735,7 +817,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ADJ1-PRJ (9023)",
@@ -755,7 +837,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AEJ1-PRJ (9074)",
@@ -775,7 +857,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AFJ1-PRJ (9027)",
@@ -795,7 +877,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AGJ1-PRJ (6215)",
@@ -815,7 +897,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AHJ1-PRJ (9024)",
@@ -835,7 +917,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AIJ1-PRJ (8784)",
@@ -855,7 +937,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AJ01-PRJ (8978)",
@@ -875,7 +957,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AJJ1-PRJ (6186)",
@@ -895,7 +977,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AKJ1-PRJ (8785)",
@@ -915,7 +997,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ALJ1-PRJ (9056)",
@@ -935,7 +1017,7 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AMJ1-PRJ (8786)",
@@ -955,7 +1037,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ANJ1-PRJ (8787)",
@@ -975,7 +1057,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AOJ1-PRJ (8788)",
@@ -995,7 +1077,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "APJ1-PRJ (8789)",
@@ -1015,7 +1097,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AQJ1-PRJ (8790)",
@@ -1035,7 +1117,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ARJ1-PRJ (8599)",
@@ -1055,7 +1137,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (8743)",
@@ -1075,7 +1157,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "CJ01-PRJ (8772)",
@@ -1095,7 +1177,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "DJ01-PRJ (8773)",
@@ -1115,7 +1197,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "EJ01-PRJ (8774)",
@@ -1135,7 +1217,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "FJ01-PRJ (9043)",
@@ -1155,7 +1237,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "GJ01-PRJ (8775)",
@@ -1175,7 +1257,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "HJ01-PRJ (8943)",
@@ -1195,7 +1277,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "IJ01-PRJ (8944)",
@@ -1215,7 +1297,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "JJ01-PRJ (8945)",
@@ -1235,7 +1317,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "KJ01-PRJ (8946)",
@@ -1255,7 +1337,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "LJ01-PRJ (9054)",
@@ -1275,7 +1357,7 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "MJ01-PRJ (9022)",
@@ -1295,7 +1377,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "NJ01-PRJ (9025)",
@@ -1315,7 +1397,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "OJ01-PRJ (9055)",
@@ -1335,7 +1417,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "PJ01-PRJ (8947)",
@@ -1355,7 +1437,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "QJ01-PRJ (8948)",
@@ -1375,7 +1457,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "RJ01-PRJ (8776)",
@@ -1395,7 +1477,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "SJ01-PRJ (9006)",
@@ -1415,7 +1497,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "TJ01-PRJ (8777)",
@@ -1435,7 +1517,7 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "UJ01-PRJ (8778)",
@@ -1455,7 +1537,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "VJ01-PRJ (8779)",
@@ -1475,7 +1557,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "WJ01-PRJ (8780)",
@@ -1495,7 +1577,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "XJ01-PRJ (8781)",
@@ -1515,7 +1597,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "YJ01-PRJ (8782)",
@@ -1535,7 +1617,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ZJ01-PRJ (6189)",
@@ -1555,7 +1637,7 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         },
@@ -1581,7 +1663,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1594,7 +1676,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the project topic.   \n2) Be able to define and complete a project that utilizes results in the literature.   \n3) Be able to perform a critical review of the project.   \n4) Develop technical writing skills.",
+      "course_syllabus": "The course includes, but are not limited to, the following elements: literature review, modelling, system design and implementation, project evaluation.",
+      "assessment_types": {
+        "Presentation": "15",
+        "Project": "70",
+        "Report": "15"
+      },
+      "feedback_evaluation": "1) Email feedback   \n2) Review meeting",
+      "required_readings": "Literature review materials will be recommended by the project supervisor.",
+      "recommended_readings": ""
     },
     {
       "subject": "CENG",
@@ -1624,7 +1716,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (8901)",
@@ -1644,7 +1736,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         },
@@ -1670,7 +1762,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ABJ1-PRJ (6290)",
@@ -1690,7 +1782,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ACJ1-PRJ (6291)",
@@ -1710,7 +1802,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ADJ1-PRJ (6293)",
@@ -1730,7 +1822,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AEJ1-PRJ (8698)",
@@ -1750,7 +1842,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AFJ1-PRJ (6294)",
@@ -1770,7 +1862,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AGJ1-PRJ (6295)",
@@ -1790,7 +1882,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AHJ1-PRJ (6296)",
@@ -1810,7 +1902,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AIJ1-PRJ (8784)",
@@ -1830,7 +1922,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AJ01-PRJ (8737)",
@@ -1850,7 +1942,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AJJ1-PRJ (6298)",
@@ -1870,7 +1962,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AKJ1-PRJ (8777)",
@@ -1890,7 +1982,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ALJ1-PRJ (8764)",
@@ -1910,7 +2002,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AMJ1-PRJ (7119)",
@@ -1930,7 +2022,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ANJ1-PRJ (7126)",
@@ -1950,7 +2042,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AOJ1-PRJ (7120)",
@@ -1970,7 +2062,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "APJ1-PRJ (7124)",
@@ -1990,7 +2082,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "AQJ1-PRJ (7125)",
@@ -2010,7 +2102,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ARJ1-PRJ (7127)",
@@ -2030,7 +2122,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (6271)",
@@ -2050,7 +2142,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "CJ01-PRJ (6272)",
@@ -2070,7 +2162,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "DJ01-PRJ (8730)",
@@ -2090,7 +2182,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "EJ01-PRJ (8723)",
@@ -2110,7 +2202,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "FJ01-PRJ (6276)",
@@ -2130,7 +2222,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "GJ01-PRJ (8690)",
@@ -2150,7 +2242,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "HJ01-PRJ (8691)",
@@ -2170,7 +2262,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "IJ01-PRJ (8689)",
@@ -2190,7 +2282,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "JJ01-PRJ (6277)",
@@ -2210,7 +2302,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "KJ01-PRJ (6278)",
@@ -2230,7 +2322,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "LJ01-PRJ (8747)",
@@ -2250,7 +2342,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "MJ01-PRJ (6279)",
@@ -2270,7 +2362,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "NJ01-PRJ (8741)",
@@ -2290,7 +2382,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "OJ01-PRJ (8692)",
@@ -2310,7 +2402,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "PJ01-PRJ (8744)",
@@ -2330,7 +2422,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "QJ01-PRJ (8696)",
@@ -2350,7 +2442,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "RJ01-PRJ (6280)",
@@ -2370,7 +2462,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "SJ01-PRJ (8697)",
@@ -2390,7 +2482,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "TJ01-PRJ (8742)",
@@ -2410,7 +2502,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "UJ01-PRJ (8763)",
@@ -2430,7 +2522,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "VJ01-PRJ (6281)",
@@ -2450,7 +2542,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "WJ01-PRJ (6282)",
@@ -2470,7 +2562,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "XJ01-PRJ (6284)",
@@ -2490,7 +2582,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "YJ01-PRJ (6285)",
@@ -2510,7 +2602,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "ZJ01-PRJ (6286)",
@@ -2530,7 +2622,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -2543,7 +2635,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg"
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the project topic.   \n2) Be able to define and complete a project that utilizes results in the literature.   \n3) Be able to perform a critical review of the project.   \n4) Develop technical writing skills.",
+      "course_syllabus": "The course includes, but are not limited to, the following elements: literature review, modelling, system design and implementation, project evaluation.",
+      "assessment_types": {
+        "Presentation": "15",
+        "Project": "70",
+        "Report": "15"
+      },
+      "feedback_evaluation": "1) Email feedback   \n2) Review meeting",
+      "required_readings": "-",
+      "recommended_readings": "Literature review materials will be recommended by the project supervisor."
     },
     {
       "subject": "CENG",
@@ -2552,14 +2654,24 @@
       "credits": "3.00",
       "terms": [],
       "description": "Low power consumption is an important design concern in modern computing systems. It has direct impact on the battery life of mobile electronic equipment and on the operating speed of computing devices. This course aims at introducing students the basic concepts and modern techniques in designing, modeling and evaluating energy-efficient computing systems. This course will study techniques to improve energy consumption at various design levels. It will also study representative research papers to introduce the state of the art approaches to energy efficient computing.Advisory: Students are expected to have taken ENGG2020 or ESTR2104 or CENG3420.",
-      "enrollment_requirement": "For students in MSc Computer Science; or  For students in MPhil-PhD Computer Science & Engineering; or For students in UG Computer Science; or  For students in UG Computer Engineering",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
-      "component": "Lecture Seminar",
+      "component": "Lecture\nSeminar",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. understand the concepts and techniques in designing, modeling and evaluating energy-efficient computing systems.   \n2. master the techniques to improve energy consumption at various design levels.   \n3. know how to critically review literature in this field.",
+      "course_syllabus": "Low power consumption is an important design concern in modern computing systems. It has direct impact on the battery life of mobile electronic equipment and on the operating speed of computing devices. This course aims at introducing students the basic concepts and modern techniques in designing, modeling and evaluating energy-efficient computing systems. This course will study techniques to improve energy consumption at various design levels. It will also study representative research papers to introduce the state of the art approaches to energy efficient computing.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "40",
+        "Short answer test or exam": "10"
+      },
+      "feedback_evaluation": "1. Course evaluation   \n2. Discussions with students on or off lectures",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Computer Architecture Techniques for Power-Efficiency, S. Kaxiras, M. Martonosi.   \n2. Power Aware Design Methodologies, M. Pedram, J.M. Rabaey.   \n3. Power Aware Computing, R. Melhem, R. Graybill.   \n4. Low Power Electronics Design, C. Piguet."
     },
     {
       "subject": "CENG",
@@ -2572,10 +2684,20 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to understand the concepts, previous research and future trends of:   \n1. floorplanning and placement   \n2. circuit partitioning   \n3. routing   \n4. technology mapping   \n5. interconnect optimization   \n6. design for manufacturability",
+      "course_syllabus": "This course aims to present the fundamental concepts and algorithms applied in Design Automation (CAD) of VLSI circuits. The scope will include various areas in Physical Design of digital systems, including circuit partitioning, FPGA technology mapping, floorplanning, placement, routing, compaction and interconnect optimization.",
+      "assessment_types": {
+        "Essay test or exam": "15",
+        "Others": "45",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire   \n2. Question-and-answer sessions during class   \n3. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Algorithms for VLSI Physical Design Automation, 3rd edition. Nareed Sherwani. Kluwer Academic Publishers, 1999."
     }
   ]
 }

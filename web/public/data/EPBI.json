@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T09:43:01.249180+00:00",
+    "scraped_at": "2025-08-16T12:41:28.460906+00:00",
     "subject": "EPBI",
+    "subject_title": "EPBI - Epidemiology & Biostatistics",
     "total_courses": 4,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -22,7 +23,7 @@
                 {
                   "time": "Fr 6:30PM - 9:30PM",
                   "location": "No Room Required",
-                  "instructor": "Dr LEE Jock Wai,   Dr. LAU Chun Hong,   Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor KIM Jean Hee",
+                  "instructor": "Dr LEE Jock Wai, \nDr. LAU Chun Hong, \nMiss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor KIM Jean Hee",
                   "dates": "26/9, 3/10, 10/10, 17/10"
                 }
               ],
@@ -42,7 +43,7 @@
                 {
                   "time": "Fr 6:30PM - 9:30PM",
                   "location": "No Room Required",
-                  "instructor": "Dr LEE Jock Wai,   Dr. LAU Chun Hong,   Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor KIM Jean Hee",
+                  "instructor": "Dr LEE Jock Wai, \nDr. LAU Chun Hong, \nMiss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor KIM Jean Hee",
                   "dates": "26/9, 3/10, 10/10, 17/10"
                 }
               ],
@@ -67,7 +68,13 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Upon completion of this course students will have acquired the knowledge and skills necessary to develop a solid public health research protocol. They will know how to choose a research topic which has practical significance and that they are able to carry out effectively. They will understand the basic principles involved in designing a questionnaire and estimating the sample size which is sufficient to answer their research question. They will also know how to carry out an effective and exhaustive literature search and understand the role of ethical considerations in research studies.",
+      "course_syllabus": "1.Identifying a Meaningful and Feasible Research Topic\n\n2.Experience Sharing on Identifying Research Topics\n\n3.Conducting Literature Searches\n\n4.Development of a Research Protocol  & Example\n\n5.Ethical Considerations in Epidemiological Research\n\n6.Sample Size Planning",
+      "assessment_types": {},
+      "feedback_evaluation": "To be given by individual lecturers in class",
+      "required_readings": "To be given by individual lecturers in class",
+      "recommended_readings": "To be given by individual lecturers in class"
     },
     {
       "subject": "EPBI",
@@ -85,7 +92,7 @@
                 {
                   "time": "Fr 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor TSOI Kam Fai,   Professor WANG Zixin",
+                  "instructor": "Miss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor TSOI Kam Fai, \nProfessor WANG Zixin",
                   "dates": "7/11"
                 }
               ],
@@ -111,7 +118,7 @@
                 {
                   "time": "We 6:30PM - 9:30PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor TSOI Kam Fai,   Professor WANG Zixin",
+                  "instructor": "Miss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor TSOI Kam Fai, \nProfessor WANG Zixin",
                   "dates": "15/4"
                 }
               ],
@@ -133,10 +140,20 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Discussion Lecture Project",
+      "component": "Discussion\nLecture\nProject",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "With the guidance of their supervisor and other supervisors the students will work through the process of the development of their own research protocol. They will learn about the practical application of the principles that they have learned in the Protocol Development I course. Through this process the students will develop an understanding of how to design effective research studies in the real world.",
+      "course_syllabus": "Discussion with Supervisor  \n(by self-appointment)  \nDiscussion with Supervisors  \n(by self-appointment)  \nDiscussion with Supervisors  \n(by self-appointment)  \nSubmission  of  1st version of  Protocol  \nProtocol Presentation – Group A & B   \nProtocol Presentation – Group C & D  \nDiscussion with Supervisors  \n(by self-appointment)  \nSubmission of Final Protocol",
+      "assessment_types": {
+        "Presentation": "25",
+        "Participation": "5",
+        "Report": "70"
+      },
+      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "required_readings": "Given in Class by lecturers. No required textbooks.",
+      "recommended_readings": "Given in Class by lecturers. No required textbooks."
     },
     {
       "subject": "EPBI",
@@ -154,7 +171,7 @@
                 {
                   "time": "Tu 6:30PM - 9:30PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor CHONG Ka Chun,   Professor KIM Jean Hee,   Professor TSOI Kam Fai,   Professor YANG Zuyao",
+                  "instructor": "Miss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor CHONG Ka Chun, \nProfessor KIM Jean Hee, \nProfessor TSOI Kam Fai, \nProfessor YANG Zuyao",
                   "dates": "28/10, 4/11"
                 }
               ],
@@ -180,19 +197,19 @@
                 {
                   "time": "Tu 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Professor KIM Jean Hee,   Professor TSOI Kam Fai",
+                  "instructor": "Professor KIM Jean Hee, \nProfessor TSOI Kam Fai",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Professor KIM Jean Hee,   Professor TSOI Kam Fai",
+                  "instructor": "Professor KIM Jean Hee, \nProfessor TSOI Kam Fai",
                   "dates": "14/4"
                 },
                 {
                   "time": "We 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor KIM Jean Hee,   Professor TSOI Kam Fai",
+                  "instructor": "Miss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor KIM Jean Hee, \nProfessor TSOI Kam Fai",
                   "dates": "25/2"
                 }
               ],
@@ -217,7 +234,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Students will conduct the fieldwork and collect the required data for the thesis. This will enable them to apply the principles learnt in class into practice to deal with the practical matters regarding data collection. The data collection skills involved include determination of the variables to be measured, design of measurement instruments, validation of the instruments, and conduct of the fieldwork (of measurement). Students also need to present the progress of research.",
+      "course_syllabus": "Writing Observational Study and Diagnostic Study",
+      "assessment_types": {
+        "Classwork": "30",
+        "Discussion": "30",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "Course Evaluation will be conducted in the last session.",
+      "required_readings": "None",
+      "recommended_readings": ""
     },
     {
       "subject": "EPBI",
@@ -235,19 +262,19 @@
                 {
                   "time": "Tu 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Professor CHONG Ka Chun,   Professor WANG Haitian,   Professor YANG Zuyao",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
                   "dates": "9/6"
                 },
                 {
                   "time": "Mo 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Professor CHONG Ka Chun,   Professor WANG Haitian,   Professor YANG Zuyao",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
                   "dates": "8/6"
                 },
                 {
                   "time": "We 2:00PM - 5:00PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor CHONG Ka Chun,   Professor WANG Haitian,   Professor YANG Zuyao",
+                  "instructor": "Miss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor CHONG Ka Chun, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
                   "dates": "10/6"
                 }
               ],
@@ -267,7 +294,7 @@
                 {
                   "time": "Tu 6:30PM - 9:30PM",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Miss CHIU Ka Man,   Ms. Prisana PAVIVAN,   Ms. YEUNG Tsz Yan,   Professor CHONG Ka Chun,   Professor WANG Haitian,   Professor YANG Zuyao",
+                  "instructor": "Miss CHIU Ka Man, \nMs. Prisana PAVIVAN, \nMs. YEUNG Tsz Yan, \nProfessor CHONG Ka Chun, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
                   "dates": "26/5"
                 }
               ],
@@ -292,7 +319,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Students will continue conducting and complete the data analysis and complete the writing up of the thesis. They need to apply the skills of scientific writing learnt in the research thesis.",
+      "course_syllabus": "1. Review Session of Thesis\n\n2. Thesis Presentation\n\n3. Thesis Writing",
+      "assessment_types": {
+        "Classwork": "20",
+        "Discussion": "30",
+        "Essays": "30",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Course Evaluation will be conducted in the last session.",
+      "required_readings": "None",
+      "recommended_readings": "None"
     }
   ]
 }

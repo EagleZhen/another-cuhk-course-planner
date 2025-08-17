@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T07:07:21.360596+00:00",
+    "scraped_at": "2025-08-16T05:14:36.773199+00:00",
     "subject": "BIOL",
+    "subject_title": "BIOL - Biology",
     "total_courses": 48,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -44,10 +45,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "1. To recognize the structures, functions and mechanisms of some basic components of a eukaryotic cell;   \n2. To explain how normal cells are maintained by regulating their division and death; and  \n   \n3. To apply the knowledge of cell biology in understanding and treatment of diseases, which are caused by changes or losses in cell functions.   \n   \n   \n1.認識真核細胞某些基本成分的結構, 功能和機制;   \n2.通過調節分裂和死亡來解釋正常細胞是如何維持的; 和   \n3.運用細胞生物學的知識來理解和治療由於細胞功能的變化或損失而引起的疾病。  \n   \n   \n1.认识真核细胞某些基本成分的结构, 功能和机制;   \n2.通过调节分裂和死亡来解释正常细胞是如何维持的; 和   \n3.运用细胞生物学的知识来理解和治疗由于细胞功能的变化或损失而引起的疾病。",
+      "course_syllabus": "Specific topics include: 1. Introduction: Cell Biology & Microscopy; 2. Membranes: Their Chemistry, Structure and Functions; 3. Transport across Membrane: Overcoming the Permeability Barrier; 4. The Endomembrane System: Transport within a Eukaryotic Cell; 5. Signal Transduction Mechanisms: Their Messengers and Receptors; 6. Cytoskeleton: Structures for Maintaining Cell Shape and Internal Organization; 7. Cell Cycle: The Events of Cell Growth and Division; 8. Apoptosis: A Programme to Cell Death; 9. Clinical Application of Cell Biology (Capstone Topic)  \n   \n   \n具體的主題包括: 1. 簡介：細胞生物學與顯微學; 2. 細胞膜：化學，結構和功能; 3. 穿越細胞膜運輸：克服滲透障礙; 4. 內膜系統：真核細胞內的運輸; 5. 信號轉導機制：信使和受體; 6. 細胞骨架：維持細胞形態和內部組織的結構; 7. 細胞週期：細胞生長和分裂; 8. 細胞凋亡：細胞死亡的程序; 9. 細胞生物學的臨床應用  \n   \n   \n具体的主题包括: 1. 简介：细胞生物学与显微学; 2. 细胞膜：化学，结构和功能; 3. 穿越细胞膜运输：克服渗透障碍; 4. 内膜系统：真核细胞内的运输; 5. 信号转导机制：信使和受体; 6. 细胞骨架：维持细胞形态和内部组织的结构; 7. 细胞周期：细胞生长和分裂; 8. 细胞凋亡：细胞死亡的程序; 9. 细胞生物学的临床应用",
+      "assessment_types": {
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "60"
+      },
+      "feedback_evaluation": "1. Feedback from (informal) mid-term course evaluation.  \n   \n2. Feedback from course evaluation.  \n   \n3. Direct feedback from students to teachers during the regular student-staff consultative meetings.  \n   \n   \n1. 非正式期中課目評鑑 ；  \n   \n2. 課目評鑑；  \n   \n3. 教師反饋。",
+      "required_readings": "Hardin J., Bertoni G., Kleinsmith L.J. and Becker W.M. Becker’s World of the Cell, Ninth Edition, Boston: Benjamin Cummings.",
+      "recommended_readings": "Primary research papers with high scientific merits suggested by the invited clinical researchers"
     },
     {
       "subject": "BIOL",
@@ -65,25 +76,25 @@
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor HUI Jerome Ho Lam,   Professor Shelby Eileen MC SHARRY MC ILROY",
+                  "instructor": "Professor HUI Jerome Ho Lam, \nProfessor Shelby Eileen MC SHARRY MC ILROY",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor HUI Jerome Ho Lam,   Professor Shelby Eileen MC SHARRY MC ILROY",
+                  "instructor": "Professor HUI Jerome Ho Lam, \nProfessor Shelby Eileen MC SHARRY MC ILROY",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor HUI Jerome Ho Lam,   Professor Shelby Eileen MC SHARRY MC ILROY",
+                  "instructor": "Professor HUI Jerome Ho Lam, \nProfessor Shelby Eileen MC SHARRY MC ILROY",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor HUI Jerome Ho Lam,   Professor Shelby Eileen MC SHARRY MC ILROY",
+                  "instructor": "Professor HUI Jerome Ho Lam, \nProfessor Shelby Eileen MC SHARRY MC ILROY",
                   "dates": "14/4"
                 }
               ],
@@ -108,7 +119,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge   \n• Understand key concepts in behavioural, population, community and ecosystem ecology (e.g. population regulation, competition and predation, life-history strategies, optimal theories, sexual selection, adaptation, social behaviour, kin selection, food webs, species diversity, community structure, biogeochemical cycles, ecosystem resilience)   \n• Appreciate important questions and key issues in modern ecology   \n   \nSkill   \n• Application of the scientific method to ecological problems   \n• Understand the concepts of experimental design and hypothesis testing in ecology   \n• Find and collect information from the primary literature   \n• Critically analyse information from the primary literature   \n• Application of modern ecological knowledge to real-world environmental issues and problems   \n   \nValue   \n• Understand the factors driving the distribution and abundance of living organisms and their behaviour   \n• Recognize the ecological basis of global and regional environmental problems    \n• Develop an ecological perspective of the major global environmental problems (e.g. biodiversity crisis, climate change) and their solutions   \n   \n知識   \n• 理解行為生態學、種群生態學及群落生態學中的重要概念（例如，種群調節， 競爭與捕食， 生活史策略，最適性理論，性選擇理論， 適應， 社群行為， 親本選擇， 食物網， 以及物種多樣性）   \n• 關注現代生態學研究中的重要問題和焦點   \n   \n技能   \n• 把科學方法應用到生態學   \n• 理解生態學中實驗設計和假設證明的內容   \n• 查找和收集文獻   \n• 客觀分析文獻   \n• 運用圖表描述和表達生態學的觀點   \n   \n價值   \n• 熟悉現代生態學中的重要問題和重點；   \n• 熟悉並闡釋全球化的環境問題（例如，生物多樣性危機）   \n• 認識全球及區域環境問題的生態學基礎   \n   \n   \n知识   \n• 理解行为生态学、种群生态学及群落生态学中的重要概念（例如，种群调节， 竞争与捕食， 生活史策略，最适性理论，性选择理论， 适应， 社群行为， 亲本选择， 食物网， 以及物种多样性）   \n• 关注现代生态学研究中的重要问题和焦点   \n   \n技能   \n• 把科学方法应用到生态学   \n• 理解生态学中实验设计和假设证明的内容   \n• 查找和收集文献   \n• 客观分析文献   \n• 运用图表描述和表达生态学的观点   \n   \n价值   \n• 熟悉现代生态学中的重要问题和重点；   \n• 熟悉并阐释全球化的环境问题（例如，生物多样性危机）   \n• 认识全球及区域环境问题的生态学基础",
+      "course_syllabus": "I. Population Ecology   \n1. Population growth & regulation   \n2. Demography   \n3. Intraspecific competition   \n4. Interspecific competition   \n5. Predator prey relationships   \n   \nII. Behavioural Ecology   \n1. Introduction   \n2. Optimal theories   \n3. Ecology of territory   \n4. Group behaviour   \n5. Alternative strategies   \n6. Altruism   \n   \nIII. Community and Trophic Ecology   \n1. Diversity, species richness and their measurement   \n2. Island Biogeography   \n3. Energy flow in ecosystems   \n4. Biogeochemical cycles of major elements   \n5. Methods for studying food chains and food webs   \n   \nIV. Ecosystem Ecology   \n1. Patterns of ecosystem development   \n2. Effects of disturbance on ecosystem structure and function   \n3. Ecosystem resilience and stability   \n   \nI. 種群生態學   \n1. 種群增長與調節   \n2. 種群統計學   \n3. 種內競爭   \n4. 種間競爭   \n5. 捕食者-被食者的相互作用   \n   \nII. 行為生態學   \n1. 概論   \n2. 最適性理論   \n3. 領域行為   \n4. 群體行為   \n5. 其他行為策略   \n6. 利他行為   \n   \nIII. 群落生態學   \n1. 物種多樣性及物種豐度   \n2. 島嶼生物地理學   \n3. 生態系統中的能量流動   \n4. 群落穩定性及群落結構",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "1. Feedback from course evaluation   \n2. Discussion with students    \n3. Self reflection of teacher(s)   \n4. Feedback from Visiting Committee & regular programme reviews.   \n   \n1.課目評鑑   \n2.與學生會談   \n3.教師反饋   \n4.校外專家委員會及課程檢討",
+      "required_readings": "n/a",
+      "recommended_readings": "1. Smith, T.M. and R. L. Smith. 2015. Elements of Ecology, 9th edition, Pearson, San Francisco. ISBN 978-1-292-07740-6   \n2. Krebs, J.R. & N.B. Davis. An Introduction to Behavioural Ecology, 4th edition, Wiley-Blackwell Scientific Publications. ISBN: 978-1-405-11416-5   \n3. Kaiser et al. 2012. Marine Ecology: Processes, Systems, and Impacts. 2nd edition, Oxford University Press. ISBN: 978-0-199-22702-0"
     },
     {
       "subject": "BIOL",
@@ -207,7 +227,18 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge  \n   \n• Basic ecological techniques including sample collection, data collection, data analysis, basic statistics and data reporting  \n   \n• Analysis of habitats and populations  \n   \n• Observe record and quantify animal behaviours  \n   \n• Students will learn the importance and basic techniques of hypotheses testing  \n   \n    \nSkill  \n   \n• Application of scientific method to ecology  \n   \n• Understand the concepts of experimental design and hypothesis testing in ecology  \n   \n• Present and report ecological findings and ideas using charts, graphs, diagrams and tables   \n   \n   \n 知識   \n• 生態學的基本技術，包括樣品採集，數據收集，數據分析，基本統計分析和數據報告   \n• 種群及其棲息地的分析   \n• 動物行為的觀察記錄與量化   \n• 學生將認識到假設證定的重要性和基本技巧   \n   \n技術   \n• 將科學方法應用到生態學   \n• 理解生態學中實驗設計以及假設證定的理念   \n• 利用各種圖表，圖形， 表格解說生態學的發現和觀點",
+      "course_syllabus": "Analysis of Habitat  \n   \nPopulation Growth and Competition  \n   \nDemography  \n   \nAnalysis of Populations  \n   \nBehavioural Ecology  \n   \n   \n棲息地分析   \n群落生長和競爭   \n種群統計學   \n群落分析   \n行為生態學",
+      "assessment_types": {
+        "Lab reports": "40",
+        "Others": "20",
+        "Short answer test or exam": "30",
+        "Selected response test or exam": "10"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \nSelf reflection of teacher(s)  \n   \nFeedback from Visiting Committee and regular programme reviews  \n   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "Laboratory Manual is provided."
     },
     {
       "subject": "BIOL",
@@ -225,25 +256,25 @@
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "14/4"
                 }
               ],
@@ -263,19 +294,19 @@
                 {
                   "time": "We 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
                   "time": "We 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "25/2"
                 },
                 {
                   "time": "We 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
                 }
               ],
@@ -295,25 +326,25 @@
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "14/4"
                 }
               ],
@@ -333,19 +364,19 @@
                 {
                   "time": "We 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
                   "time": "We 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "25/2"
                 },
                 {
                   "time": "We 2:30PM - 6:15PM",
                   "location": "Science Ctr East Block E402",
-                  "instructor": "Dr. CHUNG Kwok Cheong,   Professor GUO Dianjing",
+                  "instructor": "Dr. CHUNG Kwok Cheong, \nProfessor GUO Dianjing",
                   "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
                 }
               ],
@@ -370,7 +401,17 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "1) understand the fundamental theory of general and molecular genetics;   \n2) master basic experimental skills used for general and molecular genetics research;    \n3) analyze and apply the learnt concepts and skills in solving related genetics problems.  \n   \n   \n1) 瞭解普通遺傳學及分子遺傳學基礎理論  \n   \n2) 掌握普通及分子遺傳學研究的基本實驗技能  \n   \n3) 分析幷應用這些學到的理論和技能解决相關的遺傳學問題.",
+      "course_syllabus": "1. Polytene chromosomes from Chironmomus salivary glands   \n   \n2. Human genetics   \n   \n3. UV mutagenesis in Saccharomyces cerevisiae   \n   \n4. Transformation of Escherichia coli   \n   \n5. VNTR analysis of D1S80 locus  \n   \n   \n1. 搖蚊幼蟲的多線染色體 ;    \n2. 人類遺傳 ;    \n3. 紫外線誘發酵母的突變 ;    \n4 . 大腸桿菌的轉型 ;    \n5. 串聯重覆的分析",
+      "assessment_types": {
+        "Lab reports": "35",
+        "Others": "25",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "Self-reflection of teacher(s)  \n   \nDiscussion with students  \n   \nFeedback from course evaluation  \n   \nStudent-staff consultative meeting  \n   \nFeedback from Visiting Committee and regular programme reviews",
+      "required_readings": "",
+      "recommended_readings": "Laboratory Manual is provided."
     },
     {
       "subject": "BIOL",
@@ -425,7 +466,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Learning Outcomes: By the end of the course, a successful student should be able to:   \n1) understand the fundamental theory of transmission genetics and the relationship between genes and traits;  \n2) describe pedigree analysis and the inheritance of human genetic disorders;  \n3) apply scientific method and analyses with the underlying genetic principles  \n  \n課程學習結束後, 學生應該可以:  \n1) 掌握傳播遺傳學的基本理論以及基因與性狀的相互關係;  \n2) 描述血統分析和人類遺傳疾病的遺傳;  \n3) 應用科學方法並根據潛在的遺傳原理進行分析  \n  \n课程学习结束后, 学生应该可以:  \n1) 掌握传播遗传学的基本理论以及基因与性状的相互关系;  \n2) 描述血统分析和人类遗传疾病的遗传;  \n3) 应用科学方法并根据潜在的遗传原理进行分析",
+      "course_syllabus": "Mendelian inheritance; Inheritance patterns of genetic diseases; Chromosome transmission during cellular and sexual reproduction; Extension of Mendelian inheritance; Non-Mendelian inheritance; Genetic linkage & mapping  \n  \n孟德爾遺傳; 基因疾病的遺傳模式; 細胞和有性生殖過程中的染色體傳播; 孟德爾遺傳的延伸; 非孟德爾遺傳; 遺傳連鎖與遺傳作圖  \n  \n门德尔遗传; 基因疾病的遗传模式; 细胞和有性生殖过程中的染色体传播; 门德尔遗传的延伸; 非门德尔遗传; 遗传连锁与遗传作图",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Homework or assignment": "5",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Feedback from course evaluation Discussion with students Self reflection of teacher(s) Feedback from Visiting Committee and regular programme reviews   \n  \n課目評鑑 與學生會談 教師反饋 校外專家委員會及課程檢討  \n  \n课目评鉴 与学生会谈 教师反馈 校外专家委员会及课程检讨",
+      "required_readings": "Brooker, Robert J. 2015. Genetics: analysis and principles. 5th ed. McGraw.Hill",
+      "recommended_readings": "Klug, WS & Cummings, MR. 2006. Concepts of Genetics. 8th ed. MacMillan   \nSnustad, DP & Simmons, MJ.  2006.  Principles of Genetics. 4th ed. J. Wiley."
     },
     {
       "subject": "BIOL",
@@ -474,7 +525,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge\n\nBy the end of the course, a student will be expected to understand:\n\n1) the concepts of molecular phylogenetics;\n\n2) the procedure of constructing phylogenetic trees with molecular sequences ; \n\n3) the pros and cons of different phylogenetic methods.\n\nSkill\n\n1) To apply existing software tools to construct molecular phylogenies;\n\n2) To use molecular phylogenies to solve biological problems.\n\nValue\n\nTaking this course will equip students with tree thinking for future engagement in many areas of life sciences including population genetics, molecular systematics, evolutionary biology, phylogeography, conservation biology, medical fields and forensic applications.\n\n知識\n\n科目學習結束後, 學生應該可以了解以下內容：\n\n1）分子系統發生學的基本概念；\n\n2）用分子序列去構建分子系統發育樹的步驟；\n\n3）不同的構建分子系統發育樹的優缺點\n\n技能方面：\n\n1）掌握應用現有的軟件工具構建分子系統發育樹的能力；\n\n2）利用分子系統發育樹去解決生物學問題\n\n價值方面：\n\n修讀此科目將使學生具備分子系統發生學的思維，以應用於未來生命科學的各個領域，包括族群遺傳學、分子系統分類學、進化生物學、親緣地理學、保育生物學、醫學領域和法證應用等。\n\n知识\n\n科目学习结束后, 学生应该可以了解以下内容：\n\n1）分子系统发生学的基本概念；\n\n2）用分子序列去构建分子系统发育树的步骤；\n\n3）不同的构建分子系统发育树的优缺点\n\n技能方面：\n\n1）掌握应用现有的软件工具构建分子系统发育树的能力；\n\n2）利用分子系统发育树去解决生物学问题\n\n价值方面：\n\n修读此*科目*将使学生具备分子系统发生学的思维，以应用于未来生命科学的各个领域，包括族群遗传学、分子系统分类学、进化生物学、亲缘地理学、保育生物学、医学领域和法证应用等。",
+      "course_syllabus": "Concepts and principles in molecular phylogenetics\n\nParsimony rule and character-based tree\n\nGenetic distance and distance-based tree\n\nMolecular phylogenetics and real-world problems\n\n分子系統發生學的基本概念和原則\n\n簡約法和以特徵為基礎的系統發育樹\n\n遺傳距離和以距離為基礎的系統發育樹\n\n分子系統發生學和現實世界的實際問題\n\n分子系统发生学的基本概念和原则\n\n简约法和以特征为基础的系统发育树\n\n遗传距离和以距离为基础的系统发育树\n\n分子系统发生学和现实世界的实际问题",
+      "assessment_types": {
+        "Examination": "70",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "1. Feedback from course evaluation   \n2. Discussion with students   \n3. Self reflection of teacher(s)   \n4. Feedback from Visiting Committee & regular program reviews   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討\n\n课目评鉴   \n与学生会谈 教师反馈  \n校外专家委员会及课程检讨",
+      "required_readings": "Nei, M. & Kumar, S. (2000) Molecular Evolution and Phylogenetics. OUPS, Oxford. 333pp. (QH390.N45 2000; Ebook at this URL link: <https://ebookcentral.proquest.com/lib/cuhk-ebooks/detail.action?pq-origsite=primo&docID=430494>)",
+      "recommended_readings": ""
     },
     {
       "subject": "BIOL",
@@ -536,10 +596,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "22",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -552,10 +612,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Interactive Tutorial",
+      "component": "Laboratory\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "1. Basic techniques in the study of plants and fungi, including aseptic techniques,   \n   \n2. Culture, isolation and identification of plants and fungi,  \n   \n3. A firm grasp of the characteristics of algae, lower plants and fungi through examination of whole organisms and slide sections of representative species,  \n   \n4. An appreciation of invertebrate diversity with an understanding of the general body plan of the major phyla groups of invertebrates (including the ability to identify an invertebrate of the major phyla to the class level),  \n   \n5. Ability to observe and identify specimens (including using the microscope), draw annotated diagrams to illustrate the structure, and relate structure to function.  \n   \n   \n1. 研究植物和真菌的基本技術，包括無菌技術；  \n   \n2. 培養﹑分離和鑑定植物和真菌；  \n   \n3. 通過觀察具代表性物種的個體和切片，充分掌握藻類﹑低等植物和真菌的特點；  \n   \n4. 了解無脊椎動物的生物多樣性及各主要無脊椎動物門動物的一般身體架構〔包括能鑒別各主要無脊椎動物門的動物至綱的層面〕；  \n   \n5. 具備觀察和識別標本的能力（包括使用顯微鏡），並能繪畫註釋圖來說明結構，以及指出結構和功能之間的關聯。",
+      "course_syllabus": "Use of microscope and examination of unicellular organisms  \n   \nSlime Moulds & Lower Fungi  \n   \nHigher Fungi   \n   \nLichens  \n   \nAlgae  \n   \nBryophytes  \n   \nCnidaria and flatworm  \n   \nAnnelid diversity and earthworm dissection  \n   \nMollusk diversity and squid dissection  \n   \nArthropod diversity  \n   \nEchinoderm & Review  \n   \n   \n顯微鏡的使用和單細胞生物的檢測   \n黏菌及低等真菌   \n高等真菌   \n地衣   \n藻類   \n苔蘚植物   \n刺胞動物及扁蟲   \n環節動物的生物多樣性及蚯蚓的解剖   \n軟體動物的生物多樣性及烏賊的解剖   \n節肢動物的生物多樣性   \n棘皮動物及課程復習",
+      "assessment_types": {
+        "Lab reports": "44",
+        "Others": "20",
+        "Short answer test or exam": "36"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students  \n   \n   \n課目評鑑   \n與學生會談",
+      "required_readings": "",
+      "recommended_readings": "(1)Slonczewski, J.L. and Foster, J.W. (2009). Microbiology: An Evolving Science. W.W. Norton & Company, Ltd., New York.  \n   \n(2) But, P.P-H.; Cheng, L.; Chan, P.K.; Lau, D.T-W. and But, J.W-H. (2002) Nostoc flagelliforme and faked items retailed in Hong Kong. Journal of Applied Phycology 14: 143–145.  \n   \n(3) Fleming, A. (1945) Penicillin. Nobel Lecture, December 11, 1945.  \n   \n(4) Krstic, S., Duma, A., Janevska, B., Levkov, Z., Nikolova, K. and Noveska, M. (2002) Diatoms in forensic expertise of drowning—a Macedonian experience. Forensic Science International 127: 198–203.  \n   \n(5) Miller, C.H., Ladd, C., Palmbach, T. and Lee, H.C. (2001) The Green Revolution: Botanical Contributions to Forensics and Drug Enforcement. Croatian Medical Journal 42: 340-345.  \n   \n(6) Cleveland, P.H., Jr. (2007) Animal Diversity, McGraw Hill, Boston.  \n   \n(7) Wischnitzer, S. (2006) Atlas and dissection guide for comparative anatomy. 6th edition. W. H. Freeman and Co.  \n   \n(8) Lytle, C.F. (1996) General zoology laboratory guide. Dubuque, IA: Wm. C. Brown Publishers.  \n   \n(9) Miller, S.A. (1994) General zoology: laboratory manual. (3rd edition) Dubuque, Iowa: Wm. C. Brown Publishers."
     },
     {
       "subject": "BIOL",
@@ -645,10 +715,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Interactive Tutorial",
+      "component": "Laboratory\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "1. A firm grasp of the characteristics of vascular plants (ferns, fern allies, gymnosperms and angiosperms) through examination of the whole organisms and slide sections of representative species;   \n2. Integration of such characteristics through problem-solving approaches to real situations.  \n   \n3. Able to understand the diversity and evolutionary relationships of vertebrate animals and to identify vertebrates to major class phyla;   \n4. Understand the general body plan of vertebrate animals;   \n5. Able to perform dissection of major vertebrate animals and identify major organ systems;   \n6. Able to relate function to structure of vertebrate animals;   \n7. Able to demonstrate a clear understanding of major aspects of vertebrate anatomy through drawing biological diagrams;   \n8. Able to observe, recognize, draw annotated diagrams and label fine vertebrate animal structures using the microscope.  \n   \n   \n1. 通過考察代表性物種的個體和切片，深入理解維管束植物(擬蕨植物﹑蕨類植物﹑裸子植物和被子植物)的特點；  \n   \n2. 透過解決問題的學習方式，聯繫這些特點和真實情況；  \n   \n3. 能夠認識脊椎動物的生物多樣性及進化關係，並能別脊椎動物中主要的綱別；  \n   \n4. 認識脊椎動物的一般身體架構：  \n   \n5. 能夠解剖主要的脊椎動物及鑒別其主要器官系统；  \n   \n6. 能夠理解脊椎動物在功能與結構上的關係；  \n   \n7. 能夠通過繪製生物學繪圖以表達其對脊椎動物解剖學主要概念的深度認識；  \n   \n8. 能夠利用顯微鏡對脊椎動物的細微結構作觀察、鑒認、及繪製和標示註解圖。",
+      "course_syllabus": "Diversity of protochordates, agnathans and fishes  \n   \nDissection of shark  \n   \nDissection of frog  \n   \nDiversity of amphibians and reptiles   \n   \nDissection of soft-shelled turtle  \n   \nDiversity of Aves and Mammalia  \n   \nTissues and organization of vascular plants   \n   \nFern allies  \n   \nFerns  \n   \nGymnosperms  \n   \nAngiosperms  \n   \n   \n原索動物、無頜類、及魚類的生物多樣性   \n鲨鱼的解剖   \n青蛙的解剖   \n兩棲動物及爬行動物的生物多樣性   \n鱉的解剖   \n鳥類及哺乳動物的生物多樣性   \n維管束植物的組織及系統   \n擬蕨植物   \n蕨類植物   \n裸子植物   \n被子植物",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nFeedback/comments from and through demonstrators for course improvement   \n   \n   \n課目評鑑   \n通過助教取得改善課程的建議。",
+      "required_readings": "",
+      "recommended_readings": "1. Raven P.H., R.F. Evert and S.E. Eichhorn (2005) Biology of Plants (7th Edition), Freeman & CO.  \n   \n2. Flora of Hong Kong (Volumes 1-3). Hong Kong Herbarium, Agriculture, Fisheries and Conservation Department & South China Botanical Garden, Chinese Academy of Sciences (Ed.). Agriculture, Fisheries and Consevation Department.  \n   \n3. A fern that hyperaccumulates arsenic. Nature 409:579 (2001). (http://www.nature.com/nature/journal/v409/n6820/full/409579a0.html)  \n   \n4. Bracken fern poisoning of cattle. Agriculture Notes, State of Victoria, Australia, AGO107:1-2 (1998). (http://www.dse.vic.gov.au/dpi/nreninf.nsf/v/2F6B3A5D50919D25CA2574180014125F/$file/Bracken\\_Fern\\_Poisoning\\_of\\_Cattle.pdf)  \n   \n5. Adrian Bell and Alan Bryan (2008) Plant Form: An Illustrated Guide to Flowering Plant Morphology. Oxford University Press, 6th ed.  \n   \n6. Fishbeck, D. W. and Sebastiani, A. (2001) Comparative anatomy: manual of vertebrate dissection. Morton Publishing.  \n   \n7. Wischnitzer, S. (2006) Atlas and dissection guide for comparative anatomy. 6th edition. W. H. Freeman and Co.  \n   \n8. Holmberger, D. G., and Walker, W. F. (2004) Vertebrate dissection. 9th edition, Thomas Brooks/Cole.  \n   \n9. Walker, W.F. (1998) Dissection of the frog (2nd edition). New York: W.H. Freeman.  \n   \n10. Lytle, C.F. (1996) General zoology laboratory guide. Dubuque, IA: Wm. C. Brown Publishers.  \n   \n11. Miller, S.A. (1994) General zoology: laboratory manual. (3rd edition) Dubuque, Iowa: Wm. C. Brown Publishers."
     },
     {
       "subject": "BIOL",
@@ -733,7 +813,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge outcomes:  \n   \n   \n1. Acquire ability to comprehend the implication of how humans evolve and why is so different from other organisms;    \n2. Acquire core knowledge on how humans varies;   \n3. Acquire an educated understanding on how humans adapts to different environments and hence lead to variations between different populations.   \n   \n   \nSkills outcomes:  \n   \n   \n1. Acquire skills in literature survey using various sources including effective usage of information technologies and web-based searches;   \n2. Acquire good analytical and oral communication skills via class project presentation;   \n3. Acquire good problem solving skill via course assessment.  \n   \n   \nValues and attribute outcomes:  \n   \n   \n1. Acquire a positive attitude toward humans as one of the member of all living organisms but is unique;   \n2. Acquire an educated mind and responsible attitude and appreciation of humans is part of the nature.   \n   \n   \n知识成果：   \n掌握对人类如何演化及为何与其它生命这样的不同上的意义;   \n获取有关人类不同种族的差异的核心知识;   \n明白人类如何适应不同的环境和由此而引致人种上的差异。   \n   \n技能成果：   \n掌握文献调查技能，包括使用信息技术和有效利从互联网中搜索中得到的各种来源;   \n通过班上研习课题获得良好的分析和沟通技巧;   \n通过课程评估建立良好的解决问题的技巧。   \n   \n价值观和属性的成果：   \n对人类作为所有生物的其中而又独特的一员建立积极的态度   \n通过思想教育对人类是自然界的一部份建立正确的态度。.",
+      "course_syllabus": "1. Human Evolution: An Introduction   \n   \n2. Primates  \n   \n3. Evolution of Primates  \n   \n4. Apes and Human  \n   \n5. Human Characteristics  \n   \n6. Major Steps in Human History  \n   \n7. Driving Forces in Human Evolution and Origin of Modern Humans  \n   \n8. Molecular Basis of Human Origin  \n   \n9. Human variation – models of classification / Biological variations  \n   \n10. Population genetics  \n   \n11. Molecular basis of variation – SNPs   \n   \n12. Concept of adaptation   \n   \n13. Skin color  \n   \n14. Beta-globin and G6PDH   \n   \n15. ABO blood group   \n   \n16. High altitude - hypoxia.   \n   \n    \n1. 人类进化：简介  \n   \n2. 灵长目  \n   \n3. 灵长类的演化  \n   \n4. 类人猿与人类  \n   \n5. 人的特征  \n   \n6. 人类历史上的主要步骤  \n   \n7. 在人类进化与现代人类起源的驱动力  \n   \n8. 人类起源的分子基础  \n   \n9. 人类变异 -分类/生物变化模型  \n   \n10 群体遗传学  \n   \n11. 变异的分子基础-单核苷酸多态性  \n   \n12. 适应的概念  \n   \n13. 肤色  \n   \n14. β-球蛋白和G6PDH的  \n   \n15. ABO血型  \n   \n16. 高海拔-缺氧",
+      "assessment_types": {
+        "Short answer test or exam": "70",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "1. Feedback from course evaluation  \n   \n2. Comments received from students in the staff-student consultation committee will be relayed to all teachers involved  \n   \n3. Discussion with students  \n   \n   \n   \n1. 課目評鑑  \n   \n2. 从师生咨询委员会中收到的学生的意见转达给所有参与的教师  \n   \n3. Discussion with students",
+      "required_readings": "",
+      "recommended_readings": "Reference Books:  \n   \nB.G. Campbell and J.D. Loy (2000) Humankind emerging 8th ed., Boston : Allyn and Bacon, ISBN 0321022742.   \n   \n   \nR. Lewin (1999) Human evolution : an illustrated introduction 4th ed., Malden, Mass.: Blackwell Science, ISBN 0632043091.   \n   \n   \nG.A. Harrison, J.M. Tanner, D.R. Pilbeam, and P.T. Baker (1990) Human Biology - An Introduction to human evolution, variation, growth and adaptability 3rd Ed. ELBS/Oxford University Press. ISBN 0194424340  \n   \n   \nG.A. Harrison (1993) Human Adaptation. Oxford University Press Stephen Molnar (1992) Human variation : races, types, and ethnic groups 3rd Ed. Prentice Hall. ISBN 0134461622  \n   \n   \nStephen Molnar (1992) Human variation : races, types, and ethnic groups 3rd Ed. Prentice Hall. ISBN 0134461622"
     },
     {
       "subject": "BIOL",
@@ -794,7 +883,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Students would be able to  \n   \n   \n1. recall the basic knowledge and techniques about microbiology;    \n2. recognize the nature and impacts of microorganisms;   \n3. compare and contrast the characteristics of microorganisms to multicellular organisms;    \n4. relate the structural or physiological adaptations of microorganisms to their success in occupying niches;   \n5. apply some basic principles and knowledge of microbiology to real life situations;   \n6. explain how the strategies employed by pathogens can avoid the host defenses.   \n   \n   \n學生應該能夠   \n1. 知悉有關微生物學的基本知識和技術；  \n   \n2. 認識微生物的性質和影響；  \n   \n3. 比較和對比微生物和多細胞生物的特點；  \n   \n4. 掌握微生物的結構或生理適應如何使他們能夠成功佔據其生態位；  \n   \n5. 把一些微生物學上的基本原則和知識應用到現實生活的情境中；  \n   \n6. 解釋病原體如何使用各種戰略來迴避宿主的防禦。",
+      "course_syllabus": "I. Principles of microbiology   \n   \n(A) Microbial life: Origin and discovery   \n   \n(B) Observing the microbial cell   \n   \n(C) Bacteria: Structure and function  \n   \n   \nII. Microbial culture, metabolism, growth and development   \n   \n(A) Bacterial culture   \n   \n(B) Bacterial growth and development   \n   \n(C) Microbial metabolism  \n   \n   \nIII. Environmental influences and control of microbial growth   \n   \n(A) Environmental influence of microbial growth  \n   \n(B) Control of microbial growth   \n   \n   \nIV. Microbial catabolism and biosynthesis   \n   \n(A) Catabolism   \n   \n(B) Biosynthesis   \n   \n   \nV. Microbial genomics  \n   \n(A) Genomic view of microbial life   \n   \n   \nVI. Applied microbiology   \n   \n(A) Environmental microbiology   \n   \n   \nVII. Virology  \n   \n(A) Viruses: Structure and function",
+      "assessment_types": {
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "80"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \n   \n課目評鑑   \n與學生會談",
+      "required_readings": "",
+      "recommended_readings": "1. Textbook: Slonczewski and Foster, 2017. Microbiology: An Evolving Science. 4th Edition (Recommended textbook)  \n   \nI. Chapters 1, 2 and 3  \n   \nII. Chapters 4 and 14  \n   \nIII. Chapter 5  \n   \nIV. Chapters 13 and 15  \n   \nV. Chapters 7 and 9  \n   \nVI. Chapters 21 and 22  \n   \nVII. Chapter 6  \n   \n   \n2. Madigan, M.Y., Martinko, J.M., Dunlap, P.V. and Clark, D.P. 2009. Brock Biology of Microorganisms. 12 Edition. Benjamin Cummings, New York, USA.  \n   \n   \n3. Wiley, J.M., Sherwood, L.M. and Woolverton, C.J. 2009. Prescott's Principles of Microbiology. McGraw-hill Higher education, New York, USA."
     },
     {
       "subject": "BIOL",
@@ -843,7 +941,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge\n\n* Understand what palaeobiology is and its key concepts\n* Understand the links between palaeobiology and the rest of the life sciences\n* Recall key features of dinosaur biology and evolution\n* Understand how palaeontologists reconstruct ancient ecosystems using fossil and modern evidence\n* Recall the traits and significance of a Late Cretaceous ecosystem\n\nSkill\n\n* Understand and communicate what palaeobiology is and its contributions to the life sciences to audiences, with and without a scientific background\n\nValue\n\n* Become familiar with how palaeobiology contributes to the life sciences\n* Appreciate the importance of palaeobiology to the ongoing development of the life sciences.\n\n知識\n\n* 了解甚麼是古生物學及與其關鍵概念\n* 了解古生物學及其與各樣生命科學之間的關連\n* 能記得恐龍生物學及進化學的重點\n* 了解古生物學家如何利用化石及現代生物的證據去重塑古代的生態系統\n* 能記得白堊紀晚期生態系統的特徵及意義\n\n技術\n\n* 理解甚麼是古生物學以及它對生命科學的貢獻，並向有或沒有科學背景的受眾傳達該知識\n\n價值\n\n* 熟悉古生物學如何對生命科學作出貢獻\n* 意識到古生物學對於未來生命科學領域發展的重要性\n\n知识\n\n* 了解甚么是古生物学及与其关键概念\n* 了解古生物学及其与各样生命科学之间的关连\n* 能记得恐龙生物学及进化学的重点\n* 了解古生物学家如何利用化石及现代生物的证据去重塑古代的生态系统\n* 能记得白垩纪晚期生态系统的特征及意义\n\n技术\n\n* 理解甚么是古生物学以及它对生命科学的贡献，并向有或没有科学背景的受众传达该知识\n\n价值\n\n* 熟悉古生物学如何对生命科学作出贡献\n* 意识到古生物学对于未来生命科学领域发展的重要性",
+      "course_syllabus": "1. Introduction to palaeobiology and its key concepts\n2. Links between palaeobiology and the life sciences\n3. Introduction to dinosaurs\n4. Meat-eating dinosaurs\n5. Plant-eating dinosaurs\n6. Living with dinosaurs\n7. Bringing dinosaurs and their ecosystems to life\n8. Future of palaeobiology and its impact on the life sciences\n\n1. 古生物學簡介以及其關鍵概念\n2. 古生物學與生命科學之間的連繫\n3. 恐龍簡介\n4. 肉食性恐龍\n5. 草食性恐龍\n6. 與恐龍共生\n7. 重塑恐龍及牠們的生態系統\n8. 古生物學的未來以及其對生命科學的影響\n\n1. 古生物学简介以及其关键概念\n2. 古生物学与生命科学之间的连系\n3. 恐龙简介\n4. 肉食性恐龙\n5. 草食性恐龙\n6. 与恐龙共生\n7. 重塑恐龙及牠们的生态系统\n8. 古生物学的未来以及其对生命科学的影响",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "50",
+        "Others": "10"
+      },
+      "feedback_evaluation": "Feedback from course evaluation\n\nDiscussion with students\n\nSelf-reflection of teacher(s)\n\nFeedback from Visiting Committee and regular programme reviews\n\nEmail or meeting the teacher in person\n\nStudent staff-consultative meeting\n\n科目評估的反饋\n\n與學生進行討論\n\n教師的自我反思\n\n訪問委員會的反饋和定期方案審查\n\n以電郵聯絡或與教師會面\n\n學生工作人員-咨詢會議",
+      "required_readings": "n/a",
+      "recommended_readings": "Introduction to paleobiology and the fossil record (2nd ed.). M.J. Benton, D.A.T. Harper.\n\n2020. Wiley-Blackwell: London. 656pp. [library code: QE721.2.E85 B46 2009]\n\nDinosaur paleobiology. S.L. Brusatte. 2012. Wiley: New York. 322pp. [Ebook:\n\n<https://onlinelibrary-wiley-com.easyaccess1.lib.cuhk.edu.hk/doi/book/10.1002/9781118274071>]\n\nThe complete dinosaur (2nd ed.). M.K. Brett-Surman, T.R. Holtz, Jr. & J.O. Farlow (eds.).\n\n2012. Indiana University Press: Bloomington. 1128pp. [Ebook:\n\n<https://ebookcentral.proquest.com/lib/cuhk-ebooks/detail.action?docID=944055&pq-origsite=primo>]\n\nDinosaurs: a concise natural history (3rd ed.). D.E. Fastovsky, D.B. Weishampel, J.\n\nSibbick. 2016. Cambridge University Press: Cambridge. 477pp. [good for students with\n\nnon-science backgrounds; Ebook: <https://www-cambridge-org.easyaccess1.lib.cuhk.edu.hk/highereducation/books/dinosaurs/2D453009AE352A34B6E0F5D215BBA9D6>]\n\nThe Dinosauria (2nd ed). Weishampel, D.B., Dodson, P., Osmolska, H. (eds.). 2004.\n\nUniversity of California Press: Berkeley. 861pp. [more technical; Ebook: https://ebookcentral.proquest.com/lib/cuhk-ebooks/detail.action?pq-origsite=primo&docID=470900]"
     },
     {
       "subject": "BIOL",
@@ -861,43 +969,43 @@
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Lady Shaw Bldg LT3",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Lady Shaw Bldg LT3",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Lady Shaw Bldg LT3",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Lady Shaw Bldg LT3",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "13/4"
                 },
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Science Centre LG23",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Science Centre LG23",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "26/2"
                 },
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Science Centre LG23",
-                  "instructor": "Professor TSANG Ling Ming,   Professor WANG Guanqun",
+                  "instructor": "Professor TSANG Ling Ming, \nProfessor WANG Guanqun",
                   "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
@@ -922,7 +1030,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "To give students the foundation knowledge in plant physiology that will enable them to have better understanding to plants and appreciate other related courses within the biology programme and the plant biotechnology programme.",
+      "course_syllabus": "1. Course overview  \n   \n   \n2. Plant, water and minerals   \n   \n2.1 Plant and water relations  \n   \n2.2 Water balance of the whole plant  \n   \n2.3 Mineral nutrients  \n   \n2.4 Water and mineral transport  \n   \n   \n3. Metabolic physiology  \n   \n3.1 Photosynthesis   \n   \n3.2 C3 and C4 photosynthesis  \n   \n3.3 Primary respiration pathway  \n   \n3.4 Alternative respiration pathways  \n   \n3.5 Nitrogen metabolism, transport and signaling  \n   \n3.6 Secondary metabolites and plant defense  \n   \n   \n4. Growth and development  \n   \n4.1 Photoreceptors and light control of plant development  \n   \n4.2 Light signaling  \n   \n4.3 Photoperiodism and control of flowering  \n   \n4.4 Seed germination and dormancy  \n   \n4.5 Embryogenesis and organogenesis  \n   \n4.6 Reproduction and senescence  \n   \n4.7 Hormonal control of plant growth and development  \n   \n4.8 Hormone signaling  \n   \n   \n5. Plant-environment interactions  \n   \n 5.1 Plant responses to abiotic stress  \n   \n 5.2 Plant responses to biotic stress  \n   \n   \n课程提纲：   \n1. 課程概覽  \n   \n   \n2. 植物、水與礦物質   \n   \n2.1 植物與水的關係  \n   \n2.2 植物的水平衡  \n   \n2.3植物的礦物營養  \n   \n2.4水與礦物質运输  \n   \n   \n3. 代謝生理  \n   \n3.1 光合作用  \n   \n3.2 C3與C4光合作用  \n   \n3.3植物呼吸作用--主路呼吸途徑  \n   \n3.4交替呼吸途径  \n   \n3.5 氮代谢， 运输及信號傳遞  \n   \n3.6次級代謝物與植物化學防禦  \n   \n   \n4. 生長與發育  \n   \n4.1光受體與光對植物生長的調控  \n   \n4.2 光信號傳遞  \n   \n4.3 光週期與開花調控  \n   \n4.4 種子萌發與休眠  \n   \n4.5 胚胎發生與器官發生  \n   \n4.6 生殖與衰老  \n   \n4.7激素對植物生長和發育的調控  \n   \n4.8 激素信號傳遞  \n   \n   \n5. 植物--環境相互作用  \n   \n5.1 植物對非生物脅迫的響應  \n   \n5.2植物對生物脅迫的響應",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Short answer test or exam": "50"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nStudent-staff consultative committee meeting  \n   \n   \n課目評鑑   \n師生諮詢委員會會議",
+      "required_readings": "",
+      "recommended_readings": "1. Taiz L and Zeiger E (2010). Plant Physiology (5th Ed.), Sinauer Associates Inc., USA  \n   \n2. Hopkins WG and Huner NP (2009). Introduction to Plant Physiology (4th Ed.), John-Wiley, N.Y.  \n   \n3. Buchanan BB, Gruissem W and Jones RL (2000). Biochemistry and Molecular Biology of Plants, American Society of Plant Physiologists  \n   \n4. Selected journal papers"
     },
     {
       "subject": "BIOL",
@@ -940,27 +1057,27 @@
                 {
                   "time": "We 10:30AM - 12:15PM",
                   "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor ZHONG Silin,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor ZHONG Silin, \nProfessor ZHUANG Xiaohong",
                   "dates": "3/9, 10/9, 17/9, 24/9"
                 },
                 {
                   "time": "We 10:30AM - 12:15PM",
                   "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor ZHONG Silin,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor ZHONG Silin, \nProfessor ZHUANG Xiaohong",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
                   "time": "We 10:30AM - 12:15PM",
                   "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor ZHONG Silin,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor ZHONG Silin, \nProfessor ZHUANG Xiaohong",
                   "dates": "5/11, 12/11, 19/11, 26/11"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "62",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "10",
+                "waitlist_total": "2",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -977,7 +1094,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "The students will know:  \n   \n1. the diversity of fungi and non-vascular plants (algae and bryophytes);   \n2. the adaptive features of these organisms to their habitats;   \n3. the survival features of these organisms to propagate the species;   \n4. the significance of some of these organisms in causing damages to habitats, human health and properties;   \n5. the benefits of some of these organisms in improving health, supplying food and providing fuel as well as other resources.  \n   \n   \n學生會認識：   \n1。真菌和非維管束植物（藻類和苔蘚植物）的多樣性;   \n2。這些生物及其生境的適應特徵;   \n3。這些生物繁衍後代的生存策略;   \n4。某些真菌和非維管束植物能損害生境，人類健康和財物;   \n5。某些真菌和非維管束植物能改善人類健康，供應食物和提供燃料等資源。  \n   \n   \n学生会认识：   \n1 真菌和非维管束植物（藻类和苔藓植物）的多样性;   \n2 这些生物及其生境的适应特征;   \n3 这些生物繁衍后代的生存策略;   \n4 某些真菌和非维管束植物能损害生境，人类健康和财物;   \n5 某些真菌和非维管束植物能改善人类健康，供应食物和提供燃料等资源。",
+      "course_syllabus": "1. Basic Concepts about Biodiversity  \n   \n2. Introduction to Fungi, and Fungal-like Organisms (Water Molds & Slime Molds)   \n   \n3. True Fungi: Chytrids & Zygomycetes  \n   \n4. True Fungi: Ascomycetes  \n   \n5. True Fungi: Basidiomycetes  \n   \n6. Spore Dispersal of Fungi  \n   \n7. Case Studies and Class Activity  \n   \n8. Introduction to the Green World– Plastids and Algae  \n   \n9. Algal Diversity  \n   \n10. Impact of Algae – Treasure and Trouble from the Sea  \n   \n11. Introduction to Land Plants   \n   \n12. Bryophytes – Diversity, Survival strategies and Application values  \n   \n13. Group Presentation on a Specific Topic on Fungi, Algae or Bryophytes  \n   \n   \n1. 生物多樣性的基本概念  \n   \n2. 真菌與類真菌生物（黏菌及卵菌）的簡介  \n   \n3. 真正的真菌: 壺菌和接合菌  \n   \n4. 真正的真菌: 子囊菌  \n   \n5. 真正的真菌: 擔子菌  \n   \n6. 真菌孢子的傳播  \n   \n7. 案例研究和課堂活動  \n   \n8. 綠色世界的簡介- 質體和藻類  \n   \n9. 藻類多樣性  \n   \n10. 藻類的影響 - 海中的寶藏和麻煩  \n   \n11. 陸生植物的介紹  \n   \n12. 苔蘚植物 - 多樣性，生存策略和應用價值  \n   \n13. 分組報告: 有關真菌，藻類或苔蘚植物的特定主題",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "5",
+        "Presentation": "15",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Course questionnaire completed by students towards the end of the course  \n   \nStudent-staff consultative committee meeting   \n   \n   \n課目評鑑   \n師生諮詢委員會會議",
+      "required_readings": "Reference books:  \n   \n• Watkinson, S.C., Money, N. and Boddy, L. (2015). The Fungi (3rd Edition). Waltham, MA : Academic Press is an imprint of Elsevier. http://library.cuhk.edu.hk/record=b6070663~S15  \n   \n• Evert, R.F. and Eichhorn, S.E. (2013). Raven Biology of Plants (8th Edition). Freeman & Co.   \n   \n• Meredith, B., Vilgalys, R., James, T.Y. and Taylor, J.W. 2012. Fungi. Eumycota: mushrooms, sac fungi, yeast, molds, rusts, smuts, etc.. Version 30 January 2012. http://tolweb.org/Fungi/2377/2012.01.30 in The Tree of Life Web Project, http://tolweb.org/   \n   \n• Lepp, H. Centre for Australian National Biodiversity Research and Australian National Herbarium. 2012. Information about Australia’s Flora: Australian Fungi. [ONLINE] Available at: https://www.anbg.gov.au/fungi/two-groups.html.",
+      "recommended_readings": ""
     },
     {
       "subject": "BIOL",
@@ -1038,7 +1166,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "The students should understand:  \n   \n1. Classification of vascular plants;   \n2. Major adaptations of land plants to meeting the demands for living on land;   \n3. Plant forms and life cycles of ferns and fern allies;   \n4. Plant forms and life cycles of gymnosperms and angiosperms, particularly the evolution of pollen grains, seeds, flowers and fruits, and the evolutionary relationship of major groups;   \n5. Adaptation syndromes and evolutionary ecology principles for success in the seed model: pollination, dispersal and germination;   \n6. Selective illustrations on plant strategies and adaptations  \n   \n   \n學生應能理解：   \n1. 維管植物的分類;   \n2. 陸生植物在陸地生長的主要適應作用;   \n3. 蕨類植物的形態和生活史;   \n4. 裸子及被子植物的形態和生活史，特別著重花粉、種子、花和果實的進化，以及各主要類别在進化上的關係;   \n5. 達至種子模式的成功的適應徵狀和進化生態原理，包括授粉作用、種子散播和萌發;   \n6. 植物的策略和適應的個别例子。  \n   \n   \n学生应能理解：   \n1. 维管植物的分类;   \n2. 陆生植物在陆地生长的主要适应作用;   \n3. 蕨类植物的形态和生活史;   \n4. 裸子及被子植物的形态和生活史，特别着重花粉、种子、花和果实的进化，以及各主要类别在进化上的关系;   \n5. 达至种子模式的成功的适应征状和进化生态原理，包括授粉作用、种子散播和萌发;   \n6. 植物的策略和适应的个别例子。",
+      "course_syllabus": "1. Tracheophytes: Introduction & Organization of the Plant Body  \n   \n2. Seedless Vascular Plants: Lycophytes and Monilophytes  \n   \n3. Seed Plants: Gymnosperms  \n   \n4. Seed Plants: Angiosperms  \n   \n5. Pollination, Dispersal and Seed Dormancy  \n   \n6. Economic Uses of Plants  \n   \n7. Field Trip/ Visit and Class Activity  \n   \n   \n1. 維管植物的介紹和組織  \n   \n2. 無種子維管植物: 蕨類植物  \n   \n3. 種子植物: 裸子植物  \n   \n4. 種子植物: 被子植物  \n   \n5. 授粉作用、傳播作用與種子休眠  \n   \n6. 植物的經濟利用  \n   \n7. 實地考察/參觀和課堂活動  \n   \n   \n1. 维管植物的介绍和组织  \n   \n2. 无种子维管植物: 蕨类植物  \n   \n3. 种子植物: 裸子植物  \n   \n4. 种子植物: 被子植物  \n   \n5. 授粉作用、传播作用与种子休眠  \n   \n6. 植物的经济利用  \n   \n7. 实地考察/参观和课堂活动",
+      "assessment_types": {
+        "Essay test or exam": "45",
+        "Others": "15",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "1. Course questionnaire completed by students towards the end of the course  \n   \n2. Student-staff consultative committee meeting  \n   \n   \n1. 課目評鑑  \n   \n2. 師生諮詢委員會會議",
+      "required_readings": "1. Evert, R.F. and Eichhorn, S.E. (2013). Raven Biology of Plants (8th Edition). Freeman & Co.   \n   \n2. Ingrouille M.J. and Eddie, B. (2006). Plants: Diversity and Evolution. Cambridge University Press.  \n   \n3. Selected articles",
+      "recommended_readings": ""
     },
     {
       "subject": "BIOL",
@@ -1087,7 +1225,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "The course is one of the “biodiversity” courses for Biology major students, which as a whole introduce students to the diversity and general biology of different groups of living organisms. The learning outcomes of this course on invertebrates are:  \n   \nTo understand the form and function of major groups of invertebrates, with emphasis on adaptations, reproduction and development.  \n   \nTo familiarise the classification and phylogenetic relationships of the invertebrates.  \n   \nTo develop independent reading ability through weekly reading assignment of scientific papers in invertebrate biology.  \n   \n   \n本科是為主修生物學同學而設的“生物多樣性”課程的其中一個課程。本科為同學介紹生物多樣性和各類主要無脊椎動物的基本生物學。本科對無脊椎動物的學習果效為﹕   \n• 了解主要無脊椎動物的型態及功能，並着重其適應、生殖及發育。   \n• 熟識無脊椎動物之分類和種源關係。   \n• 透過每星期有關於無脊椎動物學文獻的閱讀作業，培養學生獨立閱讀能力。",
+      "course_syllabus": "The morphology, ecology, reproduction, development, life history and phylogeny of major groups of invertebrates will be examined. The function of organ systems will be discussed with reference to the adaptations to the mode of life of the animals.  \n   \n   \n本科探討各類主要無脊椎動物之型態、生態、生殖及發育、生活史及其種族發生之關係，各器官功能及其生活方式之相互適應。",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Short answer test or exam": "30",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students  \n   \n   \n課目評鑑   \n與學生會談",
+      "required_readings": "",
+      "recommended_readings": "Brusca, R.C., Moore, W. and Shuster, S.M. (2016) Invertebrates. 3rd edition. Sinauer Associates, Sunderland, MA.   \n   \nHickman, C.P., Jr., L.S. Roberts, S.L. Keen, A. Larson and D.J. Eisenhour (2015) Animal Diversity. 7th edition. McGraw-Hill, New York.   \n   \nHolland, P. (2011) The Animal Kingdom: A Very Short Introduction. Oxford University Press, Oxford.   \n   \nMoore, J. (2006) An Introduction to the Invertebrates. 2nd edition. Cambridge University Press, Cambridge.   \n   \nPechenik, J.A. (2015) Biology of the Invertebrates. 7th edition, McGraw-Hill, Boston.   \n   \nRuppert, E.E., R.S. Fox and R.D. Barnes (2004) Invertebrate Zoology: A Functional Evolutionary Approach. 7th edition. Thomson-Brooks/Cole, Belmont, CA."
     },
     {
       "subject": "BIOL",
@@ -1142,7 +1290,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "1. To recognize the major groups of vertebrates and to understand their evolutionary history and phylogenetic relationships   \n   \n2. To appreciate the diversity of morphological, anatomical, physiological and biochemical adaptations of vertebrates   \n   \n3. To appreciate that vertebrate life is a reflection of the adaptive strategies employed by vertebrates for survival  \n   \n4. Develop critical thinking skills in appreciating problems in vertebrate biology  \n   \n5. Able to collect and critically analyze information from the primary literature  \n   \n6. Develop critical reading and writing skills   \n   \n   \n1 認別主要脊椎動物組和明瞭其進化史和種系發育關係  \n   \n2 領會脊椎動物在形態、解剖、生理和生化的適應多樣性  \n   \n3 領會脊椎動物的生存是反映其適應策略  \n   \n4 發展評論性思考以領會脊椎生物學的問題  \n   \n5 能收集和評論性的分析初級文獻  \n   \n6 發展評論性的閱讀和書寫技巧",
+      "course_syllabus": "(1) Protochordates (2) Agnathans, development of jaws and fins, Gnathostomata (3) Evolution of the Chondrichthyes, Sarocopterygii and Actinopterygii (4) Evolution of air-breathing, swimbladder and aortic arches (5) Amphibia: origin and evolution, reproduction and development (6) Urodeles, anurans and caecilians (7) Origin of amniotic vertebrates, conquest of dry land: Reptilia (8) Extant reptiles: chelonians, squamates, crocodilians; Phylogeny of extinct reptiles: dinosaurs, pterosaurs (9) Aves; Archaeopteryx, birds as descendants of Archosaurs (10) Principles of bird flight, structural, physiological and biochemical considerations (11) Adaptive radiation in extant birds (12) Mammalian life, Prototheria and Metatheria (13) Adaptive radiation of extant eutherian mammals, Evolution of Primates  \n   \n   \n(1) 原索動物；(2) 無頜類、有頜類、頜和鮱的演化；(3) 軟骨魚類、肉鮱魚網和輻鰭魚網的演化；(4) 魚鰾呼吸空氣和主動脉弓的演化關係；(5) 兩棲類的起源、演化、繁殖和發育 (6) 有尾目、無尾目和無足目；(7) 羊膜脊椎動物的起源、爬行類與征服乾陸；(8) 現存爬行動物多樣性、恐龍和翼龍的演化；(9) 鳥類為祖龍的後代、始祖鳥；(10) 鳥類的飛行原理、結構、生理和生化特徵；(11) 鳥類的適應輻射；(12) 原獸、後獸和真獸的適應輻射；(13) 靈長類的演化。",
+      "assessment_types": {
+        "Essays": "15",
+        "Essay test or exam": "50",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "15"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \nSelf reflection of teacher(s)  \n   \nFeedback from Visiting Committee and regular programme reviews  \n   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "1. Pough, F. H., Janis, C. M. and Heiser, J. B. (2009) Vertebrate Life. 8th Edition, Benjamin Cummings, San Francisco.  \n   \n2. Kardong, K. V. (2009) Vertebrates: Comparative Anatomy, Function, Evolution. 5th Edition, McGraw Hill, New York.   \n   \n3. Kent, G. C., Carr, R. K. (2001) Comparative Anatomy of the Vertebrates. 9th Edition, McGraw Hill.   \n   \n4. Linzey, D. (2001) Vertebrate Biology. McGraw Hill, Boston.   \n   \n5. Young, J. Z. (1981) The Life of Vertebrates. 3rd Edition. Oxford University Press, Oxford."
     },
     {
       "subject": "BIOL",
@@ -1203,7 +1362,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "The students are expected to develop a good understanding of the basic physiological concepts and principles underlying the functions of each major organ system as well as the body as a whole. After completion of the course, the students are supposed to have learnt and understand the following key issues and principles of animal physiology, which will be essential for them to pursue a career in teaching, research in the areas of animal biology and biomedical sciences, as well as biotech and biomedical industry.  \n   \n   \n修读本科目的学生应掌握动物生理学的基本概念和原理，全面了解动物体各主要器官系统以及整体的功能。这些知识将有助于未来从事生物学教学、与动物学和生物医学有关的研究、以及生物及生物医学产品研发等。",
+      "course_syllabus": "Introduction  \n   \n-Scope of physiology  \n   \n-Some history on animal physiology  \n   \n-Scaling, homeostasis, cellular communication  \n   \n-Membrane potential  \n   \n   \nNeuronal Physiology  \n   \n-Graded potentials  \n   \n-Action potentials  \n   \n-Electrical and chemical synapses  \n   \n-Neural signaling  \n   \n   \nNervous System   \n   \n-Classes of neurons  \n   \n-Sympathetic and parasympathetic nervous system  \n   \n-Blood-brain barrier  \n   \n-Structure and functions of brain  \n   \n-Short-term and long-term memory  \n   \n-Short-term and long-term memory (Cont)  \n   \n-Sleep  \n   \n   \nSensory Physiology I  \n   \n-Somatosensory pathway  \n   \n-Mechanoreception (touch and hearing)  \n   \n-Chemoreception (taste and smell)  \n   \n-Photoreception (sight)  \n   \n   \nEndocrinology  \n   \n-Classes of hormones  \n   \n-Hypothalamic-hypophyseal portal system  \n   \n-Thyroid glands and thyroid hormones  \n   \n-Endocrine control of fuel metabolism, stress responses and calcium metabolism  \n   \n   \nMuscle Physiology  \n   \n-Categorisation of muscles  \n   \n-Structural organisation of a sarcomere  \n   \n-Molecular basis of skeletal muscle contraction  \n   \n-Control of skeletal muscle contraction (force and frequency)  \n   \n-Skeletal muscle metabolism and fibre types  \n   \n-Smooth and cardiac muscles  \n   \n   \nCardiovascular System  \n   \n-The heart and the cardiac cycle (electrical and mechanical events)  \n   \n-Cardiac output and its control  \n   \n-Open and closed circulatory systems  \n   \n-Blood vessels and blood pressure  \n   \n-Distribution of blood and its regulation  \n   \n-The blood and its functions  \n   \n-Haemopoiesis   \n   \n-Clotting and platelet plug formation  \n   \n   \nRespiratory System  \n   \n-Respiratory processes  \n   \n-Air and water respirers  \n   \n-Respiratory mechanics  \n   \n-Circulatory transport and gaseous exchange  \n   \n-Oxygen-haemoglobin dissociation curve  \n   \n-Control of respiration  \n   \n   \nExcretory System  \n   \n-Selective retention and excretion of materials  \n   \n-Excretory organs  \n   \n-Nephron structure and functions-Glomerular filtration, tubular reabsorption, tubular secretion and osmoconcentration  \n   \n-Bladder storage and micturition  \n   \n   \nDigestive System  \n   \n-Sensors and effectors of the digestive system  \n   \n-Mastication and salivary secretion  \n   \n-Gastric storage, mixing and emptying  \n   \n-Control of gastric secretions  \n   \n-Digestive accessory organs and their secretions  \n   \n-Structure of a villus  \n   \n-Segmentation and migrating motility complex  \n   \n-Small intestine, digestion and absorption of nutrients  \n   \n-Haustral & peristaltic contractions and mass movements  \n   \n-Coprophagy in some animals  \n   \n   \nReproductive System  \n   \n-Asexual and sexual reproduction  \n   \n-Oviparity, ovoviviparity and viviparity  \n   \n-Male and female reproductive physiology  \n   \n-Parturition and lactation",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "Self-reflection of teacher(s)  \n   \nDiscussion with students  \n   \nFeedback from course evaluation  \n   \nStudent-staff consultative meeting  \n   \nFeedback from Visiting Committee and regular programme reviews",
+      "required_readings": "",
+      "recommended_readings": "1. Animal Physiology: From Genes to Organisms (1st Ed., Sherwood, L. et al., Thomson Brooks/Cole, Belmont, CA)  \n   \n2. Principles of Animal Physiology (Schulte, Pearson)  \n   \n3. Human Physiology An Integrated Approach (6th edition, Silverthron)"
     },
     {
       "subject": "BIOL",
@@ -1221,22 +1389,22 @@
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Y.C. Liang Hall 104",
-                  "instructor": "Professor CHUI Pui Yi,   Professor TSANG Ling Ming",
+                  "instructor": "Professor CHUI Pui Yi, \nProfessor TSANG Ling Ming",
                   "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
                 },
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Yasumoto Int'l Acad Park LT7",
-                  "instructor": "Professor CHUI Pui Yi,   Professor TSANG Ling Ming",
+                  "instructor": "Professor CHUI Pui Yi, \nProfessor TSANG Ling Ming",
                   "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
                 "capacity": "82",
-                "enrolled": "44",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1252,7 +1420,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge:  \n   \n- An understanding of fundamental concepts in marine ecology, marine animal and plant physiology and biology, including those of algae, seagrass, mangroves, plankton, corals, fish, turtles, sea birds, mammals and other intertidal and subtidal organisms.  \n   \n- Adaptations of marine planktonic and benthic organisms to their environment.  \n   \n   \nSkill:   \n   \n- An introduction to approaches to analysis of data, search for online information, interpretation of results and experimental designs to carry out marine biological research.   \n   \n   \nValue:  \n   \n- An appreciation of the diversity and wonders of the marine environment, especially the biology of the organisms that live in it and how they interact with the environment.   \n   \n- An understanding of how the marine environment is closely related to our lives.  \n   \n   \n學習成果：   \n知識：   \n- 理解海洋生態、海洋動、植物生理學和生物學的基本概念，包括藻類、海草、紅樹林、浮游生物、珊瑚、魚類、海龜、海鳥、哺乳動物和其他潮間帶和潮下帶生物。  \n   \n-海洋浮游和底棲生物對他們的環境的適應。  \n   \n   \n技巧：   \n-探討進行海洋生物研究的方法，包括數據分析、解釋，網上搜索資料與實驗設計。  \n   \n   \n價值：   \n-欣賞海洋生物的多樣性和其奧妙，尤其是各種生物如何與環境互動。  \n   \n-了解海洋環境如何跟我們的生活息息相關。",
+      "course_syllabus": "Topics: Contents/ fundamental concepts  \n   \n   \n1. Introduction to the Marine Environment: Physical and chemical forces that shape the marine environment.  \n   \n   \n2. Plankton Biology: Ecology and adaptations of plankton organisms.  \n   \n   \n3. Benthic Communities: Fundamental processes in the marine benthic environment, interactions between marine organisms and their physical and chemical environment in different marine habitats.  \n   \n   \n4. Estuaries: Meeting of freshwater and marine environments, fundamental adaptation of organisms in this unique habitat.  \n   \n   \n5. Marine fish, marine mammal and seabird: Behaviour, adaptation and physiological ecology of marine fish, mammals and seabirds  \n   \n   \n１．海洋環境簡介: 塑造了海洋環境的物理和化學力量。  \n   \n   \n２．浮游生物: 浮游生物的生態與其適應方式。  \n   \n   \n３．底棲生物群落: 海洋底棲環境的基本變化過程，海洋生物之間的相互作用及不同的海洋生境的物理和化學環境。  \n   \n   \n４．河口: 淡水和海洋之相 匯，在這個獨特棲息地的生物對環境之基本適應。  \n   \n   \n５．海洋魚類、海洋哺乳動物和海鳥: 海洋魚類、海洋哺乳動物和海鳥的行為、適應性和生理生態。",
+      "assessment_types": {
+        "Essays": "10",
+        "Essay test or exam": "30",
+        "Short answer test or exam": "30",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \nSelf reflection of teacher(s)  \n   \nFeedback from Visiting Committee and regular programme reviews  \n   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "Main Reference  \n   \n   \nNybakken, James W. and Bertness, Mark D. 2005. Marine Biology. An Ecological Approach. 6th Edition. Pearson/Benjamin Cummings, San Francisico. 579 pp. [QH91 N9 2004]  \n   \n   \nGeneral Readings:  \n   \n   \nCastro, Peter. Huber Michael E. 2005. Marine Biology. McGraw-Hill, Higher Education, Boston. [QH91 .C37 2005]  \n   \n   \nKarleskint, George Jr.; Turner, Richard; Small, James W. Jr. 2006. Introduction to Marine Biology (Second Edition). Thompson Higher Education. ISBN: 0-534-42072-9  \n   \n   \nSumich, James L., Morrissey, John F. 2004. Introduction to the Biology of Marine Life. Jones and Bartlett Pub., Boston. [QH91 .S75 2004]  \n   \n   \nJournal and Web Materials:  \n   \n   \nOther journal articles and web materials to be given from time to time for additional references and source materials."
     },
     {
       "subject": "BIOL",
@@ -1295,7 +1474,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge\n\n* understand the key concepts in evolutionary biology\n* understand and evaluate the research methods in evolutionary biology\n* understand the morphology-based phylogenetics\n* understand the molecular basis of evolution and the use of different data in studies on evolutionary processes, biogeography, and the history of life\n* understand the linkage between the modern theory of evolution and other biological disciplines such as zoology, botany, genetics, ecology and molecular biology\n\nSkill\n\n* understand and communicate ideas in biological evolution to individuals with or without scientific background\n\nValue\n\n* Appreciate the importance of evolutionary analysis in areas including medicine, conservation biology and palaeontology\n* Familiar with important questions and key issues in evolutionary biology\n\n知識\n\no 明白演化生物學的關鍵概念\n\no 理解及評價演化生物學的研究方法\n\no 理解系統發育學 (特別關於形態數據)\n\no 明白演化論的分子基礎及理解不同數據在研究演化進程、生物地理學與生命歷史中的應用\n\no 理解現代演化學理論與其他生物學科 (如動物學、植物學、基因學、生態學和分子生物學) 的關聯 技巧\n\no 能和其他有或者沒有科學學術背景的人討論及交流生物演化論的見解價值\n\n價值\n\no 領會演化論在醫學、環保科學及古生物學中的重要性\n\no 熟悉演化生物學內的關鍵問題及焦點",
+      "course_syllabus": "1. Evidence/Pattern of Evolution\n2. Darwinian Natural Selection\n3. Mutation & Genetic Variation\n4. Mechanisms of Evolution: Selection & Mutation\n5. Migration, Genetic Drift & Non-Random Mating\n6. Evolution at Multiple Loci: Linkage & Sex\n7. Quantitative Genetics\n8. Sexual Selection & Kin Selection\n9. Morphology-based Phylogenetics\n10. Speciation\n11. History of Life\n12. Evolution of Genes & Genome\n13. Evolution & Development\n\nStudents are expected to revise their learning materials after every single lecture, as the concepts keep building on each other as the course proceeds. Students will get the chance to conduct independent research on a topic of their own interest for their course project. Students will appreciate the importance of evolutionary analysis in other disciplines such as medicine, conservation biology and palaeontology; and also get familiar with important questions and key issues in evolutionary biology.\n\n1. 進化的證據/模式\n\n2. 達爾文的自然選擇\n\n3. 突變和遺傳變異\n\n4. 進化機制：選擇與突變     \n\n5. 遷移、遺傳漂變和非隨機交配\n\n6. 多重位點的進化：連鎖與性\n\n7. 定量遺傳學\n\n8. 性選擇和親屬選擇\n\n9. 基於形態學的系統發育學\n\n10. 物種形成      \n\n11. 生命史\n\n12. 基因和基因組的進化\n\n13. 進化與發展\n\n```\n1. 进化的证据/模式2. 达尔文的自然选择3. 突变和遗传变异4. 进化机制：选择与突变 5. 迁移、遗传漂变和非随机交配6. 多重位点的进化：连锁与性7. 定量遗传学8. 性选择和亲属选择9. 基于形态学的系统发育学10. 物种形成 11. 生命史12. 基因和基因组的进化13. 进化与发展\n```",
+      "assessment_types": {
+        "Examination": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "Feedback from course evaluation\n\nDiscussion with students\n\nSelf reflection of teacher(s)\n\nFeedback from Visiting Committee and regular programme reviews\n\n Email or meet the teacher in person\n\nStudent staff-consultative meeting\n\n課目評鑑\n\n與學生會談\n\n教師反饋\n\n校外專家委員會及課程檢討\n\n```\n课目评鉴 与学生会谈 教师反馈 校外专家委员会及科目检讨\n```",
+      "required_readings": "n/a",
+      "recommended_readings": "Herron, J.C. & S. Freeman. 2015. Evolutionary Analysis. 5th edition. Pearson, London."
     },
     {
       "subject": "BIOL",
@@ -1335,10 +1523,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Laboratory Interactive Tutorial",
+      "component": "Laboratory\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge:  \n   \nIntegration of theory and practice in environmental biology through field exercises.  \n   \n   \nSkills:   \n   \nAn understanding of basic methods in field and environmental research, data analysis and project coordination and presentation skills.  \n   \n   \nValues:  \n   \n- An appreciation of the wonder of the environment through fieldtrips and site visits.  \n   \n- An understanding of how our environment is closely related to our lives.  \n   \n   \n學習成果：   \n知識：   \n透過野外考察，實踐環境生物學的理論。   \n   \n技巧：   \n理解野外及環境研究的基本方法，培養數據分析、項目協調和資訊通報表達的能力。   \n   \n價值觀：   \n- 透過實地考察，體會及鑒賞大自然的奧妙。  \n   \n- 了解自然環境如何跟我們的生活息息相關。",
+      "course_syllabus": "Topics: Contents/ fundamental concepts  \n   \n   \n1. Introduction to the Marine Planktonic Environment.   \n   \n- Physical and chemical dynamics in the marine environment  \n   \n- Ecology and adaptations of plankton organisms  \n   \n   \n2. Marine Benthic Communities   \n   \n- Interactions, community and population processes in marine benthic environment, including the coral reef and rocky shores  \n   \n- Biodiversity of marine benthic community and its conservation  \n   \n   \n3. Freshwater System and Estuaries  \n   \n- Fundamental adaptation of organisms in the freshwater and estuarine habitats  \n   \n   \n4. Terrestrial Vegetation of Hong Kong  \n   \n- Distribution, diversity and adaptation of terrestrial in a subtropical environment like Hong Kong  \n   \n- Conservation of Hong Kong terrestrial habitats  \n   \n   \n１．介紹海洋浮游環境   \n－海洋環境中的物理和化學動態   \n－浮游生物的生態及對環境的適應   \n   \n２．海洋底棲生物群落   \n－海洋底棲環境，包括珊瑚礁和岩石海岸的相互作用、其包含的群落和群體    \n－海洋底棲生物群落的生物多樣性及其保護   \n   \n３．淡水系統和河口   \n－淡水棲息地和河口的生物及其對基本環境的適應   \n   \n４．香港陸地植被   \n－在亞熱帶地區的香港之陸地植被分佈、其多樣性和適應陸地環境的方法   \n－香港陸地棲息地之保育",
+      "assessment_types": {
+        "Lab reports": "45",
+        "Others": "10",
+        "Presentation": "15",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \nSelf reflection of teacher(s)  \n   \nFeedback from Visiting Committee and regular programme reviews  \n   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "Main Reference  \n   \n   \nLaboratory Manual prepared by the Biology Department.  \n   \n   \nJournal and Web Materials:  \n   \n   \nOther journal articles and web materials to be given from time to time for additional references and source materials."
     },
     {
       "subject": "BIOL",
@@ -1387,7 +1586,19 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "1. Students will acquire fundamental concepts and knowledge of developmental biology including cell fate determination, cell differentiation, body pattern formation, morphogenesis, organ formation, the molecular regulatory mechanisms of different developmental processes in different model organisms.  \n   \n2. Students will acquire ability to comprehend the implication and application of developmental biology in the medical and biotechnology field.   \n   \n3. Students will be introduced to the critical experimental evidence and current technology that has led to the formulation of the central concepts and novel findings in developmental biology. Thus, the students can learn how a biological question can be solved through experimental design and process.  \n   \n4. Students will acquire skills in literature survey from various sources, analytical and problem solving skills through the course assessment.  \n   \n5. This course equips students with the essential knowledge for studying the more advanced degree in biological science.  \n   \n6. Students will acquire an educated mind and responsible attitude to judge on the application of latest developmental biological technique and findings in medical and biotechnology field for the good of human society and natural environment.  \n   \n   \n1. 學生將會習得發育生物學的基本概念及知識，包括模式生物的發育過程中的細胞命運決定、細胞分化、模式形成、形態發生、器官形成及分子控制機制。  \n   \n2. 學生將能夠理解發育生物學在醫學及生物技術領域中的功能與應用。  \n   \n3. 學生將會學到對建構發育生物學的核心概念及新發現有重大影響的實驗和當前技術。由此，學生能學習透過設計和進行實驗去解決生物學問題。  \n   \n4. 學生將透過本科的評核，學習搜集資料進行文獻研究、分析及解決問題的技巧。  \n   \n5. 本科教授學生修讀生物科學高級學位的必要知識。  \n   \n6. 學生將會獲得足夠知識及負責任的態度，以社會及自然環境的利益為依歸，評核發育生物學應用於醫學及生物技術領域的最新技術和發現。",
+      "course_syllabus": "The course will include the following topics:  \n   \nIntroduction: The questions of Developmental Biology  \n   \nGametogenesis: Oogenesis and Spermatogenesis  \n   \nFertilization, Cleavage and Gastrulation  \n   \nCell-fate specification and Lineage tracing  \n   \nMorphogenesis  \n   \nModel organisms in Developmental Biology  \n   \nEarly Development, Gastrulation and Neurulation in Amphibians  \n   \nDevelopment of Amniote  \n   \nEarly Development and Gastrulation in Birds  \n   \nEarly Development of Mammals  \n   \nManipulating Mouse embryos  \n   \nRecent and Advanced Techniques in Developmental Biology: Stem Cell Technology  \n   \nDevelopment of Ectodermal derivatives  \n   \nDevelopment of Endodermal derivatives  \n   \nDevelopment of Mesodermal derivatives   \n   \nDevelopment of Drosophila and Patterning of Drosophila embryo  \n   \nDevelopmental Regulatory Networks : Patterning genes in Drosophila and Vertebrates  \n   \nThe Roles of Hox genes in Vertebrate Development  \n   \nRegulatory mechanisms in Limb Development  \n   \nCurrent Topics in Developmental Biology  \n   \n   \n課程包括以下課題:  \n   \n導論：發育生物學領域的課題   \n配子生成：卵子生成及精子生成   \n受精作用, 卵裂及原腸形成  \n   \n細胞命運規範和細胞譜系追蹤   \n形態發生   \n發育生物學中的模式生物   \n兩棲類的早期發育, 原腸形成和神經胚形成  \n   \n羊膜動物的發育   \n鳥類的早期發育和原腸形成   \n哺乳類的早期發育   \n小鼠胚胎的運用   \n發育生物學的最新和先進技術: 幹細胞技術  \n   \n外胚層衍生物發育   \n內胚層衍生物發育   \n中胚層衍生物發育   \n果蠅的發育及胚胎的模式形成   \n發育的控制網絡：果蠅及脊椎動物的模式形成基因   \nHox 基因在脊椎動物發育的角色  \n   \n肢體發育的控制機制   \n發育生物學領域的熱門課題",
+      "assessment_types": {
+        "Essays": "12",
+        "Essay test or exam": "25",
+        "Others": "3",
+        "Short answer test or exam": "30",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \nSelf reflection of teacher(s)  \n   \nFeedback from Visiting Committee and regular programme reviews  \n   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "1. Fred H. Wilt and Sarah Hake (2004) Principles of Developmental Biology, 1st Edition, W.W. Norton& Company, New York and London  \n   \n2. Scott F. Gilbert (2006) Developmental Biology, 8th Edition, Sinauer Associates, Inc. USA  \n   \n3. Lewis Wolpert (2007) Principles of Development, 3rd Edition, Oxford University Press"
     },
     {
       "subject": "BIOL",
@@ -1442,7 +1653,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge  \n   \n• An understanding of fundamental topics in global change biology, including: the Earth system; changes in the physiology of organisms under altered environmental conditions; community and ecosystem responses; the human aspect; multiple stressors  \n   \n• A recognition of the links between impacts on different levels of biological organization; from molecules to cells, organisms, populations, and communities  \n   \n   \nSkill  \n   \n• Development of generic skills necessary in Life Science fields including the ability to research a topic independently, find and synthesize information from literature, ask critical questions  \n   \n• An introduction to approaches used to project future climates and organism/ecosystem responses  \n   \n   \nValue  \n   \n• An appreciation of current environmental changes that are unique relative to other periods in Earth history, and how these changes may impact ecosystem services that humans rely upon  \n   \n• Recognition that local human actions may mitigate largely-unmanageable effects of global change  \n   \n   \n知識   \n   \n• 對全球變化生物學有基礎的認知，包括：地球系統、環境條件改變帶來的生物生理機能變化、群落與生態系統對環境變化的響應、全球變化對人類的影響和多重應激源。   \n• 理解全球變化對不同生物水平：分子、細胞、個體、種群、群落的影響以及不同層面之間的聯系。   \n   \n技能   \n• 培養生命科學領域的基本技能，包括：獨立從事科研的能力、閱讀文獻並總結運用的能力和批判性思考的能力。   \n• 了解生命科學技術方法，用於預測未來氣候變化及生物體或生態系統對其的響應。   \n   \n價值   \n• 認知目前地球史上前所未有的環境變化及其對人類所依附的生態系統造成的影響。   \n• 領會到即使是局部地區的人類在行為上做出改變也可以有效地緩解棘手的全球變化。   \n   \n知识   \n   \n• 对全球变化生物学有基础的认知，包括：地球系统、环境条件改变带来的生物生理机能变化、群落与生态系统对环境变化的响应、全球变化对人类的影响和多重应激源。   \n• 理解全球变化对不同生物水平：分子、细胞、个体、种群、群落的影响以及不同层面之间的联系。   \n   \n技能   \n• 培养生命科学领域的基本技能，包括：独立从事科研的能力、阅读文献并总结运用的能力和批判性思考的能力。   \n• 了解生命科学技术方法，用于预测未来气候变化及生物体或生态系统对其的响应。   \n   \n价值   \n• 认知目前地球史上前所未有的环境变化及其对人类所依附的生态系统造成的影响。   \n• 领会到即使是局部地区的人类在行为上做出改变也可以有效地缓解棘手的全球变化。",
+      "course_syllabus": "I. Introduction – understanding the Earth system  \n   \n1. The Earth system and natural/historical drivers and patterns of change (both in terms of climate, and biological responses)  \n   \n2. Major features of present/future climate, including human-driven change (scenarios, models, validation, projections)  \n   \n3. Approaches to monitor current and anticipate future biological change   \n   \n   \nII. Changes in organism physiology under altered conditions  \n   \n1. Photosynthesis  \n   \n2. Nutrient- and water-use efficiencies  \n   \n3. Growth and reproduction  \n   \n4. Phenology  \n   \n5. Plant/algal quality and defenses  \n   \n   \nIII. Community and ecosystem impacts of human-driven change  \n   \n1. Population responses – e.g. range shifts  \n   \n2. Community responses – e.g. alteration of species interactions; composition and diversity; parasites and pathogens   \n   \n3. Ecosystem change – e.g. regime shifts; changes in net primary productivity, respiration, net ecosystem productivity, and nutrient cycling   \n   \n   \nIV. The human aspect  \n   \n1. Anticipated impacts on humans – ecosystem services  \n   \n2. Implications for conservation (adaptation of strategies, connectivity and landscape management, species management)  \n   \n3. International policy (international climate policy, mitigation, carbon sinks and sources, assessing risks and designing solutions)  \n   \n   \nV. Additional considerations – multiple stressors  \n   \n1. Non-climate change – e.g. habitat deterioration, pollution, over-fishing, species introductions, development  \n   \n2. Interactive effects and feedbacks  \n   \n3. Implications for management (rehabilitation and recovery)  \n   \n   \nI. 引言 – 了解地球系統  \n   \n1. 地球系統、自然與由來已久的驅動力以及變化趨勢（在氣候和生物反應兩方面）  \n   \n2. 現時和未來氣候的主要的特征，包括人為驅動的變化（前景、模型、驗證、推測）  \n   \n3. 記錄當前和預測未來生物變化的方法  \n   \n   \nII. 生物生理機能隨環境條件變化的轉變  \n   \n1. 光合作用  \n   \n2. 吸收養分和水的性能  \n   \n3. 成長與繁殖  \n   \n4. 生物氣候學  \n   \n5. 植物和藻類的性質與防禦機制  \n   \n   \nIII. 人為驅動變化對生物群落和生態系統的影響  \n   \n1. 種群反應（例：區域變動）  \n   \n2. 群落反應（例：種間關系的改變 、結構與多樣性、寄生物與病原體）  \n   \n3. 生態系統的變化（例：生態系統穩態轉換以及凈初級生產力、呼吸作用、凈生態系統生產力和養分循環的變化）  \n   \n   \nIV. 對人類的影響  \n   \n1. 預期對人類的影響——生態系統服務功能  \n   \n2. 對於環保的意義（策略的采用、不同生境之間的連通性與景觀管理、物種管理）  \n   \n3. 國際政策（國際氣候政策、局勢緩解、碳匯與碳源、風險評估、解決措施）  \n   \n   \nV. 其他考量——多重應激源  \n   \n1. 非氣候變化（例：生境惡化、汙染、過度捕撈、外來物種入侵、城市發展）  \n   \n2. 交互作用和反饋  \n   \n3. 對於管理的意義（重建和修復）  \n   \n   \n课程大纲   \nI. 引言 – 了解地球系统  \n   \n1. 地球系统、自然与由来已久的驱动力以及变化趋势（在气候和生物反应两方面）  \n   \n2. 现时和未来气候的主要的特征，包括人为驱动的变化（前景、模型、验证、推测）  \n   \n3. 记录当前和预测未来生物变化的方法  \n   \n   \nII. 生物生理机能随环境条件变化的转变  \n   \n1. 光合作用  \n   \n2. 吸收养分和水的性能  \n   \n3. 成长与繁殖  \n   \n4. 生物气候学  \n   \n5. 植物和藻类的性质与防御机制  \n   \n   \nIII. 人为驱动变化对生物群落和生态系统的影响  \n   \n1. 种群反应（例：区域变动）  \n   \n2. 群落反应（例：种间关系的改变 、结构与多样性、寄生物与病原体）  \n   \n3. 生态系统的变化（例：生态系统稳态转换以及凈初级生产力、呼吸作用、凈生态系统生产力和养分循环的变化）  \n   \n   \nIV. 对人类的影响  \n   \n1. 预期对人类的影响——生态系统服务功能  \n   \n2. 对于环保的意义（策略的采用、不同生境之间的连通性与景观管理、物种管理）  \n   \n3. 国际政策（国际气候政策、局势缓解、碳汇与碳源、风险评估、解决措施）  \n   \n   \nV. 其他考虑——多重应激源  \n   \n1. 非气候变化（例：生境恶化、污染、过度捕捞、外来物种入侵、城市发展）  \n   \n2. 交互作用和反馈  \n   \n3. 对于管理的意义（重建和修复）",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "1. Feedback from course evaluation  \n   \n2. Discussion with students  \n   \n3. Self reflection of teacher(s)  \n   \n4. Feedback from Visiting Committee & regular program reviews  \n   \n   \n1.課目評鑑  \n   \n2.與學生會談  \n   \n3.教師反饋  \n   \n4.校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "Hannah L. 2015. Climate Change Biology, 2nd edition, Academic Press, London UK, San Diego USA, Waltham USA, Oxford, UK   \n   \nNewman J.A., Anand M., Henry H.A.L., Hunt S., Gedalof Z. 2011. Climate Change Biology, CABI, Oxfordshire UK and Cambridge, USA"
     },
     {
       "subject": "BIOL",
@@ -1491,7 +1711,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "![](file:///C:/Users/IRISLE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png)\n\n![](file:///C:/Users/IRISLE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png)Students completing this course are expected to:\n\n1. understand the theory and principles behind the methods and techniques used in environmental impact assessment (EIA);\n2. appreciate the processes and requirements of EIA in Hong Kong;\n3. become familiar with the protocols and procedures of EIA in Hong Kong.\n\n完成本科的學生將：\n\n1. 理解用於環境影響評估（環評）的方法和技術背後的理論和原則;\n2. 賞識香港環境影響評估的過程和要求;\n3. 熟悉香港環境影響評估的協議和程序。\n\n完成本科的学生将：\n\n1. 理解用于环境影响评估（环评）的方法和技术背后的理論和原则;\n2. 赏識香港环境影响评估的过程和要求;\n3. 熟悉香港环境影响评估的协议和程序。",
+      "course_syllabus": "* Environmental Impact Assessment (EIA) – Principles and Concepts\n\nOrigin and Development of EIA\n\n* Overview of EIA in Hong Kong\n\nEIA Ordinance\n\nEIA Technical Memorandum\n\n* Procedure and Processes of EIA\n\nMethods of Impact Analysis\n\nDesirable Properties of EIA Methods\n\n* Methods for Identification of Impacts\n\nChecklist and Matrix\n\nGeographical Information System (GIS)\n\n* Methods for Prediction of Impacts\n\nSimulation and Computer Modeling\n\nStatistical and Environmental Data Analysis\n\n* Methods for Evaluation of Impacts\n\nCost-Benefit Analysis\n\nEnvironmental Risk Assessment\n\n* Detailed Procedure and Requirements in Hong Kong EIA\n\nDescription of the Environmental Setting\n\nPrediction, Evaluation and Mitigation of the Impact\n\n1. Air quality\n2. Noise quality\n3. Water quality\n4. Waste management\n5. Ecology\n6. Fisheries\n7. Visual and landscape\n8. Cultural Heritage\n9. Socio-economic\n\n* Presentation and Review\n* Public Participation in EIA\n* Environmental Monitoring and Auditing\n* Strategic Environmental Assessment\n* Cumulative Impact Analysis\n\n環境影響評估（環評）-原理和概念\n\n - 環境影響評估的起源與發展\n\n香港環境影響評估的概述\n\n- 環境影響評估條例\n\n- 環境影響評估技術備忘錄\n\n環境影響評估的程序和進程\n\n- 影響分析的方法\n\n- 環境影響評估方法的優良特性\n\n識別環境影響的方法\n\n- 清單和矩陣\n\n- 地理信息系統（GIS）\n\n環境影響的預測方法\n\n- 仿真與電腦模擬\n\n- 統計學應用和環境數據分析\n\n環境影響的評價方法\n\n- 成本效益分析\n\n- 環境風險評價\n\n香港環境影響評估的詳細程序和要求\n\n- 環境設定之描述\n\n- 預測、評價及緩和減輕環境影響的衝擊\n\n1. 空氣質量\n2. 噪音質量\n3. 水質\n4. 廢棄物管理\n5. 生態\n6. 漁業\n7. 視覺及景觀\n8. 文化遺產\n9. 社會經濟\n\n報告和評論\n\n公眾在環境影響評估中的參與\n\n環境監察及審核\n\n戰略環境評價\n\n累積影響分析\n\n环境影响评估（环评）-原理和概念\n\n- 环境影响评估的起源与发展\n\n香港环境影响评估的概述\n\n- 环境影响评估条例\n\n- 环境影响评估技术备忘录\n\n环境影响评估的程序和进程\n\n- 影响分析的方法\n\n- 环境影响评估方法的优良特性\n\n识别环境影响的方法\n\n- 清单和矩阵\n\n- 地理信息系统（GIS）\n\n环境影响的预测方法\n\n- 仿真与计算机仿真\n\n- 统计学应用和环境数据分析\n\n环境影响的评价方法\n\n- 成本效益分析\n\n- 环境风险评价\n\n香港环境影响评估的详细程序和要求\n\n- 环境设定之描述\n\n- 预测、评价及缓和减轻环境影响的冲击\n\ni.         空气质量\n\nii.        噪音质量\n\niii.       水质\n\niv.       废弃物管理\n\nv.        生态\n\nvi.       渔业\n\nvii.      视觉及景观\n\nviii.     文化遗产\n\nix.       社会经济\n\n报告和评论\n\n公众在环境影响评估中的參与\n\n环境监察及审核\n\n战略环境评价\n\n累积影响分析",
+      "assessment_types": {
+        "Short answer test or exam": "60",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1. Course evaluation by the programme\n2. Informal mid-term course evaluation and discussion with students\n3. Discussion at Staff-Student Consultative Committee meeting\n\n1. 科目評估\n2. 非正式中期評價和與學生的討論\n3. 在教師和學生協商委員會會議中的討論\n\n1. 科目评估\n2. 非正式中期评价和与学生的讨論\n3. 在教师和学生协商委员会会议中的讨論",
+      "required_readings": "Hong Kong EIA Ordinance and Technical Memoradum, Environment Protection Department,\n\nHong Kong SAR Government",
+      "recommended_readings": "* Carroll Barbara, Turpin Trevor. 2002. Environmental Impact Assessment Handbook:\n\nA Practical Guide for Planners, Developers and Communities Thomas Telford, London. [TD194.68.G7 C377 2002]\n\n* Glasson John, Therivel Riki, Chadwick Andrew. 1999. Introduction to Environmental\n\nImpact Assessment: principles and procedures, process, practice and prospects. 2nd ed.\n\nUCL Press Limited, London. 342 pp. ISBN 1-85728-118-7 [TD 194.68 G7 G58 1999]\n\n* Hanna, Kevin S. (ed.) 2005. Environmental Impact Assessment: Practice and\n\nParticipation. Oxford University press, Don Mills, Ont.; New York. [TD194.68.C3\n\nE55 2005]\n\n* Morris Peter, Therivel Riki. (eds). 2001. Methods of Environmental Impact\n\nAssessment. 2nd ed. Spon Press, London and New York. [TD194.68 G7 M48 2001]\n\nP. 4\n\n* Pastorok, Robert A.et al. (eds) 2002. Ecological modeling in Risk Assessment:\n\nChemical Effects on Populations, Ecosystems, and Landscapes. Lewis Publishers,\n\nBoca Raton, Fla. [QH545.A1 E277]\n\n* Sadar, M.H. 1996. Environmental Impact Assessment. 2nd Ed. Carlton University\n\nPress, Ottawa. [TD194.6 S33 1996]\n\n* Suter, Glenn W. (ed.). 2007. Ecological Risk Assessment. CRC press/Taylor &\n\nFrancis, Boca Raton. [QH541.15.R57 E25 2007]\n\n* Wood Christopher. 1995. Environmental Impact Assessment. A Comparative Review.\n\nLongman Scientific & Technical, Essex. ISBN 0-582-23696-7 [TD 194.6 W66 1995]"
     },
     {
       "subject": "BIOL",
@@ -1540,7 +1769,16 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "![](file:///C:/Users/IRISLE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.gif)Students completing this course are expected to:\n\n1. obtain a first hand understanding of how Environmental Impact Assessment (EIA) works in Hong Kong by reviewing and critically evaluating existing Hong Kong EIA reports;\n2. gain hands-on experiences on how some EIA protocols are carried out;\n3. develop the practical skills of doing an EIA by getting involved in actual preparation of a project profile, study brief and by actually carrying out a small scale EIA project;\n4. learn from the experiences of front-line practitioners of EIA in Hong Kong by engaging in sharing and discussion with them during guest presentations;\n5. strengthen their communication skills through oral presentation and report writing.\n\n \n\n完成本科的學生將：\n\n1. 通過檢討和批判性評估香港現有的環境影響評估（EIA）報告，從而了解環境影響 評估報告之運作;\n2. 了解環境影響評估的規則；\n3. 通過實際編制工程項目簡介、研究概要和實際開展了小規模的環境影響評估項目， 培養實際進行環境影響評估的技巧；\n4. 藉著和在香港從事環境影響評估的前線工作者的交流及討論，借鑒及學習他們的工 作經驗；\n5. 通過口頭和書面報告，加強學生的溝通技巧。\n\n完成本科的学生将：\n\n1. 通过检讨和批判性评估香港现有的环境影响评估（EIA）报告，从而了解环境影响 评估报告之运作;\n2. 了解环境影响评估的规则；\n3. 通过实际编制工程项目简介、研究概要和实际开展了小规模的环境影响评估项目， 培养实际进行环境影响评估的技巧；\n4. 借着和在香港从事环境影响评估的前线工作者的交流及讨論，借鉴及学习他们的工 作经验；\n5. 通过口头和书面报告，加强学生的沟通技巧。",
+      "course_syllabus": "Review of Hong Kong EIA Reports\n\nPreparation of Project Profile and Study Brief\n\nMethods of EIA: Landscape and Visual Impact Assessment\n\nMethods of EIA: Use of Statistics\n\nMethods of EIA: Ecological Impact Assessment\n\nMethods of EIA: Noise Impact Assessment\n\nMethods of EIA: Air Impact Assessment\n\nField Trip: Ecological site of conservation value\n\nGuest Speakers on various topics, including but not limited to Ecological Impact Assessment /Fisheries Impact Assessment, Water Quality Impact Assessment, Noise Impact Assessment, Environmental Monitoring and Audit, Public Engagement in Hong Kong EIA\n\n    Small scale EIA project, complete with oral presentation and EIA report writing.\n\n• 檢討香港環境影響評估報告\n\n• 編制項目簡介及研究概要\n\n• 環境影響評估方法：景觀及視覺影響評估\n\n• 環境影響評估方法：統計學的使用\n\n• 環境影響評估方法：生態影響評價\n\n• 環境影響評估方法：噪音影響評估\n\n• 環境影響評估方法：空氣影響評估\n\n• 實地考察：具生態保育價值的地點\n\n• 不同演講嘉賓，主題可能包括但不限於生態環境影響評估 /漁業影響評價，水質 影響評價，噪音影響評估，環境監測及審核，公眾在香港環境影響評估中的參 與程度\n\n• 小規模的環境影響評估項目，需完成口頭報告和環評報告的撰寫\n\n \n\n• 检讨香港环境影响评估报告\n\n• 编制项目简介及研究概要\n\n• 环境影响评估方法：景观及视觉影响评估\n\n• 环境影响评估方法：统计学的使用\n\n• 环境影响评估方法：生态影响评价\n\n• 环境影响评估方法：噪音影响评估\n\n• 环境影响评估方法：空气影响评估\n\n• 实地考察：具生态保育价值的地点\n\n• 不同演讲嘉宾，主题可能包括但不限于生态环境影响评估 /渔业影响评价，水质 影响评价，噪音影响评估，环境监测及审核，公众在香港环境影响评估中的參 与程度\n\n• 小规模的环境影响评估项目，需完成口头报告和环评报告的撰写",
+      "assessment_types": {
+        "Attendance": "10",
+        "Lab reports": "90"
+      },
+      "feedback_evaluation": "1. Course evaluation by the programme\n2. Informal mid-term course evaluation and discussion with students\n3. Discussion at Staff-Student Consultative Committee meeting\n\n1. 科目評估\n\n2. 非正式中期評價和與學生的討論\n\n3. 在教師和學生協商委員會會議中的討論\n\n1. 科目评估\n\n2. 非正式中期评价和与学生的讨論\n\n3. 在教师和学生协商委员会会议中的讨論",
+      "required_readings": "1. S.E. Manahan, Environmental Chemistry, 7th Ed., Lewis publishers, Boca Raton, 2000.\n2. N.J. Bunce, Introduction to Environmental Chemistry, Wuerz Publishing, Winnipeg, 1993.\n3. P.E. Buell and J.E. Girard, Chemistry: An Environmental Perspective, Prentice Hall, Englewood Cliffs, 1994.",
+      "recommended_readings": "Suggested on a case to case basis."
     },
     {
       "subject": "BIOL",
@@ -1558,25 +1796,25 @@
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Science Centre L5",
-                  "instructor": "Dr. LAW Man Suet Michelle,   Professor TSANG Ling Ming",
+                  "instructor": "Dr. LAW Man Suet Michelle, \nProfessor TSANG Ling Ming",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Science Centre L5",
-                  "instructor": "Dr. LAW Man Suet Michelle,   Professor TSANG Ling Ming",
+                  "instructor": "Dr. LAW Man Suet Michelle, \nProfessor TSANG Ling Ming",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Science Centre L5",
-                  "instructor": "Dr. LAW Man Suet Michelle,   Professor TSANG Ling Ming",
+                  "instructor": "Dr. LAW Man Suet Michelle, \nProfessor TSANG Ling Ming",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Science Centre L5",
-                  "instructor": "Dr. LAW Man Suet Michelle,   Professor TSANG Ling Ming",
+                  "instructor": "Dr. LAW Man Suet Michelle, \nProfessor TSANG Ling Ming",
                   "dates": "14/4"
                 }
               ],
@@ -1601,7 +1839,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Students are expected to appreciate the importance of biodiversity and realize the current biodiversity loss as a major global environmental issue. They will understand the ecological principles in management of biodiversity, threats to biodiversity and values of biodiversity. In the management aspects, students will know the assessment method for deciding the endangered status of a species and thus formulate the proper conservation plan for a species. Students will know the principles of conservation practices in situ and ex situ for terrestrial and aquatic organisms and habitats. Also, students have to learn the basic principles of restoration ecology for conserving lives. Besides, students are required to make a group presentation on an endangered species in the IUCN Red List.  \n   \n   \nLearning outcomes to be achieved:  \n   \n   \nExaminations: All the learning outcomes listed above on the basic concepts of biodiversity and environmental conservation, including the I&D component (10%) such as design of conservation planning of endangered species, including protected areas, as well as GC&SE component (30%) such as biodiversity loss as a major global environmental issue and the responsibility of mankind in conservation.  \n   \n   \nPresentation: Presentation usually focuses on an endangered species on the IUCN Red List, where the students review the basic biology of the species, and understand how it becomes endangered and what has been and could be done to protect the species, all of which involve I&D (10%) and GC&SE components (40%).  \n   \n   \nMore focus on the global issue of biodiversity loss; with the use of examples of conservation management from different parts of the world. The design of conservation planning of endangered species, including protected areas, is the component of the course related to I&D. Through presentations on endangered species on the IUCN Red List, students will comprehend the policy and social issues of biodiversity conservation in different parts of the world, thus implementing GC&SE.  \n   \n   \n10% on Innovation & Design and 35% on Global Citizenship & Social Enterprisingness",
+      "course_syllabus": "Introduction to conservation biology  \n   \nWhat is biodiversity and how to measure it?  \n   \nImpact on biodiversity: habitat destruction & fragmentation, overexploitation, biological invasion, climate change  \n   \nWhat are the endangered statuses of a species?  \n   \nHow to assess the endangered status?  \n   \nConservation of population and species  \n   \nWhat is conservation genetics?  \n   \nHow to assess genetic diversity?  \n   \nConservation of habitat and landscape  \n   \nRestoration ecology",
+      "assessment_types": {
+        "Essay test or exam": "85",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Course evaluation  \n   \nInformal contact with students  \n   \nStudent-staff consultative committee  \n   \n   \n課程評估   \n非正式與學生接觸   \n師生諮詢委員會   \n   \n课程评估   \n非正式与学生接触   \n师生咨询委员会",
+      "required_readings": "Primack, R.B. (2014) Essentials of Conservation Biology. 6th edition. Sinauer  \n   \nVan Dyke, F. 2009. Conservation Biology. Foundations, Concepts & Applications. 2nd edition. Springer  \n   \nEnvironment Bureau (2016) Hong Kong Biodiversity Strategy Action Plan 2016-2021. Hong Kong, the Government of the Hong Kong Special Administrative Region. Retrieved from: http://www.afcd.gov.hk/english/conservation/Con\\_hkbsap/files/HKBSAP\\_ENG\\_2.pdf",
+      "recommended_readings": "Sodhi, N. S. & P. R. Ehrlich (2010) Conservation Biology for All. Oxford University Press. https://conbio.org/images/content\\_publications/ConservationBiologyforAll\\_reducedsize.pdf  \n   \nFrankham, R., J. D. Ballou & D. A. Briscoe (2010) Introduction to Conservation Genetics. Cambridge University Press.  \n   \nCarroll, S. P. & C. W. Fox (2008) Conservation Biology: Evolution in Action. Oxford University Press.  \n   \nMacdonald, D. W. & K. Service (2007) Key Topics in Conservation Biology. Blackwell Publishing.  \n   \nMacdonald, D. W. & K. J. Willis (2013) Key Topics in Conservation Biology 2. Wiley-Blackwell.  \n   \n郭忠玲, 趙秀海 (2003) 保護生物學概論. 第1版. 中國林業出版社."
     },
     {
       "subject": "BIOL",
@@ -1619,43 +1866,43 @@
                 {
                   "time": "Tu 1:30PM - 2:15PM",
                   "location": "William M W Mong Eng Bldg 404",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 1:30PM - 2:15PM",
                   "location": "William M W Mong Eng Bldg 404",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 1:30PM - 2:15PM",
                   "location": "William M W Mong Eng Bldg 404",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 1:30PM - 2:15PM",
                   "location": "William M W Mong Eng Bldg 404",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "14/4"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "T.C. Cheng Bldg C2",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "T.C. Cheng Bldg C2",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "26/2"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "T.C. Cheng Bldg C2",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHOW Hei Man",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man",
                   "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
@@ -1680,7 +1927,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge outcomes:  \n1. Acquire a core knowledge on the human genome (maintenance of genetic information), inheritance (transfer of genetic information), and genetic defects (misbehaviors in the above processes);  \n2. Acquire the ability to comprehend and apply genetic concepts in understanding human genetic diseases and related researches;  \n3. Acquire an educated understanding on the clinical applications of knowledge in human genome.  \n  \nSkills outcomes:  \n1. Acquire skills in literature survey using various sources including effective usage of information technologies and web-based searches;  \n2. Acquire good analytical and oral communication skills via class presentation;  \n3. Acquire good problem solving skill via course assessment.  \n  \nValues and attribute outcomes:  \n1. Acquire an informed attitude to people suffering from genetic diseases, and on application of current technologies in diagnosis and treatment of genetic diseases;  \n2. Acquire an enthusiastic attitude towards human genetics research.  \n  \n知識成果：  \n1. 獲取有關人類基因組，遺傳學，和遺傳缺陷的核心知識;  \n2. 掌握對人類遺傳疾病和有關研究的基礎概念和知識應用的能力;   \n3. 明白人類基因組知識在臨床醫學上的應用。  \n  \n技能成果：  \n1. 掌握文獻調查技能，包括使用信息技術和有效利從互聯網中搜索中得到的各種來源;  \n2. 通過班上研習課題獲得良好的分析和溝通技巧;  \n3. 通過課程評估建立良好的解决問題的技巧。  \n  \n價值觀和屬性的成果：  \n1. 對患有遺傳疾病的人以及目前在檢查及治療遺傳疾病中最新的應用技術建立一套認知的態度;   \n2. 對人類遺傳學研究建立積極的態度。  \n  \n知识成果：  \n1. 获取有关人类基因组，遗传学，和遗传缺陷的核心知识;  \n2. 掌握对人类遗传疾病和有关研究的基础概念和知识应用的能力;   \n3. 明白人类基因组知识在临床医学上的应用。  \n  \n技能成果：  \n1. 掌握文献调查技能，包括使用信息技术和有效利从互联网中搜索中得到的各种来源;  \n2. 通过班上研习课题获得良好的分析和沟通技巧;  \n3. 通过课程评估建立良好的解决问题的技巧。  \n  \n价值观和属性的成果：  \n1. 对患有遗传疾病的人以及目前在检查及治疗遗传疾病中最新的应用技术建立一套认知的态度;   \n2. 对人类遗传学研究建立积极的态度。",
+      "course_syllabus": "1 Introduction to human genetics / How dynamic is our genome?  \n2 Human chromosomes and the Human Genome project  \n3 Repetitive sequences and Telomeres  \n4 Mendelian inheritance and extensions and exceptions to Mendel's Laws  \n5 Epigenetics  \n6 Complex genetic traits  \n7 Polymorphisms (variations) and aberrations  \n8 Mutation and genetic diseases  \n9 Genetics of the mind (behavior)  \n10 Genetics of immunity  \n11 Genetics of cancer  \n12 Genetic testing, genetic counselling, and beyond  \n  \n1. 人類遺傳學概論/基因組的動態特質  \n2. 人類染色體及人類基因組計劃  \n3. 核酸的重複序列和端粒  \n4. 孟德爾遺傳定律，其引申, 及例外  \n5. 表觀遺傳學  \n6. 複雜(多種因素)的遺傳特徵  \n7. 多態性及異常  \n8. 突變與遺傳性疾病  \n9. 行為遺傳學  \n10. 免疫遺傳學  \n11. 癌症遺傳學  \n12. 基因檢測，諮詢，和以後  \n  \n1. 人类遗传学概论/基因组的动态特质  \n2. 人类染色体及人类基因组计划  \n3. 核酸的重复序列和端粒  \n4. 门德尔遗传定律，其引申, 及例外  \n5. 表观遗传学  \n6. 复杂(多种因素)的遗传特征  \n7. 多态性及异常  \n8. 突变与遗传性疾病  \n9. 行为遗传学  \n10. 免疫遗传学  \n11. 癌症遗传学  \n12. 基因检测，咨询，和以后",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Presentation": "20",
+        "Short answer test or exam": "50"
+      },
+      "feedback_evaluation": "Feedback for Evaluation:    \nFeedback from course evaluation  \nDiscussion with students  \nStaff-student Consultative Committee  \n  \n課目評鑑  \n與學生會談  \n師生咨詢委員會",
+      "required_readings": "Nil",
+      "recommended_readings": "Text Book:  \nHuman Genetics: Concepts and Applications, Ricky Lewis, 12th edition 2017 McGraw-Hill Higher Education (ISBN 1259700933)  \n  \nReferences:  \n1. Human Molecular Genetics, Tom Strachan and Andrew Read,  5th edition 2018 Garland Science (ISBN 0815345895)  \n2. Thompson & Thompson Genetics in Medicine, Robert L. Nussbaum, Roderick R. McInnes, and Huntington F. Willard, 8th Edition, 2015 Elsevier (ISBN 1437706907)  \n  \nRecommended:  \nThe Gene: An Intimate History, Siddhartha Mukherjee, 2016 (ISBN 0670087149)  \nShe Has Her Mother’s Laugh: The Power, Perversions, and Potential of Heredity, Carl Zimmer, 2018 (ISBN 1101984598)"
     },
     {
       "subject": "BIOL",
@@ -1696,7 +1953,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Knowledge   \n• Understand key concepts in marine microbial ecology   \n• Know the power of modern biotechnology in driving marine microbial ecology   \n• Comprehend important questions and key issues in marine microbial ecology   \n   \nSkill   \n• Application of scientific method to marine microbial ecology   \n• Search for information from primary literature   \n• Critical analysis of information from primary literature   \n• Presentation and communication of ideas in marine microbial ecology using charts, graphs, diagrams and tables   \n   \nValue   \n• Appreciate marine microbial roles in climate change and regulation   \n• Understand microbial roles in marine animal and plant conservation   \n• Recognize marine microbes as a source of novel metabolites for industrial application   \n   \n知識   \n   \n• 理解行為海洋微生物生態學中的重要概念   \n• 理解現代生物技術對海洋微生物生態學的驅動作用   \n• 熟悉現代生態學中的重要問題和重點   \n   \n技能   \n• 把科學方法應用到海洋微生物生態學   \n• 查找和搜集文獻   \n• 客觀分析文獻   \n• 運用圖表描述和表達海洋微生物生態學的觀點   \n   \n價值   \n• 理解海洋微生物在調節氣候變化中的作用   \n• 瞭解微生物在海洋動植物保育中的作用   \n• 認識海洋微生物是新型代謝產物的重要來源   \n   \n   \n知识   \n   \n• 理解行为海洋微生物生态学中的重要概念   \n• 理解现代生物技术对海洋微生物生态学的驱动作用   \n• 熟悉现代生态学中的重要问题和重点   \n   \n技能   \n• 把科学方法应用到海洋微生物生态学   \n• 查找和搜集文献   \n• 客观分析文献   \n• 运用图表描述和表达海洋微生物生态学的观点   \n   \n价值   \n• 理解海洋微生物在调节气候变化中的作用   \n• 了解微生物在海洋动植物保育中的作用   \n• 认识海洋微生物是新型代谢产物的重要來源",
+      "course_syllabus": "I. Marine microbial diversity and food web   \nDominant microbial groups   \nMicrobial food web   \nMicrobial interactions   \nII. Marine microbial communities    \nCommunity structure and control factors   \nTemporal and spatial patterns   \nIII. Marine microbial metabolism and biogeochemistry   \nEnergy acquisition   \nMicrobial-organic matter interaction   \nNitrogen, phosphorus, and sulfur transformations   \nIV. Marine microbial genomics   \nCultivation-dependent genomics   \nCultivation-independent genomics   \nMicrobial genomic diversity   \nV. Marine microbial symbionts   \nMicrobe-animal association   \nMicrobe-plant association   \n   \nI. 海洋微生物多樣性和微食物網   \n高豐度微生物類群   \n微食物網   \n微生物相互作用   \nII. 海洋微生物群落    \n群落結構及其影響因素   \n時空變化模式   \nIII. 海洋微生物代謝和生物地球化學   \n能量獲得   \n微生物-有機物相互作用   \n氮、磷、硫的轉化   \nIV. 海洋微生物基因組學   \n基於培養的基因組學   \n獨立於培養的基因組學   \n微生物基因組水平上的多樣性   \nV. 海洋共生微生物   \n微生物-動物共生   \n微生物-植物共生   \n   \n   \nI. 海洋微生物多样性和微食物网   \n高丰度微生物类群   \n微食物网   \n微生物相互作用   \nII. 海洋微生物群落    \n群落结构及其影响因素   \n時空变化模式   \nIII. 海洋微生物代谢和生物地球化学   \n能量获得   \n微生物-有机物相互作用   \n氮、磷、硫的转化   \nIV. 海洋微生物基因組学   \n基于培养的基因組学   \n独立于培养的基因組学   \n微生物基因組水平上的多样性   \nV. 海洋共生微生物   \n微生物-动物共生   \n微生物-植物共生",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "30",
+        "Presentation": "20",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "1. Feedback from course evaluation   \n2. Discussion with students   \n3. Self reflection of teacher(s)   \n4. Feedback from Visiting Committee & regular program reviews   \n   \n   \n1.課目評鑑   \n2.與學生會談   \n3.教師反饋   \n4.校外專家委員會及課程檢討   \n   \n   \n1.课目评鉴   \n2.与学生会谈   \n3.教師反馈   \n4.校外专家委员会及课程检讨",
+      "required_readings": "Kirchman DL (ed). 2008. Microbial Ecology of the Oceans (2nd Ed). John Wiley & Sons, Inc., Hoboken, New Jersey.",
+      "recommended_readings": ""
     },
     {
       "subject": "BIOL",
@@ -1751,7 +2019,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Students will learn how to:  \n   \n- Identify common plant species in Hong Kong  \n   \n- Identify the local vegetation types  \n   \n- Understand the concept of plant nomenclature and the e-learning platforms of botanical database  \n   \n- Acquire the identification skills of plants  \n   \n- Understand and integrate botanical knowledge in career development  \n   \n   \n學生從本課程可學習:  \n   \n- 鑒定香港常見的植物  \n   \n- 鑒定本地植被  \n   \n- 植物命名法規和網上學習平台  \n   \n- 植物鑒定的方法和技巧  \n   \n- 轉化植物知識為職業發展  \n   \n   \n学生从本课程可学习:  \n   \n- 鉴定香港常见的植物  \n   \n- 鉴定本地植被  \n   \n- 植物命名法规和网上学习平台  \n   \n- 植物鉴定的方法和技巧  \n   \n- 转化植物知识为职业发展",
+      "course_syllabus": "1. Taxonomy and e-learning platforms  \n   \n2. Vegetation and habitats in HK  \n   \n3. Identification skills  \n   \n4. Field lectures / studies  \n   \n5. Algae to angiosperm  \n   \n6. Taxonomic applications and career  \n   \n7. Project presentation and discussion  \n   \n   \n1. 植物分類和網上學習平台  \n   \n2. 香港植被及生境  \n   \n3. 植物鑒別技巧  \n   \n4. 野外授課和實習  \n   \n5. 藻類至被子植物  \n   \n6. 植物分類學應用與職業  \n   \n7. 項目匯報和討論  \n   \n   \n1. 植物分类和网上学习平台  \n   \n2. 香港植被及生境  \n   \n3. 植物鉴别技巧  \n   \n4. 野外授课和实习  \n   \n5. 藻类至被子植物  \n   \n6. 植物分类学应用与职业  \n   \n7. 项目汇报和讨论",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Presentation": "25",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "Reviews and discussion sessions in the last lecture  \n   \nCourse evaluation completed by students in the course end",
+      "required_readings": "",
+      "recommended_readings": "International code of nomenclature for algae, fungi, and plants  \n   \nhttp://www.iapt-taxon.org/nomen/main.php  \n   \n   \nFlora of Hong Kong  \n   \nhttp://www.herbarium.gov.hk/Search\\_Form.aspx  \n   \n   \nFlora of China  \n   \nhttp://www.efloras.org/flora\\_page.aspx?flora\\_id=2  \n   \n   \nCatalogue of Life: Higher Plants in China  \n   \nhttp://www.etaxonomy.ac.cn/  \n   \n   \nFlora Reipublicae Popularis Sinicae  \n   \nhttp://frps.eflora.cn/  \n   \n   \nPlants of Taiwan  \n   \nhttp://tai2.ntu.edu.tw/  \n   \n   \nThe New York Botanical Garden’s glossary for vascular plants  \n   \nhttp://sweetgum.nybg.org/science/glossary/  \n   \n   \nIndex Herbariorum  \n   \nhttp://sweetgum.nybg.org/science/ih/  \n   \n   \nChinese Virtue Botanical Garden  \n   \nhttp://www.cvbg.cn/garden/garden\\_more.aspx"
     },
     {
       "subject": "BIOL",
@@ -1769,13 +2047,13 @@
                 {
                   "time": "Tu 10:30AM - 1:15PM",
                   "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Dr. KOON Chun Alex,   Miss YAM Kwan Mei,   Professor CHAN Ho Yin Edwin,   Professor HUI Jerome Ho Lam,   Professor KANG Byung Ho,   Professor LAU Kwok Chi,   Professor NGO Chi Ki Jacky,   Professor ZHUANG Xiaohong",
+                  "instructor": "Dr. KOON Chun Alex, \nMiss YAM Kwan Mei, \nProfessor CHAN Ho Yin Edwin, \nProfessor HUI Jerome Ho Lam, \nProfessor KANG Byung Ho, \nProfessor LAU Kwok Chi, \nProfessor NGO Chi Ki Jacky, \nProfessor ZHUANG Xiaohong",
                   "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
                 },
                 {
                   "time": "Tu 10:30AM - 1:15PM",
                   "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Dr. KOON Chun Alex,   Miss YAM Kwan Mei,   Professor CHAN Ho Yin Edwin,   Professor HUI Jerome Ho Lam,   Professor KANG Byung Ho,   Professor LAU Kwok Chi,   Professor NGO Chi Ki Jacky,   Professor ZHUANG Xiaohong",
+                  "instructor": "Dr. KOON Chun Alex, \nMiss YAM Kwan Mei, \nProfessor CHAN Ho Yin Edwin, \nProfessor HUI Jerome Ho Lam, \nProfessor KANG Byung Ho, \nProfessor LAU Kwok Chi, \nProfessor NGO Chi Ki Jacky, \nProfessor ZHUANG Xiaohong",
                   "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
                 }
               ],
@@ -1800,7 +2078,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "Upon completion of this course, students will\n\n1. have accurate understandings of difficult biology concepts at secondary levels\n2. recognize the common misconceptions of students in secondary biology and their likely causes\n3. be able to use effective instructional strategies to tackle the misconceptions and difficult biology concepts for secondary students\n4. have a good understanding of scientific investigations and nature of science relevant to secondary biology\n\n完成課程後學生將能夠: \n\n1. 對較困難的中學生物學概念有準確的認識\n2. 認識中學生在生物學習上常見的錯誤概念和其成因\n3. 能針對中學生常見的錯誤觀念作出有效教學\n4. 對與中學生物學相關的科學探究和科學本質有良好的理解\n\n完成课程后学生将能够: \n\n1. 对较困难的中学生物学概念有准确的认识\n2. 认识中学生在生物学习上常见的错误概念和其成因\n3. 能针对中学生常见的错误观念作出有效教学\n4. 对与中学生物学相关的科学探究和科学本质有良好的理解",
+      "course_syllabus": "Each lecture will target one topic in secondary biology that is deemed difficult to secondary students. The core contents of each lecture include:\n\n* the important and difficult concepts in the topic\n* the relevant misconceptions held by students and their likely causes\n* effective instructions for these difficult concepts\n* experiments (authentic and school) and nature of science related to the topic, with demonstrations and lab work when needed\n* Q&A\n\n每堂課都將針對中學生物學中一個對中學生來說很難的主題。 每堂課的核心內容包括：\n\n• 主題中重要和困難的概念\n\n• 學生持有的錯誤觀念及其可能的成因\n\n• 這些困難概念的有效教學\n\n• 與主題相關的實驗（真實的和學校的）和科學本質，需要時提供演示和實驗室工作\n\n• 問答\n\n每堂课都将针对中学生物学中一个对中学生来说很难的主题。 每堂课的核心内容包括：\n\n• 主题中重要和困难的概念\n\n• 学生持有的错误观念及其可能的成因\n\n• 这些困难概念的有效教学\n\n• 与主题相关的实验（真实的和学校的）和科学本质，需要时提供演示和实验室工作\n\n• 问答\n\nTopics:\n\n1. Enzymes 酶\n2. Genetics 遺傳\n3. Evolution and classification 演化及分類\n4. Blood circulation 血液循環\n5. Breathing 呼吸\n6. Nervous and hormonal coordination (eyes, diabetes) 神經及荷爾蒙之組合〔眼、糖尿〕\n7. Ecology生態\n8. Cell division 細胞分裂\n9. Immunity 免疫\n10. Plants 植物\n11. Biotechnology 生物科技",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Feedback from students will be collected via course-end evaluation. Continuous feedback, comments or questions are encouraged through communications via email or CUHK e-forum (Blackboard Learn).\n\n學生的反饋將通過課程結束評估收集。 我們鼓勵通過電子郵件或 CUHK 電子論壇（Blackboard Learn）進行交流，持續提供反饋、評論或問題。\n\n学生的反馈将通过课程结束评估收集。 我们鼓励通过电子邮件或 CUHK 电子论坛（Blackboard Learn）进行交流，持续提供反馈、评论或问题。",
+      "required_readings": "1.   Yip, D. Y. (2008). Misconceptions in biology and implications for teaching. Manhattan Press.\n\n2.     Lau, V. (2019). Biology in visuals. We Inspire.\n\n3.     Silverthorne, D. U. (2009). Human Physiology: An Integrated Approach (5th Edition) (5 ed.). San Francisco: Benjamin Cummings\n\n4.     Koba, S., & Tweed, A. (2009). Hard-To-Teach Biology Concepts: A Framework to Deepen Student Understanding (PB238X). Danvers, Ma: National Science Teachers Association.\n\n5.     Biological Sciences Curriculum Study (BSCS) (2009). The Biology teachers' handbook. 4th ed. NSTA press\n\n6.     Agutter, P. S. (2009). Thinking about Life: The history and philosophy of biology and other sciences. Birkhäuser Basel: Springer Netherlands.\n\n7.     Serafini, A. (1993). The epic history of biology. New York: Plenum.\n\n8.     Fisher, Kathleen & Wandersee, James & Moody, David. (2002). Mapping Biology Knowledge. 10.1007/0-306-47225-2.\n\n9.     Mayer, R. (2009) Multimedia Learning, 2nd ed, Cambridge University Press.\n\n10.   Hagen, J, Allchin, D, & Singer, F. (1996). Doing Biology. http://doingbiology.net/\n\n11.   Ruxton, G., Colegrave, N. (2003). Experimental Design for the Life Sciences. Oxford University Press.",
+      "recommended_readings": ""
     },
     {
       "subject": "BIOL",
@@ -1816,7 +2104,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "The course is an advanced course for biology major students and aims to enhance students’ understanding on the scientific basis, principles and practice of mariculture with emphasis on fish. The course is particularly relevant for students intending to pursue careers in fisheries, aquaculture and related marine sciences, and those intending to take up careers in the Agriculture, Fisheries and Conservation Department of the Hong Kong SAR Government.  \n   \nThe list of outcomes include:  \n   \n1. Understanding the principles of culture practice of major groups of mariculture organisms, including local examples.  \n   \n2. Understanding the biological aspects of fish and other culture organisms with relevance to their culture practice and improvements.  \n   \n3. Developing critical thinking through studies on selected topics on mariculture, such as interactions between mariculture and environment, and biotechnological applications in mariculture.  \n   \n   \n本科是為主修生物學同學而設的高級課程，目的為加強同學對魚類及動物海產養殖的科學基礎、原理及實踐之了解。本科對有意從事漁業、水產養殖和相關海洋科學、及有意在香港特別行政區漁農自然護理處開展事業的同學尤其合適。   \n本科的學習果效為﹕   \n1. 了解海產養殖的原理，包括本地養殖的例子。  \n   \n2. 了解與海產養殖相關的生物學。  \n   \n3. 通過對海產養殖特選課題的學習，如海產養殖與環境的相互關係以及生物技術之應用，培養同學的批判性思考。  \n   \n   \n本科是为主修生物学同学而设的高级课程，目的为加强同学对鱼类及动物海产养殖的科学基础、原理及实践之了解。本科对有意从事渔业、水产养殖和相关海洋科学、及有意在香港特别行政区渔农自然护理处开展事业的同学尤其合适。   \n本科的学习果效为﹕   \n1. 了解海产养殖的原理，包括本地养殖的例子。  \n   \n2. 了解与海产养殖相关的生物学。  \n   \n3. 通过对海产养殖特选课题的学习，如海产养殖与环境的相互关系以及生物技术之应用，培养同学的批判性思考。",
+      "course_syllabus": "This course deals with the application of biological principles to the culture of marine fishes, crustaceans, molluscs and algae. Emphasis will be placed on the environmental, nutritional, reproductive and endocrine aspects in relation to current maricultural practice. Prerequisite: LSCI1002.  \n   \nThe course contents include:  \n   \n1. General survey on mariculture practices, including oysters, mussels and other molluscs, penaeid shrimp and other crustaceans, fishes, seaweeds, polyculture and integrated systems  \n   \n2. Biological basis of mariculture, with emphasis on fish nutrition, physiology and reproduction  \n   \n3. The role of genetics and biotechnology in mariculture  \n   \n   \n本科介紹生物學原理在海洋魚類、甲殼類、軟體動物及藻類等養殖之應用，並討論環境、營養、生殖及內分泌各方面，以闡明生物學對海產養殖的貢獻。先修科目: LSCI1002  \n   \n本科內容包括﹕   \n1.海產養殖方法的概論，包括蠔、貽貝及其它軟體動物，對蝦及其它甲殼類動物，魚類，海藻，混養及組合系統  \n   \n2. 魚類養殖生物學，包括魚類營養、生理及繁殖  \n   \n3.遺傳學及生物技術在海產養殖之角色  \n   \n   \n本科介绍生物学原理在海洋鱼类、甲壳类、软件动物及藻类等养殖之应用，并讨论环境、营养、生殖及内分泌各方面，以阐明生物学对海产养殖的贡献。先修科目: LSCI1002  \n   \n本科内容包括﹕   \n1.海产养殖方法的概论，包括蚝、贻贝及其它软件动物，对虾及其它甲壳类动物，鱼类，海藻，混养及组合系统  \n   \n2. 鱼类养殖生物学，包括鱼类营养、生理及繁殖  \n   \n3.遗传学及生物技术在海产养殖之角色",
+      "assessment_types": {
+        "Essay test or exam": "45",
+        "Presentation": "15",
+        "Short answer test or exam": "25",
+        "Selected response test or exam": "15"
+      },
+      "feedback_evaluation": "Feedback from course evaluation  \n   \nDiscussion with students   \n   \nSelf reflection of teacher(s)  \n   \nFeedback from Visiting Committee and regular programme reviews  \n   \n   \n課目評鑑   \n與學生會談   \n教師反饋   \n校外專家委員會及課程檢討",
+      "required_readings": "",
+      "recommended_readings": "1. Beaumont, A., Boudry, P., Hoare, K. (2010) Biotechnology and genetics in fisheries and aquaculture. 2nd edition. Blackwell.  \n   \n2. Cabrita, E., Robles, V., Herraez, P. (2009) Methods in reproductive aquaculture: marine and freshwater species. Boca Raton: CRC Press.  \n   \n3. Finn, R. N., Kapoor, B. G. (2008) Fish larval physiology. Enfield: Science Publishers.  \n   \n4. Hoar, W. S. and Randall D J (and others) 1969-2009. Fish Physiology, vol 1 – vol 20. New York: Academic Press.  \n   \n5. Overturf, K. (2009) Molecular research in aquaculture. Ames, Iowa: Wiley-Blackwell.  \n   \n6. Stickney, R. R. (2009) Aquaculture: an introductory text. 2nd Edition, Oxfordshire, Cambridge.  \n   \n7. Wickins, J.F. and Lee, D.O’C. (2002) Crustacean Farming: Ranching and Culture. 2nd edition. Blackwell, Oxford"
     },
     {
       "subject": "BIOL",
@@ -1832,7 +2131,16 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "On successful completion of this course, students should be able to:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Survey scientific literature relevant to their research project  \n   \n3) Read scientific literature critically to identify the scientific questions or problems  \n   \n4) Design independent research project to address the scientific questions   \n   \n5) Acquire hands-on research techniques in conducting experiments  \n   \n6) Improve their problem-solving abilities  \n   \n7) Improve their skills in writing scientific proposal  \n   \n8) Improve their sense of responsibility and team spirit  \n   \n   \n成功修畢此課程後，學生應可：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 搜尋文獻  \n   \n3) 批判地閱讀及分析文獻的內容，並認知及思考當中的科學問題  \n   \n4) 就自己的專題研究題目，設計實驗去解說科學問題  \n   \n5) 操作各式的實驗  \n   \n6) 提升其解決問題的能力  \n   \n7) 提升其書寫研究計劃報告的能力  \n   \n8) 提升其責任感及團體精神",
+      "course_syllabus": "Students should take the initiative to discuss with their supervisor(s) and come up with a topic for the independent research project. The students should first conduct a literature survey of their research project and identify the scientific questions they want to address. Students then design and perform the experiments for this project under the guidance of the supervisor(s) and submit a research proposal at the end of the term.  \n   \n   \n學生須於學期開始前主動聯絡教授，並訂出研究課題。學生須就該研究課題搜尋相關文獻，並確定研究方向。學生須設計實驗及進行研究，並於學期結束前遞交一份研究計劃。",
+      "assessment_types": {
+        "Essays": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 師生諮詢委員會",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "BIOL",
@@ -1850,7 +2158,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHAN Ting Fung Philos,   Professor CHUI Pui Yi,   Professor HUI Jerome Ho Lam,   Professor JIANG Liwen,   Professor LI Cheng,   Professor LUO Haiwei,   Professor TSANG Ling Ming,   Professor TSUI Tsz Ki Martin",
+                  "instructor": "Professor CHAN Ting Fung Philos, \nProfessor CHUI Pui Yi, \nProfessor HUI Jerome Ho Lam, \nProfessor JIANG Liwen, \nProfessor LI Cheng, \nProfessor LUO Haiwei, \nProfessor TSANG Ling Ming, \nProfessor TSUI Tsz Ki Martin",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -1862,7 +2170,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1875,7 +2183,16 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "On successful completion of this course, students should be able to:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Survey scientific literature relevant to their research project  \n   \n3) Read scientific literature critically to identify the scientific questions or problems  \n   \n4) Design independent research project to address the scientific questions   \n   \n5) Acquire hands-on research techniques in conducting experiments  \n   \n6) Improve their problem-solving abilities  \n   \n7) Analyze and interpret data in a logical and scientific way  \n   \n8) Improve their skills in scientific writing and oral presentation  \n   \n9) Improve their sense of responsibility and team spirit  \n   \n   \n成功修畢此課程後，學生應可：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 搜尋相關的文獻  \n   \n3) 批判地閱讀及分析文獻的內容，並認知及思考當中的科學問題  \n   \n4) 就自己的專題研究題目，設計實驗去解說科學問題  \n   \n5) 操作各式的實驗  \n   \n6) 提升其解決問題的能力  \n   \n7) 分析及以邏輯和科學的角度表述數據  \n   \n8) 書寫符合標準科技論文格式的書面報告及作口頭報告  \n   \n9) 提升其責任感及團體精神",
+      "course_syllabus": "Students should continue to work on the research project from BIOL4901. Students should discuss the progress with their supervisor(s) and submit a progress report in the end of the term. Students who do not continue to work on the research project in BIOL4903 should submit a final report and give an oral presentation.  \n   \n   \n學生就BIOL4901的研究課題繼續進行研究，並定期向教授匯報及討論研究所得的數據。於學期結束前遞交一份研究進展報告。不繼續選修BIOL4903的學生須遞交一份書面報告及作口頭報告。",
+      "assessment_types": {
+        "Essays": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) An open discussion session after the end-of-term seminar   \n   \n3) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 口頭報告後的討論環節  \n   \n3) 師生諮詢委員會",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "BIOL",
@@ -1893,7 +2210,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHAN Ting Fung Philos,   Professor CHUI Pui Yi,   Professor HUI Jerome Ho Lam,   Professor JIANG Liwen,   Professor LI Cheng,   Professor LUO Haiwei,   Professor TSANG Ling Ming,   Professor TSUI Tsz Ki Martin",
+                  "instructor": "Professor CHAN Ting Fung Philos, \nProfessor CHUI Pui Yi, \nProfessor HUI Jerome Ho Lam, \nProfessor JIANG Liwen, \nProfessor LI Cheng, \nProfessor LUO Haiwei, \nProfessor TSANG Ling Ming, \nProfessor TSUI Tsz Ki Martin",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -1905,7 +2222,7 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1918,7 +2235,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "On successful completion of this course, students should be able to:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Survey scientific literature relevant to their research project  \n   \n3) Read scientific literature critically to identify the scientific questions or problems  \n   \n4) Design independent research project to address the scientific questions   \n   \n5) Acquire hands-on research techniques in conducting experiments  \n   \n6) Improve their problem-solving abilities  \n   \n7) Analyze and interpret data in a logical and scientific way  \n   \n8) Improve their skills in scientific writing and oral presentation  \n   \n9) Improve their sense of responsibility and team spirit  \n   \n   \n成功修畢此課程後，學生應可：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 搜尋相關的文獻  \n   \n3) 批判地閱讀及分析文獻的內容，並認知及思考當中的科學問題  \n   \n4) 就自己的專題研究題目，設計實驗去解說科學問題  \n   \n5) 操作各式的實驗  \n   \n6) 提升其解決問題的能力  \n   \n7) 分析及以邏輯和科學的角度表述數據  \n   \n8) 書寫符合標準科技論文格式的書面報告及作口頭報告  \n   \n9) 提升其責任感及團體精神",
+      "course_syllabus": "Students should continue to work on the research project from BIOL4902. Students should discuss the progress with their supervisor(s) and submit a final report in the form of manuscript and give an oral presentation at the end of the term.  \n   \n   \n本科學生須就BIOL4902的研究課題繼續進行研究，並定期向教授匯報及討論研究所得的數據。於學期結束前遞交一份科技論文並作口頭報告。",
+      "assessment_types": {
+        "Essays": "40",
+        "Others": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) An open discussion session after the end-of-term seminar   \n   \n3) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 口頭報告後的討論環節  \n   \n3) 師生諮詢委員會",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "BIOL",
@@ -1948,7 +2275,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Internship"
+              "class_attributes": "English only\nInternship"
             }
           ]
         }
@@ -1961,7 +2288,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "On successful completion of this course, students should be able to:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Design, organize, schedule and execute individual or group projects  \n   \n3) Acquire hands-on techniques in conducting experiments or special projects provided by the company where the interns join  \n   \n4) Improve their problem-solving abilities  \n   \n5) Improve their sense of responsibility and team spirit  \n   \n6) Obtain empirical and out-of classroom experiences for career development  \n   \n7) Improve their skills in writing reports   \n   \n   \n成功修畢此課程後，學生應可：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 設計、安排、計劃及執行指定的個人或團體項目  \n   \n3) 操作實驗或專題項目  \n   \n4) 提升其解決問題的能力  \n   \n5) 提升其責任感及團體合作精神  \n   \n6) 累積課堂以外的工作經驗  \n   \n7) 提升其書寫報告的能力",
+      "course_syllabus": "Students should search for their own internship position and submit relevant documents to the Programme for approval. Each intern is required to work in the approved company or laboratory on a scientific project for at least 5 weeks (160 hours) in summer. The progress of each student will be monitored by a supervisor from the Programme. At the end of the internship, students should give an oral presentation and submit a written report.  \n   \n   \n學生須自行尋找本地或海外的專題實習機會，並提交相關資料以取得學系認可。實習生須在暑期時到認可之公司或機構工作或參與研究項目，為期最少五星期(160小時)。學生進度由學系導師監察。實習完結後，學生須作口頭報告並提交書面報告。  \n   \n   \nThere is no syllabus for this internship course. We will stress our emphasis on the I&D and GC&SE and regularly talk to our internship providers on their implementation. I suppose most internship projects will have SE, while overseas internship project will intrinsically have very strong GC component.   \n   \n   \n40% Innovation &Design and 40% Global Citizenship &Social Enterprisingness",
+      "assessment_types": {
+        "Others": "40",
+        "Presentation": "30",
+        "Report": "30"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to supervisors  \n   \n2) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 師生諮詢委員會",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "BIOL",
@@ -1991,7 +2328,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Experiential Learning Course"
+              "class_attributes": "English only\nExperiential Learning Course"
             }
           ]
         }
@@ -2004,7 +2341,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Biology Pgm Comm",
-      "academic_org": "Biology Pgm Comm"
+      "academic_org": "Biology Pgm Comm",
+      "learning_outcomes": "On successful completion of this course, students should be able to:  \n   \n1) Integrate the knowledge and skills learnt previously in lectures  \n   \n2) Acquire hands-on techniques in collecting samples and data from field  \n   \n3) Develop data analysis and interpretation skills in scientific ways  \n   \n4) Improve their problem-solving abilities  \n   \n5) Improve their team spirit  \n   \n6) Improve their a sense of responsibility   \n   \n7) Think critically and logically to solve environmental/biological problems  \n   \n8) Improve their skills in writing reports and giving oral presentation  \n   \n   \n成功修畢此課程後，學生應可：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 收取樣本及數據  \n   \n3) 分析及以邏輯和科學的角度表述數據  \n   \n4) 解決問題  \n   \n5) 提升其團體合作精神  \n   \n6) 提升其有責任感  \n   \n7) 批判性地思考及合邏輯性地解決與環境科學/生物相關的問題  \n   \n8) 提升其書寫報告及作口頭報告的能力",
+      "course_syllabus": "The students should participate in an approved field trip to carry out a purposive task overseas or locally. They should submit a proposal, go on a field trip that lasts for 2-4 weeks, give an oral presentation and submit a written final report for assessment.  \n   \n   \n學生於暑期中須積極參與學系認可之本地或海外的實地考察。學生須提交研究計劃，進行為期兩至四週的實地考察，並於考察完結後作口頭報告並提交書面報告。   \n   \nThere is no syllabus for the course. We will aim at overseas field trip to see efforts in environmental protection and nature conservation abroad. We will include group projects and discussion during the field trip to implement I&D, and visit local university, NGO and community projects in nature and heritage conservation.   \n   \n   \n50% (in terms of student workload) that Innovation & Design and/or 40% Global Citizenship &Social Enterprisingness account for in this course.",
+      "assessment_types": {
+        "Others": "20",
+        "Presentation": "20",
+        "Report": "60"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) An open discussion session after the end-of-term seminar   \n   \n3) Staff-student consultative committe  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 口頭報告後的討論環節  \n   \n3) 師生諮詢委員會",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "BIOL",
@@ -2020,7 +2367,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2036,7 +2392,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2052,7 +2417,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2068,7 +2442,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2084,7 +2467,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2100,7 +2492,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2116,7 +2517,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2132,7 +2542,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2148,7 +2567,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2164,7 +2592,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in biology and in-depth knowledge in a particular field of biological sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2233,7 +2670,13 @@
       "component": "Thesis Monitoring Course",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Development of research skills, including field and/or laboratory studies and data analysis as related to the students' thesis research.",
+      "course_syllabus": "-    Identify a research topic\n\n-    Develop a research hypothesis\n\n-    Prepare a research proposal\n\n-    Develop research methodology and experimental design\n\n-    Conduct an original *research* with impact in a specific field or subject\n\n-    Analyze experimental results and make appropriate data interpretation\n\n-    Prepare a research dissertation/thesis and related manuscripts for publication",
+      "assessment_types": {},
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2249,7 +2692,13 @@
       "component": "Thesis Monitoring Course",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Development of research skills, including field and/or laboratory studies and data analysis as related to the students' thesis research.",
+      "course_syllabus": "-    Identify a research topic\n\n-    Develop a research hypothesis\n\n-    Prepare a research proposal\n\n-    Develop research methodology and experimental design\n\n-    Conduct an original *research* with impact in a specific field or subject\n\n-    Analyze experimental results and make appropriate data interpretation\n\n-    Prepare a research dissertation/thesis and related manuscripts for publication",
+      "assessment_types": {},
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "BIOL",
@@ -2265,7 +2714,13 @@
       "component": "Thesis Monitoring Course",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Development of research skills, including field and/or laboratory studies and data analysis as related to the students' thesis research.",
+      "course_syllabus": "-    Identify a research topic\n\n-    Develop a research hypothesis\n\n-    Prepare a research proposal\n\n-    Develop research methodology and experimental design\n\n-    Conduct an original *research* with impact in a specific field or subject\n\n-    Analyze experimental results and make appropriate data interpretation\n\n-    Prepare a research dissertation/thesis and related manuscripts for publication",
+      "assessment_types": {},
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     }
   ]
 }

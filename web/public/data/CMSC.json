@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T08:08:58.863845+00:00",
+    "scraped_at": "2025-08-16T08:47:51.497115+00:00",
     "subject": "CMSC",
+    "subject_title": "CMSC - Computer Science (TPg)",
     "total_courses": 16,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -53,7 +54,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to:   \n1. Understand the tradeoff between different parallel machine architectures and their tradeoffs in parallel computations   \n2. Understand and able to evaluate the performance of parallel algorithms, for example, speedup, efficiency and cost-optimality   \n3. Able to design and analyze parallel algorithms.   \n4. Understand the tradeoff and performance of parallel algorithms such as matrix computations, scientific numerical methods, graph algorithms.   \n5. Able to write parallel program (e.g., via MapReduce)",
+      "course_syllabus": "This course covers selected topics in parallel/distributed systems. The detailed contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "· Grama, A. Gupta, G. Karypis and V. Kumar, Introduction to Parallel Computing, 2nd Edition, Addison-Wesley, 2003.   \n· T. Mattson, B. Sanders and B. Massingill, Patterns for Parallel Programming, Addison-Wesley Professional, 2004.   \n· G. Zaccone, Python Parallel Programming Cookbook, Packt Publishing, 2015.   \n· G. Coulouris, J. Dollimore, T. Kindberg and G. Blair, Distributed Systems: Concepts and Design, 5th Edition, Addison Wesley, 2011.   \n· Tanenbaum and M. Van Steen, Distributed Systems: Principles and Paradigms, 2nd Edition, Pearson Prentice Hall, 2007.   \n· J. Lin and C. Dyer, Data-Intensive Text Processing with MapReduce, Morgan and Claypool, 2010.   \n· D. Linthicum, Cloud Computing and SOA Convergence in Your Enterprise, Addison-Wesley, 2010",
+      "recommended_readings": ""
     },
     {
       "subject": "CMSC",
@@ -101,14 +111,23 @@
         }
       ],
       "description": "This course will cover selected topics from: advanced pattern recognition, neural networks, expert systems and fuzzy systems, evolutionary computing, learning theory, constraint processing, logic programming, probabilistic reasoning, computer vision, speech processing, and natural language processing.",
-      "enrollment_requirement": "For students in MSc Computer Science; and  Exclusion: CSCI6200 or ENGG5189",
+      "enrollment_requirement": "For students in MSc Computer Science; and \nExclusion: CSCI6200 or ENGG5189",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. understand audio signal processing procedures and methods of extracting important audio features from audio signals   \n2. build a simple small vocabulary speech recognition system   \n3. understand pattern classification methods such as boosting and neural networks   \n4. know how to perform simple classification problems using boosting and neural networks   \n5. understand the nature of fuzzy concept in real life   \n6. familiarize with the fuzzy concepts and fuzzy logic and their application in fuzzy expert system   \n7. design and implement fuzzy expert system in solving real life problem   \n8. understand the fundamental principles and the design of genetic algorithm",
+      "course_syllabus": "This course will cover selected topics from: advanced pattern recognition, neural networks, expert systems and fuzzy systems, evolutionary computing, learning theory, constraint processing, logic programming, probabilistic reasoning, computer vision, speech processing, and natural language processing.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Reflection of teachers   \n4. Question-and-answer sessions during class   \n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Theory and Applications of Digital Speech Processing, by Lawrence Rabiner , Ronald Schafer , Pearson 2011   \n2. Boosting: Foundations and Algorithms (Adaptive Computation and Machine Learning series) by Robert E. Schapire, Yoav Freund , MIT press 2014   \n3. Mitchell, Melanie. An introduction to genetic algorithms. MIT press, 1998.   \n4. K.S. Leung and (W. Lam), \"A Fuzzy Expert System Shell Using Both Exact and Inexact Reasoning\", Journal of Automated Reasoning, published by D. Reidel Publishing Co., Holland, Vol.5, No.2, pp.207-233, June 1989.    \n5. Leung K.S., Wong W.S. and (Lam W.), \"Applications of a Novel Fuzzy Expert System Shell\" - Expert Systems: The International Journal of Knowledge Engineering, Vol.6, No.1, pp.2-10, Feb., 1989.    \n6. Leung K.S., Wong W.S. and (Lam W.), \"The Development of an Expert Computer System on Medical Consultation\" - International Journal of Bio-Medical Computing, Vol.23, No.3, pp.265-278, Dec., 1988.    \n7. Leung K.S. and (Lam W.), \"Fuzzy Concepts in Expert Systems\" - IEEE COMPUTER, Vol.21, No.9, pp.43-56, Sept., 1988.    \n8. Leung K.S. and (So Y.T.), \"Consistency Checking for Fuzzy Expert Systems\" - International Journal of Approximate Reasoning, Vol.9, No.3, pp.263-282, Oct., 1993, North-Holland, U.S.A.    \n9. ML Wong, W Lam, KS Leung, PS Ngan, JCY Cheng, “Discovering knowledge from medical databases using evolutionory algorithms.” Engineering in Medicine and Biology Magazine, IEEE 19 (4), 45-55   \n10. Readings will also be supplied as part of the course material."
     },
     {
       "subject": "CMSC",
@@ -150,14 +169,23 @@
         }
       ],
       "description": "This course includes fundamental topics in image processing, e.g., image enhancement techniques, color image processing, image segmentation and image compression. In addition, the course also focuses on topics concerning methodologies of recovering 3D information from 2D images. Specifi cally, techniques for camera calibration, stereopsis, motion analysis, pose estimation and structure from motion will be discussed. These techniques will have practical applications to virtual reality, model reconstruction and graphics.",
-      "enrollment_requirement": "For students in MSc Computer Science; and  Exclusion: CSCI5280 or ENGG5104",
+      "enrollment_requirement": "For students in MSc Computer Science; and \nExclusion: CSCI5280 or ENGG5104",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. understand the mathematics of image formation and modelling of digital cameras,   \n2. understand how to extract information and features such as point , lines, corners and colour information from images,   \n3. understand the methods of object tracking   \n4. understand the methods of exacting 3D information from 2D images, such as stereo vision, pose estimation and model reconstruction from image sequences.",
+      "course_syllabus": "This course includes fundamental topics in image processing, e.g., image enhancement techniques, color image processing, image segmentation and image compression. In addition, the course also focuses on topics concerning methodologies of recovering 3D information from 2D images. Specifi cally, techniques for camera calibration, stereopsis, motion analysis, pose estimation and structure from motion will be discussed. These techniques will have practical applications to virtual reality, model reconstruction and graphics.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Reflection of teachers   \n4. Question-and-answer sessions during class   \n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Multiple geometry in computer vision, Hartley and Zisserman, Cambridge University Press.   \n2. Digital image processing, R.C. González, R.E. Woods, Ed.3, Gatesmark Publishing.    \n3. Learning OpenCV: Computer Vision with the OpenCV Library by Gary Bradski, O'Reilly."
     },
     {
       "subject": "CMSC",
@@ -197,10 +225,20 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Lecture Seminar",
+      "component": "Lecture\nSeminar",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. apply project management concepts in initiating, planning, executing and controlling technology projects.   \n2. strategically identify and manage risks thajavascript:%20submitAction\\_win0(document.win0,'#ICPanel2');t are associated with a project   \n3. develop, lead and motivate project teams   \n4. effectively communicate and work with all project stakeholders   \n5. use relevant project management software, such as Microsoft Project, to help plan and manage a project.",
+      "course_syllabus": "This course covers the key elements of the project management framework related to information technology. Topics include the identification of elements and processes of project management, processes involved in project integration management, project scope management, various tools and techniques used to develop project schedules and resource planning, processes of project quality management, project communications management, risk management, human resource management, and project procurement management. Experts from industry will also be invited to share their experience in the topics.",
+      "assessment_types": {
+        "Essays": "50",
+        "Essay test or exam": "40",
+        "Presentation": "10"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Reflection of teachers   \n4. Question-and-answer sessions during class   \n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. K. Schwalbe. Information Technology Project Management, 7/e, Course Technology, 2013.   \n2. A Guide to the Project Management Body of Knowledge, 5/e, PMI, 2013.   \n3. B. Hughes and M. Cotterell, Software Project Management, 5/e, McGraw-Hill, 2009.   \n4. J. Meredith and S. Mantel, Jr. Project Management, A Managerial Approach, 8/e, Wiley, 2011."
     },
     {
       "subject": "CMSC",
@@ -255,7 +293,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "After completing this course, students are expected to    \n1. understand the relationship between risks and returns, their measurements and relevance in portfolio management   \n2. have a basic understanding of modern portfolio theory   \n3. be able to apply computational techniques to model asset allocation   \n4. be able to evaluate the performance of portfolios",
+      "course_syllabus": "This course introduces some basic concepts in computational finance. Topics include risk and return, modern portfolio theory, calculating the effi cient frontier, multiple factor models, various models for portfolio optimization, utility functions and evaluation of portfolio performance.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "20",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Reflection of teachers   \n4. Question-and-answer sessions during class   \n5. Student consultation during office hours or online",
+      "required_readings": "• Modern Investment Theory (5th Edition), by Robert A. Haugen, Prentice Hall, ISBN Number 0130191701 / 9780130191700    \n• Modern Portfolio Theory and Investment Analysis, by Edwin J. Elton, Martin J. Gruber, Stephen J. Brown, William N. Goetzmann. John Wiley and Sons, 2007 ISBN: 0470050829.    \n• An Elementary Introduction to Mathematical Finance Options and other Topics (2nd Edition), by Sheldon M. Ross, Cambridge University Press.",
+      "recommended_readings": "To be provided by course teacher."
     },
     {
       "subject": "CMSC",
@@ -298,7 +346,13 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the knowledge of various current topics in computer science in academia or industry.",
+      "course_syllabus": "A series of 12 seminars on current topics in computer science to be presented by experts from academia or industry.",
+      "assessment_types": {},
+      "feedback_evaluation": "1. Reflection of teachers   \n2. Question-and-answer sessions during class   \n3. Student consultation during office hours or online",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "N/A"
     },
     {
       "subject": "CMSC",
@@ -356,7 +410,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor LU Songtao,   Professor WANG Liwei",
+                  "instructor": "Professor LU Songtao, \nProfessor WANG Liwei",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -601,7 +655,16 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the experience and ability to do a significant project in computer science and produce a report of the project under close supervision.",
+      "course_syllabus": "These courses involve a significant project in any area of computer science. A project report has to be written under the supervision of the lecturing staff.",
+      "assessment_types": {
+        "Others": "80",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire   \n2. Reflection of teachers   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "N/A"
     },
     {
       "subject": "CMSC",
@@ -719,7 +782,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor Lauren Marcelyn PICK,   Professor TAO Yufei",
+                  "instructor": "Professor Lauren Marcelyn PICK, \nProfessor TAO Yufei",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -879,7 +942,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHENG James,   Professor QIU Shi",
+                  "instructor": "Professor CHENG James, \nProfessor QIU Shi",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -904,7 +967,16 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the experience and ability to do a significant project in computer science and produce a report of the project under close supervision.",
+      "course_syllabus": "These courses involve a signifi cant project in any area of computer science. A project report has to be written under the supervision of the lecturing staff.",
+      "assessment_types": {
+        "Others": "80",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire   \n2. Reflection of teachers   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "N/A"
     },
     {
       "subject": "CMSC",
@@ -947,7 +1019,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "After successful completion of this course, students should be able    \n• to identify the objectives of the real world data mining problems,    \n• to select and apply the right techniques to solve these problems,    \n• to systematically evaluate the results obtained.",
+      "course_syllabus": "This course introduces the techniques used in data mining. Topics include clustering, classification, estimation, forecasting, statistical analysis and visualization. Data Mining provides useful tools for the analysis and visualization. Data Mining provides useful tools for the analysis, understanding and extraction of useful information from huge databases. Applications range from business, finance, medicine and engineering.",
+      "assessment_types": {
+        "Project": "30",
+        "Short answer test or exam": "70"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "Pang-Ning Tan, Michael Steinbach, and Vipin Kumar. Introduction to Data Mining.   \nJiawei Han, Micheline Kamber, and Jian Pei. Data Mining: Concepts and Techniques.    \nMohammed J. Zaki, and Wagner Meira Jr. Data Mining and Analysis: Fundamental Concepts and Algorithms."
     },
     {
       "subject": "CMSC",
@@ -995,14 +1076,23 @@
         }
       ],
       "description": "Issues of computer and network security. Weaknesses of network protocols. Security protocols. Firewalls. Computer viruses. System security threats. Applications of Cryptography.",
-      "enrollment_requirement": "For students in MSc Computer Science; and  Not for students who have taken CSCI5470 or IERG5240 or ENGG5105 or ENGG5383",
+      "enrollment_requirement": "For students in MSc Computer Science; and \nNot for students who have taken CSCI5470 or IERG5240 or ENGG5105 or ENGG5383",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to    \n1.Identify software weakness that are vulnerable to various attacks   \n2.Analyze network logs to identify network-related attacks based on IP spoofing, TCP exploit, arp-spoofing, and man-in-the-middle attacks etc.   \n3.Set up a firewall properly   \n4.Protect information based on encryptions and authentications   \n5.Aware the potential security threats based on some advanced cryptoanalysis techniques",
+      "course_syllabus": "Issues of computer and network security. Weaknesses of network protocols. Security protocols. Firewalls. Computer viruses. System security threats. Applications of Cryptography.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Homework or assignment": "40"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. W. Stallings, Cryptography and Network Security: Principles and Practice, 7th ed. Pearson, 2016.   \n2. E. Skoudis and T. Liston, Counter Hack Reloaded: A Step-by-Step Guide to Computer Attacks and Effective Defenses, 2nd ed. Prentice Hall, 2006.   \n3. R. Russell, Hack Proofing Your Network: Internet Tradecraft, 2nd ed.2000.   \n4. A. One, \"Smashing the Stack for Fun and Profit\", Phrack, vol. 7, no.49, 1996.   \n5. B. Claerhout, \"A short overview of IP spoofing: Part I\", 1996.   \n6. Y. Volobuev, \"Playing redir games with ARP and ICMP\", 1997."
     },
     {
       "subject": "CMSC",
@@ -1051,7 +1141,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. Understand and develop computer graphics rendering programs   \n2. Build a typical game level using corresponding tools   \n3. Construct the AI of the game to make the game more challenging,   \n4. Appreciate the complexity involved in modern computer game software",
+      "course_syllabus": "This course focuses on the programming issues in computer gaming software production, discusses the process in developing a game application and analyzes various considerations in technologies used. The main emphasis is on the real time performance requirement in computer game development. Indoor/outdoor rendering, networking, artificial intelligence, physics as well as the game design issues would be introduced.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Reflection of teachers   \n4. Question-and-answer sessions during class   \n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Game Programming Gems series http://www.gameprogramminggems.com/    \n2. Daniel S. Dalmau “Core Techniques and Algorithms in Game Programming”, New Riders Publishing 2004.    \n3. Alan Watt & Fabio Policarpo “3D Games Real-time Rendering and Software Technology Vol. 1 & 2”, Addison-Wesley 2001.    \n4. Andrew Rollings & Ernest Adams “Andrew Rollings & Ernest Adams on Game Design”, New Riders Publishing 2003."
     },
     {
       "subject": "CMSC",
@@ -1100,7 +1199,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. Model and analyse problems using utility theory   \n2. Understand the issues of decisions under risk and decisions under uncertainty   \n3. Understand the issues of social choices   \n4. Model and analyse problems using strategic games and Nash equilibrium, extensive games and subgame perfect equilibrium, repeated games and folk theorems.",
+      "course_syllabus": "This course introduces decision theory and game theory used in computer science, in particular, artificial intelligence and multiagent systems. Topics include utility theory, decisions under risk, decisions under uncertainty, social choices, strategic games and Nash equilibrium, extensive games and subgame perfect equilibrium, repeated games and folk theorems, and applications in computer science.",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "45"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Reflection of teachers   \n4. Question-and-answer sessions during class   \n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "M. J. Osborne and A. Rubinstein, 1994. A Course in Game Theory. The MIT Press."
     },
     {
       "subject": "CMSC",
@@ -1155,7 +1263,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "After completing this course, the students will be able to:   \n1. understand what it takes to be a successful IT entrepreneur;   \n2. be encouraged to be more market-oriented when developing IT products/services in their studies and workplaces;   \n3. know how to apply major marketing concepts to the task of profitably winning business from targeted customers;   \n4. gain hands-on experiences in identifying business opportunities and developing business and marketing plan through case studies and course projects.",
+      "course_syllabus": "This course equips students with the skills on how to create, launch and run an IT business and to develop a coherent marketing strategy. The key topics include entrepreneur characteristics, identifying market opportunity, IT product/service management, business planning, formation of a new IT venture, financing, market segmentation, positioning, pricing, promotion, distribution and channel management.",
+      "assessment_types": {
+        "Essays": "50",
+        "Essay test or exam": "40",
+        "Presentation": "10"
+      },
+      "feedback_evaluation": "- Course questionaire   \n- External examiner report   \n- Reflection of teachers",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. W.D. Bygrave and A. Zacharakis. Entrepreneurship, Wiley & Sons, 2007.    \n2. R.C. Dorf and T.H. Byers. Technology Ventures from Idea to Enterprise, McGraw-Hill, 2005.   \n3. J.P. Peter and J.H. Donnelly, Jr. A Preface to Marketing Management, 12/e, McGraw-Hill/Irwin, 2010.    \n4. A. Ryans, R. More, D. Barclay and T. Deutscher. Winning Market Leadership: Strategic Market Planning for Technology-Driven Businesses, Wiley, 1999.   \n5. D.J. Coover. Entrepreneurship & Marketing in the 21st Century: From Student to CEO in One Semester, AIM Institute, 2008.   \n6. K. Blois (editor). The Oxford Textbook of Marketing, Oxford University Press, 2001.   \n7. L. Pinson. Anatomy of a Business Plan: The Step-by-Step Guide to Building a Business and Securing Your Company's Future, 7/e, 2008."
     },
     {
       "subject": "CMSC",
@@ -1204,7 +1322,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "Students will be able to:  \n   \n1 learn the concepts and principles of the design of cloud computing.  \n   \n2 learn the applied methodologies of solving practical problems using cloud computing.  \n   \n3 learn the current research trends of cloud computing.",
+      "course_syllabus": "This course covers advanced topics in cloud computing. Topics will include new problems proposed in each year. Some topics to be discussed include: cloud computing models (e.g., SaaS, PaaS, IaaS); distributed and parallel data processing (e.g. MapReduce, Hadoop); data storage (cloud storage architectures, data centers, data deduplication); case studies of real-world cloud services (e.g. Amazon EC2, Windows Azure).",
+      "assessment_types": {
+        "Essays": "30",
+        "Essay test or exam": "50",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Course evaluation  \n   \nQualitative feedback from students",
+      "required_readings": "There is no required textbook for this course.",
+      "recommended_readings": ""
     },
     {
       "subject": "CMSC",
@@ -1259,7 +1387,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to  \n1. Comprehend the mechanisms, applications, and limitations of techniques commonly used in training and inference of deep neural network algorithms;  \n2. Utilize proper engineering techniques for deep neural network models;  \n3. Formulate hypotheses and conduct experiments employing these techniques;  \n4. Analyse experimental results obtained by these techniques and one’s own practices and derive the conclusions that are supported or not supported by one’s data;  \n5. Propose new engineering approaches and techniques to further enhance deep neural network training and inference execution.",
+      "course_syllabus": "At the end of the course of studies, students will have acquired  \n1. knowledge in deep neural network (DNN) architecture and structures;  \n2. knowledge in DNN training and inference procedures and algorithms;  \n3. knowledge in efficient computing of DNN training and inference.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "30",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations  \n2. Course evaluation and questionnaire  \n3. Question-and-answer sessions during class  \n4. Student consultation during office hours or online",
+      "required_readings": "1. I. Goodfellow et al., “Deep Learning”, 2016.  \n2. E. Wang et al., “Deep Neural Network Approximation for Custom Hardware: Where We've Been, Where We're Going”, 2019.  \n3. K. Guo et al. “A Survey of FPGA-based Neural Network Inference Accelerators”, 2019.  \n4. Q. Zhang et al. “Recent advances in convolutional neural network acceleration”, 2019.",
+      "recommended_readings": ""
     },
     {
       "subject": "CMSC",
@@ -1302,7 +1440,17 @@
       "component": "Practicum",
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg"
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, a student should be able to\n\n1. Have a good understanding and appreciate the characteristics of a computer science related work environment, including employer expectation, management structure of a team, industrial standards and practices, trends and common issues in computer science, etc.;  \n2. Carry out basic duties in a computer science related work environment;  \n3. Exhibit good etiquette in the workplace;  \n4. Work independently as well as in a team environment; and  \n5. Communicate effectively and efficiently with peers, supervisors and possibly also clients.",
+      "course_syllabus": "The objective of the course is to allow students to acquire a basic understanding and the skills of the practical aspects of computer science. To qualify for the award of the subject credits, the student must attach to a company in a computer science related post as approved by the Professor-in-Charge for no less than 12 weeks. The student will have an academic supervisor as assigned by the Professor-in-Charge and an industry supervisor from the company. There will be a mid-term company visit by the academic supervisor. At the end of the internship, the student must give a presentation to the academic and industry supervisors, and submit a report summarizing what the student has done and learnt from the internship. The student's grade will be determined by (1) the presentation, (2) the student report and (3) a testimonial from the industry supervisor.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Course evaluation by students",
+      "required_readings": "Readings will be recommended by the Professor-in-charge.",
+      "recommended_readings": "Readings will be recommended by the Professor-in-charge."
     }
   ]
 }
