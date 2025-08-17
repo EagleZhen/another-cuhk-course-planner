@@ -332,3 +332,75 @@ def clean_class_attributes(class_attrs: str, course_attrs: str) -> str:
     cleaned_lines: list[str] = [line for line in class_lines if line not in course_lines]
     
     return '\n'.join(cleaned_lines)
+
+
+def clean_html_text(text: str) -> str:
+    """Clean and normalize HTML text content with proper structure preservation
+    
+    Extracted from cuhk_scraper.py for reusability. Uses BeautifulSoup's built-in
+    text extraction with newline preservation and basic cleanup.
+    
+    Args:
+        text: Raw HTML text content to clean
+        
+    Returns:
+        str: Clean text with normalized whitespace and structure
+        
+    Examples:
+        >>> clean_html_text("<p>Hello</p><br><p>World</p>")
+        'Hello\\nWorld'
+        
+        >>> clean_html_text("  Multiple   spaces  ")
+        'Multiple spaces'
+    """
+    if not text:
+        return ""
+    
+    # Use BeautifulSoup's built-in text extraction with newline preservation
+    soup = BeautifulSoup(text, 'html.parser')
+    
+    # separator='\n' converts <br> tags to newlines, strip=True removes extra whitespace
+    cleaned_text = soup.get_text(separator='\n', strip=True)
+    
+    # Basic cleanup: normalize multiple consecutive newlines
+    cleaned_text = re.sub(r'\n\s*\n', '\n', cleaned_text)  # Remove empty lines
+    
+    return cleaned_text.strip()
+
+
+def parse_enrollment_status_from_image(img_src: str) -> str:
+    """Parse enrollment status from status icon image source
+    
+    Maps CUHK course catalog status icons to standardized status strings.
+    Extracted from cuhk_scraper.py for reusability and easier testing.
+    
+    Args:
+        img_src: Image source URL containing status icon filename
+        
+    Returns:
+        str: Standardized status string ('Open', 'Closed', 'Waitlisted', 'Unknown')
+        
+    Examples:
+        >>> parse_enrollment_status_from_image("images/class_open.gif")
+        'Open'
+        
+        >>> parse_enrollment_status_from_image("images/class_closed.gif")
+        'Closed'
+        
+        >>> parse_enrollment_status_from_image("images/class_wait.gif")
+        'Waitlisted'
+        
+        >>> parse_enrollment_status_from_image("unknown.gif")
+        'Unknown'
+    """
+    if not img_src:
+        return "Unknown"
+    
+    if "class_open.gif" in img_src:
+        return "Open"
+    elif "class_closed.gif" in img_src:
+        return "Closed"  
+    elif "class_wait.gif" in img_src:
+        return "Waitlisted"
+    else:
+        return "Unknown"

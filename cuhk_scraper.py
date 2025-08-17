@@ -5,29 +5,15 @@ from bs4 import BeautifulSoup
 from typing import List, Dict, Optional, Any, Union
 from bs4 import Tag
 from dataclasses import dataclass, asdict, field
-from datetime import datetime, timezone
 import time
 import logging
+from datetime import datetime
 import ddddocr
 import onnxruntime
 import os
 import gc
-from data_utils import html_to_clean_markdown
+from data_utils import html_to_clean_markdown, utc_now_iso, clean_html_text, parse_enrollment_status_from_image, clean_class_attributes
 
-def utc_now_iso() -> str:
-    """Get current UTC timestamp in ISO format with timezone info
-    
-    Returns:
-        str: ISO 8601 formatted timestamp with timezone
-        
-    Examples:
-        >>> utc_now_iso()
-        '2025-08-17T14:32:15.123456+00:00'
-        
-        >>> utc_now_iso()  # Different time
-        '2025-08-17T15:45:22.987654+00:00'
-    """
-    return datetime.now(timezone.utc).isoformat()
 
 @dataclass
 class ScrapingConfig:
@@ -787,8 +773,8 @@ class CuhkScraper:
                     course_title_link = row.find('a', {'id': lambda x: x and 'lbtn_course_title' in x})
                     
                     if course_nbr_link and course_title_link:
-                        course_code = self._clean_text(course_nbr_link.get_text())
-                        title = self._clean_text(course_title_link.get_text())
+                        course_code = clean_html_text(course_nbr_link.get_text())
+                        title = clean_html_text(course_title_link.get_text())
                         
                         # Get the postback target for this course (for details later)
                         postback_target = None
@@ -912,6 +898,16 @@ class CuhkScraper:
                 continue
         
         base_course.terms = all_term_info
+        
+        # Clean class attributes to remove course attribute duplicates
+        for term in base_course.terms:
+            for section in term.schedule:
+                if 'class_attributes' in section and section['class_attributes']:
+                    section['class_attributes'] = clean_class_attributes(
+                        section['class_attributes'], 
+                        base_course.course_attributes
+                    )
+        
         self.logger.info(f"Extracted details for {base_course.course_code}: "
                        f"Credits={base_course.credits}, "
                        f"Terms={len(all_term_info)}")
@@ -994,68 +990,55 @@ class CuhkScraper:
     def _extract_credits(self, soup: BeautifulSoup) -> str:
         """Extract credits/units from course details"""
         units_elem = soup.find('span', {'id': 'uc_course_lbl_units'})
-        return self._clean_text(units_elem.get_text()) if units_elem else ""
+        return clean_html_text(units_elem.get_text()) if units_elem else ""
     
-    def _parse_status_from_image(self, img_src: str) -> str:
-        """Parse enrollment status from status icon image source"""
-        if not img_src:
-            return "Unknown"
-        
-        if "class_open.gif" in img_src:
-            return "Open"
-        elif "class_closed.gif" in img_src:
-            return "Closed"  
-        elif "class_wait.gif" in img_src:
-            return "Waitlisted"
-        else:
-            return "Unknown"
     
     def _extract_additional_course_details(self, soup: BeautifulSoup, course: Course) -> None:
         """Extract additional course details from the course page"""
         # Course description
         desc_elem = soup.find('span', {'id': 'uc_course_lbl_crse_descrlong'})
         if desc_elem:
-            course.description = self._clean_text(desc_elem.get_text())
+            course.description = clean_html_text(desc_elem.get_text())
         
         # Enrollment requirement
         enroll_elem = soup.find('td', {'id': 'uc_course_tc_enrl_requirement'})
         if enroll_elem:
-            course.enrollment_requirement = self._clean_text(enroll_elem.get_text())
+            course.enrollment_requirement = clean_html_text(enroll_elem.get_text())
         
         # Course attributes (course-level attributes like "Virtual Teaching & Learning Course")
         course_attr_elem = soup.find('td', {'id': 'uc_course_tc_crse_attributes'})
         if course_attr_elem:
-            course.course_attributes = self._clean_text(course_attr_elem.get_text())
+            course.course_attributes = clean_html_text(course_attr_elem.get_text())
         
         # Academic career (Undergraduate/Graduate)
         career_elem = soup.find('span', {'id': 'uc_course_lbl_acad_career'})
         if career_elem:
-            course.academic_career = self._clean_text(career_elem.get_text())
+            course.academic_career = clean_html_text(career_elem.get_text())
         
         # Grading basis
         grading_elem = soup.find('span', {'id': 'uc_course_lbl_grading_basis'})
         if grading_elem:
-            course.grading_basis = self._clean_text(grading_elem.get_text())
+            course.grading_basis = clean_html_text(grading_elem.get_text())
         
         # Component (Lecture, Tutorial, etc.)
         component_elem = soup.find('span', {'id': 'uc_course_lbl_component'})
         if component_elem:
-            course.component = self._clean_text(component_elem.get_text())
+            course.component = clean_html_text(component_elem.get_text())
         
         # Campus
         campus_elem = soup.find('span', {'id': 'uc_course_lbl_campus'})
         if campus_elem:
-            course.campus = self._clean_text(campus_elem.get_text())
+            course.campus = clean_html_text(campus_elem.get_text())
         
         # Academic group
         group_elem = soup.find('span', {'id': 'uc_course_lbl_acad_group'})
         if group_elem:
-            course.academic_group = self._clean_text(group_elem.get_text())
+            course.academic_group = clean_html_text(group_elem.get_text())
         
         # Academic organization
         org_elem = soup.find('span', {'id': 'uc_course_lbl_acad_org'})
         if org_elem:
-            course.academic_org = self._clean_text(org_elem.get_text())
+            course.academic_org = clean_html_text(org_elem.get_text())
     
     def _parse_schedule_from_html(self, html: str) -> tuple[list[dict], set[str]]:
         """Extract schedule data and instructors from HTML - shared parsing logic"""
@@ -1086,7 +1069,7 @@ class CuhkScraper:
                 cells = row.find_all('td')
                 if len(cells) >= 3:
                     # Extract section info
-                    section = self._clean_text(cells[0].get_text())
+                    section = clean_html_text(cells[0].get_text())
                     
                     # Skip if section doesn't look like a valid section identifier
                     # Valid sections should contain parentheses (e.g., "--LEC (8192)", "-L01-LAB (5726)")
@@ -1099,7 +1082,7 @@ class CuhkScraper:
                         status_img = cells[1].find('img')
                         if status_img:
                             img_src = status_img.get('src', '')
-                            status = self._parse_status_from_image(img_src)
+                            status = parse_enrollment_status_from_image(img_src)
                     
                     # Initialize section if not seen before
                     if section not in sections_data:
@@ -1120,10 +1103,10 @@ class CuhkScraper:
                             # self.logger.info(f"Meet row {i}: class={meet_row.get('class')}")
                             meet_cells = meet_row.find_all('td')
                             if len(meet_cells) >= 4:
-                                days_times = self._clean_text(meet_cells[0].get_text())
-                                room = self._clean_text(meet_cells[1].get_text())
-                                instructor = self._clean_text(meet_cells[2].get_text())
-                                dates = self._clean_text(meet_cells[3].get_text())
+                                days_times = clean_html_text(meet_cells[0].get_text())
+                                room = clean_html_text(meet_cells[1].get_text())
+                                instructor = clean_html_text(meet_cells[2].get_text())
+                                dates = clean_html_text(meet_cells[3].get_text())
                                 
                                 if instructor and instructor != 'TBA':
                                     instructors.add(instructor)
@@ -1186,7 +1169,7 @@ class CuhkScraper:
                     # Look for section link in first cell
                     section_link = cells[0].find('a')
                     if section_link:
-                        section_name = self._clean_text(section_link.get_text())
+                        section_name = clean_html_text(section_link.get_text())
                         postback_target = section_link.get('href', '')
                         
                         # Skip if section doesn't look valid
@@ -1277,10 +1260,10 @@ class CuhkScraper:
                 cells = row.find_all('td')
                 if len(cells) >= 4:
                     meeting = {
-                        'time': self._clean_text(cells[0].get_text()),
-                        'location': self._clean_text(cells[1].get_text()),
-                        'instructor': self._clean_text(cells[2].get_text()),
-                        'dates': self._clean_text(cells[3].get_text())
+                        'time': clean_html_text(cells[0].get_text()),
+                        'location': clean_html_text(cells[1].get_text()),
+                        'instructor': clean_html_text(cells[2].get_text()),
+                        'dates': clean_html_text(cells[3].get_text())
                     }
                     meetings.append(meeting)
         
@@ -1288,7 +1271,7 @@ class CuhkScraper:
         class_attributes = ""
         class_attr_elem = soup.find('td', {'id': 'uc_class_tc_class_attributes'})
         if class_attr_elem:
-            class_attributes = self._clean_text(class_attr_elem.get_text())
+            class_attributes = clean_html_text(class_attr_elem.get_text())
         
         # Use the original section name from the schedule page
         return {
@@ -1313,27 +1296,27 @@ class CuhkScraper:
             # Class Capacity
             capacity_elem = soup.find('span', {'id': 'uc_class_lbl_enrl_cap'})
             if capacity_elem:
-                availability['capacity'] = self._clean_text(capacity_elem.get_text())
+                availability['capacity'] = clean_html_text(capacity_elem.get_text())
             
             # Enrollment Total
             enrolled_elem = soup.find('span', {'id': 'uc_class_lbl_enrl_tot'})
             if enrolled_elem:
-                availability['enrolled'] = self._clean_text(enrolled_elem.get_text())
+                availability['enrolled'] = clean_html_text(enrolled_elem.get_text())
             
             # Wait List Capacity
             wait_cap_elem = soup.find('span', {'id': 'uc_class_lbl_wait_cap'})
             if wait_cap_elem:
-                availability['waitlist_capacity'] = self._clean_text(wait_cap_elem.get_text())
+                availability['waitlist_capacity'] = clean_html_text(wait_cap_elem.get_text())
             
             # Wait List Total
             wait_tot_elem = soup.find('span', {'id': 'uc_class_lbl_wait_tot'})
             if wait_tot_elem:
-                availability['waitlist_total'] = self._clean_text(wait_tot_elem.get_text())
+                availability['waitlist_total'] = clean_html_text(wait_tot_elem.get_text())
             
             # Available Seats
             available_elem = soup.find('span', {'id': 'uc_class_lbl_available_seat'})
             if available_elem:
-                availability['available_seats'] = self._clean_text(available_elem.get_text())
+                availability['available_seats'] = clean_html_text(available_elem.get_text())
             
             # Determine status based on availability
             try:
@@ -1362,24 +1345,6 @@ class CuhkScraper:
         """Parse term-specific information from HTML"""
         return self._create_term_info(html, term_code, term_name, self.config.get_enrollment_details)
     
-    
-    def _clean_text(self, text: str) -> str:
-        """Clean and normalize HTML text content with proper structure preservation"""
-        if not text:
-            return ""
-        
-        # Use BeautifulSoup's built-in text extraction with newline preservation
-        soup = BeautifulSoup(text, 'html.parser')
-        
-        # separator='\n' converts <br> tags to newlines, strip=True removes extra whitespace
-        cleaned_text = soup.get_text(separator='\n', strip=True)
-        
-        # Basic cleanup: normalize multiple consecutive newlines
-        import re
-        cleaned_text = re.sub(r'\n\s*\n', '\n', cleaned_text)  # Remove empty lines
-        
-        return cleaned_text.strip()
-    
     def _html_to_markdown(self, html_content: str) -> str:
         """Convert HTML content to clean Markdown format with Word HTML preprocessing"""
         if not html_content:
@@ -1396,7 +1361,7 @@ class CuhkScraper:
             
         except Exception as e:
             self.logger.warning(f"Error in HTML processing: {e}, falling back to basic text extraction")
-            return self._clean_text(html_content)
+            return clean_html_text(html_content)
     
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
@@ -1481,8 +1446,8 @@ class CuhkScraper:
                 cells = row.find_all('td')
                 if len(cells) >= 3:
                     # Extract assessment type and percentage
-                    assessment_type = self._clean_text(cells[1].get_text())
-                    percentage = self._clean_text(cells[2].get_text())
+                    assessment_type = clean_html_text(cells[1].get_text())
+                    percentage = clean_html_text(cells[2].get_text())
                     
                     if assessment_type and percentage:
                         assessment_types[assessment_type] = percentage
