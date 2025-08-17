@@ -578,7 +578,7 @@ export default function CourseSearch({
                   variant={isSelected ? "default" : "outline"}
                   size="sm"
                   onClick={() => toggleDayFilter(dayIndex)}
-                  className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                  className="h-6 px-2 text-xs font-normal border-1"
                   title={isSelected ? `Remove ${dayName} filter` : `Show only courses with classes on ${dayName}`}
                 >
                   {shortName}
@@ -594,7 +594,7 @@ export default function CourseSearch({
                 onClick={() => {
                   setSelectedDays(new Set())
                 }}
-                className="h-6 px-2 text-xs font-medium cursor-pointer"
+                className="h-6 px-2 text-xs font-medium"
                 title="Clear all day filters"
               >
                 Clear Days
@@ -833,7 +833,7 @@ export default function CourseSearch({
                   variant="outline"
                   size="sm"
                   onClick={() => setShuffleTrigger(prev => prev + 1)}
-                  className="h-6 px-2 text-xs cursor-pointer"
+                  className="h-6 px-2 text-xs"
                   title="Shuffle courses for discovery"
                 >
                   🎲 Shuffle
@@ -1135,7 +1135,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
               >
                 <Search className="w-3 h-3" />
@@ -1148,7 +1148,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
               >
                 <Search className="w-3 h-3" />
@@ -1161,7 +1161,7 @@ function CourseCard({
                     e.stopPropagation()
                     cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
                   }}
-                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                   title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
                 >
                   <Search className="w-3 h-3" />
@@ -1202,7 +1202,7 @@ function CourseCard({
                     e.stopPropagation()
                     onRemoveCourse(courseKey)
                   }}
-                  className="min-w-[70px] cursor-pointer"
+                  className="min-w-[70px]"
                   title="Remove course from cart"
                 >
                   <Trash2 className="w-3 h-3 mr-1" />
@@ -1219,7 +1219,7 @@ function CourseCard({
                       onSelectEnrollment(enrolledCourse.courseId)
                     }
                   }}
-                  className="min-w-[80px] cursor-pointer"
+                  className="min-w-[80px]"
                   title="Go to course in shopping cart"
                 >
                   <ShoppingCart className="w-3 h-3 mr-1" />
@@ -1237,7 +1237,7 @@ function CourseCard({
                     }
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="min-w-[80px] cursor-pointer"
+                  className="min-w-[80px]"
                   title={hasSelectionsChanged && isEnrollmentComplete
                     ? "Replace course with new section selections" 
                     : "Course already added to cart"}
@@ -1257,7 +1257,7 @@ function CourseCard({
                   }
                 }}
                 disabled={!isEnrollmentComplete}
-                className="min-w-[80px] cursor-pointer"
+                className="min-w-[80px]"
                 title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
               >
                 {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
@@ -1270,7 +1270,7 @@ function CourseCard({
                 e.stopPropagation()
                 setExpanded(!expanded)
               }}
-              className="w-8 h-8 p-0 cursor-pointer"
+              className="w-8 h-8 p-0"
               title={expanded ? "Hide sections" : "Show sections"}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -1298,7 +1298,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
               >
                 <Search className="w-3 h-3" />
@@ -1312,7 +1312,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
               >
                 <Search className="w-3 h-3" />
@@ -1326,7 +1326,7 @@ function CourseCard({
                   e.stopPropagation()
                   cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 cursor-pointer"
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
               >
                 <Search className="w-3 h-3" />
@@ -1373,7 +1373,7 @@ function CourseCard({
                     }
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="w-full cursor-pointer"
+                  className="w-full"
                   title={hasSelectionsChanged && isEnrollmentComplete
                     ? "Replace course with new section selections" 
                     : "Course already added to cart"}
@@ -1392,7 +1392,7 @@ function CourseCard({
                         onSelectEnrollment(enrolledCourse.courseId)
                       }
                     }}
-                    className="flex-1 cursor-pointer"
+                    className="flex-1"
                     title="Go to course in shopping cart"
                   >
                     <ShoppingCart className="w-3 h-3 mr-1" />
@@ -1406,7 +1406,7 @@ function CourseCard({
                       e.stopPropagation()
                       onRemoveCourse(courseKey)
                     }}
-                    className="flex-1 cursor-pointer"
+                    className="flex-1"
                     title="Remove course from cart"
                   >
                     <Trash2 className="w-3 h-3 mr-1" />
@@ -1426,7 +1426,7 @@ function CourseCard({
                   }
                 }}
                 disabled={!isEnrollmentComplete}
-                className="w-full cursor-pointer"
+                className="w-full"
                 title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
               >
                 <Plus className="w-3 h-3 mr-1" />
@@ -1470,7 +1470,7 @@ function CourseCard({
                     variant={isSelected ? "default" : "outline"}
                     size="sm"
                     onClick={() => toggleDayFilter(dayIndex)}
-                    className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+                    className="h-6 px-2 text-xs font-normal border-1"
                     title={isSelected ? `Remove ${dayName} filter` : `Filter by ${dayName}`}
                   >
                     {shortName}
@@ -1486,7 +1486,7 @@ function CourseCard({
                   onClick={() => {
                     setSelectedDays(new Set())
                   }}
-                  className="h-6 px-2 text-xs font-medium cursor-pointer"
+                  className="h-6 px-2 text-xs font-medium"
                   title="Clear all day filters"
                 >
                   Clear Days
