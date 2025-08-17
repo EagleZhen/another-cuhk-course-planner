@@ -9,12 +9,11 @@ from cuhk_scraper import CuhkScraper
 def main():
     """Scrape all subjects and export to individual JSON files"""
     
-    # Set up logging
+    # Set up logging (console only - scraper handles its own timestamped file logging)
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler('scraping.log'),
             logging.StreamHandler()
         ]
     )
@@ -29,8 +28,8 @@ def main():
         
         # Get all subjects from live website
         logger.info("Getting subjects from live website...")
-        # subjects = scraper.get_subjects_from_live_site()
-        subjects = ['ARTS', 'HIST']
+        subjects = scraper.get_subjects_from_live_site()
+        # subjects = ['ARTS', 'HIST']
 
         if not subjects:
             logger.error("Could not get subjects from live website")
