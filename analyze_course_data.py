@@ -711,17 +711,13 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                         'examples': examples[:3]
                     })
         
-        for ex in complex_examples[:5]:
+        for ex in complex_examples:  # Show ALL complex cases
             print(f"  📄 {ex['line_count']} lines, {ex['count']:,} sections:")
-            for line in ex['attr'].split('\n')[:3]:  # Show first 3 lines
+            for line in ex['attr'].split('\n'):  # Show ALL lines, not just first 3
                 if line.strip():
                     print(f"     └─ \"{line.strip()}\"")
             if ex['examples']:
                 print(f"     📚 Examples: {', '.join(ex['examples'])}")
-            print()
-        
-        if len(complex_examples) > 5:
-            print(f"    ... and {len(complex_examples) - 5} more complex cases")
             print()
     
     return {

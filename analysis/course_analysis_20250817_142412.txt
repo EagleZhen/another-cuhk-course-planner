@@ -1,0 +1,569 @@
+🔍 CUHK Course Data Analysis
+==================================================
+🕒 Analysis timestamp: 20250817_142412
+📂 Found 264 JSON files in data/
+✅ Successfully loaded 264 subjects
+
+📋 CORE SECTION TYPES ANALYSIS
+-----------------------------------
+🔢 Found 18 core section types
+🎯 Core types: ASB, CLW, DIS, EXR, FLD, IND, LAB, LEC, OTH, PRA, PRJ, SEM, STD, TMC, TUT, VST, WBL, WKS
+
+Section types with examples:
+
+ASB: 22 sections
+  📚 Example: GESC1000 - College Assembly
+  📋 Section: -A01-ASB (8171)
+  ⏰ Time: Fr 11:30AM - 1:15PM
+  📍 Location: TBA
+
+CLW: 833 sections
+  📚 Example: ITAL1000 - Italian I
+  📋 Section: AC01-CLW (5749)
+  ⏰ Time: Th 9:30AM - 12:15PM
+  📍 Location: Wu Ho Man Yuen Bldg 508
+
+DIS: 46 sections
+  📚 Example: UGEC2858 - Animals and Society : A philosophical approach
+  📋 Section: -D01-DIS (9279)
+  ⏰ Time: Tu 5:30PM - 6:15PM
+  📍 Location: Lee Shau Kee Building 515
+
+EXR: 123 sections
+  📚 Example: MATH3340 - Mathematics of Machine Learning
+  📋 Section: -E01-EXR (7482)
+  ⏰ Time: Tu 5:30PM - 6:15PM
+  📍 Location: Science Centre L1
+
+FLD: 362 sections
+  📚 Example: DBAC7119 - Global Business and Management Field Study
+  📋 Section: LF01-FLD (1003)
+  ⏰ Time: Mo 8:30AM - 6:30PM
+  📍 Location: No Room Required
+
+IND: 161 sections
+  📚 Example: EMBA6072 - Guided Learning in Global Business
+  📋 Section: AEI1-IND (1016)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+LAB: 605 sections
+  📚 Example: ROSE5910 - M.Sc.Projects
+  📋 Section: -L01-LAB (3689)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+LEC: 6700 sections
+  📚 Example: UGEC1016 - Experiencing Architecture
+  📋 Section: --LEC (5533)
+  ⏰ Time: We 9:30AM - 12:15PM
+  📍 Location: Lee Shau Kee Archi Bldg G04
+
+OTH: 70 sections
+  📚 Example: MEDF1011 - Foundation Course for Health Sciences I
+  📋 Section: -O01-OTH (6443)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+PRA: 245 sections
+  📚 Example: EPSY6501 - Practicum (I)
+  📋 Section: AP01-PRA (1195)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+PRJ: 1283 sections
+  📚 Example: GESC1230 - Caring Heart Service Learning
+  📋 Section: AAJ1-PRJ (8148)
+  ⏰ Time: Fr 2:30PM - 5:15PM
+  📍 Location: No Room Required
+
+SEM: 662 sections
+  📚 Example: DBAC7104 - Seminar on Applied Business Management Research (I)
+  📋 Section: LS01-SEM (2916)
+  ⏰ Time: Th 8:30AM - 6:30PM
+  📍 Location: No Room Required
+
+STD: 147 sections
+  📚 Example: URSP3200 - Advanced Urban Design Studio
+  📋 Section: -U01-STD (7943)
+  ⏰ Time: Mo 5:30PM - 6:15PM
+  📍 Location: Chen Kou Bun Bldg 510
+
+TMC: 3360 sections
+  📚 Example: DBAC8101 - Thesis Research
+  📋 Section: LAM1-TMC (2936)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+TUT: 2720 sections
+  📚 Example: UGEC1209 - Thinking Gender: An Introduction to Gender Studies
+  📋 Section: -T01-TUT (7519)
+  ⏰ Time: Tu 4:30PM - 5:15PM
+  📍 Location: Sino Building LT2
+
+VST: 2 sections
+  📚 Example: SBMS2201 - Traditional Chinese Medicine and Pharmacognosy
+  📋 Section: -V01-VST (8917)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+WBL: 198 sections
+  📚 Example: GESC2060 - Debating Globalization
+  📋 Section: -X01-WBL (6376)
+  ⏰ Time: TBA
+  📍 Location: No Room Required
+
+WKS: 57 sections
+  📚 Example: DBAC7106 - Workshop for Thesis Proposal
+  📋 Section: LW01-WKS (1175)
+  ⏰ Time: Sa 8:30AM - 6:30PM
+  📍 Location: TBA
+
+⏰ TIME RANGE ANALYSIS
+-------------------------
+🌅 Earliest class start: 00:00
+   📚 Example: MBAC6061 - Orientation and Business Simulation
+   📋 Section: SAJ1-PRJ (3761)
+   ⏰ Time: Fr 12:00AM - 12:00AM
+   📍 Location: TBA
+   📅 Term: 2025-26 Term 1
+
+🌆 Latest class end: 22:15
+   📚 Example: ACCT5140 - Introductory Accounting Data Analytics
+   📋 Section: CA-LEC (2152)
+   ⏰ Time: Th 7:00PM - 10:15PM
+   📍 Location: Cheng Yu Tung Bldg 615
+   📅 Term: 2025-26 Term 2
+
+📊 Total time slots analyzed: 29959
+🔄 Unique time patterns: 532
+
+Most common time patterns:
+  Tu 2:30PM - 5:15PM             : 727 times
+  We 2:30PM - 4:15PM             : 697 times
+  Tu 2:30PM - 4:15PM             : 652 times
+  Tu 10:30AM - 12:15PM           : 645 times
+  We 2:30PM - 5:15PM             : 622 times
+  Mo 2:30PM - 4:15PM             : 611 times
+  We 10:30AM - 12:15PM           : 517 times
+  Th 2:30PM - 5:15PM             : 498 times
+  Mo 2:30PM - 5:15PM             : 453 times
+  Tu 10:30AM - 1:15PM            : 435 times
+
+📊 HOURLY DISTRIBUTION ANALYSIS
+-----------------------------------
+📈 Total sections analyzed: 29959
+🔥 Peak hours: ['16:00'] (10881 sections)
+😴 Quietest hours: ['07:00'] (0 sections)
+
+📅 Hourly breakdown (sections active per hour - all 24 hours):
+  00:00 │  73 sections │ ⚠️ UNUSUAL
+  01:00 │   0 sections │
+  02:00 │   0 sections │
+  03:00 │   0 sections │
+  04:00 │   0 sections │
+  05:00 │   0 sections │
+  06:00 │   0 sections │
+  07:00 │   0 sections │
+  08:00 │2332 sections │██████████
+  09:00 │6041 sections │███████████████████████████
+  10:00 │9574 sections │███████████████████████████████████████████
+  11:00 │9700 sections │████████████████████████████████████████████
+  12:00 │9597 sections │████████████████████████████████████████████
+  13:00 │7622 sections │███████████████████████████████████
+  14:00 │10853 sections │█████████████████████████████████████████████████
+  15:00 │10038 sections │██████████████████████████████████████████████
+  16:00 │10881 sections │██████████████████████████████████████████████████
+  17:00 │8195 sections │█████████████████████████████████████
+  18:00 │6038 sections │███████████████████████████
+  19:00 │3095 sections │██████████████
+  20:00 │3033 sections │█████████████
+  21:00 │2549 sections │███████████
+  22:00 │   5 sections │ ⚠️ UNUSUAL
+  23:00 │   0 sections │
+
+⚠️ UNUSUAL HOURS DETECTED:
+   00:00 - 73 sections
+      📚 Example: PHAR5902 - Clinical Pharmacy Practice Exposure: Internal Medicine (Ambulatory Care)
+      📋 Section: -F01-FLD (1125)
+      ⏰ Time: Mo 12:00AM - 12:00AM
+      📍 Location: No Room Required
+   22:00 - 5 sections
+      📚 Example: ACCT6141 - Accounting Data Analytics and Business Intelligence
+      📋 Section: CA-LEC (1928)
+      ⏰ Time: Tu 7:00PM - 10:15PM
+      📍 Location: Cheng Yu Tung Bldg 615
+
+🎯 Top 3 busiest hours with examples:
+
+1. 16:00 - 10881 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+2. 14:00 - 10853 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+3. 15:00 - 10038 sections
+   📚 Example: PGDE5315 - Classroom Management and Discipline in Secondary Schools
+   📋 Section: A-LEC (9481)
+   ⏰ Time: Mo 2:30PM - 5:15PM
+   📍 Location: Wen Lan Tang LG204
+
+📋 ENROLLMENT REQUIREMENTS ANALYSIS
+--------------------------------------
+📊 Overview:
+   Total courses: 8840
+   Courses with requirements: 6537
+   Unique requirement patterns: 2985
+   Coverage: 73.9%
+
+🔑 Most common dependency keywords:
+   pre-requisite   : 741 courses
+   prerequisite    : 560 courses
+   co-requisite    : 389 courses
+   year            : 224 courses
+   permission      : 177 courses
+   consent         :  89 courses
+   gpa             :  29 courses
+   grade           :  24 courses
+   credit          :  24 courses
+   corequisite     :   9 courses
+
+📚 Requirements by category:
+
+🏷️ Other Requirements (1537 patterns):
+   1. [160x] "For students in Juris Doctor, LLB-JD, BBA-JD Programme Double Degree, Juris Doctor/MBA Double Degree, LLM Chinese Business Law, LLM Common Law, LLM International Economic Law, LLM Energy and Environmental Law, LLM Legal History"
+      📚 Example: LAWS6001 - Legal System
+
+   2. [104x] "For PGDE students only"
+      📚 Example: PGDE5001 - Subject Curriculum and Teaching (Major: Chinese Language)
+
+   3. [84x] "-"
+      📚 Example: MATH4250 - Game Theory
+
+   ... and 1534 more patterns (4401 courses)
+
+
+🏷️ Prerequisites (1052 patterns):
+   1. [18x] "Prerequisite: FINA2010 or FINA2310 or permission from instructor."
+      📚 Example: FINA3020 - International Finance
+
+   2. [13x] "Pre-requisite: BIOL2120."
+      📚 Example: CMBI2200 - Literature Survey in CMB and Scientific Communication
+
+   3. [10x] "Prerequisite: FINA3080 or permission from instructor."
+      📚 Example: FINA4120 - Fixed Income Securities Analysis
+
+   ... and 1049 more patterns (1258 courses)
+
+
+🏷️ Co-requisites (330 patterns):
+   1. [ 7x] "Not for Geography and Resource Management Majors.
+Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
+      📚 Example: UGEC2210 - Food and Hunger
+
+   2. [ 5x] "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
+      📚 Example: UGEB2296 - Experiencing and Rethinking Science and Technology in Agriculture
+
+   3. [ 5x] "Not for Philosophy Majors.
+Co-requisite: UGFH1000, UGFN1000 or UGFN1001 (only applicable to students admitted to the 4-year curriculum)"
+      📚 Example: UGED1815 - Philosophy as a Way of Life
+
+   ... and 327 more patterns (343 courses)
+
+
+🏷️ Academic Standing (44 patterns):
+   1. [13x] "For Medical Study Year 4 (MYR4)"
+      📚 Example: MEDU3110 - Junior Medical Clerkship
+
+   2. [10x] "For Medical Study Year 3 (MYR3)"
+      📚 Example: MEDU3160 - Resilience Building in Professional and Personal Development II
+
+   3. [ 9x] "For Medical Study Year 5 (MYR5)"
+      📚 Example: MEDU4010 - Community and Family Medicine Module
+
+   ... and 41 more patterns (58 courses)
+
+
+🏷️ Grade Requirements (11 patterns):
+   1. [ 1x] "For Shaw College Students only. This course is double-coded with GPAD1046. Government and Public Administration Majors and students who have taken GPAD1045,1046, GELD2111, 2112 or 3113 cannot take this course to fulfill General Education requirements."
+      📚 Example: GESC2120 - The Art of Leadership
+
+   2. [ 1x] "Not for students who have taken GPAD1045, or GELD2111, 2112 and 3113."
+      📚 Example: GPAD1046 - The Art of Leadership
+
+   3. [ 1x] "Not for students who have taken UGED2550 or GPAD1090."
+      📚 Example: GPAD2065 - Values and Public Affairs
+
+   ... and 8 more patterns (8 courses)
+
+
+🏷️ Credit Requirements (5 patterns):
+   1. [11x] "Students from MSc of Accreditation Chemistry only."
+      📚 Example: CHEM5501 - Laboratory Accreditation Based on ISO/IEC 17025
+
+   2. [ 7x] "Students from MSc of Accreditation Chemistry only"
+      📚 Example: CHEM5507 - Forensic Sciences and Doping Control
+
+   3. [ 2x] "For students of Master of Arts Programme in Family Counselling and Family Education (Specialization: Accredited Programme on Marriage and Family Therapy) only"
+      📚 Example: SOWK6217 - Practical Skills in Marriage and Family Therapy
+
+   ... and 2 more patterns (2 courses)
+
+
+🏷️ Permission Required (6 patterns):
+   1. [ 1x] "Students who have taken GPAD1077 cannot take this course, unless teacher's consent has been obtained."
+      📚 Example: GPAD2015 - Selected Topics in Hong Kong Politics I
+
+   2. [ 1x] "1. For JUPAS entrants without attending HKDSE Physics or Combined Science with Physics component, including absentees.
+2. For non-JUPAS students, please seek advice and permission from the Department of Physics."
+      📚 Example: PHYS1001 - Essential Physics
+
+   3. [ 1x] "PHYS3041 or its equivalents, or permission of instructor."
+      📚 Example: PHYS4450 - Optical Physics
+
+   ... and 3 more patterns (3 courses)
+
+
+🏖️ WEEKEND COURSE ANALYSIS
+------------------------------
+📊 Weekend Course Statistics:
+   Total courses analyzed: 8,840
+   Courses with weekend classes: 313
+   Weekend sections found: 960
+   Percentage: 3.54% of courses have weekend classes
+
+📋 Weekend Courses Found:
+   📚 DBAC5101 - Introduction to Applied Business Research
+      Credits: 1.50
+      └─ L-LEC (4315): Sa 8:30AM - 6:30PM
+         📍 No Room Required
+         👨‍🏫 Professor HSU Vernon Ning
+      └─ L-LEC (4315): Su 8:30AM - 6:30PM
+         📍 No Room Required
+         👨‍🏫 Professor HSU Vernon Ning
+
+   📚 DBAC5102 - Quantitative Methods for Applied Business Studies
+      Credits: 3.00
+      └─ L-LEC (4316): Sa 8:30AM - 6:30PM
+         📍 No Room Required
+         👨‍🏫 Professor GAO Zhenyu
+      └─ L-LEC (4316): Su 8:30AM - 6:30PM
+         📍 No Room Required
+         👨‍🏫 Professor GAO Zhenyu
+
+   📚 DBAC5103 - Surveys and Experimental Methods for Applied Business Studies
+      Credits: 3.00
+      └─ L-LEC (4329): Sa 8:30AM - 6:30PM
+         📍 No Room Required
+         👨‍🏫 Professor DAI Xianchi, 
+Professor KWONG Yuk Yee Jessica
+      └─ L-LEC (4329): Su 8:30AM - 6:30PM
+         📍 No Room Required
+         👨‍🏫 Professor DAI Xianchi, 
+Professor KWONG Yuk Yee Jessica
+
+   ... and 310 more weekend courses
+
+
+🧪 CLASS vs COURSE ATTRIBUTES ANALYSIS
+--------------------------------------------------
+📊 Total sections analyzed: 17,596
+📊 Sections with both attributes: 5,892
+
+🔍 LINE-BY-LINE CLEANING ANALYSIS:
+  ✅ Successfully cleaned: 2,374 (40.3%)
+     └─ Exact matches (no class-specific attrs): 234
+     └─ Partial matches (extracted course attrs): 2,140
+  ❌ No overlap found: 3,518 (59.7%)
+
+📝 LINE-BY-LINE CLEANING EXAMPLES:
+  Course: UGEC1209
+    Original class attrs: 'SDG-GE #5 Gender Equality
+English only'
+    Course attrs: 'SDG-GE #5 Gender Equality'
+    Cleaned result: 'English only'
+    Lines removed: 1/2
+
+  Course: UGEC1209
+    Original class attrs: 'SDG-GE #5 Gender Equality
+English only'
+    Course attrs: 'SDG-GE #5 Gender Equality'
+    Cleaned result: 'English only'
+    Lines removed: 1/2
+
+  Course: UGEC1372
+    Original class attrs: 'SDG-GE #11 Sustainable Cities and Communities
+Cantonese and English'
+    Course attrs: 'SDG-GE #11 Sustainable Cities and Communities'
+    Cleaned result: 'Cantonese and English'
+    Lines removed: 1/2
+
+  Course: UGEC1835
+    Original class attrs: 'SDG-GE #5 Gender Equality
+SDG-GE #12 Responsible Consumption and Production
+SDG-GE #16 Peace, Justice and Strong Institutions
+SDG-GE #17 Partnerships for the Goals
+Cantonese only'
+    Course attrs: 'SDG-GE #5 Gender Equality
+SDG-GE #12 Responsible Consumption and Production
+SDG-GE #16 Peace, Justice and Strong Institutions
+SDG-GE #17 Partnerships for the Goals'
+    Cleaned result: 'Cantonese only'
+    Lines removed: 4/5
+
+  Course: UGEC1835
+    Original class attrs: 'SDG-GE #5 Gender Equality
+SDG-GE #12 Responsible Consumption and Production
+SDG-GE #16 Peace, Justice and Strong Institutions
+SDG-GE #17 Partnerships for the Goals
+Cantonese, English and Putonghua'
+    Course attrs: 'SDG-GE #5 Gender Equality
+SDG-GE #12 Responsible Consumption and Production
+SDG-GE #16 Peace, Justice and Strong Institutions
+SDG-GE #17 Partnerships for the Goals'
+    Cleaned result: 'Cantonese, English and Putonghua'
+    Lines removed: 4/5
+
+⚠️  NO OVERLAP CASES (course attrs not found in class attrs):
+  Course: UGEC2960
+    Course attrs: 'Shared Learning Activities with ANTH5335'
+    Class attrs:  'English only'
+
+  Course: UGEC2960
+    Course attrs: 'Shared Learning Activities with ANTH5335'
+    Class attrs:  'English only'
+
+  Course: UGEC2960
+    Course attrs: 'Shared Learning Activities with ANTH5335'
+    Class attrs:  'English only'
+
+  Course: UGEC2960
+    Course attrs: 'Shared Learning Activities with ANTH5335'
+    Class attrs:  'English only'
+
+  Course: UGEC2990
+    Course attrs: 'Shared Learning Activities with ANTH5520'
+    Class attrs:  'English only'
+
+    ... and 5 more cases
+
+📋 ALL UNIQUE CLASS-SPECIFIC ATTRIBUTES:
+   (These should be meaningful class attributes like languages, teaching methods)
+
+  "English only": 9,392 sections (e.g., UGEC1016, UGEC1209)
+  "Cantonese and English": 1,443 sections (e.g., UGEC1372, UGEC1560)
+  "Cantonese only": 1,150 sections (e.g., UGEC1120, UGEC1232)
+  "Putonghua only": 402 sections (e.g., UGEC2436, MBAC6050)
+  "Can, change to Eng if needed": 375 sections (e.g., COMM2850, COMM2850)
+  "Putonghua and English": 323 sections (e.g., UGEC2634, CUMT2001)
+  "Cantonese, English and Putonghua": 275 sections (e.g., UGEC1681, UGEC1681)
+  "Putonghua and Cantonese": 95 sections (e.g., GESC1240, COMM3920)
+  "English only
+All Face-to-Face Teaching": 69 sections (e.g., EMBA6061, EMBA6062)
+  "Korean and English": 46 sections (e.g., KORE1000, KORE1000)
+  "Spanish and English": 40 sections (e.g., SPAN1000, SPAN1000)
+  "French and English": 37 sections (e.g., FREN1000, FREN1000)
+  "Hong Kong Sign Language": 33 sections (e.g., HKSL1000, HKSL1000)
+  "Japanese and English": 33 sections (e.g., JASP1350, JASP1350)
+  "Japanese and Cantonese": 30 sections (e.g., JASP1450, JASP1450)
+  "German and English": 26 sections (e.g., GERM1000, GERM1000)
+  "PTH, change to Eng if needed": 24 sections (e.g., DBAC5101, DBAC5102)
+  "Japanese and Putonghua": 13 sections (e.g., HIST6016, JASP1450)
+  "Can, change to PTH if needed": 6 sections (e.g., COMM2100, COMM2100)
+  "Japanese only": 5 sections (e.g., JASP4100, JASP4390)
+  "Italian and English": 4 sections (e.g., ITAL1000, ITAL1000)
+  "Arabic and English": 4 sections (e.g., ARAB1000, ARAB1000)
+  "Russian and English": 4 sections (e.g., RUSS1000, RUSS1000)
+  "Thai and English": 4 sections (e.g., THAI1000, THAI1000)
+  "Cantonese only
+All Face-to-Face Teaching": 3 sections (e.g., EMBA6063, EMBA6063)
+  "Cantonese only
+Internship": 2 sections (e.g., FAAS4101, FAAS4101)
+  "Hokkien, Cantonese and Putonghua": 2 sections (e.g., CLCH1702, CLCH1702)
+  "English only
+Putonghua and English
+All Face-to-...": 1 sections (e.g., EMBA6062)
+  "English only
+Blended-mode class available": 1 sections (e.g., PEDU6405)
+  "All Face-to-Face Teaching": 1 sections (e.g., ECON5430)
+  "English only
+Internship": 1 sections (e.g., FNSC4906)
+
+📊 SUMMARY: 32 unique attribute combinations found
+📊 Non-empty class-specific attributes: 31
+
+🚨 COMPLEX MULTI-LINE CLEANED ATTRIBUTES:
+   (Cases where cleaned result still contains multiple attributes)
+   📊 6 attribute types affect 77 sections
+
+  📄 2 lines, 69 sections:
+     └─ "English only"
+     └─ "All Face-to-Face Teaching"
+     📚 Examples: EMBA6061, EMBA6062, EMBA6063
+
+  📄 2 lines, 3 sections:
+     └─ "Cantonese only"
+     └─ "All Face-to-Face Teaching"
+     📚 Examples: EMBA6063, EMBA6063, MGNT6521
+
+  📄 2 lines, 2 sections:
+     └─ "Cantonese only"
+     └─ "Internship"
+     📚 Examples: FAAS4101, FAAS4101
+
+  📄 3 lines, 1 sections:
+     └─ "English only"
+     └─ "Putonghua and English"
+     └─ "All Face-to-Face Teaching"
+     📚 Examples: EMBA6062
+
+  📄 2 lines, 1 sections:
+     └─ "English only"
+     └─ "Blended-mode class available"
+     📚 Examples: PEDU6405
+
+  📄 2 lines, 1 sections:
+     └─ "English only"
+     └─ "Internship"
+     📚 Examples: FNSC4906
+
+
+📊 SUBJECT SUMMARY
+--------------------
+Top subjects by course count:
+  LAWS (Law)                          : 330 courses,  291 sections
+  MUSC (Music)                        : 230 courses,  177 sections
+  COMM (Communication)                : 211 courses,  203 sections
+  HIST (History)                      : 210 courses,  246 sections
+  THEO (Theology)                     : 198 courses,  123 sections
+  CHLL (Chinese Language & Literature) : 187 courses,  222 sections
+  FINA (Finance)                      : 162 courses,  234 sections
+  ENGE (English)                      : 158 courses,  332 sections
+  ANTH (Anthropology)                 : 155 courses,  222 sections
+  CURE (Cultural & Religious Studies) : 150 courses,  133 sections
+  PHIL (Philosophy)                   : 134 courses,  152 sections
+  PSYC (Psychology)                   : 134 courses,  189 sections
+  BCME (Chinese Medicine)             : 132 courses,  137 sections
+  ESTR (Courses for ELITE Stream)     : 132 courses,  129 sections
+  ECON (Economics)                    : 130 courses,  137 sections
+
+💡 RECOMMENDATIONS
+--------------------
+Based on this analysis:
+
+🕒 Calendar Time Range:
+   - Suggested start: 07:00 (earliest class at 00:00)
+   - Suggested end: 23:00 (latest class ends at 22:15)
+
+📋 Section Type Handling:
+   - Core types to handle: ASB, CLW, DIS, EXR, FLD, IND, LAB, LEC, OTH, PRA, PRJ, SEM, STD, TMC, TUT, VST, WBL, WKS
+   - All section patterns are now consolidated into core types
+
+🌐 Language Support:
+   - Language analysis moved to class_attributes cleaning analysis
