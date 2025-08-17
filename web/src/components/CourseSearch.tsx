@@ -1978,14 +1978,14 @@ function CourseOutcomeSection({
         <div className="bg-gray-50 rounded-lg p-3 w-fit">
           <table className="w-fit text-sm">
             <thead>
-              <tr className="border-b border-gray-200">
+              <tr className="border-b border-gray-400">
                 <th className="text-left py-1 pr-4 font-medium text-gray-700">Type</th>
                 <th className="text-left py-1 font-medium text-gray-700">Percentage</th>
               </tr>
             </thead>
             <tbody>
               {assessmentEntries.map(([type, percentage], index) => (
-                <tr key={index} className={index < assessmentEntries.length - 1 ? 'border-b border-gray-100' : ''}>
+                <tr key={index} className={index < assessmentEntries.length - 1 ? 'border-b border-gray-200' : ''}>
                   <td className="py-1 pr-4 text-gray-600">{type}</td>
                   <td className="py-1 text-gray-600">{String(percentage)}</td>
                 </tr>
@@ -2042,12 +2042,12 @@ function CourseOutcomeSection({
               ),
               // Lists with app styling and proper spacing
               ul: ({ children }) => (
-                <ul className="list-disc list-inside space-y-0.5 mb-2 text-gray-600 ml-2">
+                <ul className="list-disc list-inside space-y-0.5 mb-2 text-gray-600">
                   {children}
                 </ul>
               ),
               ol: ({ children }) => (
-                <ol className="list-decimal list-inside space-y-0.5 mb-2 text-gray-600 ml-2">
+                <ol className="list-decimal list-inside space-y-0.5 mb-2 text-gray-600">
                   {children}
                 </ol>
               ),
