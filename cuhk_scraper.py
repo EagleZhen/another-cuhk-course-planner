@@ -2,7 +2,8 @@ import requests
 from requests.exceptions import RequestException, Timeout, ConnectionError, HTTPError
 import json
 from bs4 import BeautifulSoup
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional, Any, Union
+from bs4 import Tag
 from dataclasses import dataclass, asdict, field
 from datetime import datetime, timezone
 import time
@@ -13,8 +14,19 @@ import os
 import gc
 from html_utils import html_to_clean_markdown
 
-def utc_now_iso():
-    """Get current UTC timestamp in ISO format with timezone info"""
+def utc_now_iso() -> str:
+    """Get current UTC timestamp in ISO format with timezone info
+    
+    Returns:
+        str: ISO 8601 formatted timestamp with timezone
+        
+    Examples:
+        >>> utc_now_iso()
+        '2025-08-17T14:32:15.123456+00:00'
+        
+        >>> utc_now_iso()  # Different time
+        '2025-08-17T15:45:22.987654+00:00'
+    """
     return datetime.now(timezone.utc).isoformat()
 
 @dataclass
@@ -1452,7 +1464,7 @@ class CuhkScraper:
         
         self.logger.info(f"Course Outcome parsed for {course.course_code}")
     
-    def _parse_assessment_table(self, table) -> Dict[str, str]:
+    def _parse_assessment_table(self, table: Tag) -> Dict[str, str]:
         """Parse assessment types table and return as key-value pairs"""
         assessment_types = {}
         
