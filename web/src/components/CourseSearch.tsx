@@ -1981,7 +1981,7 @@ function CourseOutcomeSection({
   // Early return if no content
   if (!content) return null
 
-  // Render assessment types as modern bullet points
+  // Render assessment types as clean table with lightweight borders
   if (isTable && typeof content === 'object') {
     const assessmentEntries = Object.entries(content)
     if (assessmentEntries.length === 0) return null
@@ -1989,15 +1989,16 @@ function CourseOutcomeSection({
     return (
       <div>
         <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
-        <div className="space-y-0.5">
-          {assessmentEntries.map(([type, percentage], index) => (
-            <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
-              <span className="text-gray-400 text-xs">•</span>
-              <span className="">{type}:</span>
-              <span>{String(percentage)}%</span>
-            </div>
-          ))}
-        </div>
+        <table className="w-fit text-sm">
+          <tbody>
+            {assessmentEntries.map(([type, percentage], index) => (
+              <tr key={index}>
+                <td className="py-1 pr-4 text-gray-700">{type}:</td>
+                <td className="py-1 text-gray-600">{String(percentage)}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     )
   }
