@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-16T12:45:22.642337+00:00",
+    "scraped_at": "2025-08-17T12:56:55.751818+00:00",
     "subject": "ESGS",
-    "subject_title": "ESGS - Earth System and GeoInfo Sci",
+    "subject_title": "Earth System and GeoInfo Sci",
     "total_courses": 18,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -94,7 +94,7 @@
       "academic_group": "Div of Earth Sys & Geoinfo Sci",
       "academic_org": "Div of Earth Sys & Geoinfo Sci",
       "learning_outcomes": "This course will contribute to understanding of Earth system science, including atmosphere, hydrosphere, biosphere, lithosphere, cryosphere, and anthrosphere, and the interactions between and among these spheres. The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principle, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner.",
-      "course_syllabus": "1. Introductions  \n2. Radiation Balance  \n3. Atmosphere  \n4. Hydrosphere   \n5. Cryosphere  \n6. Biosphere & Lithosphere  \n7. Geodesy and GNSS  \n8. Climate Change",
+      "course_syllabus": "1. Introductions\n2. Radiation Balance\n3. Atmosphere\n4. Hydrosphere\n5. Cryosphere\n6. Biosphere & Lithosphere\n7. Geodesy and GNSS\n8. Climate Change",
       "assessment_types": {
         "Examination": "50",
         "Homework or assignment": "20",
@@ -102,7 +102,7 @@
       },
       "feedback_evaluation": "by CTE",
       "required_readings": "* Mackenzie, Fred T., 2010: Our Changing Planet – An Introduction to Earth System Science and Global Environmental Changes. 4rd Edition, Pearson Education, Inc., Upper Saddle River, NJ 07458.\n* Skinner, Brian J., Stephen C. Porter, and Daniel B. Botkin, 1999: The Blue Planet – An Introduction to Earth System Science. 2nd Edition, John Wiley and Sons, Inc.\n* Wallace, John M., and Peter V. Hobbs, 2006: Atmospheric Science: An Introductory Survey. 2nd Edition, Academic Press.\n* Peixoto, José P., and Abraham H. Oort, 1992: Physics of Climate. Springer-Verlag New York, Inc.",
-      "recommended_readings": "Our Changing Climate AMS Climate Studies: introduction to climate science by Chad M. Kauffman. \n\nhttp://www.ametsoc.org/amsedu/online/climateinfo/textbook.html\n\nhttp://bookstore.ametsoc.org/subject/climate-studies"
+      "recommended_readings": "Our Changing Climate AMS Climate Studies: introduction to climate science by Chad M. Kauffman.\n\nhttp://www.ametsoc.org/amsedu/online/climateinfo/textbook.html\n\nhttp://bookstore.ametsoc.org/subject/climate-studies"
     },
     {
       "subject": "ESGS",
@@ -178,8 +178,8 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth Sys & Geoinfo Sci",
       "academic_org": "Div of Earth Sys & Geoinfo Sci",
-      "learning_outcomes": "This course discusses the concepts, theories, techniques, and applications of geographic information sciences with special topics on geographic information systems, virtual geographic environments, and their applications.    \n   \nIt emphasizes on the use of GIS in organizing and managing spatial data, and how to perform spatial analysis with GIS. Topics include hardware/software components, raster and vector data structures, spatial database, spatial analysis and application issues.",
-      "course_syllabus": "1. Introduction to geoinformation science  \n2. Nature of geographic data and geocoding  \n3. Map projection and coordinate system  \n4. Data models & structure – vector & raster Data  \n5. Web GIS – Mashup web maps using ArcGIS online and Esri’s Story Map   \n6. Database issues  \n7. Spatial Analysis - Raster GIS capabilities and Vector GIS capabilities  \n8. GIS Application - Network Analysis and 3D GIS  \n9. Virtual Geographic Environment (VGE)  \n10. GIS for humanities and Social Science  \n11. Big Data and GIS",
+      "learning_outcomes": "This course discusses the concepts, theories, techniques, and applications of geographic information sciences with special topics on geographic information systems, virtual geographic environments, and their applications.\n\nIt emphasizes on the use of GIS in organizing and managing spatial data, and how to perform spatial analysis with GIS. Topics include hardware/software components, raster and vector data structures, spatial database, spatial analysis and application issues.",
+      "course_syllabus": "1. Introduction to geoinformation science\n2. Nature of geographic data and geocoding\n3. Map projection and coordinate system\n4. Data models & structure – vector & raster Data\n5. Web GIS – Mashup web maps using ArcGIS online and Esri’s Story Map\n6. Database issues\n7. Spatial Analysis - Raster GIS capabilities and Vector GIS capabilities\n8. GIS Application - Network Analysis and 3D GIS\n9. Virtual Geographic Environment (VGE)\n10. GIS for humanities and Social Science\n11. Big Data and GIS",
       "assessment_types": {
         "Examination": "40",
         "Lab performance": "30",
@@ -251,7 +251,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "Upon successful completion of this course, students are expected to:   \n1. Understand concepts central to the study of transportation systems.   \n2. Understand how GIS is revolutionizing transportation practice.    \n3. Be able to solve various transportation problems using analytical methods discussed in class and applied in labs.   \n4. Understand issues that impact the performance of transportation systems.",
+      "learning_outcomes": "Upon successful completion of this course, students are expected to:\n1. Understand concepts central to the study of transportation systems.\n2. Understand how GIS is revolutionizing transportation practice.\n3. Be able to solve various transportation problems using analytical methods discussed in class and applied in labs.\n4. Understand issues that impact the performance of transportation systems.",
       "course_syllabus": "1. Overview of GIS and Transportation\n2. Basic Elements of Transportation Networks\n3. Mobility and Accessibility\n4. Introduction to GIS-T\n5. GIS-T Data Representations\n6. Shortest Path Problem\n7. Travelling Salesman Problem (TSP)\n8. Vehicle Routing Problem (VRP)\n9. Linear Referencing Systems (LRS) & Dynamic Segmentation (DS)\n10. Network Flows and Facility Location Problems\n11. Travel Demand Analysis\n12. Intelligent Transportation System (ITS)",
       "assessment_types": {
         "Examination": "30",
@@ -260,7 +260,7 @@
       },
       "feedback_evaluation": "by CTE",
       "required_readings": "Loo, P.Y., Lai, P.C. and Lin, H. (2006). *Integrating Transportation and Geographic Information Systems*: *A Problem-Solving Approach*. Hong Kong: Institute of Space and Earth Information Science, The Chinese University of Hong Kong.",
-      "recommended_readings": "* Miller, H. and Shaw, S.L. (2001). *Geographic Information Systems for Transportation: Principles and Applications*. New York: Oxford University Press.\n* Ivan, I., Benenson, I., Jiang, B., Horák, J., Haworth, J. and Inspektor, T. (2015). Geoinformatics for Intelligent Transportation. Switzerland:  Springer International Publishing.\n* Rodrigue, J.-P., Comtois, C. and Slack, B. (2009) *The Geography of Transport Systems*. New York: Routledge\n* Shaw, S.L. (2010). Geographic information systems for transportation: from a static past to a dynamic future, *Annals of GIS*, 16(3):  pages 129-140."
+      "recommended_readings": "* Miller, H. and Shaw, S.L. (2001). *Geographic Information Systems for Transportation: Principles and Applications*. New York: Oxford University Press.\n* Ivan, I., Benenson, I., Jiang, B., Horák, J., Haworth, J. and Inspektor, T. (2015). Geoinformatics for Intelligent Transportation. Switzerland: Springer International Publishing.\n* Rodrigue, J.-P., Comtois, C. and Slack, B. (2009) *The Geography of Transport Systems*. New York: Routledge\n* Shaw, S.L. (2010). Geographic information systems for transportation: from a static past to a dynamic future, *Annals of GIS*, 16(3): pages 129-140."
     },
     {
       "subject": "ESGS",
@@ -277,7 +277,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "To understand the concepts and basic principles of hydrologic cycle and the role of water in the earth and environmental systems;   \nTo characterize and estimate the major components of hydrologic cycle;   \nTo apply the knowledge and skills acquired to analyze the interactions of various hydrologic components and their influences on water availability and hazards;   \nTo understand the general characteristics of water resources in Hong Kong, mainland China and the world",
+      "learning_outcomes": "To understand the concepts and basic principles of hydrologic cycle and the role of water in the earth and environmental systems;\nTo characterize and estimate the major components of hydrologic cycle;\nTo apply the knowledge and skills acquired to analyze the interactions of various hydrologic components and their influences on water availability and hazards;\nTo understand the general characteristics of water resources in Hong Kong, mainland China and the world",
       "course_syllabus": "1. Introduction to hydrologic sciences\n2. Precipitation and interception\n3. Soil moisture and infiltration\n4. Evaporation and transpiration\n5. Runoff generation and streamflow\n6. Groundwater storage and flow",
       "assessment_types": {
         "Fieldwork or field study": "8",
@@ -286,7 +286,7 @@
         "Test or quiz": "45"
       },
       "feedback_evaluation": "by CTE",
-      "required_readings": "* Arnell, N, 2002. Hydrology and Global Environmental Change. Prentice Hall, Harlow, England. (UL: GB665.A76 2002)\n* Brooks, K.N., P.F. Ffolliott, and J.A. Magner, 2012. Hydrology and the Management of  Watersheds (4th Edition). Iowa State University, Ames, Iowa. (UL E-book for online access)\n* Davie, T., 2008. Fundamentals of Hydrology. Routledge, London, England. (UL: GB661.2 .D38 2008)\n* Dunne, T., and L.B. Leopold, 1978. Water in Environmental Planning. W.H. Freeman and Company, New York, NY. (UL: TD160.D85)\n* Maidment, D.R. (ed.), 1993. Handbook of Hydrology. McGraw-Hill, New York, NY. (GB662.5.M35 1993)",
+      "required_readings": "* Arnell, N, 2002. Hydrology and Global Environmental Change. Prentice Hall, Harlow, England. (UL: GB665.A76 2002)\n* Brooks, K.N., P.F. Ffolliott, and J.A. Magner, 2012. Hydrology and the Management of Watersheds (4th Edition). Iowa State University, Ames, Iowa. (UL E-book for online access)\n* Davie, T., 2008. Fundamentals of Hydrology. Routledge, London, England. (UL: GB661.2 .D38 2008)\n* Dunne, T., and L.B. Leopold, 1978. Water in Environmental Planning. W.H. Freeman and Company, New York, NY. (UL: TD160.D85)\n* Maidment, D.R. (ed.), 1993. Handbook of Hydrology. McGraw-Hill, New York, NY. (GB662.5.M35 1993)",
       "recommended_readings": "* Mather, J.R., 1978. The Climatic Water Budget in Environmental Analysis. Lexington Books, Lexington, MA. (UL: GB848.M37)\n* Viessman, W., Jr., and G.L. Lewis, 2003. Introduction to Hydrology, 5th Edition. Harper Collins College Publishers, New York, NY. (UL: GB661.2.V44 2003)"
     },
     {
@@ -344,14 +344,14 @@
       "academic_group": "Div of Earth Sys & Geoinfo Sci",
       "academic_org": "Div of Earth Sys & Geoinfo Sci",
       "learning_outcomes": "After taking this course, students are expected to understand how to review journal papers, book chapters, advanced development news or reports. They are also expected to learn how to identify research questions from their review and figure out their own solutions to these research questions. Additionally, they are expected to prepare a research proposal on one research topic they selected.",
-      "course_syllabus": "1. Literature review\n2. Discussion on paper reviews\n3. Discussion  on Research Proposal Writing\n4. Discussion  on Proposal Writing and Book Review: Design and Analysis of Experiments\n5. Discussion on Proposal Writing and Research Design\n6. Discussion on Proposal Writing and Book review and critics on Space-Time Integration in Geography and GIScience\n7. Discussion on IPCC AR5 Chapter 13 Sea Level Change\n8. Discussion on IPCC AR5 Chapter 8 Anthropogenic and Natural Radiative Forcing\n9. Final proposal discussion",
+      "course_syllabus": "1. Literature review\n2. Discussion on paper reviews\n3. Discussion on Research Proposal Writing\n4. Discussion on Proposal Writing and Book Review: Design and Analysis of Experiments\n5. Discussion on Proposal Writing and Research Design\n6. Discussion on Proposal Writing and Book review and critics on Space-Time Integration in Geography and GIScience\n7. Discussion on IPCC AR5 Chapter 13 Sea Level Change\n8. Discussion on IPCC AR5 Chapter 8 Anthropogenic and Natural Radiative Forcing\n9. Final proposal discussion",
       "assessment_types": {
         "Presentation": "30",
         "Participation": "30",
         "Report": "40"
       },
       "feedback_evaluation": "by CTE",
-      "required_readings": "* Angela Dean, Daniel Voss. Design and Analysis of Experiments. In Springer Texts in Statistics. Springer, New York, 1999\n* Mei-Po Kwan, Douglas Richardson, Donggen Wang, Chenghu Zhou, Space-Time Integration in Geography and GIScience. Research Frontiers in the US and China, Springer. 2015",
+      "required_readings": "* Angela Dean, Daniel Voss. Design and Analysis of Experiments. In Springer Texts in Statistics. Springer, New York, 1999\n* Mei-Po Kwan, Douglas Richardson, Donggen Wang, Chenghu Zhou, Space-Time Integration in Geography and GIScience. Research Frontiers in the US and China, Springer. 2015",
       "recommended_readings": "* Chaowei Yang, David Wong, Qianjun Miao, Ruixin Yang, 2011, Advanced Geoinformation Science, CRC Press.\n* Michael N. DeMers, 2009, GIS for Dummies, Wiley Publishing, Inc.\n* IPCC AR5 Chapters 8 and 13\n* ISI Web Knowledge.\n* Papers of International VGE conference 2014."
     },
     {
@@ -369,7 +369,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "-Basic concepts and principles of digital terrain modelling   \n -Data structure of digital terrain models and how it is generated and represented as 3-dimensional surface   \n -Using methods to derive terrain parameters and extract terrain features from digital terrain models   \n -Application of digital terrain modelling",
+      "learning_outcomes": "- Basic concepts and principles of digital terrain modelling\n- Data structure of digital terrain models and how it is generated and represented as 3-dimensional surface\n- Using methods to derive terrain parameters and extract terrain features from digital terrain models\n- Application of digital terrain modelling",
       "course_syllabus": "1. Introduction of DEM\n2. Organization & Generation of DEM\n3. Visualization of DEM\n4. Principle of Digital Terrain Analysis\n5. Extraction of Terrain Attributes and feature\n6. Extraction of Typical Terrain Feature\n7. Hydrological Analysis\n8. DEM application in Regional Terrain Analysis & Engineering\n9. Uncertainty of DEMs and DTMs",
       "assessment_types": {
         "Examination": "60",
@@ -441,8 +441,8 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "After taking this course, students will be able to:   \n1. Grasp the foundations of both environmental information, health and public management   \n2. Recognize the relationships between geo-survey and public management, and the relationship between public management and public health   \n3. Structure the right policy problem armed by geo-survey methods for sophisticated and efficient public management   \n4. Adopt reasonable methodologies to present results provided by geo-survey techniques and interpret their policy implications   \n5. Explore and perform the public policy analysis using geo-analysis methods comprehensively",
-      "course_syllabus": "1 Introduction: Environmental Information, Health and Public Management   \n2 Understanding Environmental Information  \n3 Understanding Public Health and Public Management  \n4 Briefing: Geo-survey in Public Management Analysis    \n5 Structuring Policy Problems   \n6 Geo-Survey in Public Management Evaluation   \n7 Comprehensive Application: Learning from Cases   \n8 Course Review",
+      "learning_outcomes": "After taking this course, students will be able to:\n1. Grasp the foundations of both environmental information, health and public management\n2. Recognize the relationships between geo-survey and public management, and the relationship between public management and public health\n3. Structure the right policy problem armed by geo-survey methods for sophisticated and efficient public management\n4. Adopt reasonable methodologies to present results provided by geo-survey techniques and interpret their policy implications\n5. Explore and perform the public policy analysis using geo-analysis methods comprehensively",
+      "course_syllabus": "1 Introduction: Environmental Information, Health and Public Management\n2 Understanding Environmental Information\n3 Understanding Public Health and Public Management\n4 Briefing: Geo-survey in Public Management Analysis\n5 Structuring Policy Problems\n6 Geo-Survey in Public Management Evaluation\n7 Comprehensive Application: Learning from Cases\n8 Course Review",
       "assessment_types": {
         "Discussion": "5",
         "Essays": "15",
@@ -452,7 +452,7 @@
       },
       "feedback_evaluation": "By CTE",
       "required_readings": "GIS in Public Policy : Using Geographic Information for More Effective Government, by R. W. Greene, ESRI Press, 2000.",
-      "recommended_readings": "GIS for Decision support and Public Policy Making, by Christopher Thomas Jou, Nancy Humenik-Sappington, ESRI Press, 2009.   \n   \nStudies in Applied Geography and Spatial Analysis: Addressing Real World Issues. Edited by Robert Stimson, The University of Melbourne, Australia and Kingsley E. Haynes, Professor of Public Policy and Director, Institute of Public Policy, George Mason University, US. 2012."
+      "recommended_readings": "GIS for Decision support and Public Policy Making, by Christopher Thomas Jou, Nancy Humenik-Sappington, ESRI Press, 2009.\n\nStudies in Applied Geography and Spatial Analysis: Addressing Real World Issues. Edited by Robert Stimson, The University of Melbourne, Australia and Kingsley E. Haynes, Professor of Public Policy and Director, Institute of Public Policy, George Mason University, US. 2012."
     },
     {
       "subject": "ESGS",
@@ -469,16 +469,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "After taking this course, students are expected to   \n• understand basic concepts and theories of earth environmental modelling,   \n• learn numerical model design, application and testing,   \n• gain technical skills and practical experiences of earth environmental modelling,   \n• select appropriate models for solving given earth environmental problems, and   \n• apply the knowledge of numerical modelling on their research and career.",
+      "learning_outcomes": "After taking this course, students are expected to\n• understand basic concepts and theories of earth environmental modelling,\n• learn numerical model design, application and testing,\n• gain technical skills and practical experiences of earth environmental modelling,\n• select appropriate models for solving given earth environmental problems, and\n• apply the knowledge of numerical modelling on their research and career.",
       "course_syllabus": "This course will introduce numerical simulation theories and technologies on earth systems which include abiotic complexes of atmosphere, hydrosphere, pedosphere and biotic elements of growth processes and population dynamics. The lectures and tutorials will provide students with basic knowledge on use of High Performance Computing simulations of the earth system dynamics, in particular, the global climate change and the adaptation and risk management.",
       "assessment_types": {
         "Examination": "40",
         "Lab reports": "40",
         "Project": "20"
       },
-      "feedback_evaluation": "by CTE",
+      "feedback_evaluation": "by CTE",
       "required_readings": "* Philip J. Rasch, Climate Change Modeling Methodology: Selected Entries from the Encyclopedia of Sustainability Science and Technology, Springer; 2012 edition, 2012.\n* Eugenia Kalnay, Atmospheric Modeling, Data Assimilation and Predictability, Cambridge University Press, 2002.\n* Martin Beniston, From Turbulence to Climate: Numerical Investigations of the Atmosphere with a Hierarchy of Models, Springer, 1997.",
-      "recommended_readings": "1) Luca Bonaventura, René Redler, Reinhard Budich. Earth System Modelling - Volume 2 [electronic resource]: Algorithms, Code Infrastructure and Optimisation. Berlin, Heidelberg : The Authors 2012.   \n2) Jonathan L. Bamber and Antony J. Payne. Mass balance of the cryosphere: observations and modelling of contemporary and future changes. Cambridge ; New York : Cambridge University Press 2004.   \n3) Mark Z. Jacobson, Fundamentals of atmospheric modelling. Cambridge ; New York : Cambridge University Press 1999.   \n4) Philip W Mote; Alan O'Neill. Numerical modelling of the global atmosphere in the climate system. Dordrecht ; Boston : Kluwer Academic Publishers c2000.   \n5) John H. Seinfeld, Spyros N. Pandis. Atmospheric chemistry and physics : from air pollution to climate change. New York : John Wiley c1998.   \n6) Asante-Duah, Kofi. Public Health Risk Assessment for Human Exposure to Chemicals. Dordrecht: Springer 2017."
+      "recommended_readings": "1) Luca Bonaventura, René Redler, Reinhard Budich. Earth System Modelling - Volume 2 [electronic resource]: Algorithms, Code Infrastructure and Optimisation. Berlin, Heidelberg : The Authors 2012.\n2) Jonathan L. Bamber and Antony J. Payne. Mass balance of the cryosphere: observations and modelling of contemporary and future changes. Cambridge ; New York : Cambridge University Press 2004.\n3) Mark Z. Jacobson, Fundamentals of atmospheric modelling. Cambridge ; New York : Cambridge University Press 1999.\n4) Philip W Mote; Alan O'Neill. Numerical modelling of the global atmosphere in the climate system. Dordrecht ; Boston : Kluwer Academic Publishers c2000.\n5) John H. Seinfeld, Spyros N. Pandis. Atmospheric chemistry and physics : from air pollution to climate change. New York : John Wiley c1998.\n6) Asante-Duah, Kofi. Public Health Risk Assessment for Human Exposure to Chemicals. Dordrecht: Springer 2017."
     },
     {
       "subject": "ESGS",
@@ -567,15 +567,15 @@
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
       "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n* understand concepts central to spatial data analysis\n* be aware of the progress and challenges of GIS and spatial analytics in environment, health and public management\n* present and interpret spatial data in the context of environment, health, and public management\n* identify geographic patterns, understand underlying spatiotemporal processes, and make spatially-explicit prediction/simulation under different decision scenarios\n* critically assess management decisions and draw policy implications by virtue of geo-spatial modeling and geo-analysis techniques discussed in class and applied in labs",
-      "course_syllabus": "**Lectures**  \nLecture 1: Spatial data and spatial data analysis    \nLecture 2: Revealing inequalities (focus: mapping and geo-visualization)   \nLecture 3: Taking advantage of special structure (focus: spatial sampling and interpolation) \n\nLecture 4: Identifying determinants (1) (focus: fundamental statistical analysis methods)  \nLecture 5: Identifying determinants (2) (focus: spatial regression and GWR) \n\nLecture 6: Governing mega-city region (focus: spatial network analysis)  \nLecture 7: Allocating resources (focus: spatial optimization)   \nLecture 8: Forecasting the future (focus: geo-simulation)     \nLecture 9: Citizen as sensors (focus: location-based service)   \nLecture 10: Course review   \n   \n**Laboratories**  \nLab 1: Mapping and geo-visualization   \nLab 2: Spatial sampling and interpolation   \nLab 3: Conventional correlation/regression analysis    \nLab 4: Spatial regression and GWR    \nLab 5: Network analysis   \nLab 6: Spatial optimization   \nLab 7: Geo-simulation    \nLab 8: Location-based service (mobile mapping)",
+      "course_syllabus": "* *Lectures**\nLecture 1: Spatial data and spatial data analysis\nLecture 2: Revealing inequalities (focus: mapping and geo-visualization)\nLecture 3: Taking advantage of special structure (focus: spatial sampling and interpolation)\n\nLecture 4: Identifying determinants (1) (focus: fundamental statistical analysis methods)\nLecture 5: Identifying determinants (2) (focus: spatial regression and GWR)\n\nLecture 6: Governing mega-city region (focus: spatial network analysis)\nLecture 7: Allocating resources (focus: spatial optimization)\nLecture 8: Forecasting the future (focus: geo-simulation)\nLecture 9: Citizen as sensors (focus: location-based service)\nLecture 10: Course review\n\n* *Laboratories**\nLab 1: Mapping and geo-visualization\nLab 2: Spatial sampling and interpolation\nLab 3: Conventional correlation/regression analysis\nLab 4: Spatial regression and GWR\nLab 5: Network analysis\nLab 6: Spatial optimization\nLab 7: Geo-simulation\nLab 8: Location-based service (mobile mapping)",
       "assessment_types": {
         "Examination": "30",
         "Lab reports": "40",
         "Project": "30"
       },
       "feedback_evaluation": "By CTE",
-      "required_readings": "***Basic Textbook:***\n\nOyana, Tonny J. and Margai, Florence. 2015. *Spatial Analysis – Statistics, Visualization, and Computational Methods*. CRC Press\n\n***Alternative Textbooks:***\n\n1. Stillwell JCH and Clarke GP. 2004. *Applied GIS and Spatial Analysis*. Chichester, West Sussex, England; Hoboken, NJ: Wiley.\n2. O’Sullivan and Unwin. 2010. *Geographic Information Analysis*, 2nd Edition. Wiley.\n3. Wang F. 2014. *Quantitative Methods and Socio-Economic Applications in GIS*, 2nd Edition. CRC Press.",
-      "recommended_readings": "1. Geospatial Analysis - A comprehensive guide: <http://www.spatialanalysisonline.com/>*A free web-based GIS resource - Dr Michael de Smith and Prof Paul Longley, University College London, and Prof Mike Goodchild, UC Santa Barbara*\n2. Applied Spatial Analysis and Policy:  <http://link.springer.com/journal/12061>"
+      "required_readings": "* **Basic Textbook:***\n\nOyana, Tonny J. and Margai, Florence. 2015. *Spatial Analysis – Statistics, Visualization, and Computational Methods*. CRC Press\n\n* **Alternative Textbooks:***\n\n1. Stillwell JCH and Clarke GP. 2004. *Applied GIS and Spatial Analysis*. Chichester, West Sussex, England; Hoboken, NJ: Wiley.\n2. O’Sullivan and Unwin. 2010. *Geographic Information Analysis*, 2nd Edition. Wiley.\n3. Wang F. 2014. *Quantitative Methods and Socio-Economic Applications in GIS*, 2nd Edition. CRC Press.",
+      "recommended_readings": "1. Geospatial Analysis - A comprehensive guide: <http://www.spatialanalysisonline.com/>*A free web-based GIS resource - Dr Michael de Smith and Prof Paul Longley, University College London, and Prof Mike Goodchild, UC Santa Barbara*\n2. Applied Spatial Analysis and Policy: <http://link.springer.com/journal/12061>"
     },
     {
       "subject": "ESGS",
@@ -663,8 +663,8 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "After taking this course, students will be able to:\n\n* Gain knowledge of concepts, theories and scopes of public health practice;\n* Articulate determinants of health and key epidemiology methodologies in public health studies;\n* Understand theories of occupational and environmental health and apply roles in public health practice;\n* Learn skills of identification of hazards and conduct health risk assessment to tackling important public health issues;\n* Apply public health theories in important areas including air pollution, climate change and population health; food security, sustainability and population health; water pollution, land use and population health; etc. In addition, health promotion, healthcare management and policy implications will be discussed in these sessions.",
-      "course_syllabus": "Lectures   \nLecture 1: Introduction to public health and determinants of health  \nLecture 2: Basic concepts of epidemiology methodology in public health  \nLecture 3: Assessing health status in community settings and public health Intervention  \nLecture 4: Fundamental of occupational and environmental health  \nLecture 5: Shifting focuses of public health linking occupation and environment  \nLecture 6: Health risk assessment to tackle important public health issues  \nLecture 7: Critical appraisal of study results and public health research reports    \nLecture 8: Environmental hazard and health impact  \nLecture 9: Overview of environmental epidemiology  \nLecture 10: Environmental exposure assessment in public health\n\nLecture 11: Global Public Health Problem: Air Pollution\n\nLecture 12: How to use public health approaches to investigate health effects of ambient air pollution",
+      "learning_outcomes": "After taking this course, students will be able to:\n\n* Gain knowledge of concepts, theories and scopes of public health practice;\n* Articulate determinants of health and key epidemiology methodologies in public health studies;\n* Understand theories of occupational and environmental health and apply roles in public health practice;\n* Learn skills of identification of hazards and conduct health risk assessment to tackling important public health issues;\n* Apply public health theories in important areas including air pollution, climate change and population health; food security, sustainability and population health; water pollution, land use and population health; etc. In addition, health promotion, healthcare management and policy implications will be discussed in these sessions.",
+      "course_syllabus": "Lectures\nLecture 1: Introduction to public health and determinants of health\nLecture 2: Basic concepts of epidemiology methodology in public health\nLecture 3: Assessing health status in community settings and public health Intervention\nLecture 4: Fundamental of occupational and environmental health\nLecture 5: Shifting focuses of public health linking occupation and environment\nLecture 6: Health risk assessment to tackle important public health issues\nLecture 7: Critical appraisal of study results and public health research reports\nLecture 8: Environmental hazard and health impact\nLecture 9: Overview of environmental epidemiology\nLecture 10: Environmental exposure assessment in public health\n\nLecture 11: Global Public Health Problem: Air Pollution\n\nLecture 12: How to use public health approaches to investigate health effects of ambient air pollution",
       "assessment_types": {
         "Essay test or exam": "50",
         "Examination": "50"
@@ -755,8 +755,8 @@
         "Short answer test or exam": "40"
       },
       "feedback_evaluation": "by CTE",
-      "required_readings": "* Haimes, H, Y. 2009, *Risk Modeling, Assessment, and Management*, 3rd  edition, Wiley, New York\n* Marvin Rausand. 2010, *Risk assessment : theory, methods, and applications*. Wiley, New York\n* Milan Konecny, Sisi Zlatanova, Temenoujka L. Bandrova. 2010, *Geographic Information and Cartography for Risk and Crisis Management: Towards Better Solutions*. Springer-Verlag Berlin Heidelberg",
-      "recommended_readings": "* Peter van Oosterom, Siyka Zlatanova, Elfriede M. Fendel, *Geo-information for Disaster Management*, Springer\n* Woodhouse, Iain H. *Introduction to microwave remote sensing*. CRC press, 2017"
+      "required_readings": "* Haimes, H, Y. 2009, *Risk Modeling, Assessment, and Management*, 3rd edition, Wiley, New York\n* Marvin Rausand. 2010, *Risk assessment : theory, methods, and applications*. Wiley, New York\n* Milan Konecny, Sisi Zlatanova, Temenoujka L. Bandrova. 2010, *Geographic Information and Cartography for Risk and Crisis Management: Towards Better Solutions*. Springer-Verlag Berlin Heidelberg",
+      "recommended_readings": "* Peter van Oosterom, Siyka Zlatanova, Elfriede M. Fendel, *Geo-information for Disaster Management*, Springer\n* Woodhouse, Iain H. *Introduction to microwave remote sensing*. CRC press, 2017"
     },
     {
       "subject": "ESGS",
@@ -820,7 +820,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
-      "learning_outcomes": "The course helps students to understand remote sensing principles and basic skills in remote sensing image processing and    \nanalysis. The students will develop the capability to solve practical problems in the Earth System Science by using remote sensing methods.",
+      "learning_outcomes": "The course helps students to understand remote sensing principles and basic skills in remote sensing image processing and\nanalysis. The students will develop the capability to solve practical problems in the Earth System Science by using remote sensing methods.",
       "course_syllabus": "The theory, methods, and applications of environmental remote sensing are taught in the course. The lectures cover the principles of electromagnetic radiation, satellite observation sensors, digital image processing, Earth target classifications, and the remote sensing applications in land and ocean. ERDAS Imagine software will be used for lab practices.",
       "assessment_types": {
         "Examination": "40",
@@ -847,15 +847,15 @@
       "academic_group": "Div of Social Science",
       "academic_org": "Div of Social Science",
       "learning_outcomes": "With the background knowledge and the practical skills, students shall be able to integrate GNSS and SN in their future researches and studies.",
-      "course_syllabus": "1. The Big Picture: Smart City, Big Data and Wireless Environmental Sensor Network   \n   \n2. Basics of Wireless Communication, sensor node and sensor network   \n   \n3. Spatial analysis and sensors network   \n   \n4. Building and Planning a sensor network   \n   \n5. Indoor Positioning Technologies   \n   \n6. GNSS Basic 1: Satellite Signal and Error Source   \n   \n7. GNSS Basic 2: Positioning Methods   \n   \n8. GNSS and SN Integration   \n   \n9. Application of GNSS & SN I - Smart City   \n   \n10. Application of GNSS & SN II - Locational-based Services (LBS)   \n   \n11. Application of GNSS & SN III - Earth System Science",
+      "course_syllabus": "1. The Big Picture: Smart City, Big Data and Wireless Environmental Sensor Network\n\n2. Basics of Wireless Communication, sensor node and sensor network\n\n3. Spatial analysis and sensors network\n\n4. Building and Planning a sensor network\n\n5. Indoor Positioning Technologies\n\n6. GNSS Basic 1: Satellite Signal and Error Source\n\n7. GNSS Basic 2: Positioning Methods\n\n8. GNSS and SN Integration\n\n9. Application of GNSS & SN I - Smart City\n\n10. Application of GNSS & SN II - Locational-based Services (LBS)\n\n11. Application of GNSS & SN III - Earth System Science",
       "assessment_types": {
         "Essay test or exam": "30",
         "Lab reports": "40",
         "Others": "30"
       },
       "feedback_evaluation": "by CTE",
-      "required_readings": "1. Building Wireless Sensor Network / Robert Faludi, O’Reilly    \n2. Introduction to GPS : the Global Positioning System / Ahmed El-Rabbany, Artech House   \n3. Indoor Wayfinding and Navigation / H. A. Karimi, CRC Press",
-      "recommended_readings": "1. Handbook of Sensor Networks – Algorithm and Architectures / Ivan Stojmenovic, Wiley-Interscience   \n2. Integrated approach to environmental data management systems / Nilgun B. Harmancioglu, Kluwer Academic   \n3. Understanding GPS : principles and applications / Elliott D. Kaplan, Christopher J. Hegarty, editors. Boston : Artech House, c2006.    \n4. Introduction to GPS : the Global Positioning System / Ahmed El-Rabbany, El-Rabbany, Ahmed.    \n5. GPS: theory, algorithms and applications / Guochang Xu.New York : Springer, 2003."
+      "required_readings": "1. Building Wireless Sensor Network / Robert Faludi, O’Reilly\n2. Introduction to GPS : the Global Positioning System / Ahmed El-Rabbany, Artech House\n3. Indoor Wayfinding and Navigation / H. A. Karimi, CRC Press",
+      "recommended_readings": "1. Handbook of Sensor Networks – Algorithm and Architectures / Ivan Stojmenovic, Wiley-Interscience\n2. Integrated approach to environmental data management systems / Nilgun B. Harmancioglu, Kluwer Academic\n3. Understanding GPS : principles and applications / Elliott D. Kaplan, Christopher J. Hegarty, editors. Boston : Artech House, c2006.\n4. Introduction to GPS : the Global Positioning System / Ahmed El-Rabbany, El-Rabbany, Ahmed.\n5. GPS: theory, algorithms and applications / Guochang Xu.New York : Springer, 2003."
     },
     {
       "subject": "ESGS",
@@ -1072,7 +1072,7 @@
       },
       "feedback_evaluation": "by CTE",
       "required_readings": "As each RPg student has their own search topic, required reading will be different and to be assigned by supervisor accordingly.",
-      "recommended_readings": "Guide to Research and Thesis Writing: <https://www.gs.cuhk.edu.hk/download/COP_RPG_8.pdf>"
+      "recommended_readings": "Guide to Research and Thesis Writing: <https://www.gs.cuhk.edu.hk/download/COP_RPG_8.pdf>"
     },
     {
       "subject": "ESGS",
@@ -1150,7 +1150,7 @@
       },
       "feedback_evaluation": "by CTE",
       "required_readings": "As each RPg student has their own search topic, required reading will be different and to be assigned by supervisor accordingly.",
-      "recommended_readings": "Guide to Research and Thesis Writing: <https://www.gs.cuhk.edu.hk/download/COP_RPG_8.pdf>"
+      "recommended_readings": "Guide to Research and Thesis Writing: <https://www.gs.cuhk.edu.hk/download/COP_RPG_8.pdf>"
     },
     {
       "subject": "ESGS",
@@ -1228,7 +1228,7 @@
       },
       "feedback_evaluation": "by CTE",
       "required_readings": "As each RPg student has their own search topic, required reading will be different and to be assigned by supervisor accordingly.",
-      "recommended_readings": "Guide to Research and Thesis Writing: <https://www.gs.cuhk.edu.hk/download/COP_RPG_8.pdf>"
+      "recommended_readings": "Guide to Research and Thesis Writing: <https://www.gs.cuhk.edu.hk/download/COP_RPG_8.pdf>"
     }
   ]
 }
