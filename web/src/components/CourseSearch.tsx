@@ -1966,8 +1966,9 @@ function CourseOutcomeSection({
 }) {
   // Early return if no content
   if (!content) return null
+
+  // Render assessment types as a clean table
   if (isTable && typeof content === 'object') {
-    // Render assessment types as a clean table
     const assessmentEntries = Object.entries(content)
     if (assessmentEntries.length === 0) return null
 
