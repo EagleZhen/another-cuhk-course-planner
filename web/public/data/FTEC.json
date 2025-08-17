@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T10:16:21.609058+00:00",
+    "scraped_at": "2025-08-16T14:39:49.008311+00:00",
     "subject": "FTEC",
+    "subject_title": "FTEC - Financial Technology",
     "total_courses": 33,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -65,7 +66,13 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At its completion, the students should be able to demonstrate knowledge and understanding of FinTech regulation and legal policy particularly in the context of Hong Kong and Mainland China, identify and analyze the legal issues that typically arise in the subject area, evaluate legal rules in this area from a comparative perspective.",
+      "course_syllabus": "Industrial and professional workshops or seminars",
+      "assessment_types": {},
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Course evaluation. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Reference materials will be provided in the lecture notes and reserved in the University’s library. URLs to videos showed in the lectures are also included in the lecture notes.",
+      "recommended_readings": ""
     },
     {
       "subject": "FTEC",
@@ -179,10 +186,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should   \n   \n   \n1. Have fundamental knowledge of the art of modeling problems arising from FinTech with linear programming, integer programming, nonlinear programming and convex programming.   \n   \n2. Be familiar with solution methods for solving linear programming, integer programming, nonlinear programming and convex programming.   \n   \n3. Be able to solve linear programming, integer programming, nonlinear programming and convex programming with the assistance of computer.",
+      "course_syllabus": "This course introduces the essentials of optimization methods, including models, solution methods, and programming techniques. Topics cover linear programming, integer linear programming, nonlinear programming, and convex programming. It will highlight applications of these methods in Fintech, such as asset allocation, portfolio management, and data analysis.",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Others": "30"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "F.S. Hillier and G.J. Lieberman, Introduction to Operations Research, 9th Edition, McGraw-Hill, 2010  \n   \nS. Boyd and L. Vandenberghe, Convex Optimization, Cambridge University Press, 2004",
+      "recommended_readings": ""
     },
     {
       "subject": "FTEC",
@@ -243,7 +259,13 @@
       "component": "Practicum",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At its completion, the students should understand the field of Financial Technology, how to plan for and develop their career, and how to make ethical decisions.",
+      "course_syllabus": "Industrial and professional workshops or seminars",
+      "assessment_types": {},
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Course evaluation. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Reference materials will be provided in the lecture notes and reserved in the University’s library. URLs to videos showed in the lectures are also included in the lecture notes.",
+      "recommended_readings": ""
     },
     {
       "subject": "FTEC",
@@ -339,10 +361,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to:  \n   \n   \n1. Understand fundamental mechanics of derivative markets and the economic impacts of derivative products in risk management;    \n2. Apply the general principle of no-arbitrage asset pricing to evaluate structured products and to design related hedging strategies;   \n3. Perform implementations of basic numerical procedures for asset evaluation;    \n4. Understand the principle of financial engineering and structured product design, and able to carry out some basic analysis on the riskiness of such products;    \n5. Understand the destabilizing potential of derivative products and the importance of financial regulation.",
+      "course_syllabus": "This provides a quantitative introduction to derivative markets. In it, we will focus on (i) the fundamental mechanics of futures, swaps and option markets, (ii) risk neutral evaluation theory of asset pricing, (iii) numerical procedures related to derivatives evaluation and risk managements, (iv) the principle of financial engineering and structured product design and their applications, and (v) financial crisis and regulation.",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Others": "30"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Options, Futures, and Other Derivatives, 9th Edition  \n   \nby John C. Hull   \n   \nPearson, 2014.",
+      "recommended_readings": "Risk Management and Financial Institutions, 4th Edition  \n   \nby John C. Hull  \n   \nWiley, 2015.  \n   \n   \nDerivatives Markets, 3rd Edition  \n   \nby Robert L. McDonald   \n   \nPearson, 2012."
     },
     {
       "subject": "FTEC",
@@ -408,10 +439,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to understand the design, operation and management of various financial infrastructures. Students should also be able to identify infrastructure-related risks and analyze their impact.",
+      "course_syllabus": "This course provides an introduction to financial infrastructures. Topics include trading venues and platforms, securities settlement systems, payment systems, system links that facilitate cross-border transactions, central counterparties and clearance, cybersecurity infrastructure for financial services industry, infrastructure-related systemic risk and its impact on monetary and financial stability.",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Others": "20"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Lecture notes will be given to students.",
+      "recommended_readings": "Reference materials will be pointed out in each lecture."
     },
     {
       "subject": "FTEC",
@@ -424,10 +464,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to:   \n   \n1. Conduct data analysis using query processing techniques over a large amount of data.    \n2. Achieve high efficiency by using advanced parallel and distributed querying processing techniques.    \n3. Build reliable systems to ensure all processing tasks are correct based on transaction processing, concurrency control.   \n4. Maintain a heavy system by understanding how to recovery from possible systems failures",
+      "course_syllabus": "To support high-speed online payments, one important issue is efficiency and another important issue is reliability for millions of payments to be transferred among accounts. This course introduces the advanced topics in database systems. The topics include query processing and optimization, transaction management, concurrency control, recovery systems, parallel databases, and distributed database systems.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Database System Concepts (6th edition)   \nby Abraham Silberschatz, Henry F. Korth, and S. Sudarshan    \nMcGrew Hall, 2011",
+      "recommended_readings": "Database Systems The Complete Book   \nby Hector Garcia-Molina, Jeffrey D. Ullman, and Jennifer Widom   \nPrentice Hall, 2002.   \n   \nPrinciple of Distributed Database Systems (3rd edition)   \nby M. Tamer Ozsu and Patrick Valduriez   \nSpringer, 2011"
     },
     {
       "subject": "FTEC",
@@ -440,10 +489,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At its completion, the students should be able to apply basic tools of behavioral analytics to reveal investor and customer behaviors and apply them to financial and business decisions.",
+      "course_syllabus": "Behavioral analytics is a recent advancement that reveals customer behaviors. In this course, we will focus on (i) how to use optimization techniques to design survey questions and to collect data that are relevant to customer behaviors, (ii) theories of customer behaviors, especially those under risk, (iii) how to use data mining techniques to reveal customer behaviors, and (iv) psychological biases in customer behaviors and their impact on financial and business decisions.",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Others": "20"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Course evaluation. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Reference materials will be provided in the lecture notes.",
+      "recommended_readings": "Reference materials will be provided in the lecture notes."
     },
     {
       "subject": "FTEC",
@@ -509,10 +567,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to:  \n   \n   \n1. Perform data analysis with a data mining approach which includes data preprocessing, data integration, data mining, result evaluation and presentation.   \n   \n2. Formulate a real task into a data mining problem and choose an appropriate method as the solution, according to problem characteristics, data distribution, and constraints etc.   \n   \n3. Evaluate the mining results and present them, able to interactively tune the mining process based on users’ feedback.   \n   \n4. Apply data mining to applications in financial technology domains and help managerial decision making.",
+      "course_syllabus": "This course introduces key techniques on data mining, including data preprocessing, classification, association rule mining, and clustering and outlier detection. Applications of these techniques in financial market data will be discussed with hands-on practice on data mining packages.",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Others": "30"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Introduction to Data Mining  \n   \nby P.-N. Tan, M. Steinbach, and V. Kumar   \n   \nAddison Wesley, 2005.",
+      "recommended_readings": "Data Mining: Concepts and Techniques, 2nd edition  \n   \nby Jiawei Han and Micheline Kamber  \n   \nMorgan Kaufmann, 2006.  \n   \n   \nData Mining: Practical Machine Learning Tools and Techniques with Java Implementations, 2nd edition  \n   \nby I. H. Witten and E. Frank  \n   \nMorgan Kaufmann, 2005."
     },
     {
       "subject": "FTEC",
@@ -525,10 +592,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to:   \n   \n1. Understand the key issues on big data processing and analytics.   \n2. Acquire fundamental techniques and scalable algorithms in big data analytics, and apply software tools for big data analytics.    \n3. Achieve adequate perspectives of big data analytics in financial technology and services, social networking, etc.",
+      "course_syllabus": "This course introduces basic concepts, models, techniques, and applications on financial data analytics. Topics include processing and analytical techniques for data streams; processing and searching high-dimensional data; big graph analysis; Web mining; recommendation systems for Web applications. The applications may involve financial data processing and analysis, time series, portfolio management, social networks, recommender systems, and so on. Assessment Type (Essay test or exam 30%, Assignments 30%, Project 40%)",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Others": "70"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "According to the course teacher in the respective teaching term.",
+      "recommended_readings": "Lecture slides and research articles on the topics"
     },
     {
       "subject": "FTEC",
@@ -541,10 +617,16 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to:  \n   \n   \n1. Understand the fundamental principles behind the design, operations, and management of internet finance;    \n2. Acquire basic capability to apply the basic Internet-based technologies to meet various needs in financial services, such as third-party payments, Internet currency, P2P lending, crowdfunding, and big data analytics;   \n3. Identify potential risk sources to Internet finance business and design mitigation measures;    \n4. Analyze the economic and social impacts of Internet finance and understand the importance of regulation.",
+      "course_syllabus": "This course provides students with the fundamentals in the operations and management of Internet finance. It will cover overall applications of Internet-based technologies such as mobile payments, social network, search engines, cloud computing, and big data on the financial sector. Specific topics include third-party payments, Internet currency, P2P lending, crowdfunding, and the use of big data in financial services. The course adopts case studies as the major means of teaching and learning. Assessment Type (50% Project 50% Assignment)",
+      "assessment_types": {},
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:  \n   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.  \n   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.  \n   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "Internet Finance in China: Introduction and Practical Approaches  \n   \nby Ping Xie, Chuanwei Zou, and Haier Liu   \n   \nRoutledge, 2016",
+      "recommended_readings": "Lecture notes, handouts, and other recommended reading materials will be distributed by the instructor in class."
     },
     {
       "subject": "FTEC",
@@ -628,10 +710,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "At the completion of this course, students should be able to:   \n   \n1. Understand the blockchain technologies, distributed ledger technology, cryptocurrencies, etc.   \n2. Develop secure software application that interacts with the Bitcoin network and other cryptocurrencies.",
+      "course_syllabus": "The course will cover the technical aspects of cryptocurrencies, blockchain technologies, distributed ledger technology and their applications. Students will learn how these systems work and how to develop secure software application that interacts with the Bitcoin network and other cryptocurrencies. Assessment Type (Essay test or exam 40%, Assignments 30%, Projects 30%)",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "60"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "According to the course teacher in the respective teaching term",
+      "recommended_readings": "Mastering Bitcoin   \nby Andreas Antonopoulos   \nO’Reilly Media, 2015.   \n   \nBlockchain: Blueprint for a New Economy    \nby Melanie Swan   \nO’Reilly Media, 2015.   \n   \nBlockchain Revolution: How the Technology Behind Bitcoin Is Changing Money, Business, and the World   \nby Don Tapscott and Alex Tapscott   \nPortfolio, 2016.   \n   \nThe Age of Cryptocurrency: How Bitcoin and the Blockchain Are Challenging the Global Economic Order    \nby Paul Vigna and Michael J. Casey   \nSt. Martin's Press, 2015.   \n   \nThe Science of the Blockchain    \nby Roger Wattenhofer   \nCreateSpace Independent Publishing Platform, 2016."
     },
     {
       "subject": "FTEC",
@@ -644,10 +735,19 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "Upon completion of this course, students would be able to:\n\n* Acquire a solid understanding of the NLP concepts and knowledge of advanced NLP technologies, that have been increasingly adopted in finance sector;\n* Develop a strong foundation in NLP, with practical skills for implementing and applying NLP models to various FinTech domains;\n* Develop an awareness of the capabilities and limitations of NLP in FinTech applications;\n* Gain practical experience in implementing a group project based on latest technologies.",
+      "course_syllabus": "| **Class/ week** | **Topic** |\n| --- | --- |\n| Week 1 | Introduction to NLP for FinTech |\n| Week 2 | Word representations |\n| Week 3 | Phrase structure and dependency syntax |\n| Week 4 | Sequence modelling |\n| Week 5 | Large language models |\n| Week 6 | Natural language understanding |\n| Week 7 | Natural language generation |\n| Week 8 | Text mining of financial data |\n| Week 9 | Sentiment analysis of financial data |\n| Week 10 | Conversational AI in finance |\n| Week 11 | Large language models in finance |\n| Week 12 | NLP for RegTech |\n| Week 13 | NLP for InsurTech |",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "60"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:   \n   \n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.   \n   \n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.   \n   \n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
+      "required_readings": "According to the course teacher in the respective teaching term",
+      "recommended_readings": "1. Daniel Jurafsky and James H. Martin (2020), *Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition, 3rd edition (online)*\n2. Jacob Einstein (2019), *Introduction to Natural Language Processing*, MIT Press\n3. Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin (2017), *Attention Is All You Need*, Advances in Neural Information Processing Systems\n4. Long Ouyang, et al., (2022), *Training language models to follow instructions with human feedback*, Advances in Neural Information Processing Systems\n5. Gupta, A., Dengre, V., Kheruwala, H. A., & Shah, M. (2020). *Comprehensive review of text-mining applications in finance*. Financial Innovation\n6. Dixon, M. F., Halperin, I., Bilokon, P. (2020). *Machine Learning in Finance: From Theory to Practice*. Germany: Springer International Publishing"
     },
     {
       "subject": "FTEC",
@@ -677,7 +777,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (6434)",
@@ -697,7 +797,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "CJ01-PRJ (6435)",
@@ -717,7 +817,7 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "DJ01-PRJ (6436)",
@@ -737,7 +837,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "EJ01-PRJ (9107)",
@@ -757,7 +857,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "FJ01-PRJ (7248)",
@@ -777,7 +877,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "GJ01-PRJ (6421)",
@@ -797,7 +897,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "HJ01-PRJ (6422)",
@@ -817,7 +917,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "IJ01-PRJ (6416)",
@@ -837,7 +937,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "JJ01-PRJ (6417)",
@@ -857,7 +957,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "KJ01-PRJ (6423)",
@@ -877,7 +977,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "LJ01-PRJ (6437)",
@@ -897,7 +997,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "MJ01-PRJ (6438)",
@@ -917,7 +1017,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "NJ01-PRJ (6439)",
@@ -937,7 +1037,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "OJ01-PRJ (6440)",
@@ -957,7 +1057,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "PJ01-PRJ (6441)",
@@ -977,7 +1077,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "QJ01-PRJ (6279)",
@@ -997,7 +1097,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "RJ01-PRJ (8832)",
@@ -1017,7 +1117,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "SJ01-PRJ (9106)",
@@ -1037,7 +1137,7 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "TJ01-PRJ (7033)",
@@ -1057,7 +1157,7 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "UJ01-PRJ (7250)",
@@ -1077,7 +1177,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "VJ01-PRJ (7249)",
@@ -1097,7 +1197,7 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1110,7 +1210,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the project topic.   \n2) Be able to define and complete a project that utilizes results in the literature. 3) Be able to perform a critical review of the project. 4) Develop technical writing skills.",
+      "course_syllabus": "The course includes, but are not limited to, the following elements: literature review, modelling, system design and implementation, project evaluation.",
+      "assessment_types": {
+        "Presentation": "20",
+        "Project": "60",
+        "Report": "20"
+      },
+      "feedback_evaluation": "1) Email feedback    \n2) Review meeting",
+      "required_readings": "Literature review materials will be recommended by the project supervisor.",
+      "recommended_readings": ""
     },
     {
       "subject": "FTEC",
@@ -1140,7 +1250,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (6467)",
@@ -1160,7 +1270,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "CJ01-PRJ (6468)",
@@ -1180,7 +1290,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "DJ01-PRJ (6469)",
@@ -1200,7 +1310,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "EJ01-PRJ (6466)",
@@ -1220,7 +1330,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "FJ01-PRJ (6470)",
@@ -1240,7 +1350,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "GJ01-PRJ (6465)",
@@ -1260,7 +1370,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "HJ01-PRJ (6471)",
@@ -1280,7 +1390,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "IJ01-PRJ (6472)",
@@ -1300,7 +1410,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "JJ01-PRJ (6473)",
@@ -1320,7 +1430,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "KJ01-PRJ (6474)",
@@ -1340,7 +1450,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "LJ01-PRJ (6475)",
@@ -1360,7 +1470,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "MJ01-PRJ (6476)",
@@ -1380,7 +1490,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "NJ01-PRJ (6477)",
@@ -1400,7 +1510,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "OJ01-PRJ (5342)",
@@ -1420,7 +1530,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "PJ01-PRJ (6478)",
@@ -1440,7 +1550,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "QJ01-PRJ (6245)",
@@ -1460,7 +1570,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "RJ01-PRJ (8613)",
@@ -1480,7 +1590,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "SJ01-PRJ (8465)",
@@ -1500,7 +1610,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "TJ01-PRJ (7072)",
@@ -1520,7 +1630,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "UJ01-PRJ (7234)",
@@ -1540,7 +1650,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "VJ01-PRJ (7235)",
@@ -1560,7 +1670,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1573,7 +1683,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt"
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the project topic.   \n2) Be able to define and complete a project that utilizes results in the literature. 3) Be able to perform a critical review of the project. 4) Develop technical writing skills.",
+      "course_syllabus": "The course includes, but are not limited to, the following elements: literature review, modelling, system design and implementation, project evaluation.",
+      "assessment_types": {
+        "Presentation": "20",
+        "Project": "60",
+        "Report": "20"
+      },
+      "feedback_evaluation": "1) Email feedback    \n2) Review meeting",
+      "required_readings": "Literature review materials will be recommended by the project supervisor.",
+      "recommended_readings": ""
     },
     {
       "subject": "FTEC",
@@ -1636,7 +1756,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, student will be able to   \n1. Be intimate with the technology and infrastructure supporting financial payments and transactions;   \n2. Design and implement strategies in the infrastructure to guard security given the recognition of its importance to the financial industry;    \n3. Understand the function of central counterparties and clearance, both for funds payments and transfers of securities;   \n4. Identify infrastructure-related systemic risk and its impact on credit risk, competitiveness and monetary and financial stability; and   \n5. Implement related infrastructure tools for regulatory and risk management purpose.",
+      "course_syllabus": "Week 1: Recap and overview of financial infrastructure    \nWeek 2: Payment systems and components   \nWeek 3: Clearing systems and components   \nWeek 4: Securities systems and components    \nWeek 5: Interim project presentations (project groups)   \nWeek 6: Distributed ledger technology and its possible usage   \nWeek 7: Digital identify and know your customer   \nWeek 8: Guest lecture: innovation in financial infrastructure   \nWeek 9: Control environment and systemic risk   \nWeek 10: Cyber security   \nWeek 11: Discussions on Hong Kong’s Status as an International Financial Centre    \nWeek 12: Final project presentations (project groups) (external judges from industry to be invited)",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "50",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "1. Formal Course and Teaching Evaluation   \n2. Informal feedback to instructor and/or teaching assistant",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Randall E. Duran. Financial Services Technology: Processes, Architecture, and Solutions. 2nd edition. Cengage Learning Asia Pte Ltd. 2016.   \n   \nLee, Ruben. Running the World’s Markets: the Governance of Financial Infrastructure. Princeton University Press, New Jersey, 2011.   \n   \nHong Kong Monetary Authority, Financial Infrastructure in Hong Kong, Second edition February 2013.    \n   \nHong Kong Monetary Authority, Financial Technology Infrastructure for Hong Kong December 1997."
     },
     {
       "subject": "FTEC",
@@ -1698,7 +1828,7 @@
                 {
                   "time": "We 6:30PM - 9:30PM",
                   "location": "Yasumoto Int'l Acad Park LT5",
-                  "instructor": "Miss TAM Chui Yuk,   Professor IEONG Sze Chung Ricci",
+                  "instructor": "Miss TAM Chui Yuk, \nProfessor IEONG Sze Chung Ricci",
                   "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4"
                 }
               ],
@@ -1723,7 +1853,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "On completion of this course, students should be able to:   \n1. Understand the cryptographic concepts of blockchain as a distributed ledger;   \n2. Describe the issues of trust, anonymity and consensus mechanisms;   \n3. Describe and understand the differences between different types of blockchain structures;   \n4. Understand the applications of blockchain in cyptocurrencies and “smart” contracts, as well as their challenges; and   \n5. Understand the applications of blockchain technology in Finance.",
+      "course_syllabus": "Week 1 : Introduction. Basics of Cryptography and Cyber-Security   \nWeek 2 : Public/Private Keys, Hash Functions, & Application of Cryptographic Tools to Online Banking   \nWeek 3 : Basics of Blockchain, Distributed Ledger Technology, Trust, Anonymity   \nWeek 4 : Types of Blockchain: Public vs Private, Permissioned vs Permissionless, Application of Cryptography to Blockchain   \nWeek 5 : Blockchain Consensus: Byzantine General’s Problem, Transactions, Mining,    \nWeek 6 : Proof-of-work, Proof-of-stake   \nWeek 7 : Application of Blockchain Technology to Cryptocurrencies: Bitcoin and alternative coins, Online Wallets, Exchanges, Regulation, Initial Token Offerings   \nWeek 8 : Smart Contracts: Algorithmic Decision Making    \nWeek 9 : Public & Private Blockchain Examples: Ethereum, Hyperledger   \nWeek 10 : Blockchain as a Service (BaaS), Scaling Blockchain   \nWeek 11 : Application Examples of Blockchain in Finance, Summary   \nWeek 12 : Invited Seminar",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Project": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations   \n2. Course evaluation and questionnaire   \n3. Question-and-answer sessions during class   \n4. Student consultation during office hours or online",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Bitcoin and Cryptocurrency Technologies: A Comprehensive Introduction, by Arvind Narayanan, Joseph Bonneau, Edward Felten, Andrew Miller, Steven Goldfeder   \n   \nResearch Perspectives and Challenges for Bitcoin and Cryptocurrencies, by Bonneau, Miller, Clark, Narayanan, Kroll and Felten   \n   \nCryptocurrency Online Bibliography, maintained by Jeremy Clerk"
     },
     {
       "subject": "FTEC",
@@ -1772,7 +1911,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "The objective of this course is to help students understand deeply by applying various quantitative and algorithmic methods to solve problems of practical relevance to financial trading and investments. By the end of this course, students will be able to   \n1. Compute market index from its component stocks, and the fair value of index futures contract;   \n2. Conduct a test about the market efficiency to determine which stock price is a random walk and which is not;   \n3. Understand the mean-variance portfolio theory and construct alpha and “smart” beta strategies;    \n4. Estimate market liquidity from trading data;   \n5. Understand basic strategies of high frequency trading and algorithmic trading, and be familiar with the fundamental IT architecture related to HFT;   \n6. Be familiar with statistical arbitrage; and   \n7. Conduct Backtesting.",
+      "course_syllabus": "Week 1: Introduction to Electronic Market   \nWeek 2: Introduction to Python   \nWeek 3: Market Efficient Hypothesis, Random Walk, and Variance Ratio Test   \nWeek 4: Statistical Analysis on Price Data   \nWeek 5: Portfolio Theory and Mean-Variance Investment   \nWeek 6: CAPM and APT   \nWeek 7: Multi-Factor Analysis of Expected Returns   \nWeek 8: Factor investments and Smart Beta   \nWeek 9: Statistical Arbitrage   \nWeek 10: Volume, Slippage, Liquidity, and Market Impact Models   \nWeek 11: High-Frequency Trading    \nWeek 12: Backtesting",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "70"
+      },
+      "feedback_evaluation": "1. Formal Course and Teaching Evaluation   \n2. Informal feedback to instructor and/or teaching assistant",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Portfolio Construction and Risk Budgeting (4th Edition), Bernd Scherer, Incisive Financial Publishing Ltd,2010   \n   \nQuantitative Investment Analysis, 2nd edition by Richard Armand. DeFusco Dennis W McLeavey; Jerald E Pinto, John Wiley & Sons, 2007   \n   \nAlgorithmic Trading, E. P. Chan, John Wiley, 2013"
     },
     {
       "subject": "FTEC",
@@ -1815,7 +1963,17 @@
       "component": "Practicum",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "At the end of the course of studies, a student should be able to   \n1. Have a good understanding and appreciate the characteristics of a financial technology work environment, including employer expectation, management structure of a financial technology team, industrial standards and practices, trends and common issues in the financial technology industry, etc.;   \n2. Carry out basic duties in a financial technology work environment;   \n3. Exhibit good etiquette in the workplace;   \n4. Work independently as well as in a team environment; and   \n5. Communicate effectively and efficiently with peers, supervisors and possibly also clients.",
+      "course_syllabus": "The objective of the course is to allow students to acquire a basic understanding and the skills of the practical aspects of the financial technology profession.  To qualify for the award of the subject credits, the student must (a) attend regulatory workshop provided by such regulatory authorities as the Hong Kong Monetary Authority, Securities & Futures Commission, and Insurance Authority, and (b) attach to a company in a financial technology related post as approved by the Professor-in-Charge for no less than 12 weeks.  The student will have an academic supervisor as assigned by the Professor-in-Charge and an industry supervisor from the company.  There will be a mid-term company visit by the academic supervisor.  At the end of the internship, the student must give a presentation to the academic and industry supervisors, and submit a report summarizing what the student has done and learnt from the internship.  The student’s grade will be determined by (1) the presentation, (2) the student report and (3) a testimonial from the industry supervisor.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Course evaluation by students",
+      "required_readings": "Readings will be recommended by the Professor-in-charge.",
+      "recommended_readings": "Readings will be recommended by the Professor-in-Charge."
     },
     {
       "subject": "FTEC",
@@ -1858,7 +2016,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, students will be able to   \n1.    Understand Core Financial and Regulatory Principles: Equip students with a strong foundation in financial markets and the regulatory frameworks that ensure market safety, fairness, and efficiency, emphasizing their practical application in today’s global economy.  \n2.    Gain Proficiency in Digital Asset and Blockchain Technologies: Provide students with the technical knowledge needed to navigate digital assets, blockchain, and tokenized finance, including the legal and compliance aspects of cryptocurrencies and decentralized finance.  \n3.    Develop Practical Skills in Compliance and Risk Management: Teach students how to apply RegTech tools and techniques to real-world compliance challenges, focusing on AML/KYC, transaction monitoring, and cybersecurity within the financial and Web3 ecosystems.  \n4.    Refine Professional Communication and Presentation Skills: Foster essential skills for clear and effective communication with legal and financial professionals, including techniques for presenting complex information, managing client relationships, and delivering persuasive presentations.  \n5.    Cultivate Job-Ready Skills in Interviewing, Networking, and Career Planning: Prepare students for careers in finance and RegTech with hands-on training in interviewing, resume-building, and professional networking, ensuring they can stand out in competitive roles.  \n6.    Engage with Industry Leaders and Current Market Trends: Through guest speakers and interactive discussions, students will gain insights from industry experts on the latest trends in FinTech, RegTech, and digital finance, building a robust understanding of where the industry is headed.",
+      "course_syllabus": "Week 1: Introduction to Course / Legal Systems / Intellectual Property Rights  \nWeek 2: Financial Markets 101 – Finance, Technology and the Regulator – Foundational Class  \nWeek 3: Compliant Data - Fixed Income Valuation  \nWeek 4: Compliant Data - Rapid development of data and technology in the sustainable finance space  \nWeek 5: Digital assets 101 – Background, Developments, and the Regulatory Approach - Foundational Class  \nWeek 6: Digital assets – Regulatory approach to stablecoins and beyond  \nWeek 7: Digital assets – Digital Money, e-HKD and the regulator  \nWeek 8: Digital assets – Forensic analysis in digital assets  \nWeek 9: RegTech in Web3 - how a virtual insurer underwrites Web3 risks using GenAI   \nWeek 10: RegTech - How to talk to a lawyer  \nWeek 11: Navigating the Quantum Frontier: Blockchains, Post-Quantum Cryptography, and the Future of Digital Assets  \nWeek 12: Final presentation  \nWeek 13: Final exam",
+      "assessment_types": {
+        "Examination": "30",
+        "Presentation": "70"
+      },
+      "feedback_evaluation": "1. Formal Course and Teaching Evaluation   \n2. Informal feedback to instructor and/or teaching assistant",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Course notes will be provided by the instructor."
     },
     {
       "subject": "FTEC",
@@ -1876,7 +2043,7 @@
                 {
                   "time": "Sa 9:30AM - 12:15PM",
                   "location": "Lee Shau Kee Archi Bldg G03",
-                  "instructor": "Professor LO Ting Hong,   Professor LO Wai Shun",
+                  "instructor": "Professor LO Ting Hong, \nProfessor LO Wai Shun",
                   "dates": "6/9, 13/9, 20/9, 27/9, 4/10, 11/10, 18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11"
                 }
               ],
@@ -1901,7 +2068,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to   \n1. outline the essence of FinTech innovation and different business model applications across myriad markets globally;   \n2. understand towards the differences between virtual banking and traditional banking, FinTech and virtual banking, and the technological applications in different markets;   \n3. design different virtual banking products with industry experts sharing first-hand experience and form good understanding on the regulatory and technological implications regarding virtual banking in global landscape; and   \n4. create and spur innovation in different organizations.",
+      "course_syllabus": "Lesson 1: What is FinTech innovation?   \n• Definition of innovation and impact to financial industry   \n• Background on global FinTech trend and various vertical segments   \n• Design-led thinking approach and customer-oriented mindset (essence: customer journey mapping and customer experience creation)    \n• Difference between the West and the East    \n• Introduction of the course assessment framework   \n   \nLesson 2: What is virtual banking v.s. traditional banking?   \n• Difference between virtual banking and traditional (online) banking   \n• In-class discussion   \n• Introduction of global virtual (digital) banking market development   \n• Background on global virtual banking landscape   \n   \nLesson 3: Is virtual banking a FinTech?   \n• Introduction of virtual banking product offerings and value proposition   \n• Case study of virtual banking: Monzo and KaokaoBank   \n• FinTech: unbundle v.s. rebundle   \n• Case study of “rebundle” FinTech: Revolut and Wealthfront   \n• Introduction of essay paper (project work): identify 2 FinTechs who are in the same vertical segment (1 each for the West and the East), share views on their business model innovation similarities and differences; comment if this can be applied in Hong Kong and why   \n   \nLesson 4: FinTech business model innovations – virtual banking   \n• Introduction of business model innovation   \n• Virtual banking business model archetypes   \n• Opportunities and challenges of virtual banking   \n• Case study on virtual banks (in-class discussion)   \n - Global : ING Direct and N26   \n - China: PingAn Orange Bank, Webank and Mybank   \n   \nLesson 5: Virtual banking product offering – payment and lending   \n• Introduction of digital payment development and impact to credit card   \n - Guest speaker   \n• Introduction of consumer finance and P2P development in China, difference with traditional bank lending   \n• Application of big data analytics and machine learning technology   \n - Guest speaker   \n   \nLesson 6: Virtual banking product offering – account and Open API   \n• Introduction of HK remote account opening and impact to virtual banking   \n - Guest speaker   \n• Introduction of HK Open API initiative and comparison with global practices   \n• Case study on Open API (in-class discussion)   \n - UK : Starling marketplace, HSBC Connected Money   \n - HK: ZhongAn, MoneyHero   \n• Technology risk impact arising from Open API   \n• Introduction of presentation (course work): identify a virtual bank that is launched in Hong Kong and analyze their business operating model, suggest plans on their iteration if you’re the management team   \n   \nLesson 7: Virtual banking - China and Hong Kong regulation landscape   \n• Background of HKMA 7 initiatives under “a new era of smart banking”   \n - Guest speaker   \n• Background of China virtual banking regulation and landscape   \n• What’s next for BATJ and traditional banks – TechFin   \n• Potential of Greater Bay Area for HK virtual banking development   \n   \nLesson 8: Virtual banking - technology application   \n• Introduction of AI, blockchain, cloud and data (ABCD)   \n• Application of ABCD to virtual banking   \n• Challenges and opportunities arising from ABCD   \n - Guest speaker   \n   \nLesson 9: FinTech business model innovations - others   \n• The rise of platforms – using technology, data and customer base to create new business model   \n• Case study (in-class discussion)   \n - China: Zhong An (insurance)    \n - US: Amazon, Paypal and Square (platform lending)   \n - Southeast Asia: Grab   \n• What is blockchain and its applications in different markets   \n - Guest speaker   \n   \nLesson 10: FinTech partnership & incubation   \n• FinTech: friend or foe to traditional banking   \n• Ecosystem and partnership – day in the life of a traditional bank   \n• Opportunities and challenges to FinTech incubation   \n - Guest speaker   \n   \nLesson 11: Organizational design to support innovation   \n• Start up in a traditional banking v.s. start up in a virtual banking    \n• Difference in strategy, decision making process and way of working   \n - Guest speaker   \n   \nLesson 12: Presentation",
+      "assessment_types": {
+        "Attendance": "7",
+        "Essays": "35",
+        "Presentation": "50",
+        "Participation": "8"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire   \n2. Question-and-answer sessions during class   \n3. Student consultation during office hours or online",
+      "required_readings": "Details will be provided by the course instructor.",
+      "recommended_readings": "Details will be provided by the course instructor."
     },
     {
       "subject": "FTEC",
@@ -1956,7 +2134,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, student will be able to   \n1. Have a basic grasp of an Entrepreneurship framework ;   \n2. Have a good understanding of how FinTech industries are being created, managed, and operated;   \n3. Have the ability to develop innovative ideas from their inception to potential ventures;   \n4. Present to financial and technology domain experts in the industry and communicate effectively in pitching for investment from venture capitalists.",
+      "course_syllabus": "Week 1: What is entrepreneurship? Definition, scope and key of success   \nWeek 2: Opportunity Identification  \nWeek 3: Human centered and design-driven innovation   \nWeek 4: Startup Value Proposition  \nWeek 5: Business Model Formulation  \nWeek 6: How technology spur entrepreneurship    \n-Guest speaker from Law Dept or VC industry will be invited to discuss patents, intellectual property, contracts, copyright, and trademarks.   \nWeek 7:Pitching, Fundraising and Resources Mobilization    \n-Guest Speaker (VC)   \nWeek 8: AI and Blockchain in FinTech sectors  \nWeek 9: Entrepreneurial Strategy and Lean Startup  \n Week 10: Growth, acquisition and IPO    \n-Guest Speaker (Equity Capital Market)   \nWeek 11: Making critical decisions during the different phases of an entrepreneurial company's life    \n-Guest speaker (entrepreneurs sharing)   \nWeek 12: Course Recap  \nWeek 13: Final presentation",
+      "assessment_types": {
+        "Attendance": "20",
+        "Presentation": "20",
+        "Participation": "20",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.   \n1.Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.   \n2.Midterm feedback questionnaire: Students are asked to provide feedback on the course teaching as well as tutorials around the middle of the term in order to assist the course lecturer and tutor to improve on the teaching method to suit the class or some group of students.   \n3.Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Course notes will be provided by the instructor."
     },
     {
       "subject": "FTEC",
@@ -2011,7 +2200,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, student will be able to   \n1. understand various data-driven problems in financial technology;   \n2. understand essential data analytics techniques, including linear and nonlinear regression, classification techniques such as logistic regression, discriminant analysis, decision trees, support vector machines, principal component analysis, clustering methods, time series models, resampling methods and deep learning models, and apply them to solve problems in financial technology;   \n3. implement all the techniques mentioned in the above point using R to analyze financial data.",
+      "course_syllabus": "Week 1: Introduction to data-driven problems in financial technology and review of probability   \nWeek 2: Linear regression: least squares, maximum likelihood estimation, analysis of variance, applications in exploring relationship among some financial variables   \nWeek 3: Linear regression: trouble-shooting techniques, model selection criteria, applications in estimating factor-based asset price models   \nWeek 4: Lasso regression and its applications in factor selection for financial problems, nonlinear regression with applications in yield curve construction   \nWeek 5: Classification techniques: logistic regression, discriminant analysis, applications in credit risk analysis   \nWeek 6: Decision trees: classification trees, regression trees, random forests, applications in credit risk analysis and financial time series forecasting   \nWeek 7: Support vector machines: classifiers, applications in credit risk analysis and financial time series forecasting   \nWeek 8: Principal component analysis with applications in the analysis of yield curve changes, clustering methods (K-means and hierarchical clustering) with applications in stock clustering analysis   \nWeek 9: Time series models: ARIMA models and its applications in modelling and forecasting financial time series   \nWeek 10: Time series models: GARCH models and its applications in modelling and forecasting financial time series   \nWeek 11: Resampling methods: bootstrap, applications in estimation of risk measures   \nWeek 12: Deep learning: commonly used neural network structures, applications in default prediction and price prediction",
+      "assessment_types": {
+        "Attendance": "5",
+        "Homework or assignment": "30",
+        "Project": "60",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.   \n1. Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.   \n2. Midterm feedback questionnaire: Students are asked to provide feedback on the course teaching as well as tutorials around the middle of the term in order to assist the course lecturer and tutor to improve on the teaching method to suit the class or some group of students.   \n3. Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "1. G. James, D. Witten, T. Hastie and R. Tibshirani, An Introduction to Statistical Learning with Applications in R, Springer, 2017.   \n2. D. Ruppert, D S. Matteson, Statistics and Data Analysis for Financial Engineering, Second Edition, Springer, 2015."
     },
     {
       "subject": "FTEC",
@@ -2066,7 +2266,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, student will:\n\n1. Have a comprehensive understanding of intelligent automation [robotic process automation (RPA) + artificial intelligence (AI)) within the context of financial service operations;  \n2. Understand the role of business analysis in intelligent automation implementation;  \n3. Be knowledgeable of and able to execute a delivery methodology for intelligent automation project/program management;  \n4. Possess the technical skills pre-required to create software robots;  \n5. Be capable to build and deploy software robots that can automate a variety of manual tasks/process encountered in financial operations.  \n6. Have created a portfolio of fintech related “bots” that can be showcased to a potential employer.",
+      "course_syllabus": "Each week: 1.5 hr lecture + 1.5 hr practical, “hands-on” lab.\n\nWeek 01: (LEC) Introduction to Intelligent Automation | (Lab) Getting started: IA Tools Overview & Community + Support Platform, IDE setup |(Lab) Overview  \nWeek 02: (LEC) Components Technologies & Basic Skills | (Lab) Editing and Debugging UI Flows + Variables [+ Lists], UI Elements & Images |(Lab) How to use low-code AI models  \nWeek 03: (LEC) Tool Assessment & Selection  | (Lab) Basic Structure Elements and Flow Control [conditional actions (if and Loop)] |(Lab)Pre-built Models: Business card reader, Text recognition, Receipt processing  \nWeek 04: (LEC) Automation Opportunity Identification (AOA) | (Lab) Actions for UI Automation + Automating Standard Business (Biz) Apps (1of4) – [Excel automation] |(Lab) Pre-built Models: Invoice process, ID read, Key phrase extraction  \nWeek 05: (LEC) AOA 2.0 – automating process discovery   | (Lab)Automating Standard Biz Apps (2of4) – Application automation (Calculator and MS Word)|(Lab)Pre-built Models: Language detection, Sentiment analysis, Text translation  \nWeek 06: (LEC) Process Automation & Process Excellence | (Lab) Automating Standard Biz Apps (3of4) – Outlook email and Browser automation|(Lab)Pre-built Models: Text generation, Category classification, Image Description  \nWeek 07: (LEC) Bot Development with Agile/Scrum | (Lab) Automating Standard Biz Apps (4of4) – Web Scraping|(Lab)Custom models: Doc processing, Category classification , Entity extraction  \nWeek 08: (LEC) Automation Center of Excellence (CoE) | (Lab)Desktop & Workstation Automation – [File handling]|(Lab)Custom models: Prediction, Object detection  \nWeek 09: (LEC) Globalization of Intelligent Automation: China perspectives | (Lab) PDF data extraction |(Lab)Integration of low-code Generative AI Solutions   \nWeek 10: (LEC) AI Fundamentals for Executives (“AI 101”) | (Lab) Exception Handling|(Lab)Introduction to low-code Agentic Workflows  \nWeek 11: (LEC) Future Prospects (more AI, citizen dev & beyond…) | (Lab) E2E project: Process Automation Challenge  \nDevelopment Best Practices   \nWeek 12: Project Presentations + 15min Student Course Evaluation Period + “Last Minute Course Q&A” / Course Review  \nWeek 13: FINAL EXAM",
+      "assessment_types": {
+        "Examination": "25",
+        "Lab reports": "25",
+        "Project": "25",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.\n\n1.Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.\n\n2.Midterm feedback questionnaire: Students are asked to provide feedback on the course teaching as well as tutorials around the middle of the term in order to assist the course lecturer and tutor to improve on the teaching method to suit the class or some group of students.\n\n3.Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes and reading resources will be provided by the instructor.",
+      "recommended_readings": "Instructor Provided Materials and Learning Community\n\nIntelligent Automation (Pascal Bornet et al, 2021)"
     },
     {
       "subject": "FTEC",
@@ -2090,7 +2301,7 @@
                 {
                   "time": "Tu 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 209A",
-                  "instructor": "Dr CHAU Ka Lok,   Miss TAM Chui Yuk",
+                  "instructor": "Dr CHAU Ka Lok, \nMiss TAM Chui Yuk",
                   "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                 }
               ],
@@ -2115,7 +2326,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "After completing this course, students are expected to:  \n1.    understand the relationship between risks and returns, their measurements and relevance in portfolio management;  \n2.    have a basic understanding of modern portfolio theory and some of its extensions;  \n3.    be able to apply optimization techniques to asset allocation strategies;  \n4.    have a basic understanding of pricing and trading strategies related to financial derivatives;  \n5.    be able to apply standard computational techniques in the valuation of vanilla and exotic derivative products.",
+      "course_syllabus": "This course introduces some basic concepts in computational finance and their application in real markets. Topics include modern portfolio theory, asset allocation models, utility functions, evaluation of portfolio performance, stochastic models for derivative pricing and trading.  Throughout the course, examples from Asian markets will be used in illustrating the concepts.\n\nWeek 01:     Introduction; Modern Portfolio Theory (part I)  \nWeek 02:     Modern Portfolio Theory (part II)  \nWeek 03:     Equilibrium in Capital Markets: CAPM and APT  \nWeek 04:     Practical models in asset allocation: Black-Litterman and Risk Parity  \nWeek 05:     Derivative market and instruments  \nWeek 06:     Basic stochastic models and Monte Carlo simulations  \nWeek 07:     Derivative product analysis (part I)  \nWeek 08:     Derivative product analysis (part II)  \nWeek 09:     Practical models in asset allocation: Indexing techniques and ESG investing  \nWeek 10:     Portfolio evaluation and risk measures  \nWeek 11:     Option volatility and hedging  \nWeek 12:     Quantitative trading strategies involving derivatives  \nWeek 13:     Examination",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "40"
+      },
+      "feedback_evaluation": "1.    Quiz and examinations  \n2.    Course evaluation and questionnaire  \n3.    Reflection of teachers  \n4.    Question-and-answer sessions during class  \n5.    Student consultation (online and by appointment)",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "•    Elton, Edwin, Martin Gruber, Stephen Brown, William Goetzmann. *Modern Portfolio Theory and Investment Analysis*.  9th edition.  Wiley, 2017.  \n•    Hull, John C.  *Options, Futures, and Other Derivatives*.  11th edition.  Pearson, 2021.  \n•    Luenberger, David G.  *Investment Science*.  2nd edition.  Oxford University Press, 2013.  \n•    Sinclair, Euan.  *Volatility Trading*.  2nd edition.  Wiley, 2013."
     },
     {
       "subject": "FTEC",
@@ -2164,7 +2384,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "After completing this course, students should be able to explain the key technology  components, enablers and success factors for managing a wealth management business through the market life cycles, and for those students who are interested in developing further academic study and research, or in preparing them to take up senior leadership roles within their company or in the wealth management industry.",
+      "course_syllabus": "Week 1   - Wealth management business, industry value chain  and technology overview\n\nWeek 2 / 3 - Discovery of personal financial needs and factors affecting customer behaviour in macroeconomics cycle, designing product development & management process, and current and potential future use of technology in these areas\n\nWeek 4 / 5  - Delivery of Excellent Multi-Channel Marketinging, Sales & Services Customer Experience and the role of technology\n\nWeek 6 - Group Project on Applied Technology in Wealth Management Business presentation\n\nWeek 7 - Developing the technology solution for implementation of Regulatory, Legal & Compliance Framework\n\nWeek 8 - Volatility, Financial Crisis & Contingency Planning\n\nWeek 9 - Final Exam",
+      "assessment_types": {
+        "Examination": "30",
+        "Homework or assignment": "20",
+        "Project": "20",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "1. Formal Course and Teaching Evaluation   \n2. Informal feedback to instructor and/or teaching assistant",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": ""
     },
     {
       "subject": "FTEC",
@@ -2219,7 +2450,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "After completing this course, students should be able to explain the key technology components, enablers and success factors for a green fintech business, and for those students who are interested in developing further academic study and research, or in preparing them to take up fintech job roles.",
+      "course_syllabus": "1. Introduction to Green Fintech  \n   - Overview of the intersection of green finance and financial technology  \n   - Sustainability challenges and the role of fintech in enabling green finance  \n   - Emerging trends and innovations in the green fintech landscape\n\n2. Sustainable Finance Fundamentals  \n   - Environmental, social, and governance (ESG) criteria and their integration in investment decisions  \n   - Sustainable investment strategies and their application in fintech solutions  \n   - Measuring and reporting on sustainability performance using digital tools\n\n3. Green Fintech for Renewable Energy  \n   - Financing models for renewable energy projects using digital platforms  \n   - Blockchain-based solutions for renewable energy trading and peer-to-peer transactions  \n   - AI-powered predictive analytics for optimizing renewable energy investments\n\n4. Green Fintech for Sustainable Infrastructure  \n   - Fintech-enabled financing for green buildings, transportation, and water/waste management  \n   - Integrating IoT and sensor data to monitor and improve infrastructure sustainability  \n   - Crowd-funding and peer-to-peer lending for sustainable infrastructure projects\n\n5. Fintech for Carbon Finance and Emissions Trading  \n   - Blockchain-based platforms for carbon credit trading and offset management  \n   - AI-driven carbon footprint tracking and emissions reporting  \n   - Fintech solutions for carbon pricing and carbon market mechanisms\n\n6. Green Fintech for Sustainable Agriculture and Forestry  \n   - Fintech-enabled financing for precision agriculture and sustainable land use  \n   - Satellite and drone-based monitoring for sustainable forestry practices  \n   - Blockchain-powered traceability and supply chain management in the agri-food sector\n\n7. Sustainable Finance Taxonomies and Standards in Fintech  \n   - Integrating green finance taxonomies and certification schemes in fintech applications  \n   - Developing fintech-enabled tools for sustainability data collection and analysis  \n   - Challenges and opportunities in harmonizing global sustainable finance standards\n\n8. Fintech for Mobilizing Green Finance  \n   - Crowdfunding, peer-to-peer lending, and digital investment platforms for green projects  \n   - Fintech-enabled green bond issuance and trading  \n   - Innovative fintech models for blended finance and de-risking green investments\n\n9. ESG Data Management and Reporting in Fintech  \n   - Leveraging big data, AI, and machine learning for ESG data collection and analysis  \n   - Fintech solutions for streamlining ESG disclosure and reporting  \n   - Addressing data quality, privacy, and security challenges in green fintech\n\n10. Sustainable Finance Risk Management and Compliance  \n     - Fintech-powered risk assessment and underwriting for green investments  \n     - Regulatory and compliance considerations in green fintech development  \n     - Cybersecurity and ethical concerns in sustainable finance technology\n\n11. Fintech for Sustainable Finance Education and Engagement  \n     - Gamification and digital learning tools for green finance literacy  \n     - Fintech-enabled platforms for sustainable investment decision-making  \n     - Engaging retail investors and communities in green finance through fintech\n\n12. Green Fintech Innovation and Entrepreneurship  \n     - Incubating and accelerating green fintech startups and ventures  \n     - Collaborative innovation between traditional finance and fintech firms  \n     - Emerging business models and revenue streams in the green fintech ecosystem\n\n13. Future Trends in Green Fintech  \n- Innovations in green finance.  \n- Emerging trends and technologies.  \n- The future landscape of green finance.",
+      "assessment_types": {
+        "Examination": "25",
+        "Homework or assignment": "25",
+        "Project": "50"
+      },
+      "feedback_evaluation": "1. Formal Course and Teaching Evaluation   \n2. Informal feedback to instructor and/or teaching assistant",
+      "required_readings": "•    “Financial Technology: Case Studies in Fintech innovation”, Niels Pedersen, Kogan Page  \n•    \"Principles of Sustainable Finance\" by Dirk Schoenmaker and Willem Schramade.",
+      "recommended_readings": "•    \"Sustainable Investing: Revolutions in Theory and Practice\" by Cary Krosinsky and Nick Robins.  \n•    “History of Fintech”, August 27, 2021, Fintica (https://www.fintica.com/history-of-fintech/)  \n•    “The Economic Consequences of the Peace”, John Maynard Keynes, 2005 (https://www.gutenberg.org/ebooks/15776)  \n•    “Seven Technologies Shaping the Future of FinTech”, McKinsey Company, November 9, 2021  \n•    (https://www.mckinsey.com/cn/our-insights/our-insights/seven-technologies-shaping-the-future-of-fintech)  \n•    “Fact Sheet: Hong Kong Fintech Landscape”, InvestHK, April 8, 2022 (https://www.hongkong-fintech.hk/en/insights/news/news-2022/fact-sheet-hong-kong-fintech-landscape/)"
     },
     {
       "subject": "FTEC",
@@ -2249,7 +2490,7 @@
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Yasumoto Int'l Acad Park LT8",
-                  "instructor": "Miss TAM Chui Yuk,   Professor LAU Wing Cheong",
+                  "instructor": "Miss TAM Chui Yuk, \nProfessor LAU Wing Cheong",
                   "dates": "10/4, 17/4"
                 }
               ],
@@ -2274,7 +2515,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand the operating principles and concepts underlying various DeFi services.\n\n2. Explain how cryptocurrencies, tokens, and smart contracts can be used to implement different financial services.\n\n3. Evaluate various DeFi services by analyzing their strengths, limitations, potential applications and risks.\n\n4. Assess the potential impact of different DeFi services on the financial industry and the society.",
+      "course_syllabus": "Week 1: Overview of DeFi  \nWeek 2: Introduction to Money, Traditional Finance, Banking and Payment systems  \nWeek 3: Blockchain Fundamentals  \nWeek 4: Introduction to Smart Contracts  \nWeek 5: Cryptocurrencies and Tokens  \nWeek 6: Decentralized Exchanges (DEX) and Automated Market Maker (AMM) Protocols  \nWeek 7: Decentralized Lending / Borrowing protocols  \nWeek 8: Stablecoins  \nWeek 9: Oracles  \nWeek 10: Derivatives  \nWeek 11: DeFi Security, Risk Management and Regulatory Issues  \nWeek 12: Emerging trends and future directions of DeFi",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "40",
+        "Project": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:  \n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.  \n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "* Sam M. Werner, Daniel Perez, Lewis Gudgeon, Ariah Klages-Mundt, Dominik Harz, William J. Knottenbelt, “SoK Decentralized Finance (DeFi),” Procs. of the 4th ACM Conference on Advances in Financial Technologies (AFT), 2022.\n* Kaihua Qin, Liyi Zhou, Yaroslav Afonin, Ludovico Lazzaretti, Arthur Gervais, “CeFi vs. DeFi - Comparing Centralized to Decentralized Finance,” 2021 Crypto Valley Conference on Blockchain Technology (CVCBT), arXiv:2106.08157.\n* Fabian Schär, “Decentralized Finance: On Blockchain and Smart Contract-Based Financial Markets,” Federal Reserve Bank of St. Louis Review, Feb 2021.\n* Michael McLeay, Amar Radia, Ryland Thomas, “Money in the Modern Economy: An Introduction,” Bank of England Quarterly Bulletin 2014 Q1.\n* Michael McLeay, Amar Radia, Ryland Thomas, “Money Creation in the Modern Economy,” Bank of England Quarterly Bulletin 2014 Q1.\n* Arvind Narayanan, Joesph Bonneau, Edward Felten, Andrew Miller, Steven Goldfeder, Bitcoin and Cryptocurrency Technologies - A Comprehensive Introduction, Princeton University Press, 2016\n* Andreas M. Antonopoulos, Mastering Bitcoin, 2nd Edition, Published by O’Reilly, July 2017\n* Andreas Antonopoulos, Gavin Wood, Mastering Ethereum - Building Smart Contracts and DApps, Published by O’Reilly, 2018.\n* Jiahua Xu, Nazariy Vavryk, Krzysztof Paruch, Simon Cousaert, “SoK: Decentralized Exchanges (DEX) with Automated Market Maker (AMM) protocols,” ACM Computing Surveys, Vol. 55, No. 11, Feb 2023.\n* Lewis Gudgeon, Sam Werner, Daniel Perez, William J. Knottenbelt, “DeFi Protcols for Loanable Funds: Interest Rates, Liquidity and Market Efficiency,” Procs. of the 2nd ACM Conference on Advances in Financial Technologies (AFT), 2020.\n* Ariah Klages-Mundt, Dominik Harz, Lewis Gudgeon, Jun-You Liu, Andreea Minca, “Stablecoins 2.0: Economic Foundations and Risk-based Models,” Procs. of the 2nd ACM Conference on Advances in Financial Technologies (AFT), 2020.\n\nAdditional readings and resources will be provided throughout the course."
     },
     {
       "subject": "FTEC",
@@ -2290,7 +2541,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, student will:\n\n1. Understand the international fintech competitive landscape;  \n2. Have a broad understanding and knowledge of the fintech ecosystems of Africa (Sub-Saharan Africa) region;  Middle East & North Africa region; Asia (South Asia) region; East Asia & Pacific region; Europe and Central Asia region; Latin America & Caribbean region; North America;  \n3. Gain a comprehension of global trading blocs and associated collaborative organizations within the international fintech order;  \n4. Obtain knowledge of intergovernmental regulations / regulatory institutions within the international fintech landscape.",
+      "course_syllabus": "Week 01: Overview of the Int'l Fintech Competitive Landscape (HK as a \"super connector to the world\")\n\nWeek 02 - Week 08: Int’l Fintech Ecosystem Africa (Sub-Saharan Africa) region; Middle East & North Africa region; Asia (South Asia) region; East Asia & Pacific region; Europe and Central Asia region; Latin America & Caribbean region; North America.\n\nWeek 09: Global Trading Blocs & Collaborative Orgs within the Int’l Fintech Landscape\n\nWeek 10: Intergovernmental Regulation within the Int’l Fintech Landscape\n\nWeek 11: Future outlook of the international fintech landscape\n\nWeek 12: Presentation (Project)\n\nWeek 13: Final Exam",
+      "assessment_types": {
+        "Examination": "25",
+        "Project": "50",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.   \n1.Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term.   \n  \n2.Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Instructor curated teaching materials & lecture notes.",
+      "recommended_readings": "Instructor curated recommended reading and videos based on latest industry trends and professional practice."
     },
     {
       "subject": "FTEC",
@@ -2339,7 +2600,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon completion of the course, the students are expected to be able to  \n1.    Describe the fundamental technical mechanism underlying reinforcement learning, language models, and agentic systems;  \n2.    Analyze real business and fintech problems and conceptualize feasible agentic systems to address them;  \n3.    Prototype minimal viable agentic systems to address the problems;  \n4.    Evaluate, benchmark, and compare different agentic architectures across multiple metrics and choose the most appropriate agentic system;  \n5.    Deploy the agentic systems successfully under resource constraints.",
+      "course_syllabus": "Week 1: Introduction to agentic systems, Revision on machine learning concepts and deep neural networks  \nWeek 2: Reinforcement learning agents (theory)  \nWeek 3: Reinforcement learning agent (applications in market simulation, etc.)  \nWeek 4: Fundamentals of language models (transformer, tokenization, prompts)  \nWeek 5: Language model agent capabilities (memory, reasoning)  \nWeek 6: Language model agent capabilities (tool use, planning)  \nWeek 7: Language model agents (applications in fintech  \nWeek 8: Multi-agent systems (theory)  \nWeek 9: Multi-agent systems (applications in portfolio management and business operations)  \nWeek 10: Midterm exam (90 minutes)  \nWeek 11: Benchmarking and performance evaluation  \nWeek 12: Safety, alignment, and mechanistic interpretability  \nWeek 13: Project presentation",
+      "assessment_types": {
+        "Examination": "25",
+        "Project": "75"
+      },
+      "feedback_evaluation": "1. Formal Course and Teaching Evaluation   \n2. Informal feedback to instructor and/or teaching assistant",
+      "required_readings": "There are no required readings. The lecture notes and slides will be self-contained.",
+      "recommended_readings": "1.    What Are AI Agents? by Benjamin Labaschin, O'Reilly Media.  \n2.    Reinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto, MIT Press.  \n3.    Build a Large Language Model (From Scratch) by Sebastian Raschka, O’Reilly Media."
     },
     {
       "subject": "FTEC",
@@ -2357,7 +2627,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Miss TAM Chui Yuk,   Professor LO Wai Shun",
+                  "instructor": "Miss TAM Chui Yuk, \nProfessor LO Wai Shun",
                   "dates": "11/05/2026 - 22/06/2026"
                 }
               ],
@@ -2382,7 +2652,17 @@
       "component": "Field Studies/Field-trip",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, students will be able to   \n1. Have a basic understanding of FinTech developments in the city/region of visit  \n2. Learn from the entrepreneurs on how to pursue opportunities and leverage resources within the ecosystem  \n3. Understand the regulatory framework of the city/region",
+      "course_syllabus": "5 days of visits to various FinTech companies and regulators in a city outside of Hong Kong",
+      "assessment_types": {
+        "Presentation": "30",
+        "Participation": "20",
+        "Report": "50"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.\n\n1.Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.   \n  \n2.Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Course notes will be provided by the instructor."
     },
     {
       "subject": "FTEC",
@@ -2425,7 +2705,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "1.    Understanding financial time series modeling and basic statistical knowledge for analysis, and estimation  \n2.    Learning basic MATLAB/PYTHON/R programming skill for linear model estimation and identification  \n3.    Understanding artificial neural network and learning schemes, including recurrent and feed-forward architectures, reinforcement learning and dynamic programming  \n4.    Learning MATLAB/PYTHON/R programming skill for neural networks construction and their simulation  \n5.    Understanding the current development of efficient hardware platforms for supporting large scale neural computation  \n6.    Simulations of generative AI for financial prediction, investment strategies and planning  \n7.    Exploring robo-advisors using generative AI with large language models (LLMs) for enhancing wealth creation and investment outcomes.",
+      "course_syllabus": "Week 1: Basic time series models for financial data and MATLAB/PYTHON/R programming  \nWeek 2: Linear model estimation and identification, ARX/GARCH models for prediction and volatility estimation  \nWeek 3: Introduction to artificial neural networks (ANN): Hopfield network, Hebbian learning, Boltzmann machines and their applications  \nWeek 4: Different architectures of neural networks and basic learning algorithms  \nWeek 5: Non-supervisory recurrent neural networks and programming  \nWeek 6: Supervisory feedforward backpropagation networks and programming    \nWeek 7: Reinforcement learning and dynamic programming planning  \nWeek 8: Application study of using ANN for financial prediction  \nWeek 9: Application study of using ANN for investment strategies  \nWeek 10: Current development of efficient hardware platforms for supporting large scale neural computation  \nWeek 11: The simulation of generative AI for applications  \nWeek 12: Application study of robo-advisors using large language models and generative AI  \nWeek 13: Project presentations",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "25",
+        "Project": "25"
+      },
+      "feedback_evaluation": "1.    Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.  \n  \n2.    Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes will be provided by the teacher.",
+      "recommended_readings": "Course notes will be provided by the teacher."
     },
     {
       "subject": "FTEC",
@@ -3008,7 +3298,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "At the end of the course of studies, a student should be able to   \n1. Analyze and solve a significant and practical problem in financial technology;   \n2. Understand and carry out basic project management;   \n3. Give a fluent technical presentation; and    \n4. Write a report detailing the findings and deliverables of the project.",
+      "course_syllabus": "The courses, Financial Technology Project I & II, involve a significant research and/or development project under the supervision of an academic staff in any area of financial technology. At the end of the course, the student must give a presentation to the academic and industry supervisors, and submit a report detailing the findings and deliverables. Details will be provided by the academic supervisor.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Course evaluation by students",
+      "required_readings": "Readings will be recommended by the project supervisor.",
+      "recommended_readings": "Readings will be recommended by the project supervisor."
     },
     {
       "subject": "FTEC",
@@ -3591,7 +3891,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering"
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "At the end of the course of studies, a student should be able to   \n1. Analyze and solve a significant and practical problem in financial technology;   \n2. Understand and carry out basic project management;   \n3. Give a fluent technical presentation; and    \n4. Write a report detailing the findings and deliverables of the project.",
+      "course_syllabus": "The courses, Financial Technology Project I & II, involve a significant research and/or development project under the supervision of an academic staff in any area of financial technology. At the end of the course, the student must give a presentation to the academic and industry supervisors, and submit a report detailing the findings and deliverables. Details will be provided by the academic supervisor.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Course evaluation by students",
+      "required_readings": "Readings will be recommended by the project supervisor.",
+      "recommended_readings": "Readings will be recommended by the project supervisor."
     }
   ]
 }

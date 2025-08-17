@@ -6,3 +6,6 @@ ddddocr>=1.4.11
 
 # HTML parsing (for implementing the scraping logic)
 beautifulsoup4>=4.12.0
+
+# HTML to Markdown conversion for Course Outcome content
+markdownify>=0.11.6

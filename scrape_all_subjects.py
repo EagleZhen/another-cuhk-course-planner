@@ -23,13 +23,15 @@ def main():
     logger.info("Starting CUHK course scraping for all subjects")
     
     try:
-        # Initialize scraper
-        scraper = CuhkScraper()
+        # Initialize production scraper with proper config
+        from cuhk_scraper import ScrapingConfig
+        scraper = CuhkScraper(ScrapingConfig.for_production())
         
         # Get all subjects from live website
         logger.info("Getting subjects from live website...")
-        subjects = scraper.get_subjects_from_live_site()
-        
+        # subjects = scraper.get_subjects_from_live_site()
+        subjects = ['ARTS', 'HIST']
+
         if not subjects:
             logger.error("Could not get subjects from live website")
             return
@@ -42,16 +44,18 @@ def main():
         logger.info("  - Unlimited courses per subject")
         logger.info("  - Full course details enabled")
         logger.info("  - Enrollment details enabled")
+        logger.info("  - Course outcome data enabled")
         logger.info("  - Per-subject JSON files in /data/")
         logger.info("  - Progress tracking enabled")
         logger.info("  - Subject titles included in metadata")
         
-        # Use production workflow (now includes subject title metadata)
-        summary = scraper.scrape_and_export_production(
-            subjects=subjects,
-            get_details=True,
-            get_enrollment_details=True
-        )
+        # Use clean core API (separation of concerns)
+        results = scraper.scrape_all_subjects(subjects)
+        
+        # Create summary (this is "what to scrape" logic, not core scraping)
+        completed_count = len(results['completed'])
+        failed_count = len(results['failed'])
+        summary = f"Production scraping completed: {completed_count} subjects successful, {failed_count} failed"
         
         logger.info("Scraping completed!")
         logger.info(f"Summary: {summary}")

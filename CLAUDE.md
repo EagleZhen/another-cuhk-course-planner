@@ -26,8 +26,8 @@ Raw scraped     Runtime check    Clean domain    Type-safe UI
 web/src/
 ├── app/page.tsx              # State hub + localStorage persistence
 ├── components/
-│   ├── CourseSearch.tsx      # Search + section compatibility  
-│   ├── WeeklyCalendar.tsx    # Dynamic config + conflict zones
+│   ├── CourseSearch.tsx      # Search + course-level day filtering + section compatibility  
+│   ├── WeeklyCalendar.tsx    # Dynamic config + mobile optimized + conflict zones
 │   └── ShoppingCart.tsx      # Section cycling + enrollment mgmt
 └── lib/
     ├── types.ts              # Internal models (zero `any`)
@@ -89,6 +89,9 @@ python resilient_scraper.py --retry  # Retry failed only
 - **Mobile-responsive** course cards with proper touch targets and layouts
 - **Fully decoupled CourseCard** with local state management for maximum maintainability
 - **Legacy-free codebase** with simplified data formats and eliminated technical debt
+- **Course-level day filtering** for efficient course discovery by schedule preferences
+- **Mobile UI optimization** with fixed overflow issues and professional popups
+- **Interactive search integration** with Google search for course outlines and instructor info
 
 ### **✅ Latest Achievement: Visual Polish & UX Refinements (January 2025)**
 
@@ -316,42 +319,44 @@ if (Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
 }
 ```
 
+### **✅ Latest Achievement: Mobile Experience & Day Filtering (August 2025)**
+
+**Major UX & Backend Improvements**:
+1. **Course-Level Day Filtering**: Students can filter entire courses by preferred days (Mon-Fri) before expansion
+2. **Mobile Overflow Fixes**: Calendar headers, course cards, and search elements now fit properly on mobile
+3. **Modern Mobile Popup**: Professional glassmorphism effect for desktop recommendation notice
+4. **Scraper Data Enhancement**: Added course attributes extraction to separate teaching language from other course metadata
+5. **Weekend Course Analysis**: Found 313 weekend courses (mostly postgraduate 5XXX intensive programs)
+
+**Technical Achievements**:
+- **Course-Level Filtering**: More efficient than section-level filtering - eliminates courses before expansion
+- **Mobile-First UI**: Fixed element overflow, optimized touch targets, professional blur effects
+- **Scraper Architecture**: Course attributes now properly scraped and available for frontend processing
+- **Data Analysis**: Comprehensive weekend course analysis revealed postgraduate focus
+
 ### **🔧 Current Technical Priorities & Next Steps**
 
-**System Status**: Core functionality complete and performant ✅
+**System Status**: Production-ready with mobile optimization complete ✅
 - ✅ **Load Performance**: <1s initial load via parallel JSON requests  
 - ✅ **Data Sync**: Shopping cart syncs with scraped data
-- ✅ **State Management**: Clean localStorage with proper hydration
-- ✅ **UI/UX Polish**: Selection patterns, conflict visualization, screenshot system
+- ✅ **Mobile Experience**: Fixed overflow issues, professional popups, touch-friendly
+- ✅ **Day Filtering**: Course-level filtering for efficient schedule planning
 - ✅ **Component Architecture**: Decoupled, self-contained components
 
 **Current Development Status** (August 2025):
-- **Public Launch**: >100 visitors from school forums
-- **Performance**: <1s load times, stable core functionality
-- **Daily Scraping**: Automated data updates during enrollment periods
+- **Public Launch**: Active user base from school forums
+- **Performance**: <1s load times, stable mobile/desktop functionality
+- **Daily Scraping**: Automated data updates with course attributes
 
-**Immediate Priorities** (Prioritized by impact + effort):
+**In Progress: Enhanced Course Data**
+- **Course Outcome Scraping**: Adding learning outcomes, assessment types, and readings
+- **Data Structure**: Designed with `Dict[str, str]` for assessment types (clean key-value mapping)
+- **Implementation**: Navigation, parsing, and integration phases planned
 
-**Priority 1: User Analytics (Completed - Ethical Decision Made)**
-- **Decision**: Reverted from PostHog to Vercel Analytics only
-- **Reason**: Privacy-first approach - uBlock Origin blocked PostHog (strong user signal)
-- **Student Trust**: Academic tools should respect privacy, not track secretly
-- **Current Analytics**: Basic Vercel metrics (page views, performance) - non-invasive
-
-**Priority 2: SEO Implementation (Planned)**
-- **Static Course Pages**: Google-indexable course information
-- **Organic Discovery**: Students googling courses find the tool
-- **Impact**: 10x user acquisition potential through search traffic
-- **Effort**: ~3-4 hours (Next.js static generation)
-
-**Priority 3: Content Enhancement**
-- **Course Outcomes Scraping**: Add Learning Outcomes and Assessment Types
-- **Language Filtering**: Smart detection of teaching language
-- **Impact**: Enhanced academic planning information
-
-**Priority 4: UI/UX Polish**
-- **Visual Improvements**: Color refinements, mobile experience
-- **Impact**: Enhanced user experience and accessibility
+**Next Priorities**:
+1. **Complete Course Outcomes**: Finish scraping learning objectives and assessment information
+2. **SEO Implementation**: Static course pages for organic discovery
+3. **Weekend Support**: Consider adding Sat/Sun filters if postgraduate demand emerges
 
 ## Core Implementation Details
 
@@ -985,6 +990,219 @@ googleSearchAndOpen(`CUHK ${formattedInstructor}`)
 - ✅ **Simpler Interfaces**: Reduced component props and complexity
 - ✅ **Better Performance**: Fewer unused calculations and re-renders
 - ✅ **Easier Debugging**: Less code to navigate and understand
+
+## ✅ Latest Achievement: Course Outcome Data Integration & Performance Optimization (August 2025)
+
+**Major Scraper Enhancement & UI Foundation**: 
+1. **Complete Course Outcome Scraping**: Added comprehensive academic data extraction with markdown formatting
+2. **Performance Optimization**: Unified retry logic for significantly faster scraping
+3. **React Markdown Integration**: Built foundation for rich course content display in web app
+4. **Data Quality Analysis**: Identified and catalogued formatting improvements needed
+
+### **📚 Course Outcome Data Implementation**
+
+**Problem Solved**: Students lacked essential academic planning information - assessment types, learning outcomes, required readings
+**Solution**: Complete Course Outcome page scraping with intelligent HTML-to-Markdown conversion
+
+```python
+# New Course Outcome Fields Added:
+learning_outcomes: str      # Markdown-formatted learning objectives  
+course_syllabus: str        # Rich course structure with tables
+assessment_types: Dict[str, str]  # Assessment type → percentage mapping
+feedback_evaluation: str    # Course evaluation methods
+required_readings: str      # Academic bibliography
+recommended_readings: str   # Supplementary materials
+```
+
+**Implementation Details:**
+- ✅ **HTML Navigation**: Course Outcome button detection and form postback simulation
+- ✅ **Markdown Conversion**: markdownify integration with table header fixes for proper formatting
+- ✅ **Assessment Table Parsing**: Structured extraction of assessment types and percentages
+- ✅ **Graceful Fallback**: Falls back to plain text extraction if markdownify unavailable
+- ✅ **Data Validation**: All fields optional for backward compatibility
+
+### **⚡ Performance Optimization: Retry Logic Unification**
+
+**Problem Solved**: Aggressive retry delays causing 12x performance regression (8.52 → 103.69 minutes for CHLL)
+**Solution**: Unified exponential backoff replacing inconsistent retry strategies
+
+```python
+# Before: Aggressive linear scaling
+wait_time = min(300, 5 * attempt)    # 5s, 10s, 15s... up to 5 minutes!
+wait_time = min(60, 10 * attempt)    # 10s, 20s, 30s... for server errors
+
+# After: Unified exponential backoff  
+wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # 1s, 2s, 4s, 8s, 16s, 32s, max 60s
+```
+
+**Performance Impact:**
+- ✅ **First Retry**: 5s → 1s (**5x faster**)
+- ✅ **Second Retry**: 10s → 2s (**5x faster**)  
+- ✅ **Third Retry**: 15s → 4s (**3.75x faster**)
+- ✅ **Expected Overall**: 30-50% scraping time reduction for retry scenarios
+
+### **🎨 React Markdown UI Foundation**
+
+**Problem Solved**: Course Outcome data needed rich formatting display in web app
+**Solution**: react-markdown integration with custom styling components
+
+```typescript
+// Smart Section Filtering Logic:
+1. Skip if content is empty
+2. Skip if course_syllabus same as description (duplicate detection)  
+3. Assessment types displayed as clean table format
+4. Display order: Assessment Types → Learning Outcomes → Required Readings → Recommended Readings → Feedback Evaluation
+```
+
+**UI Components Ready:**
+- ✅ **CourseOutcomeSections**: Smart filtering and conditional display
+- ✅ **CourseOutcomeSection**: Individual section with markdown rendering
+- ✅ **Custom Styling**: Table, list, and paragraph formatting aligned with design system
+- ✅ **Type Safety**: Proper TypeScript types for new Course Outcome fields
+
+### **🔍 Data Quality Insights Discovered**
+
+**Formatting Issues Identified** (pending cleanup):
+- Inconsistent whitespace in feedback_evaluation: `"text  \n   \n"`
+- Adjacent bold markdown tags: `**text1****text2**` 
+- Bidirectional Unicode characters in academic citations (safe but flagged by GitHub)
+
+**Architectural Decision**: Prioritize UI functionality first, then optimize data formatting based on actual rendering behavior
+
+## ✅ Latest Achievement: Production-Ready Course Outcome UI & Modular HTML Processing (August 2025)
+
+**Major Frontend & Architecture Improvements**: 
+1. **Modular HTML Processing**: Extracted 150+ lines of HTML/markdown logic into reusable `html_utils.py` module
+2. **Production-Ready Assessment Tables**: Content-fitting tables with proper visual styling for critical enrollment information
+3. **Collapsible Course Outcome UI**: Smart progressive disclosure with polished interaction design
+4. **Typography Integration**: All Course Outcome content now uses app's Geist Sans font consistently
+5. **Maintainable Component Architecture**: Clean separation of concerns with configurable visibility controls
+
+### **🛠️ Modular HTML Processing Architecture**
+
+**Problem Solved**: 1,894-line monolithic scraper with embedded HTML processing created maintenance challenges
+**Solution**: Clean separation into focused, testable modules
+
+```python
+# html_utils.py - Standalone, reusable module
+def html_to_clean_markdown(html_content: str) -> Tuple[str, bool]:
+    """Complete HTML-to-markdown pipeline with Word HTML preprocessing"""
+    
+def clean_word_html(html_content: str) -> str:
+    """Remove Word-specific artifacts (<!--[if !supportLists]-->, etc.)"""
+    
+def normalize_markdown_whitespace(text: str) -> str:
+    """Fix markdown list formatting and whitespace issues"""
+```
+
+**Architecture Benefits:**
+- ✅ **Single Responsibility**: Each function has one focused purpose
+- ✅ **Independent Testing**: HTML processing testable without scraper complexity
+- ✅ **Reusability**: Can be used by testing scripts, data migration tools, or other scrapers
+- ✅ **Maintainability**: HTML logic changes don't require understanding scraper internals
+
+### **📊 Production-Ready Assessment Tables**
+
+**Problem Solved**: Assessment breakdowns stretched to full width, making data hard to read
+**Solution**: Content-fitting tables with proper visual hierarchy
+
+```tsx
+// Content-fitting table with proper borders
+<div className="bg-gray-50 rounded-lg p-3 w-fit">
+  <table className="w-fit text-sm">
+    <th className="...border-r border-gray-300">Assessment Type</th>
+    <th className="...">Percentage</th>
+    <td className="...border-r border-gray-300">{type}</td>
+    <td className="...">{percentage}</td>
+  </table>
+</div>
+```
+
+**Key Features:**
+- ✅ **Content-Fitting Width**: Tables only as wide as their data requires
+- ✅ **Visual Separators**: Clean gray borders between columns for readability
+- ✅ **Always Visible**: Critical enrollment information never hidden
+- ✅ **Professional Styling**: Consistent with app's design system
+
+### **🎛️ Collapsible Course Outcome UI**
+
+**Problem Solved**: Long course content (readings, outcomes) created visual clutter and poor scanability
+**Solution**: Smart progressive disclosure with production-ready infrastructure
+
+```tsx
+// Configurable section system
+const sectionConfigs = [
+  {
+    key: 'assessmentTypes',
+    title: 'Assessment Types',
+    alwaysVisible: true,      // Critical info - always shown
+    defaultExpanded: true     // Never collapsible
+  },
+  {
+    key: 'learningOutcomes',
+    title: 'Learning Outcomes', 
+    alwaysVisible: true,      // Can be hidden when formatting is poor
+    defaultExpanded: false    // Collapsed by default
+  }
+]
+```
+
+**Smart Interaction Design:**
+- ✅ **Clean Toggle Headers**: Title + chevron icon with synchronized hover states
+- ✅ **Perfect Alignment**: No background hover to avoid text indentation issues
+- ✅ **Color Coordination**: Text and icon change to blue together on hover
+- ✅ **Accessibility**: Clear cursor pointer and color change affordance
+
+### **🎨 Typography & Design Integration**
+
+**Problem Solved**: ReactMarkdown used serif fonts (Times New Roman) breaking visual consistency
+**Solution**: Complete typography override using app's Geist Sans font
+
+```tsx
+// Custom ReactMarkdown components using app typography
+components={{
+  p: ({ children, node }) => {
+    // Fix list item paragraph wrapping issue
+    if (node && 'parent' in node && node.parent?.tagName === 'li') {
+      return <>{children}</>;  // No wrapper in lists
+    }
+    return <p className="text-gray-600 mb-2 font-sans">{children}</p>;
+  },
+  h1: ({ children }) => (
+    <h1 className="text-base font-semibold text-gray-800 mb-2 font-sans">{children}</h1>
+  ),
+  // ... all typography using font-sans
+}}
+```
+
+**Visual Consistency Achieved:**
+- ✅ **Font Harmony**: All content uses Geist Sans throughout
+- ✅ **List Formatting**: Fixed `<li><p>` wrapping that separated bullets from content
+- ✅ **Color Consistency**: Gray text palette matching rest of application
+- ✅ **Spacing Rhythm**: Consistent margins and padding with app design
+
+### **🏗️ Production Deployment Strategy**
+
+**Flexible Visibility Control:**
+```tsx
+// Easy content hiding for production deployment
+{
+  key: 'learningOutcomes',
+  alwaysVisible: false,  // ← Simply set to false to hide poor-quality content
+  defaultExpanded: false
+}
+```
+
+**Deployment Phases:**
+1. **Phase 1** (Current): Assessment tables always visible (production-ready)
+2. **Phase 2** (Future): Enable other sections when HTML processing is perfected
+3. **Quality Gate**: `alwaysVisible` flag allows selective content showing
+
+**Current Production Status:**
+- ✅ **Assessment Tables**: Ready for immediate deployment
+- ✅ **Collapsible Infrastructure**: Complete and tested
+- ✅ **Content Quality Control**: Easy hiding of problematic formatting
+- ✅ **Progressive Enhancement**: Can enable more content as it improves
 
 ## Current System Status (August 2025)
 

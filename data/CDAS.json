@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T07:19:13.331991+00:00",
+    "scraped_at": "2025-08-16T05:27:03.970154+00:00",
     "subject": "CDAS",
+    "subject_title": "CDAS - Computational Data Science",
     "total_courses": 2,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -34,7 +35,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (9057)",
@@ -54,7 +55,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "CJ01-PRJ (7205)",
@@ -74,7 +75,7 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "DJ01-PRJ (7199)",
@@ -94,7 +95,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "EJ01-PRJ (7200)",
@@ -114,7 +115,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "FJ01-PRJ (7201)",
@@ -134,7 +135,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "GJ01-PRJ (7202)",
@@ -154,7 +155,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "HJ01-PRJ (7203)",
@@ -174,7 +175,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "IJ01-PRJ (7206)",
@@ -194,7 +195,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "JJ01-PRJ (7207)",
@@ -214,7 +215,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "KJ01-PRJ (9578)",
@@ -234,7 +235,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "LJ01-PRJ (9582)",
@@ -254,7 +255,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "MJ01-PRJ (9581)",
@@ -274,7 +275,7 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "NJ01-PRJ (9815)",
@@ -294,7 +295,7 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         },
@@ -320,7 +321,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -333,7 +334,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Computational Data Science PC",
-      "academic_org": "Computational Data Science PC"
+      "academic_org": "Computational Data Science PC",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the project topic.   \n2) Be able to define and complete a project that utilizes results in the literature.   \n3) Be able to perform a critical review of the project.   \n4) Develop technical writing skills.",
+      "course_syllabus": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in computation data science topics.",
+      "assessment_types": {
+        "Presentation": "15",
+        "Project": "70",
+        "Report": "15"
+      },
+      "feedback_evaluation": "1) Email feedback   \n2) Review meeting",
+      "required_readings": "Literature review materials will be recommended by the project supervisor.",
+      "recommended_readings": ""
     },
     {
       "subject": "CDAS",
@@ -363,7 +374,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         },
@@ -389,7 +400,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "BJ01-PRJ (8826)",
@@ -409,7 +420,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "CJ01-PRJ (7188)",
@@ -429,7 +440,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "DJ01-PRJ (7189)",
@@ -449,7 +460,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "EJ01-PRJ (7091)",
@@ -469,7 +480,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "FJ01-PRJ (7107)",
@@ -489,7 +500,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "GJ01-PRJ (7108)",
@@ -509,7 +520,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "HJ01-PRJ (7111)",
@@ -529,7 +540,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "IJ01-PRJ (7109)",
@@ -549,7 +560,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             },
             {
               "section": "JJ01-PRJ (7110)",
@@ -569,7 +580,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -582,7 +593,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Computational Data Science PC",
-      "academic_org": "Computational Data Science PC"
+      "academic_org": "Computational Data Science PC",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the project topic.   \n2) Be able to define and complete a project that utilizes results in the literature.   \n3) Be able to perform a critical review of the project.   \n4) Develop technical writing skills.",
+      "course_syllabus": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent project with research elements in computation data science topics.",
+      "assessment_types": {
+        "Presentation": "15",
+        "Project": "70",
+        "Report": "15"
+      },
+      "feedback_evaluation": "1) Email feedback   \n2) Review meeting",
+      "required_readings": "Literature review materials will be recommended by the project supervisor.",
+      "recommended_readings": ""
     }
   ]
 }

@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T10:43:03.424010+00:00",
+    "scraped_at": "2025-08-16T15:07:49.062290+00:00",
     "subject": "GNBF",
+    "subject_title": "GNBF - Genomics and Bioinformatics",
     "total_courses": 8,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -142,10 +143,20 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. master key programming concepts such data types, variables, conditions, loops and functions;\n\nb. understand fundamental concepts in object-oriented programming and pattern matching;\n\nc. solve small to medium size programming tasks that arise in bioinformatics; and\n\nd. write well-structured and maintainable programs in Python.",
+      "course_syllabus": "Introduction to computation and programming; Flow controls: conditional and iteration; Python functions; File I/O; Lists, tuples and strings; Dictionaries and sets; Program design; algorithm complexity; recursion; Introduction to object-oriented programming; classes and inheritance; Program development with classes; Python packages; biopython; regular expressions; Working with databases in Python; UI and Web development in Python",
+      "assessment_types": {
+        "Examination": "65",
+        "Homework or assignment": "20",
+        "Project": "15"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -200,7 +211,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. understand basic concepts in biomolecules and cell biology;\n\nb. know how molecular biology can explain the transmission of genetic information; and\n\nc. correlate molecular biology concepts with genetic and phenotypic traits.",
+      "course_syllabus": "Introduction to Biomolecules; Basic Cell Biology; DNA and Chromatin Structure; DNA Replication, Repair and Recombination; Control of Gene Expression; Methods in Molecular Biology; Genomic Applications in Biomedical Research; Molecular Genetics of Menedelian Diseases; Molecular Genetics of Complex Diseases; Population Genetics; Evolutionary Genetics",
+      "assessment_types": {
+        "Examination": "70",
+        "Homework or assignment": "30"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -334,10 +354,20 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. accustom themselves to Linux computing environment;\n\nb. acquire the usage of common bioinformatics tools; and\n\nc. employ common statistical methods for bioinformatics problems using R.",
+      "course_syllabus": "Introduction to Linux computational environment; Working with Linux; Common bioinformatics tools (I);  Common bioinformatics tools (II); Common bioinformatics tools (III); Common bioinformatics tools (IV); High performance computing;  Introduction to programming with R (I); Introduction to programming with R (II); Basic statistical methods for bioinformatics (I); Basic statistical methods for bioinformatics (II); Basic statistical methods for bioinformatics (III); Introduction to machine learning methods for bioinformatics",
+      "assessment_types": {
+        "Examination": "55",
+        "Homework or assignment": "30",
+        "Project": "15"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -418,7 +448,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. acquire the basic concept of genomics\n\nb. learn the principle, strategies and limitations of genomic technology\n\nc. apply genomics to solve biological and biomedical questions\n\nd. gain the hands-on experience on bioinformatics data analysis pipelines",
+      "course_syllabus": "Introduction to genomics; An overview of large scale genomic projects; Genomic sequencing and data analysis; Genome assembly: a key step towards comprehensive genomic maps; Workshop I (working pipeline for de novo genome assembly), Functional annotation of genomes (genetic variations, transcriptional regulation, epigenetics and epigenomes, transcriptome analysis, single-cell sequencing); Medical genomics; Workshop II (working pipeline for ChIP-seq data analysis)",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "40"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -499,7 +538,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. describe the related biological problems in mathematical terms such that they can be solved by algorithms;\n\nb. appreciate the computational ideas underlying common bioinformatics algorithms and get familiar with the corresponding software to solve the problems;\n\nc. list and explain the strengths and weaknesses of existing algorithms and interpret their results appropriately; and\n\nd. develop the ability to read and understand the scientific publications on bioinformatics in depth.",
+      "course_syllabus": "Sequence Alignment and searching (Theory); Sequence Alignment and searching (Application & Practice); Molecular phylogenetics (Theory); Molecular phylogenetics (Application & Practice); Motif finding and hidden Markov model (Theory); Motif finding and hidden Markov model (Application & Practice) Part I; Motif finding and hidden Markov model (Application & Practice) Part II; Mapping of next-generation sequencing data (Theory & Application); Assembly of next-generation sequencing data (Theory & Application); Metagenomics (Theory & Practice); Machine learning in Bioinformatics (Introduction & Practice).",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "35",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -517,7 +566,7 @@
                 {
                   "time": "Sa 4:00PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Dr. Nandita MULLAPUDI,   Professor SUNG Wing Kin",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
                   "dates": "6/9, 13/9, 20/9, 27/9, 4/10, 11/10, 18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12, 13/12"
                 }
               ],
@@ -543,13 +592,13 @@
                 {
                   "time": "Th 7:00PM - 9:30PM",
                   "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Dr. Nandita MULLAPUDI,   Professor SUNG Wing Kin",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
                   "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
                   "time": "Th 7:00PM - 9:30PM",
                   "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Dr. Nandita MULLAPUDI,   Professor SUNG Wing Kin",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
                   "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
@@ -574,7 +623,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. explain the importance of studying biological systems as a whole;\n\nb. illustrate common methods of modeling biological systems;\n\nc. simulate system dynamics that respond to input signals;\n\nd. describe the roles and behavior of regulatory network motifs;\n\ne. calculate biological network properties using graph theory;\n\nf. reconstruct regulatory networks using high-throughput data; and\n\ng. apply appropriate methods to model and analyze specific biological systems.",
+      "course_syllabus": "Introduction to Systems Biology; Computational approaches for systems biology (I); Computational approaches for systems biology (II); Computational approaches for systems biology (III); Transcriptional networks and network motifs (I); Transcriptional networks and network motifs (II); Signal transduction networks; Metabolic networks; Networks analysis in systems biology (I); Cytoscape workshop; Network analysis in systems biology (II); Network analysis in systems biology (III)",
+      "assessment_types": {
+        "Examination": "55",
+        "Homework or assignment": "30",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -629,7 +688,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. understand the fundamental principles and pipelines involved in sequencing and genomic studies;\n\nb. stay updated with the latest advancements and progress in the field of genomic studies;\n\nc. acquire the skills to analyze second-generation sequencing data;\n\nd. gain proficiency in utilizing and applying various bioinformatics tools; and\n\ne. develop the ability to independently conduct a genomic study.",
+      "course_syllabus": "Overview of genome informatics; Sequencing to provide genome information; Genome assembly to obtain the reference genome; Reference genome based studies; Hands-on study on genome assembly; Resequencing to identify genomic variations; Genomic variation based studies; Transcriptome studies; Hands-on study on resequencing analysis; Using genome sequencing as a tool for other research; Using genome sequencing as a tool for applications; Summary of genome informatics",
+      "assessment_types": {
+        "Examination": "55",
+        "Homework or assignment": "45"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     },
     {
       "subject": "GNBF",
@@ -647,37 +715,37 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. HUANG Yongjie,   Dr. Nandita MULLAPUDI",
+                  "instructor": "Dr. HUANG Yongjie, \nDr. Nandita MULLAPUDI",
                   "dates": "10/01/2026 - 25/04/2026"
                 },
                 {
                   "time": "Sa 12:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 404",
-                  "instructor": "Dr. HUANG Yongjie,   Dr. Nandita MULLAPUDI",
+                  "instructor": "Dr. HUANG Yongjie, \nDr. Nandita MULLAPUDI",
                   "dates": "25/4, 2/5"
                 },
                 {
                   "time": "Sa 12:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 501",
-                  "instructor": "Dr. HUANG Yongjie,   Dr. Nandita MULLAPUDI",
+                  "instructor": "Dr. HUANG Yongjie, \nDr. Nandita MULLAPUDI",
                   "dates": "25/4, 2/5"
                 },
                 {
                   "time": "Sa 12:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 401",
-                  "instructor": "Dr. HUANG Yongjie,   Dr. Nandita MULLAPUDI",
+                  "instructor": "Dr. HUANG Yongjie, \nDr. Nandita MULLAPUDI",
                   "dates": "25/4, 2/5"
                 },
                 {
                   "time": "Sa 12:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 503",
-                  "instructor": "Dr. HUANG Yongjie,   Dr. Nandita MULLAPUDI",
+                  "instructor": "Dr. HUANG Yongjie, \nDr. Nandita MULLAPUDI",
                   "dates": "25/4, 2/5"
                 },
                 {
                   "time": "Sa 12:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 504",
-                  "instructor": "Dr. HUANG Yongjie,   Dr. Nandita MULLAPUDI",
+                  "instructor": "Dr. HUANG Yongjie, \nDr. Nandita MULLAPUDI",
                   "dates": "25/4, 2/5"
                 }
               ],
@@ -702,7 +770,18 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
-      "academic_org": "Div of Biomedical Sciences"
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to   \na. design the strategy and methodology to solve a research question;    \nb. conduct experiments by implementing the research plan;   \nc. interpret and integrate experimental results to answer the research question; and   \nd. present the research finding in the format of a written report and an oral presentation.",
+      "course_syllabus": "Each student is required to conduct a research project, submit a research proposal and a final report, and also give an oral presentation. Students and supervisors are matched subject to the mutual agreement.",
+      "assessment_types": {
+        "Essays": "15",
+        "Presentation": "25",
+        "Participation": "25",
+        "Report": "35"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
     }
   ]
 }

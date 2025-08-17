@@ -192,7 +192,7 @@ export default function ShoppingCart({
         <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-1">
           <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
           {lastDataUpdate ? (
-            <span>Last Data Refresh: {lastDataUpdate.toLocaleDateString()} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+            <span>Last Data Sync: {lastDataUpdate.toLocaleDateString()} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
           ) : (
             <span>Loading Data...</span>
           )}

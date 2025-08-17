@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T17:24:29.286724+00:00",
+    "scraped_at": "2025-08-17T00:09:11.522440+00:00",
     "subject": "WOHS",
+    "subject_title": "WOHS - Women's Health Studies",
     "total_courses": 5,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -20,7 +21,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "On completion of this module, students should be able to:   \n   \n1. explore and understand women’s health issues with an international perspective;   \n2. describe health issues facing general and select populations of women.",
+      "course_syllabus": "| Introduction to Women’s Health,  Gender as a determinant of health |\n| --- |\n| Gender analysis, empowerment and gender mainstreaming |\n| Self Directed Learning/  Presentation Preparation |\n| Nutrition and Women’s health |\n| Presentation |\n| Health Services and Policies in women’s health |\n| Gender, sexuality and health |\n| Media and Women’s Body Image |",
+      "assessment_types": {
+        "Essays": "40",
+        "Examination": "40",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Women and Health.  Today’s evidence, tomorrow’s agenda. WHO (Exec Summary)\n\n<http://apps.who.int/iris/bitstream/10665/70119/1/WHO_IER_MHI_STM.09.1_eng.pdf>\n\nThe World’s women 2010: Trends and Statistics (Asia Pacific)\n\n<http://unstats.un.org/unsd/demographic/products/Worldswomen/FactSheet2010.pdf>\n\nWomen, Health and Development Program.  Fact sheet\n\n<http://www1.paho.org/english/DPM/GPP/GH/GEHFactSheet.pdf>\n\nNon-Communicable Diseases and Gender\n\n<http://www.paho.org/hq/index.php?option=com_docman&task=doc_view&gid=14907&Itemid>=",
+      "recommended_readings": "Women and Health.  Today’s evidence, tomorrow’s agenda. WHO (Full report)\n\n<http://www.who.int/gender/women_health_report/full_report_20091104_en.pdf>\n\nWomen and health: The key for sustainable development.  The lancet commissions. <http://www.thelancet.com/pdfs/journals/lancet/PIIS0140-6736(15)60497-4.pdf>"
     },
     {
       "subject": "WOHS",
@@ -36,7 +47,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "On completion of this module, students should be able to:   \n   \n- review the risk of common conditions affecting women, particularly the midlife and older women and issues related to the prevention, diagnosis and management strategies.",
+      "course_syllabus": "| Introduction to Course and assignment  Menopausal transition, symptoms and related health issues |\n| --- |\n| Musculoskeletal conditions: osteoporosis, osteoarthritis |\n| Cardiovascular risks in women  Obesity and metabolic syndrome in women |\n| Soy intake and women’s health  Discussion of presentation topics |\n| Epidemiology of Breast cancer      Breast cancer management and predictors of survival |\n| Mental well-being  Anxiety and depression in women |\n| Alzheimer’s disease  Care giver burden |",
+      "assessment_types": {
+        "Examination": "45",
+        "Presentation": "45",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Please refer to the course outline provided by course teacher",
+      "recommended_readings": ""
     },
     {
       "subject": "WOHS",
@@ -52,7 +73,13 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "On completion of this module, students should be able to:   \n   \n- explore and understand women’s health issues related to reproductive health.",
+      "course_syllabus": "婦女常見的健康問題",
+      "assessment_types": {},
+      "feedback_evaluation": "CTE",
+      "required_readings": "婦女常見的健康問題",
+      "recommended_readings": ""
     },
     {
       "subject": "WOHS",
@@ -68,7 +95,13 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "On completion of this module, students should be able to:   \n   \n- explore and understand issues regarding mental health issues in women.",
+      "course_syllabus": "Please refer to the course outline provided by course teacher",
+      "assessment_types": {},
+      "feedback_evaluation": "CTE",
+      "required_readings": "Please refer to the course outline provided by course teacher",
+      "recommended_readings": ""
     },
     {
       "subject": "WOHS",
@@ -81,10 +114,16 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Lecture Project",
+      "component": "Lecture\nProject",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health"
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     }
   ]
 }

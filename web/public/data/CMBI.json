@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T08:07:56.694619+00:00",
+    "scraped_at": "2025-08-16T08:46:37.133378+00:00",
     "subject": "CMBI",
+    "subject_title": "CMBI - Cell & Molecular Biology",
     "total_courses": 37,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -52,7 +53,7 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only STOT Course"
+              "class_attributes": "English only\nSTOT Course"
             }
           ]
         }
@@ -62,10 +63,20 @@
       "course_attributes": "STOT Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Workshop",
+      "component": "Lecture\nWorkshop",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "After completing the course, students are expected to be able to:   \n   \n1. Perform literature search independently using online databases to find the relevant scientific information on a given topic  \n   \n2. Understand the overall process of the scientific method of inquiry and apply it to identify and analyze scientific problems  \n   \n3. Develop scientific writing and oral presentation skills including crafting arguments and supporting claims with the relevant evidence  \n   \n4. Develop problem-solving skills and logical reasoning through critical evaluation of available data  \n   \n5. Understand and appreciate the process of research discoveries, and the importance of information sharing in life science research  \n   \n6. Develop effective communication skill and inter-personal skills through team work",
+      "course_syllabus": "The course adopts a ‘writing-to-learn’ approach to help students establish a conceptual framework that serves as the basis for understanding the scientific method. Students engage with and reflect on the scientific method by progressively writing a primary research article that mimic those published in a peer-reviewed science journal. The course provides intensive training in literature search, scientific writing and oral communication skills. Students’ performances are evaluated by regular writing assignments, in-class discussion, and oral presentations.",
+      "assessment_types": {
+        "Essays": "70",
+        "Others": "20",
+        "Presentation": "10"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teachers  \n   \n3) Self-reflection of the teacher",
+      "required_readings": "",
+      "recommended_readings": "Current issues recommended and provided by all staff members"
     },
     {
       "subject": "CMBI",
@@ -81,7 +92,13 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "After taking this course, students should be able to:\n\n* Apply knowledge and practical skills in CMB research\n* Work independently on a research project in a laboratory setting under supervision\n* Demonstrate essential data analytical skills and problem-solving abilities\n* Develop proficiencies in scientific writings and oral presentations\n* Demonstrate proper work attitude and research conduct\n\n學生可在課程中獲得:\n\n* 學習及應用細胞及分子生物相關的技術\n* 在導師帶領下的獨立科學研究機會\n* 展示基本的數據分析技能和解決問題的能力\n* 培養科學寫作和口頭報告的能力\n* 展示正確的工作態度和研究行為",
+      "course_syllabus": "CMBI2500 aims at fostering students’ interests in cell and molecular biology (CMB) research by immersing students in an environment with practical laboratory work. The course provides the opportunity for students to earn University Credits (2 units) from **one summer** **research internship** in an academic or industrial setting. During the internship, students should be undertaking a CMB-related research project in an established laboratory with a time commitment of at least 160 hours. Internship work can be arranged either within or outside the university (can be overseas too).\n\n**Internal internships** will involve supervision by a **project supervisor** who is a CUHK staff member. The project supervisor will be required to submit an assessment report on students’ performance at the end of the course.\n\n**External internships** must have an approved designated **external project supervisor**, who will be required to liaise with a staff member of the School of Life Sciences (i.e. an **internal supervisor**). Only the **external project supervisor** will be required to submit an assessment report on students’ performance at the end of the course.\n\nStudents are expected to gain first-hand research experience in a research laboratory and engage in scholarly discussions over the summer. They are expected to participate in a research project in the area of CMB under the supervision of the project supervisor. Assessment is based on students’ performance during the summer internship, as well as the quality of a written report and an oral presentation.",
+      "assessment_types": {},
+      "feedback_evaluation": "Students are supposed to meet and contact the supervisor regularly to discuss the project, progress and other arrangements. Feedbacks from the students will be collected for future improvement of this course.",
+      "required_readings": "To be assigned by supervisor.",
+      "recommended_readings": "Essential literature relevant to the research project. Students are expected to search for all essential information by themselves."
     },
     {
       "subject": "CMBI",
@@ -136,7 +153,17 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "After taking this lab course series, students are expected to:  \n   \n1. Demonstrate mastery of the scientific method, the design and application of the experiments and interpretation of the results to address questions related to CMB  \n   \n2. Be proficient in basic laboratory skills in cell and molecular biology such as recombinant DNA techniques, plant and animal cell culturing techniques as well as bright-field and fluorescent microscopy techniques  \n   \n3. Be able to synthesize ideas and generate hypothesis by reading and integrating scientific primary literature  \n   \n4. Be proficient in scientific communication skills (written and oral) and the planning and organization of experimental projects  \n   \n5. Develop a proper attitude towards science that values curiosity, creativity and innovation  \n   \n6. Understand the importance of scientific integrity and ethical scientific conduct",
+      "course_syllabus": "CMBI3010 and CMBI3030 belong the first part of the course series that provides students with hands-on, practical laboratory experience. In this two-part course series, students receive intensive training in molecular techniques and plant and animal cell culturing. Molecular biology work including the construction of recombinant DNA clones tagged with fluorescent proteins (FPs), and the production and purification of the FP-tagged fusion proteins. In addition, the courses will introduce students to aseptic cell culturing techniques for handling plant and animal cell lines through two projects that focus on the establishment of transgenic plant cell lines and transient recombinant protein expression in mammalian cells, respectively. Students will learn how to generate experimental data, analyze them and communicate their findings in formal writings and presentations that will provide a foundation for research productivity and future career development.",
+      "assessment_types": {
+        "Lab reports": "32",
+        "Others": "36",
+        "Short answer test or exam": "32"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to demonstrators and instructors  \n   \n3) Self-reflection of the teacher",
+      "required_readings": "",
+      "recommended_readings": "Lab manual provided by the instructors"
     },
     {
       "subject": "CMBI",
@@ -215,7 +242,16 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "After taking this lab course series, students are expected to:  \n   \n1. Demonstrate mastery of the scientific method, the design and application of the experiments and interpretation of the results to address questions related to CMB  \n   \n2. Be proficient in basic laboratory skills in cell and molecular biology such as recombinant DNA techniques, plant and animal cell culturing techniques as well as bright-field and fluorescent microscopy techniques  \n   \n3. Be able to synthesize ideas and generate hypothesis by reading and integrating scientific primary literature  \n   \n4. Be proficient in scientific communication skills (written and oral) and the planning and organization of experimental projects  \n   \n5. Develop a proper attitude towards science that values curiosity, creativity and innovation  \n   \n6. Understand the importance of scientific integrity and ethical scientific conduct",
+      "course_syllabus": "CMBI3020 and CMBI3040 is the second part of the course series that provides students with hands-on, practical laboratory experience. In the latter part of the course series, students continue to build up on their practical skills and in molecular biology research and animal cell biology to solve scientific problems and communicate their findings in a setting that mimic real research laboratories. Experimental approaches commonly used in cell biology research will be introduced. Cell imaging approach employs high-end methodologies in microscopy to detect the expression and sub-cellular localization of the fluorescent proteins as well as organelle dynamics. Conventional experimental methods including protein purification, Western blotting analysis and other common in-vivo or in-vitro cellular assays are also included.",
+      "assessment_types": {
+        "Others": "60",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to demonstrators and instructors  \n   \n3) Self-reflection of the teacher",
+      "required_readings": "",
+      "recommended_readings": "Lab manual provided by the instructors"
     },
     {
       "subject": "CMBI",
@@ -270,7 +306,17 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "The students taking this course are expected to achieve the following:  \n   \n1. To learn the basic techniques in microscopy  \n   \n2. To understand the principles of techniques in microscopy  \n   \n3. To know how to apply these techniques in future experiments to solve practical problems",
+      "course_syllabus": "CMBI3010 and CMBI3030 are the first part of the course series that provide students with hands-on, practical laboratory experience. In this two-part course series, students receive intensive training in molecular techniques and plant and animal cell culturing. Molecular biology work including the construction of recombinant DNA clones tagged with fluorescent proteins (FPs), and the production and purification of the FP-tagged fusion proteins. In addition, the courses will introduce students to aseptic cell culturing techniques for handling plant and animal cell lines through two projects that focus on the establishment of transgenic plant cell lines and transient recombinant protein expression in mammalian cells, respectively. Students will learn how to generate experimental data, analyze them and communicate their findings in formal writings and presentations that will provide a foundation for research productivity and future career development.",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Others": "40",
+        "Short answer test or exam": "10"
+      },
+      "feedback_evaluation": "1. Course evaluation  \n   \n2. Direct feedback from students to teachers and demonstrators  \n   \n3. Self-reflection of the teacher",
+      "required_readings": "Lab manual provided by teachers",
+      "recommended_readings": ""
     },
     {
       "subject": "CMBI",
@@ -349,7 +395,17 @@
       "component": "Laboratory",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "The students taking this course are expected to achieve the following:  \n   \n1. To learn the advanced techniques in cell and molecular biology  \n   \n2. To understand the principles of these advanced techniques in cell and molecular biology  \n   \n3. To know how to apply these techniques in future experiments to solve practical problems",
+      "course_syllabus": "CMBI3020 and CMBI3040 is the second part of the course series that provides students with hands-on, practical laboratory experience. In the latter part of the course series, students continue to build up on their practical skills and in molecular biology research and animal cell biology to solve scientific problems and communicate their findings in a setting that mimic real research laboratories. Experimental approaches commonly used in cell biology research will be introduced. Cell imaging approach employs high-end methodologies in microscopy to detect the expression and sub-cellular localization of the fluorescent proteins as well as organelle dynamics. Conventional experimental methods including protein purification, Western blotting analysis and other common in-vivo or in-vitro cellular assays are also included.",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Others": "40",
+        "Short answer test or exam": "10"
+      },
+      "feedback_evaluation": "1. Course evaluation  \n   \n2. Direct feedback from students to teachers and demonstrators  \n   \n3. Self-reflection of the teacher",
+      "required_readings": "Lab manual provided by teachers",
+      "recommended_readings": ""
     },
     {
       "subject": "CMBI",
@@ -367,7 +423,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. KOON Chun Alex,   Professor AU Wing Ngor Shannon,   Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHEN Sijie,   Professor CHEN Zhefan,   Professor CHOW Hei Man,   Professor GUO Dianjing,   Professor HUI Jerome Ho Lam,   Professor JIANG Liwen,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor LAU Kwok Fai,   Professor LI Cheng,   Professor LUO Haiwei,   Professor NGO Chi Ki Jacky,   Professor TSANG Suk Ying,   Professor WANG Guanqun,   Professor WONG Kam Bo,   Professor WONG Wing Tak Jack,   Professor ZHONG Silin,   Professor ZHUANG Xiaohong",
+                  "instructor": "Dr. KOON Chun Alex, \nProfessor AU Wing Ngor Shannon, \nProfessor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHEN Sijie, \nProfessor CHEN Zhefan, \nProfessor CHOW Hei Man, \nProfessor GUO Dianjing, \nProfessor HUI Jerome Ho Lam, \nProfessor JIANG Liwen, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor LAU Kwok Fai, \nProfessor LI Cheng, \nProfessor LUO Haiwei, \nProfessor NGO Chi Ki Jacky, \nProfessor TSANG Suk Ying, \nProfessor WANG Guanqun, \nProfessor WONG Kam Bo, \nProfessor WONG Wing Tak Jack, \nProfessor ZHONG Silin, \nProfessor ZHUANG Xiaohong",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -379,7 +435,7 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only STOT Course"
+              "class_attributes": "English only\nSTOT Course"
             }
           ]
         }
@@ -389,10 +445,20 @@
       "course_attributes": "STOT Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Discussion Lecture",
+      "component": "Discussion\nLecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To be able to read scientific literature in CMB critically to identify new questions or problems in the field  \n   \n2) To have increased skills in scientific writing  \n   \n3) To have increased capability of oral communication",
+      "course_syllabus": "CMBI3100 and CMBI3200 are the two components of the Student-oriented teaching (STOT) courses, which are required for all students in the CMB programme. In CMBI3100, which is offered in the first term, students will perform a literature analysis on a topic of their choice that is related to cell and molecular biology (CMB) under the guidance of their course advisor. In CMBI3200, students will learn how to develop research questions and prepare a scientific research proposal under the supervision of the same advisor. By the end of each term, students are required to submit a written report (a literature review in CMBI3100 and a research proposal in CMBI3200) and give an oral presentation to fellow students and the course examiners. Student’s performance is evaluated by the quality of the written report and the oral defense at the end of each term.",
+      "assessment_types": {
+        "Essays": "40",
+        "Others": "20",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers",
+      "required_readings": "",
+      "recommended_readings": "Literature recommended or provided by individual staff members"
     },
     {
       "subject": "CMBI",
@@ -410,25 +476,25 @@
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Lee Shau Kee Building 201",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor ZHUANG Xiaohong",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Lee Shau Kee Building 201",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor ZHUANG Xiaohong",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Lee Shau Kee Building 201",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor ZHUANG Xiaohong",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Lee Shau Kee Building 201",
-                  "instructor": "Professor CHAN Ho Yin Edwin,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor CHAN Ho Yin Edwin, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor ZHUANG Xiaohong",
                   "dates": "13/4"
                 }
               ],
@@ -453,7 +519,13 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To develop a sense of biodiversity  \n   \n2) To understand phylogenetic relations of major groups of organisms  \n   \n3) To understand the major advantages offered by various model organisms and the major fields of their uses  \n   \n4) To be aware of various cutting-the-edge biotechniques that can be applied to these model organisms",
+      "course_syllabus": "1. Biodiversity, Phylogeny and Model Organisms  \n   \n2. Studying fundamental processes in cell biology using a single‐celled eukaryotic microorganism  \n   \n3. We are no better than a can of worms, molecular genetic application and implication from worm to human  \n   \n4. The use of fruitfly Drosophila in Cell and Molecular Biology Research  \n   \n5. Zebrafish as a model for genetics, toxicology and human diseases  \n   \n6. A mouse with a tale   \n   \n7. More than a plant: the impact of research on Arabidopsis thaliana",
+      "assessment_types": {},
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teachers  \n   \n3) Student-staff consultative meeting  \n   \n4) Self-reflection of the teacher",
+      "required_readings": "",
+      "recommended_readings": "Literature provided by individual teachers"
     },
     {
       "subject": "CMBI",
@@ -471,7 +543,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. KOON Chun Alex,   Professor AU Wing Ngor Shannon,   Professor CHAN Ho Yin Edwin,   Professor CHAN Ting Fung Philos,   Professor CHEN Sijie,   Professor CHEN Zhefan,   Professor CHOW Hei Man,   Professor GUO Dianjing,   Professor HUI Jerome Ho Lam,   Professor JIANG Liwen,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor LAU Kwok Fai,   Professor LI Cheng,   Professor LUO Haiwei,   Professor NGO Chi Ki Jacky,   Professor TSANG Suk Ying,   Professor WANG Guanqun,   Professor WONG Kam Bo,   Professor WONG Wing Tak Jack,   Professor ZHONG Silin,   Professor ZHUANG Xiaohong",
+                  "instructor": "Dr. KOON Chun Alex, \nProfessor AU Wing Ngor Shannon, \nProfessor CHAN Ho Yin Edwin, \nProfessor CHAN Ting Fung Philos, \nProfessor CHEN Sijie, \nProfessor CHEN Zhefan, \nProfessor CHOW Hei Man, \nProfessor GUO Dianjing, \nProfessor HUI Jerome Ho Lam, \nProfessor JIANG Liwen, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor LAU Kwok Fai, \nProfessor LI Cheng, \nProfessor LUO Haiwei, \nProfessor NGO Chi Ki Jacky, \nProfessor TSANG Suk Ying, \nProfessor WANG Guanqun, \nProfessor WONG Kam Bo, \nProfessor WONG Wing Tak Jack, \nProfessor ZHONG Silin, \nProfessor ZHUANG Xiaohong",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -483,7 +555,7 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only STOT Course"
+              "class_attributes": "English only\nSTOT Course"
             }
           ]
         }
@@ -493,10 +565,20 @@
       "course_attributes": "STOT Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Discussion Lecture",
+      "component": "Discussion\nLecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To be able to draft a research proposal in the form of RGC grant proposal  \n   \n2) To have increased skills in scientific writing  \n   \n3) To have increased capability of oral communication",
+      "course_syllabus": "CMBI3200 is a continuation of CMBI3100. In CMBI3100, students performed literature analysis on a topic of their choice that is related cell and molecular biology (CMB) and identified relevant scientific questions in the field under the guidance of their course advisor. In CMBI3200, students learn how to identify and approach research questions by preparing a scientific research proposal under the supervision of the same course advisor. By the end of the term, students are required to submit a written research proposal and give an oral presentation on the proposed research plan. Student’s performance is evaluated by the quality of the written proposal and the oral defense at the end of the term.",
+      "assessment_types": {
+        "Essays": "40",
+        "Others": "20",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers",
+      "required_readings": "",
+      "recommended_readings": "Students are expected to search for all essential information by themselves"
     },
     {
       "subject": "CMBI",
@@ -539,7 +621,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:   \n   \n1) To understand the molecular mechanism of vesicular transport   \n2) To appreciate the rapid and current development in cellular trafficking   \n3) To acquire and appreciate the most up-to-date cellular technology and research methods   \n4) To synthesize new ideas from their knowledge on protein trafficking in research",
+      "course_syllabus": "Topics:   \nI. Introduction    \nII. Basic concepts of protein trafficking in eukaryotic cells   \nIII. Basic techniques and new technology for studying protein trafficking    \nIV. Discussion on selective landmark or classical papers    \nV. Discussion on selective current papers VI. Self-learning & learning via teaching (student presentation and discussion)",
+      "assessment_types": {
+        "Discussion": "9",
+        "Others": "21",
+        "Presentation": "40",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course   \n2) Direct feedback from students to teacher",
+      "required_readings": "Current papers provided or recommended by the teacher",
+      "recommended_readings": "Current papers provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -588,7 +681,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students are expected to achieve the following:  \n   \n   \n1) To understand the energetics of protein folding, including hydrophobic effect, hydrogen bond, electrostatic interactions, and   \n   \nconformational entropy   \n   \n2) To understand how these energetic factors affect protein stability   \n   \n3) To apply their knowledge learned in the design/engineering of proteins with improved protein stability   \n   \n4) To synthesize new ideas from their knowledge on protein folding in research",
+      "course_syllabus": "Stage 1: Learn how to address scientific problems by studying research literatures  \n   \nWe aim to teach students on how to formulate and support their hypothesis in protein folding research by good examples of research. We start with the classical protein folding experiments of Anfinsen who lead to the Nobel Prize in 1972, to the latest research on protein folding energetics. The students are challenged with open-end questions on how to address key questions on energetic factors that contribute to protein stability. Through intensive in-class discussions and quizzes, the students will learn how hypotheses on protein folding are supported or disproved by experimental evidence. Examples also include those published by scientists in Hong Kong so that the students have a more personal touch on how scientists innovate and design their researches.  \n   \nStage 2: Learn how to apply the theories learnt to improve protein stability in a group project.  \n   \nThe students are divided into small groups and work together on a group project to study how to improve protein stability using the theory of protein folding energetic learnt. They will survey the latest research literatures on the field and are asked to give critical assessment on how protein stability can be improved and present their views and findings in an oral presentation.",
+      "assessment_types": {
+        "Discussion": "10",
+        "Presentation": "50",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Current papers provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -631,7 +734,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students are expected to achieve the following:  \n   \n   \n1) To understand the basic and current development in signal transduction  \n   \n   \n2) To understand the current knowledge about the mechanisms and roles of signal transduction in controlling various biological functions  \n   \n3) To appreciate the current literatures in signalling and biological function",
+      "course_syllabus": "• Course overview --Some basics of signal transduction  \n   \n• Introduction to brassinosteroids(BRs)   \n   \n• BR perception on the cell surface by BR receptors  \n   \n• BR signaling in the cytoplasm   \n   \n• BR signaling in the nucleus   \n   \n• BR-regulated gene expression  \n   \n• Concepts of signaling crosstalk   \n   \n• BR and GA signaling crosstalk in plants   \n   \n• Light and GA signaling crosstalk in plants  \n   \n• Genetic approaches   \n   \n• Genomic approaches   \n   \n• Biochemical approaches",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Current papers provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -674,7 +788,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Upon the completion of this course, students should be able to:   \n   \n1. Apply their knowledge of cancer biology and related skills in real-life situations;    \n2. Sharpen their problem-solving abilities;   \n3. Strengthen their organizational power;    \n4. Develop effective communicative and interpersonal skills through group work;   \n5. Disseminate cancer-related information in a clear, concise and logical manner;   \n6. Create innovative ideas and methods to solve problems in the cancer research field  \n   \n7. Appreciate the advantages of cooperative learning;    \n8. Become an effective member in group dynamics; and   \n   \n9. Accept new challenges and independent responsibilities.",
+      "course_syllabus": "Topics:  \n   \n1. Basics and Hallmarks of Cancer   \n   \n2. Emerging Hallmarks of Cancer Current Advances in Cancer Research   \n   \n3. Current Advances for Cancer Diagnosis and Therapy   \n   \n4. Immunotherapy Relationship between Microbiota and Cancer",
+      "assessment_types": {
+        "Discussion": "20",
+        "Homework or assignment": "30",
+        "Presentation": "30",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Review and research articles provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -729,7 +854,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To understand basic cell and molecular biology of stem cells  \n   \n2) To gain an insight into the potential applications of stem cell technology in regenerative medicine  \n   \n3) To comprehend the literature and follow the most recent developments in the field of stem cell technology  \n   \n4) To understand the current technologies used in stem cell research",
+      "course_syllabus": "Topics:  \n   \nA) Introduction to stem cells a. What are stem cells? b. Basics of developmental biology   \n   \nB) Different types of stem cells and their biology a. Embryonic stem cells b. Induced pluripotent stem cells c. Tissue-specific stem cells d. Cancer stem cell hypothesis   \n   \nC) Stem cells and their applications a. Current applications b. Potential future applications",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Review and research articles provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -778,7 +914,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To gain a deep knowledge of the unique features of neurons at cell and molecular levels  \n   \n2) To comprehend the literature and follow the most recent developments in the field of neurobiology  \n   \n3) To be aware of the current central issues in neuronal cell biology and neuroscience in general",
+      "course_syllabus": "Topics:   \n   \n   \nIntroduction on Nervous system.  \n   \nThe questions about neuronal cell biology.  \n   \nNeuronal cell specification in Drosophila and vertebrate Neural tube development.  \n   \nDifferentiation of neurons.  \n   \nNeural Stem cell.  \n   \nAxon navigation.  \n   \nSynapse formation.  \n   \nResearch orientated topics.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Review and research articles provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -821,7 +968,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To understand principles and current status of genomics and transcriptomics  \n   \n2) To gain basic knowledge of bioinformatics and instrumentations for data acquisition and analysis in genomics and transcriptomics  \n   \n3) To comprehend the literature and follow the most recent developments in the field of genomics and transcriptomics  \n   \n4) To be prepared for further research in genomics and transcriptomics",
+      "course_syllabus": "• Week 1: genomics  \n   \n• Week 2: practical session   \n   \n• Week 3: transcriptomics   \n   \n• Week 4: student presentation / discussions",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Review and research articles provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -864,7 +1022,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To understand principles and current status of proteomics  \n   \n2) To comprehend the literature and follow the recent developments in the field of proteomics  \n   \n3) To be prepared for future research in proteomics",
+      "course_syllabus": "Topics:  \n   \nConcepts and principles in proteomics.  \n   \nBasic techniques and current developments in proteomics.",
+      "assessment_types": {
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "60"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Review and research articles provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -907,7 +1075,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taking this course are expected to achieve the following:  \n   \n   \n1) To understand principles and current status of metabolomics  \n   \n2) To gain basic knowledge of bioinformatics and its application in metabolomics  \n   \n3) To comprehend the literature and follow the most recent developments in the field of metabolomics  \n   \n4) To be prepared for further research in metabolomics",
+      "course_syllabus": "Topics:  \n   \nConcepts and technology in Metabolomics  \n   \nApplications in Metabolomics",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Review and research articles provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -950,7 +1129,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students are expected to achieve the following:  \n   \n   \n1) To comprehend the literature and follow the most recent developments in cell biology  \n   \n2) To appreciate the new and rapid development in cell biology research   \n   \n3) To be able to propose future direction in research and development of cell biology",
+      "course_syllabus": "Topics:  \n   \nSynaptic plasticity (synaptic tagging and metaplasticity)   \n   \nSingle particle cryo-EM   \n   \nAutophagy and autophagosome   \n   \nOrganelle contact sites",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Current papers provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -1005,7 +1195,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students are expected to achieve the following:  \n   \n   \n1) To comprehend the literature and follow the most recent developments in molecular biology  \n   \n2) To appreciate new development in molecular biology and propose future research  \n   \n3) To be able to propose future direction in research and development of molecular biology",
+      "course_syllabus": "Topics:  \n   \nCentral dogma of molecular biology – a revisit   \n   \nRNA and disease   \n   \nProtein phosphorylation",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Current papers provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -1048,7 +1249,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students are expected to achieve the following:  \n   \n   \n1) To comprehend the literature and follow the most recent developments in biotechniques for cell and molecular biology  \n   \n2) To understand the principles, development and application of these new biotechniques  \n   \n3) To be able to propose future application and development of technology for research in cell and molecular biology",
+      "course_syllabus": "Topics:  \n   \nElectromagnetic waves, Light microscopy I   \n   \nLight microscopy II, Electron microscopy I   \n   \nElectron microscopy II, Correlative Light and Electron microscopy   \n   \nDiscussion, Student presentation",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "1) Course evaluation at the end of the course  \n   \n2) Direct feedback from students to teacher",
+      "required_readings": "",
+      "recommended_readings": "Current papers provided or recommended by the teacher"
     },
     {
       "subject": "CMBI",
@@ -1064,7 +1276,16 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taken this course are expected to develop the following abilities:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Survey scientific literature relevant to their research project  \n   \n3) Read scientific literature critically to identify the scientific questions or problems  \n   \n4) Design independent research project to address the scientific questions   \n   \n5) Acquire hands-on research techniques in conducting experiments  \n   \n6) Develop problem-solving abilities  \n   \n7) Develop data analysis and interpretation skills in a logical and scientific ways  \n   \n8) Improve skills in scientific writing and oral presentation  \n   \n9) Develop a sense of responsibility and team spirit  \n   \n   \n學生將會發展以下能力：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 搜尋相關文獻的技巧  \n   \n3) 具批判性思維閱讀及分析文獻的內容，並認知及思考當中的科學問題  \n   \n4) 就自己的專題研究題目，設計實驗去解說科學問題  \n   \n5) 各式實驗的操作能力  \n   \n6) 解決問題的能力  \n   \n7) 數據分析，並合乎邏輯性和具科學角度地表述出來  \n   \n8) 書寫符合標準科技論文格式的書面報告及口頭報告的能力  \n   \n9) 有責任感及團體精神  \n   \n   \n学生将会发展以下能力：   \n1) 应用在课堂中获得的知识及技能  \n   \n2) 搜寻相关文献的技巧  \n   \n3) 具批判性思维阅读及分析文献的内容，并认知及思考当中的科学问题  \n   \n4) 就自己的专题研究题目，设计实验去解说科学问题  \n   \n5) 各式实验的操作能力  \n   \n6) 解决问题的能力  \n   \n7) 数据分析，并合乎逻辑性和具科学角度地表述出来  \n   \n8) 书写符合标准科技论文格式的书面报告及口头报告的能力  \n   \n9) 有责任感及团体精神",
+      "course_syllabus": "The students should take the initiative to discuss with their supervisors and come up with a topic for the independent research project. The students should first conduct a literature survey of their research project and identify the scientific questions they want to address. The students then design and perform the experiments for this project under the guidance of the supervisors and submit a research proposal at the end of the term.  \n   \n   \n學生要於學期開始前主動聯絡教授，並訂出研究課題。學生就該研究課題搜尋相關文獻，並確定研究方向。學生要設計實驗，進行研究，並於學期結束前遞交一份研究計劃。   \n   \n学生要于学期开始前主动联络教授，并订出研究课题。学生就该研究课题搜寻相关文献，并确定研究方向。学生要设计实验，进行研究，并于学期结束前递交一份研究计划。",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 師生諮詢委員會  \n   \n   \n1) 学生跟导师直接反映  \n   \n2) 师生咨询委员会",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "CMBI",
@@ -1082,7 +1303,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHAN Ting Fung Philos,   Professor CHEN Sijie,   Professor JIANG Liwen,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor LAM Hon Ming,   Professor NGO Chi Ki Jacky,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor CHAN Ting Fung Philos, \nProfessor CHEN Sijie, \nProfessor JIANG Liwen, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor LAM Hon Ming, \nProfessor NGO Chi Ki Jacky, \nProfessor ZHUANG Xiaohong",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -1094,7 +1315,7 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1107,7 +1328,16 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taken this course are expected to develop the following abilities:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Survey scientific literature relevant to their research project  \n   \n3) Read scientific literature critically to identify the scientific questions or problems  \n   \n4) Design independent research project to address the scientific questions   \n   \n5) Acquire hands-on research techniques in conducting experiments  \n   \n6) Develop problem-solving abilities  \n   \n7) Develop data analysis and interpretation skills in a logical and scientific ways  \n   \n8) Improve skills in scientific writing and oral presentation  \n   \n9) Develop a sense of responsibility and team spirit  \n   \n   \n學生將會發展以下能力：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 搜尋相關文獻的技巧  \n   \n3) 具批判性思維閱讀及分析文獻的內容，並認知及思考當中的科學問題  \n   \n4) 就自己的專題研究題目，設計實驗去解說科學問題  \n   \n5) 各式實驗的操作能力  \n   \n6) 解決問題的能力  \n   \n7) 數據分析，並合乎邏輯性和具科學角度地表述出來  \n   \n8) 書寫符合標準科技論文格式的書面報告及口頭報告的能力  \n   \n9) 有責任感及團體精神  \n   \n   \n学生将会发展以下能力：   \n1) 应用在课堂中获得的知识及技能  \n   \n2) 搜寻相关文献的技巧  \n   \n3) 具批判性思维阅读及分析文献的内容，并认知及思考当中的科学问题  \n   \n4) 就自己的专题研究题目，设计实验去解说科学问题  \n   \n5) 各式实验的操作能力  \n   \n6) 解决问题的能力  \n   \n7) 数据分析，并合乎逻辑性和具科学角度地表述出来  \n   \n8) 书写符合标准科技论文格式的书面报告及口头报告的能力  \n   \n9) 有责任感及团体精神",
+      "course_syllabus": "The students should continue to work on the research project from CMBI4901. Students should discuss the progress with their supervisors and submit a progress report in the end of the term. Students who do not continue to work on the research project in CMBI4903 should submit a final report and give an oral presentation.  \n   \n   \n學生就CMBI4901的研究課題繼續進行研究，並定期向教授匯報及討論研究所得的數據。於學期結束前遞交一份研究進展報告。如不修讀CMBI4903，學生須遞交一份書面報告及作口頭報告。  \n   \n   \n学生就CMBI4901的研究课题继续进行研究，并定期向教授汇报及讨论研究所得的数据。于学期结束前递交一份研究进展报告。如不修读CMBI4903，学生须递交一份书面报告及作口头报告。",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) An open discussion session after the oral presentations of the students in the term end.   \n   \n3) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 口頭報告後的討論環節  \n   \n3) 師生諮詢委員會  \n   \n   \n1) 学生跟导师直接反映  \n   \n2) 口头报告后的讨论环节  \n   \n3) 师生咨询委员会",
+      "required_readings": "Relevant reference materials to the selected project will be provided by the supervisor.",
+      "recommended_readings": "Relevant reference materials to the selected project will be provided by the supervisor."
     },
     {
       "subject": "CMBI",
@@ -1125,7 +1355,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHAN Ting Fung Philos,   Professor CHEN Sijie,   Professor JIANG Liwen,   Professor KANG Byung Ho,   Professor KWAN Kin Ming,   Professor LAM Hon Ming,   Professor NGO Chi Ki Jacky,   Professor ZHUANG Xiaohong",
+                  "instructor": "Professor CHAN Ting Fung Philos, \nProfessor CHEN Sijie, \nProfessor JIANG Liwen, \nProfessor KANG Byung Ho, \nProfessor KWAN Kin Ming, \nProfessor LAM Hon Ming, \nProfessor NGO Chi Ki Jacky, \nProfessor ZHUANG Xiaohong",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -1137,7 +1367,7 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1150,7 +1380,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Cell and Molecular Biology PC",
-      "academic_org": "Cell and Molecular Biology PC"
+      "academic_org": "Cell and Molecular Biology PC",
+      "learning_outcomes": "Students taken this course are expected to develop the following abilities:  \n   \n1) Integrate the knowledge and skills learnt previously in other courses  \n   \n2) Survey scientific literature relevant to their research project  \n   \n3) Read scientific literature critically to identify the scientific questions or problems  \n   \n4) Design independent research project to address the scientific questions   \n   \n5) Acquire hands-on research techniques in conducting experiments  \n   \n6) Develop problem-solving abilities  \n   \n7) Develop data analysis and interpretation skills in a logical and scientific ways  \n   \n8) Improve skills in scientific writing and oral presentation  \n   \n9) Develop a sense of responsibility and team spirit  \n   \n   \n學生將會發展以下能力：   \n1) 應用在課堂中獲得的知識及技能  \n   \n2) 搜尋相關文獻的技巧  \n   \n3) 具批判性思維閱讀及分析文獻的內容，並認知及思考當中的科學問題  \n   \n4) 就自己的專題研究題目，設計實驗去解說科學問題  \n   \n5) 各式實驗的操作能力  \n   \n6) 解決問題的能力  \n   \n7) 數據分析，並合乎邏輯性和具科學角度地表述出來  \n   \n8) 書寫符合標準科技論文格式的書面報告及口頭報告的能力  \n   \n9) 有責任感及團體精神  \n   \n   \n学生将会发展以下能力：   \n1) 应用在课堂中获得的知识及技能  \n   \n2) 搜寻相关文献的技巧  \n   \n3) 具批判性思维阅读及分析文献的内容，并认知及思考当中的科学问题  \n   \n4) 就自己的专题研究题目，设计实验去解说科学问题  \n   \n5) 各式实验的操作能力  \n   \n6) 解决问题的能力  \n   \n7) 数据分析，并合乎逻辑性和具科学角度地表述出来  \n   \n8) 书写符合标准科技论文格式的书面报告及口头报告的能力  \n   \n9) 有责任感及团体精神",
+      "course_syllabus": "The students should continue to work on the research project from CMBI4902. Students should discuss the progress with their supervisors and submit a final report in the form of manuscript and present orally at term end.  \n   \n   \n學生就CMBI4902的研究課題繼續進行研究，並定期向教授匯報及討論研究所得的數據。於學期結束前遞交一份科技論文並作口頭報告。  \n   \n   \n学生就CMBI4902的研究课题继续进行研究，并定期向教授汇报及讨论研究所得的数据。于学期结束前递交一份科技论文并作口头报告。",
+      "assessment_types": {
+        "Lab reports": "40",
+        "Others": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "1) Direct feedback from students to teachers  \n   \n2) An open discussion session after the oral presentations of the students in the term end.   \n   \n3) Staff-student consultative committee  \n   \n   \n1) 學生跟導師直接反映  \n   \n2) 口頭報告後的討論環節  \n   \n3) 師生諮詢委員會  \n   \n   \n1) 学生跟导师直接反映  \n   \n2) 口头报告后的讨论环节  \n   \n3) 师生咨询委员会",
+      "required_readings": "Reference materials relevant to the selected project will be provided by the supervisor",
+      "recommended_readings": "Reference materials relevant to the selected project will be provided by the supervisor"
     },
     {
       "subject": "CMBI",
@@ -1166,7 +1406,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1182,7 +1431,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1198,7 +1456,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1214,7 +1481,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1230,7 +1506,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1246,7 +1531,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1262,7 +1556,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.     Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1278,7 +1581,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1294,7 +1606,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1310,7 +1631,16 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to   \n(1) acquire core knowledge in general biochemistry and in-depth knowledge in a particular field of biomedical sciences for research.   \n(2) acquire life-long learning skills to be an independent researcher.   \n(3) acquire knowledge to plan research work.   \n(4) acquire generic skills such as analytical skills, communication skills and writing skills.   \n(5) acquire skills how to prepare manuscript for publication.",
+      "course_syllabus": "-   Life Sciences Seminar Series\n\n-   Graduate Seminar",
+      "assessment_types": {
+        "Attendance": "10",
+        "Presentation": "90"
+      },
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1379,7 +1709,13 @@
       "component": "Thesis Monitoring Course",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Development of research skills, including field and/or laboratory studies and data analysis as related to the students' thesis research.",
+      "course_syllabus": "-    Identify a research topic\n\n-    Develop a research hypothesis\n\n-    Prepare a research proposal\n\n-    Develop research methodology and experimental design\n\n-    Conduct an original *research* with impact in a specific field or subject\n\n-    Analyze experimental results and make appropriate data interpretation\n\n-    Prepare a research dissertation/thesis and related manuscripts for publication",
+      "assessment_types": {},
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1395,7 +1731,13 @@
       "component": "Thesis Monitoring Course",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Development of research skills, including field and/or laboratory studies and data analysis as related to the students' thesis research.",
+      "course_syllabus": "-    Identify a research topic\n\n-    Develop a research hypothesis\n\n-    Prepare a research proposal\n\n-    Develop research methodology and experimental design\n\n-    Conduct an original *research* with impact in a specific field or subject\n\n-    Analyze experimental results and make appropriate data interpretation\n\n-    Prepare a research dissertation/thesis and related manuscripts for publication",
+      "assessment_types": {},
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     },
     {
       "subject": "CMBI",
@@ -1411,7 +1753,13 @@
       "component": "Thesis Monitoring Course",
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences"
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Development of research skills, including field and/or laboratory studies and data analysis as related to the students' thesis research.",
+      "course_syllabus": "-    Identify a research topic\n\n-    Develop a research hypothesis\n\n-    Prepare a research proposal\n\n-    Develop research methodology and experimental design\n\n-    Conduct an original *research* with impact in a specific field or subject\n\n-    Analyze experimental results and make appropriate data interpretation\n\n-    Prepare a research dissertation/thesis and related manuscripts for publication",
+      "assessment_types": {},
+      "feedback_evaluation": "1.    Discussion with students\n\n2.    Self-reflection of teacher(s)\n\n3.    Feedback from alumni\n\n4.    Feedback from Visiting Committee and regular programme reviews",
+      "required_readings": "Journal articles and other research materials assigned by individual supervisors.",
+      "recommended_readings": "Additional journal articles and other research materials recommended by individual supervisors."
     }
   ]
 }

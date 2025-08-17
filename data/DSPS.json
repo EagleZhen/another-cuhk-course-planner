@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T08:48:58.079482+00:00",
+    "scraped_at": "2025-08-16T10:18:22.693900+00:00",
     "subject": "DSPS",
+    "subject_title": "DSPS - Data Science & Policy Studies",
     "total_courses": 35,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -56,10 +57,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:  \n   \na. Understand the policy process and its application in real life policies;   \nb. Understand key concepts and theoretical approaches to public sciences and analysis;   \nc. Adopt and apply theories to understand real world problems;   \nd. Formulate their own knowledge system based on the knowledge and concepts introduced.",
+      "course_syllabus": "1. Introduction to Policy Sciences and public policy   \n   \n2. Basic concepts & theories in Policy Sciences  \n   \n3. Key models and frameworks in Policy Analysis   \n   \n4. Wicked problems & international affairs in the globalized world  \n   \n5. Integrated and interdisciplinary approach for policy-making  \n   \n6. Main process and structure in designing and evaluating policies  \n   \n7. Theories and its application in the context of Hong Kong and comparative contexts",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Homework or assignment": "20",
+        "Others": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Howlett, M., Ramesh, M., & Perl, A. (2009). Studying public policy: Policy cycles and policy subsystems (Vol. 3). Oxford: Oxford University Press.  \n   \n- Sabatier, P. A., & Weible, C. M. (Eds.). (2014). Theories of the policy process. Westview Press.",
+      "recommended_readings": "- Birkland, T. A. (2015). An introduction to the policy process: Theories, concepts, and models of public policy making. Routledge.  \n   \n- Hajer, M., Hajer, M. A., & Wagenaar, H. (Eds.). (2003). Deliberative policy analysis: understanding governance in the network society. Cambridge University Press.  \n   \n- Innes, J. E., & Booher, D. E. (2010). Planning with complexity: An introduction to collaborative rationality for public policy. Routledge."
     },
     {
       "subject": "DSPS",
@@ -75,7 +86,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "This course is expected to achieve the following outcomes for the students:\n\n* Good knowledge of the fundamental concepts, major intellectual and competing perspectives in the study of data science and policy studies\n* Awareness of the importance of the role of data science in society, including its opportunities and threats\n* Appreciation of the competing perspectives and contrasting views from major stakeholders on issues and problems of data science and policy studies and realization of the assumptions behind\n* Ability to think critically and analytically on public issues and policy challenges related to data science\n* Ability to apply the concepts and theories learnt in the course to formulate solutions to address real-world problems at a policymaking level",
+      "course_syllabus": "Topics to be covered included:\n\nIntroduction and Overview: Technology and Public Policy - Normative Policymaking vs. Positive Policymaking\n\n**Part I: Theoretical Foundation and Analytical Framework**\n\nThis section would define data science, which is an interdisciplinary field that uses scientific and statistical methods, processes, algorithms, and systems including big data and advanced computer technologies such as AI and IoT (Internet of Things) to generate knowledge and insights from data, and provides the theoretical framework for understanding and evaluating its impacts on policymaking.\n\nThe Rise of Data Science and Disruptive Technology\n\nEvidence-Based Policymaking\n\nProgramme Implementation and Diffusion of Technology\n\n**Part II: Technology and Policy Challenges**\n\nThis section introduces the major inventions and trends in data science such as Big Data, which is dataset that cannot be stored, captured, managed and analyzed by means of conventional database software, and examines their impacts and implications on policymaking. In addition, the challenges of other discoveries such as open data, open innovation, and AI, for government and society would also be examined.\n\nBig Data and Policymaking\n\nOpen Data and Open Innovation\n\n AI and the Future of Work\n\nData Science and State Surveillance\n\n**Part III: Technology and Societal Impact**\n\nThis section would discuss how data connectivity enabled by information and communication technologies (ICT) affects social and political lives. For example, smart city is a city that uses ICT to increase operational efficiency, share information with the public and improve both the quality of government services and citizen welfare. We would identify the issues and factors dividing the success and failure in the adoption and effects of those technologies.\n\nSmart City\n\nSocial Media and Society\n\nSocial Media and Governance\n\nDesign Thinking and Public Participation",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Presentation": "25",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey  \n2. Internal Course Review  \nOthers:  \n\n1. Course and Teaching Evaluation Survey",
+      "required_readings": "**Introduction: Technology and Public Policy****Normative Policymaking vs. Positive Policymaking**\n\n**\\***Anderson, James. (2015)  *Public Policy-Making*.  8th ed.  Stamford, CT: Cengage, Chapter 1.\n\n**\\***Kingdon, John.  (1984)  *Agendas, Alternatives, and Public Policies*.  2nd ed.  New York, NY: Harper Collins, Chapter 4.\n\n**Part I: THEORETICAL FOUNDATION AND ANALYTICAL FRAMEWORK**\n\n**The Rise of Data Science and Disruptive Technology:****A Private Sector Perspective, A Missing Public Sector Perspective**\n\n\\*Bower, J. L., & Christensen, C. M. (1995). Disruptive Technologies: Catching the Wave. *Harvard Business Review* 73 (1), 43-53.\n\n\\*Davenport, Thomas H., and D. J. Patil, “Data Scientist: The Sexiest Job of the 21st Century.” *Harvard Business Review*, Oct 2012.\n\n\\*Schonberger M. and Cukier K. *Big Data: A Revolution That Will Transform How We Live, Work, and Think*. Boston: *Houghton Mifflin Harcourt*, Boston, 2013, Chapter 1-3.\n\n**Evidence-Based Policymaking: The Role of Science and Data in Policymaking**\n\n\\*Cairney, Paul. (2016) The Politics of Evidence-Based Policy Making. NY: Palgrave Macmillan, Chapter 1-2.\n\n\\*Sanderson, Ian. (2002) “Evaluation, Policy Learning and Evidence-Based Policy Making.” *Public Administration*, Vol 80, Issue 1.\n\n**Programme Implementation and Diffusion of Technology: Bridging the Reality Gap**\n\n\\*Knill, C., & Tosun, J. (2012). *Public Policy: A New Introduction*. Palgrave Macmillan, Chapter 7.\n\n\\*Rosen, Harvey and Ted Gayer.  (2010)  *Public Finance*.  9th ed.  New York: McGraw-Hill, Chapter 6.\n\n\\*Straub, Evan T. (2017) “Understanding Technology Adoption: Theory and Future Directions for Informal Learning.” *Review of Educational Research*.\n\n**Part II: TECHNOLOGY AND POLICY CHALLENGES**\n\n**Big Data and Policymaking: The Bigger, the Better?**\n\n\\*Desouzai, Kevin C., and Benoy Jacob. (2017) “Big Data in the Public Sector: Lessons for Practitioners and Scholars.” *Administration & Society*, Vol. 49 (7): 1043-1064.\n\n\\*Höchtl, Johann, Peter Parycek & Ralph Schöllhammer (2016) “Big Data in the Policy Cycle: Policy Decision Making in the Digital Era,” *Journal of Organizational Computing and Electronic Commerce*, 26:1-2, 147-169.\n\n**Open Data and Open Innovation: Citizens-Oriented and Bottom-Up**\n\n\\*Clarke, Amanda, and Helen Margetts. (2014) “Governments and Citizens Getting to Know Each Other? Open, Closed, and Big Data in Public Management Reform.” Policy and Internet, Vol. 6, 4.\n\n\\*Janssen, Marijn, Yannis Charalabidis, and Anneke Zuiderwijk. (2012) “Benefits, Adoption Barriers and Myths of Open Data and Open Government.” *Information Systems Managemen*t, Vol. 29, 4: 258-268.\n\n\\*Mergel, Ines. “Implementing Open Innovation in the Public Sector: The Case of Challenge.gov.” *Public Administration Review*, Nov/Dec 2013.\n\n**AI and the Future of Work: Will Machine Replace Us?**\n\n\\*Lee, Kai-Fu. *AI-Superpowers: China, Silicon Valley, and the New World Order?* NY: Mariner, Chapter 5, 6 and 8.\n\n**Data Science and State Surveillance: Who Would Watch the Watchdog?**\n\n**\\***Brayne, Sarah. (2017) “Big Data Surveillance: The Case of Policing.” American Sociological Review, Vol. 82, 5: 977-1008.\n\n\\*Lyon, David. (2014) “Surveillance, Snowden, and Big Data: Capacities, Consequences, Critique.” Big Data & Society, July 2014.\n\n**Part III: Technology and Societal Impact**\n\n**Smart City: Risk and Opportunities**\n\n\\*Cowley, Robert, Simon Joss, & Youri Dayout. (2018) “The Smart City and Its Publics: Insights from Across Six UK Cities.” *Urban Research and Practices*, 11, 1: 53-77.\n\n\\*Ho, Ezra. “Smart Subjects for a Smart Nation? Governing (Smart) Mentalities in Singapore.” *Urban Studie*s, 2017, Vol. 54(13), pp. 3103-3118.\n\n\\*Kitchin, Rob. (2014) “The real-time city? Big data and smart urbanism.” GeoJournal, 79, 1-14.\n\n**Social Media and Society: Citizens as the Actor**\n\n\\*Bennett, Lance and Alexandra Segerberg. (2011) “Digital Media and the Personalization of Collective Action.” Information, Communication and Society. 14, 6: 770-799.\n\n\\*Mcintyre, Lee. (2018) *Post-Truth*. Boston, MA: MIT Press, Chapter 1-3 and 5.\n\n\\*Sandoval-Almazan, Rodrigo, and J. Ramon Gil-Garcia. (2014) “Towards Cyberactivism 2.0? Understanding the use of social media and other information technologies for political activism and social movements.” *Government Information Quarterly*, 31: 365-378.\n\n**Social Media and Governance: State as the Actor**\n\n\\*Bradshaw, Samantha, and Philip N. Howard. (2019) *The Global Disinformation Order: 2019 Global Inventory of Organized Social Media Manipulation*. Oxford Internet Institute, University of Oxford.\n\n\\*Persily, Nathaniel, & Joshua A. Tucker, eds. (2020) *Social Media and Democracy*. NY: Cambridge University Press, Chapter 1, 2, 7, 8 and 13.\n\n**Design Thinking and Public Participation: the Human Dimension of Technology**\n\n\\*Brown, Tim, & Jocelyn Wyatt. “Design Thinking for Social Innovation.” Stanford Social Innovation Review. Winter 2010.\n\n\\*Hao, Karen. “Should a Self-Driving Car Kill the Baby or the Grandma? Depends on Where You’re From.” *MIT Technology Review*. Oct 24, 2018.\n\n\\*Liedta, Jeanne, and Randall Salzman. *Applying Design Thinking to Public Service Delivery*. IBM Center for The Business of Government, Part I.",
+      "recommended_readings": "**Introduction: Technology and Public Policy****Normative Policymaking vs. Positive Policymaking**\n\nLindblom, Charles, “The Science of Muddling Through” in Jay Shafritz, Albert Hyde, and Sandra Parkes, eds. (2004) *Classics of Public Administration*. 5th ed. Belmont, CA: Wadsworth.\n\nRebman, Thomas. “Do Your Data Scientists Know the “Why” Behind Their Work?” *Harvard Business Review*, May 16, 2019.\n\n**Part I: THEORETICAL FOUNDATION AND ANALYTICAL FRAMEWORK**\n\n**The Rise of Data Science and Disruptive Technology:****A Private Sector Perspective, A Missing Public Sector Perspective**\n\nManyika J, Chui M, Brown B. et. al. (2011). *Big Data: The Next Frontier for Innovation, Competition, and Productivity*. Available at: www.mckinsey.com.\n\n**Evidence-Based Policymaking: The Role of Science and Data in Policymaking**\n\nHead, Brain W. (2008) “Three Lenses of Evidence-Based Policy.” *Australian Journal of Public Administration*, Vol. 67, Issue 1.\n\nStoker, Gerry and Mark Evans. *Evidence-based Policy Making in the Social Sciences: Methods that Matter*. Bristol, England; Chicago, Illinois: Policy Press 2016.\n\n**Programme Implementation and Diffusion of Technology: Bridging the Reality Gap**\n\nHowlett M. & Ramesh M. (1995). *Studying Public Policy: Policy Cycles and Policy**Subsystems*. Toronto; New York; Oxford: Oxford University Press. Chapter 8.\n\nPeters, B. Guy. (1993) *American Public Policy: Promise and Performance*. Chatham, N.J.: Chatham House Publishers. Chapter 8.\n\n**Part II: TECHNOLOGY AND POLICY CHALLENGES**\n\n**Big Data and Policymaking: The Bigger, the Better?**\n\nBrady, H. E. (2019). The challenge of big data and data science. *Annual Review of Political Science*. https://doi.org/10.1146/annurev-polisci-090216-023229\n\nRethemeyer R K & Isett K (2016) Big Data in Public Affairs, *Public Administration Review* 76(6), 928-937.\n\nSchintler L A and Kulkarni R (2014) Big Data for Policy Analysis: The Good, The Bad, and the Ugly, *Review of Policy Research* 31(4), 343-348.\n\n**Open Data and Open Innovation: Citizens-Oriented and Bottom-Up**\n\nWelch, Eric, Mary Feeney, and Chui Hyun Park. (2016) “Determinants of Data Sharing in U.S. City Governments.” *Government Information Quarterly*, Vol. 33, 3: 393-403.\n\nVeljkovic, Natasa, Sanja Bogdanovic-Dinic, Leonid Stoimenov. (2014) “Benchmarking Open Government: An Open Data Perspective.” Government Information Quarterly, Vol. 31, 2: 278-290.\n\n**AI and the Future of Work: Will Machine Replace Us?**\n\nOECD, *OCED Employment Outlook 2019: The Future of Work*.\n\nVochozka, Marek, Tomas Kliestik, Jana Kliestikova, and Graţiela Sion. “Participating in a Highly Automated Society: How Artificial Intelligence Disrupts the Job Market.” *Economics, Management and Financial Markets*, December 2018, Vol. 13(4).\n\n**Data Science and State Surveillance: Who Would Watch the Watchdog?**\n\nChina's Social Credit System (Collection). *South China Morning Post*. <https://www.scmp.com/topics/chinas-social-credit-system>.\n\nGraham, Stephen, and David Wood. (2003) “Digitizing Surveillance: Categorization, Space, and Inequality.” *Critical Social Policy*, Vol. 23, 2: 227-248.\n\nTufekci,, Zeynep. (2014) “Engineering the Public: Big Data, Surveillance and Computional Politics.” *First Monday*, Vol. 19, 7.\n\nZuboff, Shoshana. (2019) *The Age of Surveillance Capitalism.* London: Profile Books\n\n**Part III: Technology and Societal Impact**\n\n**Smart City: Risk and Opportunities**\n\nAllwinkle, S., & Cruickshank, P. (2011). Creating Smarter Cities: An Overview. *Journal of Urban Technology*, 18(2), 1–16\n\nGreenfield, A. (2013). *Against the Smart City (The City is Here for You to Use)*. New York: Do Projects.\n\nHollands, R. G. (2008). Will the Real Smart City Please Stand Up? *City*, 12(3), 303–320.\n\nThe Smart City Blueprint for Hong Kong (https://www.smartcity.gov.hk)\n\n**Social Media and Society: Citizens as the Actor**\n\nMergel, Ines. “A Framework for Interpreting Social Media Interactions in the Public Sector.” Government Information Quarterly, 30: 327-334.\n\nO’Connor, Cailin, & James O. Waetherall. (2019) *The Misinformation Age*. New Haven: Yale University Press.\n\nTang, Gary, & Francis L. F. Lee. (2013) “Facebook Use and Political Participation: The Impact of Exposure to Shared Political Information, Connections with Public Political Actors, and Network Structural Heterogeneity.” *Social Science Computer Review*, Vol. 31, No. 6: 763-773.\n\n**Social Media and Governance: State as the Actor**\n\nKing, Gary, Jennifer Pan, & Margaret E. Roberts. (2013) “How Censorship in China Allows Government Criticism but Silences Collective Expression. *American Political Science Review* 107, 2: 1-18.\n\nKing, Gary, Jennifer Pan, & Margaret E. Roberts. (2017) “How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, Not Engaged Argument.” *American Political Science Review* 111, 3: 484-501.\n\n**Design Thinking and Public Participation: the Human Dimension of Technology**\n\nAwad, E, Dsouza, Sohan Dsouza, Richard Kim, Jonathan Schulz, Joseph Henrich, Azim Shariff, Jean-Francois Bonnefon, & Iyad Rahwan. “The Moral Machine Experiment.” *Nature* 563 (2018): 59-64.\n\nLiedtka, Jeanne, Randy Salzman, & Daisy Azer. (2017) *Design Thinking for the Greater Good: Innovation in the Social Sector*. NY: Columbia University Press."
     },
     {
       "subject": "DSPS",
@@ -121,10 +142,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Understand the role computation can play in solving problems.\n2. Understand the basic programming concepts and techniques.\n3. Write programs in Python that allow them to accomplish useful goals.\n4. Use Python libraries to complete simple data science tasks.",
+      "course_syllabus": "1. Values and Variables\n2. Simple Data Types: int, float, string, boolean\n3. Lists\n4. Conditional Statements: if, if-else, if-elif-else\n5. Dictionaries\n6. User Input\n7. Iteration: for loops, while loops\n8. Functions and Modules\n9. Classes and Objects\n10. Files\n11. Exceptions\n12. Python libraries for data science: NumPy, pandas, matplotlib.",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Participation": "10",
+        "Test or quiz": "40"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Lacey, N. (2019). *Python by Example: Learning to Program in 150 Challenges*. Cambridge University Press.\n* Matthes, E. (2023). *Python Crash Course: A Hands-On, Project-Based Introduction to Programming* (3rd Edition). No Starch Press.\n* Vasiliev, Y. (2022). *Python for Data Science: A Hands-On Introduction*. No Starch Press.",
+      "recommended_readings": "* Deitel, P., & Deitel, H. (2019). *Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and the Cloud*. Pearson.\n* Milliken, C. P. (2019). *Python Projects for Beginners: A Ten-Week Bootcamp Approach to Python Programming*. Apress.\n* Shaw, Z. (2017). *Learn Python 3 the Hard Way: A Very Simple Introduction to the Terrifyingly Beautiful World of Computers and Code*. Addison-Wesley Professional.\n* Stephenson, B. (2019). *The Python Workbook: A Brief Introduction with Exercises and Solutions* (2nd Edition). Springer.\n* Sweigart, A. (2019). *Automate the Boring Stuff with Python: Practical Programming for Total Beginners* (2nd Edition). No Starch Press.\n* Sweigart, A. (2021). *The Big Book of Small Python Projects: 81 Easy Practice Programs*. No Starch Press.\n* Ustun, I. (2018). *Learning Python for Data Science*. Packt Publishing. [Video].\n* VanderPlas, J. (2022). *Python Data Science Handbook* (2nd Edition). O'Reilly Media.\n* Zelle, J. (2016). *Python Programming: An Introduction to Computer Science* (3rd Edition). Franklin, Beedle & Associates."
     },
     {
       "subject": "DSPS",
@@ -185,7 +216,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n* Analyze and interpret policy data using descriptive statistics and statistical inference techniques.\n* Apply appropriate statistical tests, such as t-tests and ANOVA, to policy data to answer research questions.\n* Demonstrate proficiency in communicating statistical results to policy audiences through effective writing and data visualization techniques.\n* Apply statistical techniques to solve real-world problems in policy analysis and data science.",
+      "course_syllabus": "* Introduction to Data Science, Statistics, and Policy Analysis\n  + Overview of data science and policy analysis\n  + Role of statistics in policy analysis\n* Descriptive Statistics\n  + Measures of central tendency (mean, median, mode)\n  + Measures of variability (range, variance, standard deviation)\n  + Probability distributions and histograms\n  + Box plots and scatter plots\n* Probability distributions\n  + Basic concepts of probability theory\n  + Discrete and continuous probability distributions\n  + Random variables and expected values\n* Inferential Statistics\n  + Sampling distributions and the central limit theorem\n  + Point estimation and interval estimation\n  + Hypothesis testing and p-values\n  + Statistical power and effect size\n  + Type I and Type II errors\n* Choice of Statistical Tests\n  + For example: T-test, ANOVA, and Chi-square test\n* Regression and Prediction\n  + Correlation analysis\n  + Simple linear regression analysis\n* Communicating Statistical Results in a Policy Context\n  + Writing statistical reports for policy audiences\n  + Creating effective data visualizations for policy audiences\n  + Interpreting and communicating statistical results for policy audiences",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Bruce, P. C., Bruce, A., & Gedeck, P. (2020). *Practical statistics for data scientists : 50+ essential concepts using R and Python (Second edition.)*. O’Reilly Media, Inc.",
+      "recommended_readings": "Salcedo, J. (2017). *Basic Statistics and Data Mining for Data Science (1st edition)*. Packt Publishing. [Video]\n\nRahman, A. (2020). *Statistics for Data Science and Policy Analysis (A. Rahman, Ed.; 1st ed. 2020.).* Springer Singapore."
     },
     {
       "subject": "DSPS",
@@ -198,10 +240,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:  \n   \na. Have a clear picture about the theory, concept, measurement, and hypothesis in research methods in policy studies;   \nb. Know about the main stages and approaches for conducting qualitative and quantitative research in policy studies;   \nc. Develop the basic skills to evaluate public policy and social programmes",
+      "course_syllabus": "1) Introduction to major methods used in policy studies research (both quantitative and qualitative methods)  \n   \n2) Theories and concepts of research principles and design  \n   \n3) Knowledge of major statistical methods widely used in policy studies  \n   \n4) Skills and methods in qualitative and quantitative analysis  \n   \n5) Multimethod and critical approach to conduct research of public policies and data science  \n   \n6) Ethics and social responsibilities of policy research",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "20",
+        "Others": "10",
+        "Project": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Neuman, W. L. (2013). Social research methods: Qualitative and quantitative approaches. Pearson education.  \n   \n- Majchrzak, A., & Markus, M. L. (2014). Methods for Policy Research. CA: Sage.",
+      "recommended_readings": "- Bryman, A. (2016). Social research methods. NY: Oxford university press.  \n   \n- Denzin, N. K., & Lincoln, Y. S. (1994). Handbook of qualitative research. CA: Sage.  \n   \n- Singleton Jr, R., Straits, B. C., Straits, M. M., & McAllister, R. J. (1988). Approaches to social research. NY: Oxford University Press.  \n   \n- Spencer, L., & Ritchie, J. (2002). Qualitative data analysis for applied policy research. In Analyzing qualitative data (pp. 187-208). NY: Routledge."
     },
     {
       "subject": "DSPS",
@@ -253,10 +306,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n1. Understand the foundational principles of data science and how they can be applied to analyze public policy issues and political processes.\n\n2. Develop proficiency in data collection, cleaning, analysis, and visualization techniques relevant to policy and political studies.\n\n3. Critically evaluate and interpret data to draw meaningful insights and make informed decisions in the context of public policy and political analysis.\n\n4. Apply data science methods to address real-world policy challenges and political issues, demonstrating the ability to use data-driven approaches to inform and shape policy decisions.",
+      "course_syllabus": "1. Explore Data Science in Public Policy and Political Studies\n2. Build Critical Analysis and Evidence-Based Reasoning Skills\n3. Master Techniques for Collecting and Preparing Data\n4. Utilize Effective Data Visualization for Clear Communication\n5. Study Real-World Case Studies in Data-Driven Policy\n6. Collaborate on Projects Addressing Current Policy Challenges",
+      "assessment_types": {
+        "Classwork": "40",
+        "Presentation": "15",
+        "Project": "35",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Agresti, A., Franklin, C. A., Klingenberg, B. (2016). Statistics: The art and science of learning from data. 4th ed. NY: Pearson.   \n- Gorard, S. (2003). Quantitative methods in social science research. NY: Continuum.   \n- Miller, J. D. (2017). Statistics for Data Science. UK: Packt.",
+      "recommended_readings": "* Magallanes Reyes, J. M. (2017). Introduction to Data Science for Social and Policy Research: Collecting and Organizing Data with R and Python. Cambridge: Cambridge University Press.\n* Krieg, E. (2020).  Statistics and data analysis for social science. (Vols. 1-0). SAGE Publications, Inc., https://doi.org/10.4135/9781071909546"
     },
     {
       "subject": "DSPS",
@@ -272,7 +336,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n1. Develop proficiency in applying data analysis techniques and statistical tools to analyze complex public policy issues and political dynamics.\n2. Enhance critical thinking skills to interpret data analysis results and formulate policy recommendations based on insights.\n3. Cultivate an understanding of the ethical implications and impacts of data-driven approaches on policy decisions and political processes.\n4. Demonstrate individual thinking and creative problem-solving abilities by utilizing data science methods to address policy and political challenges.",
+      "course_syllabus": "1. Introduce Advanced Statistical Analysis Techniques for Public Policy\n2. Explore Predictive Modeling for Forecasting Policy Outcomes\n3. Utilize Advanced Data Visualization for Complex Data Communication\n4. Discuss Ethics in Data Science and Public Policy\n5. Engage in Collaborative Workshops on Real-World Policy Issues",
+      "assessment_types": {
+        "Others": "10",
+        "Project": "30",
+        "Short answer test or exam": "60"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Urdinez, F., & Cruz, A. (2020). R for Political Data Science: A Practical Guide (1st ed.). Chapman and Hall/CRC. https://doi.org/10.1201/9781003010623\n* Moody, R., & Bekkers, V. (2023) Big Data and Public Policy: Course, Content and Outcome (1st ed.). Palgrave Macmillan Cham. https://doi.org/10.1007/978-3-031-16031-8.",
+      "recommended_readings": ""
     },
     {
       "subject": "DSPS",
@@ -288,7 +362,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n* Apply object-oriented programming concepts to develop C# programs.\n* Use C# to create basic programs\n* Analyze and troubleshoot code using debugging tools and techniques.\n* Create video games using Unity game engine and C# programming language.\n* Implement game design principles to improve player experience and gameplay mechanics.",
+      "course_syllabus": "Object-Oriented Programming:\n\n* Introduction to object-oriented programming concepts, such as inheritance and polymorphism.\n* Defining and using classes in C#, including constructors and access modifiers.\n* Understanding and using interfaces, abstract classes, and virtual methods.\n* Working with inheritance and polymorphism in C#.\n\nC# Programming:\n\n* Understanding the basics of C# syntax and structure.\n* Understanding data types and operators in C#.\n* Using selection statements (if/else) and loops (for/while/do-while).\n* Introduction to collections and generic programming.\n* Processing data with C# methods and functions.\n* Handling errors and debugging in C#.\n\nUnity Game Development:\n\n* Understanding the Unity editor and its components.\n* Creating game objects and scenes in Unity.\n* Working with Unity's physics engine and creating physics-based interactions.\n* Using Unity’s built-in assets, such as animations and particle effects.\n* Understanding the basics of game design, including gameplay mechanics and player experience.\n* Introduction to game AI and decision-making.",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "45",
+        "Participation": "10",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Murray, J. W. (2021). C# game programming cookbook for Unity 3D (2nd edition). CRC Press.\n* Taher, R. (2019). Hands-on object-oriented programming with C# : build maintainable software with reusable code using C# (1st edition). Packt Publishing Ltd.",
+      "recommended_readings": "* Bouna, P. (2022). *C# Object-Oriented Programming for Beginners in C# and .NET.*. Packt Publishing. (Video)\n* Baron, D. (2021). *Game development patterns with Unity 2021 : explore practical game development using industry design patterns and best practices in Unity and C#* (2nd ed.). Packt Publishing.\n* Buttfield-Addison, P., Manning, J., & Nugent, T. (2019). *Unity game development cookbook : essentials for every game* (First edition.). O’Reilly Media, Inc.\n* Sapio, F. (2018). *Practical Unity game development*. PACKT Publishing. (Video)"
     },
     {
       "subject": "DSPS",
@@ -346,10 +431,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "Students are expected to acquire the basic knowledge of computing applications and coding languages, such as Python, of data analytics and apply it to solve problems in public policy.",
+      "course_syllabus": "1) Introduction to data analytics for public policy    \n2) Quantitative research design and basic methods for analysis   \n3) Understanding the application of major computing applications and coding languages, such as Python   \n4) Basic knowledge in data collecting, data cleaning and analysis    \n5) Interpreting research results in different models",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Participation": "10",
+        "Test or quiz": "40"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Chen, D. (2022). Pandas for Everyone: Python Data Analysis (2nd edition). Addison-Wesley.  \n- Dunleavy, P., & Margetts, H. (2015). Design principles for essentially digital governance.   \n- Milan, S., & ten Oever, N. (2017). Coding and encoding rights in internet infrastructure. Internet Policy Review, 6(1).   \n- Raschka, S., & Mirjalili, V. (2017). Python machine learning. Packt Publishing Ltd.   \n- VanderPlas, J. (2016). Python Data Science Handbook. CA: O’Reilly.",
+      "recommended_readings": "- Lane, J. (2016). Big data for public policy: The quadruple helix. Journal of Policy Analysis and Management, 35(3), 708-715.   \n- Gil-Garcia, J. R., Pardo, T. A., & Luna-Reyes, L. F. (2018). Policy Analytics: Definitions, Components, Methods, and Illustrative Examples. In Policy Analytics, Modelling, and Informatics (pp. 1-16). Springer, Cham.   \n- Sun, Y., Song, H., Jara, A. J., & Bie, R. (2016). Internet of things and big data analytics for smart and connected communities. IEEE access, 4, 766-773."
     },
     {
       "subject": "DSPS",
@@ -373,10 +468,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -392,7 +487,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n* Create effective data models using entity-relationship diagrams and normalization techniques.\n* Write SQL queries to retrieve and manipulate data from relational databases.\n* Evaluate the performance of database systems.\n* Apply database systems to real-world examples.",
+      "course_syllabus": "* Introduction to Databases and Data Management\n  + Overview of database systems and their role in data science\n  + Relational databases and their components\n  + Data models, data schemas, and data types\n  + SQL basics for data retrieval and manipulation\n* Data Modeling and Normalization\n  + Entity-relationship modeling and diagramming\n  + Normalization and data redundancy\n  + Relational database design principles\n* SQL for Data Science\n  + SELECT statements and basic data retrieval\n  + Filtering and sorting data\n  + Joins and subqueries\n  + Aggregation functions and grouping\n  + Data modification statements (INSERT, UPDATE, DELETE)\n* Advanced Topics and Future Trends in Database Technologies\n  + Database security and data privacy\n  + Database administration (e.g., backup and recovery strategies and user management)\n  + Database optimization (e.g., indexing, table partitioning and sharding, and query optimization)\n  + NoSQL databases and big data systems\n  + Data warehousing and business intelligence\n* Case Studies and Practical Applications\n  + Real-world examples of databases in data science\n  + Data governance and ethics",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Beaulieu, A. (2020). *Learning SQL (Third edition.)*. O’Reilly.\n\nElmasri, R., & Navathe, S. (2016). *Fundamentals of database systems (Seventh edition.)*. Pearson.",
+      "recommended_readings": "Badia, A. (2020). *SQL for data science: data cleaning, wrangling and analytics with relational databases*. Springer Nature.\n\nKleppmann, M. (2017). *Designing data-intensive applications : the big ideas behind reliable, scalable, and maintainable systems (First edition.)*. O’Reilly Media."
     },
     {
       "subject": "DSPS",
@@ -432,10 +538,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:  \n   \na. Understand the process of policy making and steps and theoretical perspectives of design thinking;   \nb. Apply the framework of design thinking in policymaking;   \nc. Analyze policy from different stakeholders’ perspectives in policy design;    \nd. Have a solid foundation of policy design and analysis.",
+      "course_syllabus": "1) Basic knowledge in public policy analysis (key concepts, major theories, main methods)  \n   \n2) Integrated and comprehensive approach in resolving public problem from a design thinking perspective  \n   \n3) Process of policy making, understanding key factors (e.g., common interest, stakeholders, interest groups, etc.）  \n   \n4) Understanding actors in policy design, their roles, and interaction dynamics   \n   \n5) Acquiring knowledge about analytical model of public policy analysis",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Others": "10",
+        "Project": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Brown, T. (2009). Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation. NY: Harper Collins.  \n   \n- Dunn, W. N. (2015). Public policy analysis. NY: Routledge.  \n   \n- Weimer, D. L., & Vining, A. R. (2017). Policy analysis: Concepts and practice. NY: Routledge.",
+      "recommended_readings": "- Liedtka, J., King, A., & Bennett, K. (2013). Solving Problems with Design Thinking: Ten Stories of What Works. NY: Columbia Business School  \n   \n- Howlett, M., Ramesh, M., & Perl, A. (2009). Studying public policy: Policy cycles and policy subsystems (Vol. 3). Oxford: Oxford University Press.  \n   \n- Sabatier, P. A., & Weible, C. M. (Eds.). (2014). Theories of the policy process. CA: Westview Press."
     },
     {
       "subject": "DSPS",
@@ -490,7 +606,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Develop a comprehensive understanding of AI strategies and governance in both national and global contexts.\n2. Analyze and evaluate different AI governance frameworks and strategies, considering their effectiveness and impact on transparency, fairness, accountability, and other important public values.\n3. Apply critical thinking skills to assess the potential risks and benefits associated with AI technologies and their implementation, and propose responsible policies to mitigate those risks.\n4. Demonstrate knowledge of the competing concerns and dilemmas related to AI such as privacy, data security, economic growth, and ethical considerations, and formulate policies that address them.\n5. Engage in interdisciplinary discussions and collaborations to address the complex challenges at the intersection of AI, governance, and public policy.",
+      "course_syllabus": "1. Introduction to AI Governance and Public Policy\n\n* Overview of AI technologies and their impact on governance and public policy\n* Role of AI in shaping public policies\n\n2. Transparency, Fairness, and Bias in AI\n\n* Understanding the importance of transparency and explain ability in AI systems\n* Assessing and mitigating biases in AI algorithms and decision-making processes\n* Policies for ensuring fairness and accountability in AI governance\n\n3. Ethical Frameworks and Accountability for AI Governance\n\n* Examination of ethical principles and guidelines in AI governance\n* Ethical considerations in AI decision-making and algorithmic accountability\n\n4. Legal and Regulatory Landscape for AI\n\n* Analysis of existing laws and regulations applicable to AI technologies\n* Privacy concerns in AI applications and data-driven decision-making\n* Policy frameworks for AI regulation and legal challenges in governing AI\n\n5. AI Governance in a Global Perspective\n\n* Major paradigms, models, and approaches in AI governance\n* AI governance in major regions and countries (e.g., China, US, and Europe)\n\n6. AI Governance and Public Sector Applications\n\n* AI deployment in government services and public administration\n* Policy considerations for AI adoption in public sector decision-making\n\n7. Stakeholder Engagement and Collaboration in AI Governance\n\n* Engaging with diverse stakeholders in AI governance processes\n* Multi-stakeholder collaborations for inclusive and participatory decision-making\n* Building partnerships between governments, industry, academia, and civil society\n\n8. Future Trends and Emerging Issues in AI Governance\n\n* Exploring the evolving landscape of AI technologies and their governance challenges\n* Policy implications and strategies for adapting to future AI advancements",
+      "assessment_types": {
+        "Homework or assignment": "25",
+        "Project": "35",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Bradford, A. (2023). *The global battle to regulate technology.* Oxford University Press.\n\n- Gahnberg, C. (2021). What rules? Framing the governance of artificial agency. *Policy and Society,* 40(2), 194-210.\n\n- Galindo, L., Perset, K., and Sheeka, F. (2021). An overview of national AI strategies and policies. *OECD Going Digital Toolkit Notes*, No. 14, OECD Publishing, Paris.\n\n- Gritsenko, D., & Wood, M. (2022). Algorithmic governance: A modes of governance approach. *Regulation & Governance*, 16(1), 45-62.\n\n- Lee, K. F. (2018). *AI superpowers: China, Silicon Valley, and the new world order*. Houghton Mifflin.\n\n- Madan, R., & Ashok, M. (2023). AI adoption and diffusion in public administration: A systematic literature review and future research agenda. *Government Information Quarterly*, 40(1), 101774.",
+      "recommended_readings": "- Desouza, K. C., Dawson, G. S., & Chenok, D. (2020). Designing, developing, and deploying artificial intelligence systems: Lessons from and for the public sector. *Business Horizons*, 63(2), 205–213.\n\n- Frey, C. B., & Osborne, M. A. (2017). The future of employment: How susceptible are jobs to computerisation?. *Technological Forecasting and Social Change*, 114, 254-280.\n\n- Giest, S. N., & Klievink, B. (2022). More than a digital system: how AI is changing the role of bureaucrats in different organizational contexts. *Public Management Review*, 1-20.\n\n- Gil-Garcia, J. R., Dawes, S. S., & Pardo, T. A. (2018). Digital government and public management research: finding the crossroads. *Public Management Review*, 20(5), 633-646.\n\n- Guenduez, A. A., & Mettler, T. (2023). Strategically constructed narratives on artificial intelligence: What stories are told in governmental artificial intelligence policies?. *Government Information Quarterly*, 40(1), 101719.\n\n- Harding, V. (2023). *AI needs you. Princeton University Press.*\n\n- Kane, G. C., Phillips, A. N., Copulsky, J. R., & Andrus, G. R. (2022). *The technology fallacy.* MIT Press.\n\n- Mindell, D. A., & Reynolds, E. (2022). *The work of the future: Building better jobs in an age of intelligent machines*. MIT Press.\n\n- Wirtz, B. W., & Müller, W. M. (2019). An integrated artificial intelligence framework for public management. *Public Management Review*, 21(7), 1076-1100."
     },
     {
       "subject": "DSPS",
@@ -548,10 +675,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:    \na. Identify and understand key literature and theories on innovation in the public sector    \nb. Understand the interplay of technology and policy innovation    \nc. Identify the major factors driving the result and performance of innovation    \nd. Draw experience from both local and global perspectives in analyzing cases of technology and innovation",
+      "course_syllabus": "1) Technology and Policy Challenges (e.g., AI and the Future of Work)  \n2) Technology and Societal Impact (e.g., Social Media and Governance)  \n3) Theories and strategies of managing technology and policy innovation    \n4) Innovation system and innovation policies (e.g., mechanism and process of innovation and diffusion of technology)    \n5) Case studies in technology innovation and policy innovation",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Brayne, Sarah. (2017). Big Data Surveillance: The Case of Policing. American Sociological Review, Vol. 82, 5: 977-1008.  \n- Borrás, S., & Edquist, C. (2019). Holistic innovation policy : theoretical foundations, policy problems, and instrument choices (First edition.). Oxford University Press.  \n- Cowley, Robert, Simon Joss, & Youri Dayout. (2018). The Smart City and Its Publics: Insights from Across Six UK Cities. Urban Research and Practices, 11, 1: 53-77.  \n- Höchtl, Johann, Peter Parycek & Ralph Schöllhammer (2016). Big Data in the Policy Cycle: Policy Decision Making in the Digital Era. Journal of Organizational Computing and Electronic Commerce, 26:1-2, 147-169.  \n- Janssen, Marijn, Yannis Charalabidis, and Anneke Zuiderwijk. (2012). Benefits, Adoption Barriers and Myths of Open Data and Open Government. Information Systems Management, Vol. 29, 4: 258-268.  \n- Schonberger M. and Cukier K. (2013). Big Data: A Revolution That Will Transform How We Live, Work, and Think. Boston: Houghton Mifflin Harcourt, Boston. (Chapter 1-3)  \n- Straub, Evan T. (2017) “Understanding Technology Adoption: Theory and Future Directions for Informal Learning.” Review of Educational Research. 79(2), 625-649.",
+      "recommended_readings": "- Block, F. L., & Keller, M. R. (2015). State of innovation: the US government's role in technology development. NY: Routledge. (Chap 10 & 11).  \n- Costantini, V., Crespi, F., Martini, C., & Pennacchio, L. (2015). Demand-pull and technology-push public support for eco-innovation: The case of the biofuels sector. Research Policy, 4(3), 577-595.  \n- Guo, P., Wang, T., Li, D., & Zhou, X. (2016). How energy technology innovation affects transition of coal resource-based economy in China. Energy Policy, 92, 1-6.  \n- Leyden, D. P., & Link, A. N. (2015). Public sector entrepreneurship: US technology and innovation policy. Oxford: OUP.  \n- Mazzucato, M. (2016). From market fixing to market-creating: a new framework for innovation policy. Industry and Innovation, 23(2), 140-156.  \n- Vonorta, N. S., Rouge, P. C., Aridi, A. (2015). Innovation Policy. NY: Springer.  \n- Wallace, D. (2017). Environmental policy and industrial innovation: Strategies in Europe, the USA and Japan. NY: Routledge. (Chap 1, 2, 5 & 7)."
     },
     {
       "subject": "DSPS",
@@ -606,7 +744,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Identify and describe fundamental project management knowledge and concepts.\n2. Apply project management principles to enhance the efficiency and productivity of data science projects.\n3. Explain the value of project management processes, tools and techniques.\n4. Critically assess case studies and real-world examples to understand the symbiotic relationship between project management and data science.",
+      "course_syllabus": "1. Introduction to Project Management and Data Science.\n\n* Overview of project management principles\n* Understanding what you can do with data science\n* Understanding the intersection of project management and data science\n\n2. Leveraging Project Management for Data Science Projects.\n\n* Project initiation and planning for data science initiatives\n* Exploring data science team roles and their responsibility\n* Scope definition and requirements gathering in data science projects\n* Risk management and mitigation strategies in data science project planning\n* Resource allocation and scheduling for data science projects\n\n3. Exploring the common pitfalls of data science projects.\n\n* Case Studies and Applications\n* Analyzing case studies of successful integration of project management and data science\n* Exploring industry-specific applications and best practices\n\n4. Future Trends and Emerging Technologies.\n\n* Emerging trends in project management and data science\n* Utilizing data analytics for project forecasting and trend analysis\n* Impact of artificial intelligence and automation on project management processes\n* Ethical considerations and challenges in the convergence of project management and data science",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class",
+      "required_readings": "•    Dubovikov, K. (2019). *Managing Data Science: Effective strategies to manage data science projects and build a sustainable team.* Packt Publishing Ltd.",
+      "recommended_readings": "•    Elleh PhD PMP PMI-ACP, D. F. (2023). *Project Management Waterfall-Agile-It-Data Science: Great for Pmp and Pmi-Acp Exams Preparation*.\n\n•    Pinto, J. K. (2022). *Project management*. (Second edition.). Addison-Wesley Professional. (Video)\n\n•    The standard for project management and a guide to the project management body of knowledge (PMBOK guide) (7th ed.). (2021). Project Management Institute."
     },
     {
       "subject": "DSPS",
@@ -622,7 +771,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Understand what modern linear algebra is and why it is relevant and important to data science and machine learning.\n2. Understand the core concepts and methods of modern linear algebra, such as vectors, matrices, general linear models, and singular value decomposition.\n3. Implement modern linear algebra concepts and methods in Python code.\n4. Apply modern linear algebra concepts and methods to solve problems in data science and machine learning, such as clustering and dimensionality reduction.",
+      "course_syllabus": "1. Vectors\n2. Matrices\n3. Matrix Inverse\n4. Orthogonal Matrices and QR Decomposition\n5. Row Reduction and LU Decomposition\n6. General Linear Models and Least Squares\n7. Eigendecomposition\n8. Singular Value Decomposition\n9. Applications in Data Science and Machine Learning",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "20",
+        "Participation": "10",
+        "Test or quiz": "40"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Cohen, M. X. (2022). *Practical Linear Algebra for Data Science: From Core Concepts to Applications Using Python*. O'Reilly Media.\n* Nield, T. (2022). *Essential Math for Data Science*. O'Reilly Media.",
+      "recommended_readings": "* Bland, M. (2022). *Basics for Linear Algebra for Machine Learning - Discover the Mathematical Language of Data in Python*. Independent Publishing.\n* Cohen, M. X. (2021). *Linear Algebra: Theory, Intuition, Code*. Sincxpress BV.\n* Kneusel, R. T. (2021). *Math for Deep Learning: What You Need to Know to Understand Neural Networks*. No Starch Press.\n* Lipschutz, S. & Lipson, M. (2017). *Schaum's Outline of Linear Algebra* (6th Edition). McGraw Hill.\n* Nelson, H. (2023). *Essential Math for AI*. O'Reilly Media.\n* Singh, K. (2013). *Linear Algebra: Step by Step*. Oxford University Press."
     },
     {
       "subject": "DSPS",
@@ -638,7 +798,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Understand what calculus is and why it is relevant and important to machine learning and data science.\n2. Do differentiation and verify the result of differentiation with a computer.\n3. Understand Jacobian, Hessian, and Laplacian matrix, and their application in machine learning algorithms.\n4. Understand the chain rule and use it in the backpropagation algorithm.\n5. Apply calculus techniques to build neural network training algorithms, optimal regressors, and support vector machine classifiers.",
+      "course_syllabus": "1. Limits and Differential Calculus\n\n* Limits and Continuity\n* Evaluating Limits\n* Function Derivatives\n* Continuous Functions\n* Derivatives of Powers and Polynomials\n* Derivative of the Sine and Cosine\n* The Power, Product, and Quotient Rules\n* Indeterminate Forms and L’Hopital’s Rule\n* Applications of Derivatives\n* Slopes and Tangents\n* Differential and Integral Calculus\n\n1. Multivariate Calculus\n\n* Vector-Valued Functions\n* Partial Derivatives and Gradient Vectors\n* Higher-Order Derivatives\n* The Chain Rule\n* The Jacobian\n* Hessian Matrices\n* The Laplacian\n\n1. Optimization and Mathematical Programming\n\n* Backpropagation in Neural Networks\n* Regression using Optimal Least-Squares\n* Classification using Support Vector Machines",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "20",
+        "Participation": "10",
+        "Test or quiz": "40"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Cristina, S. & Saeed, M. (2023). *Calculus for Machine Learning*: *Understanding the Language of Mathematics*. Independent Publishing.\n* Stade, E. (2023). *Calculus: A Modeling and Computational Thinking Approach*. Springer.",
+      "recommended_readings": "* Bear, H. S. (2003). *Understanding Calculus* (2nd Edition). Wiley-IEEE Press.\n* Farrell, P., Fuentes, A., Kolhe, A. S., Nguyen, Q., Sarver, A. S., & Tsatsos, M. (2020). *The Statistics and Calculus with Python Workshop: A C**omprehensive* *I**ntroduction to* *M**athematics in Python for* *A**rtificial* *I**ntelligence* *A**pplications*. Packt Publishing.\n* Hass, J. R., Heil, C. E., Weir, M. D., & Bogacki, P. (2022). *Thomas' Calculus: Early Transcendentals* (15th Edition). Pearson.\n* Kneusel, R. T. (2021). *Math for Deep Learning: What You Need to Know to Understand Neural Networks*. No Starch Press.\n* Nelson, H. (2023). *Essential Math for AI*. O'Reilly Media.\n* Nield, T. (2022). *Essential Math for Data Science*. O'Reilly Media.\n* Rudd, M. (2023). *Regression, a Friendly Guide*. Manning.\n* Statnikov, A., Aliferis, C. F., Douglas P Hardin, D. P., & Guyon, I. (2011).  *A Gentle Introduction to Support Vector Machines in Biomedicine (Volume 1: Theory and Methods)*. World Scientific."
     },
     {
       "subject": "DSPS",
@@ -654,7 +825,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "Upon completion of the subject, students will be able to\n\n* Apply programming models and design patterns to build scalable Big Data systems using Hadoop and Spark.\n* Analyze and evaluate the architecture and resource management of Big Data computing systems for optimal performance.\n* Utilize high-level Big Data query languages and processing systems to extract insights from large, diverse data sets.\n* Develop effective operational and programming tools for data collection, serialization, migration, and workflow coordination in Big Data pipelines.\n* Design and implement solutions to real-world Big Data problems using Hadoop or Spark.",
+      "course_syllabus": "* Introduction to Big Data\n  + Refreshing students’ knowledge of big data\n  + Overview of big data and its challenges\n  + Overview of commonly used big data tools\n  + Use cases of big data\n* Distributed Computing and Hadoop\n  + Overview of distributed computing and parallel processing\n  + Hadoop architecture and its various components\n  + Hadoop Distributed File System (HDFS) and its characteristics\n  + MapReduce programming model and its use in processing large datasets\n* Spark Basics\n  + Overview of Spark architecture and components\n  + Resilient Distributed Datasets (RDDs) and their properties\n  + Introduction to Spark SQL and DataFrames for data processing\n* Data Processing with Spark\n  + Data processing concepts for structured and unstructured data\n  + Data ingestion and ETL (Extract, Transform, Load) techniques\n  + Transformations and actions in Spark for data manipulation\n  + Join, aggregation, and grouping operations for data analysis\n* Spark Programming\n  + Overview of Spark Streaming for real-time data processing\n  + Graph processing using Spark GraphX\n  + Introduction to machine learning with Spark MLlib\n  + Integration with external databases and systems for big data processing\n* Big Data Ecosystem\n  + Overview of other Big Data technologies and frameworks\n  + NoSQL databases and their use cases in big data processing\n  + Introduction to Apache Kafka for data streaming\n  + Introduction to Apache Cassandra for distributed data storage\n* Spark Applications in Policy Study\n  + Use cases and examples of Spark in policy analysis and decision-making\n  + Developing and optimizing Spark-based solutions for policy-related tasks",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Chambers, B., & Zaharia, M. (2018). *Spark : the definitive guide : big data processing made simple (First Edition.)*. O’Reilly Media Inc.\n* Eadline, D. (2018). *Hadoop and Spark Fundamentals (1st edition)*. Addison-Wesley Professional. (Video)\n* Mendelevitch, O., Stella, C., & Eadline, D. (2017). *Practical data science with Hadoop® and Spark: designing and building effective analytics at scale (1st edition)*. Addison-Wesley Professional.",
+      "recommended_readings": "* Aven, J. (2018). *Data analytics with Spark using Python (1st edition).* Addison-Wesley.\n* Aytas, Y. (2021). *Designing big data platforms : how to use, deploy, and maintain big data systems.* Wiley.\n* Foster, I., Ghani, R., Jarmin, R. S., Kreuter, F., & Lane, J. (Eds.). (2020). *Big Data and social science: Data science methods and tools for research and practice.* CRC Press.\n* Koitzsch, K. (2017). *Pro Hadoop Data Analytics: Designing and Building Big Data Systems using the Hadoop Ecosystem (1st ed. 2017.)*. Apress.\n* Needham, M., & Hodler, A. E. (2019). *Graph algorithms : practical examples in Apache Spark and Neo4j (First edition.).* O’Reilly."
     },
     {
       "subject": "DSPS",
@@ -714,10 +896,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "Students are expected to:\n\n* Understand the distinction between supervised and unsupervised learning, and identify appropriate tools to address research questions with “big data”\n* Make use of the following supervised learning algorithms: linear and logistic regression, K-nearest neighbors, discriminant analysis, cross-validation and bootstrap, shrinkage estimation, generalized additive models, tree-based methods, and support vector machines in social and policy analysis\n* Apply basic unsupervised procedures including clustering and principal components analysis in social and policy analysis\n* Appreciate the bias-variance tradeoff and apply model selection methods based on cross-validation and bootstrapping to a prediction challenge\n* Analyze real-world dataset using data science software",
+      "course_syllabus": "Major topics include linear regression, predictive modeling, classification, resampling methods, dimension reduction techniques, principal component analysis, smoothing splines. Additional topics such as decision trees, support vector machines and clustering methods may also be introduced.",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "20",
+        "Project": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "- Shah, C. (2023). A Hands-On Introduction to Machine Learning. Cambridge University Press.  \n- James, G., Witten, D., Hastie, T. and Tibshirani, R (2014). An Introduction to Statistical Learning, 8th printing 2017. New York: Springer.",
+      "recommended_readings": "Magallanes, Jose Manuel (2017). Introduction to Data Science for Social and Policy Research: Collecting and Organizing Data with R and Python. New York: Cambridge University Press.\n\nHastie, T., Tibshirani, R. and Friedman, J (2009). The Elements of Statistical Learning: Data Mining, Inference and Prediction, 2nd Edition."
     },
     {
       "subject": "DSPS",
@@ -730,10 +923,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n* Understand how collaborative governance can benefit the policy making and implementation from multiple theoretical perspectives\n* Understand the cooperation and negotiation among governments, the public and other key stakeholders\n* Establish a knowledge structure of collaborative governance encompassing the dynamics in a global context\n* Have the idea of pracitical collaborative governance by investigating the global cases of collaborative governance",
+      "course_syllabus": "1. Introducing collaborative governance in a rapidly changing globalized world\n2. Understanding public policy decision making process in an interactive and global context\n3. Distinguish different actors and level of analysis in collaborative governance\n4. Challenges and difficulties in international cooperation and public policy problem-solving\n5. Future development and innovative mode",
+      "assessment_types": {
+        "Essays": "25",
+        "Examination": "40",
+        "Presentation": "25",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Ansell, C., & Gash, A. (2008). Collaborative governance in theory and practice. *Journal of public administration research and theory, 18*(4), 543-571.\n\n Aoyama, Y., & Parthasarathy, B. (2016). *The Rise of the Hybrid Domain: Collaborative Governance for Social Innovation*. Cheltenham, Gloucestershire: Edward Elgar Publishing.\n\n Donahue, J. D., & Zeckhauser, R. J. (2011). *Collaborative Governance: Private roles for public goals in turbulent times* NJ: Princeton University Press.\n\n Emerson, K., Nabatchi, T., & Balogh, S. (2012). An integrative framework for collaborative governance. *Journal of public administration research and theory, 22(*1), 1-29.",
+      "recommended_readings": "Huxham, C., Vangen, S., Huxham, C., & Eden, C. (2000). The challenge of collaborative governance. *Public Management an International Journal of Research and Theory, 2*(3), 337-358.\n\n Duffield, M. (2014). *Global governance and the new wars: the merging of development and security.* Zed Books Ltd."
     },
     {
       "subject": "DSPS",
@@ -746,10 +950,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n* Understand the general use of data science in public policy and governance\n* Understand the theories, approaches and mechanism of regulation of using data science\n* Understand the regulation in selected policy areas of data science, such as health care, transportation, security, law enforcement etc.\n* Construct a comprehensive picture of how data science can help regulation, or to be regulated and the balance among critical concerns and issues such as privacy, national interest and human rights",
+      "course_syllabus": "1. Theories and concepts of regulation\n2. Hazard-based regulation vs. risk-based regulation\n3. Regulatory tools and data regulation\n4. Case studies of data regulation in major policy areas\n5. How national context affects regulatory setting and implementation",
+      "assessment_types": {
+        "Essays": "20",
+        "Examination": "40",
+        "Presentation": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "ITGP Privacy Team. (2017). EU General Data Protection Regulation (GDPR): An Implementation and Compliance Guide. Ely: IT Governance Ltd.\n\nKravets, A.G. (2019). Big Data-driven World: Legislation Issues and Control Technologies. Cham: Springer International Publishing.\n\nReins, L. (2019). Regulating New Technologies in Uncertain Times. The Hague: T.M.C. Asser Press.\n\nVoigt, P., & Von Dem Bussche, A. (2017). The EU General Data Regulation (GDPR): A practical guide. NY: Springer.",
+      "recommended_readings": "Rumbold, J. M., & Pierscionek, B. K. (2017). A critique of the regulation of data science in healthcare research in the European Union. BMC medical ethics, 18(1), 27.\n\nWinter, S. C., & May, P. J. (2001). Motivation for compliance with environmental regulations. Journal of Policy Analysis and Management: The Journal of the Association for Public Policy Analysis and Management, 20(4), 675-698."
     },
     {
       "subject": "DSPS",
@@ -804,7 +1019,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Describe the capabilities and limitations of AR/VR technology and their applications in policy design and analysis.\n2. Use game engines to create AR/VR applications.\n3. Use AR/VR for visualizing ideas and communicating information.",
+      "course_syllabus": "1. Introduction to AR/VR Technology\n\n* What is AR/VR technology?\n* Different types of AR/VR systems and their capabilities.\n* Examples of AR/VR applications in policy design and analysis.\n\n1. Unity for AR/VR App Development\n\n* Introduction to Unity as a development platform for AR/VR apps.\n* Fundamentals of creating AR/VR apps in Unity.\n* Best practices for AR/VR app design.\n\n1. AR/VR Data Visualization and Policy Narratives\n\n* Applying AR/VR technology to data visualization and policy narratives.\n* Hands-on experience using AR/VR tools to present ideas.\n* Collaboration and teamwork in AR/VR app development.",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "50",
+        "Participation": "10",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Jerald, J. (2015). *The VR book: Human-centered design for virtual reality*. Morgan & Claypool.\n* Murray, J. W. (2020). Building Virtual Reality with Unity and SteamVR. CRC Press.",
+      "recommended_readings": "* Bouna, P. (2022). *C# Object-Oriented Programming for Beginners in C# and .NET.*. Packt Publishing. (Video)\n* Buttfield-Addison, P., Manning, J., & Nugent, T. (2019). *Unity game development cookbook : essentials for every game* (First edition.). O’Reilly Media, Inc.\n* Doerner, Ralf., Broll, Wolfgang., Grimm, Paul., & Jung, Bernhard. (Eds.). (2022). *Virtual and Augmented Reality (VR/AR) : Foundations and Methods of Extended Realities (XR) (1st ed. 2022.)*. Springer International Publishing.\n* LaValle, S. M. (2023). *Virtual Reality.* Cambridge University Press.\n* Sapio, F. (2018). *Practical Unity game development*. PACKT Publishing. (Video)"
     },
     {
       "subject": "DSPS",
@@ -820,7 +1046,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Define and describe the concept of Smart Cities and IoT.\n2. Understand the role of IoT in addressing city challenges.\n3. Describe the different components of IoT for Smart Cities, including IoT devices and sensors, communication technologies, big data analytics, and security.\n4. Analyze security and privacy challenges in IoT and evaluate the use of blockchain technology to address them.\n5. Evaluate the potential benefits and challenges of Smart City applications.",
+      "course_syllabus": "1.    Introduction to Smart Cities and IoT\n\n* Overview of Smart Cities and IoT\n* Key challenges in Smart Cities\n* IoT solutions for Smart Cities\n\n2.    Communication Technologies and Protocols for IoT\n\n* Types of IoT devices and sensors\n* General classification of communication protocols for IoT networks\n* Technical details and specific advantages and limitations of different protocols\n\n3.    Big Data Analytics in IoT\n\n* Introduction to Big Data in IoT\n* Dimension reduction techniques for Big Data analytics in IoT\n\n4.    Security and Privacy for IoT\n\n* Overview of security and privacy challenges in IoT\n* Introduction to blockchain technology for security and privacy in IoT\n\n5.    Future Trends and Challenges\n\n* Emerging IoT technologies and their impact on Smart Cities\n* Potential social, economic, and environmental impacts of IoT in urban environments",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class",
+      "required_readings": "•    Ejaz, W., Anpalagan, A. (2018). *Internet of Things for Smart Cities: Technologies, Big Data and Security. Germany*: Springer International Publishing.",
+      "recommended_readings": "•    Gassman, O., Bohm, J., Palmie, M. (2019). *Smart Cities – Introducing Digital Innovation to Cities.* WA, UK:Emerald Publishing Limited.\n\n•    Velliangiri, S., Kumar, S. A., & Karthikeyan, P. (Eds.). (2020). *Internet of Things: Integration and security challenges.* CRC Press."
     },
     {
       "subject": "DSPS",
@@ -836,7 +1073,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "Upon completion of the subject, students will be able to\n\n* Understand the application background of system modelling and simulation.\n* List out examples of simulation applications / studies.\n* Interpret simulation results\n* Use commercial software packages (e.g., Anylogic) to construct, verify and validate models of the given systems",
+      "course_syllabus": "Introduction to computer simulation for policymaking\n\n* Overview of simulation techniques and their role in policymaking\n* Explanation of system modelling and simulation concepts\n* Overview of different types of simulations and their applications\n\nModel Development with Anylogic\n\n* Formulating policy problems into models\n* Introduction to Anylogic simulation software\n* Data collection, analysis, and visualization for model development using Anylogic\n* Model design and validation using Anylogic\n\nAgent-Based Modeling\n\n* Introduction to agent-based modeling\n* Designing agent-based models using Anylogic\n* Simulating complex interactions between agents\n\nDiscrete Event Simulation\n\n* Introduction to discrete event simulation\n* Designing discrete event models using Anylogic\n* Simulating dynamic processes over time\n\nModel Implementation\n\n* Implementation of agent-based and discrete event models using Anylogic\n* Verification and validation of the simulation results\n* Interpretation of simulation results\n\nSensitivity Analysis\n\n* Performing sensitivity analysis to determine the impact of different variables on simulation results\n* Identifying key variables and their influence on policymaking\n\nPolicy Evaluation and Presentation\n\n* Use of simulation results for policy evaluation\n* Presentation of simulation results to policymakers\n* Incorporating simulation results into policy decisions",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "50",
+        "Participation": "10",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Borshchev and Grigoryev (2022). The Big Book of Simulation Modeling Multimethod Modeling with AnyLogic 8. <https://www.anylogic.com/resources/books/big-book-of-simulation-modeling>",
+      "recommended_readings": "* Greasley, A. (2022). *Simulation Modelling: Concepts, Tools and Practical Business Applications*. Taylor & Francis.\n* Grigoryev, I. (2021). *AnyLogic in Three Days: Modeling and Simulation Textbook*. <https://www.anylogic.com/resources/books/free-simulation-book-and-modeling-tutorials/>\n* Law, A. M. (2015). *Simulation modeling and analysis* (Fifth edition.). McGraw-Hill Education.\n* Sulis, E., & Taveter, K. (2022). *Agent-Based Business Process Simulation: A Primer with Applications and Examples*. Springer."
     },
     {
       "subject": "DSPS",
@@ -932,10 +1180,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Interactive Tutorial Workshop",
+      "component": "Interactive Tutorial\nWorkshop",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n* Understand the concepts and theories of leadership and their practice in public policy\n* Understand the concepts and theories of policy entrepreneurship and their practice\n* Understand the relationships between policy leadership and entrepreneurship and how to integrate the two concepts to search for and respond to opportunities to have better results and innovations\n* Apply the framework of policy leadership and entrepreneurship in major cases and policy areas across local and global contexts",
+      "course_syllabus": "1. Foundation of policy leadership and entrepreneurship\n2. Policy leadership and entrepreneurship in Hong Kong and major countries\n3. Global governance and network under policy leadership and entrepreneurship\n4. Application of policy leadership and entrepreneurship in major policy areas\n5. Future research and agenda of policy leadership and entrepreneurship",
+      "assessment_types": {
+        "Classwork": "40",
+        "Essays": "30",
+        "Presentation": "20",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Harrison, R.T., & Leitch, C.M. (Eds.). (2018). *Research Handbook on Entrepreneurship and Leadership.* Cheltenham, UK: Edward Elgar Pub.\n\n Ho, M-H R., Kennedy, J.C., Uy, M.A., & Chan, K-Y. (2020). *Entrepreneurship-Professionalism-Leadership: A Multidimensional Framework for Human Capital and Career Development in the 21st Century.* Singapore: Springer Singapore Pte. Limited.\n\n Kuratko, D.F., & Morris, M.H. (2013). *Entrepreneurship and leadership.* Cheltenham, UK: Edward Elgar Publishing Limited.",
+      "recommended_readings": "Eyal, O., & Kark, R. (2004). How do transformational leaders transform organizations?: A study of the relationship between leadership and entrepreneurship. *Leadership and policy in schools, 3*(3), 211-235.\n\n Reid, S. W., Anglin, A.H., Baur, J.E., Short, J.C., & Buckley, M.R. (2018). Blazing new trails or opportunity lost? Evaluating research at the intersection of leadership and entrepreneurship. *The Leadership Quarterly, 29*(1), 150-164."
     },
     {
       "subject": "DSPS",
@@ -951,7 +1210,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Understand the concepts and methods of social network analysis.\n2. Describe the applications of social network analysis in public policy.\n3. Use network analysis software (e.g., Python and/or R) to do social network analysis.\n4. Apply social network analysis to address actual policy issues and make better policy.",
+      "course_syllabus": "1. Basics of Social Network Analysis (SNA)\n\n* The Social Network and How to Represent It\n* Types of Networks, Network Parts and Levels of Analysis\n* Network as Social Structure and Institution\n\n1. Data Collection\n\n* Boundary Specification\n* Data Collection Process\n* Informant Bias and Issue of Reliability\n* Archival Data\n\n1. Descriptive Methods in SNA\n\n* Graph and Matrix-Social Network Representation\n* Density, Centrality, Centralization, Prestige and Cliques\n* Multidimensional Scaling (MDS) and Dendogram\n* Two-Mode Networks and Bipartite Matrix\n\n1. Inferential Methods in SNA\n\n* Permutation and QAP (Quadratic Assignment Procedure) Correlation\n* Exponential Random Graph Model (ERGM)\n\n1. Applications of SNA in Public Policy\n\n* Policy Agenda Setting\n* Policy Network\n* Advocacy Coalition\n* Policy Learning and Diffusion\n* Policy Implementation",
+      "assessment_types": {
+        "Homework or assignment": "25",
+        "Presentation": "30",
+        "Participation": "10",
+        "Test or quiz": "35"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Prell, C. (2011). *Social Network Analysis: History, Theory and Methodology*. SAGE Publications.\n* Yang, S., Keller, F. B., & Zheng, L. (2017). *Social Network Analysis: Methods and Examples*. SAGE Publications.\n* Zhang, W., Zhang, M., Yuan, L., & Fan, F. (2021). Social network analysis and public policy: what’s new?. *Journal of Asian Public Policy*, 1-31.",
+      "recommended_readings": "* Borgatti, S., Everett, M., Johnson, J., & Agneessens, F. (2022). *Analyzing Social Networks Using R*. SAGE Publications.\n* Chakraborty, T. (2021). *Social Network Analysis*. Wiley.\n* Knickerbocker, D. (2023). *Network Science with Python*. Packt Publishing.\n* Light, R. & Moody, J. (2020). *The Oxford Handbook of Social Networks*. Oxford University Press.\n* Scott, J. (2017). *Social Network Analysis* (4th Edition). SAGE Publications.\n* Scott, J., Carrington, P. (2011). *The SAGE Handbook of Social Network Analysis*. SAGE Publications.\n* Wasserman, S. & Faust, K. (1994). *Social Network Analysis: Methods and Applications*. Cambridge University Press."
     },
     {
       "subject": "DSPS",
@@ -1006,7 +1276,18 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Understand the principles behind the common NLP methods.\n2. Use the common Python libraries for NLP to solve problems.\n3. Describe the (mis-)uses of NLP in public policy.\n4. Apply NLP tools to address actual policy issues and make better policy.",
+      "course_syllabus": "1. NLP Methods\n\n* Text Classification and Sentiment Analysis\n* Topic Modelling: Latent Dirichlet Allocation (LDA), Principal Component Analysis (PCA)\n* Text Summarization\n* Event Extraction\n* Score Prediction\n* Question Answering\n* Culturally Adjusted Machine Translation\n\n1. NLP Applications in Public Policy\n\n* Data Collection for Evidence-based Policymaking\n* Interpretation of Political Decisions\n* Policy Communication\n* Investigation of Policy Effects\n\n1. Ethical Issues of NLP Applications in Public Policy\n\n1. Python libraries for NLP\n\n* *NLTK*\n* *transformers*\n* *stanza*\n* *spaCy*",
+      "assessment_types": {
+        "Homework or assignment": "25",
+        "Project": "30",
+        "Participation": "10",
+        "Test or quiz": "35"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Albrecht, J., Ramachandran, S., & Winkler, C. (2020). *Blueprints for Text Analytics Using Python: Machine Learning-Based Solutions for Common Real World (NLP) Applications*. O'Reilly Media.\n* Jin, Z., & Mihalcea, R. (2022). Natural Language Processing for Policymaking. In *Handbook of Computational Social Science for Policy* (pp. 141-162). Springer.\n* Kochmar, E. (2022). *Getting Started with Natural Language Processing*. Manning",
+      "recommended_readings": "* Auffarth, B. (2023). *Generative AI with LangChain: Build large language model (LLM) apps with Python, ChatGPT, and other LLMs.* Packt.\n* Bird, S., Klein, E., & Loper, E. (2009). *Natural Language Processing with Python: Analyzing Text with the Natural Language Toolkit*. O'Reilly Media.\n* Jain, S. M. (2022). *Introduction to Transformers for NLP: With the Hugging Face Library and Models to Solve Problems*. Apress.\n* Taulli, T. (2023). *Generative AI: A Non-Technical Introduction*. Apress.\n* Tunstall, L., von Werra, L., & Wolf, T. (2022). *Natural Language Processing with Transformers* (Revised Edition). O'Reilly Media.\n* Vajjala, S., Majumder, B., & Gupta, A. (2020). *Practical Natural Language Processing: A Comprehensive Guide to Building Real-World NLP Systems*. O'Reilly Media.\n* Yildirim, S., & Asgari-Chenaghlu, M. (2021). *Mastering Transformers: Build State-of-the-Art Models from Scratch with Advanced Natural Language Processing Techniques*. Packt Publishing."
     },
     {
       "subject": "DSPS",
@@ -1036,7 +1317,7 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English Internship"
+              "class_attributes": "Cantonese and English\nInternship"
             }
           ]
         },
@@ -1062,7 +1343,7 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English Internship"
+              "class_attributes": "Cantonese and English\nInternship"
             }
           ]
         }
@@ -1075,7 +1356,16 @@
       "component": "Practicum",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Apply the learnt theories and knowledges into skills and practices in work experience\n2. Explore different career alternatives before they graduate\n3. Develop good work attitude which is essential to have job success\n4. Develop interpersonal skills, critical thinking skills and problem-solving skills which are applicable in both academic and working environment",
+      "course_syllabus": "To be decided by the instructor and the internship organization",
+      "assessment_types": {
+        "Internship or practicum": "80",
+        "Report": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Nil",
+      "recommended_readings": "-  Nunley, J. M., Pugh, A., Romero, N., & Seals Jr, R. A. (2016). College major, internship experience, and employment opportunities: Estimates from a résumé audit. *Labour Economics, 38*, 37-46.\n\n-  Sweitzer, H. F., & King, M.A. (2019). *The successful internship : personal, professional, and civic development in experiential learning.* Boston, MA, USA : Cengage."
     },
     {
       "subject": "DSPS",
@@ -1135,10 +1425,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n* Create effective data visualizations that convey complex information in a clear and compelling way.\n* Apply design principles and best practices to data visualization, including color theory, typography, and layout.\n* Use advanced visualization techniques such as 3D visualizations, interactive dashboards, and emerging technologies such as virtual and augmented reality (VR/AR).\n* Identify and avoid common pitfalls and biases in data visualization.",
+      "course_syllabus": "* Introduction to Data Visualization and Perception Principles\n  + What is data visualization?\n  + The importance of data visualization in decision-making\n  + Perception principles and how they affect data visualization\n* Fundamentals of Visualization Design\n  + Principles of design, including color theory, layout, typography, and chart types\n  + Best practices for creating effective visualizations\n  + Critique of existing visualizations\n* Data Preparation and Exploration\n  + Data cleaning, transformation, and aggregation\n  + Exploratory data analysis techniques\n  + Data preparation and exploration with Python and Tableau\n* Advanced Visualization Techniques / Tools\n  + Emerging visualization techniques\n  + Overview of popular visualization tools such as Tableau, Power BI, and D3.js\n  + Comparison of different tools and their capabilities\n* Virtual Reality (VR) and Augmented Reality (AR) in Data Visualization\n  + Introduction to VR and AR technologies\n  + VR and AR applications in data visualization\n  + Hands-on experience with VR and AR tools\n* Visualization Best Practices and Ethics\n  + Best practices for visualizing data and presenting insights effectively\n  + Avoiding common visualization pitfalls\n  + Ethical considerations and potential biases in data visualization",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "40",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Dykes, B. (2020). Effective data storytelling : how to drive change with data, narrative, and visuals (1st edition). Wiley.\n\nKnaflic, C. N. (2015). Storytelling with data : a data visualization guide for business professionals. Wiley.",
+      "recommended_readings": "Meier, M., & Baldwin, D. (2021). Mastering Tableau 2021 : implement advanced business intelligence techniques and analytics with tableau (Third edition.). Packt.\n\nMurray, J. W. (2020). Building Virtual Reality with Unity and SteamVR. CRC Press."
     },
     {
       "subject": "DSPS",
@@ -1234,10 +1535,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. Discuss critically the (un)ethical use of AI technologies in society;\n2. Understand the need for dedicated regulatory AI policies;\n3. Appreciate the promising applications of AI technologies in achieving the United Nations’ Sustainable Development Goals;\n4. Apply deep learning techniques to solve AI problems for social good.",
+      "course_syllabus": "1. Introduction to Modern AI Technology\n\n* Deep neural networks and deep learning\n* Reinforcement learning\n* Applications (facial recognition systems, self-driving cars, ChatGPT)\n\n1. AI for Social Good and the Sustainable Development Goals\n\n* AI and the UN’s SDGs\n\n1. AI and Ethics\n\n* Ethics for AI\n* AI Ethics\n* Ethical AI\n\n1. AI Policy\n\n* ​National AI Strategies",
+      "assessment_types": {
+        "Homework or assignment": "25",
+        "Project": "30",
+        "Participation": "10",
+        "Test or quiz": "35"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "* Coeckelbergh, M. (2020). AI Ethics. The MIT Press.\n* Kelleher, J. D. (2019). Deep Learning. The MIT Press.\n* Tomašev, N., Cornebise, J., Hutter, F., Mohamed, S., Picciariello, A., Connelly, B., ... & Clopath, C. (2020). AI for social good: Unlocking the opportunity for positive impact. Nature Communications, 11: 2468\n* Vinuesa, R., Azizpour, H., Leite, I., Balaam, M., Dignum, V., Domisch, S., ... & Nerini, F. (2020). The role of artificial intelligence in achieving the Sustainable Development Goals. Nature Communications, 11: 233.\n* Xiao, P. (2022). AI Programming with Python: From Zero to Hero. Wiley.",
+      "recommended_readings": "* Boylan, M. & Teays, W. (Eds.). (2022). Ethics in the AI, Technology, and Information Age. Rowman & Littlefield Publishers.\n* Roberts, H., Cowls, J., Morley, J., Taddeo, M., Wang, V., & Floridi, L. (2021). The Chinese approach to artificial intelligence: An analysis of policy, ethics, and regulation. AI & Society, 36(1), 59-77. 2\n* Floridi, L., Cowls, J., Beltrametti, M., Chatila, R., Chazerand, P., Dignum, V., ... & Vayena, E. (2018). AI4People—An ethical framework for a good AI society: Opportunities, risks, principles, and recommendations. Minds and machines, 28(4), 689-707.\n* Floridi, L., Cowls, J., King, T. C., & Taddeo, M. (2020). How to design AI for social good: Seven essential factors. Science and Engineering Ethics, 26(3), 1771-1796.\n* Loy, J. (2019). Neural Network Projects with Python: The ultimate guide to using Python to explore the true power of neural networks through six projects. Packt.\n* de Pontves, H. (2019). AI Crash Course: A fun and hands-on introduction to machine learning, reinforcement learning, deep learning, and artificial intelligence with Python. Packt.\n* Renda, A. (2019). Artificial Intelligence: Ethics, Governance and Policy Challenges. CEPS Monograph. Brussels: Centre for European Policy Studies.\n* Renda, A. (2020). Europe: toward a policy framework for trustworthy AI. In: Dubber, M. D., Pasquale, F., & Das, S. (Eds.). The Oxford handbook of ethics of AI. Oxford University Press.\n* Sætra, H. S. (2022). AI for the Sustainable Development Goals. CRC Press.\n* Silver, D., Singh, S., Precup, D., & Sutton, R. S. (2021). Reward is enough. Artificial Intelligence, 299, 103535.\n* Taddeo, M., & Floridi, L. (2018). How AI can be a force for good. Science, 361(6404), 751-752.\n* Véliz, C. (2022). Oxford Handbook of Digital Ethics. Oxford University Press."
     },
     {
       "subject": "DSPS",
@@ -1250,10 +1562,20 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "Students are expected to:\n\n* Explain the data strategies from decision-makers’ perspective\n* Apply the advance data science skills for conducting policy analytics and propose data-driven solutions\n* Given a policy research question, use relevant data to test hypotheses, conduct statistical inference, and interpret results with data science software\n* Apply the visualizing tools to obtain policy insights from the data, and to present the analytics results\n* Gain hands-on experience of writing and presenting a policy research paper on solving real-world problems",
+      "course_syllabus": "Topics covered would depend on knowledge and expertise of the instructor, and the latest development and innovations in the field.",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "50",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Kampakis, Stylianos (2020). The Decision Maker's Handbook to Data Science. 2nd ed. Berkeley, CA: Apress.\n\nLoth, Alexander (2019). Visual Analytics with Tableau. Canada: Wiley & Sons, Inc.\n\nRahman, Azizur (2020). Statistics for Data Science and Policy Analysis. Singapore: Springer Nature.",
+      "recommended_readings": "Berman, Evan M., and XiaoHu Wang (2018). Essential Statistics for Public Managers and Policy Analysts. Fourth ed. Thousand Oaks, California: SAGE Publications."
     },
     {
       "subject": "DSPS",
@@ -1269,7 +1591,19 @@
       "component": "Seminar",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n1. Analyze and critically evaluate different types of evidence (quantitative, qualitative, and mixed methods) used in policy decision-making, understanding their strengths, limitations, and appropriate applications\n\n2. Apply fundamental methodologies in policy evaluation, including experimental and quasi-experimental designs, cost-benefit analysis, and impact assessment frameworks\n\n3. Transform complex data and research findings into clear, actionable policy recommendations, demonstrating effective communication of evidence to diverse stakeholders\n\n4. Assess the practical, political, and institutional challenges in implementing evidence-based policies, including considerations of feasibility, equity, and effectiveness\n\n5. Design and conduct basic policy evaluations using appropriate methodological tools, while adhering to ethical standards in data collection, analysis, and interpretation",
+      "course_syllabus": "Week 1: Introduction to Policy and Programme Evaluation; Persona of Evaluation Cases\n\nWeek 2: Fundamental Policy and Programme Evaluation Design\n\nWeek 3: Systematic Review in Policy and Programme Evaluation I\n\nWeek 4: Systematic Review in Policy and Programme Evaluation II; Programme Evaluation Theory I\n\nWeek 5: Programme Evaluation Theory II\n\nWeek 6: Assignment Week\n\nWeek 7: Seminar on mini-evaluation study\n\nWeek 8: Evaluating Complexity\n\nWeek 9: Evaluating Impact I\n\nWeek 10: Evaluating Impact II\n\nWeek 11: Student-led Seminar Session; Advanced Topics on Policy and Programme Evaluation I\n\nWeel 12: Advanced Topics on Policy and Programme Evaluation II\n\nWeek 13: Mini-evaluation Project Presentation",
+      "assessment_types": {
+        "Fieldwork or field study": "10",
+        "Presentation": "20",
+        "Project": "35",
+        "Participation": "10",
+        "Report": "25"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "Gertler, P. J., Martinez, S., Premand, P., Rawlings, L. B., & Vermeersch, C. M. (2016). *Impact evaluation in practice*. World Bank Publications.\n\nLinfield, K. J., & Posavac, E. J. (2018). *Program evaluation: Methods and case studies*. Routledge.\n\nMertens, D. M., & Wilson, A. T. (2018). *Program evaluation theory and practice*. Guilford Publications.\n\nRossi, P. H., Lipsey, M. W., & Henry, G. T. (2018). *Evaluation: A systematic approach (8th Ed)*. Sage publications.",
+      "recommended_readings": ""
     },
     {
       "subject": "DSPS",
@@ -1287,7 +1621,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. WONG Kwong Cheong,   Professor CHAN Chee Hon,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "instructor": "Dr. WONG Kwong Cheong, \nProfessor CHAN Chee Hon, \nProfessor QIU Lin, \nProfessor WONG Wai Ho",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -1299,7 +1633,7 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         },
@@ -1313,7 +1647,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. WONG Kwong Cheong,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "instructor": "Dr. WONG Kwong Cheong, \nProfessor QIU Lin, \nProfessor WONG Wai Ho",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -1325,7 +1659,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1338,7 +1672,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n* Identify a topic with a specific client in mind for generating innovative ideas and implementing actionable knowledge to create impactful solutions\n* Identify previous academic works and innovative projects as references to their topic\n* Consult client on the project topic, concerns and expectation\n* Plan and organize the whole project design\n* Collect and analyse data\n* Present findings and policy recommendations",
+      "course_syllabus": "1. Identify the topic    \n2. Literature review   \n3. Client consultation and expectations assessment   \n4. Project design    \n5. Data collection and analysis    \n6. Presentation of findings and policy implementation",
+      "assessment_types": {
+        "Presentation": "20",
+        "Project": "70",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "To be decided by the course teacher concerned based on the topic selected",
+      "required_readings": "To be decided by the course teacher concerned based on the topic selected",
+      "recommended_readings": "To be decided by the course teacher concerned based on the topic selected"
     },
     {
       "subject": "DSPS",
@@ -1356,7 +1700,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHAN Chee Hon,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "instructor": "Professor CHAN Chee Hon, \nProfessor QIU Lin, \nProfessor WONG Wai Ho",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -1368,7 +1712,7 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         },
@@ -1382,7 +1726,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. WONG Kwong Cheong,   Professor CHAN Chee Hon,   Professor QIU Lin,   Professor WONG Wai Ho",
+                  "instructor": "Dr. WONG Kwong Cheong, \nProfessor CHAN Chee Hon, \nProfessor QIU Lin, \nProfessor WONG Wai Ho",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -1394,7 +1738,7 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only Capstone Course"
+              "class_attributes": "English only\nCapstone Course"
             }
           ]
         }
@@ -1407,7 +1751,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "In this course, students are expected to continue to work on the project they have been developed in DSPS4801 and to exhibit their final project product. By the end of this course, students should be able to:\n\n* Review progress and output in DSPS4801\n* Fine tune the project’s theoretical framework and structure\n* Maintain continuous consultation and establish communication with clients\n* Execute data analysis and data implication analysis\n* Present findings and policy recommendations\n* Generate a project report which meets the standard requested by the supervisor",
+      "course_syllabus": "1. Review of progress and output in DSPS4801    \n2. Revision and redesign amendment of project if necessary   \n3. Continuous consultation and communication with clients   \n4. Additional data collection and analysis    \n5. Presentation of findings and policy implementation",
+      "assessment_types": {
+        "Presentation": "20",
+        "Project": "70",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "To be decided by the course teacher concerned based on the topic selected",
+      "recommended_readings": "To be decided by the course teacher concerned based on the topic selected"
     },
     {
       "subject": "DSPS",
@@ -1420,10 +1774,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "This is an open-ended course offering students the opportunity to learn a specialized and important subject area of data science and policy studies at the 4000 course level that is not yet covered by our existing courses. At the end of the course, students are expected to be able to understand the major concepts and theories of the subject area and apply them in analyzing key policy problems for formulating effective and feasible solutions",
+      "course_syllabus": "To be decided by the course teacher concerned on the subject area selected",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "15",
+        "Project": "15",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
+      "required_readings": "To be decided by the course teacher concerned on the subject area selected",
+      "recommended_readings": "To be decided by the course teacher concerned on the subject area selected"
     },
     {
       "subject": "DSPS",
@@ -1436,10 +1801,21 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture Interactive Tutorial",
+      "component": "Lecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC"
+      "academic_org": "Data Science & Policy Stud PC",
+      "learning_outcomes": "This is an open-ended course offering students the opportunity to learn a specialized and important subject area of data science and policy studies at the 4000 course level that is not yet covered by our existing courses. At the end of the course, students are expected to be able to understand the major concepts and theories of the subject area and apply them in analyzing key policy problems for formulating effective and feasible solutions",
+      "course_syllabus": "To be decided by the course teacher concerned on the subject area selected",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "15",
+        "Project": "15",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class",
+      "required_readings": "To be decided by the course teacher concerned on the subject area selected",
+      "recommended_readings": "To be decided by the course teacher concerned on the subject area selected"
     }
   ]
 }

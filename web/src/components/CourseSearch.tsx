@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Al
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import { analytics } from '@/lib/analytics'
+import ReactMarkdown from 'react-markdown'
 
 // Using clean internal types only
 
@@ -229,6 +230,8 @@ export default function CourseSearch({
           'THAI', 'THEO', 'TRAN', 'UGCP', 'UGEA', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN',
           'URBD', 'URSP', 'WOHS', 'XCBS', 'XCCS', 'XFUD', 'XUNC', 'XUSC', 'XWAS'
         ]
+
+        // const ALL_SUBJECTS = ['ARTS', 'HIST'] // For testing, use a single subject
         
         console.log(`📂 Complete subject list: ${ALL_SUBJECTS.length} subjects (no term filtering)`)
         console.log(`🎯 Benefits: Complete coverage, simple logic, browser caching optimized`)
@@ -1841,6 +1844,14 @@ function CourseCard({
 
             {/* Course Details */}
             <div className="border-t pt-4 space-y-3">
+              {/* Enrollment Requirement - Show first for student decision making */}
+              {course.enrollmentRequirement && (
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
+                  <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
+                </div>
+              )}
+
               {/* Description */}
               {course.description && (
                 <div>
@@ -1849,17 +1860,292 @@ function CourseCard({
                 </div>
               )}
 
-              {/* Enrollment Requirement */}
-              {course.enrollmentRequirement && (
-                <div>
-                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
-                  <p className="text-sm text-gray-600">{course.enrollmentRequirement}</p>
-                </div>
-              )}
+              {/* Course Outcome Sections */}
+              <CourseOutcomeSections course={course} />
             </div>
           </div>
         </CardContent>
       )}
     </Card>
+  )
+}
+
+// Course Outcome Sections Component with smart filtering
+function CourseOutcomeSections({ course }: { course: InternalCourse }) {
+  // Helper function to check if content is same as description
+  const isDuplicateOfDescription = (content: string) => {
+    if (!content || !course.description) return false
+    
+    // Normalize both strings for comparison (remove extra whitespace, convert to lowercase)
+    const normalizeText = (text: string) => text.replace(/\s+/g, ' ').trim().toLowerCase()
+    const normalizedContent = normalizeText(content)
+    const normalizedDescription = normalizeText(course.description)
+    
+    // Consider it duplicate if they're identical or if content is contained in description
+    return normalizedContent === normalizedDescription || 
+           normalizedDescription.includes(normalizedContent) ||
+           normalizedContent.includes(normalizedDescription)
+  }
+
+  // Section configuration with visibility and collapsible settings
+  const sectionConfigs = [
+    {
+      key: 'assessmentTypes',
+      title: 'Assessment Types',
+      content: course.assessmentTypes,
+      isTable: true,
+      alwaysVisible: true,  // Critical info - always shown
+      defaultExpanded: true  // Always expanded (not collapsible)
+    },
+    {
+      key: 'learningOutcomes', 
+      title: 'Learning Outcomes',
+      content: course.learningOutcomes,
+      isTable: false,
+      alwaysVisible: false,  // Hidden - formatting not production-ready
+      defaultExpanded: false  // Collapsed by default
+    },
+    {
+      key: 'requiredReadings',
+      title: 'Required Readings', 
+      content: course.requiredReadings,
+      isTable: false,
+      alwaysVisible: false,  // Hidden - formatting not production-ready
+      defaultExpanded: false  // Collapsed by default
+    },
+    {
+      key: 'recommendedReadings',
+      title: 'Recommended Readings',
+      content: course.recommendedReadings, 
+      isTable: false,
+      alwaysVisible: false,  // Hidden - formatting not production-ready
+      defaultExpanded: false  // Collapsed by default
+    },
+    {
+      key: 'feedbackEvaluation',
+      title: 'Feedback for Evaluation',
+      content: course.feedbackEvaluation,
+      isTable: false,
+      alwaysVisible: false,  // Hidden - formatting not production-ready
+      defaultExpanded: false  // Collapsed by default
+    }
+  ]
+
+  // Filter sections: check content availability and quality
+  const availableSections = sectionConfigs.filter(section => {
+    // Rule 1: Skip if empty
+    if (!section.content) return false
+    
+    // Rule 2: Skip if same as description (except for assessment types which are structured differently)
+    if (!section.isTable && typeof section.content === 'string' && isDuplicateOfDescription(section.content)) return false
+    
+    // Rule 3: For assessment types, check if it's an empty object
+    if (section.isTable && typeof section.content === 'object') {
+      return Object.keys(section.content).length > 0
+    }
+    
+    return true
+  })
+
+  // Filter by visibility (for future hiding of poor-quality content)
+  const visibleSections = availableSections.filter(section => section.alwaysVisible)
+
+  // Don't render anything if no sections to show
+  if (visibleSections.length === 0) return null
+
+  return (
+    <div className="space-y-3">
+      {visibleSections.map(section => (
+        <CollapsibleCourseOutcomeSection 
+          key={section.key}
+          title={section.title}
+          content={section.content}
+          isTable={section.isTable}
+          defaultExpanded={section.defaultExpanded}
+        />
+      ))}
+    </div>
+  )
+}
+
+// Individual Course Outcome Section Component
+function CourseOutcomeSection({ 
+  title, 
+  content, 
+  isTable 
+}: { 
+  title: string
+  content: string | Record<string, string> | undefined
+  isTable: boolean 
+}) {
+  // Early return if no content
+  if (!content) return null
+
+  // Render assessment types as clean table with lightweight borders
+  if (isTable && typeof content === 'object') {
+    const assessmentEntries = Object.entries(content)
+    if (assessmentEntries.length === 0) return null
+
+    return (
+      <div>
+        <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
+        <table className="w-fit text-sm">
+          <tbody>
+            {assessmentEntries.map(([type, percentage], index) => (
+              <tr key={index}>
+                <td className="py-1 pr-4 text-gray-700">{type}:</td>
+                <td className="py-1 text-gray-600">{String(percentage)}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  // Render markdown content
+  if (typeof content === 'string') {
+    return (
+      <div>
+        <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
+        {/* Integrated markdown content using app's Geist Sans font */}
+        <div className="text-sm leading-relaxed">
+          <ReactMarkdown
+            components={{
+              // Content-fitting tables with app design system
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-3">
+                  <table className="w-fit border-collapse border border-gray-200 rounded-md text-sm">
+                    {children}
+                  </table>
+                </div>
+              ),
+              th: ({ children }) => (
+                <th className="border border-gray-200 px-3 py-2 bg-gray-50 text-left font-medium text-gray-700 whitespace-nowrap">
+                  {children}
+                </th>
+              ),
+              td: ({ children }) => (
+                <td className="border border-gray-200 px-3 py-2 text-gray-600">
+                  {children}
+                </td>
+              ),
+              // Typography using app's Geist Sans font
+              h1: ({ children }) => (
+                <h1 className="text-base font-semibold text-gray-800 mb-2 font-sans">
+                  {children}
+                </h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="text-sm font-medium text-gray-700 mb-2 font-sans">
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-sm font-medium text-gray-700 mb-1 font-sans">
+                  {children}
+                </h3>
+              ),
+              // Lists with app styling and proper spacing
+              ul: ({ children }) => (
+                <ul className="list-disc list-inside space-y-0.5 mb-2 text-gray-600">
+                  {children}
+                </ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="list-decimal list-inside space-y-0.5 mb-2 text-gray-600">
+                  {children}
+                </ol>
+              ),
+              li: ({ children }) => (
+                <li className="text-gray-600 font-sans">
+                  {children}
+                </li>
+              ),
+              // Paragraphs with consistent spacing - fix list item wrapping
+              p: ({ children, node }) => {
+                // If paragraph is direct child of list item, render inline without wrapper
+                if (node && typeof node === 'object' && 'parent' in node && 
+                    node.parent && typeof node.parent === 'object' && 'tagName' in node.parent && 
+                    node.parent.tagName === 'li') {
+                  return <>{children}</>;
+                }
+                return (
+                  <p className="text-gray-600 mb-2 last:mb-0 font-sans leading-relaxed">
+                    {children}
+                  </p>
+                );
+              },
+              // Strong/bold text matching app style
+              strong: ({ children }) => (
+                <strong className="font-medium text-gray-700">
+                  {children}
+                </strong>
+              ),
+              // Emphasis/italic text  
+              em: ({ children }) => (
+                <em className="italic text-gray-600">
+                  {children}
+                </em>
+              ),
+            }}
+          >
+            {/* Preprocess content to fix list formatting */}
+            {content
+              .replace(/(\d+\..*?)\n\n(?=\d+\.)/g, '$1\n')  // Fix numbered lists: remove double newlines
+              .replace(/([-*].*?)\n\n(?=[-*])/g, '$1\n')    // Fix bullet lists: remove double newlines
+            }
+          </ReactMarkdown>
+        </div>
+      </div>
+    )
+  }
+
+  return null
+}
+
+// Collapsible Course Outcome Section Component with expand/collapse functionality
+function CollapsibleCourseOutcomeSection({ 
+  title, 
+  content, 
+  isTable,
+  defaultExpanded 
+}: { 
+  title: string
+  content: string | Record<string, string> | undefined
+  isTable: boolean
+  defaultExpanded: boolean
+}) {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded)
+  
+  // Early return if no content
+  if (!content) return null
+
+  // For assessment types (always expanded), use the original component
+  if (defaultExpanded && isTable) {
+    return <CourseOutcomeSection title={title} content={content} isTable={isTable} />
+  }
+
+  // For collapsible sections
+  return (
+    <div>
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="group flex items-center gap-2 w-fit text-left font-semibold text-sm text-gray-700 hover:text-blue-600 transition-colors py-1 cursor-pointer"
+      >
+        <span>{title}</span>
+        {isExpanded ? (
+          <ChevronUp className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
+        ) : (
+          <ChevronDown className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
+        )}
+      </button>
+      
+      {isExpanded && (
+        <div className="mt-2">
+          <CourseOutcomeSection title="" content={content} isTable={isTable} />
+        </div>
+      )}
+    </div>
   )
 }

@@ -1,0 +1,39 @@
+2025-08-15 16:07:08,243 - INFO - 📝 File logging initialized: logs/scraper_20250815_160708.log
+2025-08-15 16:07:08,838 - INFO - Found 263 subjects from live site
+2025-08-15 16:07:08,839 - INFO - 🛡️  Starting scraping for 1 subjects
+2025-08-15 16:07:08,839 - INFO - 📁 Saving to: tests/output/
+2025-08-15 16:07:08,839 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-08-15 16:07:08,839 - INFO - 🔄 Processing CSCI (1/1)
+2025-08-15 16:07:08,839 - INFO - 📋 Scraping CSCI, attempt 1
+2025-08-15 16:07:09,310 - INFO - 🔤 OCR produced: B2CN (awaiting server validation)
+2025-08-15 16:07:10,094 - INFO - ✅ Captcha accepted for CSCI: has_courses
+2025-08-15 16:07:10,095 - INFO - Saved debug HTML: tests/output/debug_html/response_CSCI_attempt_1.html
+2025-08-15 16:07:10,109 - INFO - Parsed 83 courses from results table
+2025-08-15 16:07:10,109 - INFO - Getting details for 3 courses (limited by config)...
+2025-08-15 16:07:10,109 - INFO - 📖 Getting details for course 1/3: 1020
+2025-08-15 16:07:10,811 - INFO - Navigating to Course Outcome page for 1020
+2025-08-15 16:07:11,379 - INFO - Course Outcome parsed for 1020
+2025-08-15 16:07:11,379 - INFO - Found 1 terms for 1020: ['2025-26 Term 2']
+2025-08-15 16:07:11,380 - INFO - Scraping term 1/1: 2025-26 Term 2 for 1020
+2025-08-15 16:07:11,388 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-08-15 16:07:11,388 - INFO - Saved debug HTML: tests/output/debug_html/sections_CSCI_1020_2025_26_Term_2.html
+2025-08-15 16:07:11,394 - INFO - Getting enrollment details for section: --LEC (6161)
+2025-08-15 16:07:12,030 - INFO - Getting enrollment details for section: -L01-LAB (7916)
+2025-08-15 16:07:12,676 - INFO - Extracted details for 1020: Credits=1.00, Terms=1
+2025-08-15 16:07:12,678 - INFO - Saved debug HTML: tests/output/debug_html/course_details_CSCI_1020.html
+2025-08-15 16:07:14,683 - INFO - 📖 Getting details for course 2/3: 1030
+2025-08-15 16:07:15,376 - INFO - Navigating to Course Outcome page for 1030
+2025-08-15 16:07:15,958 - INFO - Course Outcome parsed for 1030
+2025-08-15 16:07:15,959 - INFO - No term dropdown found for 1030, using current data
+2025-08-15 16:07:15,962 - INFO - Saved debug HTML: tests/output/debug_html/course_details_CSCI_1030.html
+2025-08-15 16:07:17,967 - INFO - 📖 Getting details for course 3/3: 1040
+2025-08-15 16:07:18,630 - INFO - Navigating to Course Outcome page for 1040
+2025-08-15 16:07:19,187 - INFO - Course Outcome parsed for 1040
+2025-08-15 16:07:19,187 - INFO - No term dropdown found for 1040, using current data
+2025-08-15 16:07:19,193 - INFO - Saved debug HTML: tests/output/debug_html/course_details_CSCI_1040.html
+2025-08-15 16:07:19,193 - INFO - 🔍 CSCI: Found 83 courses
+2025-08-15 16:07:19,195 - INFO - 💾 SAVED CSCI → tests/output/CSCI.json
+2025-08-15 16:07:19,195 - INFO - ✅ CSCI completed: 83 courses in 0.2min → tests/output/CSCI.json
+2025-08-15 16:07:19,209 - INFO - 🎉 SCRAPING COMPLETED!
+2025-08-15 16:07:19,209 - INFO - ✅ Completed: 1 subjects
+2025-08-15 16:07:19,209 - INFO - ❌ Failed: 0 subjects
