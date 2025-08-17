@@ -1,8 +1,8 @@
 {
   "scraping_log": {
-    "started_at": "2025-08-16T03:53:27.679273+00:00",
-    "last_updated": "2025-08-17T00:09:28.041630+00:00",
-    "total_subjects": 263,
+    "started_at": "2025-08-17T03:23:25.391649+00:00",
+    "last_updated": "2025-08-17T03:37:09.716460+00:00",
+    "total_subjects": 2,
     "completed": 263,
     "failed": 0,
     "subjects": {
@@ -190,11 +190,11 @@
       },
       "ARTS": {
         "status": "completed",
-        "last_scraped": "2025-08-16T04:59:40.463831+00:00",
+        "last_scraped": "2025-08-17T03:24:00.541494+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/ARTS.json",
-        "duration_minutes": 0.54,
+        "duration_minutes": 0.59,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1954,11 +1954,11 @@
       },
       "HIST": {
         "status": "completed",
-        "last_scraped": "2025-08-16T16:18:08.397103+00:00",
+        "last_scraped": "2025-08-17T03:37:09.716390+00:00",
         "courses_count": 210,
         "courses_scraped": 210,
         "output_file": "data/HIST.json",
-        "duration_minutes": 56.35,
+        "duration_minutes": 13.14,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
