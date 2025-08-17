@@ -8,7 +8,7 @@ This module has no external dependencies beyond BeautifulSoup and optional markd
 """
 
 import re
-from typing import Tuple
+from typing import Tuple, Optional
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup, Comment, Tag
 from bs4.element import NavigableString
@@ -404,6 +404,38 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
         return "Waitlisted"
     else:
         return "Unknown"
+
+
+def calculate_duration_seconds(started_at_iso: str) -> Optional[int]:
+    """Calculate duration in seconds from ISO timestamp to now
+    
+    Calculates the time difference between a given ISO timestamp and the current UTC time.
+    Useful for progress tracking, performance measurement, and duration calculations.
+    
+    Args:
+        started_at_iso: ISO 8601 formatted timestamp string with timezone info
+        
+    Returns:
+        Optional[int]: Duration in seconds, or None if timestamp is invalid
+        
+    Examples:
+        >>> import datetime, timezone
+        >>> now = datetime.datetime.now(timezone.utc)
+        >>> past = (now - datetime.timedelta(hours=1)).isoformat()
+        >>> duration = calculate_duration_seconds(past)
+        >>> 3500 <= duration <= 3700  # ~1 hour (allowing for execution time)
+        True
+        
+        >>> calculate_duration_seconds("invalid-timestamp")
+        None
+    """
+    try:
+        started_time = datetime.fromisoformat(started_at_iso.replace('Z', '+00:00'))
+        current_time = datetime.now(timezone.utc)
+        duration = current_time - started_time
+        return int(duration.total_seconds())
+    except (ValueError, TypeError):
+        return None
 
 
 def format_duration_human(seconds: int) -> str:

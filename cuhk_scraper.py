@@ -12,7 +12,7 @@ import ddddocr
 import onnxruntime
 import os
 import gc
-from data_utils import html_to_clean_markdown, utc_now_iso, clean_html_text, parse_enrollment_status_from_image, clean_class_attributes, format_duration_human
+from data_utils import html_to_clean_markdown, utc_now_iso, clean_html_text, parse_enrollment_status_from_image, clean_class_attributes, format_duration_human, calculate_duration_seconds
 
 
 @dataclass
@@ -143,18 +143,6 @@ class ScrapingProgressTracker:
             }
         }
     
-    def _calculate_duration_seconds(self, started_at_iso: str) -> Optional[int]:
-        """Calculate duration in seconds from ISO timestamp to now"""
-        try:
-            from datetime import datetime, timezone
-            started_time = datetime.fromisoformat(started_at_iso.replace('Z', '+00:00'))
-            current_time = datetime.now(timezone.utc)
-            duration = current_time - started_time
-            return int(duration.total_seconds())
-        except (ValueError, TypeError) as e:
-            self.logger.warning(f"Could not calculate duration from {started_at_iso}: {e}")
-            return None
-
     def _save_progress(self):
         """Save current progress to file"""
         try:
@@ -164,6 +152,13 @@ class ScrapingProgressTracker:
                 os.makedirs(dir_path, exist_ok=True)
             
             self.progress_data["scraping_log"]["last_updated"] = utc_now_iso()
+            
+            # Calculate and include current session duration for real-time monitoring
+            if 'started_at' in self.progress_data["scraping_log"]:
+                started_at = self.progress_data["scraping_log"]["started_at"]
+                duration_seconds = calculate_duration_seconds(started_at)
+                if duration_seconds is not None:
+                    self.progress_data["scraping_log"]["duration_human"] = format_duration_human(duration_seconds)
             
             with open(self.progress_file, 'w', encoding='utf-8') as f:
                 json.dump(self.progress_data, f, ensure_ascii=False, indent=2)
@@ -1600,7 +1595,7 @@ class CuhkScraper:
                 'scraping_log' in self.progress_tracker.progress_data and 
                 'started_at' in self.progress_tracker.progress_data['scraping_log']):
                 started_at = self.progress_tracker.progress_data['scraping_log']['started_at']
-                duration_seconds = self.progress_tracker._calculate_duration_seconds(started_at)
+                duration_seconds = calculate_duration_seconds(started_at)
                 if duration_seconds is not None:
                     metadata["duration_human"] = format_duration_human(duration_seconds)
             
@@ -1657,7 +1652,7 @@ class CuhkScraper:
             'scraping_log' in self.progress_tracker.progress_data and 
             'started_at' in self.progress_tracker.progress_data['scraping_log']):
             started_at = self.progress_tracker.progress_data['scraping_log']['started_at']
-            duration_seconds = self.progress_tracker._calculate_duration_seconds(started_at)
+            duration_seconds = calculate_duration_seconds(started_at)
             if duration_seconds is not None:
                 metadata["duration_human"] = format_duration_human(duration_seconds)
         
