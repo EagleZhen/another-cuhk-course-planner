@@ -1981,7 +1981,7 @@ function CourseOutcomeSection({
   // Early return if no content
   if (!content) return null
 
-  // Render assessment types as a clean table
+  // Render assessment types as modern bullet points
   if (isTable && typeof content === 'object') {
     const assessmentEntries = Object.entries(content)
     if (assessmentEntries.length === 0) return null
@@ -1989,23 +1989,14 @@ function CourseOutcomeSection({
     return (
       <div>
         <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
-        <div className="bg-gray-50 rounded-lg p-3 w-fit">
-          <table className="w-fit text-sm">
-            <thead>
-              <tr className="border-b border-gray-400">
-                <th className="text-left py-1 pr-4 font-medium text-gray-700 border-r border-gray-400">Type</th>
-                <th className="text-left py-1 pl-4 font-medium text-gray-700">Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {assessmentEntries.map(([type, percentage], index) => (
-                <tr key={index} className={index < assessmentEntries.length - 1 ? 'border-b border-gray-200' : ''}>
-                  <td className="py-1 pr-4 text-gray-600 border-r border-gray-400">{type}</td>
-                  <td className="py-1 pl-4 text-gray-600">{String(percentage)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="space-y-0.5">
+          {assessmentEntries.map(([type, percentage], index) => (
+            <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
+              <span className="text-gray-400 text-xs">•</span>
+              <span className="">{type}:</span>
+              <span>{String(percentage)}%</span>
+            </div>
+          ))}
         </div>
       </div>
     )
