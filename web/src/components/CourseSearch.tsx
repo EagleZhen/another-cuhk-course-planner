@@ -564,7 +564,7 @@ export default function CourseSearch({
           </div>
           
           {/* Course-level Day Filters */}
-          <div className="flex items-center gap-2 flex-wrap mt-2 pt-2 border-t border-gray-100">
+          <div className="flex items-center gap-2 flex-wrap mt-2">
             <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
             
             {/* Day filter buttons */}
