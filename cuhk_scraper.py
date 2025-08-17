@@ -1585,6 +1585,10 @@ class CuhkScraper:
             # Get subject title from cache (fetched at start of production scraping)
             subject_title = self.subject_titles_cache.get(subject, subject)  # Fallback to code if title not found
             
+            # Remove subject code prefix from title for cleaner display (e.g., "UGEC - Society and Culture" → "Society and Culture")
+            if " - " in subject_title:
+                subject_title = subject_title.split(" - ", 1)[1]
+            
             # Create subject data structure with timestamp in metadata (not filename)
             subject_data = {
                 "metadata": {
