@@ -588,8 +588,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                             # Store example courses for this cleaned attribute
                             if cleaned not in attribute_examples:
                                 attribute_examples[cleaned] = []
-                            if len(attribute_examples[cleaned]) < 3:  # Keep 3 examples per attribute
-                                attribute_examples[cleaned].append(course_id)
+                            attribute_examples[cleaned].append(course_id)  # Keep ALL examples
                             
                             if len(cleaning_examples) < 10:
                                 cleaning_examples.append({
@@ -616,8 +615,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                         # Store example courses for this attribute
                         if class_attrs not in attribute_examples:
                             attribute_examples[class_attrs] = []
-                        if len(attribute_examples[class_attrs]) < 3:
-                            attribute_examples[class_attrs].append(course_id)
+                        attribute_examples[class_attrs].append(course_id)  # Keep ALL examples
     
     # Print results
     print(f"📊 Total sections analyzed: {total_sections:,}")
@@ -708,7 +706,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                         'attr': attr,
                         'count': count,
                         'line_count': line_count,
-                        'examples': examples[:3]
+                        'examples': examples  # Keep ALL examples, not just first 3
                     })
         
         for ex in complex_examples:  # Show ALL complex cases
@@ -717,7 +715,7 @@ def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[st
                 if line.strip():
                     print(f"     └─ \"{line.strip()}\"")
             if ex['examples']:
-                print(f"     📚 Examples: {', '.join(ex['examples'])}")
+                print(f"     📚 ALL Examples ({len(ex['examples'])} courses): {', '.join(sorted(set(ex['examples'])))}")
             print()
         
         # Course level analysis for complex cases
