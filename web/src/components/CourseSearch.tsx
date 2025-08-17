@@ -2055,12 +2055,18 @@ function CourseOutcomeSection({
                   {children}
                 </li>
               ),
-              // Paragraphs with consistent spacing
-              p: ({ children }) => (
-                <p className="text-gray-600 mb-2 last:mb-0 font-sans leading-relaxed">
-                  {children}
-                </p>
-              ),
+              // Paragraphs with consistent spacing - fix list item wrapping
+              p: ({ children, node }) => {
+                // If paragraph is direct child of list item, render inline without wrapper
+                if (node?.parent?.tagName === 'li') {
+                  return <>{children}</>;
+                }
+                return (
+                  <p className="text-gray-600 mb-2 last:mb-0 font-sans leading-relaxed">
+                    {children}
+                  </p>
+                );
+              },
               // Strong/bold text matching app style
               strong: ({ children }) => (
                 <strong className="font-medium text-gray-700">
@@ -2075,7 +2081,11 @@ function CourseOutcomeSection({
               ),
             }}
           >
-            {content}
+            {/* Preprocess content to fix list formatting */}
+            {content
+              .replace(/(\d+\..*?)\n\n(?=\d+\.)/g, '$1\n')  // Fix numbered lists: remove double newlines
+              .replace(/([-*].*?)\n\n(?=[-*])/g, '$1\n')    // Fix bullet lists: remove double newlines
+            }
           </ReactMarkdown>
         </div>
       </div>
