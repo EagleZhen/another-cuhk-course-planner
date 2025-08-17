@@ -1105,6 +1105,9 @@ def clean_html_text(text: str) -> str:
 
 def parse_enrollment_status_from_image(img_src: str) -> str:
     """Parse enrollment status from status icon image source"""
+
+def format_duration_human(seconds: int) -> str:
+    """Format duration in seconds to human-readable string like '2h 45m 30s'"""
 ```
 
 **Architecture Benefits:**
@@ -1127,6 +1130,20 @@ for term in base_course.terms:
 - ✅ **Line-by-Line Approach**: 99.7% success rate in removing course attribute duplicates
 - ✅ **Preserves Teaching Language**: Keeps section-specific language information
 - ✅ **Production Ready**: Extensively tested with real course data
+
+**Human-Readable Duration Tracking:**
+```json
+{
+  "metadata": {
+    "scraped_at": "2025-08-17T22:45:30.123456+00:00",
+    "duration_human": "2h 45m 30s",
+    "total_courses": 1247
+  }
+}
+```
+- ✅ **Human-Friendly**: Easy-to-read duration format for 10+ hour scraping sessions
+- ✅ **Clean Implementation**: Precise calculations use exact timestamps, duration field is for insight only
+- ✅ **Focused Data**: Removed redundant `duration_seconds` field for cleaner metadata
 
 ### **📊 Production-Ready Assessment Tables**
 
