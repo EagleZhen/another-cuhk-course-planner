@@ -450,7 +450,9 @@ class CuhkScraper:
     def _solve_captcha(self, image_bytes: bytes) -> Optional[str]:
         """Solve captcha using ddddocr"""
         try:
-            text = self.ocr.classification(image_bytes).strip().upper()
+            # ddddocr.classification() returns a string, but type checker doesn't know this
+            raw_result = self.ocr.classification(image_bytes)
+            text = str(raw_result).strip().upper()
             
             # Validate captcha format (4 alphanumeric characters)
             if len(text) == 4 and text.isalnum():
@@ -1434,7 +1436,8 @@ class CuhkScraper:
         
         # Extract Assessment Types (table structure)
         assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
-        if assessment_table:
+        if assessment_table and hasattr(assessment_table, 'find_all'):
+            # Type guard: ensure it's a Tag before passing to _parse_assessment_table
             course.assessment_types = self._parse_assessment_table(assessment_table)
         
         # Extract Learning Outcomes (convert to Markdown for rich formatting)
@@ -1464,9 +1467,12 @@ class CuhkScraper:
         
         self.logger.info(f"Course Outcome parsed for {course.course_code}")
     
-    def _parse_assessment_table(self, table: Tag) -> Dict[str, str]:
+    def _parse_assessment_table(self, table: Optional[Tag]) -> Dict[str, str]:
         """Parse assessment types table and return as key-value pairs"""
-        assessment_types = {}
+        if not table:
+            return {}
+            
+        assessment_types: Dict[str, str] = {}
         
         try:
             # Find all data rows (skip header row)
