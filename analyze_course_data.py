@@ -538,6 +538,125 @@ def analyze_weekend_courses(subjects_data: Dict[str, any]) -> Dict[str, any]:
         'weekend_course_count': len(weekend_courses)
     }
 
+def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
+    """Analyze relationship between class_attributes and course_attributes"""
+    print("🧪 CLASS vs COURSE ATTRIBUTES ANALYSIS")
+    print("-" * 50)
+    
+    total_sections = 0
+    sections_with_both_attrs = 0
+    pattern_matches = 0  # class_attrs ends with course_attrs (our rule)
+    exact_matches = 0    # class_attrs == course_attrs
+    rule_violations = 0  # cases that don't fit our rule
+    
+    cleaned_attributes = Counter()  # Count unique cleaned class attributes
+    rule_violation_examples = []
+    cleaning_examples = []
+    
+    for subject, data in subjects_data.items():
+        for course in data.get('courses', []):
+            course_id = f"{course.get('subject', 'UNK')}{course.get('course_code', 'UNK')}"
+            course_attrs = course.get('course_attributes', '').strip()
+            
+            # Check sections for class attributes
+            for term in course.get('terms', []):
+                for section in term.get('schedule', []):
+                    class_attrs = section.get('class_attributes', '').strip()
+                    total_sections += 1
+                    
+                    if course_attrs and class_attrs:
+                        sections_with_both_attrs += 1
+                        
+                        if class_attrs == course_attrs:
+                            # Exact match - fits our rule (remove everything = empty)
+                            exact_matches += 1
+                            cleaned_attributes[''] += 1  # Empty after cleaning
+                        elif class_attrs.endswith(course_attrs):
+                            # Pattern match - fits our rule
+                            pattern_matches += 1
+                            # Clean the class attributes
+                            cleaned = class_attrs[:-len(course_attrs)].strip('\n ')
+                            cleaned_attributes[cleaned] += 1
+                            
+                            if len(cleaning_examples) < 5 and cleaned:
+                                cleaning_examples.append({
+                                    'course': course_id,
+                                    'original': class_attrs,
+                                    'course_attrs': course_attrs,
+                                    'cleaned': cleaned
+                                })
+                        else:
+                            # Rule violation - doesn't end with course_attrs
+                            rule_violations += 1
+                            if len(rule_violation_examples) < 10:
+                                rule_violation_examples.append({
+                                    'course': course_id,
+                                    'course_attrs': course_attrs,
+                                    'class_attrs': class_attrs
+                                })
+                    elif class_attrs and not course_attrs:
+                        # Class attrs only - no rule to apply
+                        cleaned_attributes[class_attrs] += 1
+    
+    # Print results
+    print(f"📊 Total sections analyzed: {total_sections:,}")
+    print(f"📊 Sections with both attributes: {sections_with_both_attrs:,}")
+    print()
+    
+    if sections_with_both_attrs > 0:
+        rule_followers = exact_matches + pattern_matches
+        print("🔍 RULE VALIDATION:")
+        print(f"  ✅ Follows rule (class ends with course): {rule_followers:,} ({rule_followers/sections_with_both_attrs*100:.1f}%)")
+        print(f"     └─ Exact matches: {exact_matches:,}")
+        print(f"     └─ Pattern matches: {pattern_matches:,}")
+        print(f"  ❌ Rule violations: {rule_violations:,} ({rule_violations/sections_with_both_attrs*100:.1f}%)")
+        print()
+        
+        # Show cleaned attributes summary
+        non_empty_cleaned = {k: v for k, v in cleaned_attributes.items() if k}
+        print(f"🏷️ UNIQUE CLEANED CLASS ATTRIBUTES: {len(non_empty_cleaned)} types")
+        print(f"   (After removing course attributes from class attributes)")
+        print()
+        
+        if non_empty_cleaned:
+            print("Top 15 most common cleaned class attributes:")
+            for attr, count in Counter(non_empty_cleaned).most_common(15):
+                print(f"  \"{attr}\": {count} sections")
+            print()
+        
+        # Show cleaning examples
+        if cleaning_examples:
+            print("📝 CLEANING EXAMPLES:")
+            for ex in cleaning_examples[:3]:
+                print(f"  Course: {ex['course']}")
+                print(f"    Original:     '{ex['original']}'")
+                print(f"    Course attrs: '{ex['course_attrs']}'")
+                print(f"    After clean:  '{ex['cleaned']}'")
+                print()
+        
+        # Show rule violations
+        if rule_violation_examples:
+            print("⚠️  RULE VIOLATIONS (class attrs don't end with course attrs):")
+            for ex in rule_violation_examples[:5]:
+                print(f"  Course: {ex['course']}")
+                print(f"    Course attrs: '{ex['course_attrs']}'")
+                print(f"    Class attrs:  '{ex['class_attrs']}'")
+                print()
+            
+            if len(rule_violation_examples) > 5:
+                print(f"    ... and {len(rule_violation_examples) - 5} more violations")
+                print()
+    
+    return {
+        'total_sections': total_sections,
+        'sections_with_both_attrs': sections_with_both_attrs,
+        'pattern_matches': pattern_matches,
+        'exact_matches': exact_matches,
+        'rule_violations': rule_violations,
+        'cleaned_attributes_count': len(non_empty_cleaned) if 'non_empty_cleaned' in locals() else 0,
+        'rule_violation_examples': rule_violation_examples
+    }
+
 def main():
     """Main analysis function"""
     import sys
@@ -699,38 +818,7 @@ def main():
         
         print()
         
-        # 4. Course Attributes Analysis
-        print("📝 COURSE ATTRIBUTES ANALYSIS")
-        print("-" * 32)
-        attr_analysis = analyze_course_attributes(subjects_data)
-        
-        print(f"📚 Total courses: {attr_analysis['total_courses']}")
-        print(f"📋 Total sections: {attr_analysis['total_sections']}")
-        print()
-        
-        # Show all unique class attributes with examples
-        class_attributes = attr_analysis['class_attributes']
-        class_examples = attr_analysis['class_attributes_examples']
-        
-        print(f"🏷️ All unique class attributes ({len(class_attributes)} types):")
-        print()
-        for i, (attr, count) in enumerate(class_attributes.items(), 1):
-            print(f"{i:2d}. \"{attr}\" - {count} sections")
-            if attr in class_examples:
-                example = class_examples[attr]
-                print(f"    📚 Example: {example['course_code']} - {example['course_title']}")
-                print(f"    📋 Section: {example['section']}")
-                print(f"    📅 Term: {example['term']}")
-            print()
-        
-        # Language summary
-        print("🌐 Language breakdown:")
-        for lang, count in attr_analysis['languages'].items():
-            print(f"  {lang:<15} : {count:>4} sections")
-        
-        print()
-        
-        # 5. Enrollment Requirements Analysis  
+        # 4. Enrollment Requirements Analysis  
         print("📋 ENROLLMENT REQUIREMENTS ANALYSIS")
         print("-" * 38)
         req_analysis = analyze_enrollment_requirements(subjects_data)
@@ -812,6 +900,10 @@ def main():
         
         print()
         
+        # 7. Class vs Course Attributes Analysis
+        analyze_class_vs_course_attributes(subjects_data)
+        print()
+        
         # 7. Subject Summary
         print("📊 SUBJECT SUMMARY")
         print("-" * 20)
@@ -846,10 +938,7 @@ def main():
         print("   - All section patterns are now consolidated into core types")
         print()
         print("🌐 Language Support:")
-        languages = attr_analysis['languages']
-        if languages:
-            print("   - Languages found:", ', '.join(languages.keys()))
-            print("   - Consider adding language indicators in UI")
+        print("   - Language analysis moved to class_attributes cleaning analysis")
     
     finally:
         # Restore stdout and save captured output
