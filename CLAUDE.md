@@ -1069,6 +1069,141 @@ wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # 1s, 2s, 4s, 8s, 16s, 32s, max
 
 **Architectural Decision**: Prioritize UI functionality first, then optimize data formatting based on actual rendering behavior
 
+## ✅ Latest Achievement: Production-Ready Course Outcome UI & Modular HTML Processing (August 2025)
+
+**Major Frontend & Architecture Improvements**: 
+1. **Modular HTML Processing**: Extracted 150+ lines of HTML/markdown logic into reusable `html_utils.py` module
+2. **Production-Ready Assessment Tables**: Content-fitting tables with proper visual styling for critical enrollment information
+3. **Collapsible Course Outcome UI**: Smart progressive disclosure with polished interaction design
+4. **Typography Integration**: All Course Outcome content now uses app's Geist Sans font consistently
+5. **Maintainable Component Architecture**: Clean separation of concerns with configurable visibility controls
+
+### **🛠️ Modular HTML Processing Architecture**
+
+**Problem Solved**: 1,894-line monolithic scraper with embedded HTML processing created maintenance challenges
+**Solution**: Clean separation into focused, testable modules
+
+```python
+# html_utils.py - Standalone, reusable module
+def html_to_clean_markdown(html_content: str) -> Tuple[str, bool]:
+    """Complete HTML-to-markdown pipeline with Word HTML preprocessing"""
+    
+def clean_word_html(html_content: str) -> str:
+    """Remove Word-specific artifacts (<!--[if !supportLists]-->, etc.)"""
+    
+def normalize_markdown_whitespace(text: str) -> str:
+    """Fix markdown list formatting and whitespace issues"""
+```
+
+**Architecture Benefits:**
+- ✅ **Single Responsibility**: Each function has one focused purpose
+- ✅ **Independent Testing**: HTML processing testable without scraper complexity
+- ✅ **Reusability**: Can be used by testing scripts, data migration tools, or other scrapers
+- ✅ **Maintainability**: HTML logic changes don't require understanding scraper internals
+
+### **📊 Production-Ready Assessment Tables**
+
+**Problem Solved**: Assessment breakdowns stretched to full width, making data hard to read
+**Solution**: Content-fitting tables with proper visual hierarchy
+
+```tsx
+// Content-fitting table with proper borders
+<div className="bg-gray-50 rounded-lg p-3 w-fit">
+  <table className="w-fit text-sm">
+    <th className="...border-r border-gray-300">Assessment Type</th>
+    <th className="...">Percentage</th>
+    <td className="...border-r border-gray-300">{type}</td>
+    <td className="...">{percentage}</td>
+  </table>
+</div>
+```
+
+**Key Features:**
+- ✅ **Content-Fitting Width**: Tables only as wide as their data requires
+- ✅ **Visual Separators**: Clean gray borders between columns for readability
+- ✅ **Always Visible**: Critical enrollment information never hidden
+- ✅ **Professional Styling**: Consistent with app's design system
+
+### **🎛️ Collapsible Course Outcome UI**
+
+**Problem Solved**: Long course content (readings, outcomes) created visual clutter and poor scanability
+**Solution**: Smart progressive disclosure with production-ready infrastructure
+
+```tsx
+// Configurable section system
+const sectionConfigs = [
+  {
+    key: 'assessmentTypes',
+    title: 'Assessment Types',
+    alwaysVisible: true,      // Critical info - always shown
+    defaultExpanded: true     // Never collapsible
+  },
+  {
+    key: 'learningOutcomes',
+    title: 'Learning Outcomes', 
+    alwaysVisible: true,      // Can be hidden when formatting is poor
+    defaultExpanded: false    // Collapsed by default
+  }
+]
+```
+
+**Smart Interaction Design:**
+- ✅ **Clean Toggle Headers**: Title + chevron icon with synchronized hover states
+- ✅ **Perfect Alignment**: No background hover to avoid text indentation issues
+- ✅ **Color Coordination**: Text and icon change to blue together on hover
+- ✅ **Accessibility**: Clear cursor pointer and color change affordance
+
+### **🎨 Typography & Design Integration**
+
+**Problem Solved**: ReactMarkdown used serif fonts (Times New Roman) breaking visual consistency
+**Solution**: Complete typography override using app's Geist Sans font
+
+```tsx
+// Custom ReactMarkdown components using app typography
+components={{
+  p: ({ children, node }) => {
+    // Fix list item paragraph wrapping issue
+    if (node && 'parent' in node && node.parent?.tagName === 'li') {
+      return <>{children}</>;  // No wrapper in lists
+    }
+    return <p className="text-gray-600 mb-2 font-sans">{children}</p>;
+  },
+  h1: ({ children }) => (
+    <h1 className="text-base font-semibold text-gray-800 mb-2 font-sans">{children}</h1>
+  ),
+  // ... all typography using font-sans
+}}
+```
+
+**Visual Consistency Achieved:**
+- ✅ **Font Harmony**: All content uses Geist Sans throughout
+- ✅ **List Formatting**: Fixed `<li><p>` wrapping that separated bullets from content
+- ✅ **Color Consistency**: Gray text palette matching rest of application
+- ✅ **Spacing Rhythm**: Consistent margins and padding with app design
+
+### **🏗️ Production Deployment Strategy**
+
+**Flexible Visibility Control:**
+```tsx
+// Easy content hiding for production deployment
+{
+  key: 'learningOutcomes',
+  alwaysVisible: false,  // ← Simply set to false to hide poor-quality content
+  defaultExpanded: false
+}
+```
+
+**Deployment Phases:**
+1. **Phase 1** (Current): Assessment tables always visible (production-ready)
+2. **Phase 2** (Future): Enable other sections when HTML processing is perfected
+3. **Quality Gate**: `alwaysVisible` flag allows selective content showing
+
+**Current Production Status:**
+- ✅ **Assessment Tables**: Ready for immediate deployment
+- ✅ **Collapsible Infrastructure**: Complete and tested
+- ✅ **Content Quality Control**: Easy hiding of problematic formatting
+- ✅ **Progressive Enhancement**: Can enable more content as it improves
+
 ## Current System Status (August 2025)
 
 ### **🏗️ Production Infrastructure Status**
