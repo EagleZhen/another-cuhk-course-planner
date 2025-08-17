@@ -340,18 +340,19 @@ def main():
                 print(f"   📋 Subjects completed: {stats['completed_subjects']}")
                 print(f"   📖 Efficiency: {stats['avg_time_per_course']:.2f} minutes per course")
                 
-                # Performance insights
+                # Performance insights - focus on subject-level metrics
                 if stats['fastest_subject'] and stats['slowest_subject']:
                     fast_subj, fast_time, fast_courses = stats['fastest_subject']
                     slow_subj, slow_time, slow_courses = stats['slowest_subject']
                     
                     print()
                     print("🔍 Performance Insights:")
-                    print(f"   🏆 Most efficient: {fast_subj} ({fast_time/fast_courses:.2f} min/course)")
-                    print(f"   🐢 Least efficient: {slow_subj} ({slow_time/slow_courses:.2f} min/course)")
+                    print(f"   🏆 Fastest subject: {fast_subj} ({format_duration(fast_time)}, {fast_courses} courses)")
+                    print(f"   🐢 Slowest subject: {slow_subj} ({format_duration(slow_time)}, {slow_courses} courses)")
                     
-                    efficiency_ratio = (slow_time/slow_courses) / (fast_time/fast_courses) if fast_courses > 0 else 0
-                    print(f"   📊 Efficiency range: {efficiency_ratio:.1f}x difference")
+                    if fast_time > 0:
+                        time_ratio = slow_time / fast_time
+                        print(f"   📊 Time range: {time_ratio:.1f}x difference")
                 print()
         
         # Determine files to copy (all valid files by default)
