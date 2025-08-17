@@ -9,6 +9,7 @@ This module has no external dependencies beyond BeautifulSoup and optional markd
 
 import re
 from typing import Tuple
+from datetime import datetime, timezone
 from bs4 import BeautifulSoup, Comment, Tag
 from bs4.element import NavigableString
 
@@ -275,3 +276,59 @@ def convert_html_to_markdown(html_content: str) -> str:
     """
     result, _ = html_to_clean_markdown(html_content)
     return result
+
+
+def utc_now_iso() -> str:
+    """Get current UTC timestamp in ISO format with timezone info
+    
+    Returns:
+        str: ISO 8601 formatted timestamp with timezone
+        
+    Examples:
+        >>> utc_now_iso()
+        '2025-08-17T14:32:15.123456+00:00'
+        
+        >>> utc_now_iso()  # Different time
+        '2025-08-17T15:45:22.987654+00:00'
+    """
+    return datetime.now(timezone.utc).isoformat()
+
+
+def clean_class_attributes(class_attrs: str, course_attrs: str) -> str:
+    """Remove course attribute duplicates from class attributes
+    
+    This function implements line-by-line cleaning to remove course attributes
+    that appear in both class_attributes and course_attributes fields.
+    The result is clean class-specific attributes (typically teaching language).
+    
+    Args:
+        class_attrs: Raw class attributes string (may contain duplicates)
+        course_attrs: Course attributes string (authoritative source)
+        
+    Returns:
+        str: Cleaned class attributes with course attribute duplicates removed
+        
+    Examples:
+        >>> clean_class_attributes(
+        ...     "SDG-GE #5 Gender Equality\\nEnglish only", 
+        ...     "SDG-GE #5 Gender Equality"
+        ... )
+        'English only'
+        
+        >>> clean_class_attributes("English only", "")
+        'English only'
+        
+        >>> clean_class_attributes("", "SDG Goals")
+        ''
+    """
+    if not class_attrs or not course_attrs:
+        return class_attrs or ""
+    
+    # Split by newlines and clean whitespace
+    class_lines: list[str] = [line.strip() for line in class_attrs.split('\n') if line.strip()]
+    course_lines: list[str] = [line.strip() for line in course_attrs.split('\n') if line.strip()]
+    
+    # Find lines in class_attrs that are NOT in course_attrs
+    cleaned_lines: list[str] = [line for line in class_lines if line not in course_lines]
+    
+    return '\n'.join(cleaned_lines)
