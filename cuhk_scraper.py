@@ -1420,6 +1420,11 @@ class CuhkScraper:
         """Parse Course Outcome page content and extract all relevant information"""
         soup = BeautifulSoup(html, 'html.parser')
         
+        # Extract Assessment Types (table structure)
+        assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
+        if assessment_table:
+            course.assessment_types = self._parse_assessment_table(assessment_table)
+        
         # Extract Learning Outcomes (convert to Markdown for rich formatting)
         learning_outcome_span = soup.find('span', {'id': 'uc_course_outcome_lbl_learning_outcome'})
         if learning_outcome_span:
@@ -1429,11 +1434,6 @@ class CuhkScraper:
         syllabus_span = soup.find('span', {'id': 'uc_course_outcome_lbl_course_syllabus'})
         if syllabus_span:
             course.course_syllabus = self._html_to_markdown(str(syllabus_span))
-        
-        # Extract Assessment Types (table structure)
-        assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
-        if assessment_table:
-            course.assessment_types = self._parse_assessment_table(assessment_table)
         
         # Extract Feedback for Evaluation (convert to Markdown)
         feedback_span = soup.find('span', {'id': 'uc_course_outcome_lbl_feedback'})
