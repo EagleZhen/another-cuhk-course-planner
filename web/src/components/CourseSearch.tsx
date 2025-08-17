@@ -2001,48 +2001,82 @@ function CourseOutcomeSection({
     return (
       <div>
         <h4 className="font-semibold text-sm text-gray-700 mb-2">{title}</h4>
-        <div className="bg-gray-50 rounded-lg p-3">
-          <div className="prose prose-sm max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-li:text-gray-600">
-            <ReactMarkdown 
-              components={{
-              // Custom table styling to match design
+        {/* Integrated markdown content using app's Geist Sans font */}
+        <div className="text-sm leading-relaxed">
+          <ReactMarkdown 
+            components={{
+              // Content-fitting tables with app design system
               table: ({ children }) => (
-                <table className="w-full text-sm border-collapse border border-gray-300 my-2">
-                  {children}
-                </table>
+                <div className="overflow-x-auto my-3">
+                  <table className="table-auto text-sm border-collapse border border-gray-200 rounded-md">
+                    {children}
+                  </table>
+                </div>
               ),
               th: ({ children }) => (
-                <th className="border border-gray-300 bg-gray-100 px-2 py-1 text-left font-medium text-gray-700">
+                <th className="border border-gray-200 px-3 py-2 bg-gray-50 text-left font-medium text-gray-700 whitespace-nowrap">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="border border-gray-300 px-2 py-1 text-gray-600">
+                <td className="border border-gray-200 px-3 py-2 text-gray-600">
                   {children}
                 </td>
               ),
-              // Style lists nicely
-              ol: ({ children }) => (
-                <ol className="list-decimal list-inside space-y-1 ml-2">
+              // Typography using app's Geist Sans font
+              h1: ({ children }) => (
+                <h1 className="text-base font-semibold text-gray-800 mb-2 font-sans">
                   {children}
-                </ol>
+                </h1>
               ),
+              h2: ({ children }) => (
+                <h2 className="text-sm font-medium text-gray-700 mb-2 font-sans">
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-sm font-medium text-gray-700 mb-1 font-sans">
+                  {children}
+                </h3>
+              ),
+              // Lists with app styling and proper spacing
               ul: ({ children }) => (
-                <ul className="list-disc list-inside space-y-1 ml-2">
+                <ul className="list-disc list-inside space-y-0.5 mb-2 text-gray-600 ml-2">
                   {children}
                 </ul>
               ),
-              // Keep paragraphs compact
+              ol: ({ children }) => (
+                <ol className="list-decimal list-inside space-y-0.5 mb-2 text-gray-600 ml-2">
+                  {children}
+                </ol>
+              ),
+              li: ({ children }) => (
+                <li className="text-gray-600 font-sans">
+                  {children}
+                </li>
+              ),
+              // Paragraphs with consistent spacing
               p: ({ children }) => (
-                <p className="mb-2 last:mb-0">
+                <p className="text-gray-600 mb-2 last:mb-0 font-sans leading-relaxed">
                   {children}
                 </p>
-              )
-              }}
-            >
-              {content as string}
-            </ReactMarkdown>
-          </div>
+              ),
+              // Strong/bold text matching app style
+              strong: ({ children }) => (
+                <strong className="font-medium text-gray-700">
+                  {children}
+                </strong>
+              ),
+              // Emphasis/italic text  
+              em: ({ children }) => (
+                <em className="italic text-gray-600">
+                  {children}
+                </em>
+              ),
+            }}
+          >
+            {content as string}
+          </ReactMarkdown>
         </div>
       </div>
     )
