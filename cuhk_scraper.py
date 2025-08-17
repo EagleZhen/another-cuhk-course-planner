@@ -136,6 +136,7 @@ class ScrapingProgressTracker:
             "scraping_log": {
                 "started_at": utc_now_iso(),    # Fresh session start time
                 "last_updated": utc_now_iso(),  # Fresh session activity
+                "duration_human": "0 seconds",  # Fresh session duration
                 "total_subjects": 0,            # Will be set by scrape_all_subjects
                 "completed": 0,                 # Fresh counts for current session
                 "failed": 0,                    # Fresh counts for current session
@@ -1588,16 +1589,6 @@ class CuhkScraper:
                 "total_courses": len(courses),
                 "scraper_version": "memory-safe-v2.0"
             }
-            
-            # Add human-readable duration if we have progress tracker with session start time
-            if (self.progress_tracker and 
-                self.progress_tracker.progress_data and 
-                'scraping_log' in self.progress_tracker.progress_data and 
-                'started_at' in self.progress_tracker.progress_data['scraping_log']):
-                started_at = self.progress_tracker.progress_data['scraping_log']['started_at']
-                duration_seconds = calculate_duration_seconds(started_at)
-                if duration_seconds is not None:
-                    metadata["duration_human"] = format_duration_human(duration_seconds)
             
             subject_data = {
                 "metadata": metadata,
