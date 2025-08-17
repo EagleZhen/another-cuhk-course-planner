@@ -11,6 +11,7 @@ import ddddocr
 import onnxruntime
 import os
 import gc
+from html_utils import html_to_clean_markdown
 
 def utc_now_iso():
     """Get current UTC timestamp in ISO format with timezone info"""
@@ -1371,152 +1372,17 @@ class CuhkScraper:
             return ""
         
         try:
-            # Import required libraries
-            import markdownify
+            # Use the modular HTML utilities for conversion
+            result, is_markdown = html_to_clean_markdown(html_content)
             
-            # Step 1: Clean Word HTML artifacts before markdown conversion
-            cleaned_html = self._clean_word_html(html_content)
+            if not is_markdown:
+                self.logger.warning("markdownify not available, using plain text extraction")
             
-            # Step 2: Convert cleaned HTML to markdown
-            markdown = markdownify.markdownify(cleaned_html, heading_style="ATX")
+            return result
             
-            # Step 3: Apply markdown-aware whitespace normalization
-            markdown = self._normalize_markdown_whitespace(markdown)
-            
-            # Step 4: Fix any remaining table header issues
-            markdown = self._fix_table_headers(markdown)
-            
-            return markdown.strip()
-            
-        except ImportError:
-            self.logger.warning("markdownify not available, falling back to text extraction")
-            return self._clean_text(html_content)
         except Exception as e:
-            self.logger.warning(f"Error converting HTML to Markdown: {e}, falling back to text extraction")
+            self.logger.warning(f"Error in HTML processing: {e}, falling back to basic text extraction")
             return self._clean_text(html_content)
-    
-    def _fix_table_headers(self, markdown_text: str) -> str:
-        """Fix empty header rows in markdown tables"""
-        lines = markdown_text.split('\n')
-        result = []
-        
-        i = 0
-        while i < len(lines):
-            line = lines[i]
-            
-            # Detect empty header pattern: |  |  |
-            if line.strip().startswith('|') and line.strip().endswith('|'):
-                # Split by | and check if all cells are empty (ignoring first/last empty splits)
-                cells = line.split('|')[1:-1]  # Remove first and last empty elements
-                if all(cell.strip() == '' for cell in cells):
-                    # Check if next line is separator: | --- | --- |
-                    if i + 1 < len(lines) and '---' in lines[i + 1]:
-                        # Check if line after separator has content
-                        if i + 2 < len(lines) and lines[i + 2].strip().startswith('|'):
-                            # Replace empty header with first data row
-                            result.append(lines[i + 2])  # Use first data row as header
-                            result.append(lines[i + 1])  # Keep separator
-                            i += 3  # Skip empty header, separator, and used data row
-                            continue
-            
-            result.append(line)
-            i += 1
-        
-        return '\n'.join(result)
-    
-    def _clean_word_html(self, html_content: str) -> str:
-        """Clean Word-specific HTML artifacts before markdown conversion"""
-        from bs4 import BeautifulSoup, Comment
-        
-        soup = BeautifulSoup(html_content, 'html.parser')
-        
-        # Remove Word-specific elements entirely
-        for element in soup.find_all(['meta', 'link', 'style', 'xml']):
-            element.decompose()
-        
-        # Remove Word conditional comments
-        comments_to_remove = []
-        for element in soup.contents:
-            if hasattr(element, 'string') and element.string:
-                # This catches Comment objects
-                if isinstance(element, Comment):
-                    comment_text = str(element)
-                    if ('if' in comment_text and 
-                        ('supportLists' in comment_text or 'mso' in comment_text or 'endif' in comment_text)):
-                        comments_to_remove.append(element)
-        
-        # Remove the comments
-        for comment in comments_to_remove:
-            comment.extract()
-        
-        # Clean Word-specific attributes from all tags
-        for tag in soup.find_all():
-            if hasattr(tag, 'attrs'):
-                # Remove Word-specific attributes
-                attrs_to_remove = [attr for attr in tag.attrs.keys() 
-                                  if attr.startswith(('mso-', 'o:', 'v:', 'w:', 'class')) 
-                                  or attr in ['style', 'lang']]
-                for attr in attrs_to_remove:
-                    if attr in tag.attrs:
-                        del tag[attr]
-        
-        # Convert non-breaking spaces to regular spaces in text content
-        for text_node in soup.find_all(string=True):
-            if text_node.string and '\xa0' in text_node.string:
-                text_node.string.replace_with(text_node.string.replace('\xa0', ' '))
-        
-        # Remove empty elements that might be left behind
-        for tag in soup.find_all():
-            if tag.name in ['span', 'div', 'p'] and not tag.get_text(strip=True) and not tag.find_all():
-                tag.decompose()
-        
-        return str(soup)
-    
-    def _normalize_markdown_whitespace(self, text: str) -> str:
-        """Clean whitespace while preserving markdown syntax for proper rendering"""
-        import re
-        
-        # Step 1: Replace non-breaking spaces (Word HTML artifact)
-        text = text.replace('\xa0', ' ')
-        
-        lines = text.split('\n')
-        cleaned_lines = []
-        
-        for line in lines:
-            # Remove leading/trailing whitespace from each line
-            stripped = line.strip()
-            
-            if not stripped:
-                # Empty line - preserve for markdown structure
-                cleaned_lines.append('')
-                continue
-            
-            # Step 2: Handle markdown syntax elements
-            if re.match(r'^\d+\.', stripped):
-                # Numbered list: ensure exactly "1. " format (space required for markdown)
-                line = re.sub(r'^(\d+)\.\s*', r'\1. ', stripped)
-            elif re.match(r'^[-*+]', stripped):
-                # Bullet list: ensure exactly "- " format  
-                line = re.sub(r'^([-*+])\s*', r'\1 ', stripped)
-            elif re.match(r'^#{1,6}', stripped):
-                # Headers: ensure exactly "# " format
-                line = re.sub(r'^(#{1,6})\s*', r'\1 ', stripped)
-            else:
-                # Regular line: just use stripped version
-                line = stripped
-            
-            # Step 3: Clean excessive internal spaces (but preserve single spaces)
-            line = re.sub(r'  +', ' ', line)
-            
-            cleaned_lines.append(line)
-        
-        # Step 4: Join and normalize line breaks (preserve structure)
-        text = '\n'.join(cleaned_lines)
-        
-        # Multiple consecutive blank lines → single blank line (for readability)
-        text = re.sub(r'\n\s*\n\s*\n+', '\n\n', text)
-        
-        return text.strip()
     
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
