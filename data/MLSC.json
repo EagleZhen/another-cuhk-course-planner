@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-15T13:57:52.418591+00:00",
+    "scraped_at": "2025-08-16T19:54:37.746477+00:00",
     "subject": "MLSC",
+    "subject_title": "MLSC - Medical Laboratory Sciences",
     "total_courses": 14,
     "scraper_version": "memory-safe-v2.0"
   },
@@ -47,7 +48,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "Upon completion of the study, students should be able to perceive the essences of bioethics, local code, standards of practice and conduct in practicing medical technology in Hong Kong and properly handle issues related to and at time of practicing medical laboratory sciences especially in identifying and resolving any conflict which might arise. They should be capable to conduct effective communication at work in writing memos, emails, letters, proposals, tenders, appraisals, complaints, reports, guidelines, requirements, standards, local rules, grant applications, scientific paper and research theses in appropriate formats and giving presentations, interviewing and phoning to convey ideas, arguments, negotiations, resolutions, critical analysis, etc., in a precise and clear manner. Besides, they should also know how to store, retrieve, extract, organize and analyze biological data via internet access and library search of repositories and reports taking into account the intellectual rights and proper acknowledgments, recognitions, credits and consents of reproduction of other’s works without any violation of copyrights and plagiarism.   \n   \nStudents should be able to realize the potential hazards and implement necessary precautions in medical laboratories by understanding safety levels; laboratory containment and design, maintenance of facilities, equipment, fire, chemical, radiation and microbiologic safety and implementing guidelines, regulations and code of practice, safety organization, measures, surveillance and training programme for disinfection, de-contamination and disposal of laboratory bio-hazardous, chemical and radioactive wastes, respectively.   \nBesides, students should have the knowledge of managing medical laboratories especially in running core laboratory and reference laboratory, monitoring laboratory safety, evaluating equipment, controlling financial budgets, tendering, stock taking, auditing, formulating laboratory policies and procedures, maintaining laboratory accreditation, managing personnel and handling conflicts at work.",
+      "course_syllabus": "* Bioethics\n* Presentation and communication skills\n* Bioinformatics\n* Laboratory safety\n* Laboratory management",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "75",
+        "Homework or assignment": "15"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "* Amarakone K, Panesar SS. Ethics and human sciences. Elsevier Mosby, 2006.\n* Bobin A. Ethics: an overview.  Continuum, 2012.\n* Hong Kong Medical Technologists Board. Code of practice of the medical laboratory technologists board of Hong Kong: for the guidance of registered medical laboratory technologists. <http://www.smp-council.org.hk/mlt/file/pdf/Code%20of%20Practice%20(Apr%202012).pdf>\n* van Emden J. Effective communication for science and technology. Palgrave, 2001.\n* Seely J. The Oxford guide to effective writing and speaking. Oxford University Press, 2005.\n* Andy Hewitt A. Construction claims & responses: effective writing & presentation. John Wiley, 2011.\n* The Chinese University of Hong Kong. Information literacy tutorial. <https://portal.cuhk.edu.hk/psp/epprd/CUHK/ENTP/s/WEBLIB_CU_GRP10.ISCRIPT1.FieldFormula.IScript_CU_SSO?sso=CU_LIBRARY_HOME&type=staff&FolderPath=PORTAL_ROOT_OBJECT.CU_PORTAL_ROOT.CU_LIBRARY_STAFF.CU_LIBRARY_HOME_STAFF&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder>\n* The Chinese University of Hong Kong. Copyright and intellectual property rights. <http://www.cuhk.edu.hk/policy/copyright/en/>.\n* The Chinese University of Hong Kong. Honesty in academic work: a guide for students and teachers. <http://www.cuhk.edu.hk/policy/academichonesty/>.\n* University Safety Office, The Chinese University of Hong Kong.Safety Manual and Guidelines. <http://www.cuhk.edu.hk/useo/safety/ko_labsafety/_labsafety.html>.\n* National Pathology Accreditation Advisory Council, Australia. Requirements for quality management in medical laboratories. Second edition, 2007. <http://www.health.gov.au/internet/main/publishing.nsf/Content/6282D1966161A977CA25728B000FAB1B/$File/dhaquality.pdf>"
     },
     {
       "subject": "MLSC",
@@ -90,7 +101,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "Upon completion of the course, students should comprehend the fundamental statistical notions, appropriate methods, effect size and uses of commonly available statistical softwares to analyze data and test significance in medical laboratory: the level of measurement, descriptive statistics, normal distribution, confidence intervals, predictive value, likelihood ratios, hypothesis testing by appropriately using statistical methods of Student's t-test, Chi-square test, ANOVA, Pearson's correlation and Regression, Mann Whitney U test, Spearman's rank correlation, receiver operating characteristic curve, Bland and Altman plot, cluster analysis and linear discriminant analysis. They should also recognize the accuracy and precision of data derived from analyzing clinical samples, basic concepts, impacts and reports on measurement uncertainty in medical laboratories, and be able to identity and classify components of measurement uncertainty, evaluate, express and record combined measurement uncertainty.   \n   \nStudents should perceive the importance of a proactive quality system aiming at error prevention and quality improvement in medical laboratories by implementing pre-analytical and analytical measures and procedures, comparing with standards, monitoring of laboratory processes and technical competency of personnel, and feedbacks to ensure the competency of medical laboratories in delivering timely, accurate and reliable results.\n\nStudents should be able to understand ISO 15189:2022 requirements for quality and competence to medical testing laboratory.",
+      "course_syllabus": "* Biostatistics\n* Measurement of uncertainty\n* Quality assurance\n* Laboratory accreditation",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "75",
+        "Homework or assignment": "15"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "* Matthew DE, Farewell VT. Using and understanding medical statistics. Second edition, Karger 1988.\n* Machin D, Campbell MJ, Walters SJ.Medical statistics: a textbook for the health sciences. Fourth edition, Wiley 2007.\n* Bell S. A Beginner’s Guide to Uncertainty of Measurement Issue 2. 2001. 2001. <https://www.dit.ie/media/physics/documents/GPG11.pdf>\n* National Institute of Standards and Technology (NIST).The NIST reference on constants, units and uncertainty.<http://physics.nist.gov/cuu/Uncertainty/>\n* European Federation of National Associations of Measurement, Testing and Analytical Laboratories. Guide to the Evaluation of Measurement Uncertainty for Quantitative Test Results.2006. <http://www.eurolab.org/documents/1-2006.pdf>\n* International Laboratory Accreditation Cooperation. ISO 15189 medical laboratory accreditation. <https://ilac.org/?ddownload=120819>\n* Changes in the New ISO 15189:2022 <https://blog.ansi.org/anab/changes-in-the-new-iso-15189-2022/#gref>\n* American Association for Laboratory Accreditation. General requirements: accreditation of ISO 15189 medical testing laboratories. <https://portal.a2la.org/requirements/15189_R901.pdf>"
     },
     {
       "subject": "MLSC",
@@ -133,7 +154,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "\\* The student should be able to enhance and update his knowledge and expertise of medical laboratory professionals to cope with the ever-changing service demands;   \n\\* The student should be able to improve his skills on critical analysis, problem solving and innovative thinking, in addition to the integration of theory and application of diagnostic laboratory techniques;   \n\\* The student should be equipped with the necessary research skill and deliver evidence-based medical laboratory services;   \n\\* The student should have the skills and knowledge for a good career in medical laboratory science.",
+      "course_syllabus": "1. General Immunology I\n2. General Immunology II\n3. Allergy and Laboratory Diagnosis\n4. Immunological Diseases – An Introductory Clinical Perspective\n5. Infection and Immunity, Immunodeficiency\n6. Clinical Transplantation, Tumor Immunology; Immunoprophylaxis and Immunotherapy\n7. Laboratory Techniques in Clinical Immunology",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "90"
+      },
+      "feedback_evaluation": "Online course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "Stuart Ralston Ian Penman Mark Strachan Richard Hobson. Davidson's Principles and Practice of Medicine. 23rd Edition, Elsevier, 2018."
     },
     {
       "subject": "MLSC",
@@ -149,7 +179,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "In the course, the students are expected to acquire essential and fundamental knowledge about the cutting-edge biomedical researches related to modern medicine and laboratory technology. They are also expected to recognize the limitations of conventional diagnostic and prognostic tests and appreciate the newly developing strategies to overcome these limitations. Through keeping abreast of recent scientific developments and apprehending their logical and creative thoughts, the students could be able to develop their own critical and scientific thinking and creativities. In addition, they could be able to identify and organize critical and relevant information from the fragmented and overwhelming information pool in the fast-pacing biomedical researches. Eventually, they are equipped to participate and contribute in the fields of biomedical research and/or clinical applications of these technologies.",
+      "course_syllabus": "**Frontiers in medical laboratory sciences**: It is designed to train students in keeping abreast of recent advances in proteinomics, immunotherapy, genetic engineering, stem cell technology, bio-micro-electro-mechanical systems and nanotechnology. Current research in these areas will be discussed.\n\n**Laboratory technology**: It focuses on the principle and applications with specific highlights of the accuracy, precision and limitation of the latest advanced medical laboratory technolgies. The current usages in clinical applications and research will be discussed.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "70",
+        "Homework or assignment": "20"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": ""
     },
     {
       "subject": "MLSC",
@@ -165,7 +205,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "1. To acquire a modern knowledge of genes and functions    \n2. To familiarize with modern genetic and molecular techniques as applied to medical laboratory sciences.",
+      "course_syllabus": "**Genetics**: It encompasses the structure and function of genes and chromosomes; autosomal dominant and recessive inheritance; sex-linked mitochondrial inheritance; genetics of development, metabolic disorder and cancer; genetic screening, diagnosis, counselling and therapy; recent advances in cytogenetic and molecular genetic detection methods of fluorescent in situ hybridization (FISH), multi-colour FISH, high-resolution multi-colour banding (MCB), spectral karyotyping (SKY), reverse transcriptase-polymerase chain reaction (RT-PCR), gene mapping and cloning.\n\n**Gene expression and regulation**: It deals with the transcription machinery of transcription factors, core promoter elements, co-factors and chromatin; histone acetyltransferase and histone deacetylase complex; transcriptional activators and repressors; chromatin remodelling and X-inactivation; DNA methylation and gene silencing; comparative genomics of tissue specific gene expression; cell death and transcription; pre-mRNA splicing; biogenesis and function of siRNA, miRNA and piRNA; gene therapy; laboratory diagnostics and detection.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "90"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": ""
     },
     {
       "subject": "MLSC",
@@ -208,7 +257,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "1. To be familiar with the general and specialized techniques utilized in diagnostic histopathology laboratories    \n2. To be familiar with the general techniques utilized in diagnostic cytology laboratories",
+      "course_syllabus": "* Cell injury and cell death; inflammation\n* Principles of neoplasia and pathology of tumour\n* Molecular pathology\n* Surgical cut ups; design of histology benches; automation in histology\n* Immunohistochemistry; new diagnostic antibodies\n* Special stains in modern histology\n* Gynecologic and non-gynecologic cytopathology\n* Mortuary management\n* Quality assurance in histology",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "90"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "V Kumar. Robbins and Cotran's Pathologic Basis of Diseases.   Eighth edition"
     },
     {
       "subject": "MLSC",
@@ -224,7 +282,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "1. To be familiar with the general and specialized techniques utilized in diagnostic histopathology laboratories    \n2. To be familiar with the general techniques utilized in diagnostic cytology laboratories",
+      "course_syllabus": "* Cell injury and cell death; inflammation\n* Principles of neoplasia and pathology of tumour\n* Molecular pathology; pathology of various organs and systems\n* Endocrine pathology; gynaecologic pathology\n* Managements of fluids, fine needle aspiration cytology",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "90"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "V Kumar. Robbins and Cotran's Pathologic Basis of Diseases.   Eighth edition"
     },
     {
       "subject": "MLSC",
@@ -267,7 +334,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "Students are ensured to understand the interface between basic science and clinical medicine. The course aims to give an in-depth knowledge of the nature of analytic principles, instrumentation, homeostasis, aetiology, pathogenesis, genetic controls, clinicopathological features and principles of treatment of disorders of the renal, endocrine and cardiovascular systems. Other major objectives are to enlighten medical laboratory professionals with competency in generation, transmission, and reception of messages; defining objectives and main points; critical analysis, argument and opinion via oral presentation and written report.",
+      "course_syllabus": "* Laboratory principles, instrumentation and applications in spectrophotometry, fluorometry, turbidimetry, nephelometry, atomic absorption, chromatography, mass spectrometry, electrophoresis, electrochemistry, immunoassay, point-of care testing and molecular diagnostics technology\n* Water, electrolytes and acid-base balance, structure and functions of the kidney\n* Fluid and electrolyte homeostasis and disturbances, kidney diseases and its complications\n* Analytical aspects and biomarkers of renal function\n* Renal stones and renal replacement therapy\n* General endocrinology, principles, disorders of calcium metabolism\n* Thyroid gland, adrenal gland\n* Disorders of glucose metabolism\n* Sex hormone and growth\n* Structure and function of the cardiovascular system heart failure\n* Atherosclerosis and cardiovascular diseases\n* Analytical aspects of markers of cardiovascular diseases\n* Hypertension, biochemistry of lipids and dyslipidemia\n* Analytical aspects of triglyceride and cholesterol\n* Inherited metabolic disorders causing cardiovascular diseases",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "75",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "* Nader Rifai. Tietz Textbook of Clinical Chemistry and Molecular Diagnostics, 6th edition. USA: Elsevier Saunders 2017.\n* Marshall W, Lapsley M, Day A. Clinical Chemistry, 8th edition. USA: Mosby 2016.\n* Kaplan LA, Pesce AJ. Clinical Chemistry: Theory, Analysis, Correlation, 5th edition. USA: Mosby 2010."
     },
     {
       "subject": "MLSC",
@@ -283,7 +360,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "Students are ensured to understand the interface between basic science and clinical medicine. The course aims to give an in-depth knowledge of the homeostasis, aetiology, pathogenesis, genetic controls, clinico-pathological features of disorders of the renal, endocrine and cardiovascular systems, and principles of analytic techniques and laboratory instrumentation.",
+      "course_syllabus": "* Disorders of the gastrointestinal system\n* Disorders of the neuromuscular system\n* Haematological biochemistry and nutritional status\n* Clinical biochemistry of pregnancy and childhood\n* Toxicology, pharmacology and pharmacogenetics",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "90"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "* Marshall W, Bangert SK. Clinical Chemistry, 6th edition. USA: Mosby 2008.\n* Kaplan LA, Pesce AJ. Clinical Chemistry: Theory, Analysis, Correlation, 3rd edition. USA: Mosby 1997.\n* Williams D, Marks V. Scientific Foundations of Biochemistry in Clinical Practice, 2nd edition. UK: Butterworth-Heinemann 1998.\n* Edwards CRW, Bouchier IAD. Davidson's Principles and Practice of Medicine, 17th edition. UK: WB Saunders 1996."
     },
     {
       "subject": "MLSC",
@@ -326,7 +412,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "Students are ensured to understand the interface between basic science and clinical medicine of normal and abnormal haematopoiesis and leukaemogenesis. The course aims to give an in-depth knowledge of the nature of haemic malignancies including the aetiology, pathogenesis, genetic controls, clinicopathological features and principles of treatment of haemic malignancies. Other major objectives are to enlighten medical laboratory professionals with technical competency in blood cell morphology, cytogenetics and molecular genetics in disease phenotypes.",
+      "course_syllabus": "* in health and disease\n* Characterization of haematopoietic stem cells\n* Flow cytometry and immunophenotyping\n* Cytogenetics and molecular genetics of haematologic diseases\n* Investigation of myelodysplastic / myeloproliferative neoplasms, lymphoproliferative neoplasms, leukaemias and lymphomas\n* Therapy for acute leukaemias, chronic leukaemias, myelodysplastic / myeloproliferative neoplasms and lymphoproliferative neoplasms\n* Haematopoietic stem cell technology and transplantation",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "65",
+        "Presentation": "25"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "* Kondo M (Ed.) Hematopoietic Stem Cell Biology. First Edition, Humana Press 2010.\n\n* Shaffer LG, Slovak ML, Campbell LJ. An International System for Human Cytogenetic Nomenclature. Karger 2009.\n* Nguyen D, Diamond LW, Braylan RC. Flow cytometry in haematopathology: a visual approach to data analysis and interpretation.New Jersey, NY: Humana Press 2003.\n* Swerdlow, S.H., Campo, E., Harris, N.L., Jaffe, E.S., Pileri, S.A., Stein, H., Thiele, J., Vardiman, J.W.WHO classification of tumours of haematopoietic and lymphoid tissues. Fourth Edition, Lyon, IARC Press 2008.\n* Adverse effects of immune-checkpoint inhibitors:management and surveillance;Nature Reviews Clinical Oncology volume 16, pages563–580 (2019)\n* A Review of Efficacy and Safety of Checkpoint Inhibitor for the Treatment of Acute Myeloid Leukemia:Front. Pharmacol., 06 June 2019 | https://doi.org/10.3389/fphar.2019.00609"
     },
     {
       "subject": "MLSC",
@@ -342,7 +438,16 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "Students are ensured to understand the interface between basic science and clinical medicine. The course aims to give an in-depth knowledge of the homeostasis, aetiology, pathogenesis, genetic controls, clinico-pathological features of coagulopathy, platelet disorders, red cell disorders, transfusion science, immunogenetics, and principles of analytic techniques and laboratory investigations.",
+      "course_syllabus": "* Platelet disorders and coagulopathy\n* Red cell disorders: pathophysiology, investigation and treatment\n* Immunohaematology and Transfusion science\n* Immunogenetics: Genetic recombination in the early stages of immunoglobulin and T cell receptors, HLA system and typing; bone marrow registry and donor/graft selection",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "90"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "* Michelson AD (Ed.). Platelets. Second Edition. Academic Press, 2006.\n* Action QA (Ed.).Blood Coagulation Factors: Advances in Research and Application: 2011 Edition. Scholarly Editions, 2012.\n* Hoffbrand AV, Pettit JE, Moss PA. Essential Haematology. Sixth Edition, Blackwell Science 2011.\n* Bain BJ, Bates I, Laffan MA, Lewis SM. Dacie and Lewis Practical Haematology. 11th Edition, Elsevier, 2011.Thalassaemia International Federation. Guidelines for the Clinical Management of Thalassaemia. Second Edition, 2008.\n* Eleftheriou A. Compliance to iron chelation therapy with desferrioxamine. Thalassaemia International Federation, 2000.\n* Roback JD (Ed.). AABB Technical Manual. 17th Edition, American Association of Blood Banks 2011.\n* Appelbaum FR, Forman SJ, Negrin RS, Blume KG (Ed.). Thomas’ hematopoietic cell transplantation. Fourth Edition, Wiley-Blackwell, 2009."
     },
     {
       "subject": "MLSC",
@@ -385,7 +490,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "1. To learn microbiologic investigations of a broad range of infectious diseases    \n2. To appreciate new technologies in the laboratory diagnoses of infectious diseases",
+      "course_syllabus": "1. Structure, classification, metabolism, genetics of normal flora and pathogens\n2. Pathogenesis, epidemiology, principle of diagnosis\n3. Application of molecular techniques in microbiology\n4. Antibiotics and mechanism of bacterial resistance",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "75",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": ""
     },
     {
       "subject": "MLSC",
@@ -401,7 +516,17 @@
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "\\*To have detailed knowledge of the laboratory investigations of fungal and parasitic diseases   \n\\*To familiarize with laboratory investigations regarding immunocompromised patients",
+      "course_syllabus": "* Mycology\n* Parasitology\n* Vaccines for the prevention of human infectious diseases\n* Role of microbiology laboratory and infection control\n* Infections in immunocompromised patients, laboratory investigations Zoonoses and bioterrorism",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "70",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": "N/A"
     },
     {
       "subject": "MLSC",
@@ -417,7 +542,17 @@
       "component": "Project",
       "campus": "Main Campus",
       "academic_group": "Div of Anatomical & Cell Patho",
-      "academic_org": "Div of Anatomical & Cell Patho"
+      "academic_org": "Div of Anatomical & Cell Patho",
+      "learning_outcomes": "The project allows the student to undertake an important piece of research activities in a topic related to the selective course of the study programme of Master of Science in Medical Laboratory Sciences in a constrained period of time. It is the key element of the programme intended to extend student’s knowledge and understanding of one particular discipline in a more in-depth level, which may not be possible by undertaking taught post-graduate courses. Besides, it provides the opportunity for the student to specialise in a particular area of study in line with the student’s career interests and aspirations. Student is expected to satisfactorily complete a basic research training and undertake a substantial piece of independent work, which is a more advanced and intensive study than a first degree, in not less than 12 months, and present a satisfactory thesis.   \n   \nUpon completion of the research project, student will be able to display and demonstrate the following abilities and expertise:   \n• asking critical questions;   \n• effectively reviewing literature for likely answers to the queries;   \n• putting up hypotheses;   \n• designing vigorous testings of the conjectures;    \n• being competent to investigate the specific subjects;   \n• being able to focus on unique issues;   \n• undertaking independent research;   \n• effectively working with research collaborators and colleagues;   \n• complying to medical ethics and the importance of good research practice;   \n• meticulously analysing and evaluating research data;   \n• presenting information both orally and in written form to a professional standard.",
+      "course_syllabus": "* A minimum of 40 – 50 hours of bench work.However, experimental hurdles are not easily solved and hardly predictable, a longer time might be required in many situations.\n* An equivalent amount of time for literature search and review.\n* Frequent communication, interaction, discussion and consultation with the project supervisor in a timely manner.\n* Timely submission of the progress report.\n* Oral presentation of experimental findings to and answering questions from the audience.\n* An equivalent amount of time for writing up a dissertation of not less than 8,000 words.",
+      "assessment_types": {
+        "Presentation": "30",
+        "Project": "20",
+        "Report": "50"
+      },
+      "feedback_evaluation": "Online Course Evaluation will be offered at the end of each semester.",
+      "required_readings": "N/A",
+      "recommended_readings": ""
     }
   ]
 }
