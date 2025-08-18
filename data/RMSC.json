@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-17T18:39:17.993294+00:00",
+    "scraped_at": "2025-08-18T09:50:12.520734+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 36,
@@ -726,10 +726,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "99",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -746,10 +746,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "99",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -766,12 +766,16 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) explain the notion of variation as a measure of risk and its relationship to statistics and risk management;\n(2) demonstrate the ability to understand the concepts of mean-variance analysis and Markowitz optimal portfolio for a one-period investment;\n(3) interpret and infer from the mean-variance analysis and the ideas of efficient frontiers and minimum variance portfolio;\n(4) understand the notion of factor models and their relationships to linear regressions;\n(5) relate the celebrated CAPM model with factor models and their statistical underpinnings;\n(6) explain the concepts of APT and its reconciliation with the CAPM;\n(7) explain and demonstrate the basic notions of diffusions and their applications to finance and risk management;\n(8) demonstrate a basic understanding of Ito’s calculus;\n(9) demonstrate a working knowledge of applying Ito’s calculus, in particular with respect to standard Brownian motion;\n(10) differentiate both conceptually and practically the notion of integration by parts between ordinary and Ito’s calculus;\n(11) apply Ito’s calculus to option pricing and the Black-Scholes formula; and\n\n(12) acquire the necessary background for other courses in risk management and finance, including but not limited to RMSC4001, RMSC4002, RMSC4005 and RMSC4007.",
+      "course_syllabus": "This course is designed to introduce the current developments of risk management in the financial markets. Two general important areas of risk management in finance: (1) asset management and (2) derivative pricing. Emphasis will be placed on the statistical modeling aspects on some of the commonly used models in the area of market risk.",
+      "assessment_types": {
+        "Essay test or exam": "45",
+        "Project": "20",
+        "Short answer test or exam": "35"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "David G. Luenberger, Investment Science, 7th edition, Oxford University Press",
+      "recommended_readings": "David Ruppert, Statistics and Finance – An Introduction, Springer-Verlag"
     },
     {
       "subject": "RMSC",
@@ -853,11 +857,15 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
+      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand, in an actuarial context, what is meant by the word “model”, how and why models are used, their advantages and their limitations;\n(2) understand the important results that can be obtained from these models for the purpose of making business decisions and the approaches that can be used to determine these results;\n(3) generalise knowledge from the actuarial sector to other business environments; and\n\n(4) solve the questions in Exams M and C offered by the Society of Actuaries.",
+      "course_syllabus": "Risk can be thought as the potential losses in accidents. The amount of loss in each accident and the frequency of the occurrence of accidents should be considered to quantify risk. To eliminate these potential losses, individual will seek for insurance. From an individual point of view, insurance is an economic device whereby the individual substitutes a small certain cost (the premium) for a large uncertain financial loss (the contingency insured against) that would exist if there were not for insurance. In this course, the modeling of frequency and severity will be studied. The aggregate loss model will then be introduced. Then credibility theory will be discussed.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "15",
+        "Short answer test or exam": "35"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "Klugman, S.A., Panjer, H.H. and Willmot, G.E. Loss Models: From Data to Decisions. 2nd Edition. John Wiley, 2004.",
       "recommended_readings": ""
     },
     {
@@ -875,12 +883,16 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) do the basic option pricing (the Black-Sholes approach) for European and American options under the assumption that the stock price behaves as a drifted Brownian Motion; and\n(2) do the basic manipulation of stochastic integrations and stochastic partial differential equations.",
+      "course_syllabus": "Stochastic Calculus is an advance tool for modeling prices of risky assets. In this course you will learn the basics of stochastic calculus without going through the rigorous mathematics of measure theory. The following topics will be covered in this course:\n\n1. Examples of arbitrage and pricing in a single period forward option\n2. The multi-period binary model\n3. Conditional expectation and Martingale\n4. Continuous stochastic process and Brownian motion\n5. Stochastic integral and Ito’s formula\n6. Stochastic differential equation\n7. Applications of stochastic calculus in finance\n8. The Black-Scholes Model and pricing for European option",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "30",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "NA",
+      "recommended_readings": "A course in Financial Calculus / A. Etherridge\nIntroduction to Stochastic Calculus with Application / F. C. Klebaner"
     },
     {
       "subject": "RMSC",
@@ -956,12 +968,16 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n1. understand the Basel regulations on operational risk.\n2. build statistical models for operational risk\n3. understand extreme value theory and copula models\n4. calculate operational value-at-risk and price operational risk derivatives\n5. use statistical software to conduct machine learning algorithms and statistical inference and for operation risk models",
+      "course_syllabus": "Operational risk refers to the uncertainties and hazards a company faces under its day-to-day business activities. It usually involves some events that rarely happen but lead to huge lost. Therefore, extreme value theory is crucial to characterize the behaviors of these events. Moreover, copula is an important tool to model the dependency among the operational risks from several business lines. In this course we investigate the use of extreme value theory and copula on managing operational risk. Machine learning techniques for managing operational risk will also be explored.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "30",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "NA",
+      "recommended_readings": "Cruz, M. 2002. Modeling, Measuring and Hedging Operational Risk. John Wiley & Sons, London.\nPanjer, H.H. 2006. Operational Risk – Modeling Analytics. John Wiley & Sons, New Jersey."
     },
     {
       "subject": "RMSC",
@@ -1037,12 +1053,16 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand derivative pricing theories;\n(2) understand structure products and their risk management;\n(3) conduct risk management reports of financial products;\n(4) enhance their teamwork and presentation skills; and\n\n(5) understand structural credit risk models.",
+      "course_syllabus": "This course aims at understanding the application of derivatives theories for the practical risk management. It starts by reviewing basic concepts of pricing and hedging derivatives, like risk-neutral valuation, arbitrage strategies, hedging strategies, implied volatilities and the Greeks. The Value-at-Risk framework for derivatives positions is discussed. Student will also learn how to apply option theoretic approach to credit risk management. Specifically, the capital structure model will be applied to measure the default probability. The Moody's KMV methodology and CreditRisk+ are introduced.",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "50",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "J. Hull. Options, Futures and Other Derivatives (The 6th edition or after)",
+      "recommended_readings": "N.H. Chan and H.Y. Wong (2006). Simulation Techniques in Financial Risk Management, Wiley"
     },
     {
       "subject": "RMSC",
@@ -1090,7 +1110,7 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course"
+              "class_attributes": "English only"
             },
             {
               "section": "-T01-TUT (6423)",
@@ -1110,7 +1130,7 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course"
+              "class_attributes": "English only"
             }
           ]
         }
@@ -1124,12 +1144,15 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon course completion, students should be able to\n(1) conduct research on practical financial and risk management problems;\n(2) apply the statistical methods learnt in different courses; and\n(3) learn presentation skills.",
+      "course_syllabus": "The course is to provide an opportunity for students to apply their knowledge to solve real-world problem. Students will be required to complete an individual project, give a final project presentation, and submit a written report, on which their assessment will be based.",
+      "assessment_types": {
+        "Homework or assignment": "70",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "There is no formal lectures for the course. Students meet up with the course instructor individually to discuss the corresponding projects.",
+      "required_readings": "No Required and Recommended Readings. Students read different academic papers according to the topics of their research projects.",
+      "recommended_readings": "No Required and Recommended Readings."
     },
     {
       "subject": "RMSC",
@@ -1177,7 +1200,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course"
+              "class_attributes": "English only"
             },
             {
               "section": "-T01-TUT (6403)",
@@ -1197,7 +1220,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course"
+              "class_attributes": "English only"
             }
           ]
         }
@@ -1249,7 +1272,7 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship"
+              "class_attributes": "English only"
             }
           ]
         },
@@ -1275,7 +1298,7 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship"
+              "class_attributes": "English only"
             }
           ]
         }
@@ -1327,7 +1350,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship"
+              "class_attributes": "English only"
             }
           ]
         },
@@ -1353,7 +1376,7 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship"
+              "class_attributes": "English only"
             }
           ]
         }
