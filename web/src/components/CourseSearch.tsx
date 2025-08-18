@@ -784,6 +784,7 @@ export default function CourseSearch({
                   <div className="space-y-1">
                     {searchTerm && <p>• Clearing the search term</p>}
                     {selectedSubjects.size > 0 && <p>• Changing or removing subject filters</p>}
+                    {selectedDays.size > 0 && <p>• Removing day filters (currently filtering by {Array.from(selectedDays).map(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'][day]).join(', ')})</p>}
                     <p>• Searching for course codes like &ldquo;CSCI3100&rdquo;</p>
                     <p>• Searching for course titles like &ldquo;In Dialogue with Nature&rdquo;</p>
                     <p>• Searching for instructor names</p>
