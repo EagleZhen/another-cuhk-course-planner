@@ -8,6 +8,7 @@ export interface InternalCourse {
   credits: number
   description?: string
   enrollmentRequirement?: string
+  courseAttributes?: string
   gradingBasis?: string
   terms: InternalTerm[]
   // Course Outcome fields

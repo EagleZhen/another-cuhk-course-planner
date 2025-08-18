@@ -1881,11 +1881,19 @@ function CourseCard({
                 </div>
               )}
 
+              {/* Course Attributes - Language, course type, etc. */}
+              {course.courseAttributes && (
+                <div>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Course Attributes</h4>
+                  <p className="text-sm text-gray-600 whitespace-pre-line">{course.courseAttributes}</p>
+                </div>
+              )}
+
               {/* Description */}
               {course.description && (
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Description</h4>
-                  <p className="text-sm text-gray-600">{course.description}</p>
+                  <p className="text-sm text-gray-600 whitespace-pre-line">{course.description}</p>
                 </div>
               )}
 
