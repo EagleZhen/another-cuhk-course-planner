@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import FeedbackButton from '@/components/FeedbackButton'
 import MobileDesktopNotice from '@/components/MobileDesktopNotice'
 
@@ -95,7 +94,6 @@ export default function RootLayout({
         <MobileDesktopNotice />
         <FeedbackButton />
         <Analytics/>
-        <SpeedInsights/>
       </body>
     </html>
   );
