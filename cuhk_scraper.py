@@ -43,7 +43,7 @@ class ScrapingConfig:
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,       # No debug files in production
             save_debug_on_error=True,     # Only save HTML on parsing errors
-            debug_html_directory="data/debug_html",  # Separate debug folder
+            debug_html_directory="tests/output/debug_html",  # Separate debug folder
             request_delay=1.0,
             max_retries=10,
             output_mode="per_subject",  # Per-subject files for production
@@ -1396,6 +1396,9 @@ class CuhkScraper:
             # Submit Course Outcome request
             self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
             response = self._robust_request('POST', self.base_url, data=form_data)
+            
+            # Debug: save Course Outcome response (using smart saving)
+            self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
             
             # Parse Course Outcome page
             self._parse_course_outcome_content(response.text, course)
