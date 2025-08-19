@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T01:36:23.218011+00:00",
+    "scraped_at": "2025-08-19T03:29:50.343829+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
     "total_courses": 83,
@@ -1308,7 +1308,7 @@
                 "capacity": "100",
                 "enrolled": "61",
                 "waitlist_capacity": "999",
-                "waitlist_total": "32",
+                "waitlist_total": "33",
                 "available_seats": "39",
                 "status": "Open"
               },
@@ -1348,7 +1348,7 @@
                 "capacity": "60",
                 "enrolled": "29",
                 "waitlist_capacity": "999",
-                "waitlist_total": "14",
+                "waitlist_total": "15",
                 "available_seats": "31",
                 "status": "Open"
               },
@@ -2079,10 +2079,10 @@
               ],
               "availability": {
                 "capacity": "180",
-                "enrolled": "148",
+                "enrolled": "147",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "32",
+                "available_seats": "33",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2207,11 +2207,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -2570,10 +2570,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "77",
+                "enrolled": "76",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2602,10 +2602,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "39",
+                "enrolled": "38",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8401,19 +8401,19 @@
               "meetings": [
                 {
                   "time": "We 3:30PM - 6:15PM",
-                  "location": "Wen Lan Tang LG204",
+                  "location": "Lee Shau Kee Building 304",
                   "instructor": "Professor LEE Pak Ching",
                   "dates": "3/9, 10/9, 17/9, 24/9"
                 },
                 {
                   "time": "We 3:30PM - 6:15PM",
-                  "location": "Wen Lan Tang LG204",
+                  "location": "Lee Shau Kee Building 304",
                   "instructor": "Professor LEE Pak Ching",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
                   "time": "We 3:30PM - 6:15PM",
-                  "location": "Wen Lan Tang LG204",
+                  "location": "Lee Shau Kee Building 304",
                   "instructor": "Ms. CHAN Lee Ping, \nProfessor LEE Pak Ching",
                   "dates": "5/11, 12/11, 19/11, 26/11"
                 }
@@ -8433,19 +8433,19 @@
               "meetings": [
                 {
                   "time": "We 2:30PM - 3:15PM",
-                  "location": "Wen Lan Tang LG204",
+                  "location": "Science Centre L5",
                   "instructor": "Professor LEE Pak Ching",
                   "dates": "3/9, 10/9, 17/9, 24/9"
                 },
                 {
                   "time": "We 2:30PM - 3:15PM",
-                  "location": "Wen Lan Tang LG204",
+                  "location": "Science Centre L5",
                   "instructor": "Professor LEE Pak Ching",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
                   "time": "We 2:30PM - 3:15PM",
-                  "location": "Wen Lan Tang LG204",
+                  "location": "Science Centre L5",
                   "instructor": "Professor LEE Pak Ching",
                   "dates": "5/11, 12/11, 19/11, 26/11"
                 }
@@ -8531,10 +8531,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "41",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8848,10 +8848,28 @@
               "section": "--LEC (4594)",
               "meetings": [
                 {
-                  "time": "Th 12:30PM - 3:15PM",
-                  "location": "TBA",
-                  "instructor": "Ms. CHAN Lee Ping, \nProfessor Lauren Marcelyn PICK",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "13/11, 20/11, 27/11"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -8869,9 +8887,15 @@
               "meetings": [
                 {
                   "time": "Th 11:30AM - 12:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "location": "William M W Mong Eng Bldg 404",
                   "instructor": "Professor Lauren Marcelyn PICK",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -8929,10 +8953,10 @@
               ],
               "availability": {
                 "capacity": "300",
-                "enrolled": "18",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "282",
+                "available_seats": "283",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8955,10 +8979,10 @@
               ],
               "availability": {
                 "capacity": "300",
-                "enrolled": "20",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "280",
+                "available_seats": "281",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9030,7 +9054,7 @@
               ],
               "availability": {
                 "capacity": "300",
-                "enrolled": "303",
+                "enrolled": "304",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -10657,10 +10681,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "12",
+                "enrolled": "11",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11103,10 +11127,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "5",
+                "enrolled": "6",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11263,10 +11287,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "12",
+                "enrolled": "11",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"

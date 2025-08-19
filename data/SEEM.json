@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T10:00:57.002806+00:00",
+    "scraped_at": "2025-08-19T11:28:10.880670+00:00",
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engg Mgt",
     "total_courses": 77,
@@ -4186,12 +4186,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of System Erg & Erg Mgt",
       "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the completion of the course, the student should have acquired the knowledge and ability relating to:\n• Knowledge of different levels of description (namely, acoustic, phonetic and linguistic levels) of human speech and language,\n• Understanding the component technologies for processing human speech and language at different levels,\n• Understanding the AI technologies, such as automatic speech recognition, natural language understanding, dialog modeling, knowledge graph search, natural language generation, as well as text-to-speech synthesis,\n• Develop different AI technologies and integrate them into different human speech and language systems,\n• Develop end-to-end conversational AI systems.",
+      "course_syllabus": "Human Speech Chain, Linguistic Hierarchy\nAutomatic Speech Recognition with Language Modeling\nNatural Language Processing (shallow structures)\nNatural Language Processing (deep structures)\nSpeech Understanding, Natural Language Understanding (embeddings)\nDialog modeling and discourse tracking in conversational dialogs\nKnowledge graph search in support of interactive dialogs\nNatural Language Generation (system-initiative, mixed-initiative, other types)\nConcept-to-Speech Generation\nText-to-Speech Synthesis (emotive and expressive synthesis)\nOther variations, e.g. machine translation systems, speech/text mining and retrieval systems, summarization systems",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Presentation": "30",
+        "Project": "15",
+        "Report": "35"
+      },
+      "feedback_evaluation": "Feedbacks from students, CTE.",
+      "required_readings": "According to the course teacher in the respective teaching term.\n\n| | | | | |\n| --- | --- | --- | --- | --- |",
+      "recommended_readings": "Spoken Language Processing: A Guide to Theory, Algorithm and System Development, by X.D. Huang, A. Acero, H.W. Hon, Prentice Hall\nSpeech and Language Processing, 2nd Edition by D Jurafsky, Prentice Hall"
     },
     {
       "subject": "SEEM",
@@ -4241,12 +4246,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of System Erg & Erg Mgt",
       "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Understand how integer programming models are used for formulating and solving real-world decision making problems.\n2. Know the basic concepts of complexity theory and understand the difference between ``easy'' problems and ``hard'' problems.\n3. Understand the basic theory and methods for linear integer programming.\n4. Understand duality theory for general integer programming.\n5. Learn algorithmic techniques for different classes of nonlinear integer programming problems.\n6. Be able to read, digest, and understand academic journal articles on integer programming",
+      "course_syllabus": "The course deals with theory and algorithms for solving integer and combinatorial optimization problems. Theoretical topics include general concepts such as relaxations, bounds, duality, and total unimodularity. Solution methods cover branch-and-bound, cutting planes, branch-and-cut, Lagrangian relaxations, local search, and metaheuristics. Optimization software and programming languages will be used to implement the methods for solving optimization problems.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "60"
+      },
+      "feedback_evaluation": "Feedbacks from students, CTE.",
+      "required_readings": "As recommended by course teacher.",
+      "recommended_readings": "Wolsey, Integer Programming, Wiley, 1998.\nChen, Batson, and Dang, Applied Integer Programming, Wiley, 2010.\nTalbi, Metaheuristics: From Design to Implementation, Wiley, 2009.\nGendreau and Potvin, Handbook of Metaheuristics, Springer, 2010.\nEglese, Simulated annealing: A tool for operational research, European Journal of Operational Research, 46(3), pp. 271-281, 1990.\n+ Other Journal Articles"
     },
     {
       "subject": "SEEM",
@@ -4263,12 +4271,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of System Erg & Erg Mgt",
       "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Understanding the essences of stochastic calculus,\n2. Understanding the no-arbitrage principle and fundamental theory of asset pricing,\n3. Be able to use the tool of Ito calculus to build up financial pricing models,\n4. Be able to carry out PDE and probabilistic approaches to evaluate financial securities.",
+      "course_syllabus": "The course introduces some basic concepts of stochastic calculus, an important mathematical tool used in financial engineering, and based on it, treats systematically the theory of risk neutral pricing. It will discuss extensively various applications in option pricing and financial modeling.",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Others": "20"
+      },
+      "feedback_evaluation": "Feedbacks from students, CTE.",
+      "required_readings": "S. E. Shreve, Stochastic Calculus for Finance II: Continuous-Time Models. Springer.\n\nT.Bjork, Arbitrage Theory in Continuous Time. 3rd Edition. Oxford University Press.",
+      "recommended_readings": "1. D. Duffie, Dynamic Asset Pricing, 3rd Edition, Princeton University Press.\n2. P. Glasserman, Monte Carlo Methods in Financial Engineering, Springer.\n3. YK, Kwok, Mathematical Models of Financial Derivatives, 2nd Edition, Springer."
     },
     {
       "subject": "SEEM",
@@ -4285,12 +4296,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of System Erg & Erg Mgt",
       "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the completion of the course, the student should have acquired the ability to understand\n(i) techniques for text mining models\n(ii) text data analytics\n(iii) text mining applications",
+      "course_syllabus": "Massive amount of text data exist in electronic form such as news, emails, Web pages, memos, reports, etc. It generates a large demand for advanced techniques for retrieval and mining. The data typically ranges from semi-structured form (such as Web pages) to free texts (natural language texts). This course discusses methods for retrieving relevant text documents and analyzing text data based on machine learning approaches. Advanced models such as text classification, latent semantic indexing, topic modeling, neural network models will also be presented.",
+      "assessment_types": {
+        "Essays": "25",
+        "Essay test or exam": "40",
+        "Presentation": "20",
+        "Short answer test or exam": "15"
+      },
+      "feedback_evaluation": "Feedback from students; course evaluation.",
+      "required_readings": "According to the course teacher in the respective teaching term.",
+      "recommended_readings": "- \"Introduction to Information Retrieval\", C. Manning, P. Raghavan, H. Schutze, Cambridge University Press.\n\\* A copy has been reserved at the CUHK main library\n- \"Speech and Language Processing\", 3rd Edition, D. Jurafsky and J. Martin\n- \"Pattern Recognition and Machine Learning\", C.M. Bishop, Springer.\n- \"Mining Text Data', C.C. Aggarwal and C.X. Zhai, Springer Science."
     },
     {
       "subject": "SEEM",
@@ -4366,12 +4382,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of System Erg & Erg Mgt",
       "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. competence in building and manipulating quantitative models and solution techniques for decision-making, using spreadsheets and software, and\n2. understanding of the issues involved in the interpretation, implementation and management of quantitative models, at both the strategic and operational level.",
+      "course_syllabus": "Linear Optimization (LP)\nLP Cases\nLP and Sensitivity analysis\nTransportation, Assignment, Network Models\nInteger Programming (IP), Goal Programming (GP)\nQueuing Models\nSimulation\nHeuristics",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "Feedback from students; CTE",
+      "required_readings": "1. Balakrishnan, Render, and Stair, Managerial Decision Modeling with Spreadsheets (3rd Edition), 2014, Pearson (BRS)",
+      "recommended_readings": "As recommended by course teacher."
     },
     {
       "subject": "SEEM",
@@ -5376,12 +5395,12 @@
                 }
               ],
               "availability": {
-                "capacity": "84",
+                "capacity": "90",
                 "enrolled": "84",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "6",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }

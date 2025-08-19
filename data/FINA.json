@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T03:53:22.794071+00:00",
+    "scraped_at": "2025-08-19T05:33:38.272306+00:00",
     "subject": "FINA",
     "subject_title": "Finance",
     "total_courses": 162,
@@ -1432,9 +1432,9 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -5574,13 +5574,13 @@
                 {
                   "time": "We 7:00PM - 10:00PM",
                   "location": "Town Centre Diamond Room",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAM Full Yet Eric Campbell",
                   "dates": "29/4, 6/5, 13/5, 20/5, 27/5"
                 },
                 {
                   "time": "Fr 7:00PM - 10:00PM",
                   "location": "Town Centre Diamond Room",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAM Full Yet Eric Campbell",
                   "dates": "22/5"
                 }
               ],
@@ -5758,7 +5758,7 @@
                 {
                   "time": "Th 7:00PM - 10:00PM",
                   "location": "Town Centre Diamond Room",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAM Full Yet Eric Campbell",
                   "dates": "18/6, 25/6, 2/7, 9/7, 16/7, 23/7"
                 }
               ],
@@ -7938,38 +7938,6 @@
       "credits": "1.50",
       "terms": [
         {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "FA-LEC (1760)",
-              "meetings": [
-                {
-                  "time": "We 6:30PM - 9:30PM",
-                  "location": "Cheng Yu Tung Building 201",
-                  "instructor": "Staff",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "We 6:30PM - 9:30PM",
-                  "location": "Cheng Yu Tung Building 201",
-                  "instructor": "Staff",
-                  "dates": "8/10, 15/10"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "60",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
           "term_code": "2390",
           "term_name": "2025-26 Term 2",
           "schedule": [
@@ -8074,38 +8042,6 @@
                   "location": "Esther Lee Bldg 203",
                   "instructor": "Staff",
                   "dates": "9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "60",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
-          "term_code": "2400",
-          "term_name": "2025-26 Term 3",
-          "schedule": [
-            {
-              "section": "FA-LEC (1084)",
-              "meetings": [
-                {
-                  "time": "Sa 9:30AM - 12:45PM",
-                  "location": "Yasumoto Int'l Acad Park 201",
-                  "instructor": "Staff",
-                  "dates": "14/3, 21/3, 28/3"
-                },
-                {
-                  "time": "Sa 9:30AM - 12:45PM",
-                  "location": "Yasumoto Int'l Acad Park 201",
-                  "instructor": "Staff",
-                  "dates": "11/4, 18/4, 25/4, 2/5, 9/5, 16/5, 23/5, 30/5"
                 }
               ],
               "availability": {
@@ -11468,7 +11404,7 @@
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Lee Shau Kee Building LT1",
                   "instructor": "Professor LIU Ruixuan",
                   "dates": "11/11, 18/11, 25/11"
                 }
@@ -11521,15 +11457,51 @@
               "meetings": [
                 {
                   "time": "Mo 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Building 410",
                   "instructor": "Dr. KOT Hung Wan",
-                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9"
+                  "dates": "1/9"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Bldg 615",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "8/9"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "15/9, 22/9, 29/9"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "3/11, 10/11, 17/11"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "13/10"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "27/10"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "TBA",
                   "instructor": "Dr. KOT Hung Wan",
-                  "dates": "13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                  "dates": "20/10"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "24/11"
                 }
               ],
               "availability": {
@@ -11595,6 +11567,18 @@
                   "location": "Wu Ho Man Yuen Bldg 306",
                   "instructor": "Professor WANG Zijia",
                   "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 410",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "25/9"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 409",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "23/10"
                 }
               ],
               "availability": {
@@ -11653,6 +11637,12 @@
                   "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor NG Cheuk Yin Andrew",
                   "dates": "13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "24/11"
                 }
               ],
               "availability": {
@@ -11703,20 +11693,20 @@
               "meetings": [
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Wen Lan Tang LG204",
+                  "instructor": "Dr. LEE Wing Yan",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Wen Lan Tang LG204",
+                  "instructor": "Dr. LEE Wing Yan",
                   "dates": "24/2, 3/3"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LEE Wing Yan",
                   "dates": "2/12, 9/12, 16/12, 23/12"
                 }
               ],
@@ -11768,13 +11758,13 @@
               "meetings": [
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "T.C. Cheng Bldg C5",
                   "instructor": "Professor NG Cheuk Yin Andrew",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "T.C. Cheng Bldg C5",
                   "instructor": "Professor NG Cheuk Yin Andrew",
                   "dates": "25/2, 4/3"
                 },
@@ -11839,13 +11829,13 @@
               "meetings": [
                 {
                   "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "Science Centre L4",
                   "instructor": "Professor WANG Zijia",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "Science Centre L4",
                   "instructor": "Professor WANG Zijia",
                   "dates": "24/2, 3/3"
                 },
@@ -12075,15 +12065,27 @@
               "meetings": [
                 {
                   "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Bldg 613",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "21/10"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Bldg 615",
                   "instructor": "Professor YEH Jia Hsing",
                   "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
                 },
                 {
                   "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Bldg 615",
                   "instructor": "Professor YEH Jia Hsing",
-                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                  "dates": "14/10"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Bldg 615",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "28/10, 4/11, 11/11, 18/11, 25/11"
                 }
               ],
               "availability": {
@@ -12134,20 +12136,20 @@
               "meetings": [
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Lee Shau Kee Building LT4",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Archi Bldg 212",
+                  "instructor": "Dr. LEE Wing Yan",
                   "dates": "4/12, 11/12, 18/12"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Lee Shau Kee Building LT4",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Archi Bldg 212",
+                  "instructor": "Dr. LEE Wing Yan",
                   "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Lee Shau Kee Building LT4",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Archi Bldg 212",
+                  "instructor": "Dr. LEE Wing Yan",
                   "dates": "26/2, 5/3"
                 }
               ],
@@ -12199,25 +12201,25 @@
               "meetings": [
                 {
                   "time": "We 9:30AM - 12:15PM",
-                  "location": "Chen Kou Bun Bldg LT3",
+                  "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor YEH Jia Hsing",
                   "dates": "3/12, 10/12, 17/12"
                 },
                 {
                   "time": "We 9:30AM - 12:15PM",
-                  "location": "Chen Kou Bun Bldg LT3",
+                  "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor YEH Jia Hsing",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
                   "time": "We 9:30AM - 12:15PM",
-                  "location": "Chen Kou Bun Bldg LT3",
+                  "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor YEH Jia Hsing",
                   "dates": "25/2, 4/3"
                 },
                 {
                   "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor YEH Jia Hsing",
                   "dates": "12/12"
                 }
