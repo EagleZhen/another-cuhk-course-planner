@@ -22,14 +22,16 @@ def main():
     logger.info("Starting CUHK course scraping for all subjects")
     
     try:
-        # Initialize production scraper with proper config
+        # Initialize production scraper with debug HTML saving enabled
         from cuhk_scraper import ScrapingConfig
-        scraper = CuhkScraper(ScrapingConfig.for_production())
+        config = ScrapingConfig.for_production()
+        # config.save_debug_files = True  # Enable debug HTML saving for investigation
+        scraper = CuhkScraper(config)
         
         # Get all subjects from live website
         logger.info("Getting subjects from live website...")
         subjects = scraper.get_subjects_from_live_site()
-        # subjects = ['ARTS', 'HIST']
+        # subjects = ['LAWS']
 
         if not subjects:
             logger.error("Could not get subjects from live website")
