@@ -866,7 +866,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   if (capacity > 0) {
     badges.push({
       type: 'availability' as const,
-      text: `${availableSeats}/${capacity} Seats`,
+      text: `${availableSeats}/${capacity} Available`,
       style: getAvailabilityBadgeStyle(availability)
     })
   }
