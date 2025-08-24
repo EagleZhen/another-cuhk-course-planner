@@ -1,8 +1,8 @@
 {
   "scraping_log": {
-    "started_at": "2025-08-24T07:26:38.430650+00:00",
-    "last_updated": "2025-08-24T07:44:42.751727+00:00",
-    "duration_human": "18m 4s",
+    "started_at": "2025-08-24T08:18:29.902799+00:00",
+    "last_updated": "2025-08-24T08:37:30.507509+00:00",
+    "duration_human": "19m",
     "total_subjects": 1,
     "completed": 263,
     "failed": 0,
@@ -2193,11 +2193,11 @@
       },
       "LAWS": {
         "status": "completed",
-        "last_scraped": "2025-08-24T07:44:42.750966+00:00",
+        "last_scraped": "2025-08-24T08:37:30.507455+00:00",
         "courses_count": 330,
         "courses_scraped": 330,
         "output_file": "data/LAWS.json",
-        "duration_minutes": 18.07,
+        "duration_minutes": 19.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
