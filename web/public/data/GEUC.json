@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T04:19:32.465800+00:00",
+    "scraped_at": "2025-08-23T22:51:34.815152+00:00",
     "subject": "GEUC",
     "subject_title": "GE - United College",
     "total_courses": 16,
@@ -49,10 +49,10 @@
               ],
               "availability": {
                 "capacity": "1400",
-                "enrolled": "0",
+                "enrolled": "898",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1400",
+                "available_seats": "502",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -206,10 +206,10 @@
               ],
               "availability": {
                 "capacity": "900",
-                "enrolled": "19",
+                "enrolled": "897",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "881",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -713,10 +713,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "30",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -1115,45 +1115,189 @@
       "subject": "GEUC",
       "course_code": "2213",
       "title": "Social Innovation: Social Entrepreneurship and Service",
-      "credits": "",
-      "terms": [],
-      "description": "",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "",
-      "grading_basis": "",
-      "component": "",
-      "campus": "",
-      "academic_group": "",
-      "academic_org": "",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-F01-FLD (9607)",
+              "meetings": [
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg C3",
+                  "instructor": "Dr. NG Chui Ha",
+                  "dates": "19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "50",
+                "waitlist_capacity": "999",
+                "waitlist_total": "13",
+                "available_seats": "0",
+                "status": "Waitlisted"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-F01-FLD (9365)",
+              "meetings": [
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg C3",
+                  "instructor": "Dr. NG Chui Ha",
+                  "dates": "23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg C3",
+                  "instructor": "Dr. NG Chui Ha",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg C3",
+                  "instructor": "Dr. NG Chui Ha",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg C3",
+                  "instructor": "Dr. NG Chui Ha",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to equip students with a basic understanding of social entrepreneurship through experiential learning, not just the actual academics. Social entrepreneurship education is about collaboration, multi-disciplinary learning, learning-by-doing, problem-solving, and tackling the “real” problems. Through self-reflection, small group discussion, experiential learning by participating in social enterprise workshops and project presentations, students will be able to understand more the needs of underprivileged groups and the challenges of social enterprises. The purpose of this course is to facilitate students to learn more about the societal needs of the community and develop an innovative mindset to solve social issues. Service-learning activities are added to strengthen students' first-hand experience in real social enterprise situations.SDG#8: Decent Work and Economic GrowthSDG#10: Reduced InequalitiesSDG#11: Sustainable Cities and CommunitiesSocial enterprises serve various beneficiaries/disadvantaged groups. They solve different social issues through sustainable social innovation projects, reduce inequalities in our community and promote inclusive and sustainable economic growth by business operations.",
+      "enrollment_requirement": "For Year 2-3 United College students only.",
+      "course_attributes": "SDG-SE #8 Decent Work and Economic Growth\nSDG-SE #10 Reducing Inequality\nSDG-SE #11 Sustainable Cities and Communities\nService Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Discussion\nField Studies/Field-trip\nLecture\nWorkshop",
+      "campus": "Main Campus",
+      "academic_group": "United College",
+      "academic_org": "United College",
+      "learning_outcomes": "Upon completion of this course, student should be able to:\n\n1. Get a basic understanding about the nature and types of social enterprises\n\n2. Identify the societal needs of underprivileged groups in Hong Kong\n\n3. Understand the strategic positions of social enterprises in social betterment\n\n4. Understand the advantages of social enterprises in response to social needs\n\n5. Plan to solve a real challenge that social enterprise is facing\n\nStudents will achieve the following desirable learning outcomes of the College General Education Programme:\n\n1. Understand the College motto and develop positive attitudes and values\n\n2. Recognize the common concerns of contemporary world\n\n3. Understand the meaning of service-learning and reflect on the experience learnt through different types of community service\n\n4. Develop life-long learning habits for expanding interest and improving life-style\n\nSDG#8: Decent Work and Economic Growth:\n\n1. Understand how social enterprises maintain sustainable economic growth by business operations\n\n2. Recognize social enterprises’ practices to provide decent work\n\nSDG#10: Reduced Inequalities:\n\n1. Recognize social enterprises or other business practices to embrace social inclusion and reduce inequalities\n\nSDG#11: Sustainable Cities and Communities:\n\n1. Engage with local communities and contribute to initiatives that promote sustainable community development",
+      "course_syllabus": "Lecture themes\n\n1. What is Social Innovation / Social Enterprise? Social Enterprises in Hong Kong\n\n2. Real cases sharing by Social Enterprises in understanding their Missions and Challenges\n\n3. Social Enterprise Workshops - social enterprise human libraries\n\n4. Resourcefulness - Through circle of influence and multi-disciplinary collaborations (e.g. social capital, CSR,CSV)\n\n5. Innovation mindset - Turning problems into innovative ideas and practice the ideas via service learning activities\n\n6. Final Presentation and Evaluation - present an idea how to support a designed social enterprise from a youth perspective\n\n\\*These topics aim to provide a comprehensive understanding of social enterprises, learn from real-world practices, and encourage innovative thinking and collaboration to fulfill social needs.",
+      "assessment_types": {
+        "Discussion": "20",
+        "Essays": "30",
+        "Fieldwork or field study": "50"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\nOthers:\n\n1. Internal Course Review\n\n2. Review meetings between United College and course instructors",
+      "required_readings": "1. Dr Kan Chung Kan Clara, Dr Kee Chi Hing, MH, JP, Mr Lawrence Lui Wai-ching (2024), ”Social Enterprise Marketing – Enhancing Effectiveness of Social Business”, Fullness Social Enterprises Society\n\n1. Dr. Kee Chi Hing, Dr. Clara Kan, Ms. Eva Wong (2018), “Applying Design Thinking to Create Social Impacts: A win-win for SE & CSR”, (pp. 5-61). Fullness Social Enterprises Society\n\n1. Dr. Kee Chi Hing, Dr. Clara Kan (2016), ” Hong Kong: Frontier in Social Entrepreneurship”, (pp. 4-59). Fullness Social Enterprises Society\n\n1. Dr. Kee Chi Hing, Mr. Ted Kwan, Dr. Clara Kan (2016), “Comparing the Key Performance Indicators of the Social Enterprise Sectors Among Hong Kong, United Kingdom and Korea”, (pp. 6-73). Fullness Social Enterprises Society",
+      "recommended_readings": "1. Hong Kong Social Entrepreneurship Forum (2024). Business for Good – Building the New Normal with Stakeholders.\n\n1. Hill S., Ionescu-Somers A, and Coduras A. (2024). Global Entrepreneurship Monitor: GEM 2023/24 global report 25 years and growing. Global Entrepreneurship Monitor\n\n1. The British Council. (2020). The state of social enterprise in Hong Kong.\n\n1. Hong Kong Social Entrepreneurship Forum, Ernst & Young, InnoFoco Limited & Social Innovation Exchange. (2020). Business for Good - Understanding the Motivations for Business to Create Shared Value.\n\n1. Catherall, R., & Richardson, M. (2017). Social entrepreneurship in education: Empowering the next generation to address society’s needs. The British Council.\n\n1. Martin Lackéus. (2015). Entrepreneurship in education - What, why, when, how. Retrieved from https://www.oecd.org/cfe/leed/BGP\\_Entrepreneurship-in-Education.pdf\n\n1. Janus, K.K. (2015 June 15). Bringing social entrepreneurship into the classroom. Stanford Social Innovation Review.\n\n1. Chan, Kam-Tong. (23 January 2015). Presentation: Development and outlook of social enterprises in Hong Kong: From an academic perspective.\n\n1. Au, Kevin. (2014). Research study on social enterprise sector in Hong Kong.\n\n1. Choi Young-Chool and Jang Ji-Hyun. (March 2014). Analysis of current conditions facing social enterprise in Korea: Policy issues regarding the sustainability development. International Journal of Business and Social Research, vol. 1, no. 3.\n\n1. Lee, Chaephil. (2014). Strategy of Korea for vitalization of social enterprises. Social Enterprise World Forum DVD.\n\n1. Santos, Filipe. (2012). A positive theory of social entrepreneurship. Journal of Business Ethics, vol. 111, 335–351.\n\n1. Social Enterprise London. (2011). Transition. Tukey, John. (1962). The future of data analysis. Annals of Mathematical Statistics, vol. 33, no. 1. Yoo, Jungkyu. Corporate governance for social innovation. 2014 Social Enterprise World Forum DVD.\n\n1. Brock, D.D., & Kim, M. (2011). Social entrepreneurship education resource handbook. SSRN Electronic Journal.\n\n1. Social Enterprise Coalition. (2010). No more business as usual: A manifesto of social enterprise.\n\n1. Bosma, Niels; Jones, Kent; Autio, Erkko; and Levie, Jonathan. (2008). Global Entrepreneurship Monitor: 2007 executive report.\n\n1. Kirkpatrick, Donald. (2005). Transferring learning to behavior. Barrett-Koehler Publishers.\n\n1. Rogers, Everett. (1962, 2003). Diffusion of innovations. 5th ed. New York: Free Press.\n\n1. DTI. (2002). Social enterprise: A strategy for success. Kang, Daesung. New model of social enterprise innovation and expansion. Social Enterprise World Forum DVD.\n\n1. Drucker, Peter. (1990). Managing the nonprofit organization.\n\n1. Miller, David, ed. (1985). Popper selections. Princeton University Press.\n\n1. 趙立基 (2023) ，無名氏看世界：社會企業七講，香港新華書城出版有限公司出版 。\n\n1. 吳木欣及伍詠欣（2023），《集合吧！香港青年踐行 社企新理想》，香港。紅出版。\n\n1. 徐沛然（2018）， 社企是門好生意？社會企業的批判與反思，台北。時報出版 。"
     },
     {
       "subject": "GEUC",
       "course_code": "2214",
       "title": "Leadership in Practice: Service",
-      "credits": "",
-      "terms": [],
-      "description": "",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "",
-      "grading_basis": "",
-      "component": "",
-      "campus": "",
-      "academic_group": "",
-      "academic_org": "",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-F01-FLD (9608)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Staff",
+                  "dates": "9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "29",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-F01-FLD (9366)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Staff",
+                  "dates": "22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "T.C. Cheng Bldg C4",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will explore and examine leadership theory and practice through experiential learning in outdoor settings, rather than being limited to classroom learning. Students will apply theoretical concepts to real-world situations through practice, enhancing their understanding of leadership principles. The course also includes elements of service learning, such as activities related to environmental protection like trail restoration, providing students with practical team leadership and hands-on experience that positively impacts the community and the environment (SDG #15 Life on Land).Participating in trail restoration not only fosters teamwork and communication but also cultivates a sense of responsibility toward environmental protection. Students will learn how to navigate challenges, communicate effectively, and motivate their peers as they work toward a common goal. Additionally, this experience will enable students to reflect on their own leadership styles and adapt them to different contexts, further strengthening their ability to lead diverse teams.Moreover, by sharing this knowledge and experience to the public, students will help cultivate a broader culture of environmental awareness and community involvement. They will prepare workshops to share insights gained from service-learning activities, such as trail restoration. These workshops may include hands-on demonstrations, discussions on sustainable practices, and the importance of environmental protection. By collaborating NGOs, students will also host clean-up trail workshops, tree-planting activities, or exhibitions, which not only educate the public but also actively involve them in environmental action. These service learning activities will inspire a collective commitment to sustainability and social responsibility , creating lasting environmental awareness within the community.",
+      "enrollment_requirement": "For Year 2-3 United College students only.",
+      "course_attributes": "SDG-SE #15 Life On Land\nExperiential Learning Course\nService Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Exercise\nField Studies/Field-trip\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "United College",
+      "academic_org": "United College",
+      "learning_outcomes": "Upon successfully completing this course, students will be able to:\n\n1. Execute the five main leadership functions which required by Action-centered Leadership\n\n2. Coordinate members to work together as an effective team\n\n3. Apply problem solving strategies in tackling the assigned leadership task\n\n4. Exhibit skills in communication in maintaining the morale of the team\n\n5. Construct their own conception of leadership.\n\nStudents will achieve the following desirable learning outcomes of the College General Education Programme:\n\n1. Describe connections and integrate knowledge across fields\n\n2. Understand the meaning of service-learning and reflect on the experience learnt through different types of community service\n\n3. Foster comprehensive awareness in the sustainable development goals\n\n4. Develop leadership skills, and be able to collaborate and communicate effectively in teamwork\n\n5. Identify and apply sustainable development tools and strategies to address social problems to achieve SDG#15",
+      "course_syllabus": "This subject aims to bring out students’ firm understanding of the vital attributes of leadership skills for meeting the training needs of today’s young people. It places students in a simulated situation and coaches them to be responsible for dealing with problems, challenges and routine skills when training students to be practical, sensible and helpful in our society. The theory of outdoor experiential training for leadership and team building is that leadership skills can be honed and team spirit developed by taking students into the great outdoors. This concept features both physical and mental exercises.\n\nKey theories about leadership will be introduced with their practical applications for leadership including the follows:\n\n1. Defining leadership\n\n2. Leadership and management\n\n3. Nature of leadership and leadership styles\n\n4. Action-centred leadership\n\n5. Leadership checklist\n\n6. Time management for leaders\n\n7. Motivation for leaders\n\n8. Creativity at work\n\n9. Leadership tasks\n\n| Week | Items | Objective |\n| --- | --- | --- |\n| 1 | Overview Knowing your team Lecture (1): Defining Leadership * Nature of Leadership & Leadership Styles * Action Centred Leadership * Introducing the Leader-Observer-Member system *Trial Task: Finding Values* -Introducing the basic knowledge of Services Learning | This lecture introduces leadership fundamentals, focusing on team dynamics, leadership styles, and the Action Centred Leadership model. It also covers the Leader-Observer-Member system and the basics of service learning, helping students understand core values and apply leadership principles in service learning activities. |\n| 2 | Recap of Lecture One Lecture (2): Leader’s Checklist & Observer’s Duties Lecture (3): Use of Time for Leaders in Service Learning Activities Task (1a): Keylock Lecture (4): Motivation for Leaders in Service Task Task (1b): Jigsaw Puzzles | The lecture is to equip students with essential tasks and outline leader and observer roles, effective time management in service learning, and develop problem-solving skills through various tasks. |\n| 3 (1-night & 2day camp) | Assembly at 1430 at PSW, boat to WSS Recap of Lecture Two / Group Photos Task (2): Site Survey Break Lecture (5): Briefing on Environmental Protection and trail restoration Task (3): Radio Advertisement Lecture (6): Servant Leadership in trail restoration Dinner Task (4): Creative CEO: Environmental Protection Education to the public Task (5): Night Activity Skill input on Services Project: trail restoration | The 1-night & 2-day camp is to educate students on environmental protection and trail restoration through hands-on service-learning activities, lectures, and creative tasks. It aims to develop leadership skills, promote teamwork, and enhance understanding of environmental issues, culminating in practical applications and public education efforts. |\n| 3 (1-night & 2-day camp) | Task (6): Leaders assembly at 0715 Task (7): Morning Activity Task (8a): Pioneering Task Task (8b): Morning Dip and Rafting Lunch Service Project Briefing Service Project: Trail Maintenance Debriefing |\n| 4 | Recap of 1-night 2-day camp Task (9): Environmental Protection Education to the public: workshops and activities plan Round up | The trail workshops and tree-planting activities in collaboration with the Scout Association is to promote environmental stewardship and conservation. These activities aim to educate students on sustainable practices, enhance their understanding of ecosystem restoration, and foster a sense of community and teamwork through hands-on involvement in preserving natural habitats. |\n| 5 | Task (10): Host trail workshops, tree-planting activities in collaboration with Scout Association |\n| 6 | Submitting reflection papers Recap of trail workshops, tree-planting activities Post Service Presentation and Sharing Certificate Presentation Course Evaluation - Peer Evaluation - LTI Evaluation - CU Evaluation (Teaching Team leaves) End of Course | Sharing the experiences and outcomes of the service activities fosters a sense of accomplishment, encourage learning from the experiences, and share insights and impacts with peers, promoting continuous improvement and community engagement. |",
+      "assessment_types": {
+        "Essays": "30",
+        "Fieldwork or field study": "50",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\nOthers:\n\n1. Internal Course Review\n\n2. The Scout Association will also conduct their own survey to collect students' feedback at the end of the course",
+      "required_readings": "* *About Leave No Trace Ethics and Trail Restoration**\n\n1. Buck Tilton (2011) Leave No Trace Master Educator Handbook\n2. Jaffrey Marion (2014) Leave No Trace In The Outdoors\n3. 遠築山徑 通訊 [**https://bit.ly/43s5x85**](https://l.facebook.com/l.php?u=https%3A%2F%2Fbit.ly%2F43s5x85%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR27vux5MHOKh_NqxOKZ64o4R7MLN58Gany8A9cGkDE5YrXEXMc3j3mm1SM_aem_m_tXtcF-i8mQVXrWxAUcCw&h=AT3DzkrdmGMd0jQWjd39VZSNYksiYG0G_b0rK996nCB0eO7QfvI9G7MymLbofda1u8hMGgARjxs2wA8whP7cMDjGVFMOeEHtw1ZP9CcHQ8EW-H3pM1xtOfURF4iOMV29cyDTdMvGWfMuvA&__tn__=-UK-R&c%5b0%5d=AT1gtUrIktRsrcTdroypaSq0BYrsTNT1214WmzsjOFWiV-bhcHxScxSeqN3oX1bQ3FoSGxHFnUx4ZnU2hG87F2MztAb3kJp2UXBEle7yLwKNLp0-iwwMaQgRfAf1fprr4L2RxVr6y1KVPmBoI0EI3iwfa-0tdK0JpTbAZ8Pk8kaZQE2MstPy2rTxt4gHfSMA)\n\n* *About Servant Leadership**\n\n1. Robert K. Greenleaf (2002) Servant Leadership: A Journey into the Nature of Legitimate Power and Greatness 25th Anniversary Edition\n2. Robert Stewart (2022) Servant Leadership: Discover the 10 Essential Skills To Unlock Your Team Performance And Become an Amazing Servant Leader\n3. Adair, J. (2009). Effective leadership: How to be a successful leader. London: Pan Books.\n4. Kouzes, J. & Posner, B. (2012). The leadership challenge. San Francisco, CA.:Jossey-Bass.",
+      "recommended_readings": "1. Thomas, N. (2004). Adair on team building and motivation. London: Thorogood.\n\n2. Gill, R. (2006). Theory and practice of leadership. London Sage.\n\n3. Northouse, P.G. (2007). Leadership: Theory and practice. CA: Sage.\n\n4. Yukl, G. (2012). Leadership in organizations. NJ: Prentice Hall."
     },
     {
       "subject": "GEUC",
@@ -1203,10 +1347,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "Can, change to Eng if needed"
@@ -1243,10 +1387,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "20",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "Can, change to Eng if needed"
@@ -1483,7 +1627,7 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1503,10 +1647,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "16",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Can, change to Eng if needed"
@@ -1663,10 +1807,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "PTH, change to Eng if needed"

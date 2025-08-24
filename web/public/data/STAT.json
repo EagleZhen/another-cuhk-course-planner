@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T10:42:21.559332+00:00",
+    "scraped_at": "2025-08-24T05:00:59.792172+00:00",
     "subject": "STAT",
     "subject_title": "Statistics",
     "total_courses": 70,
@@ -41,10 +41,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "17",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "6",
-                "available_seats": "133",
+                "available_seats": "101",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -61,10 +61,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "17",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "6",
-                "available_seats": "133",
+                "available_seats": "101",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -598,10 +598,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "42",
+                "enrolled": "93",
                 "waitlist_capacity": "999",
                 "waitlist_total": "41",
-                "available_seats": "108",
+                "available_seats": "57",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -618,10 +618,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "42",
+                "enrolled": "93",
                 "waitlist_capacity": "999",
                 "waitlist_total": "41",
-                "available_seats": "108",
+                "available_seats": "57",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1811,7 +1811,7 @@
                 "capacity": "100",
                 "enrolled": "81",
                 "waitlist_capacity": "999",
-                "waitlist_total": "31",
+                "waitlist_total": "32",
                 "available_seats": "19",
                 "status": "Open"
               },
@@ -1831,7 +1831,7 @@
                 "capacity": "100",
                 "enrolled": "81",
                 "waitlist_capacity": "999",
-                "waitlist_total": "31",
+                "waitlist_total": "32",
                 "available_seats": "19",
                 "status": "Open"
               },
@@ -2109,10 +2109,10 @@
               ],
               "availability": {
                 "capacity": "220",
-                "enrolled": "169",
+                "enrolled": "171",
                 "waitlist_capacity": "999",
-                "waitlist_total": "66",
-                "available_seats": "51",
+                "waitlist_total": "64",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2129,10 +2129,10 @@
               ],
               "availability": {
                 "capacity": "220",
-                "enrolled": "169",
+                "enrolled": "171",
                 "waitlist_capacity": "999",
-                "waitlist_total": "66",
-                "available_seats": "51",
+                "waitlist_total": "64",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3703,10 +3703,16 @@
               "section": "--LEC (2876)",
               "meetings": [
                 {
-                  "time": "Th 11:30AM - 2:15PM",
-                  "location": "Tsang Shiu Tim Bldg 111",
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
                   "instructor": "Professor FANG Xiao",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -4093,10 +4099,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4119,10 +4125,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "6",
+                "enrolled": "7",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "74",
+                "available_seats": "73",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4248,10 +4254,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "94",
+                "enrolled": "95",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -4312,10 +4318,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "92",
+                "enrolled": "93",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -4546,10 +4552,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "94",
+                "enrolled": "95",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"

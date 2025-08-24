@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T04:26:18.371806+00:00",
+    "scraped_at": "2025-08-23T22:58:17.152963+00:00",
     "subject": "GLSD",
     "subject_title": "Global Studies",
     "total_courses": 38,
@@ -29,10 +29,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "1",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1064,7 +1064,34 @@
       "course_code": "3401",
       "title": "Global Environmental Challenges",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9608)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LEE Fung",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course aims to provide a comprehensive overview of major global environmental challenges, with the focus put on the nature of various global environmental problems and how different actors (e.g. governments, NGOs, international organizations, etc.) respond to the problems in political and socio-economic dimensions. The societal impacts of environmental problems are also discussed. It aims to offer students with basic knowledge and analytical tools for making sense of how global environmental issues are shaped by world politics and international policies. It adopts a multi-disciplinary approach that integrates theoretical issues with empirical case studies.The course will first offer a general introduction of current global environmental challenges such as climate change and deforestation. After providing a brief historical advancement of addressing trans-boundary environmental problems, it proceeds to examine how different actors respond to the problems. Also, the roles played by different actors in global environment governance on selected topics are discussed. It focuses not only on how the responses of different actors towards global environmental crisis are driven by world politics, but also the tight connection between global political-economy and physical environment, including how socio-economic factors contribute to, and also being affected by, global environmental problems. Finally, the course will be concluded with the discussion of the latest trends and future of global environmental governance, particularly the recent dynamics of international and regional organizations. Relevant real world examples and case studies will be presented to illustrate the big ideas and key concepts of global environmental politics.",
       "enrollment_requirement": "-",
       "course_attributes": "",
@@ -1596,10 +1623,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"

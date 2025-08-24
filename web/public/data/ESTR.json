@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T03:28:38.353133+00:00",
+    "scraped_at": "2025-08-23T22:02:07.211257+00:00",
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
     "total_courses": 132,
@@ -2254,84 +2254,7 @@
       "course_code": "2302",
       "title": "Signals and Systems",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (6848)",
-              "meetings": [
-                {
-                  "time": "Tu 9:30AM - 11:15AM",
-                  "location": "Mong Man Wai Bldg LT1",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
-                },
-                {
-                  "time": "Tu 9:30AM - 11:15AM",
-                  "location": "Mong Man Wai Bldg LT1",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
-                },
-                {
-                  "time": "We 9:30AM - 11:15AM",
-                  "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "We 9:30AM - 11:15AM",
-                  "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "8/10, 15/10, 22/10"
-                },
-                {
-                  "time": "We 9:30AM - 11:15AM",
-                  "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "5/11, 12/11, 19/11, 26/11"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T01-TUT (7342)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "01/09/2025 - 24/11/2025"
-                },
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor ZHAO Changhong",
-                  "dates": "01/09/2025 - 24/11/2025"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "Linear time-invariant systems. Fourier analysis of continuous-time and discrete-time signal and systems. Laplace transform. z-transform. Feedback systems. Applications such as processing of communication signals and images, control of disk drive systems, and analysis of the stock market.",
       "enrollment_requirement": "Pre-requisite: MATH1510.\nNot for students who have taken ENGG2030 or ESTR2206 or ESTR2360 or IERG2051 or MIEG2051.",
       "course_attributes": "",
@@ -6921,11 +6844,11 @@
                 }
               ],
               "availability": {
-                "capacity": "11",
+                "capacity": "10",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7355,6 +7278,26 @@
               "class_attributes": "English only"
             },
             {
+              "section": "CBJ1-PRJ (9869)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Xiaojun",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
               "section": "EAJ1-PRJ (7360)",
               "meetings": [
                 {
@@ -7762,6 +7705,26 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CBJ1-PRJ (9607)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Xiaojun",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-18T09:50:12.520734+00:00",
+    "scraped_at": "2025-08-24T04:11:51.601213+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 36,
@@ -29,10 +29,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "9",
+                "enrolled": "41",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -49,10 +49,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "9",
+                "enrolled": "41",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -691,12 +691,16 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand the basic notion of copulas and perform simulations according to the Black-Scholes model that facilitates for financial data cleansing;\n(2) grasp the idea of using GARCH to model the evolutions of volatilities and correlations;\n(3) calibrate various risk measures with the use of Extreme Value Theory;\n(4) use principal component analysis and canonical correlation analysis and understand its connection with simple recommender systems and its applications in term-structures of interest rates;\n(5) carry out cluster analysis with various machine learning tools such as perceptrons, classification trees, k-means clustering algorithm, Bayes classifiers;\n(6) grasp the concept of ANN and logit regression for categorical data analysis;\n(7) analyse real data using suitable proper techniques from both statistics and machine learning and write reports to summarise findings;\n(8) understand how to consider problems from different perspectives, particularly related to those in finance and risk management science, and analyse quantitative evidence in a critical manner.",
+      "course_syllabus": "Business, Finance and Risk Management Science. Statistical packages such as R, SAS\nand EXCEL will be used to demonstrate these methods. Topics are as follows:\n• Simulating Multivariate Normal Random Numbers\n• Estimating Volatilities and Correlations\n• Risk Measure and Extreme Value Theory\n• Principal Component Analysis, Recommender Systems\n• Binary Logistic Regression, Multinomial Logit, Perceptrons\n• Decision Tree\n• k-means Clustering\n• Artificial Neural Network, Stochastic Gradient Descent",
+      "assessment_types": {
+        "Essay test or exam": "45",
+        "Homework or assignment": "20",
+        "Project": "35"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "NA",
+      "recommended_readings": "1. Hull, J., Risk Management and Financial Institutions, Prentice Hall\n2. Johnson, R.A. and Wichern, D.W. Applied Multivariate statistical analysis, 6th edition, Prentice Hall\n3. David Ruppert and David S. Matteson, Statistics and Data Analysis for Financial Engineering: with R examples, 2nd ed. 2015 edition, Springer\n4. Kevin P. Murphy and Francis Bach, Machine Learning: A Probabilistic Perspective (Adaptive Computation and Machine Learning), 1st edition, The MIT Press\n5. (日)中井悅司, 機器學習入門之道, 人民郵電"
     },
     {
       "subject": "RMSC",
@@ -726,10 +730,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "100",
+                "enrolled": "101",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -746,10 +750,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "100",
+                "enrolled": "101",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
