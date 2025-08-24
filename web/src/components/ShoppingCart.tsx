@@ -571,7 +571,7 @@ export default function ShoppingCart({
                       : `${statusCounts.open.visible} visible, ${statusCounts.open.total} total courses are open for enrollment`
                     }
                   >
-                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    <span className="w-2 h-2 bg-green-600 rounded-full"></span>
                     <span>
                       {statusCounts.open.visible === statusCounts.open.total
                         ? `${statusCounts.open.total} Open`
@@ -582,7 +582,7 @@ export default function ShoppingCart({
                 )}
                 {statusCounts.waitlisted.total > 0 && (
                   <div 
-                    className="flex items-center gap-1 text-yellow-500"
+                    className="flex items-center gap-1 text-yellow-600"
                     title={statusCounts.waitlisted.visible === statusCounts.waitlisted.total
                       ? `${statusCounts.waitlisted.total} courses require waitlist enrollment`
                       : `${statusCounts.waitlisted.visible} visible, ${statusCounts.waitlisted.total} total courses require waitlist enrollment`
@@ -599,7 +599,7 @@ export default function ShoppingCart({
                 )}
                 {statusCounts.closed.total > 0 && (
                   <div 
-                    className="flex items-center gap-1 text-red-500"
+                    className="flex items-center gap-1 text-red-600"
                     title={statusCounts.closed.visible === statusCounts.closed.total
                       ? `${statusCounts.closed.total} courses are closed for enrollment`
                       : `${statusCounts.closed.visible} visible, ${statusCounts.closed.total} total courses are closed for enrollment`
