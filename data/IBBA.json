@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-19T06:47:55.151783+00:00",
+    "scraped_at": "2025-08-23T23:39:51.132314+00:00",
     "subject": "IBBA",
     "subject_title": "Integrated BBA Programme",
     "total_courses": 7,
@@ -95,6 +95,26 @@
           "term_code": "2380",
           "term_name": "2025-26 Term 1",
           "schedule": [
+            {
+              "section": "WJ01-PRJ (9880)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "10",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
             {
               "section": "XJ01-PRJ (9824)",
               "meetings": [
@@ -200,7 +220,7 @@
               ],
               "availability": {
                 "capacity": "270",
-                "enrolled": "270",
+                "enrolled": "280",
                 "waitlist_capacity": "999",
                 "waitlist_total": "12",
                 "available_seats": "0",

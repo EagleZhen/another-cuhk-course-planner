@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-19T02:22:59.152652+00:00",
+    "scraped_at": "2025-08-23T18:54:51.199003+00:00",
     "subject": "CHEM",
     "subject_title": "Chemistry",
     "total_courses": 114,
@@ -35,10 +35,10 @@
               ],
               "availability": {
                 "capacity": "249",
-                "enrolled": "23",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "226",
+                "available_seats": "214",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -55,10 +55,10 @@
               ],
               "availability": {
                 "capacity": "249",
-                "enrolled": "23",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "226",
+                "available_seats": "214",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -219,10 +219,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "19",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "61",
+                "available_seats": "53",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -251,10 +251,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "19",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "61",
+                "available_seats": "53",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -499,10 +499,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "8",
+                "enrolled": "9",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -519,10 +519,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "8",
+                "enrolled": "9",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -988,11 +988,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "78",
+                "enrolled": "82",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -1008,11 +1008,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "78",
+                "enrolled": "82",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }
@@ -1060,7 +1060,7 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "87",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1248,11 +1248,11 @@
               ],
               "availability": {
                 "capacity": "88",
-                "enrolled": "86",
+                "enrolled": "89",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -1581,7 +1581,7 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "16",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1939,7 +1939,46 @@
       "course_code": "2869",
       "title": "Basic Integrated Chemistry Laboratory III",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-L01-LAB (9868)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 6:15PM",
+                  "location": "Science Centre 356",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. MAK Kin Wah",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 6:15PM",
+                  "location": "Science Centre 356",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. MAK Kin Wah",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Th 2:30PM - 6:15PM",
+                  "location": "Science Centre 157",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. MAK Kin Wah",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
       "description": "This laboratory course covers the essential laboratory techniques and laboratory safety practices for carrying out simple organic and inorganic chemistry reactions. The course allows students to acquire more experience in carrying out organic and inorganic chemistry experiments and provides training for students on (1) safe handling of chemical reagents and chemical waste; (2) proper usage of laboratory apparatus and equipment; (3) basic techniques of analyzing, isolating and purifying organic and inorganic compounds from a mixture; (4) common techniques for carrying out simple organic and inorganic reactions, and; (5) recording experimental data and writing experimental report.",
       "enrollment_requirement": "Not for students who have taken CHEM2860. Pre-requisite: CHEM2868.",
       "course_attributes": "",
@@ -3206,10 +3245,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "69",
+                "enrolled": "68",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3365,10 +3404,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "75",
+                "enrolled": "79",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3924,10 +3963,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -3944,10 +3983,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -4234,10 +4273,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "54",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -4254,10 +4293,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "54",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -4353,11 +4392,11 @@
               ],
               "availability": {
                 "capacity": "1",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -4373,11 +4412,11 @@
               ],
               "availability": {
                 "capacity": "1",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -7172,10 +7211,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "80",
+                "enrolled": "98",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
