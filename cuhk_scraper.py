@@ -1400,11 +1400,65 @@ class CuhkScraper:
             # Debug: save Course Outcome response (using smart saving)
             self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
             
-            # Parse Course Outcome page
+            # CRITICAL: Validate response before parsing to prevent data loss
+            if not self._validate_course_outcome_response(response.text, course):
+                self.logger.warning(f"Invalid course outcome response for {course.course_code} - preserving existing data")
+                self._track_failed_course_outcome(course.subject, course.course_code, "validation_failed")
+                return  # Don't overwrite existing course outcome data
+            
+            # Parse Course Outcome page only if validation passes
             self._parse_course_outcome_content(response.text, course)
             
         except Exception as e:
             self.logger.error(f"Error scraping Course Outcome for {course.course_code}: {e}")
+            self._track_failed_course_outcome(course.subject, course.course_code, f"exception: {str(e)}")
+    
+    def _validate_course_outcome_response(self, html: str, course: Course) -> bool:
+        """Validate course outcome response to prevent data loss from server errors"""
+        try:
+            # Check 1: System error page detection (most common failure)
+            if "<title>System error</title>" in html or "System error. Please try again" in html:
+                self.logger.warning(f"🚨 System error page detected for {course.course_code} course outcome")
+                return False
+            
+            # Check 2: Minimum structural requirements
+            soup = BeautifulSoup(html, 'html.parser')
+            if not soup.find('div', class_='titleNormal', string='Course Outcome'):
+                self.logger.warning(f"Missing 'Course Outcome' title for {course.course_code}")
+                return False
+            
+            # Check 3: Course-specific validation
+            course_header = soup.find('span', {'id': 'uc_course_outcome_lbl_course'})
+            if not course_header or f"{course.subject} {course.course_code}" not in course_header.get_text():
+                self.logger.warning(f"Missing or incorrect course header for {course.course_code}")
+                return False
+            
+            # Check 4: At least some section headers should exist
+            section_headers = soup.find_all('td', class_='reverseHeaderStyle')
+            if len(section_headers) < 1:
+                self.logger.warning(f"Missing section headers for {course.course_code}")
+                return False
+            
+            self.logger.debug(f"✅ Course outcome response validation passed for {course.course_code}")
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Error validating course outcome response for {course.course_code}: {e}")
+            return False  # Fail safe - preserve existing data if validation fails
+    
+    def _track_failed_course_outcome(self, subject: str, course_code: str, reason: str):
+        """Track failed course outcomes for potential retry"""
+        if not hasattr(self, '_failed_course_outcomes'):
+            self._failed_course_outcomes = []
+        
+        self._failed_course_outcomes.append({
+            'subject': subject,
+            'course_code': course_code,
+            'reason': reason,
+            'timestamp': utc_now_iso()
+        })
+        
+        self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
     
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
