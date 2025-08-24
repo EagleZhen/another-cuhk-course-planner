@@ -1414,26 +1414,42 @@ class CuhkScraper:
             self._track_failed_course_outcome(course.subject, course.course_code, f"exception: {str(e)}")
     
     def _validate_course_outcome_response(self, html: str, course: Course) -> bool:
-        """Validate course outcome response to prevent data loss from server errors"""
+        """
+        Validate course outcome response to prevent data loss from server errors
+        
+        This method performs multi-layer validation to detect invalid responses that would
+        cause course outcome data to be overwritten with empty values.
+        
+        Returns:
+            True: Valid response, safe to parse and update course outcome data
+            False: Invalid response, preserve existing course outcome data
+        """
         try:
-            # Check 1: System error page detection (most common failure)
+            # Check 1: System error page detection (primary failure mode - ~8% of requests)
+            # Example failure: <title>System error</title><body>系統有誤，請稍後再試。<br />System error. Please try again latter.</body>
             if "<title>System error</title>" in html or "System error. Please try again" in html:
                 self.logger.warning(f"🚨 System error page detected for {course.course_code} course outcome")
                 return False
             
-            # Check 2: Minimum structural requirements
+            # Check 2: Minimum structural requirements - ensure it's actually a course outcome page
+            # Example valid: <div class="titleNormal">Course Outcome</div>
+            # Example invalid: <div class="titleNormal">Course Catalog</div> (wrong page)
             soup = BeautifulSoup(html, 'html.parser')
             if not soup.find('div', class_='titleNormal', string='Course Outcome'):
                 self.logger.warning(f"Missing 'Course Outcome' title for {course.course_code}")
                 return False
             
-            # Check 3: Course-specific validation
+            # Check 3: Course-specific validation - ensure we got the correct course's data
+            # Example valid: <span id="uc_course_outcome_lbl_course">LAWS 4330 - Advanced Constitutional Law</span>
+            # Example invalid: <span id="uc_course_outcome_lbl_course">LAWS 2331 - Contract Law</span> (wrong course)
             course_header = soup.find('span', {'id': 'uc_course_outcome_lbl_course'})
             if not course_header or f"{course.subject} {course.course_code}" not in course_header.get_text():
                 self.logger.warning(f"Missing or incorrect course header for {course.course_code}")
                 return False
             
-            # Check 4: At least some section headers should exist
+            # Check 4: Content structure validation - ensure page has section headers for course outcome content
+            # Example valid: <td class="reverseHeaderStyle">Learning Outcome</td>, <td class="reverseHeaderStyle">Course Syllabus</td>
+            # Example invalid: Empty page or page with no content sections
             section_headers = soup.find_all('td', class_='reverseHeaderStyle')
             if len(section_headers) < 1:
                 self.logger.warning(f"Missing section headers for {course.course_code}")
