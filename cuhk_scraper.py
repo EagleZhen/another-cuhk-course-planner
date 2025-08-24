@@ -1476,6 +1476,44 @@ class CuhkScraper:
         
         self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
     
+    def _report_course_outcome_failures(self):
+        """Report failed course outcomes at end of scraping for manual retry"""
+        if not hasattr(self, '_failed_course_outcomes') or not self._failed_course_outcomes:
+            self.logger.info("✅ All course outcomes scraped successfully")
+            return
+        
+        failure_count = len(self._failed_course_outcomes)
+        self.logger.info(f"\n{'='*60}")
+        self.logger.info(f"🚨 COURSE OUTCOME FAILURES DETECTED: {failure_count} courses")
+        self.logger.info(f"{'='*60}")
+        
+        # Group failures by reason for cleaner reporting
+        failures_by_reason = {}
+        for failure in self._failed_course_outcomes:
+            reason = failure['reason']
+            if reason not in failures_by_reason:
+                failures_by_reason[reason] = []
+            failures_by_reason[reason].append(f"{failure['subject']}{failure['course_code']}")
+        
+        for reason, courses in failures_by_reason.items():
+            self.logger.info(f"📋 {reason.upper()}: {', '.join(courses)}")
+        
+        self.logger.info(f"\n💡 RECOMMENDATION:")
+        self.logger.info(f"   • Wait 1-2 hours for CUHK server recovery")
+        self.logger.info(f"   • Manually retry failed courses during stable server periods")
+        self.logger.info(f"   • These courses currently have empty course outcome data")
+        
+        # Save failure details to file for easy retry
+        failure_file = "data/failed_course_outcomes.txt"
+        with open(failure_file, 'w') as f:
+            f.write("# Failed Course Outcomes - Manual Retry Needed\n")
+            f.write(f"# Generated: {utc_now_iso()}\n\n")
+            for failure in self._failed_course_outcomes:
+                f.write(f"{failure['subject']}{failure['course_code']} - {failure['reason']} ({failure['timestamp']})\n")
+        
+        self.logger.info(f"📝 Failure details saved to: {failure_file}")
+        self.logger.info(f"{'='*60}")
+    
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
         soup = BeautifulSoup(html, 'html.parser')
@@ -1630,6 +1668,10 @@ class CuhkScraper:
             self.progress_tracker.print_summary()
         
         # Index file generation removed - frontend loads individual JSON files directly
+        
+        # Report course outcome failures for manual retry
+        self._report_course_outcome_failures()
+        
         # Final summary
         self.logger.info(f"🎉 SCRAPING COMPLETED!")
         self.logger.info(f"✅ Completed: {len(completed_subjects)} subjects")
