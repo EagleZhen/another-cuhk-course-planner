@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
-import { analytics } from '@/lib/analytics'
+// import { analytics } from '@/lib/analytics' // Removed to reduce Edge requests
 import ReactMarkdown from 'react-markdown'
 
 // Using clean internal types only
@@ -373,9 +373,9 @@ export default function CourseSearch({
         setLoading(false)
         
         // Track loading performance
-        const totalLoadTimeSeconds = Math.round(totalLoadTime / 1000)
-        analytics.catalogLoaded(totalLoadTimeSeconds, successCount)
-        analytics.loadingExperience(totalLoadTimeSeconds)
+        // const totalLoadTimeSeconds = Math.round(totalLoadTime / 1000)
+        // analytics.catalogLoaded(totalLoadTimeSeconds, successCount)
+        // analytics.loadingExperience(totalLoadTimeSeconds)
         
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
@@ -386,8 +386,8 @@ export default function CourseSearch({
         
       } catch (error) {
         console.error('Failed to load course data:', error)
-        analytics.catalogFailed()
-        analytics.userError('catalog_load_failed')
+        // analytics.catalogFailed()
+        // analytics.userError('catalog_load_failed')
         setLoading(false)
       } finally {
         setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
@@ -478,8 +478,8 @@ export default function CourseSearch({
   // Track search analytics - simplified for MVP
   useEffect(() => {
     if (debouncedSearchTerm.trim() && debouncedSearchTerm.length > 2) {
-      const foundResults = searchResults.total > 0
-      analytics.searchUsed(foundResults)
+      // const foundResults = searchResults.total > 0
+      // analytics.searchUsed(foundResults)
     }
   }, [debouncedSearchTerm, searchResults.total])
 
