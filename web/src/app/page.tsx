@@ -52,7 +52,6 @@ export default function Home() {
     
     // Track user visit
     // analytics.userVisited(currentTerm)
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want this to run once on mount
   }, [])
 
   // Auto-restore schedule from localStorage when term changes (client-side only)
