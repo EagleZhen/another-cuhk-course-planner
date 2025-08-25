@@ -17,7 +17,7 @@ const isInternalUser = () => {
   
   const hostname = window.location.hostname
   return (
-    hostname === 'localhost' ||
+    hostname === 'localhost'
     // hostname.includes('vercel.app') // Preview deployments
     // Add other internal domains as needed
   )
