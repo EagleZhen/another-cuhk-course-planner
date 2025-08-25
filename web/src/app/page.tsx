@@ -9,7 +9,6 @@ import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
-import { analytics } from '@/lib/analytics'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -50,9 +49,6 @@ export default function Home() {
   useEffect(() => {
     setIsHydrated(true)
     
-    // Track user visit
-    analytics.userVisited(currentTerm)
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want this to run once on mount
   }, [])
 
   // Auto-restore schedule from localStorage when term changes (client-side only)
@@ -197,8 +193,6 @@ export default function Home() {
   // Handle term change - localStorage will handle schedule restoration
   const handleTermChange = (newTerm: string) => {
     setCurrentTerm(newTerm)
-    // Track when user switches terms
-    analytics.userVisited(newTerm)
     // localStorage useEffect will automatically restore/clear schedule for new term
   }
 
@@ -287,13 +281,6 @@ export default function Home() {
       enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
     )
     
-    // Track analytics
-    const isFirstCourse = courseEnrollments.length === 0 && existingEnrollmentIndex < 0
-    analytics.courseAdded(courseKey, isFirstCourse)
-    
-    // Track schedule building
-    const totalCourses = existingEnrollmentIndex >= 0 ? courseEnrollments.length : courseEnrollments.length + 1
-    analytics.scheduleBuilt(totalCourses)
     
     if (existingEnrollmentIndex >= 0) {
       // Update existing enrollment with new sections
