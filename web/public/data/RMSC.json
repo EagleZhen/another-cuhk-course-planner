@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-24T04:11:51.601213+00:00",
+    "scraped_at": "2025-08-25T11:02:48.053301+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 36,
@@ -316,7 +316,7 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "For most classes, students will read a chapter/paper and email the instructor or the TA questions about it. These questions should be the kind of questions you would ask when a visitor presents a seminar or when reviewing a new topic. They should ask the questions as critically and as best as possible.\n\nMost of the classes will consist of a discussion of the papers/chapters, based on a subset of the email questions. One class participant will present a summary of the chapter at the beginning of the discussion. All of the class participants (registered or not) will be expected to participate in the discussion.",
+      "learning_outcomes": "For most classes, students will read a chapter/paper and email the instructor or the TA questions about it. These questions should be the kind of questions you would ask when a visitor presents a seminar or when reviewing a new topic. They should ask the questions as critically and as best as possible.\nMost of the classes will consist of a discussion of the papers/chapters, based on a subset of the email questions. One class participant will present a summary of the chapter at the beginning of the discussion. All of the class participants (registered or not) will be expected to participate in the discussion.",
       "course_syllabus": "This is an elementary course aiming at introducing current issues and special\ntopics in risk management. This course is designed to stimulate analysis of and\nprovoke discussion about key concepts in risk management. Students will read,\ndiscuss and present chapters of the set text, with a view to considering the ideas of\nrisk, prediction and statistics raised in that book. The course will also provide\nopportunities for students to improve their communication and presentation skills.\nOnly RMSC majors can register for this course.",
       "assessment_types": {
         "Attendance": "20",
@@ -426,7 +426,7 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n\n1. understand and expound the Credit Crisis of 2007 and the latest Basel regulations on credit risk.\n2. discuss various credit risk mitigation methods\n3. describe how to calculate credit risk measures via various methodologies\n4. value and utilize credit risk derivatives\n5. use statistical software to implement credit risk models",
+      "learning_outcomes": "Upon completion of the course, students should be able to\n1. understand and expound the Credit Crisis of 2007 and the latest Basel regulations on credit risk.\n2. discuss various credit risk mitigation methods\n3. describe how to calculate credit risk measures via various methodologies\n4. value and utilize credit risk derivatives\n5. use statistical software to implement credit risk models",
       "course_syllabus": "1. Introduction\n2. Retail Credit Risk\n3. Credit Risk Mitigation\n4. Credit Derivatives\n5. The Credit Crisis of 2007-8\n6. Credit Risk Measures\n7. Credit Risk Regulation",
       "assessment_types": {
         "Essay test or exam": "50",
@@ -691,16 +691,12 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand the basic notion of copulas and perform simulations according to the Black-Scholes model that facilitates for financial data cleansing;\n(2) grasp the idea of using GARCH to model the evolutions of volatilities and correlations;\n(3) calibrate various risk measures with the use of Extreme Value Theory;\n(4) use principal component analysis and canonical correlation analysis and understand its connection with simple recommender systems and its applications in term-structures of interest rates;\n(5) carry out cluster analysis with various machine learning tools such as perceptrons, classification trees, k-means clustering algorithm, Bayes classifiers;\n(6) grasp the concept of ANN and logit regression for categorical data analysis;\n(7) analyse real data using suitable proper techniques from both statistics and machine learning and write reports to summarise findings;\n(8) understand how to consider problems from different perspectives, particularly related to those in finance and risk management science, and analyse quantitative evidence in a critical manner.",
-      "course_syllabus": "Business, Finance and Risk Management Science. Statistical packages such as R, SAS\nand EXCEL will be used to demonstrate these methods. Topics are as follows:\n• Simulating Multivariate Normal Random Numbers\n• Estimating Volatilities and Correlations\n• Risk Measure and Extreme Value Theory\n• Principal Component Analysis, Recommender Systems\n• Binary Logistic Regression, Multinomial Logit, Perceptrons\n• Decision Tree\n• k-means Clustering\n• Artificial Neural Network, Stochastic Gradient Descent",
-      "assessment_types": {
-        "Essay test or exam": "45",
-        "Homework or assignment": "20",
-        "Project": "35"
-      },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
-      "required_readings": "NA",
-      "recommended_readings": "1. Hull, J., Risk Management and Financial Institutions, Prentice Hall\n2. Johnson, R.A. and Wichern, D.W. Applied Multivariate statistical analysis, 6th edition, Prentice Hall\n3. David Ruppert and David S. Matteson, Statistics and Data Analysis for Financial Engineering: with R examples, 2nd ed. 2015 edition, Springer\n4. Kevin P. Murphy and Francis Bach, Machine Learning: A Probabilistic Perspective (Adaptive Computation and Machine Learning), 1st edition, The MIT Press\n5. (日)中井悅司, 機器學習入門之道, 人民郵電"
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "RMSC",
@@ -770,14 +766,14 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) explain the notion of variation as a measure of risk and its relationship to statistics and risk management;\n(2) demonstrate the ability to understand the concepts of mean-variance analysis and Markowitz optimal portfolio for a one-period investment;\n(3) interpret and infer from the mean-variance analysis and the ideas of efficient frontiers and minimum variance portfolio;\n(4) understand the notion of factor models and their relationships to linear regressions;\n(5) relate the celebrated CAPM model with factor models and their statistical underpinnings;\n(6) explain the concepts of APT and its reconciliation with the CAPM;\n(7) explain and demonstrate the basic notions of diffusions and their applications to finance and risk management;\n(8) demonstrate a basic understanding of Ito’s calculus;\n(9) demonstrate a working knowledge of applying Ito’s calculus, in particular with respect to standard Brownian motion;\n(10) differentiate both conceptually and practically the notion of integration by parts between ordinary and Ito’s calculus;\n(11) apply Ito’s calculus to option pricing and the Black-Scholes formula; and\n\n(12) acquire the necessary background for other courses in risk management and finance, including but not limited to RMSC4001, RMSC4002, RMSC4005 and RMSC4007.",
+      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) explain the notion of variation as a measure of risk and its relationship to statistics and risk management;\n(2) demonstrate the ability to understand the concepts of mean-variance analysis and Markowitz optimal portfolio for a one-period investment;\n(3) interpret and infer from the mean-variance analysis and the ideas of efficient frontiers and minimum variance portfolio;\n(4) understand the notion of factor models and their relationships to linear regressions;\n(5) relate the celebrated CAPM model with factor models and their statistical underpinnings;\n(6) explain the concepts of APT and its reconciliation with the CAPM;\n(7) explain and demonstrate the basic notions of diffusions and their applications to finance and risk management;\n(8) demonstrate a basic understanding of Ito’s calculus;\n(9) demonstrate a working knowledge of applying Ito’s calculus, in particular with respect to standard Brownian motion;\n(10) differentiate both conceptually and practically the notion of integration by parts between ordinary and Ito’s calculus;\n(11) apply Ito’s calculus to option pricing and the Black-Scholes formula; and\n(12) acquire the necessary background for other courses in risk management and finance, including but not limited to RMSC4001, RMSC4002, RMSC4005 and RMSC4007.",
       "course_syllabus": "This course is designed to introduce the current developments of risk management in the financial markets. Two general important areas of risk management in finance: (1) asset management and (2) derivative pricing. Emphasis will be placed on the statistical modeling aspects on some of the commonly used models in the area of market risk.",
       "assessment_types": {
         "Essay test or exam": "45",
         "Project": "20",
         "Short answer test or exam": "35"
       },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
       "required_readings": "David G. Luenberger, Investment Science, 7th edition, Oxford University Press",
       "recommended_readings": "David Ruppert, Statistics and Finance – An Introduction, Springer-Verlag"
     },
@@ -861,14 +857,14 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand, in an actuarial context, what is meant by the word “model”, how and why models are used, their advantages and their limitations;\n(2) understand the important results that can be obtained from these models for the purpose of making business decisions and the approaches that can be used to determine these results;\n(3) generalise knowledge from the actuarial sector to other business environments; and\n\n(4) solve the questions in Exams M and C offered by the Society of Actuaries.",
+      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand, in an actuarial context, what is meant by the word “model”, how and why models are used, their advantages and their limitations;\n(2) understand the important results that can be obtained from these models for the purpose of making business decisions and the approaches that can be used to determine these results;\n(3) generalise knowledge from the actuarial sector to other business environments; and\n(4) solve the questions in Exams M and C offered by the Society of Actuaries.",
       "course_syllabus": "Risk can be thought as the potential losses in accidents. The amount of loss in each accident and the frequency of the occurrence of accidents should be considered to quantify risk. To eliminate these potential losses, individual will seek for insurance. From an individual point of view, insurance is an economic device whereby the individual substitutes a small certain cost (the premium) for a large uncertain financial loss (the contingency insured against) that would exist if there were not for insurance. In this course, the modeling of frequency and severity will be studied. The aggregate loss model will then be introduced. Then credibility theory will be discussed.",
       "assessment_types": {
         "Essay test or exam": "50",
         "Homework or assignment": "15",
         "Short answer test or exam": "35"
       },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
       "required_readings": "Klugman, S.A., Panjer, H.H. and Willmot, G.E. Loss Models: From Data to Decisions. 2nd Edition. John Wiley, 2004.",
       "recommended_readings": ""
     },
@@ -888,7 +884,7 @@
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
       "learning_outcomes": "Upon completion of the course, students should be able to\n(1) do the basic option pricing (the Black-Sholes approach) for European and American options under the assumption that the stock price behaves as a drifted Brownian Motion; and\n(2) do the basic manipulation of stochastic integrations and stochastic partial differential equations.",
-      "course_syllabus": "Stochastic Calculus is an advance tool for modeling prices of risky assets. In this course you will learn the basics of stochastic calculus without going through the rigorous mathematics of measure theory. The following topics will be covered in this course:\n\n1. Examples of arbitrage and pricing in a single period forward option\n2. The multi-period binary model\n3. Conditional expectation and Martingale\n4. Continuous stochastic process and Brownian motion\n5. Stochastic integral and Ito’s formula\n6. Stochastic differential equation\n7. Applications of stochastic calculus in finance\n8. The Black-Scholes Model and pricing for European option",
+      "course_syllabus": "Stochastic Calculus is an advance tool for modeling prices of risky assets. In this course you will learn the basics of stochastic calculus without going through the rigorous mathematics of measure theory. The following topics will be covered in this course:\n1. Examples of arbitrage and pricing in a single period forward option\n2. The multi-period binary model\n3. Conditional expectation and Martingale\n4. Continuous stochastic process and Brownian motion\n5. Stochastic integral and Ito’s formula\n6. Stochastic differential equation\n7. Applications of stochastic calculus in finance\n8. The Black-Scholes Model and pricing for European option",
       "assessment_types": {
         "Essay test or exam": "40",
         "Homework or assignment": "30",
@@ -1057,14 +1053,14 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand derivative pricing theories;\n(2) understand structure products and their risk management;\n(3) conduct risk management reports of financial products;\n(4) enhance their teamwork and presentation skills; and\n\n(5) understand structural credit risk models.",
+      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand derivative pricing theories;\n(2) understand structure products and their risk management;\n(3) conduct risk management reports of financial products;\n(4) enhance their teamwork and presentation skills; and\n(5) understand structural credit risk models.",
       "course_syllabus": "This course aims at understanding the application of derivatives theories for the practical risk management. It starts by reviewing basic concepts of pricing and hedging derivatives, like risk-neutral valuation, arbitrage strategies, hedging strategies, implied volatilities and the Greeks. The Value-at-Risk framework for derivatives positions is discussed. Student will also learn how to apply option theoretic approach to credit risk management. Specifically, the capital structure model will be applied to measure the default probability. The Moody's KMV methodology and CreditRisk+ are introduced.",
       "assessment_types": {
         "Homework or assignment": "20",
         "Project": "50",
         "Short answer test or exam": "30"
       },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
       "required_readings": "J. Hull. Options, Futures and Other Derivatives (The 6th edition or after)",
       "recommended_readings": "N.H. Chan and H.Y. Wong (2006). Simulation Techniques in Financial Risk Management, Wiley"
     },
@@ -1459,15 +1455,15 @@
       "academic_group": "Div of Risk Management Science",
       "academic_org": "Div of Risk Management Science",
       "learning_outcomes": "Upon completion of the course, students should be able to\n(1) analyse real data using R and EXCEL;\n(2) simulate multivariate normal random vectors;\n(3) build a GARCH and EWMA model for volatilities and correlations of stock prices;\n(4) compute VaR using historical simulation, normal model, t model and extreme value model;\n(5) understand the Basel Accord;\n(6) perform Principal component analysis and its application to compute VaR;\n(7) perform classification using Binary logistic regression, Linear discrimination analysis, Classification tree and Artificial neural network.",
-      "course_syllabus": "* Simulating multivariate normal random numbers\n* Estimating volatilities and correlations\n* Value at Risk\n* Principal component analysis\n* Binary Logistic regression and Multinomial logit\n* Linear Discriminant analysis\n* Classification Tree\n* Artificial Neural Network",
+      "course_syllabus": "Simulating multivariate normal random numbers\nEstimating volatilities and correlations\nValue at Risk\nPrincipal component analysis\nBinary Logistic regression and Multinomial logit\nLinear Discriminant analysis\nClassification Tree\nArtificial Neural Network",
       "assessment_types": {
         "Examination": "55",
         "Homework or assignment": "15",
         "Project": "30"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Lecture notes",
-      "recommended_readings": "1. Hull, J., Options, Futures, and other derivatives. Pearson.\n\n2. Johnson, R.A. and Wichern, D.W. Applied Multivariate statistical analysis, Prentice Hall."
+      "recommended_readings": "1. Hull, J., Options, Futures, and other derivatives. Pearson.\n2. Johnson, R.A. and Wichern, D.W. Applied Multivariate statistical analysis, Prentice Hall."
     },
     {
       "subject": "RMSC",
@@ -1512,14 +1508,14 @@
       "academic_group": "Div of Risk Management Science",
       "academic_org": "Div of Risk Management Science",
       "learning_outcomes": "Upon completion of the course, students should be able to\n(1) identify various kinds of financial risks and tools to manage the risks;\n(2) apply basic mathematical, financial and statistical techniques in risk management science;\n(3) understand basic management techniques of market risk and credit risk.",
-      "course_syllabus": "1. Introduction to Risk Management\n\n2. Probability and Statistics for Risk Management\n\n3. Forward and Futures\n\n4. Options\n\n5. Binomial Tree Model\n\n6. Black-Scholes Model\n\n7. Value at Risk\n\n8. Credit Risk Modelling",
+      "course_syllabus": "1. Introduction to Risk Management\n2. Probability and Statistics for Risk Management\n3. Forward and Futures\n4. Options\n5. Binomial Tree Model\n6. Black-Scholes Model\n7. Value at Risk\n8. Credit Risk Modelling",
       "assessment_types": {
         "Examination": "80",
         "Homework or assignment": "20"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "Term-end course and teaching evaluation\nStaff-student Consultative Meeting",
       "required_readings": "Lecture notes will be available online.",
-      "recommended_readings": "1. Crouhy, Galai and Mark (2001), Risk Management, McGraw-Hill, New York\n\n2. Hull, J (2014). Option, Futures and Other Derivatives 9th edition, Pearson, Boston\n\n3. Jorion, P. (2007). Value at Risk 3rd edition, McGraw-Hill, New York\n\n4. Hull, J. (2018). Risk Management and Financial Institutions, 5th Edition, John Wiley & Sons.\n\n5. Van Horne (2002), Financial Management and Policies, 12th edition, Prentice Hall"
+      "recommended_readings": "1. Crouhy, Galai and Mark (2001), Risk Management, McGraw-Hill, New York\n2. Hull, J (2014). Option, Futures and Other Derivatives 9th edition, Pearson, Boston\n3. Jorion, P. (2007). Value at Risk 3rd edition, McGraw-Hill, New York\n4. Hull, J. (2018). Risk Management and Financial Institutions, 5th Edition, John Wiley & Sons.\n5. Van Horne (2002), Financial Management and Policies, 12th edition, Prentice Hall"
     },
     {
       "subject": "RMSC",
@@ -1570,15 +1566,15 @@
       "academic_group": "Div of Risk Management Science",
       "academic_org": "Div of Risk Management Science",
       "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand the rigorous definition of risk measures in terms of probability theory;\n(2) numerical calculation of value-at-risk (VaR) and expected shortfall for linear portfolios;\n(3) VaR and shortfall for nonlinear portfolios with derivatives positions;\n(4) backtesting VaR;\n(5) stress testing;\n(6) VaR applications in the banking industry and its use in margin calculations;\n(7) practical team work on VaR applications.",
-      "course_syllabus": "1. Regulatory Capital Standards with VaR\n\n2. Measuring Financial Risk\n\n3. Computing Value at Risk\n\n4. Back-Testing VaR Models\n\n5. Portfolio Risk: Analytical Methods\n\n6. Forecasting Risks and Correlations\n\n7. VaR Methods and RiskMetrics\n\n8. Stress Testing\n\n9. Credit Risk\n\n10. Liquidity Risk\n\n11. Using VaR for Active Risk Management and Investment\n\n12. Coherent Risk Measures\n\n13. Integrated Risk Management",
+      "course_syllabus": "1. Regulatory Capital Standards with VaR\n2. Measuring Financial Risk\n3. Computing Value at Risk\n4. Back-Testing VaR Models\n5. Portfolio Risk: Analytical Methods\n6. Forecasting Risks and Correlations\n7. VaR Methods and RiskMetrics\n8. Stress Testing\n9. Credit Risk\n10. Liquidity Risk\n11. Using VaR for Active Risk Management and Investment\n12. Coherent Risk Measures\n13. Integrated Risk Management",
       "assessment_types": {
         "Examination": "35",
         "Homework or assignment": "20",
         "Project": "45"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Lecture notes will be available online.",
-      "recommended_readings": "1. Jorion, P. 2006. Value at Risk (3rd Edition), McGraw-Hill.\n\n2. N.H. Chan and H.Y. Wong 2015. Simulation Techniques in Financial Risk Management (2nd Edition), John Wiley & Sons.\n\n3. Hull, J. 2018. Risk Management and Financial Institutions. (5th Edition). John Wiley & Sons.\n\n4. Hull, J. 2014. Option, Futures and Other Derivatives. (9th Edition). Pearson\n\n5. Hogg, R. and Tanis. E., et al. 2014. Probability and Statistical Inference. (9th Edition). Macmillan."
+      "recommended_readings": "1. Jorion, P. 2006. Value at Risk (3rd Edition), McGraw-Hill.\n2. N.H. Chan and H.Y. Wong 2015. Simulation Techniques in Financial Risk Management (2nd Edition), John Wiley & Sons.\n3. Hull, J. 2018. Risk Management and Financial Institutions. (5th Edition). John Wiley & Sons.\n4. Hull, J. 2014. Option, Futures and Other Derivatives. (9th Edition). Pearson\n5. Hogg, R. and Tanis. E., et al. 2014. Probability and Statistical Inference. (9th Edition). Macmillan."
     },
     {
       "subject": "RMSC",
@@ -1640,9 +1636,9 @@
         "Homework or assignment": "66",
         "Project": "34"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Teaching materials to be provided by the course lecturer(s).",
-      "recommended_readings": "A Random Walk Down Wall Street - Burton G. Malkiel\n\nThe Handbook of Derivate Instruments - Atsuo Konishi, Ravie. Dattatreya\n\nLiar’s Poker - Michael Lewis\n\nThe Eurodollar Futures and Option Handbook - Galen Burghardt\n\nCurrency Wars - The Making of the Next Global Crisis - James Rickards"
+      "recommended_readings": "A Random Walk Down Wall Street - Burton G. Malkiel\nThe Handbook of Derivate Instruments - Atsuo Konishi, Ravie. Dattatreya\nLiar’s Poker - Michael Lewis\nThe Eurodollar Futures and Option Handbook - Galen Burghardt\nCurrency Wars - The Making of the Next Global Crisis - James Rickards"
     },
     {
       "subject": "RMSC",
@@ -1704,7 +1700,7 @@
         "Examination": "80",
         "Homework or assignment": "20"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "David G. Luenberger, Investment Science, Oxford University Press",
       "recommended_readings": "David Ruppert, Statistics and Data Analysis for Financial Engineering. Springer-Verlag, New York."
     },
@@ -1762,7 +1758,7 @@
         "Examination": "80",
         "Homework or assignment": "20"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Chan, N.H. and Wong, H.Y. (2006), Simulation Techniques in Financial Risk Management, Wiley.",
       "recommended_readings": "1. Amussen, S. and Glynn, P.W. (2007). Stochastic Simulation: Algorithms and Analysis. Springer, New York.\n2. McLeish, D.L. (2005). Monte Carlo: Simulation and Finance. Wiley, New York."
     },
@@ -1826,7 +1822,7 @@
         "Examination": "70",
         "Homework or assignment": "30"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "L. Martellini, P. Priaulet and S. Priaulet, Fixed-income Securities: Valuation, Risk Management and Portfolio Strategies, Wiley",
       "recommended_readings": "Hull, Options, Futures and Other Derivatives."
     },
@@ -1878,9 +1874,9 @@
         "Examination": "80",
         "Homework or assignment": "20"
       },
-      "feedback_evaluation": "1. Mid-term evaluation\n\n2. Term-end course and teaching evaluation\n\n3. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Mid-term evaluation\n2. Term-end course and teaching evaluation\n3. Staff-student Consultative Meeting",
       "required_readings": "Teaching materials to be provided by the course lecturer(s).",
-      "recommended_readings": "1. Hull, J. 2018. Risk Management and Financial Institutions. 5th ed. Hoboken, NJ: John Wiley & Sons.\n\n2. Meissner, G. (2014). Correlation Risk Modeling and Management: An Applied Guide including the Basel III Correlation Framework. John Wiley & Sons.\n\n3. Chacko, G. et al. (2016). Credit Derivatives: A Primer On Credit Risk, Modeling and Instruments. Pearson.\n\n4. The Hong Kong Institute of Bankers. 2012. Credit Risk Management. John Wiley & Sons, Singapore."
+      "recommended_readings": "1. Hull, J. 2018. Risk Management and Financial Institutions. 5th ed. Hoboken, NJ: John Wiley & Sons.\n2. Meissner, G. (2014). Correlation Risk Modeling and Management: An Applied Guide including the Basel III Correlation Framework. John Wiley & Sons.\n3. Chacko, G. et al. (2016). Credit Derivatives: A Primer On Credit Risk, Modeling and Instruments. Pearson.\n4. The Hong Kong Institute of Bankers. 2012. Credit Risk Management. John Wiley & Sons, Singapore."
     },
     {
       "subject": "RMSC",
@@ -1924,13 +1920,13 @@
       "campus": "Main Campus",
       "academic_group": "Div of Risk Management Science",
       "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "Upon completion of the course, students should be able to,\n\n1. Understand the main risks associated with the banking business and the tools to manage them.\n2. Assess the financial risk profile of a corporate or a bank.",
-      "course_syllabus": "1. Foundations of risk management\n2. Risk management function in financial institutions\n3. Fundamentals of credit risk\n4. Credit analysis and reporting\n5. Financial markets and products\n6. Market risk and counterparty credit risk\n7. Regulatory capital in banking\n8. Risk management in project finance\n9. Other financial risks",
+      "learning_outcomes": "Upon completion of the course, students should be able to,\nUnderstand the main risks associated with the banking business and the tools to manage them.\nAssess the financial risk profile of a corporate or a bank.",
+      "course_syllabus": "Foundations of risk management\nRisk management function in financial institutions\nFundamentals of credit risk\nCredit analysis and reporting\nFinancial markets and products\nMarket risk and counterparty credit risk\nRegulatory capital in banking\nRisk management in project finance\nOther financial risks",
       "assessment_types": {
         "Examination": "50",
         "Project": "50"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Lecture notes will be provided.",
       "recommended_readings": "Lecture notes will be provided."
     },
@@ -1955,7 +1951,7 @@
         "Homework or assignment": "50",
         "Presentation": "50"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Teaching materials to be provided by the course lecturer(s).",
       "recommended_readings": "Teaching materials to be provided by the course lecturer(s)."
     },
@@ -1977,7 +1973,7 @@
       "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand advanced theories in quantitative finance;\n(2) use various statistical methods and techniques to analyse problems in risk management.",
       "course_syllabus": "The course aims at discussing recent advances in quantitative finance.",
       "assessment_types": {},
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Teaching materials to be provided by the course lecturer(s).",
       "recommended_readings": "Teaching materials to be provided by the course lecturer(s)."
     },
@@ -2003,9 +1999,9 @@
         "Homework or assignment": "20",
         "Project": "40"
       },
-      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Teaching materials to be provided by the course lecturer(s).",
-      "recommended_readings": "1. Campbell, J. Y., Lo, A. W. and MacKinlay, C. (1996). *The Econometrics of Financial Markets*: Princeton University Press.\n\n2. Ingersoll, J. E. (1987). *Theory of Financial Decision Making*: Rowman & Littleeld.\n\n3. Tsay, R. S. (2010). *Analysis of Financial Time Series, 3rd Edition*: Wiley & Sons.\n\n4. Tsay, R. S. (2013). *Multivariate Time Series Analysis: With R and Financial Applications*: Wiley & Sons."
+      "recommended_readings": "1. Campbell, J. Y., Lo, A. W. and MacKinlay, C. (1996).\nThe Econometrics of Financial Markets\n:\nPrinceton University Press.\n2. Ingersoll, J. E. (1987).\nTheory of Financial Decision Making\n: Rowman & Littleeld.\n3. Tsay, R. S. (2010).\nAnalysis of Financial Time Series, 3rd Edition\n: Wiley & Sons.\n4. Tsay, R. S. (2013).\nMultivariate Time Series Analysis: With R and Financial Applications\n: Wiley\n& Sons\n."
     },
     {
       "subject": "RMSC",
@@ -2061,7 +2057,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Risk Management Science",
       "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "Upon completion of the course, students should be able to,\n\n(1) learn/ review basic financial concepts such as Portfolio Theory, CAPM, Fama-French-Carhart Factor Model,\nMonte Carlo simulation, Options Theory, VaR (Value at Risk) and Market microstructure;\n(2) access and download publicly available financial data such as Yahoo Finance, Google Finance, Prof.\nFrench’s Data Library and Federal Reserve Economic Data Library (FRED) and so on for conducting\ndata analyses;\n(3) illustrate how data analytics and machine learning techniques can improve financial decision-making;\n(4) quantify the risk exposures of portfolios and the corresponding backtesting procedures using Python\nand/or other programming languages.",
+      "learning_outcomes": "Upon completion of the course, students should be able to,\n(1) learn/ review basic financial concepts such as Portfolio Theory, CAPM, Fama-French-Carhart Factor Model,\nMonte Carlo simulation, Options Theory, VaR (Value at Risk) and Market microstructure;\n(2) access and download publicly available financial data such as Yahoo Finance, Google Finance, Prof.\nFrench’s Data Library and Federal Reserve Economic Data Library (FRED) and so on for conducting\ndata analyses;\n(3) illustrate how data analytics and machine learning techniques can improve financial decision-making;\n(4) quantify the risk exposures of portfolios and the corresponding backtesting procedures using Python\nand/or other programming languages.",
       "course_syllabus": "The aim of the course is to provide students with a broad understanding of the principles and techniques of Python coding for finance applications on Jupyter notebook and/or other programming interfaces. Following an introduction to the basics of Python, the course is further divided into two main sections. The first part covers the fundamentals of data reduction and modelling applied specifically to financial data with Python libraries. Techniques for derivative pricing, risk measures estimation with Python are also discussed. The second part emphasises on several specific examples of applying state-of-the-art machine learning tools for various modelling/ analyses. Understanding the problems covered in the course will be important to students pursing a career in a rapidly expanding technology-intensive field of finance and risk management.",
       "assessment_types": {
         "Examination": "35",
@@ -2070,7 +2066,7 @@
       },
       "feedback_evaluation": "1. Mid-term course evaluation\n2. Term-end course and teaching evaluation\n2. Staff-student Consultative Meeting",
       "required_readings": "Please refer to recommended readings.",
-      "recommended_readings": "i. Hilpisch, Y. (2014). *Python for Finance: Mastering Data-Driven Finance 2nd Edition*: O’Reilly.\nii. Hilpisch, Y. (2015). *Derivatives Analytics with Python: Data Analysis, Models, Simulation, Calibration\nand Hedging*: Wiley.\niii. \\*Lewinson, E. (2020). *Python for Finance Cookbook: Over 50 recipes for applying modern Python\nlibraries to financial data analysis*: Packt.\niv. Lutz, M. (2013). *Learning Python, 5th Edition*: O’Reilly.\nv. \\*Matthes, E. (2019). *Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction To\nProgramming*: No Starch Press."
+      "recommended_readings": "i. Hilpisch, Y. (2014).\nPython for Finance: Mastering Data-Driven Finance 2nd Edition\n: O’Reilly.\nii. Hilpisch, Y. (2015).\nDerivatives Analytics with Python: Data Analysis, Models, Simulation, Calibration\nand Hedging\n: Wiley.\niii. *Lewinson, E. (2020).\nPython for Finance Cookbook: Over 50 recipes for applying modern Python\nlibraries to financial data analysis\n: Packt.\niv. Lutz, M. (2013).\nLearning Python, 5th Edition\n: O’Reilly.\nv. *Matthes, E. (2019).\nPython Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction To\nProgramming\n: No Starch Press."
     },
     {
       "subject": "RMSC",
