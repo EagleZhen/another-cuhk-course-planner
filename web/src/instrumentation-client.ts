@@ -27,7 +27,7 @@ const isInternalUser = () => {
 if (typeof window !== 'undefined' && !isInternalUser()) {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
     api_host: '/x8m2k', // Use reverse proxy to bypass ad blockers
-    ui_host: 'https://us.posthog.com', // PostHog dashboard links (note: different from us.i.posthog.com)
+    ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST, // PostHog dashboard links
     
     // Privacy-first settings for student users
     person_profiles: 'never', // Don't create user profiles
