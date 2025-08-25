@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Another CUHK Course Planner",
     description: "Interactive weekly calendar for CUHK courses with automatic conflict detection and easy section management.",
-    url: "https://another-cuhk-course-planner.vercel.app",
+    url: "https://another-cuhk-course-planner.com", // Your final custom domain
     siteName: "Another CUHK Course Planner",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://another-cuhk-course-planner.com/og-image.png", // Will work with both temporary and final domain
         width: 1200,
         height: 630,
         alt: "CUHK Course Planner - Weekly calendar and shopping cart interface showing course scheduling with conflict detection",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Another CUHK Course Planner",
     description: "Interactive weekly calendar for CUHK courses with automatic conflict detection and easy section management.",
-    images: ["/og-image.png"],
+    images: ["https://another-cuhk-course-planner.com/og-image.png"], // Will work with final custom domain
   },
 
   icons: {
