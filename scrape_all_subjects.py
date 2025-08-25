@@ -30,8 +30,8 @@ def main():
         
         # Get all subjects from live website
         logger.info("Getting subjects from live website...")
-        subjects = scraper.get_subjects_from_live_site()
-        # subjects = ['LAWS']
+        # subjects = scraper.get_subjects_from_live_site()
+        subjects = ['LAWS', 'RMSC', 'SEEM']
 
         if not subjects:
             logger.error("Could not get subjects from live website")
