@@ -245,7 +245,7 @@ export default function CourseSearch({
         const scrapingTimestamps: Date[] = []
         let completedCount = 0
 
-        console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL using Vercel CDN...`)
+        console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL...`)
         
         // 🔥 PARALLEL LOADING: Fire ALL requests simultaneously!
         const allPromises = availableSubjects.map(async (subject) => {
