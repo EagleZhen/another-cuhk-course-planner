@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/x8m2k/:path*",
+      "destination": "https://us.i.posthog.com/:path*"
+    }
+  ]
+}
