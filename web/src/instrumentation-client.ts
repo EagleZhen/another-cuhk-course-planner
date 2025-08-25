@@ -17,8 +17,8 @@ const isInternalUser = () => {
   
   const hostname = window.location.hostname
   return (
-    hostname === 'localhost' ||
-    hostname.includes('vercel.app') // Preview deployments
+    hostname === 'localhost'
+    // hostname.includes('vercel.app') // Preview deployments
     // Add other internal domains as needed
   )
 }
@@ -26,7 +26,8 @@ const isInternalUser = () => {
 // Only initialize PostHog for real users (not internal testing)
 if (typeof window !== 'undefined' && !isInternalUser()) {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com',
+    api_host: '/x8m2k', // Use reverse proxy to bypass ad blockers
+    ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST, // PostHog dashboard links
     
     // Privacy-first settings for student users
     person_profiles: 'never', // Don't create user profiles
