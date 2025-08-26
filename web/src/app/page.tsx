@@ -9,6 +9,7 @@ import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes, type InternalCourse, type CourseEnrollment, type SectionType, type InternalSection } from '@/lib/courseUtils'
+import { analytics } from '@/lib/analytics'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -305,6 +306,9 @@ export default function Home() {
       
       setCourseEnrollments(prev => [...prev, newEnrollment])
     }
+    
+    // Track course enrollment for product analytics
+    analytics.courseAdded(`${course.subject}${course.courseCode}`, course.subject)
     
     // Clear global section selections for this course after adding/updating
     const newSectionsMap = new Map(selectedSections)
