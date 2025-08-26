@@ -27,18 +27,25 @@ export const analytics = {
 
   // === HYPOTHESIS 2: "App Has Discovery/Browsing Value" ===
   
-  // Track course browsing without enrollment (discovery value)
-  courseViewed: (course: string, addedToCart: boolean) => {
-    track('course_viewed', {
-      course,
-      resulted_in_enrollment: addedToCart
-    })
+  // Track course detail viewing (discovery behavior)
+  courseViewed: (course: string, subject: string) => {
+    track('course_viewed', { course, subject })
+  },
+  
+  // Track course enrollment (conversion from discovery)
+  courseAdded: (course: string, subject: string) => {
+    track('course_added', { course, subject })
+  },
+  
+  // Track search usage (key discovery method)
+  searchUsed: (resultsCount: number) => {
+    track('search_used', { results_count: resultsCount })
   },
 
-  // === OPTIMIZATION: Critical for Edge Request Decisions ===
+  // === UX OPTIMIZATION ===
   
-  // Track which subjects are accessed (for JSON loading optimization)
-  subjectAccessed: (subject: string) => {
-    track('subject_accessed', { subject })
+  // Track subject exploration intent
+  subjectToggled: (subject: string) => {
+    track('subject_toggled', { subject })
   }
 }
