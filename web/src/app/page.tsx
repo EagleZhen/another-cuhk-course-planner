@@ -543,6 +543,9 @@ export default function Home() {
                                 newSelection.add(subject)
                               }
                               setSelectedSubjects(newSelection)
+                              
+                              // Track subject exploration for UX optimization
+                              analytics.subjectToggled(subject)
                             }}
                           />
                         ))
