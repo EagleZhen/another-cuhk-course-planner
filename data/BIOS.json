@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-23T18:32:14.971634+00:00",
+    "scraped_at": "2025-08-26T05:19:23.807166+00:00",
     "subject": "BIOS",
     "subject_title": "Biostatistics",
     "total_courses": 9,
@@ -55,14 +55,14 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. understand the importance of biostatistics in public health and medical research.\n2. develop a conceptual understanding of basic biostatistics,\n3. critically read and understand the statistical methodology and results sections of medical and public health research papers.\n4. be capable of carrying out basic statistical analyses using SPSS statistical software.\n\n學生應該能夠:\n1. 瞭解生物統計學在公共衛生和醫學研究的重要性，\n2. 形成一個對基礎生物統計學的概念性理解，\n3. 批判性閱讀和理解醫療和公共衛生的研究論文的統計方法和結果部分，\n4. 能夠運用SPSS統計軟體來實現基本的統計分析。",
+      "learning_outcomes": "Student should be able to:\n1. understand the importance of biostatistics in public health and medical research.\n2. develop a conceptual understanding of basic biostatistics,\n3. critically read and understand the statistical methodology and results sections of medical and public health research papers.\n4. be capable of carrying out basic statistical analyses using SPSS statistical software.\n學生應該能夠:\n1. 瞭解生物統計學在公共衛生和醫學研究的重要性，\n2. 形成一個對基礎生物統計學的概念性理解，\n3. 批判性閱讀和理解醫療和公共衛生的研究論文的統計方法和結果部分，\n4. 能夠運用SPSS統計軟體來實現基本的統計分析。",
       "course_syllabus": "Types of Data, Central Tendency and Dispersion Statistics/ Graphical Presentation and Exploration of Data\nProbability\nProbability distributions - Normal, binomial\nHW (1) distribution\nSampling Distributions\nConfidence Intervals\nTutorial / Computing Session\nHypothesis testing, I\nHW (1) Due\nHypothesis testing II\nHW (2) Distribution\nTutorial / Computing Session\nCorrelation\nMid-term exam\nRegression methods I\nHW (2) due\nHW (3) Distribution\nRegression methods II\nTutorial/ Computing Session\nRevision\nHW (3) Due\nExamination",
       "assessment_types": {
         "Examination": "60",
         "Homework or assignment": "15",
         "Test or quiz": "25"
       },
-      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "feedback_evaluation": "Course evaluation will be done at the end of the course\n.",
       "required_readings": "Given in Class by lecturers. No required textbooks.",
       "recommended_readings": "Dawson and Trapp, Basic and Clinical Biostatistics, Lange 4th edition"
     },
@@ -114,8 +114,8 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. understand and evaluate the use of linear models in the medical literature in an intelligent manner.\n2. develop skills in analyzing epidemiological data with continuous outcomes using linear models and to understand the basic principles that underlie research designs and statistical inference.\n3. perform fundamental statistical procedures for research projects involving continuous outcomes and interpret results.\n\n學生應該能夠:\n1. 理解和明智地評估在醫學文獻中使用的線性模型。\n2. 掌握用線性模型來分析具有連續性變數的流行病資料的技巧，並理解實驗設計和統計推斷背後的基本原則。\n3. 對涉及連續性變數的研究專案，類比實現基本的統計過程並解釋其結果。",
-      "course_syllabus": "This course will provide a foundation for the practical analysis of data for which the primary outcome is a continuous variable. The course will begin with an introduction to ‘real-world’ data analysis with a motivating example looking at predictors of infant birthweight in Hong Kong. Methods for analysis of variance and regression analysis for continuous outcomes will then be discussed in detail with an emphasis on correct use of these methods in practice.\n\n該課程將會提供一個基於主因變數是連續性變數的資料的實踐分析的基礎。該課程將以一個香港嬰兒體重的預測為例子來介紹“現實生活”的資料分析為開始。接下來，將會詳細地討論連續性變數的多變數分析包括單因素和雙因素的方差分析，以及多元線性回歸，並著重於這些方法在實踐中的正確使用。",
+      "learning_outcomes": "Student should be able to:\n1. understand and evaluate the use of linear models in the medical literature in an intelligent manner.\n2. develop skills in analyzing epidemiological data with continuous outcomes using linear models and to understand the basic principles that underlie research designs and statistical inference.\n3. perform fundamental statistical procedures for research projects involving continuous outcomes and interpret results.\n學生應該能夠:\n1. 理解和明智地評估在醫學文獻中使用的線性模型。\n2. 掌握用線性模型來分析具有連續性變數的流行病資料的技巧，並理解實驗設計和統計推斷背後的基本原則。\n3. 對涉及連續性變數的研究專案，類比實現基本的統計過程並解釋其結果。",
+      "course_syllabus": "This course will provide a foundation for the practical analysis of data for which the primary outcome is a continuous variable. The course will begin with an introduction to ‘real-world’ data analysis with a motivating example looking at predictors of infant birthweight in Hong Kong. Methods for analysis of variance and regression analysis for continuous outcomes will then be discussed in detail with an emphasis on correct use of these methods in practice.\n該課程將會提供一個基於主因變數是連續性變數的資料的實踐分析的基礎。該課程將以一個香港嬰兒體重的預測為例子來介紹“現實生活”的資料分析為開始。接下來，將會詳細地討論連續性變數的多變數分析包括單因素和雙因素的方差分析，以及多元線性回歸，並著重於這些方法在實踐中的正確使用。",
       "assessment_types": {
         "Examination": "60",
         "Homework or assignment": "20",
@@ -173,7 +173,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. understand the concepts, assumptions and logic involved in statistical methods commonly used in medical research including categorical data analysis and time-to-event data analysis.\n2. develop appropriate statistical models for the data and correctly interpret the results.\n\n學生應該能夠:\n1. 理解在醫學研究中常用的統計方法的基本概念、假設以及邏輯，這些方法包括分類資料分析、時間與事件資料的分析。\n2. 針對資料建立適當的統計模型並能夠正確地解釋結果。",
+      "learning_outcomes": "Student should be able to:\n1. understand the concepts, assumptions and logic involved in statistical methods commonly used in medical research including categorical data analysis and time-to-event data analysis.\n2. develop appropriate statistical models for the data and correctly interpret the results.\n學生應該能夠:\n1. 理解在醫學研究中常用的統計方法的基本概念、假設以及邏輯，這些方法包括分類資料分析、時間與事件資料的分析。\n2. 針對資料建立適當的統計模型並能夠正確地解釋結果。",
       "course_syllabus": "This course will provide a foundation for the practical analyses of categorical and time to event (survival) data. The course will cover the use of logistic regression models for use with binary outcomes and Cox proportional hazards regression models for time to event outcomes. Practical application of these models will be emphasized and model building and the checking of model assumptions will be covered in detail.",
       "assessment_types": {
         "Examination": "60",
@@ -238,16 +238,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n\n1. understand the advantages and disadvantages of various designs in clinical research.\n2. understand the concepts of randomization in controlled clinical trials.\n3. develop a protocol for a clinical trial to address the research questions.\n4. have a general knowledge of the statistical issues commonly encountered in clinical trials.\n5. be aware of the ethical issues in clinical trials.\n6. emulate an observational study to a randomized trial.\n7. understand the workflow of a clinical trial in industry.\n8. learn some basic elements of data management and quality assurance in multi-center clinical trial set up.",
-      "course_syllabus": "| Introduction of different study designs |\n| --- |\n| Randomized controlled trial and randomization |\n| Trial outcomes in different phases |\n| Phases and category of clinical trials |\n| Randomization, allocation concealment, and blinding |\n| Non-inferiority trials and designs |\n| Intention-to-treat, eligibility, controls, and others |\n| Potential Problems after Randomization |\n| Data management in clinical trials |\n| Grant proposal vs Clinical trial protocol |\n| Ethical considerations and good clinical practice |\n| Clinical trial registry |\n| Critical appraisal |\n| Sample size planning |\n| Survival analysis |\n| Subgroup analysis |\n| Clinical trials in industry |\n| Targeted trial emulation: Rationale, design, and implementation |\n| Introduction to Cluster Randomized Controlled Trials |\n| Variability between clusters |\n| Design effect and sample size |\n| Statistical analysis |\n| Informed consent |",
+      "learning_outcomes": "Student should be able to:\nunderstand the advantages and disadvantages of various designs in clinical research.\nunderstand the concepts of randomization in controlled clinical trials.\ndevelop a protocol for a clinical trial to address the research questions.\nhave a general knowledge of the statistical issues commonly encountered in clinical trials.\nbe aware of the ethical issues in clinical trials.\nemulate an observational study to a randomized trial.\nunderstand the workflow of a clinical trial in industry.\nlearn some basic elements of data management and quality assurance in multi-center clinical trial set up.",
+      "course_syllabus": "Introduction of different study designs\nRandomized controlled trial and randomization\nTrial outcomes in different phases\nPhases and category of clinical trials\nRandomization, allocation concealment, and blinding\nNon-inferiority trials and designs\nIntention-to-treat, eligibility, controls, and others\nPotential Problems after Randomization\nData management in clinical trials\nGrant proposal vs Clinical trial protocol\nEthical considerations and good clinical practice\nClinical trial registry\nCritical appraisal\nSample size planning\nSurvival analysis\nSubgroup analysis\nClinical trials in industry\nTargeted trial emulation: Rationale, design, and implementation\nIntroduction to Cluster Randomized Controlled Trials\nVariability between clusters\nDesign effect and sample size\nStatistical analysis\nInformed consent",
       "assessment_types": {
         "Examination": "45",
         "Homework or assignment": "25",
         "Test or quiz": "30"
       },
-      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "feedback_evaluation": "Course evaluation will be done at the end of the course\n.",
       "required_readings": "Given in Class by lecturers. No required textbooks.",
-      "recommended_readings": "Pocock SJ. Clinical trials: a practical approach. Chichester, UK: John Wiley; 1983.\n\nMeinert CL. Clinical trials: design, conduct and analysis. New York: Oxford University Press; 1986.\n\nFriedman LM, Furberg CD, DeMets DL. Fundamentals of clinical trials. 3rd ed. New York: Springer; 1998."
+      "recommended_readings": "Pocock SJ. Clinical trials: a practical approach. Chichester, UK: John Wiley; 1983.\nMeinert CL. Clinical trials: design, conduct and analysis. New York: Oxford University Press; 1986.\nFriedman LM, Furberg CD, DeMets DL. Fundamentals of clinical trials. 3rd ed. New York: Springer; 1998."
     },
     {
       "subject": "BIOS",
@@ -342,7 +342,7 @@
         "Homework or assignment": "30",
         "Test or quiz": "30"
       },
-      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "feedback_evaluation": "Course evaluation will be done at the end of the course\n.",
       "required_readings": "Given in Class by lecturers. No required textbooks.",
       "recommended_readings": "Given in Class by lecturers. No required textbooks."
     },
@@ -388,14 +388,14 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "Upon completion of this course students will understand the reasons that more complex statistical models need to be used for datasets for which the assumptions of linear or logistic regression are not valid, such as datasets with ordinal or count outcomes, longitudinal or clustered data, and data with non-linear associations between variables. They will understand which models should be used for each of these situations, how to fit and interpret these models, and how to check the assumptions of these models.\n\n課程結束後，學生們將理解在處理不滿足線性或logistic回歸前提假設的資料時，使用更多複雜的統計模型的必要性。這類資料包括二分類或分類變數、縱向資料或聚類資料，以及包含非線性相關變數的資料。學生將會懂得如何針對不同資料類型選擇不同的模型，如何對模型進行解釋及擬合度檢測，及怎樣對模型前提假設進行檢驗。",
+      "learning_outcomes": "Upon completion of this course students will understand the reasons that more complex statistical models need to be used for datasets for which the assumptions of linear or logistic regression are not valid, such as datasets with ordinal or count outcomes, longitudinal or clustered data, and data with non-linear associations between variables. They will understand which models should be used for each of these situations, how to fit and interpret these models, and how to check the assumptions of these models.\n課程結束後，學生們將理解在處理不滿足線性或logistic回歸前提假設的資料時，使用更多複雜的統計模型的必要性。這類資料包括二分類或分類變數、縱向資料或聚類資料，以及包含非線性相關變數的資料。學生將會懂得如何針對不同資料類型選擇不同的模型，如何對模型進行解釋及擬合度檢測，及怎樣對模型前提假設進行檢驗。",
       "course_syllabus": "Advanced Logistic Regression Models\nPoisson and Negative Binomial Regression\nHW 1 Distribution\nLongitudinal Data Analysis I\nLongitudinal Data Analysis - Computing\nMixed Models I\nQuiz\nHW 1 Due\nHW 2 Distribution\nMixed Models II\nMixed Models -\nComputing\nFinal Exam\nHW 2 Due",
       "assessment_types": {
         "Examination": "70",
         "Homework or assignment": "15",
         "Test or quiz": "15"
       },
-      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "feedback_evaluation": "Course evaluation will be done at the end of the course\n.",
       "required_readings": "Given in Class by lecturers. No required textbooks.",
       "recommended_readings": "Fitzmaurice, Laird and Ware, Applied Longitudinal Analysis, Wiley\nGelman and Hill, Data Analysis using Regression and Multilevel/Hierarchical Models, Cambridge.\nSimon Wood, Generalized Additive Models: An Introduction with R Chapman and Hall. Chapters 1, 2, 3 & 5."
     },
@@ -441,14 +441,14 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "After taking this course the students will understand the uses of exploratory factor analysis, discriminant analysis and SEM methods including confirmatory factor analysis and path analysis in the exploration and hypothesis testing for data collected from questionnaires.\n\n課程結束後，學生能夠正確使用探索性因素分析、判別分析和結構方程模型，包括驗證性因素分析、探索中的通徑分析及問卷調查中資料收集的假設檢驗。",
-      "course_syllabus": "Discriminant Analysis (DA)\n\nExploratory Factor Analysis (EFA) I\n\nExploratory Factor Analysis (EFA) II\nComputing for DA and EFA\n\nStructural Equation Models (SEM) I\n\n* *Quiz 1 on DA & EFA**\n\nStructural Equation Models (SEM) II\n\nComputing for SEM\n\n* *Final Examination**",
+      "learning_outcomes": "After taking this course the students will understand the uses of exploratory factor analysis, discriminant analysis and SEM methods including confirmatory factor analysis and path analysis in the exploration and hypothesis testing for data collected from questionnaires.\n課程結束後，學生能夠正確使用探索性因素分析、判別分析和結構方程模型，包括驗證性因素分析、探索中的通徑分析及問卷調查中資料收集的假設檢驗。",
+      "course_syllabus": "Discriminant Analysis (DA)\nExploratory Factor Analysis (EFA) I\nExploratory Factor Analysis (EFA) II\nComputing for DA and EFA\nStructural Equation Models (SEM) I\nQuiz 1 on DA & EFA\nStructural Equation Models (SEM) II\nComputing for SEM\nFinal Examination",
       "assessment_types": {
         "Examination": "60",
         "Homework or assignment": "20",
         "Test or quiz": "20"
       },
-      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "feedback_evaluation": "Course evaluation will be done at the end of the course\n.",
       "required_readings": "Given in Class by lecturers. No required textbooks.",
       "recommended_readings": "A Beginner’s Guide to Modeling (The Inquiry and Pedagogy Across Diverse Contexts Series) by Randall E. Schumacker"
     },
@@ -503,7 +503,7 @@
       "learning_outcomes": "1. Understand the basic bioinformatics methods\n2. Know how to use the software of conducting bioinformatics analysis\n3. Know when to apply the methods under different scenarios and conduct exploratory research\n4. Interpret data analysis output, and use graphical representations",
       "course_syllabus": "Role of Bioinformatics in Drug discovery, gene expression data analysis\nGenetic data statistical analysis 1\nGenetic data statistical analysis 2\nCancer Genomics and precision medicine\nEpigenetics/DNA methylation",
       "assessment_types": {},
-      "feedback_evaluation": "Course evaluation will be done at the end of the course.",
+      "feedback_evaluation": "Course evaluation will be done at the end of the course\n.",
       "required_readings": "Given in Class by lecturers. No required textbooks.",
       "recommended_readings": "The elements of statistical learning, Hastie, Tibshirani and Friedman, Springer"
     },
@@ -562,14 +562,14 @@
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
       "learning_outcomes": "By the end of this module, student are expected to be able to:\n1. Understand the strengths and weaknesses of artificial intelligence (AI) related methods including machine-learning and deep-learning approaches\n2. Able to formulate problems with advantages when using AI approaches in addition to traditional biostatistics methods\n3. Able to have hands-on experience using a cloud-based platform such as Azure to carry out some of the standard AI methods\n4. Students will be equipped with knowledge to critically appraise literature that apply AI methods in their analysis",
-      "course_syllabus": "1. Machine-learning applications in clinical trials and pharmaceutical science\n\n2. Genetic and bioinformatics application using deep-learning approach\n\n3. Deep-learning methods versus statistical methods for image processing in health research\n\n4. Artificial intelligence approach for the analysis of hospital administration and quality control data\n\n5. Infectious disease modeling using machine-learning approaches\n\n6. Climate change and health outcome analysis based on machine-learning methods",
+      "course_syllabus": "1. Machine-learning applications in clinical trials and pharmaceutical science\n2. Genetic and bioinformatics application using deep-learning approach\n3. Deep-learning methods versus statistical methods for image processing in health research\n4. Artificial intelligence approach for the analysis of hospital administration and quality control data\n5. Infectious disease modeling using machine-learning approaches\n6. Climate change and health outcome analysis based on machine-learning methods",
       "assessment_types": {
         "Homework or assignment": "40",
         "Presentation": "60"
       },
       "feedback_evaluation": "Evaluation will sent to students in the last lecture.",
-      "required_readings": "· Artificial Intelligence in Medicine (English) 2001, by Silvana Quaglini (Editor), Pedro Barahona (Editor), Steen Andreassen (Editor)\n\n· Machine Learning in Medicine - a Complete Overview (English) 2015th\n\n· Deep Medicine: How Artificial Intelligence Can Make Healthcare Human Again Kindle Edition",
-      "recommended_readings": "· Artificial Intelligence in Medicine (English) 2001, by Silvana Quaglini (Editor), Pedro Barahona (Editor), Steen Andreassen (Editor)\n\n· Machine Learning in Medicine - a Complete Overview (English) 2015th\n\n· Deep Medicine: How Artificial Intelligence Can Make Healthcare Human Again Kindle Edition"
+      "required_readings": "· Artificial Intelligence in Medicine (English) 2001, by Silvana Quaglini (Editor), Pedro Barahona (Editor), Steen Andreassen (Editor)\n· Machine Learning in Medicine - a Complete Overview (English) 2015th\n· Deep Medicine: How Artificial Intelligence Can Make Healthcare Human Again Kindle Edition",
+      "recommended_readings": "· Artificial Intelligence in Medicine (English) 2001, by Silvana Quaglini (Editor), Pedro Barahona (Editor), Steen Andreassen (Editor)\n· Machine Learning in Medicine - a Complete Overview (English) 2015th\n· Deep Medicine: How Artificial Intelligence Can Make Healthcare Human Again Kindle Edition"
     }
   ]
 }
