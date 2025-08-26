@@ -26,8 +26,8 @@ const isInternalUser = () => {
 // Only initialize PostHog for real users (not internal testing)
 if (typeof window !== 'undefined' && !isInternalUser()) {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-    api_host: 'https://us.i.posthog.com', // Direct connection (removed proxy to save Edge requests)
-    ui_host: 'https://us.posthog.com', // PostHog dashboard links
+    api_host: '/x8m2k', // Reverse proxy on Cloudflare (bypasses ad blockers)
+    ui_host: 'https://us.posthog.com', // PostHog dashboard (always the same for US region)
     
     // Privacy-first settings for student users
     person_profiles: 'never', // Don't create user profiles
