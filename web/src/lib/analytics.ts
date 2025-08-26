@@ -20,31 +20,36 @@ const track = (event: string, properties?: Record<string, unknown>) => {
 export const analytics = {
   // === HYPOTHESIS 1: "App Helps People Plan Schedules" ===
   
-  // Track when section cycling is used (key utility feature)
+  // Track section cycling → validates scheduling utility value
+  // Key question: Is cycling feature worth maintaining vs simple dropdowns?
   sectionCycled: (course: string) => {
     track('section_cycled', { course })
   },
 
   // === HYPOTHESIS 2: "App Has Discovery/Browsing Value" ===
   
-  // Track course detail viewing (discovery behavior)
+  // Track course viewing → measures exploration behavior
+  // Key question: Are students browsing casually or with enrollment intent?
   courseViewed: (course: string, subject: string) => {
     track('course_viewed', { course, subject })
   },
   
-  // Track course enrollment (conversion from discovery)
+  // Track enrollment → measures conversion from discovery to action
+  // Key decision: Focus on discovery features vs planning/utility features?
   courseAdded: (course: string, subject: string) => {
     track('course_added', { course, subject })
   },
   
-  // Track search usage (key discovery method)
+  // Track search effectiveness → informs discovery method priority (search vs browse)
+  // Key question: What result count range leads to successful course selection?
   searchUsed: (resultsCount: number) => {
     track('search_used', { results_count: resultsCount })
   },
 
   // === UX OPTIMIZATION ===
   
-  // Track subject exploration intent
+  // Track subject exploration → reveals which subjects students actively seek/avoid
+  // Key decision: Should subject filters be more prominent in navigation?
   subjectToggled: (subject: string) => {
     track('subject_toggled', { subject })
   }
