@@ -12,6 +12,12 @@ from typing import Tuple, Optional
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup, Comment, Tag
 from bs4.element import NavigableString
+try:
+    import markdownify
+except ImportError:
+    print("❌ markdownify not found - did you forget to activate venv?")
+    print("💡 Run: source venv/bin/activate")
+    exit(1)
 
 
 def clean_word_html(html_content: str) -> str:
@@ -233,9 +239,6 @@ def html_to_clean_markdown(html_content: str) -> Tuple[str, bool]:
         return "", True
     
     try:
-        # Try to import markdownify
-        import markdownify
-        
         # Step 1: Clean Word HTML artifacts
         cleaned_html = clean_word_html(html_content)
         
