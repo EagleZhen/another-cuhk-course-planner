@@ -34,6 +34,4 @@ if (typeof window !== 'undefined') {
       return properties
     }
   })
-  
-  console.log('📊 PostHog initialized - replacing Vercel Analytics')
 }

@@ -1,18 +1,12 @@
 // PostHog Analytics - Privacy-First Value Tracking
 // PostHog is initialized in instrumentation-client.ts
 
-declare global {
-  interface Window {
-    posthog?: {
-      capture: (event: string, properties?: Record<string, unknown>) => void;
-    };
-  }
-}
+import posthog from 'posthog-js'
 
-// Simple tracking helper that safely handles PostHog availability
+// Simple tracking helper using direct PostHog import
 const track = (event: string, properties?: Record<string, unknown>) => {
-  if (typeof window !== 'undefined' && window.posthog) {
-    window.posthog.capture(event, properties)
+  if (typeof window !== 'undefined') {
+    posthog.capture(event, properties)
   }
 }
 
