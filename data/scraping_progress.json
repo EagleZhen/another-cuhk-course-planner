@@ -1,9 +1,9 @@
 {
   "scraping_log": {
-    "started_at": "2025-08-26T04:31:59.758777+00:00",
-    "last_updated": "2025-08-26T17:39:41.424498+00:00",
-    "duration_human": "13h 7m 41s",
-    "total_subjects": 263,
+    "started_at": "2025-08-26T18:33:20.695700+00:00",
+    "last_updated": "2025-08-26T18:50:58.147366+00:00",
+    "duration_human": "17m 37s",
+    "total_subjects": 3,
     "completed": 263,
     "failed": 0,
     "subjects": {
@@ -3201,11 +3201,11 @@
       },
       "RMSC": {
         "status": "completed",
-        "last_scraped": "2025-08-26T15:40:49.247604+00:00",
+        "last_scraped": "2025-08-26T18:35:54.494129+00:00",
         "courses_count": 36,
         "courses_scraped": 36,
         "output_file": "data/RMSC.json",
-        "duration_minutes": 2.79,
+        "duration_minutes": 2.56,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3257,11 +3257,11 @@
       },
       "SEEM": {
         "status": "completed",
-        "last_scraped": "2025-08-26T15:50:54.825207+00:00",
+        "last_scraped": "2025-08-26T18:40:48.395959+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/SEEM.json",
-        "duration_minutes": 5.65,
+        "duration_minutes": 4.88,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3537,11 +3537,11 @@
       },
       "THEO": {
         "status": "completed",
-        "last_scraped": "2025-08-26T16:50:14.925063+00:00",
+        "last_scraped": "2025-08-26T18:50:58.147318+00:00",
         "courses_count": 198,
         "courses_scraped": 198,
         "output_file": "data/THEO.json",
-        "duration_minutes": 13.74,
+        "duration_minutes": 10.15,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
