@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, MapPin } from 'lucide-react'
 import { type CourseEnrollment, type CalendarEvent, type SectionType, parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen } from '@/lib/courseUtils'
+import { analytics } from '@/lib/analytics'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -86,6 +87,10 @@ export default function ShoppingCart({
     const newSection = compatible[newIndex]
     console.log(`🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`)
     console.log(`🔍 Compatible sections for ${sectionType} (constrained by higher priority only):`, compatible.map(s => s.sectionCode))
+    
+    // Track section cycling for product analytics
+    analytics.sectionCycled(`${enrollment.course.subject}${enrollment.course.courseCode}`)
+    
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
   
