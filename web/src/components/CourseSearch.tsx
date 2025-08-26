@@ -9,6 +9,7 @@ import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, Al
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, type InternalCourse, type InternalSection, type CourseEnrollment, type SectionType } from '@/lib/courseUtils'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
+import { analytics } from '@/lib/analytics'
 
 // Using clean internal types only
 
@@ -997,6 +998,13 @@ function CourseCard({
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
   
+  // Toggle handler with smart analytics (only tracks expansion)
+  const handleToggle = () => {
+    if (!expanded) {
+      analytics.courseViewed(`${course.subject}${course.courseCode}`, course.subject)
+    }
+    setExpanded(!expanded)
+  }
   
   // Get enrolled course for this course
   const enrolledCourse = courseEnrollments.find(enrollment => 
@@ -1108,7 +1116,7 @@ function CourseCard({
           ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
           : 'shadow-md'
       }`}
-      onClick={!expanded ? () => setExpanded(true) : undefined}
+      onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
     >
       <CardHeader className="pb-3">
         {/* Desktop Layout: Keep existing horizontal layout */}
@@ -1259,7 +1267,7 @@ function CourseCard({
               size="sm"
               onClick={(e) => {
                 e.stopPropagation()
-                setExpanded(!expanded)
+                handleToggle()
               }}
               className="w-8 h-8 p-0"
               title={expanded ? "Hide sections" : "Show sections"}
@@ -1431,7 +1439,7 @@ function CourseCard({
               size="sm"
               onClick={(e) => {
                 e.stopPropagation()
-                setExpanded(!expanded)
+                handleToggle()
               }}
               className="w-full cursor-pointer"
               title={expanded ? "Hide sections" : "Show sections"}
