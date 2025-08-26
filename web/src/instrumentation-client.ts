@@ -11,20 +11,8 @@
 
 import posthog from 'posthog-js'
 
-// Filter out internal users to prevent skewed analytics data
-const isInternalUser = () => {
-  if (typeof window === 'undefined') return false
-  
-  const hostname = window.location.hostname
-  return (
-    hostname === 'localhost' ||
-    hostname.includes('vercel.app') // Preview deployments
-    // Add other internal domains as needed
-  )
-}
-
-// Only initialize PostHog for real users (not internal testing)
-if (typeof window !== 'undefined' && !isInternalUser()) {
+// Initialize PostHog for all environments (filter in dashboard by hostname)
+if (typeof window !== 'undefined') {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
     api_host: '/x8m2k', // Reverse proxy on Cloudflare (bypasses ad blockers)
     ui_host: 'https://us.posthog.com', // PostHog dashboard (always the same for US region)
