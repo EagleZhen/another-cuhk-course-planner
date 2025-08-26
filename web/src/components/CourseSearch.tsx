@@ -275,7 +275,6 @@ export default function CourseSearch({
               if (rawData.metadata?.scraped_at) {
                 try {
                   scrapedAt = new Date(rawData.metadata.scraped_at)
-                  console.log(`📅 ${subject} scraped at: ${scrapedAt.toLocaleString()}`)
                 } catch {
                   console.warn(`Invalid scraped_at timestamp in ${subject}.json:`, rawData.metadata.scraped_at)
                 }
@@ -284,7 +283,7 @@ export default function CourseSearch({
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
-                console.log(`✅ ${subject}: ${transformedData.courses.length} courses, ${Math.round(dataSize / 1024)}KB, ${Math.round(loadTime)}ms`)
+                console.log(`✅ ${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(dataSize / 1024).toString().padStart(5)}KB, ${Math.round(loadTime).toString().padStart(5)}ms`)
                 
                 return {
                   subject,
