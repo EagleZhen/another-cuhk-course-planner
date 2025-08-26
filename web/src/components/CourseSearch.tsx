@@ -469,9 +469,11 @@ export default function CourseSearch({
     }
   }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, selectedDays, shuffleTrigger])
 
-  // Track search analytics - simplified for MVP
+  // Track search analytics - only when search is used
   useEffect(() => {
-    // Search analytics will be added with PostHog later
+    if (debouncedSearchTerm.trim()) {
+      analytics.searchUsed(searchResults.total)
+    }
   }, [debouncedSearchTerm, searchResults.total])
 
   // No complex filter tracking - keep it simple for MVP
