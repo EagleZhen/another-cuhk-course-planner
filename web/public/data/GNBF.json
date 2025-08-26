@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-23T22:59:00.382390+00:00",
+    "scraped_at": "2025-08-26T10:13:57.901121+00:00",
     "subject": "GNBF",
     "subject_title": "Genomics and Bioinformatics",
     "total_courses": 8,
@@ -147,7 +147,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. master key programming concepts such data types, variables, conditions, loops and functions;\n\nb. understand fundamental concepts in object-oriented programming and pattern matching;\n\nc. solve small to medium size programming tasks that arise in bioinformatics; and\n\nd. write well-structured and maintainable programs in Python.",
+      "learning_outcomes": "After finishing this course, students should be able to\na. master key programming concepts such data types, variables, conditions, loops and functions;\nb. understand fundamental concepts in object-oriented programming and pattern matching;\nc. solve small to medium size programming tasks that arise in bioinformatics; and\nd. write well-structured and maintainable programs in Python.",
       "course_syllabus": "Introduction to computation and programming; Flow controls: conditional and iteration; Python functions; File I/O; Lists, tuples and strings; Dictionaries and sets; Program design; algorithm complexity; recursion; Introduction to object-oriented programming; classes and inheritance; Program development with classes; Python packages; biopython; regular expressions; Working with databases in Python; UI and Web development in Python",
       "assessment_types": {
         "Examination": "65",
@@ -212,7 +212,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. understand basic concepts in biomolecules and cell biology;\n\nb. know how molecular biology can explain the transmission of genetic information; and\n\nc. correlate molecular biology concepts with genetic and phenotypic traits.",
+      "learning_outcomes": "After finishing this course, students should be able to\na. understand basic concepts in biomolecules and cell biology;\nb. know how molecular biology can explain the transmission of genetic information; and\nc. correlate molecular biology concepts with genetic and phenotypic traits.",
       "course_syllabus": "Introduction to Biomolecules; Basic Cell Biology; DNA and Chromatin Structure; DNA Replication, Repair and Recombination; Control of Gene Expression; Methods in Molecular Biology; Genomic Applications in Biomedical Research; Molecular Genetics of Menedelian Diseases; Molecular Genetics of Complex Diseases; Population Genetics; Evolutionary Genetics",
       "assessment_types": {
         "Examination": "70",
@@ -358,7 +358,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. accustom themselves to Linux computing environment;\n\nb. acquire the usage of common bioinformatics tools; and\n\nc. employ common statistical methods for bioinformatics problems using R.",
+      "learning_outcomes": "After finishing this course, students should be able to\na. accustom themselves to Linux computing environment;\nb. acquire the usage of common bioinformatics tools; and\nc. employ common statistical methods for bioinformatics problems using R.",
       "course_syllabus": "Introduction to Linux computational environment; Working with Linux; Common bioinformatics tools (I); Common bioinformatics tools (II); Common bioinformatics tools (III); Common bioinformatics tools (IV); High performance computing; Introduction to programming with R (I); Introduction to programming with R (II); Basic statistical methods for bioinformatics (I); Basic statistical methods for bioinformatics (II); Basic statistical methods for bioinformatics (III); Introduction to machine learning methods for bioinformatics",
       "assessment_types": {
         "Examination": "55",
@@ -449,7 +449,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. acquire the basic concept of genomics\n\nb. learn the principle, strategies and limitations of genomic technology\n\nc. apply genomics to solve biological and biomedical questions\n\nd. gain the hands-on experience on bioinformatics data analysis pipelines",
+      "learning_outcomes": "After finishing this course, students should be able to\na. acquire the basic concept of genomics\nb. learn the principle, strategies and limitations of genomic technology\nc. apply genomics to solve biological and biomedical questions\nd. gain the hands-on experience on bioinformatics data analysis pipelines",
       "course_syllabus": "Introduction to genomics; An overview of large scale genomic projects; Genomic sequencing and data analysis; Genome assembly: a key step towards comprehensive genomic maps; Workshop I (working pipeline for de novo genome assembly), Functional annotation of genomes (genetic variations, transcriptional regulation, epigenetics and epigenomes, transcriptome analysis, single-cell sequencing); Medical genomics; Workshop II (working pipeline for ChIP-seq data analysis)",
       "assessment_types": {
         "Examination": "60",
@@ -539,7 +539,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. describe the related biological problems in mathematical terms such that they can be solved by algorithms;\n\nb. appreciate the computational ideas underlying common bioinformatics algorithms and get familiar with the corresponding software to solve the problems;\n\nc. list and explain the strengths and weaknesses of existing algorithms and interpret their results appropriately; and\n\nd. develop the ability to read and understand the scientific publications on bioinformatics in depth.",
+      "learning_outcomes": "After finishing this course, students should be able to\na. describe the related biological problems in mathematical terms such that they can be solved by algorithms;\nb. appreciate the computational ideas underlying common bioinformatics algorithms and get familiar with the corresponding software to solve the problems;\nc. list and explain the strengths and weaknesses of existing algorithms and interpret their results appropriately; and\nd. develop the ability to read and understand the scientific publications on bioinformatics in depth.",
       "course_syllabus": "Sequence Alignment and searching (Theory); Sequence Alignment and searching (Application & Practice); Molecular phylogenetics (Theory); Molecular phylogenetics (Application & Practice); Motif finding and hidden Markov model (Theory); Motif finding and hidden Markov model (Application & Practice) Part I; Motif finding and hidden Markov model (Application & Practice) Part II; Mapping of next-generation sequencing data (Theory & Application); Assembly of next-generation sequencing data (Theory & Application); Metagenomics (Theory & Practice); Machine learning in Bioinformatics (Introduction & Practice).",
       "assessment_types": {
         "Examination": "60",
@@ -624,7 +624,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. explain the importance of studying biological systems as a whole;\n\nb. illustrate common methods of modeling biological systems;\n\nc. simulate system dynamics that respond to input signals;\n\nd. describe the roles and behavior of regulatory network motifs;\n\ne. calculate biological network properties using graph theory;\n\nf. reconstruct regulatory networks using high-throughput data; and\n\ng. apply appropriate methods to model and analyze specific biological systems.",
+      "learning_outcomes": "After finishing this course, students should be able to\na. explain the importance of studying biological systems as a whole;\nb. illustrate common methods of modeling biological systems;\nc. simulate system dynamics that respond to input signals;\nd. describe the roles and behavior of regulatory network motifs;\ne. calculate biological network properties using graph theory;\nf. reconstruct regulatory networks using high-throughput data; and\ng. apply appropriate methods to model and analyze specific biological systems.",
       "course_syllabus": "Introduction to Systems Biology; Computational approaches for systems biology (I); Computational approaches for systems biology (II); Computational approaches for systems biology (III); Transcriptional networks and network motifs (I); Transcriptional networks and network motifs (II); Signal transduction networks; Metabolic networks; Networks analysis in systems biology (I); Cytoscape workshop; Network analysis in systems biology (II); Network analysis in systems biology (III)",
       "assessment_types": {
         "Examination": "55",
@@ -689,7 +689,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Biomedical Sciences",
       "academic_org": "Div of Biomedical Sciences",
-      "learning_outcomes": "After finishing this course, students should be able to\n\na. understand the fundamental principles and pipelines involved in sequencing and genomic studies;\n\nb. stay updated with the latest advancements and progress in the field of genomic studies;\n\nc. acquire the skills to analyze second-generation sequencing data;\n\nd. gain proficiency in utilizing and applying various bioinformatics tools; and\n\ne. develop the ability to independently conduct a genomic study.",
+      "learning_outcomes": "After finishing this course, students should be able to\na. understand the fundamental principles and pipelines involved in sequencing and genomic studies;\nb. stay updated with the latest advancements and progress in the field of genomic studies;\nc. acquire the skills to analyze second-generation sequencing data;\nd. gain proficiency in utilizing and applying various bioinformatics tools; and\ne. develop the ability to independently conduct a genomic study.",
       "course_syllabus": "Overview of genome informatics; Sequencing to provide genome information; Genome assembly to obtain the reference genome; Reference genome based studies; Hands-on study on genome assembly; Resequencing to identify genomic variations; Genomic variation based studies; Transcriptome studies; Hands-on study on resequencing analysis; Using genome sequencing as a tool for other research; Using genome sequencing as a tool for applications; Summary of genome informatics",
       "assessment_types": {
         "Examination": "55",

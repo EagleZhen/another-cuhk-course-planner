@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-25T11:02:48.053301+00:00",
+    "scraped_at": "2025-08-26T15:40:49.240136+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 36,
@@ -29,10 +29,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "43",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -49,10 +49,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "43",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -766,16 +766,12 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) explain the notion of variation as a measure of risk and its relationship to statistics and risk management;\n(2) demonstrate the ability to understand the concepts of mean-variance analysis and Markowitz optimal portfolio for a one-period investment;\n(3) interpret and infer from the mean-variance analysis and the ideas of efficient frontiers and minimum variance portfolio;\n(4) understand the notion of factor models and their relationships to linear regressions;\n(5) relate the celebrated CAPM model with factor models and their statistical underpinnings;\n(6) explain the concepts of APT and its reconciliation with the CAPM;\n(7) explain and demonstrate the basic notions of diffusions and their applications to finance and risk management;\n(8) demonstrate a basic understanding of Ito’s calculus;\n(9) demonstrate a working knowledge of applying Ito’s calculus, in particular with respect to standard Brownian motion;\n(10) differentiate both conceptually and practically the notion of integration by parts between ordinary and Ito’s calculus;\n(11) apply Ito’s calculus to option pricing and the Black-Scholes formula; and\n(12) acquire the necessary background for other courses in risk management and finance, including but not limited to RMSC4001, RMSC4002, RMSC4005 and RMSC4007.",
-      "course_syllabus": "This course is designed to introduce the current developments of risk management in the financial markets. Two general important areas of risk management in finance: (1) asset management and (2) derivative pricing. Emphasis will be placed on the statistical modeling aspects on some of the commonly used models in the area of market risk.",
-      "assessment_types": {
-        "Essay test or exam": "45",
-        "Project": "20",
-        "Short answer test or exam": "35"
-      },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
-      "required_readings": "David G. Luenberger, Investment Science, 7th edition, Oxford University Press",
-      "recommended_readings": "David Ruppert, Statistics and Finance – An Introduction, Springer-Verlag"
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "RMSC",
@@ -857,15 +853,11 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand, in an actuarial context, what is meant by the word “model”, how and why models are used, their advantages and their limitations;\n(2) understand the important results that can be obtained from these models for the purpose of making business decisions and the approaches that can be used to determine these results;\n(3) generalise knowledge from the actuarial sector to other business environments; and\n(4) solve the questions in Exams M and C offered by the Society of Actuaries.",
-      "course_syllabus": "Risk can be thought as the potential losses in accidents. The amount of loss in each accident and the frequency of the occurrence of accidents should be considered to quantify risk. To eliminate these potential losses, individual will seek for insurance. From an individual point of view, insurance is an economic device whereby the individual substitutes a small certain cost (the premium) for a large uncertain financial loss (the contingency insured against) that would exist if there were not for insurance. In this course, the modeling of frequency and severity will be studied. The aggregate loss model will then be introduced. Then credibility theory will be discussed.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "15",
-        "Short answer test or exam": "35"
-      },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
-      "required_readings": "Klugman, S.A., Panjer, H.H. and Willmot, G.E. Loss Models: From Data to Decisions. 2nd Edition. John Wiley, 2004.",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
       "recommended_readings": ""
     },
     {
@@ -883,16 +875,12 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) do the basic option pricing (the Black-Sholes approach) for European and American options under the assumption that the stock price behaves as a drifted Brownian Motion; and\n(2) do the basic manipulation of stochastic integrations and stochastic partial differential equations.",
-      "course_syllabus": "Stochastic Calculus is an advance tool for modeling prices of risky assets. In this course you will learn the basics of stochastic calculus without going through the rigorous mathematics of measure theory. The following topics will be covered in this course:\n1. Examples of arbitrage and pricing in a single period forward option\n2. The multi-period binary model\n3. Conditional expectation and Martingale\n4. Continuous stochastic process and Brownian motion\n5. Stochastic integral and Ito’s formula\n6. Stochastic differential equation\n7. Applications of stochastic calculus in finance\n8. The Black-Scholes Model and pricing for European option",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Homework or assignment": "30",
-        "Short answer test or exam": "30"
-      },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
-      "required_readings": "NA",
-      "recommended_readings": "A course in Financial Calculus / A. Etherridge\nIntroduction to Stochastic Calculus with Application / F. C. Klebaner"
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "RMSC",
