@@ -43,6 +43,9 @@ export default function Home() {
   const [subjectSearchTerm, setSubjectSearchTerm] = useState('')
   const [isHydrated, setIsHydrated] = useState<boolean>(false)
   
+  // Conflict resolution tracking
+  const [lastResolutionMethod, setLastResolutionMethod] = useState<string | null>(null)
+  
   // Term-specific subject filter persistence (session state only)
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
 
@@ -191,6 +194,17 @@ export default function Home() {
     return detectConflicts(events)
   }, [courseEnrollments])
 
+  // Track conflict resolution when conflicts are resolved after user actions
+  useEffect(() => {
+    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    
+    // If we had a recent resolution method tracked and no conflicts remain, track successful resolution
+    if (lastResolutionMethod && !hasConflicts) {
+      analytics.conflictResolved(lastResolutionMethod)
+      setLastResolutionMethod(null) // Reset after tracking
+    }
+  }, [calendarEvents, lastResolutionMethod])
+
   // Handle term change - localStorage will handle schedule restoration
   const handleTermChange = (newTerm: string) => {
     setCurrentTerm(newTerm)
@@ -198,6 +212,15 @@ export default function Home() {
   }
 
   const handleToggleVisibility = (enrollmentId: string) => {
+    // Check if there are conflicts and we're hiding a course (for conflict resolution tracking)
+    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    const targetEnrollment = courseEnrollments.find(e => e.courseId === enrollmentId)
+    
+    if (hasConflicts && targetEnrollment?.isVisible) {
+      // Only track when hiding a visible course during conflicts
+      setLastResolutionMethod('course_hiding')
+    }
+    
     setCourseEnrollments(prev => 
       prev.map(enrollment => 
         enrollment.courseId === enrollmentId 
@@ -229,12 +252,24 @@ export default function Home() {
 
 
   const handleRemoveCourse = (enrollmentId: string) => {
+    // Check if there are conflicts before removal (for conflict resolution tracking)
+    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    if (hasConflicts) {
+      setLastResolutionMethod('course_removal')
+    }
+    
     setCourseEnrollments(prev => 
       prev.filter(enrollment => enrollment.courseId !== enrollmentId)
     )
   }
 
   const handleSectionChange = (enrollmentId: string, sectionType: string, newSectionId: string) => {
+    // Check if there are conflicts before section change (for conflict resolution tracking)
+    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    if (hasConflicts) {
+      setLastResolutionMethod('section_cycling')
+    }
+    
     setCourseEnrollments(prev => 
       prev.map(enrollment => {
         if (enrollment.courseId !== enrollmentId) return enrollment

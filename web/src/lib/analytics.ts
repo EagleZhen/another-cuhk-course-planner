@@ -46,5 +46,13 @@ export const analytics = {
   // Key decision: Should subject filters be more prominent in navigation?
   subjectToggled: (subject: string) => {
     track('subject_toggled', { subject })
+  },
+
+  // === CONFLICT RESOLUTION ===
+  
+  // Track successful conflict resolution → validates core scheduling utility
+  // Key question: Does conflict detection actually help users succeed?
+  conflictResolved: (resolutionMethod: string) => {
+    track('conflict_resolved', { resolution_method: resolutionMethod })
   }
 }
