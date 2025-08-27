@@ -48,10 +48,25 @@ export const analytics = {
     track('subject_toggled', { subject })
   },
 
+  // === COURSE MANAGEMENT BEHAVIOR ===
+  
+  // Track course visibility toggles → reveals organization patterns
+  // Key questions: Is hiding primarily for conflict resolution or general organization?
+  courseVisibilityToggled: (course: string, action: 'hidden' | 'shown') => {
+    track('course_visibility_toggled', { course, action })
+  },
+  
+  // Track course removal → reveals deletion patterns vs conflict resolution
+  // Key questions: How often do users delete courses vs other management methods?
+  courseRemoved: (course: string, subject: string) => {
+    track('course_removed', { course, subject })
+  },
+
   // === CONFLICT RESOLUTION ===
   
   // Track successful conflict resolution → validates core scheduling utility
   // Key question: Does conflict detection actually help users succeed?
+  // Cross-analyze with general usage patterns above to understand conflict-specific behavior
   conflictResolved: (resolutionMethod: string) => {
     track('conflict_resolved', { resolution_method: resolutionMethod })
   }

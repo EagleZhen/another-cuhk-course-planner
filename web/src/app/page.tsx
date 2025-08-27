@@ -221,6 +221,13 @@ export default function Home() {
       setLastResolutionMethod('course_hiding')
     }
     
+    // Track general visibility toggle behavior (regardless of conflicts)
+    if (targetEnrollment) {
+      const courseKey = `${targetEnrollment.course.subject}${targetEnrollment.course.courseCode}`
+      const action = targetEnrollment.isVisible ? 'hidden' : 'shown'
+      analytics.courseVisibilityToggled(courseKey, action)
+    }
+    
     setCourseEnrollments(prev => 
       prev.map(enrollment => 
         enrollment.courseId === enrollmentId 
@@ -256,6 +263,13 @@ export default function Home() {
     const hasConflicts = calendarEvents.some(event => event.hasConflict)
     if (hasConflicts) {
       setLastResolutionMethod('course_removal')
+    }
+    
+    // Track general course removal behavior (regardless of conflicts)
+    const targetEnrollment = courseEnrollments.find(e => e.courseId === enrollmentId)
+    if (targetEnrollment) {
+      const courseKey = `${targetEnrollment.course.subject}${targetEnrollment.course.courseCode}`
+      analytics.courseRemoved(courseKey, targetEnrollment.course.subject)
     }
     
     setCourseEnrollments(prev => 
