@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-26T07:13:56.716404+00:00",
+    "scraped_at": "2025-08-26T21:25:47.487993+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
     "total_courses": 83,
@@ -2227,7 +2227,7 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\nUnderstand the principles and technologies involved in building a web application;\nGain a better insight into emerging web technologies for building web applications;\nCreate interactive dynamic websites and web applications.",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n\n1. Understand the principles and technologies involved in building a web application;\n2. Gain a better insight into emerging web technologies for building web applications;\n3. Create interactive dynamic websites and web applications.",
       "course_syllabus": "This course is concerned with the development of web applications. The major topics include 1) Building blocks of web applications, 2) Client-side/front-end technologies, 3) Server-side/back-end technologies, and 4) Web application design and security issues.",
       "assessment_types": {
         "Essay test or exam": "20",
@@ -2235,9 +2235,9 @@
         "Project": "30",
         "Short answer test or exam": "20"
       },
-      "feedback_evaluation": "Quiz and examinations\nCourse evaluation and questionnaire\nQuestion-and-answer sessions during class\nStudent consultation during office hours or online",
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "nil",
-      "recommended_readings": "Tutorials at w3schools.com: https://www.w3schools.com\nNorthwood, Chris. The Full Stack Developer: Your Essential Guide to the Everyday Skills Expected of a Modern Full Stack Web Developer (2018).\nFerguson, Russ. Beginning JavaScript: The Ultimate Guide to Modern JavaScript Development (2019)."
+      "recommended_readings": "1. Tutorials at w3schools.com: https://www.w3schools.com\n2. Northwood, Chris. The Full Stack Developer: Your Essential Guide to the Everyday Skills Expected of a Modern Full Stack Web Developer (2018).\n3. Ferguson, Russ. Beginning JavaScript: The Ultimate Guide to Modern JavaScript Development (2019)."
     },
     {
       "subject": "CSCI",
@@ -2430,7 +2430,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "-",
-      "recommended_readings": "1. Antti Laaksonen, “Guide to Competitive Programming: Learning and Improving Algorithms Through Contests”, Springer, 2nd edition, 2020\n2. Steven Halim, “Competitive Programming 3”, Lulu, 2013\n3. https://cp-algorithms.com/\n4. https://github.com/sahilbansal17/Get_Better_at_CP_in_2_Months"
+      "recommended_readings": "1. Antti Laaksonen, “Guide to Competitive Programming: Learning and Improving Algorithms Through Contests”, Springer, 2nd edition, 2020\n2. Steven Halim, “Competitive Programming 3”, Lulu, 2013\n3. https://cp-algorithms.com/\n4. https://github.com/sahilbansal17/Get\\_Better\\_at\\_CP\\_in\\_2\\_Months"
     },
     {
       "subject": "CSCI",
@@ -2534,7 +2534,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "-",
-      "recommended_readings": "Christopher M. Bishop, \"Pattern Recognition and Machine Learning,\" Springer 2006.\nSimon Haykin, \"Neural Networks and Learning Machines\", Pearson, 3rd Edition, 2008.\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra – Vectors, Matrices, and Least Squares, Cambridge University Press, 2018.\nM. J. Zaki and W. Meirna Jr., Data Mining and Machine Learning: Fundamental Concepts and Algorithm, Cambridge, 2020."
+      "recommended_readings": "* Christopher M. Bishop, \"Pattern Recognition and Machine Learning,\" Springer 2006.\n* Simon Haykin, \"Neural Networks and Learning Machines\", Pearson, 3rd Edition, 2008.\n* Stephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra – Vectors, Matrices, and Least Squares, Cambridge University Press, 2018.\n* M. J. Zaki and W. Meirna Jr., Data Mining and Machine Learning: Fundamental Concepts and Algorithm, Cambridge, 2020."
     },
     {
       "subject": "CSCI",
@@ -4118,7 +4118,7 @@
       },
       "feedback_evaluation": "1. Mid-term course evaluation\n2. Term-end course evaluation\n3. Students’ performance in their homework, the midterm exam and final exam\n4. Students’ performance and participation in tutorial sessions",
       "required_readings": "-",
-      "recommended_readings": "1. Wing-Kin Sung, Algorithms in Bioinformatics: A Practical Introduction, Chapman & Hall, 2009 (and corresponding online materials at http://www.comp.nus.edu.sg/~ksung/algo_in_bioinfo/)\n2. Neil C. Jones and Pavel A. Pevzner, An Introduction to Bioinformatics Algorithms, MIT Press, 2004"
+      "recommended_readings": "1. Wing-Kin Sung, Algorithms in Bioinformatics: A Practical Introduction, Chapman & Hall, 2009 (and corresponding online materials at http://www.comp.nus.edu.sg/~ksung/algo\\_in\\_bioinfo/)\n2. Neil C. Jones and Pavel A. Pevzner, An Introduction to Bioinformatics Algorithms, MIT Press, 2004"
     },
     {
       "subject": "CSCI",
@@ -4156,7 +4156,7 @@
                 "capacity": "190",
                 "enrolled": "163",
                 "waitlist_capacity": "999",
-                "waitlist_total": "26",
+                "waitlist_total": "27",
                 "available_seats": "27",
                 "status": "Open"
               },
@@ -4240,7 +4240,7 @@
                 "capacity": "60",
                 "enrolled": "18",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "3",
                 "available_seats": "42",
                 "status": "Open"
               },
@@ -4278,8 +4278,8 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "Students will be able to:\n1. Use agents to model AI problems;\n2. Use search techniques such as A* to search for optimal solutions for AI problems and to play games;\n3. Use various logic to represent knowledge and to do reasoning and build expert systems;\n4. Use computer learning techniques to acquire real life knowledge in an appropriate representation model (e.g. decision tree and neural networks);\n5. Derive learning rules from first principle;\n6. Solve real life problems (e.g.classifications and prediction) by such models;\n7. Estimate complexity of AI algorithms and prove theorems by contradiction and other techniques;\n8. Use computer vision techniques such edge detection to extract features.",
-      "course_syllabus": "This course introduces the basic concepts and techniques of artificial intelligence. Knowledge representation: predicate logic and inference, semantic networks, scripts and frames, and object-oriented representation. Searching: such as A*, hill-climbing, minimax and alpha-beta pruning. Planning: the frame problem and the STRIPS formalism, representation schemes and planning strategies. Neural networks: learning algorithms, neural architecture and applications. Natural language processing. Knowledge acquisition and expert systems: properties, techniques and tools of expert systems.",
+      "learning_outcomes": "Students will be able to:\n1. Use agents to model AI problems;\n2. Use search techniques such as A\\* to search for optimal solutions for AI problems and to play games;\n3. Use various logic to represent knowledge and to do reasoning and build expert systems;\n4. Use computer learning techniques to acquire real life knowledge in an appropriate representation model (e.g. decision tree and neural networks);\n5. Derive learning rules from first principle;\n6. Solve real life problems (e.g.classifications and prediction) by such models;\n7. Estimate complexity of AI algorithms and prove theorems by contradiction and other techniques;\n8. Use computer vision techniques such edge detection to extract features.",
+      "course_syllabus": "This course introduces the basic concepts and techniques of artificial intelligence. Knowledge representation: predicate logic and inference, semantic networks, scripts and frames, and object-oriented representation. Searching: such as A\\*, hill-climbing, minimax and alpha-beta pruning. Planning: the frame problem and the STRIPS formalism, representation schemes and planning strategies. Neural networks: learning algorithms, neural architecture and applications. Natural language processing. Knowledge acquisition and expert systems: properties, techniques and tools of expert systems.",
       "assessment_types": {
         "Essay test or exam": "55",
         "Others": "45"
@@ -4565,7 +4565,7 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "Students will be able to:\n1. Use dynamic programming in their problem solving\n2. Understand basic Number Theory to be able to identify a potential solution\n3. Code simulation problems more effectively\n4. Analyze the combinatorial characteristic of the problem and solution in programming codes\n5. Implement basic graph data structures and advanced graph-based algorithms\n6. Learn some basic numerical optimization techniques and apply them in practice\nObjectives: related Outcomes\n1. Requirements and specifications: 3, 4, 5\n2. Fundamental data structures and algorithms: 1, 2, 5, 6\n3. Problem solving skills: 1, 2, 3, 5, 6\nOutcomes: reflected Objectives\n1. Dynamic programming: 3\n2. Number Theory: 2, 3\n3. Simulation problems: 1, 3\n4. Combinatorial characteristics: 1\n5. Graph data structures: 1, 2, 3\n6. Numerical optimization: 2, 3",
+      "learning_outcomes": "Students will be able to:\n1. Use dynamic programming in their problem solving\n2. Understand basic Number Theory to be able to identify a potential solution\n3. Code simulation problems more effectively\n4. Analyze the combinatorial characteristic of the problem and solution in programming codes\n5. Implement basic graph data structures and advanced graph-based algorithms\n6. Learn some basic numerical optimization techniques and apply them in practice\n\nObjectives: related Outcomes\n1. Requirements and specifications: 3, 4, 5\n2. Fundamental data structures and algorithms: 1, 2, 5, 6\n3. Problem solving skills: 1, 2, 3, 5, 6\n\nOutcomes: reflected Objectives\n1. Dynamic programming: 3\n2. Number Theory: 2, 3\n3. Simulation problems: 1, 3\n4. Combinatorial characteristics: 1\n5. Graph data structures: 1, 2, 3\n6. Numerical optimization: 2, 3",
       "course_syllabus": "The course will mainly focus on programming exercises for advanced data structures and algorithms. Topics include dynamic programming, computational geometry, number theory, simulation, combinatorial problems, optimization techniques, graph theory, etc.",
       "assessment_types": {},
       "feedback_evaluation": "1. Midterm course evaluation\n2. Final course evaluation\n3. Discussion with the TA\n4. Monitor the course newsgroup and email",
@@ -4975,7 +4975,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "-",
-      "recommended_readings": "Richard Szeliski. Computer Vision: Algorithms and Applications (2nd ed), Free online\nBhandari, Kadambi and Raskar. Computational Imaging. MIT Press. Free online\nShree Nayar. First Principles of Computer Vision. Free online\nDavid Forsyth and Jean Ponce. Computer Vision: A Modern Approach. Free online"
+      "recommended_readings": "* Richard Szeliski. Computer Vision: Algorithms and Applications (2nd ed), Free online\n* Bhandari, Kadambi and Raskar. Computational Imaging. MIT Press. Free online\n* Shree Nayar. First Principles of Computer Vision. Free online\n* David Forsyth and Jean Ponce. Computer Vision: A Modern Approach. Free online"
     },
     {
       "subject": "CSCI",
@@ -5398,13 +5398,13 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. obtain an introductory level of understanding of major areas of cyber security, including cryptography, network security, system security, and web security;\n2. gain experiences in wireless network security and web security; and\n3. able to apply the learning outcomes of this course towards a potential career in the governance of system, network, and websites.\nThis course also paves the foundation to deeper studies in cyber security.",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. obtain an introductory level of understanding of major areas of cyber security, including cryptography, network security, system security, and web security;\n\n2. gain experiences in wireless network security and web security; and\n\n3. able to apply the learning outcomes of this course towards a potential career in the governance of system, network, and websites.\n\nThis course also paves the foundation to deeper studies in cyber security.",
       "course_syllabus": "Cyber Security is an important topic in modern information and communication technology. This course introduces students to major areas of Cyber Security, including introductions to cryptography, network security, computer security, and web security.\nThe course syllabus may be updated from year to year.",
       "assessment_types": {
         "Essay test or exam": "64",
         "Others": "36"
       },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "1. A. Kahate, “Network Security and Cryptography.”, Tata McGraw-Hill Education, 2008",
       "recommended_readings": ""
     },
@@ -7992,7 +7992,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "Computational Geometry, Algorithms and Applications. By Mark de Berg, Marc van Kreveld, Mark Overmars, and Otfried Schwarzkopf. Springer­Verlag, 1997.\nReference:\nComputational Geometry in C. By Joseph O'Rourke. Cambridge University Press, second edition, 1998"
+      "recommended_readings": "Computational Geometry, Algorithms and Applications. By Mark de Berg, Marc van Kreveld, Mark Overmars, and Otfried Schwarzkopf. Springer­Verlag, 1997.\n\nReference:\nComputational Geometry in C. By Joseph O'Rourke. Cambridge University Press, second edition, 1998"
     },
     {
       "subject": "CSCI",
@@ -8293,16 +8293,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will\nunderstand the power and limitations of quantum computation;\nbe able to program a quantum computer;\nbe able to use and modify existing quantum algorithms in computational applications.",
+      "learning_outcomes": "At the end of the course of studies, students will\n\n1. understand the power and limitations of quantum computation;\n2. be able to program a quantum computer;\n3. be able to use and modify existing quantum algorithms in computational applications.",
       "course_syllabus": "This course provides an introduction to the following topics in quantum computation: 1. Models of quantum computation and communication; 2. Quantum algorithms and their limitations; 3. Other topics (quantum communication, quantum cryptography, quantum proofs, quantum error correction, quantum supremacy).",
       "assessment_types": {
         "Homework or assignment": "30",
         "Presentation": "40",
         "Test or quiz": "30"
       },
-      "feedback_evaluation": "Quiz and examinations\nCourse evaluation and questionnaire\nQuestion-and-answer sessions during class\nStudent consultation during office hours or online",
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course instructor.",
-      "recommended_readings": "Ronald de Wolf. Quantum computing: Lecture notes. https://homepages.cwi.nl/~rdewolf/qcnotes.pdf\nN. David Mermin. Quantum computer science: An introduction. Cambridge Univ. Press, 2007\nMichael A. Nielsen and Isaac R. Chuang. Quantum computation and quantum information. Cambridge Univ. Press, 2011\nScott Aaronson. Quantum computing since Democritus. Cambridge Univ. Press, 2013"
+      "recommended_readings": "1. Ronald de Wolf. Quantum computing: Lecture notes. https://homepages.cwi.nl/~rdewolf/qcnotes.pdf\n2. N. David Mermin. Quantum computer science: An introduction. Cambridge Univ. Press, 2007\n3. Michael A. Nielsen and Isaac R. Chuang. Quantum computation and quantum information. Cambridge Univ. Press, 2011\n4. Scott Aaronson. Quantum computing since Democritus. Cambridge Univ. Press, 2013"
     },
     {
       "subject": "CSCI",
@@ -8346,7 +8346,7 @@
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
       "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Develop a thorough understanding of advanced cryptographic techniques and principles;\n2. Acquire the capability to comprehend and discuss new research papers on the frontier of cryptography, effectively communicating complex ideas to collaborators and peers; and\n3. Critically analyze and develop advanced cryptographic solutions that address challenges in related fields such as quantum computing, computational complexity, and blockchain technology.",
-      "course_syllabus": "The goal of this course is to help students establish a solid theoretical foundation of cryptography, while also acquainting them with its applications in the related fields mentioned previously. As a result, students will acquire the essential thinking models and technical skills required to succeed in those areas, whether they aim to pursue academic careers or opportunities in industry.\nTentative topics include:\nPseudo-randomness, seeded and seedless extractors, various notions of entropy, de-randomization\nObfuscation and connections with advanced encryptions (e.g., ABE, FH, FHE)\nInteractive proofs, zero-knowledge, witness indistinguishable/hiding protocols\nDelegation of computation\nSuccinct arguments and their non-interactive variants (SNARGs, SNARKs)\nSecret-sharing schemes and variants (verifiable SS, homomorphic SS)\nSecure Multi-Party Computation\nNon-malleability, non-malleable codes and extractors, split-state model\nConsensus protocols\nImpossibilities, black-box separation, average-case complexity, hardness amplification\nSelected topics on post-quantum and quantum cryptography\nWeek 1: Course overview, recap crypto basics: OWF/PRG/PRF/CRHF/Signature/MAC, Yao's XOR lemma, Goldreich-Levin, IND-CCA\nWeek 2: Obfuscation and variants (indistinguishable obf., compute-and-compare obf., point-function Obf.), connection with other advanced encryption tools (e.g., attribute-based encryption, functional encryption)\nWeek 3: Interactive proofs/arguments, Zero-knowledge protocols, simulation-based security, sequential and parallel repetition\nWeek 4: Randomness extractors, computational entropy, left-over hash lemma, Nisan-Wigderson PRG, de-randomization\nWeek 5: SNARG and SNARK I: overview, Kilian-Micali CS proofs, Fiat-Shamir transform, Gentry-Wichs impossibility, Sum-Check protocol, GKR protocol\nWeek 6: SNARG and SNARK II: batch arguments (BARGs), polynomial commitments, interactive oracle proofs, selected real-world systems (Bulletproof, Libra, Pinocchio, Ligero, Plonk, etc.)\nWeek 7: Lattice Cryptography I: shortest vector problems (SVP), short integer solution (SIS), Learning with Errors (LWE), signature/CRHF/PKE from LWE\nWeek 8: Lattice Cryptography II: lattice trapdoors, FHE, homomorphic commitments and signatures\nWeek 9: Black-box separation, average-case complexity, hardness amplification\nWeek 10: Byzantine agreement, fault-tolerance, consensus\nWeek 11: Secure Multi-Party Computation (MPC), garbled circuits, oblivious transfer, secret sharing, and more\nWeek 12: Non-malleable commitments/zero-knowledge, concurrent MPC, non-malleable codes, split-state model, two-source extractors\nWeek 13: Selected topics in quantum cryptography (e.g., quantum one-time pad, quantum key distribution, proof of quantumness, pseudorandom states)",
+      "course_syllabus": "The goal of this course is to help students establish a solid theoretical foundation of cryptography, while also acquainting them with its applications in the related fields mentioned previously. As a result, students will acquire the essential thinking models and technical skills required to succeed in those areas, whether they aim to pursue academic careers or opportunities in industry.\n\nTentative topics include:\nPseudo-randomness, seeded and seedless extractors, various notions of entropy, de-randomization\nObfuscation and connections with advanced encryptions (e.g., ABE, FH, FHE)\nInteractive proofs, zero-knowledge, witness indistinguishable/hiding protocols\nDelegation of computation\nSuccinct arguments and their non-interactive variants (SNARGs, SNARKs)\nSecret-sharing schemes and variants (verifiable SS, homomorphic SS)\nSecure Multi-Party Computation\nNon-malleability, non-malleable codes and extractors, split-state model\nConsensus protocols\nImpossibilities, black-box separation, average-case complexity, hardness amplification\nSelected topics on post-quantum and quantum cryptography\n\nWeek 1: Course overview, recap crypto basics: OWF/PRG/PRF/CRHF/Signature/MAC, Yao's XOR lemma, Goldreich-Levin, IND-CCA\nWeek 2: Obfuscation and variants (indistinguishable obf., compute-and-compare obf., point-function Obf.), connection with other advanced encryption tools (e.g., attribute-based encryption, functional encryption)\nWeek 3: Interactive proofs/arguments, Zero-knowledge protocols, simulation-based security, sequential and parallel repetition\nWeek 4: Randomness extractors, computational entropy, left-over hash lemma, Nisan-Wigderson PRG, de-randomization\nWeek 5: SNARG and SNARK I: overview, Kilian-Micali CS proofs, Fiat-Shamir transform, Gentry-Wichs impossibility, Sum-Check protocol, GKR protocol\nWeek 6: SNARG and SNARK II: batch arguments (BARGs), polynomial commitments, interactive oracle proofs, selected real-world systems (Bulletproof, Libra, Pinocchio, Ligero, Plonk, etc.)\nWeek 7: Lattice Cryptography I: shortest vector problems (SVP), short integer solution (SIS), Learning with Errors (LWE), signature/CRHF/PKE from LWE\nWeek 8: Lattice Cryptography II: lattice trapdoors, FHE, homomorphic commitments and signatures\nWeek 9: Black-box separation, average-case complexity, hardness amplification\nWeek 10: Byzantine agreement, fault-tolerance, consensus\nWeek 11: Secure Multi-Party Computation (MPC), garbled circuits, oblivious transfer, secret sharing, and more\nWeek 12: Non-malleable commitments/zero-knowledge, concurrent MPC, non-malleable codes, split-state model, two-source extractors\nWeek 13: Selected topics in quantum cryptography (e.g., quantum one-time pad, quantum key distribution, proof of quantumness, pseudorandom states)",
       "assessment_types": {
         "Homework or assignment": "50",
         "Project": "50"
@@ -8402,9 +8402,9 @@
         "Homework or assignment": "30",
         "Project": "70"
       },
-      "feedback_evaluation": "Homework, and project\nCourse evaluation and questionnaire\nQuestion-and-answer sessions during class\nStudent consultation during office hours and online",
-      "required_readings": "Duan, Jiangfei, et al. \"Efficient Training of Large Language Models on Distributed Infrastructures: A Survey.\" *arXiv preprint arXiv:2407.20018* (2024).\nKwon, Woosuk, et al. \"Efficient memory management for large language model serving with pagedattention.\" *Proceedings of the 29th Symposium on Operating Systems Principles*. 2023.\nNarayanan, Deepak, et al. \"PipeDream: Generalized pipeline parallelism for DNN training\". *Proceedings of the 27th ACM symposium on operating systems principles*. 2019.\nChen, Tianqi, et al. \"{TVM}: An automated {End-to-End} optimizing compiler for deep learning\" *13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)*. 2018.",
-      "recommended_readings": "Machine Learning Systems: Design and Implementation, https://openmlsys.github.io/\nMachine Learning Systems, [https://mlsysbook.ai/](https://mlsysbook.ai/)\nPouyanfar, Samira, et al. \"A survey on deep learning: Algorithms, techniques, and applications.\" *ACM computing surveys (CSUR)* 51.5 (2018): 1-36.\nPaszke, Adam, et al. \"Pytorch: An imperative style, high-performance deep learning library.\" *Advances in neural information processing systems* 32 (2019).\nAbadi, Martín, et al. \"{TensorFlow}: a system for {Large-Scale} machine learning.\" *12th USENIX symposium on operating systems design and implementation (OSDI 16)*. 2016.\nSergeev, Alexander, and Mike Del Balso. \"Horovod: fast and easy distributed deep learning in TensorFlow.\" *arXiv preprint arXiv:1802.05799* (2018)\nRasley, Jeff, et al. \"Deepspeed: System optimizations enable training deep learning models with over 100 billion parameters.\" *Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining*. 2020\nPeng, Yanghua, et al. \"A generic communication scheduler for distributed DNN training acceleration.\" *Proceedings of the 27th ACM Symposium on Operating Systems Principles*. 2019.\nHuang, Yanping, et al. \"Gpipe: Efficient training of giant neural networks using pipeline parallelism.\" *Advances in neural information processing systems* 32 (2019).\nXiao, Wencong, et al. \"Gandiva: Introspective cluster scheduling for deep learning.\" *13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)*. 2018.\nDao, Tri, et al. \"Flashattention: Fast and memory-efficient exact attention with io-awareness.\" *Advances in Neural Information Processing Systems* 35 (2022): 16344-16359\nRen, Jie, et al. \"{Zero-offload}: Democratizing {billion-scale} model training.\" *2021 USENIX Annual Technical Conference (USENIX ATC 21)*. 2021\nFang, Jiarui, and Shangchun Zhao. \"A Unified Sequence Parallelism Approach for Long Context Generative AI.\" *arXiv preprint arXiv:2405.07719* (2024)\nGu, Diandian, et al. \"Loongtrain: Efficient training of long-sequence llms with head-context parallelism.\" *arXiv preprint arXiv:2406.18485* (2024)\nZhong, Yinmin, et al. \"{DistServe}: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving.\" *18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)*. 2024."
+      "feedback_evaluation": "* Homework, and project\n* Course evaluation and questionnaire\n* Question-and-answer sessions during class\n* Student consultation during office hours and online",
+      "required_readings": "* Duan, Jiangfei, et al. \"Efficient Training of Large Language Models on Distributed Infrastructures: A Survey.\" \\*arXiv preprint arXiv:2407.20018\\* (2024).\n* Kwon, Woosuk, et al. \"Efficient memory management for large language model serving with pagedattention.\" \\*Proceedings of the 29th Symposium on Operating Systems Principles\\*. 2023.\n* Narayanan, Deepak, et al. \"PipeDream: Generalized pipeline parallelism for DNN training\". \\*Proceedings of the 27th ACM symposium on operating systems principles\\*. 2019.\n* Chen, Tianqi, et al. \"{TVM}: An automated {End-to-End} optimizing compiler for deep learning\" \\*13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)\\*. 2018.",
+      "recommended_readings": "* Machine Learning Systems: Design and Implementation, https://openmlsys.github.io/\n* Machine Learning Systems, [https://mlsysbook.ai/](https://mlsysbook.ai/)\n* Pouyanfar, Samira, et al. \"A survey on deep learning: Algorithms, techniques, and applications.\" \\*ACM computing surveys (CSUR)\\* 51.5 (2018): 1-36.\n* Paszke, Adam, et al. \"Pytorch: An imperative style, high-performance deep learning library.\" \\*Advances in neural information processing systems\\* 32 (2019).\n* Abadi, Martín, et al. \"{TensorFlow}: a system for {Large-Scale} machine learning.\" \\*12th USENIX symposium on operating systems design and implementation (OSDI 16)\\*. 2016.\n* Sergeev, Alexander, and Mike Del Balso. \"Horovod: fast and easy distributed deep learning in TensorFlow.\" \\*arXiv preprint arXiv:1802.05799\\* (2018)\n* Rasley, Jeff, et al. \"Deepspeed: System optimizations enable training deep learning models with over 100 billion parameters.\" \\*Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining\\*. 2020\n* Peng, Yanghua, et al. \"A generic communication scheduler for distributed DNN training acceleration.\" \\*Proceedings of the 27th ACM Symposium on Operating Systems Principles\\*. 2019.\n* Huang, Yanping, et al. \"Gpipe: Efficient training of giant neural networks using pipeline parallelism.\" \\*Advances in neural information processing systems\\* 32 (2019).\n* Xiao, Wencong, et al. \"Gandiva: Introspective cluster scheduling for deep learning.\" \\*13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)\\*. 2018.\n* Dao, Tri, et al. \"Flashattention: Fast and memory-efficient exact attention with io-awareness.\" \\*Advances in Neural Information Processing Systems\\* 35 (2022): 16344-16359\n* Ren, Jie, et al. \"{Zero-offload}: Democratizing {billion-scale} model training.\" \\*2021 USENIX Annual Technical Conference (USENIX ATC 21)\\*. 2021\n* Fang, Jiarui, and Shangchun Zhao. \"A Unified Sequence Parallelism Approach for Long Context Generative AI.\" \\*arXiv preprint arXiv:2405.07719\\* (2024)\n* Gu, Diandian, et al. \"Loongtrain: Efficient training of long-sequence llms with head-context parallelism.\" \\*arXiv preprint arXiv:2406.18485\\* (2024)\n* Zhong, Yinmin, et al. \"{DistServe}: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving.\" \\*18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)\\*. 2024."
     },
     {
       "subject": "CSCI",
@@ -8501,7 +8501,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "Reference academic papers:\n1. C. Ruemmler and J. Wilkes. An Introduction to Disk Drive Modeling, IEEE Computer, 27(3):17-29, March 1994.\n2. B. Schroeder and G. Gibson. Disk failures in the real world: what does an MTTF of 1,000,000 hours mean to you? Proceedings of USENIX Conference File and Storage Technologies, 2007.\n3. M. Holland, G. A. Gibson, and D. P. Siewiorek. Architectures and Algorithms for On-Line Failure Recovery in Redundant Disk Arrays. ournal of Distributed and Parallel Databases, Vol. 2, No. 3, 1994.\n4. Chen, P. M., Lee, E. K, Gibson, G. A., Katz, R. H., Patterson, D. A. RAID: High-Performance, Reliable Secondary Storage. ACM Computing Surveys, 26(2):145-185, 1994.\n5. N. Agrawal, V. Prabhakaran, T. Wobber, J. D. Davis, M. Manasse, and R. Panigrahy. Design Tradeoffs for SSD\nPerformance. In Proceedings of USENIX Annual Technical Conference (ATC), 2008.\n6. M. Rosenblum and J. K. Ousterhout. The Design and Implementation of a Log-structured File System. ACM Transactions on Computer Systems, 10:26–52, 1992.\n7. S. Ghemawat, H. Gobioff, and S.-T. Leung The Google File System. Proceedings of ACM Symposium on Operating Systems Principles (SOSP), 2003.\n8. J. S. Plank. A tutorial on Reed-Solomon coding for fault-tolerance in RAID-like systems. Software, Practice & Experience, 27(9):995–1012, 1997.\n9. G, Sivathanu, C. P. Wright, and E. Zadok. Ensuring data integrity in storage: techniques and applications. Proceedings of the 2005 ACM workshop on Storage security and survivability, 2005.\n10. V. Prabhakaran, A. C. Arpaci-Dusseau, and R. H. Arpaci-Dusseau. Analysis and evolution of journaling file systems. Proceedings of the USENIX Annual Technical Conference (ATC), 2005.\n11. B. Zhu, K. Li, and H. Patterson. Avoiding the disk bottleneck in the data domain deduplication file system.\nProceedings of USENIX Conference File and Storage Technologies, 2008.\nReference book:\n12. D. Giampaolo. Practical File System Design with the Be File System. Morgan Kaufmann Publishers, 1999."
+      "recommended_readings": "Reference academic papers:\n1. C. Ruemmler and J. Wilkes. An Introduction to Disk Drive Modeling, IEEE Computer, 27(3):17-29, March 1994.\n2. B. Schroeder and G. Gibson. Disk failures in the real world: what does an MTTF of 1,000,000 hours mean to you? Proceedings of USENIX Conference File and Storage Technologies, 2007.\n3. M. Holland, G. A. Gibson, and D. P. Siewiorek. Architectures and Algorithms for On-Line Failure Recovery in Redundant Disk Arrays. ournal of Distributed and Parallel Databases, Vol. 2, No. 3, 1994.\n4. Chen, P. M., Lee, E. K, Gibson, G. A., Katz, R. H., Patterson, D. A. RAID: High-Performance, Reliable Secondary Storage. ACM Computing Surveys, 26(2):145-185, 1994.\n5. N. Agrawal, V. Prabhakaran, T. Wobber, J. D. Davis, M. Manasse, and R. Panigrahy. Design Tradeoffs for SSD\nPerformance. In Proceedings of USENIX Annual Technical Conference (ATC), 2008.\n6. M. Rosenblum and J. K. Ousterhout. The Design and Implementation of a Log-structured File System. ACM Transactions on Computer Systems, 10:26–52, 1992.\n7. S. Ghemawat, H. Gobioff, and S.-T. Leung The Google File System. Proceedings of ACM Symposium on Operating Systems Principles (SOSP), 2003.\n8. J. S. Plank. A tutorial on Reed-Solomon coding for fault-tolerance in RAID-like systems. Software, Practice & Experience, 27(9):995–1012, 1997.\n9. G, Sivathanu, C. P. Wright, and E. Zadok. Ensuring data integrity in storage: techniques and applications. Proceedings of the 2005 ACM workshop on Storage security and survivability, 2005.\n10. V. Prabhakaran, A. C. Arpaci-Dusseau, and R. H. Arpaci-Dusseau. Analysis and evolution of journaling file systems. Proceedings of the USENIX Annual Technical Conference (ATC), 2005.\n11. B. Zhu, K. Li, and H. Patterson. Avoiding the disk bottleneck in the data domain deduplication file system.\nProceedings of USENIX Conference File and Storage Technologies, 2008.\n\nReference book:\n12. D. Giampaolo. Practical File System Design with the Be File System. Morgan Kaufmann Publishers, 1999."
     },
     {
       "subject": "CSCI",
@@ -8621,7 +8621,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. \nBe familiar with the concept of concentration and various tail bounds\n2. \nBe familiar with data in high dimension space and its properties\n3. \nBe familiar with singular value decomposition (SVD) and its algorithms\n4. \nBe familiar with random walks, Markov chains and their applications\n5. \nBe familiar with online learning and VC-dimension\n6. Be familiar with streaming, sketching and sampling techniques\n7. \nBe familiar about graph structures and their applications",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Be familiar with the concept of concentration and various tail bounds\n2. Be familiar with data in high dimension space and its properties\n3. Be familiar with singular value decomposition (SVD) and its algorithms\n4. Be familiar with random walks, Markov chains and their applications\n5. Be familiar with online learning and VC-dimension\n6. Be familiar with streaming, sketching and sampling techniques\n7. Be familiar about graph structures and their applications",
       "course_syllabus": "This is a graduate level course which provides the mathematical and algorithmic foundations for data science. Target audience are students interested in doing research in algorithms, statistics, machine learning or data mining. Topics to be covered will be probability and concentration bounds, high-dimension space and its properties, nearest neighbouring search and projection methods, singular value decomposition and its algorithms, random walks and Markov chains, constrained convex optimization, online stochastic gradient descent, boosting, streaming and sampling algorithms, sketches (e.g., count-min), graph sketching, random graphs.",
       "assessment_types": {
         "Examination": "50",
@@ -8647,8 +8647,8 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. master the basic skills and techniques of a broad range of important topics in graph mining;\n2. understand the key ideas in the design and implementation of some representative algorithms of each topic introduced in the course;\n3. \nunderstand the key ideas in the design and implementation of the state-of-the-art systems of each topic introduced in the course;\n4. relate the algorithms and systems learnt in the course to real-world applications.",
-      "course_syllabus": "This course introduces advanced techniques for graph mining. In the course of studies, students will learn\n1. the state-of-the-art algorithms for graph classification, graph clustering, and community detection, and their implementations in modern dataflow systems;\n2. the state-of-the-art algorithms for influence maximization and their implementations in modern dataflow systems;\n3. the classic and latest algorithms for dense subgraph finding, frequent subgraph mining, correlated subgraph mining, and their distributed implementations;\n4. the classic and latest algorithms for subgraph matching and subgraph motif enumeration, and their distributed implementations;\n5. the classic and latest algorithms for graph centralities, and their scalable implementations;\n6. other important and emerging topics in graph mining.",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n\n1. master the basic skills and techniques of a broad range of important topics in graph mining;\n\n2. understand the key ideas in the design and implementation of some representative algorithms of each topic introduced in the course;\n\n3. understand the key ideas in the design and implementation of the state-of-the-art systems of each topic introduced in the course;\n\n4. relate the algorithms and systems learnt in the course to real-world applications.",
+      "course_syllabus": "This course introduces advanced techniques for graph mining. In the course of studies, students will learn\n\n1. the state-of-the-art algorithms for graph classification, graph clustering, and community detection, and their implementations in modern dataflow systems;\n2. the state-of-the-art algorithms for influence maximization and their implementations in modern dataflow systems;\n3. the classic and latest algorithms for dense subgraph finding, frequent subgraph mining, correlated subgraph mining, and their distributed implementations;\n4. the classic and latest algorithms for subgraph matching and subgraph motif enumeration, and their distributed implementations;\n5. the classic and latest algorithms for graph centralities, and their scalable implementations;\n6. other important and emerging topics in graph mining.",
       "assessment_types": {
         "Presentation": "30",
         "Project": "50",
@@ -8656,7 +8656,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course instructor.",
-      "recommended_readings": "1. Graph Mining: Laws, Tools, and Case Studies (Synthesis Lectures on Data Mining and Knowledge Discovery) 1st Edition by Deepayan Chakrabarti and Christos Faloutsos, Morgan & Claypool Publishers; 1st Edition (October 19, 2012)\n2. Introduction to Data Mining (2nd Edition) (What's New in Computer Science) 2nd Edition by Pang-Ning Tan, Michael Steinbach, Anuj Karpatne, and Vipin Kumar, Pearson; 2nd Edition (January 4, 2018)"
+      "recommended_readings": "1. Graph Mining: Laws, Tools, and Case Studies (Synthesis Lectures on Data Mining and Knowledge Discovery) 1st Edition by Deepayan Chakrabarti and Christos Faloutsos, Morgan & Claypool Publishers; 1st Edition (October 19, 2012)\n\n2. Introduction to Data Mining (2nd Edition) (What's New in Computer Science) 2nd Edition by Pang-Ning Tan, Michael Steinbach, Anuj Karpatne, and Vipin Kumar, Pearson; 2nd Edition (January 4, 2018)"
     },
     {
       "subject": "CSCI",
@@ -8738,8 +8738,8 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand basic concepts in NLP from both computational and linguistic perspectives\n2. \nUnderstand fundamental tasks in NLP and its representative applications\n3. \nHands-on techniques to preprocess and analyze texts\n4. \nImplement deep learning models to resolve some simple real-world applications, such as sentiment analysis for tweets and dialog agents",
-      "course_syllabus": "At the end of the course of studies, students will have acquired\n1. Knowledge in basic concepts of Natural Language Processing and Deep Learning\n2. Knowledge in word embedding models and algorithms\n3. Knowledge in language modeling techniques and approaches\n4. Knowledge in natural language understanding and generation models and algorithms\n5. Knowledge in some applications of natural language processing",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand basic concepts in NLP from both computational and linguistic perspectives\n2. Understand fundamental tasks in NLP and its representative applications\n3. Hands-on techniques to preprocess and analyze texts\n4. Implement deep learning models to resolve some simple real-world applications, such as sentiment analysis for tweets and dialog agents",
+      "course_syllabus": "At the end of the course of studies, students will have acquired\n\n1. Knowledge in basic concepts of Natural Language Processing and Deep Learning\n2. Knowledge in word embedding models and algorithms\n3. Knowledge in language modeling techniques and approaches\n4. Knowledge in natural language understanding and generation models and algorithms\n5. Knowledge in some applications of natural language processing",
       "assessment_types": {
         "Essay test or exam": "20",
         "Presentation": "20",
@@ -8748,7 +8748,7 @@
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course instructor.",
-      "recommended_readings": "1. Jacob Eisenstein, \"Introduction to Natural Language Processing\", The MIT Press, 2019\n2. Dan Jurafsky and James H. Martin, \"Speech and Language Processing, 2nd Edition\", Prentice Hall, 2009. Third edition draft is available at\nweb.stanford.edu/~jurafsky/slp3/\n."
+      "recommended_readings": "1. Jacob Eisenstein, \"Introduction to Natural Language Processing\", The MIT Press, 2019\n\n2. Dan Jurafsky and James H. Martin, \"Speech and Language Processing, 2nd Edition\", Prentice Hall, 2009. Third edition draft is available at [web.stanford.edu/~jurafsky/slp3/](http://web.stanford.edu/~jurafsky/slp3/)."
     },
     {
       "subject": "CSCI",
@@ -8766,7 +8766,7 @@
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
       "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand and be knowledgeable about the basic models and algorithms for graph mining and graph neural networks\n2. Implement and evaluate some of the graph neural network models and algorithms presented in the course\n3. Use the learned knowledge and applied them in a project that solves a real-world problem\n4. Communicate concisely and clearly about how to use graph neural networks in solving a real-world problem",
-      "course_syllabus": "At the end of the course of studies, students will have acquired:\n1. Knowledge in basic concept of graph mining and graph neural networks\n2. Knowledge in models and algorithms for graph mining and analysis\n3. Knowledge in graph embedding models and algorithms\n4. Knowledge in graph neural network models and algorithms\n5. Knowledge in operations for knowledge graphs\n6. Knowledge in some graph-based applications",
+      "course_syllabus": "At the end of the course of studies, students will have acquired:\n\n1. Knowledge in basic concept of graph mining and graph neural networks\n2. Knowledge in models and algorithms for graph mining and analysis\n3. Knowledge in graph embedding models and algorithms\n4. Knowledge in graph neural network models and algorithms\n5. Knowledge in operations for knowledge graphs\n6. Knowledge in some graph-based applications",
       "assessment_types": {
         "Examination": "30",
         "Homework or assignment": "20",
@@ -8819,14 +8819,14 @@
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
       "learning_outcomes": "At the end of the course of studies, students will have acquired:\n1. core principles for digital cameras, camera ISP, and image sensors\n2. optimization algorithms to solve inverse problems (classical and DNN-based)\n3. knowledge of plenoptic function, light transport, and many novel computational camera designs\n4. hands-on programming experience to implement algorithms for image/video quality enhancement\ntasks such as denoising, HDR, super-resolution, and deblur.\n5. skills to characterize and optimize computational imaging systems for given tasks\n6. abilities to design and apply computational imaging systems in related research areas",
-      "course_syllabus": "Camera and image sensor models (vs. Human Eye)\nCamera ISP pipeline and color processing\nHigh dynamic range imaging\nCoded imaging systems: aperture, exposure, illumination\nEnd-to-end optimization of computational cameras\nBurst photography for low-light imaging\nCompressive sensing, ADMM, KSVD, etc\nLight field, plenoptic function, NeRF\n3D imaging systems: iToF, dToF, spotToF, SPAD, Lidar\nNeuromorphic imaging, event cameras\nOptical neural network\nGenerative models for image restoration\n... and more",
+      "course_syllabus": "* Camera and image sensor models (vs. Human Eye)\n* Camera ISP pipeline and color processing\n* High dynamic range imaging\n* Coded imaging systems: aperture, exposure, illumination\n* End-to-end optimization of computational cameras\n* Burst photography for low-light imaging\n* Compressive sensing, ADMM, KSVD, etc\n* Light field, plenoptic function, NeRF\n* 3D imaging systems: iToF, dToF, spotToF, SPAD, Lidar\n* Neuromorphic imaging, event cameras\n* Optical neural network\n* Generative models for image restoration\n* ... and more",
       "assessment_types": {
         "Homework or assignment": "60",
         "Project": "40"
       },
-      "feedback_evaluation": "Quiz, homework, and examinations\nCourse evaluation and questionnaire\nQuestion-and-answer sessions during class\nStudent consultation during office hours and online (Piazza)",
+      "feedback_evaluation": "* Quiz, homework, and examinations\n* Course evaluation and questionnaire\n* Question-and-answer sessions during class\n* Student consultation during office hours and online (Piazza)",
       "required_readings": "Shree Nayar. “Computational Cameras: Redefining the Image,” in IEEE Computer, vol.39, no.8,\npp.30-38, 2006",
-      "recommended_readings": "Richard Szeliski. Computer Vision: Algorithms and Applications (2nd ed), Free online\nBhandari, Kadambi and Raskar. Computational Imaging. MIT Press. Free online\nGeorge Barbastathis, et.al. “On the Use of Deep Learning for Computational Imaging,”, in Optica,\nvol.6, no. 8, 2019.\nChangyin Zhou and Shree Nayar. “Computational Cameras: Convergence of Optics and\nProcessing”, IEEE Transactions on Image Processing, vol.20, no.12, 2011.\nMauricio Delbracio, et.al. “Mobile Computational Photography: A Tour,” in Annual Review of\nVision Science, vol.7:571-604, 2021"
+      "recommended_readings": "* Richard Szeliski. Computer Vision: Algorithms and Applications (2nd ed), Free online\n* Bhandari, Kadambi and Raskar. Computational Imaging. MIT Press. Free online\n* George Barbastathis, et.al. “On the Use of Deep Learning for Computational Imaging,”, in Optica,\nvol.6, no. 8, 2019.\n* Changyin Zhou and Shree Nayar. “Computational Cameras: Convergence of Optics and\nProcessing”, IEEE Transactions on Image Processing, vol.20, no.12, 2011.\n* Mauricio Delbracio, et.al. “Mobile Computational Photography: A Tour,” in Annual Review of\nVision Science, vol.7:571-604, 2021"
     },
     {
       "subject": "CSCI",
@@ -8850,7 +8850,7 @@
         "Presentation": "30",
         "Project": "30"
       },
-      "feedback_evaluation": "Quiz, homework, and examinations\nCourse evaluation and questionnaire\nQuestion-and-answer sessions during class\nStudent consultation during office hours and online",
+      "feedback_evaluation": "* Quiz, homework, and examinations\n* Course evaluation and questionnaire\n* Question-and-answer sessions during class\n* Student consultation during office hours and online",
       "required_readings": "1. Hideto Hidaka, et. al., Embedded Flash Memory for Embedded Systems: Technology, Design for Sub-systems, and Innovations, Springer, 2018.",
       "recommended_readings": "1. Jalil Boukhobza, Stéphane Rubini, Renhai Chen, Zili Shao, Emerging NVM: A survey on architectural integration and research challenges, ACM Transactions on Design Automation of Electronic Systems, Volume 23, Issue 2, Article No.: 14, Pages 1 - 32, 2017.\n2. Gopi Kuppan Thirumalai, A Beginner's Guide to SSD Firmware: Designing, Optimizing, and Maintaining SSD Firmware, Apress, 2018."
     },
@@ -8947,7 +8947,7 @@
         "Homework or assignment": "40",
         "Project": "40"
       },
-      "feedback_evaluation": "Homework, and examinations\nCourse evaluation and questionnaire\nQuestion-and-answer sessions during class\nStudent consultation during office hours and online",
+      "feedback_evaluation": "* Homework, and examinations\n* Course evaluation and questionnaire\n* Question-and-answer sessions during class\n* Student consultation during office hours and online",
       "required_readings": "The Calculus of Computation: Decision Procedures with Applications to Verification by Aaron R. Bradley and Zohar Manna",
       "recommended_readings": "Decision Procedures: An Algorithmic Point of View by Daniel Kroening and Ofer Strichman"
     },
