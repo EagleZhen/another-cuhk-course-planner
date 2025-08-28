@@ -335,15 +335,15 @@ export default function WeeklyCalendar({
         {/* Scroll indicators */}
         {scrollState.canScrollUp && (
           <button 
-            className="absolute top-8 left-1/2 transform -translate-x-1/2 z-40 cursor-pointer rounded-full transition-colors"
+            className="absolute top-8 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border-2 border-gray-700 hover:border-gray-800 active:border-gray-900 rounded-lg transition-all duration-150 shadow-md hover:shadow-lg active:shadow-sm active:scale-95 cursor-pointer px-1.5 py-1"
             onClick={() => calendarRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <ChevronUp className="w-6 h-6 text-gray-700 bg-white hover:bg-gray-100 rounded-full p-1.5 border border-gray-300" />
+            <ChevronUp className="w-4 h-4 text-gray-800" />
           </button>
         )}
         {scrollState.canScrollDown && (
           <button 
-            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-40 cursor-pointer rounded-full transition-colors"
+            className="absolute bottom-2 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border-2 border-gray-700 hover:border-gray-800 active:border-gray-900 rounded-lg transition-all duration-150 shadow-md hover:shadow-lg active:shadow-sm active:scale-95 cursor-pointer px-1.5 py-1"
             onClick={() => {
               if (calendarRef.current) {
                 const { scrollHeight, clientHeight } = calendarRef.current
@@ -351,7 +351,7 @@ export default function WeeklyCalendar({
               }
             }}
           >
-            <ChevronDown className="w-6 h-6 text-gray-700 bg-white hover:bg-gray-100 rounded-full p-1.5 border border-gray-300" />
+            <ChevronDown className="w-4 h-4 text-gray-800" />
           </button>
         )}
         
