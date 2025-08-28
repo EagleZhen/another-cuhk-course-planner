@@ -236,7 +236,7 @@ export default function WeeklyCalendar({
   
   // Fixed hour range - consistent time grid
   const defaultStartHour = 8
-  const defaultEndHour = 21
+  const defaultEndHour = 18
   
   // Calculate dynamic hour height based on display configuration
   const referenceCardHeight = calculateReferenceCardHeight(localDisplayConfig)
