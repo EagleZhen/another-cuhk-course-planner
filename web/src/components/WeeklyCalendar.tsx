@@ -112,6 +112,9 @@ export default function WeeklyCalendar({
   const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
   const [isCapturing, setIsCapturing] = useState(false)
   
+  // Refs for auto-scrolling to selected events
+  const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
   
@@ -120,6 +123,35 @@ export default function WeeklyCalendar({
   const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
   const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
   const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
+  
+  // Auto-scroll to selected event
+  useEffect(() => {
+    if (selectedEnrollment && calendarRef.current) {
+      const selectedElement = eventRefs.current.get(selectedEnrollment)
+      if (selectedElement) {
+        const container = calendarRef.current
+        const elementTop = selectedElement.offsetTop
+        const elementHeight = selectedElement.offsetHeight
+        const containerHeight = container.clientHeight
+        const containerScrollTop = container.scrollTop
+        
+        // Calculate the ideal scroll position to center the element
+        const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
+        
+        // Only scroll if the element is not fully visible
+        const elementBottom = elementTop + elementHeight
+        const visibleTop = containerScrollTop
+        const visibleBottom = containerScrollTop + containerHeight
+        
+        if (elementTop < visibleTop || elementBottom > visibleBottom) {
+          container.scrollTo({
+            top: idealScrollTop,
+            behavior: 'smooth'
+          })
+        }
+      }
+    }
+  }, [selectedEnrollment])
   
   // Screenshot function
   const handleScreenshot = async () => {
@@ -353,14 +385,22 @@ export default function WeeklyCalendar({
                         const stackOffset = isConflicted ? stackIndex * CALENDAR_CONSTANTS.STACK_OFFSET : 0
                         const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_CONSTANTS.STACK_OFFSET : 0
                         
+                        // Z-index should be lower than sticky header (z-50)
                         let zIndex = isConflicted ? 20 + stackIndex : 10
-                        if (isSelected) zIndex = 100
+                        if (isSelected) zIndex = 40 // Lower than header z-50
                         
                         const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
                         
                         return (
                           <div
                             key={event.id}
+                            ref={(el) => {
+                              if (el) {
+                                eventRefs.current.set(event.enrollmentId, el)
+                              } else {
+                                eventRefs.current.delete(event.enrollmentId)
+                              }
+                            }}
                             data-course-card="true"
                             style={{
                               position: 'absolute',
