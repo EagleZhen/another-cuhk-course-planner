@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, Eye, EyeOff, Camera } from 'lucide-react'
+import { ChevronDown, ChevronUp, Eye, EyeOff, Camera } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, extractSectionType, type CalendarEvent, type CourseEnrollment, type InternalSection, type InternalMeeting } from '@/lib/courseUtils'
 
 // Clean calendar architecture - time-first approach
@@ -294,10 +294,25 @@ export default function WeeklyCalendar({
       <CardContent className="flex-1 px-4 py-0 overflow-hidden relative">
         {/* Scroll indicators */}
         {scrollState.canScrollUp && (
-          <div className="absolute top-8 left-4 right-4 h-4 bg-gradient-to-b from-white via-white/70 to-transparent z-40 pointer-events-none" />
+          <button 
+            className="absolute top-8 left-1/2 transform -translate-x-1/2 z-40 cursor-pointer hover:bg-gray-50 rounded-full transition-colors"
+            onClick={() => calendarRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <ChevronUp className="w-6 h-6 text-gray-700 bg-white rounded-full p-1.5 border border-gray-300" />
+          </button>
         )}
         {scrollState.canScrollDown && (
-          <div className="absolute bottom-0 left-4 right-4 h-4 bg-gradient-to-t from-white via-white/70 to-transparent z-40 pointer-events-none" />
+          <button 
+            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-40 cursor-pointer hover:bg-gray-50 rounded-full transition-colors"
+            onClick={() => {
+              if (calendarRef.current) {
+                const { scrollHeight, clientHeight } = calendarRef.current
+                calendarRef.current.scrollTo({ top: scrollHeight - clientHeight, behavior: 'smooth' })
+              }
+            }}
+          >
+            <ChevronDown className="w-6 h-6 text-gray-700 bg-white rounded-full p-1.5 border border-gray-300" />
+          </button>
         )}
         
         {/* Mobile horizontal scroll wrapper */}
