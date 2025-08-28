@@ -1006,7 +1006,9 @@ class CuhkScraper:
         # Course description
         desc_elem = soup.find('span', {'id': 'uc_course_lbl_crse_descrlong'})
         if desc_elem:
-            course.description = clean_html_text(desc_elem.get_text())
+            # Use HTML content (not extracted text) to preserve <br> tags and formatting
+            desc_html = str(desc_elem)
+            course.description, _ = html_to_clean_markdown(desc_html)
         
         # Enrollment requirement
         enroll_elem = soup.find('td', {'id': 'uc_course_tc_enrl_requirement'})
