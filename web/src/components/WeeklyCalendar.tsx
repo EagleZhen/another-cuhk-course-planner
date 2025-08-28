@@ -124,13 +124,38 @@ export default function WeeklyCalendar({
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
   
+  // Simple, direct scroll state calculation
+  const updateScrollState = () => {
+    if (!calendarRef.current) return
+    
+    const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
+    
+    // Handle case where content shrunk and we're now past the bottom
+    const maxScrollTop = Math.max(0, scrollHeight - clientHeight)
+    
+    // If we're scrolled past the new bottom, adjust position
+    if (scrollTop > maxScrollTop) {
+      calendarRef.current.scrollTop = maxScrollTop
+    }
+    
+    // Use current scroll position (might have been adjusted)
+    const currentScrollTop = calendarRef.current.scrollTop
+    const tolerance = 1
+    
+    // Hide indicators for tiny scroll amounts (likely just padding/empty space)
+    const significantScrollThreshold = 50 // Only show if there's meaningful content to scroll
+    
+    const canScrollUp = currentScrollTop > tolerance
+    const canScrollDown = scrollHeight > clientHeight && 
+                          maxScrollTop > significantScrollThreshold && 
+                          currentScrollTop < maxScrollTop - tolerance
+    
+    setScrollState({ canScrollUp, canScrollDown })
+  }
+
   // Scroll handler for indicators
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const { scrollTop, scrollHeight, clientHeight } = e.currentTarget
-    setScrollState({
-      canScrollUp: scrollTop > 10, // Small threshold to avoid flickering
-      canScrollDown: scrollTop < scrollHeight - clientHeight - 10
-    })
+  const handleScroll = () => {
+    updateScrollState()
   }
 
   // Toggle functions
@@ -138,6 +163,15 @@ export default function WeeklyCalendar({
   const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
   const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
   const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
+  
+  // Update scroll state whenever content or config changes
+  useEffect(() => {
+    // Use requestAnimationFrame to run after DOM paint
+    const frame = requestAnimationFrame(() => {
+      updateScrollState()
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [localDisplayConfig, events]) // Depend on events too - content changes
   
   // Auto-scroll to selected event
   useEffect(() => {
