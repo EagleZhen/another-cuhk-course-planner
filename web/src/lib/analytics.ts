@@ -40,6 +40,20 @@ export const analytics = {
     track('search_used', { results_count: resultsCount })
   },
 
+  // Track shuffle usage → validates course discovery encouragement feature
+  // Key question: Do users actually want randomized course discovery?
+  // Key decision: Should randomization be default behavior vs manual feature?
+  shuffleUsed: (totalCourses: number) => {
+    track('shuffle_used', { total_courses: totalCourses })
+  },
+
+  // Track shuffle reset → measures shuffle satisfaction via reset rate
+  // Key insight: Reset rate <30% = good shuffle, >70% = shuffle frustrating users
+  // Key analysis: shuffle_reset/shuffle_used ratio reveals discovery effectiveness
+  shuffleReset: () => {
+    track('shuffle_reset')
+  },
+
   // === UX OPTIMIZATION ===
   
   // Track subject exploration → reveals which subjects students actively seek/avoid

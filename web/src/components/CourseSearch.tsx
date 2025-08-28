@@ -811,7 +811,11 @@ export default function CourseSearch({
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => setShuffleTrigger(0)}
+                      onClick={() => {
+                        // Track reset usage for shuffle satisfaction analysis
+                        analytics.shuffleReset()
+                        setShuffleTrigger(0)
+                      }}
                       className="h-6 px-2 text-xs cursor-pointer ml-2"
                       title="Reset to original order"
                     >
@@ -825,7 +829,11 @@ export default function CourseSearch({
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setShuffleTrigger(prev => prev + 1)}
+                  onClick={() => {
+                    // Track shuffle usage for discovery behavior analysis
+                    analytics.shuffleUsed(searchResults.total)
+                    setShuffleTrigger(prev => prev + 1)
+                  }}
                   className="h-6 px-2 text-xs"
                   title="Shuffle courses for discovery"
                 >
