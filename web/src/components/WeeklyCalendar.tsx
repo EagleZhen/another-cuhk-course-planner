@@ -124,44 +124,29 @@ export default function WeeklyCalendar({
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
   
-  // Simple, direct scroll state calculation with detailed logging
-  const updateScrollState = (trigger = 'unknown') => {
+  // Calculate scroll state for indicators
+  const updateScrollState = () => {
     if (!calendarRef.current) return
     
     const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
     
-    console.log(`=== updateScrollState (${trigger}) ===`)
-    console.log('Display config:', localDisplayConfig)
-    console.log('Dimensions:', { scrollTop, scrollHeight, clientHeight })
-    
     // Handle case where content shrunk and we're now past the bottom
     const maxScrollTop = Math.max(0, scrollHeight - clientHeight)
-    console.log('Max scroll possible:', maxScrollTop)
     
     // If we're scrolled past the new bottom, adjust position
     if (scrollTop > maxScrollTop) {
-      console.log(`Adjusting scroll from ${scrollTop} to ${maxScrollTop}`)
       calendarRef.current.scrollTop = maxScrollTop
     }
     
     // Use current scroll position (might have been adjusted)
     const currentScrollTop = calendarRef.current.scrollTop
     const tolerance = 1
-    
-    // Hide indicators for tiny scroll amounts (likely just padding/empty space)
-    const significantScrollThreshold = 5 // Only show if there's meaningful content to scroll
+    const significantScrollThreshold = 5 // Filter out tiny amounts (padding/borders)
     
     const canScrollUp = currentScrollTop > tolerance
     const canScrollDown = scrollHeight > clientHeight && 
                           maxScrollTop > significantScrollThreshold && 
                           currentScrollTop < maxScrollTop - tolerance
-    
-    console.log('Scroll decision logic:')
-    console.log('  scrollHeight > clientHeight:', scrollHeight > clientHeight)
-    console.log('  maxScrollTop > significantScrollThreshold:', maxScrollTop > significantScrollThreshold, `(${maxScrollTop} > ${significantScrollThreshold})`)
-    console.log('  currentScrollTop < maxScrollTop - tolerance:', currentScrollTop < maxScrollTop - tolerance, `(${currentScrollTop} < ${maxScrollTop - tolerance})`)
-    console.log('Final result:', { canScrollUp, canScrollDown })
-    console.log('==================')
     
     setScrollState({ canScrollUp, canScrollDown })
   }
