@@ -115,9 +115,24 @@ export default function WeeklyCalendar({
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
   
+  // Scroll state for indicators
+  const [scrollState, setScrollState] = useState({
+    canScrollUp: false,
+    canScrollDown: false
+  })
+  
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
   
+  // Scroll handler for indicators
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.currentTarget
+    setScrollState({
+      canScrollUp: scrollTop > 10, // Small threshold to avoid flickering
+      canScrollDown: scrollTop < scrollHeight - clientHeight - 10
+    })
+  }
+
   // Toggle functions
   const toggleTime = () => setLocalDisplayConfig(prev => ({ ...prev, showTime: !prev.showTime }))
   const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
@@ -151,7 +166,7 @@ export default function WeeklyCalendar({
         }
       }
     }
-  }, [selectedEnrollment])
+  }, [selectedEnrollment, events])
   
   // Screenshot function
   const handleScreenshot = async () => {
@@ -276,11 +291,19 @@ export default function WeeklyCalendar({
         />
       )}
       
-      <CardContent className="flex-1 px-4 py-0 overflow-hidden">
+      <CardContent className="flex-1 px-4 py-0 overflow-hidden relative">
+        {/* Scroll indicators */}
+        {scrollState.canScrollUp && (
+          <div className="absolute top-8 left-4 right-4 h-4 bg-gradient-to-b from-white via-white/70 to-transparent z-40 pointer-events-none" />
+        )}
+        {scrollState.canScrollDown && (
+          <div className="absolute bottom-0 left-4 right-4 h-4 bg-gradient-to-t from-white via-white/70 to-transparent z-40 pointer-events-none" />
+        )}
+        
         {/* Mobile horizontal scroll wrapper */}
         <div className="overflow-x-auto h-full">
           <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
-            <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef}>
+            <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef} onScroll={handleScroll}>
               {/* Sticky Header Row */}
               <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
                 <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
@@ -395,9 +418,9 @@ export default function WeeklyCalendar({
                           <div
                             key={event.id}
                             ref={(el) => {
-                              if (el) {
+                              if (el && event.enrollmentId) {
                                 eventRefs.current.set(event.enrollmentId, el)
-                              } else {
+                              } else if (event.enrollmentId) {
                                 eventRefs.current.delete(event.enrollmentId)
                               }
                             }}
