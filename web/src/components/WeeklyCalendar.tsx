@@ -335,15 +335,15 @@ export default function WeeklyCalendar({
         {/* Scroll indicators */}
         {scrollState.canScrollUp && (
           <button 
-            className="absolute top-8 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border-2 border-gray-700 hover:border-gray-800 active:border-gray-900 rounded-lg transition-all duration-150 shadow-md hover:shadow-lg active:shadow-sm active:scale-95 cursor-pointer px-1.5 py-1"
+            className="absolute top-12 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1"
             onClick={() => calendarRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <ChevronUp className="w-4 h-4 text-gray-800" />
+            <ChevronUp className="w-4 h-4 text-gray-700" />
           </button>
         )}
         {scrollState.canScrollDown && (
           <button 
-            className="absolute bottom-2 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border-2 border-gray-700 hover:border-gray-800 active:border-gray-900 rounded-lg transition-all duration-150 shadow-md hover:shadow-lg active:shadow-sm active:scale-95 cursor-pointer px-1.5 py-1"
+            className="absolute bottom-8 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1"
             onClick={() => {
               if (calendarRef.current) {
                 const { scrollHeight, clientHeight } = calendarRef.current
@@ -351,7 +351,7 @@ export default function WeeklyCalendar({
               }
             }}
           >
-            <ChevronDown className="w-4 h-4 text-gray-800" />
+            <ChevronDown className="w-4 h-4 text-gray-700" />
           </button>
         )}
         
