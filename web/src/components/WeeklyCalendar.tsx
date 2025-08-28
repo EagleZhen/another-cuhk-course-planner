@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera } from 'lucide-react'
@@ -125,7 +125,7 @@ export default function WeeklyCalendar({
   const calendarRef = useRef<HTMLDivElement>(null)
   
   // Calculate scroll state for indicators
-  const updateScrollState = () => {
+  const updateScrollState = useCallback(() => {
     if (!calendarRef.current) return
     
     const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
@@ -149,11 +149,11 @@ export default function WeeklyCalendar({
                           currentScrollTop < maxScrollTop - tolerance
     
     setScrollState({ canScrollUp, canScrollDown })
-  }
+  }, [])
 
   // Scroll handler for indicators
   const handleScroll = () => {
-    updateScrollState('scroll')
+    updateScrollState()
   }
 
   // Toggle functions
@@ -162,29 +162,22 @@ export default function WeeklyCalendar({
   const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
   const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
   
-  // Use ResizeObserver to detect when calendar content actually changes size
+  // Update scroll indicators when content changes
   useEffect(() => {
     if (!calendarRef.current) return
     
-    console.log('🔄 Setting up ResizeObserver due to config/events change')
-    
+    // ResizeObserver detects when calendar content size actually changes
     const resizeObserver = new ResizeObserver(() => {
-      // This runs whenever the scroll container size changes
-      console.log('📏 ResizeObserver triggered - content size changed')
-      updateScrollState('ResizeObserver')
+      updateScrollState()
     })
     
     resizeObserver.observe(calendarRef.current)
     
-    // Also update immediately on config change
-    console.log('⚡ Immediate update on config change')
-    updateScrollState('config-change')
+    // Also update immediately on config/events change
+    updateScrollState()
     
-    return () => {
-      console.log('🧹 Cleaning up ResizeObserver')
-      resizeObserver.disconnect()
-    }
-  }, [localDisplayConfig, events])
+    return () => resizeObserver.disconnect()
+  }, [localDisplayConfig, events, updateScrollState])
   
   // Auto-scroll to selected event
   useEffect(() => {
