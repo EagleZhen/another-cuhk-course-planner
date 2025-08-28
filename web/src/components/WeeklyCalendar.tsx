@@ -124,17 +124,23 @@ export default function WeeklyCalendar({
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
   
-  // Simple, direct scroll state calculation
-  const updateScrollState = () => {
+  // Simple, direct scroll state calculation with detailed logging
+  const updateScrollState = (trigger = 'unknown') => {
     if (!calendarRef.current) return
     
     const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
     
+    console.log(`=== updateScrollState (${trigger}) ===`)
+    console.log('Display config:', localDisplayConfig)
+    console.log('Dimensions:', { scrollTop, scrollHeight, clientHeight })
+    
     // Handle case where content shrunk and we're now past the bottom
     const maxScrollTop = Math.max(0, scrollHeight - clientHeight)
+    console.log('Max scroll possible:', maxScrollTop)
     
     // If we're scrolled past the new bottom, adjust position
     if (scrollTop > maxScrollTop) {
+      console.log(`Adjusting scroll from ${scrollTop} to ${maxScrollTop}`)
       calendarRef.current.scrollTop = maxScrollTop
     }
     
@@ -143,19 +149,26 @@ export default function WeeklyCalendar({
     const tolerance = 1
     
     // Hide indicators for tiny scroll amounts (likely just padding/empty space)
-    const significantScrollThreshold = 50 // Only show if there's meaningful content to scroll
+    const significantScrollThreshold = 5 // Only show if there's meaningful content to scroll
     
     const canScrollUp = currentScrollTop > tolerance
     const canScrollDown = scrollHeight > clientHeight && 
                           maxScrollTop > significantScrollThreshold && 
                           currentScrollTop < maxScrollTop - tolerance
     
+    console.log('Scroll decision logic:')
+    console.log('  scrollHeight > clientHeight:', scrollHeight > clientHeight)
+    console.log('  maxScrollTop > significantScrollThreshold:', maxScrollTop > significantScrollThreshold, `(${maxScrollTop} > ${significantScrollThreshold})`)
+    console.log('  currentScrollTop < maxScrollTop - tolerance:', currentScrollTop < maxScrollTop - tolerance, `(${currentScrollTop} < ${maxScrollTop - tolerance})`)
+    console.log('Final result:', { canScrollUp, canScrollDown })
+    console.log('==================')
+    
     setScrollState({ canScrollUp, canScrollDown })
   }
 
   // Scroll handler for indicators
   const handleScroll = () => {
-    updateScrollState()
+    updateScrollState('scroll')
   }
 
   // Toggle functions
@@ -164,14 +177,29 @@ export default function WeeklyCalendar({
   const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
   const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
   
-  // Update scroll state whenever content or config changes
+  // Use ResizeObserver to detect when calendar content actually changes size
   useEffect(() => {
-    // Use requestAnimationFrame to run after DOM paint
-    const frame = requestAnimationFrame(() => {
-      updateScrollState()
+    if (!calendarRef.current) return
+    
+    console.log('🔄 Setting up ResizeObserver due to config/events change')
+    
+    const resizeObserver = new ResizeObserver(() => {
+      // This runs whenever the scroll container size changes
+      console.log('📏 ResizeObserver triggered - content size changed')
+      updateScrollState('ResizeObserver')
     })
-    return () => cancelAnimationFrame(frame)
-  }, [localDisplayConfig, events]) // Depend on events too - content changes
+    
+    resizeObserver.observe(calendarRef.current)
+    
+    // Also update immediately on config change
+    console.log('⚡ Immediate update on config change')
+    updateScrollState('config-change')
+    
+    return () => {
+      console.log('🧹 Cleaning up ResizeObserver')
+      resizeObserver.disconnect()
+    }
+  }, [localDisplayConfig, events])
   
   // Auto-scroll to selected event
   useEffect(() => {
