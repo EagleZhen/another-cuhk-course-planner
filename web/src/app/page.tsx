@@ -207,6 +207,9 @@ export default function Home() {
 
   // Handle term change - localStorage will handle schedule restoration
   const handleTermChange = (newTerm: string) => {
+    // Track term access for planning behavior analysis
+    analytics.termAccessed(newTerm)
+    
     setCurrentTerm(newTerm)
     // localStorage useEffect will automatically restore/clear schedule for new term
   }
@@ -357,7 +360,7 @@ export default function Home() {
     }
     
     // Track course enrollment for product analytics
-    analytics.courseAdded(`${course.subject}${course.courseCode}`, course.subject)
+    analytics.courseAdded(`${course.subject}${course.courseCode}`, course.subject, termName)
     
     // Clear global section selections for this course after adding/updating
     const newSectionsMap = new Map(selectedSections)

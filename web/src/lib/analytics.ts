@@ -28,10 +28,10 @@ export const analytics = {
     track('course_viewed', { course, subject })
   },
   
-  // Track enrollment → measures conversion from discovery to action
-  // Key decision: Focus on discovery features vs planning/utility features?
-  courseAdded: (course: string, subject: string) => {
-    track('course_added', { course, subject })
+  // Track enrollment → measures conversion from discovery to action (KEEP term for planning analysis)
+  // Key decisions: Focus on discovery vs planning features? Which terms get enrollment activity?
+  courseAdded: (course: string, subject: string, termName: string) => {
+    track('course_added', { course, subject, term: termName })
   },
   
   // Track search effectiveness → informs discovery method priority (search vs browse)
@@ -69,5 +69,14 @@ export const analytics = {
   // Cross-analyze with general usage patterns above to understand conflict-specific behavior
   conflictResolved: (resolutionMethod: string) => {
     track('conflict_resolved', { resolution_method: resolutionMethod })
+  },
+
+  // === PLANNING BEHAVIOR ===
+  
+  // Track term switches → reveals active planning behavior patterns
+  // Key questions: How often do users actively switch between terms?
+  // Key decisions: Focus on current term UX vs multi-semester planning features?
+  termAccessed: (termName: string) => {
+    track('term_accessed', { term: termName })
   }
 }
