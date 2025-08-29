@@ -60,24 +60,42 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
     if (timeMatch12[6] === 'PM' && endHour !== 12) endHour += 12
     if (timeMatch12[6] === 'AM' && endHour === 12) endHour = 0
     
+    const startMinute = parseInt(timeMatch12[2])
+    const endMinute = parseInt(timeMatch12[5])
+    
+    // Check for 0-duration events (e.g., "Fr 12:00AM - 12:00AM") - treat as unscheduled
+    if (startHour === endHour && startMinute === endMinute) {
+      return null
+    }
+    
     return {
       day: dayMatch[1],
       startHour,
-      startMinute: parseInt(timeMatch12[2]),
+      startMinute,
       endHour,
-      endMinute: parseInt(timeMatch12[5])
+      endMinute
     }
   }
   
   // Fallback to 24-hour format (e.g., "14:30 - 15:15")
   const timeMatch24 = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
   if (timeMatch24) {
+    const startHour = parseInt(timeMatch24[1])
+    const startMinute = parseInt(timeMatch24[2])
+    const endHour = parseInt(timeMatch24[3])
+    const endMinute = parseInt(timeMatch24[4])
+    
+    // Check for 0-duration events (e.g., "Mo 14:30 - 14:30") - treat as unscheduled
+    if (startHour === endHour && startMinute === endMinute) {
+      return null
+    }
+    
     return {
       day: dayMatch[1],
-      startHour: parseInt(timeMatch24[1]),
-      startMinute: parseInt(timeMatch24[2]),
-      endHour: parseInt(timeMatch24[3]),
-      endMinute: parseInt(timeMatch24[4])
+      startHour,
+      startMinute,
+      endHour,
+      endMinute
     }
   }
   
