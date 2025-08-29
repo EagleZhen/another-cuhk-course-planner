@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-28T05:07:06.666830+00:00",
+    "scraped_at": "2025-08-28T22:21:17.139669+00:00",
     "subject": "AIST",
     "subject_title": "AI: Systems & Tech",
     "total_courses": 16,
@@ -850,7 +850,7 @@
           ]
         }
       ],
-      "description": "This course covers how to use deep learning techniques to resolve real-life computational problems, handling different kinds of data. We start the course by introducing the problem-solving paradigm with deep learning: data preparation, building the model, training the model, model evaluation, and hyper-parameter searching. Then, we fill in the details in the paradigm. Regarding the deep learning models, we will go from the simplest linear regression model, towards the relatively complicated models. To handle various data types, that is, the structured data, images, text, sequences, signals, and graphs, in our daily life, we would cover CNN/ResNet, RNN/LSTM, Attention, and GNN models. In addition to the above paradigms, we will also cover the commonly used techniques to handle overfitting. We would briefly go through the generative models, VAE, and GAN, at the end of this course.Advisory: Students are expected to have background knowledge on python programming.",
+      "description": "This course covers how to use deep learning techniques to resolve real-life computational problems, handling different kinds of data. We start the course by introducing the problem-solving paradigm with deep learning: data preparation, building the model, training the model, model evaluation, and hyper-parameter searching. Then, we fill in the details in the paradigm. Regarding the deep learning models, we will go from the simplest linear regression model, towards the relatively complicated models. To handle various data types, that is, the structured data, images, text, sequences, signals, and graphs, in our daily life, we would cover CNN/ResNet, RNN/LSTM, Attention, and GNN models. In addition to the above paradigms, we will also cover the commonly used techniques to handle overfitting. We would briefly go through the generative models, VAE, and GAN, at the end of this course.\nAdvisory: Students are expected to have background knowledge on python programming.",
       "enrollment_requirement": "Not for students who have taken ESTR4140\nPrerequisite: CSCI3230 or CSCI3320 or ESTR3108",
       "course_attributes": "",
       "academic_career": "Undergraduate",

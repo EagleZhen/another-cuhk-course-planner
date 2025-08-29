@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-28T10:16:38.633695+00:00",
+    "scraped_at": "2025-08-29T05:17:14.366468+00:00",
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
     "total_courses": 24,
@@ -589,18 +589,24 @@
               "section": "B-LEC (1151)",
               "meetings": [
                 {
-                  "time": "We 6:30PM - 9:30PM",
-                  "location": "William M W Mong Eng Bldg 803",
+                  "time": "Tu 3:00PM - 5:45PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
                   "instructor": "Dr. MA Pui Kit",
-                  "dates": "4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5, 13/5, 20/5, 27/5, 3/6, 10/6"
+                  "dates": "3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 3:00PM - 5:45PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Dr. MA Pui Kit",
+                  "dates": "14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6, 9/6"
                 }
               ],
               "availability": {
-                "capacity": "60",
+                "capacity": "40",
                 "enrolled": "7",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "53",
+                "available_seats": "33",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -666,7 +672,7 @@
           ]
         }
       ],
-      "description": "This course introduces technology strategy and management. The challenges of technology companies (such as hardware, software, internet, consumer electronics, communications and networking) regardless they are in startup or mature stage, are very different from other industries. They need to consider five aspects carefully to formulate an effective strategy. A framework of strategy in technology-intensive companies will be introduced. This framework consists of 5 components:1. Network Effects2. Multi-sided Platforms3. Intellectual Property (IP) and Standards4. Technology Commercialization5. Digital Convergence",
+      "description": "This course introduces technology strategy and management. The challenges of technology companies (such as hardware, software, internet, consumer electronics, communications and networking) regardless they are in startup or mature stage, are very different from other industries. They need to consider five aspects carefully to formulate an effective strategy. A framework of strategy in technology-intensive companies will be introduced. This framework consists of 5 components:\n1. Network Effects\n2. Multi-sided Platforms\n3. Intellectual Property (IP) and Standards\n4. Technology Commercialization\n5. Digital Convergence",
       "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -758,7 +764,7 @@
       "title": "Broadband Access Technologies",
       "credits": "3.00",
       "terms": [],
-      "description": "The course aims to introduce various advanced wireline (copper wire and optical fiber) and wireless communication technologies to realize first-mile broadband access for video and data services. The wireline technologies include hybrid fiber coax (HFC), digital subscriber line (DSL), data over cable service interface specification (DOCSIS), passive optical network (PON) and fiber-to-the-home/premise (FTTH / FTTP), and broadband over powerline (BPL). The wireless technologies include multichannel multipoint distribution service (MMDS), local multipoint destribution service (LMDS), wireless local loop (WLL), WiFi and WiMAX, free-space-optics (FSO), and ultrawideband (UWB). Radio frequency identification (RFID) technique and applications. Fixed / mobile convergence access networks. Enabling technologies and network applications for home networks. Cases studies.",
+      "description": "The course aims to introduce various advanced wireline (copper wire and optical fiber) and wireless communication technologies to realize first-mile broadband access for video and data services. The wireline technologies include hybrid fiber coax (HFC), digital subscriber line (DSL), data over cable service interface specification (DOCSIS), passive optical network (PON) and fiber-to-the-home/premise (FTTH / FTTP), and broadband over powerline (BPL). The wireless technologies include multichannel\nmultipoint distribution service (MMDS), local multipoint destribution service (LMDS), wireless local loop (WLL), WiFi and WiMAX, free-space-optics (FSO), and ultrawideband (UWB). Radio frequency identification (RFID) technique and applications. Fixed / mobile convergence access networks. Enabling technologies and network applications for home networks. Cases studies.",
       "enrollment_requirement": "For all students in Engineering Faculty",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -1234,7 +1240,7 @@
           ]
         }
       ],
-      "description": "This course aims to provide students an understanding in the operating principles and hands-on experience with mainstream Big Data Computing systems. Open-source platforms for Big Data processing and analytics would be discussed. Topics to be covered include:• Programming models and design patterns for mainstream Big Data computational frameworks ;• System Architecture and Resource Management for Data-center-scale Computing ;• System Architecture and Programming Interface of Distributed Big Data stores ; • High-level Big Data Query languages and their processing systems ;Advisory: This course contains substantial hands-on components which require solid background in programming and hands-on operating systems experience.",
+      "description": "This course aims to provide students an understanding in the operating principles and hands-on experience with mainstream Big Data Computing systems. Open-source platforms for Big Data processing and analytics would be discussed. Topics to be covered include:\n• Programming models and design patterns for mainstream Big Data computational frameworks ;• System Architecture and Resource Management for Data-center-scale Computing ;• System Architecture and Programming Interface of Distributed Big Data stores ; • High-level Big Data Query languages and their processing systems ;Advisory: This course contains substantial hands-on components which require solid background in programming and hands-on operating systems experience.",
       "enrollment_requirement": "For all students in Engineering Faculty; Exclusion: ESTR4316 or IERG4330",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -1425,7 +1431,7 @@
       "title": "Building and Deploying Scalable Machine Learning Services",
       "credits": "3.00",
       "terms": [],
-      "description": "Machine learning refers to making computer perform various tasks by learning from data. It is also now one of the essential components in many online services, for example, to generate personalized recommendations on e-commerce platforms, perform face detection and recognition or predict the arrival time of delivery, etc. Given the widespread usage of machine learning, it is important that complex machine learning models can be deployed in an efficient way to support real time services at scale and to allow seamless update of the models. This course will first introduce fundamental concepts in the architecture of scalable internet-based services, distributed/network programming and infrastructure support for content delivery. It then goes on to introduce how scalable online services can be created and maintained, with a focus on services that involve machine learning. Topics will include asynchronous programming, distributed message queues and brokers, load balancers, micro-services, distributed caches and databases, and challenges and solutions in building and deploying various machine learning models/services in a production environment.Advisory note: Students are expected to have background in computer networking and machine learning.",
+      "description": "Machine learning refers to making computer perform various tasks by learning from data. It is also now one of the essential components in many online services, for example, to generate personalized recommendations on e-commerce platforms, perform face detection and recognition or predict the arrival time of delivery, etc. Given the widespread usage of machine learning, it is important that complex machine learning models can be deployed in an efficient way to support real time services at scale and to allow seamless update of the models. This course will first introduce fundamental concepts in the architecture of scalable internet-based services, distributed/network programming and infrastructure support for content delivery. It then goes on to introduce how scalable online services can be created and maintained, with a focus on services that involve machine learning. Topics will include asynchronous programming, distributed message queues and brokers, load balancers, micro-services, distributed caches and databases, and challenges and solutions in building and deploying various machine learning models/services in a production environment.\n\nAdvisory note: Students are expected to have background in computer networking and machine learning.",
       "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG4080 or ESTR4312",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -1524,7 +1530,7 @@
       "title": "Information Engineering Internship",
       "credits": "3.00",
       "terms": [],
-      "description": "This course is designed to allow students to acquire a basic understanding and the skills of the practical aspects of the information engineering profession. During the internship, the student must attach to a company in a study-related position for no less than 12 weeks. The student will have an academic supervisor (as primary supervisor) and an industry co-supervisor from the company, both have the expertise to provide advice to the student. To be qualified for award of the subject credit, the student must submit a report summarizing the internship experience at the end of the internship. Additional presentation may be required by the hosting company.The internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies.",
+      "description": "This course is designed to allow students to acquire a basic understanding and the skills of the practical aspects of the information engineering profession. During the internship, the student must attach to a company in a study-related position for no less than 12 weeks. The student will have an academic supervisor (as primary supervisor) and an industry co-supervisor from the company, both have the expertise to provide advice to the student. To be qualified for award of the subject credit, the student must submit a report summarizing the internship experience at the end of the internship. Additional presentation may be required by the hosting company.\n\nThe internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies.",
       "enrollment_requirement": "For students in MSc Information Engineering; Not for students who have taken IEMS5920",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
