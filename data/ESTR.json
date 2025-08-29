@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-28T08:47:40.261053+00:00",
+    "scraped_at": "2025-08-29T02:18:56.488088+00:00",
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
     "total_courses": 132,
@@ -61,10 +61,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -81,10 +81,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -555,10 +555,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "11",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -587,10 +587,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "11",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -598,7 +598,7 @@
           ]
         }
       ],
-      "description": "This course is designed for engineering students to acquire mathematical techniques in single-variable Calculus to model and solve engineering application problems. Topics include functions and their limits, continuity, derivatives, differentiation, integration and applications of Calculus to various engineering disciplines. Students are expected to have mathematics background equivalent to HKDSE with Extended Module I or II.",
+      "description": "This course is designed for engineering students to acquire mathematical techniques in single-variable Calculus to model and solve engineering application problems. Topics include functions and their limits, continuity, derivatives, differentiation, integration and applications of Calculus to various engineering disciplines.\n\nStudents are expected to have mathematics background equivalent to HKDSE with Extended Module I or II.",
       "enrollment_requirement": "Not for students who have taken ENGG1125 or MATH1510",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -676,7 +676,7 @@
       "title": "Complex Analysis and Differential Equations for Engineers",
       "credits": "3.00",
       "terms": [],
-      "description": "Complex analysis: analytic functions and Cauchy Riemann; complex integration, Cauchy principal value; elementary complex valued functions: exponential functions, Euler’s formula, trigonometric and hyperbolic functions, logarithm and general powers; power series, Taylor series and convergence tests.ODE: classification of differential equations; 1st order ordinary differential equations; 2nd order ordinary differential equations. Partial differential equations.",
+      "description": "Complex analysis: analytic functions and Cauchy Riemann; complex integration, Cauchy principal value; elementary complex valued functions: exponential functions, Euler’s formula, trigonometric and hyperbolic functions, logarithm and general powers; power series, Taylor series and convergence tests.\nODE: classification of differential equations; 1st order ordinary differential equations; 2nd order ordinary differential equations. Partial differential equations.",
       "enrollment_requirement": "Not for students who have taken ENGG2420, ENGG2460 or ESTR2010.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -871,7 +871,7 @@
       "title": "Probability for Engineers",
       "credits": "3.00",
       "terms": [],
-      "description": "The course will cover the following topics:Sets, relations, proof methods, combinatorics, probability and events: expectation, variance, moments, moment generating functions, single variate distributions. Multivariate probability: conditional probability, joint probability, Bayes’ Theorem, conditional expectation, covariance, multivariate distributions. Functions of random variables. Central limit theorem, law of large numbers.",
+      "description": "The course will cover the following topics:\nSets, relations, proof methods, combinatorics, probability and events: expectation, variance, moments, moment generating functions, single variate distributions. Multivariate probability: conditional probability, joint probability, Bayes’ Theorem, conditional expectation, covariance, multivariate distributions. Functions of random variables. Central limit theorem, law of large numbers.",
       "enrollment_requirement": "Not for students who have taken ENGG2430, ENGG2440, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2362 or MIEG2440.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -1666,10 +1666,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1698,10 +1698,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1730,10 +1730,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1794,10 +1794,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1887,7 +1887,7 @@
       "title": "Orthopaedic Biomechanics and Musculoskeletal Injury",
       "credits": "3.00",
       "terms": [],
-      "description": "This course covers biostatics, biodynamics, and biosolid mechanics and their applications to the human musculoskeletal systems and the clinical practice of orthopaedics. Topics include: force and moment vectors, equations of equilibrium, moments of inertia, kinematics of particles, Newton's second law, kinematics of rigid bodies, dynamics of rigid bodies, stress-strain relations, linear elasticity, loading and deformation, shear forces and bending moments, multi-body kinematics and application to skeletal system.Clinical scenarios will be presented with open-ended questions concerning musculoskeletal injury mechanisms associated with musculoskeletal biology (aging, gender, diseases, adverse effects of treatments) and external forces (sports and traffic accidents), basic principles for designing medical devices and implants for prevention and treatment of musculoskeletal injuries.Relevant laboratory sessions on musculoskeletal force analysis and human movement studies will be synergized with the corresponding lectures to enhance learning. Students are expected to have prior knowledge on the basic principles of Newtonian mechanics at secondary school level.",
+      "description": "This course covers biostatics, biodynamics, and biosolid mechanics and their applications to the human musculoskeletal systems and the clinical practice of orthopaedics. Topics include: force and moment vectors, equations of equilibrium, moments of inertia, kinematics of particles, Newton's second law, kinematics of rigid bodies, dynamics of rigid bodies, stress-strain relations, linear elasticity, loading and deformation, shear forces and bending moments, multi-body kinematics and application to skeletal system.\nClinical scenarios will be presented with open-ended questions concerning musculoskeletal injury mechanisms associated with musculoskeletal biology (aging, gender, diseases, adverse effects of treatments) and external forces (sports and traffic accidents), basic principles for designing medical devices and implants for prevention and treatment of musculoskeletal injuries.\n\nRelevant laboratory sessions on musculoskeletal force analysis and human movement studies will be synergized with the corresponding lectures to enhance learning. Students are expected to have prior knowledge on the basic principles of Newtonian mechanics at secondary school level.",
       "enrollment_requirement": "Not for students who have taken BMEG2210 or MAEG2020",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -2521,10 +2521,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "5",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2547,10 +2547,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "5",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2673,7 +2673,7 @@
           ]
         }
       ],
-      "description": "The course covers the following two related topics. Discrete Structures: Graphs, Combinatorics - sums and asymptotics, recurrences, countingProbability: Random Variables and Probability density functions, conditional probability, independence, expectations, Markov and Chebychev inequalities, laws of large numbers, Random Walks, basic Markov Chains.",
+      "description": "The course covers the following two related topics.\nDiscrete Structures: Graphs, Combinatorics - sums and asymptotics, recurrences, counting\nProbability: Random Variables and Probability density functions, conditional probability, independence, expectations, Markov and Chebychev inequalities, laws of large numbers, Random Walks, basic Markov Chains.",
       "enrollment_requirement": "Pre-requisite: MATH1050. Not for students who have taken CSCI2110, ENGG2430, ENGG2440, ENGG2450, ENGG2460, ENGG2470, ENGG2760, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2012, ESTR2018, ESTR2308, IERG2470, MATH3280 or MIEG2440.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -2934,7 +2934,7 @@
       "title": "Introduction to Data Science",
       "credits": "3.00",
       "terms": [],
-      "description": "This course presents an introductory roadmap into the newly emerged and rapidly evolving field of data science, with the objective of introducing the problem-solving mindset in a data-intensive context.The course projects data science as a productive synthesis of its parent disciplines, including mathematics, statistics, computing, data mining, system science and data visualization, etc. Such a productive synthesis is applicable across many fields to bring about scientific discovery through data-intensive, analytical methods. This course aims to help navigate students in taking more advanced courses in its parent disciplines to build up their expertise in data science. We cover topics including:History and impact of Data Science.Collecting Data: sources, types and categorization of data.Visualising Data: summary statistics, data display, data dictionaries, schema and graphical visualization.Analysing Data: pattern recognition, correlations and relationships, hypotheses testing, statistical significance.Investigating Data: data mining, machine learning, inference, meta-data, modeling, eliciting meaning and validation.Applicational contexts: Examples of useful applications from case studies.",
+      "description": "This course presents an introductory roadmap into the newly emerged and rapidly evolving field of data science, with the objective of introducing the problem-solving mindset in a data-intensive context.\nThe course projects data science as a productive synthesis of its parent disciplines, including mathematics, statistics, computing, data mining, system science and data visualization, etc. Such a productive synthesis is applicable across many fields to bring about scientific discovery through data-intensive, analytical methods. This course aims to help navigate students in taking more advanced courses in its parent disciplines to build up their expertise in data science. We cover topics including:\nHistory and impact of Data Science.\nCollecting Data: sources, types and categorization of data.\nVisualising Data: summary statistics, data display, data dictionaries, schema and graphical visualization.\nAnalysing Data: pattern recognition, correlations and relationships, hypotheses testing, statistical significance.\nInvestigating Data: data mining, machine learning, inference, meta-data, modeling, eliciting meaning and validation.\nApplicational contexts: Examples of useful applications from case studies.",
       "enrollment_requirement": "Not for students who have taken SEEM2460.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -2961,7 +2961,7 @@
       "title": "Circuits and Signals for Biomedical Engineering",
       "credits": "3.00",
       "terms": [],
-      "description": "This required course covers basic circuit theories that are needed for understanding the operation, as well as design of many biomedical devices. It also provides a theoretical and mathematical foundation for analyzing and processing electrical signals. Students will learn the parametric concepts commonly used for the representation, analysis and transformation of continuous-time and discrete-time signals, and the principles of processing time-varying signals in linear systems. This course emphasizes on using mathematical methods to analyze and to solve engineering problems.Specific topics of this course are: basic circuit laws and theorems, mesh and nodal analysis, superposition and source transformation; analysis of operational amplifier circuits and their biomedical applications; concept of phasor and impedance; AC analysis, introduction to transient analysis; inductors and transformers for biomedical devices; Basics of biomedical signals; continuous-time and discrete-time signals and systems; Fourier series and Fourier transform for analysis of signals and systems; convolutions/filters; sampling.",
+      "description": "This required course covers basic circuit theories that are needed for understanding the operation, as well as design of many biomedical devices. It also provides a theoretical and mathematical foundation for analyzing and processing electrical signals. Students will learn the parametric concepts commonly used for the representation, analysis and transformation of continuous-time and discrete-time signals, and the principles of processing time-varying signals in linear systems. This course emphasizes on using mathematical methods to analyze and to solve engineering problems.\nSpecific topics of this course are: basic circuit laws and theorems, mesh and nodal analysis, superposition and source transformation; analysis of operational amplifier circuits and their biomedical applications; concept of phasor and impedance; AC analysis, introduction to transient analysis; inductors and transformers for biomedical devices; Basics of biomedical signals; continuous-time and discrete-time signals and systems; Fourier series and Fourier transform for analysis of signals and systems; convolutions/filters; sampling.",
       "enrollment_requirement": "Not for students who have taken ELEG2202 or ENGG2030 or ESTR2206 or BMEG2300.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -3447,10 +3447,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3479,10 +3479,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3511,10 +3511,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3531,10 +3531,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3562,7 +3562,7 @@
           ]
         }
       ],
-      "description": "This course introduces the basic concepts and techniques of artificial intelligence. Knowledge representation: predicate logic and inference, semantic networks, scripts and frames, and object-oriented representation. Searching: such as A*, hill-climbing, minimax and alpha-beta pruning. Planning: the frame problem and the STRIPS formalism, representation schemes and planning strategies. Neural networks: learning algorithms, neural architecture and applications. Natural language processing. Knowledge acquisition and expert systems: properties, techniques and tools of expert systems",
+      "description": "This course introduces the basic concepts and techniques of artificial intelligence. Knowledge representation: predicate logic and inference, semantic networks, scripts and frames, and object-oriented representation. Searching: such as A\\*, hill-climbing, minimax and alpha-beta pruning. Planning: the frame problem and the STRIPS formalism, representation schemes and planning strategies. Neural networks: learning algorithms, neural architecture and applications. Natural language processing. Knowledge acquisition and expert systems: properties, techniques and tools of expert systems",
       "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -3587,7 +3587,7 @@
       "title": "Algorithms for Bioinformatics",
       "credits": "3.00",
       "terms": [],
-      "description": "This course describes some algorithms commonly used in contemporary bioinformatics. After a brief introduction to basic molecular biology and genetics, four main topics will be covered with corresponding lists of algorithms:1. Sequence alignment and assembly: dynamic programming for optimal sequence alignment, FASTA and BLAST for heuristic alignment of long sequences, tree-based methods for multiple sequence alignment, suffix-tree, suffix-array and Burrows-Wheeler Transform for short read alignment, and algorithms based on de Bruijn graphs for sequence assembly 2. Statistical modeling: forward, backward, Viterbi and Baum-Welch algorithms for hidden Markov models, Gibbs sampling for sequence motif discovery, and Bayesian classifiers, logistic regression and expectation-maximization for data classification and clustering3. Phylogenetics: methods based on Jukes-Cantor and Kimura models for divergence time estimation, maximum parsimony, UPGMA, Neighbor-joining and maximum likelihood methods for phylogenetic tree reconstruction.4. High-throughput data analysis: Hierarchical clustering and k-means for data clustering, and algorithms for selected problems such as signal peak calling, detection of gene fusion, haplotype phasing.Other topics such as RNA secondary structure prediction may also be covered depending on the available time.",
+      "description": "This course describes some algorithms commonly used in contemporary bioinformatics. After a brief introduction to basic molecular biology and genetics, four main topics will be covered with corresponding lists of algorithms:\n1. Sequence alignment and assembly: dynamic programming for optimal sequence alignment, FASTA and BLAST for heuristic alignment of long sequences, tree-based methods for multiple sequence alignment, suffix-tree, suffix-array and Burrows-Wheeler Transform for short read alignment, and algorithms based on de Bruijn graphs for sequence assembly\n2. Statistical modeling: forward, backward, Viterbi and Baum-Welch algorithms for hidden Markov models, Gibbs sampling for sequence motif discovery, and Bayesian classifiers, logistic regression and expectation-maximization for data classification and clustering\n3. Phylogenetics: methods based on Jukes-Cantor and Kimura models for divergence time estimation, maximum parsimony, UPGMA, Neighbor-joining and maximum likelihood methods for phylogenetic tree reconstruction.\n4. High-throughput data analysis: Hierarchical clustering and k-means for data clustering, and algorithms for selected problems such as signal peak calling, detection of gene fusion, haplotype phasing.\nOther topics such as RNA secondary structure prediction may also be covered depending on the available time.",
       "enrollment_requirement": "Not for students who have taken BMEG3102 or CSCI3220.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -3689,10 +3689,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3721,10 +3721,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4515,7 +4515,7 @@
           ]
         }
       ],
-      "description": "This course introduces various networking technologies we use each day and the fundamental ideas behind them. Different from many \"theory-based\" networking courses, this course is organized around a list of intriguing questions about the technological, social, and economical aspects of modern networks. The course will broadly cover topics on wireless networks, Internet, social networks, and network economics. We will introduce various methodologies such as graph theory, optimization theory, game theory, and pricing theory. The intended audience of this course includes undergraduates with majors in Information Engineering, Computer Science and Engineering and Electronic Engineering. It is also suitable for interested undergraduate students from Mathematics, and other Social Science majors. Advisory: Students are expected to have taken Advanced Engineering Math course covering multivariate calculus and linear algebra.",
+      "description": "This course introduces various networking technologies we use each day and the fundamental ideas behind them. Different from many \"theory-based\" networking courses, this course is organized around a list of intriguing questions about the technological, social, and economical aspects of modern networks. The course will broadly cover topics on wireless networks, Internet, social networks, and network economics. We will introduce various methodologies such as graph theory, optimization theory, game theory, and pricing theory. The intended audience of this course includes undergraduates with majors in Information Engineering, Computer Science and Engineering and Electronic Engineering. It is also suitable for interested undergraduate students from Mathematics, and other Social Science majors.\n\nAdvisory: Students are expected to have taken Advanced Engineering Math course covering multivariate calculus and linear algebra.",
       "enrollment_requirement": "Not for students who have taken IERG3280.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -4541,7 +4541,7 @@
       "title": "Introduction to Stochastic Processes",
       "credits": "3.00",
       "terms": [],
-      "description": "This course starts with the topic of Markov chain. It includes the Chapman-Kolmogorov equations, random walk, classification of states, limiting probabilities, and time reversibility. The second topic in the course is stopping time and martingales. This includes Wald's equation, the concept of martingale, and the martingale stopping theorem. The third topic is exponential distribution, Poisson distribution, and Poisson process. This includes the unique memoryless property of the exponential distribution, combining and splitting a Poisson random variable, method of randomization, various equivalent definitions for a Poisson process, and M/M/1 queue. Throughout the course, many examples of applications are related to communications and computers. Advisory: Students are expected to have basic background in probability.",
+      "description": "This course starts with the topic of Markov chain. It includes the Chapman-Kolmogorov equations, random walk, classification of states, limiting probabilities, and time reversibility. The second topic in the course is stopping time and martingales. This includes Wald's equation, the concept of martingale, and the martingale stopping theorem. The third topic is exponential distribution, Poisson distribution, and Poisson process. This includes the unique memoryless property of the exponential distribution, combining and splitting a Poisson random variable, method of randomization, various equivalent definitions for a Poisson process, and M/M/1 queue. Throughout the course, many examples of applications are related to communications and computers.\n\nAdvisory: Students are expected to have basic background in probability.",
       "enrollment_requirement": "Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or ENGG2450 or ENGG2460 or ENGG2470 or ESTR2002 or ESTR2005 or ESTR2010 or ESTR2012 or ESTR2018 or ESTR2308 or ESTR2362\nNot for students who have taken IERG3300, IERG4140, IERG5300 or ENGG5302 or MATH4240.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -4594,10 +4594,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4620,10 +4620,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5549,10 +5549,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5575,10 +5575,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5611,7 +5611,7 @@
       "title": "Online Algorithms for Machine Learning and Optimization",
       "credits": "3.00",
       "terms": [],
-      "description": "This course aims to cover topics in online learning and online optimization. Typical topics include multi-armed bandit (MAB) problems in various settings, online convex optimization (OCO) problems such as online linear regression, online classification, and certain general reinforcement learning problems. Different algorithms will be introduced to solve these problems and analysis of theperformance and efficiency will be provided.",
+      "description": "This course aims to cover topics in online learning and online optimization. Typical topics include multi-armed bandit (MAB) problems in various settings, online convex optimization (OCO) problems such as online linear regression, online classification, and certain general reinforcement learning problems. Different algorithms will be introduced to solve these problems and analysis of the\nperformance and efficiency will be provided.",
       "enrollment_requirement": "Not for students who have taken CSCI4250.\nPrerequisite: CSCI3160 and CSCI3320",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -5671,10 +5671,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5691,10 +5691,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5702,7 +5702,7 @@
           ]
         }
       ],
-      "description": "This course covers how to use deep learning techniques to resolve real-life computational problems, handling different kinds of data. We start the course by introducing the problem-solving paradigm with deep learning: data preparation, building the model, training the model, model evaluation, and hyper-parameter searching. Then, we fill in the details in the paradigm. Regarding the deep learningmodels, we will go from the simplest linear regression model, towards the relatively complicated models. To handle various data types, that is, the structured data, images, text, sequences, signals, and graphs, in our daily life, we would cover CNN/ResNet, RNN/LSTM, Attention, and GNN models. In addition to the above paradigms, we will also cover the commonly used techniques to handle overfitting. We would briefly go through the generative models, VAE, and GAN, at the end of this course.Advisory: Students are expected to have background knowledge on python programming.",
+      "description": "This course covers how to use deep learning techniques to resolve real-life computational problems, handling different kinds of data. We start the course by introducing the problem-solving paradigm with deep learning: data preparation, building the model, training the model, model evaluation, and hyper-parameter searching. Then, we fill in the details in the paradigm. Regarding the deep learning\nmodels, we will go from the simplest linear regression model, towards the relatively complicated models. To handle various data types, that is, the structured data, images, text, sequences, signals, and graphs, in our daily life, we would cover CNN/ResNet, RNN/LSTM, Attention, and GNN models. In addition to the above paradigms, we will also cover the commonly used techniques to handle overfitting. We would briefly go through the generative models, VAE, and GAN, at the end of this course.\nAdvisory: Students are expected to have background knowledge on python programming.",
       "enrollment_requirement": "Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.\nNot for students who have taken AIST4010.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -5756,7 +5756,7 @@
       "title": "Advanced Imaging and Spectroscopy Techniques in Biomedicine",
       "credits": "3.00",
       "terms": [],
-      "description": "This course introduces and discusses medical imaging and treatment techniques which make use of sound and electromagnetic waves (e.g., ultrasound, laser, terahertz, etc.) for biomedical imaging and spectroscopy. The lectures will be divided into the following three main topics: (1) Ultrasound imaging techniques and applications: wave propagation theory (wave equation, transmission andreflection coefficients, attenuation, instrumentation and therapeutics), sonography design aspects, and medically relevant examples; (2) Optical imaging and spectroscopy basics and techniques; and (3) Laser techniques for medical treatments: photodynamic therapy, laser surgery.",
+      "description": "This course introduces and discusses medical imaging and treatment techniques which make use of sound and electromagnetic waves (e.g., ultrasound, laser, terahertz, etc.) for biomedical imaging and spectroscopy. The lectures will be divided into the following three main topics: (1) Ultrasound imaging techniques and applications: wave propagation theory (wave equation, transmission and\nreflection coefficients, attenuation, instrumentation and therapeutics), sonography design aspects, and medically relevant examples; (2) Optical imaging and spectroscopy basics and techniques; and (3) Laser techniques for medical treatments: photodynamic therapy, laser surgery.",
       "enrollment_requirement": "Not for students who have taken BMEG4330. Pre-requisite: BMEG3320.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6044,7 +6044,7 @@
           ]
         }
       ],
-      "description": "The course discusses data-intensive analytics, and automated processing of very large amount of structured and unstructured information. We focus on leveraging the MapReduce paradigm to create parallel algorithms that can be scaled up to handle massive data sets such as those collected from the World Wide Web or other Internet systems and applications. We organize the course around a list of large-scale data analytic problems in practice. The required theories and methodologies for tackling each problem will be introduced. As such, the course only expects students to have solid knowledge in probability, statistics, linear algebra and computer programming skills. Topics to be covered include: the MapReduce computational model and its system architecture and realization in practice ; Finding Frequent Item-sets and Association Rules ; Finding Similar Items in high-dimensional data ; Dimensionality Reduction techniques ; Clustering ; Recommendation systems ; Analysis of Massive Graphs and its applications on the World Wide Web ; Large-scale supervised machine learning; Processing and mining of Data Streams and their applications on large-scale network/ online-activity monitoring.Advisory: Basic hands-on operating system configuration and software installation skills covered in lab courses like IERG2602 and IERG3800 are required.",
+      "description": "The course discusses data-intensive analytics, and automated processing of very large amount of structured and unstructured information. We focus on leveraging the MapReduce paradigm to create parallel algorithms that can be scaled up to handle massive data sets such as those collected from the World Wide Web or other Internet systems and applications. We organize the course around a list of large-scale data analytic problems in practice. The required theories and methodologies for tackling each problem will be introduced. As such, the course only expects students to have solid knowledge in probability, statistics, linear algebra and computer programming skills. Topics to be covered include: the MapReduce computational model and its system architecture and realization in practice ; Finding Frequent Item-sets and Association Rules ; Finding Similar Items in high-dimensional data ; Dimensionality Reduction techniques ; Clustering ; Recommendation systems ; Analysis of Massive Graphs and its applications on the World Wide Web ; Large-scale supervised machine learning; Processing and mining of Data Streams and their applications on large-scale network/ online-activity monitoring.\n\nAdvisory: Basic hands-on operating system configuration and software installation skills covered in lab courses like IERG2602 and IERG3800 are required.",
       "enrollment_requirement": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6120,7 +6120,7 @@
       "title": "Introduction to Cyber Security",
       "credits": "3.00",
       "terms": [],
-      "description": "Cyber Security is an important topic in modern information and communication technology. This course introduces students to major areas of Cyber Security, including introductions to cryptography, network security, computer security, and web security.Advisory: Basic knowledge on Computer Networks are suggested.",
+      "description": "Cyber Security is an important topic in modern information and communication technology. This course introduces students to major areas of Cyber Security, including introductions to cryptography, network security, computer security, and web security.\n\nAdvisory: Basic knowledge on Computer Networks are suggested.",
       "enrollment_requirement": "Not for students who have taken IERG4130 or IEMS5710 or CSCI4130.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6170,7 +6170,7 @@
       "title": "Building Scalable Internet-based Services",
       "credits": "3.00",
       "terms": [],
-      "description": "Mobile devices has greatly increased the demand of Internet-based services. Large-scale online services such as Pinterest and Instagram must be designed in a way such that they can be scaled up and scaled out in a rapid and seamless manner. This course will teach students how to build scalable online services and applications. In particular, the design principles and engineering considerations for different core components, including the front-end system, the load-balancer, performance monitoring, content-delivery networking, fault-tolerant mega data store, distributed messaging services, backend big data processing/ analytics will be discussed. As a course project, the students will prototype a scalable Internet service by leveraging industrial-strength component offerings from leading infrastructure and platform service providers.Advisory note: Students are expected to have background in object oriented programming.",
+      "description": "Mobile devices has greatly increased the demand of Internet-based services. Large-scale online services such as Pinterest and Instagram must be designed in a way such that they can be scaled up and scaled out in a rapid and seamless manner. This course will teach students how to build scalable online services and applications. In particular, the design principles and engineering considerations for different core components, including the front-end system, the load-balancer, performance monitoring, content-delivery networking, fault-tolerant mega data store, distributed messaging services, backend big data processing/ analytics will be discussed. As a course project, the students will prototype a scalable Internet service by leveraging industrial-strength component offerings from leading infrastructure and platform service providers.\n\nAdvisory note: Students are expected to have background in object oriented programming.",
       "enrollment_requirement": "Not for students who have taken IERG4080. Pre-requisite: IERG3080.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6195,7 +6195,7 @@
       "title": "Hands-on Wireless Communication",
       "credits": "3.00",
       "terms": [],
-      "description": "The focus of this course will be on the design, implementation, and evaluation of a digital wireless communication link. Software-defined wireless communication platforms, e.g., USRP (universal software radio peripheral), will be used as a teaching tool. A two-hour laboratory period will complement the usual two-hour lecture period each week.The students will learn how to transmit, receive, analyze, and process RF wireless signals. The main topics may include: Introduction to SDR, USRP, and common programming software (GNU Radio and NI LabVIEW); Baseband QAM Modulation and Demodulation; Channel Estimation; Synchronization; Frequency Offset Estimation and Correction; OFDM Modulator and Demodulator; OFDM Synchronization, Frequency Offset Compensation, Channel Tracking, and etc.Advisory note: It is advisable for students to have had digital communications background or take digital communications course (IERG3010) at the same time as this course.",
+      "description": "The focus of this course will be on the design, implementation, and evaluation of a digital wireless communication link. Software-defined wireless communication platforms, e.g., USRP (universal software radio peripheral), will be used as a teaching tool. A two-hour laboratory period will complement the usual two-hour lecture period each week.\n\nThe students will learn how to transmit, receive, analyze, and process RF wireless signals. The main topics may include: Introduction to SDR, USRP, and common programming software (GNU Radio and NI LabVIEW); Baseband QAM Modulation and Demodulation; Channel Estimation; Synchronization; Frequency Offset Estimation and Correction; OFDM Modulator and Demodulator; OFDM Synchronization, Frequency Offset Compensation, Channel Tracking, and etc.\n\nAdvisory note: It is advisable for students to have had digital communications background or take digital communications course (IERG3010) at the same time as this course.",
       "enrollment_requirement": "Not for students who have taken IERG4110. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6272,7 +6272,7 @@
       "title": "Introduction to Cryptography",
       "credits": "3.00",
       "terms": [],
-      "description": "Cryptography is essential in many cyber security goals and many application domains. This course introduces students with a foundation of theory of cryptography and its application, including introductions to number theory, symmetric-key cryptography, public-key cryptography, and a brief overview of the research advances (with respect to the latest research trend of the time).1. Cryptography as a Scientific Discipline2. Number Theory and RSA3. The Basics of Provable Security4. Secret Sharing5. Basing Cryptography on Intractable Computations6. Pseudorandom Generators and Pseudorandom Functions7. Chosen Plaintext Attacks and Chosen Ciphertext Attacks8. Message Authentication Codes and Hash Functions9. Authenticated Encryption10. Digital Signatures11. Public-Key Encryption12. Pairing-Based Cryptography13. Special Topic, e.g., Overview of Latest Research Advances",
+      "description": "Cryptography is essential in many cyber security goals and many application domains. This course introduces students with a foundation of theory of cryptography and its application, including introductions to number theory, symmetric-key cryptography, public-key cryptography, and a brief overview of the research advances (with respect to the latest research trend of the time).\n\n1. Cryptography as a Scientific Discipline\n2. Number Theory and RSA\n3. The Basics of Provable Security\n4. Secret Sharing\n5. Basing Cryptography on Intractable Computations\n6. Pseudorandom Generators and Pseudorandom Functions\n7. Chosen Plaintext Attacks and Chosen Ciphertext Attacks\n8. Message Authentication Codes and Hash Functions\n9. Authenticated Encryption\n10. Digital Signatures\n11. Public-Key Encryption\n12. Pairing-Based Cryptography\n13. Special Topic, e.g., Overview of Latest Research Advances",
       "enrollment_requirement": "Not for students who have taken IERG4150.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6351,7 +6351,7 @@
       "title": "Functional Programming",
       "credits": "3.00",
       "terms": [],
-      "description": "Functional Programming is an important programming paradigm based on lambda-calculus. It has been widely used by many finance and trading companies (e.g., Jane Street) as well as big IT companies (e.g., Google, Facebook). Different from the imperative programming paradigm based on Turing Machines to specify the exact operation in each step, functional programming performs computation through evaluation and composition of expressions. These differences of the underlying computation model lead to many unique features, including algebraic data types, pattern matching, high-order functions, etc., and such features may help developers solve certain computation problems more efficiently. This course will introduce the following core topics about the functional programming paradigm:1. Lambda Calculus2. Data types, such as tuples, lists, records, variants, and algebraic data types3. Pattern matching4. Function as the first-class citizen and high-order functions5. Recursive Function and Tail Recursion6. Modular programming7. Imperative programming inside functional programming8. Advanced functional data types, e.g., hash tables, trees, sequences, monads9. Typical algorithms in functional programming10. Real-world applications of functional programming",
+      "description": "Functional Programming is an important programming paradigm based on lambda-calculus. It has been widely used by many finance and trading companies (e.g., Jane Street) as well as big IT companies (e.g., Google, Facebook). Different from the imperative programming paradigm based on Turing Machines to specify the exact operation in each step, functional programming performs computation through evaluation and composition of expressions. These differences of the underlying computation model lead to many unique features, including algebraic data types, pattern matching, high-order functions, etc., and such features may help developers solve certain computation problems more efficiently. This course will introduce the following core topics about the functional programming paradigm:\n1. Lambda Calculus\n2. Data types, such as tuples, lists, records, variants, and algebraic data types\n3. Pattern matching\n4. Function as the first-class citizen and high-order functions\n5. Recursive Function and Tail Recursion\n6. Modular programming\n7. Imperative programming inside functional programming\n8. Advanced functional data types, e.g., hash tables, trees, sequences, monads\n9. Typical algorithms in functional programming\n10. Real-world applications of functional programming",
       "enrollment_requirement": "Pre-requisite: IERG2080 or ESTR2306 or equivalent, or with instructor's written approval.\nNot for students who have taken IERG4120.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -6744,7 +6744,7 @@
       "title": "Technology, Consulting and Analytics in Practice",
       "credits": "3.00",
       "terms": [],
-      "description": "This course aims to equip students with an overview of the latest technologies, e.g. cloud computing, social media, mobile applications, etc. that are impacting the business world every day. It also enable students to learn how some of the latest technology solutions are applied to the business world to solve real-life problems.Students will be given ample opportunity to apply what they have learned in class through participations in facilitated class discussions and sharing, and possibly with pilot technological implementations. The SEEM department will invite participation by industry leaders and practitioners to share their insights in this course.",
+      "description": "This course aims to equip students with an overview of the latest technologies, e.g. cloud computing, social media, mobile applications, etc. that are impacting the business world every day. It also enable students to learn how some of the latest technology solutions are applied to the business world to solve real-life problems.\nStudents will be given ample opportunity to apply what they have learned in class through participations in facilitated class discussions and sharing, and possibly with pilot technological implementations. The SEEM department will invite participation by industry leaders and practitioners to share their insights in this course.",
       "enrollment_requirement": "Not for students who have taken ESTR3512, SEEM3680 or SEEM4680.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
