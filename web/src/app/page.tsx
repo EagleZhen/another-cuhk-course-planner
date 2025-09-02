@@ -246,6 +246,22 @@ export default function Home() {
     // No page-level scrolling needed for side-by-side layout
   }
 
+  const handleScrollToCart = (enrollmentId: string) => {
+    // Set selection (same as handleSelectEnrollment)
+    setSelectedEnrollment(enrollmentId)
+    
+    // Scroll to shopping cart area (user-requested navigation)
+    setTimeout(() => {
+      const shoppingCartElement = document.querySelector('[data-shopping-cart]')
+      if (shoppingCartElement) {
+        shoppingCartElement.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        })
+      }
+    }, 100)
+  }
+
 
   const handleRemoveCourse = (enrollmentId: string) => {
     // Check if there are conflicts before removal (for conflict resolution tracking)
@@ -605,7 +621,8 @@ export default function Home() {
               onTermChange={handleTermChange}         // Event handler prop
               selectedSections={selectedSections}     // Data prop / State prop
               onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
-              onSelectEnrollment={handleSelectEnrollment}     // Event handler prop
+              onSelectEnrollment={handleSelectEnrollment}     // Event handler prop (selection only)
+              onScrollToCart={handleScrollToCart}             // Scroll to cart handler prop (selection + scroll)
               onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
               onDataUpdate={handleDataUpdate}         // Data freshness callback
               selectedSubjects={selectedSubjects}     // Subject filter state

@@ -24,6 +24,7 @@ interface CourseSearchProps {
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
+  onScrollToCart?: (enrollmentId: string) => void // Explicit scroll to shopping cart
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
@@ -40,6 +41,7 @@ export default function CourseSearch({
   selectedSections,
   onSelectedSectionsChange,
   onSelectEnrollment,
+  onScrollToCart,
   onSearchControlReady,
   onDataUpdate,
   selectedSubjects = new Set(),
@@ -897,6 +899,7 @@ export default function CourseSearch({
                   isAdded={isCourseAdded(course)}
                   hasSelectionsChanged={hasSelectionsChanged(course)}
                   onSelectEnrollment={onSelectEnrollment}
+                  onScrollToCart={onScrollToCart}
                   courseEnrollments={courseEnrollments}
                 />
               ))}
@@ -983,6 +986,7 @@ function CourseCard({
   isAdded,
   hasSelectionsChanged,
   onSelectEnrollment,
+  onScrollToCart,
   courseEnrollments
 }: { 
   course: InternalCourse
@@ -994,6 +998,7 @@ function CourseCard({
   isAdded: boolean
   hasSelectionsChanged: boolean
   onSelectEnrollment?: (enrollmentId: string | null) => void
+  onScrollToCart?: (enrollmentId: string) => void
   courseEnrollments: CourseEnrollment[]
 }) {
   const [expanded, setExpanded] = useState(false)
@@ -1217,21 +1222,21 @@ function CourseCard({
                   Remove
                 </Button>
                 
-                {/* Go to Cart button */}
+                {/* Scroll to Cart button */}
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
-                    if (onSelectEnrollment && enrolledCourse) {
-                      onSelectEnrollment(enrolledCourse.courseId)
+                    if (onScrollToCart && enrolledCourse) {
+                      onScrollToCart(enrolledCourse.courseId)
                     }
                   }}
                   className="min-w-[80px]"
-                  title="Go to course in shopping cart"
+                  title="Scroll to course in shopping cart"
                 >
                   <ShoppingCart className="w-3 h-3 mr-1" />
-                  Go to Cart
+                  Scroll to Cart
                 </Button>
                 
                 {/* Replace/Added status button - for courses already in cart */}
@@ -1389,22 +1394,22 @@ function CourseCard({
                   {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
                 </Button>
                 
-                {/* Secondary actions: Go to Cart + Remove - side by side */}
+                {/* Secondary actions: Scroll to Cart + Remove - side by side */}
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={(e) => {
                       e.stopPropagation()
-                      if (onSelectEnrollment && enrolledCourse) {
-                        onSelectEnrollment(enrolledCourse.courseId)
+                      if (onScrollToCart && enrolledCourse) {
+                        onScrollToCart(enrolledCourse.courseId)
                       }
                     }}
                     className="flex-1"
-                    title="Go to course in shopping cart"
+                    title="Scroll to course in shopping cart"
                   >
                     <ShoppingCart className="w-3 h-3 mr-1" />
-                    Go to Cart
+                    Scroll to Cart
                   </Button>
                   
                   <Button
