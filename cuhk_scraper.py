@@ -1430,7 +1430,7 @@ class CuhkScraper:
             # Check 1: System error page detection (primary failure mode - ~8% of requests)
             # Example failure: <title>System error</title><body>系統有誤，請稍後再試。<br />System error. Please try again latter.</body>
             if "<title>System error</title>" in html or "System error. Please try again" in html:
-                self.logger.warning(f"🚨 System error page detected for {course.course_code} course outcome")
+                self.logger.error(f"🚨 System error page detected for {course.course_code} course outcome")
                 return False
             
             # Check 2: Minimum structural requirements - ensure it's actually a course outcome page
@@ -1438,7 +1438,7 @@ class CuhkScraper:
             # Example invalid: <div class="titleNormal">Course Catalog</div> (wrong page)
             soup = BeautifulSoup(html, 'html.parser')
             if not soup.find('div', class_='titleNormal', string='Course Outcome'):
-                self.logger.warning(f"Missing 'Course Outcome' title for {course.course_code}")
+                self.logger.error(f"Missing 'Course Outcome' title for {course.course_code}")
                 return False
             
             # Check 3: Course-specific validation - ensure we got the correct course's data
@@ -1446,7 +1446,7 @@ class CuhkScraper:
             # Example invalid: <span id="uc_course_outcome_lbl_course">LAWS 2331 - Contract Law</span> (wrong course)
             course_header = soup.find('span', {'id': 'uc_course_outcome_lbl_course'})
             if not course_header or f"{course.subject} {course.course_code}" not in course_header.get_text():
-                self.logger.warning(f"Missing or incorrect course header for {course.course_code}")
+                self.logger.error(f"Missing or incorrect course header for {course.course_code}")
                 return False
             
             # Check 4: Content structure validation - ensure page has section headers for course outcome content
@@ -1454,7 +1454,7 @@ class CuhkScraper:
             # Example invalid: Empty page or page with no content sections
             section_headers = soup.find_all('td', class_='reverseHeaderStyle')
             if len(section_headers) < 1:
-                self.logger.warning(f"Missing section headers for {course.course_code}")
+                self.logger.error(f"Missing section headers for {course.course_code}")
                 return False
             
             self.logger.debug(f"✅ Course outcome response validation passed for {course.course_code}")
