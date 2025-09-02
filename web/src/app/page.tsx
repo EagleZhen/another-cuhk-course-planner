@@ -621,7 +621,6 @@ export default function Home() {
               onTermChange={handleTermChange}         // Event handler prop
               selectedSections={selectedSections}     // Data prop / State prop
               onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
-              onSelectEnrollment={handleSelectEnrollment}     // Event handler prop (selection only)
               onScrollToCart={handleScrollToCart}             // Scroll to cart handler prop (selection + scroll)
               onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
               onDataUpdate={handleDataUpdate}         // Data freshness callback

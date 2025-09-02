@@ -23,7 +23,6 @@ interface CourseSearchProps {
   onTermChange?: (term: string) => void
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
-  onSelectEnrollment?: (enrollmentId: string | null) => void
   onScrollToCart?: (enrollmentId: string) => void // Explicit scroll to shopping cart
   onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
@@ -40,7 +39,6 @@ export default function CourseSearch({
   onTermChange,
   selectedSections,
   onSelectedSectionsChange,
-  onSelectEnrollment,
   onScrollToCart,
   onSearchControlReady,
   onDataUpdate,
@@ -898,7 +896,6 @@ export default function CourseSearch({
                   onRemoveCourse={onRemoveCourse}
                   isAdded={isCourseAdded(course)}
                   hasSelectionsChanged={hasSelectionsChanged(course)}
-                  onSelectEnrollment={onSelectEnrollment}
                   onScrollToCart={onScrollToCart}
                   courseEnrollments={courseEnrollments}
                 />
@@ -985,7 +982,6 @@ function CourseCard({
   onRemoveCourse, 
   isAdded,
   hasSelectionsChanged,
-  onSelectEnrollment,
   onScrollToCart,
   courseEnrollments
 }: { 
@@ -997,7 +993,6 @@ function CourseCard({
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
   hasSelectionsChanged: boolean
-  onSelectEnrollment?: (enrollmentId: string | null) => void
   onScrollToCart?: (enrollmentId: string) => void
   courseEnrollments: CourseEnrollment[]
 }) {
