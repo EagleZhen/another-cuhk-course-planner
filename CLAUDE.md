@@ -1746,4 +1746,181 @@ Each analytics event designed to answer specific questions:
 
 ---
 
-*Last updated: January 2025 - Cloudflare Migration & Value Analytics Complete: Successfully migrated from Vercel to Cloudflare Pages, eliminating Edge request constraints while maintaining reverse proxy functionality. Implemented focused analytics system designed to validate core product hypotheses about utility vs discovery value. System now features sustainable infrastructure with strategic product intelligence. Next priority: Analytics implementation in React components to begin hypothesis validation.*
+## ✅ Latest Achievement: Component Architecture Analysis & Cross-Platform UX Optimization (January 2025)
+
+**Major Architectural Analysis & Platform Compatibility Improvements**: 
+1. **Selection Architecture Analysis**: Comprehensive evaluation of bidirectional selection state management between WeeklyCalendar and ShoppingCart
+2. **Cross-Platform Scrolling Fixes**: Resolved shopping cart auto-scroll issues using getBoundingClientRect() for consistent behavior across platforms
+3. **Dead Code Elimination**: Removed unused onSelectEnrollment from CourseSearch component, simplified prop threading
+4. **Page-Level vs Container-Level Scrolling**: Clean separation of concerns between navigation (page-level) and UX enhancement (container-level)
+5. **Architecture Decision Framework**: Established maintainability-focused approach for component interaction design
+
+### **🏗️ Selection Architecture Analysis & Optimization**
+
+**Problem Analyzed**: Complex bidirectional selection requirements between calendar and shopping cart components
+**Solution**: Confirmed shared state approach as most maintainable for bidirectional selection
+
+**Architecture Decision Analysis:**
+```typescript
+// ✅ CONFIRMED: Shared state is most maintainable for bidirectional selection
+// Calendar clicks → State update → Shopping cart scrolls ✅
+// Shopping cart clicks → State update → Calendar highlights ✅
+
+// Alternative approaches evaluated and rejected:
+// ❌ Pure callback-based: Would require complex coordination logic
+// ❌ Local state only: Breaks bidirectional synchronization  
+// ❌ Removing useEffects: Would break calendar→shopping cart reaction
+
+// Current architecture (OPTIMAL):
+interface ShoppingCartProps {
+  selectedEnrollment: CourseEnrollment | null
+  onSelectEnrollment: (enrollment: CourseEnrollment | null) => void
+}
+
+// Both components use shared state for synchronization
+WeeklyCalendar: selectedEnrollment → visual highlight
+ShoppingCart: selectedEnrollment → auto-scroll to card
+```
+
+**Key Architectural Insights:**
+- ✅ **Bidirectional Selection**: Both components must react to selection changes from the other
+- ✅ **Shared State Benefits**: Single source of truth prevents synchronization issues
+- ✅ **useEffect Necessity**: Required for cross-component reactions (calendar→shopping cart, shopping cart→calendar)
+- ✅ **Maintainability Focus**: Simple shared state > complex coordination logic
+
+### **🖥️ Cross-Platform Scrolling Compatibility**
+
+**Problem Solved**: Shopping cart auto-scroll cropped course card titles on Windows but worked correctly on macOS
+**Solution**: Platform-agnostic measurement using getBoundingClientRect() with proper container targeting
+
+**Implementation Fix:**
+```typescript
+// ❌ PROBLEMATIC: scrollIntoView() caused unwanted page-level scrolling
+selectedCard.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+// ✅ SOLUTION: Container-level scrolling with precise measurements
+const container = containerRef.current!
+const cardRect = selectedCard.getBoundingClientRect()
+const containerRect = container.getBoundingClientRect()
+
+const targetScrollTop = container.scrollTop + 
+  (cardRect.top - containerRect.top) - SCROLL_OFFSET
+
+container.scrollTo({ 
+  top: targetScrollTop, 
+  behavior: 'smooth' 
+})
+```
+
+**Cross-Platform Benefits:**
+- ✅ **Consistent Behavior**: Works identically across macOS, Windows, and Linux browsers
+- ✅ **No Page Interference**: Container-level scrolling doesn't affect master scrollbar
+- ✅ **Precise Positioning**: getBoundingClientRect() provides accurate measurements
+- ✅ **Smooth UX**: Maintains smooth scrolling without unwanted side effects
+
+### **🧹 Component Interface Simplification**
+
+**Problem Solved**: CourseSearch component had dead code - unused onSelectEnrollment prop and implementation
+**Solution**: Complete removal of unused selection logic from CourseSearch, simplified prop interfaces
+
+**Dead Code Elimination:**
+```typescript
+// ❌ REMOVED: Unused selection logic in CourseSearch
+interface CourseSearchProps {
+  onSelectEnrollment?: (enrollment: CourseEnrollment | null) => void  // REMOVED
+}
+
+// ❌ REMOVED: Unused prop threading to CourseCard
+<CourseCard 
+  onSelectEnrollment={onSelectEnrollment}  // REMOVED
+  // ... other props
+/>
+
+// ✅ CLEAN: Simplified to essential functionality only
+<Button 
+  onClick={(e) => {
+    e.stopPropagation()
+    onScrollToCart() // Direct navigation action
+  }}
+>
+  Scroll to Cart
+</Button>
+```
+
+**Simplification Benefits:**
+- ✅ **Clear Separation of Concerns**: CourseSearch handles discovery, ShoppingCart handles selection
+- ✅ **Reduced Complexity**: Fewer props and interfaces to maintain
+- ✅ **Better Performance**: No unused event handlers or state management
+- ✅ **Clearer User Intent**: "Scroll to Cart" vs "Go to Cart" - precise action description
+
+### **⚖️ Page-Level vs Container-Level Scrolling Architecture**
+
+**Problem Solved**: Dual auto-scroll implementations conflicting between page navigation and UX enhancement
+**Solution**: Clean separation - page-level for navigation, container-level for UX
+
+**Architecture Separation:**
+```typescript
+// ✅ PAGE-LEVEL: Explicit navigation actions
+const handleScrollToCart = () => {
+  const cartElement = document.getElementById('shopping-cart')
+  if (cartElement) {
+    cartElement.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+// ✅ CONTAINER-LEVEL: UX enhancement for selection changes  
+useEffect(() => {
+  if (selectedEnrollment && containerRef.current) {
+    // Auto-scroll to selected course card within shopping cart container
+    scrollToSelectedCard()
+  }
+}, [selectedEnrollment])
+```
+
+**Design Philosophy:**
+- **Explicit Navigation**: User clicks "Scroll to Cart" → page-level scrolling to shopping cart section
+- **Automatic UX**: User selects course in calendar → container-level scrolling to highlight card
+- **No Interference**: Container scrolling never affects page scrolling, maintaining user control
+- **Predictable Behavior**: Users understand what actions will cause what type of scrolling
+
+### **🎯 Maintainability-Focused Architecture Decisions**
+
+**Decision Framework Established:**
+```typescript
+// Question: Should we use shared state or callback patterns?
+// Answer: Shared state for bidirectional requirements, callbacks for unidirectional actions
+
+// Question: Should we optimize by removing useEffects?  
+// Answer: Only if it doesn't break functionality - bidirectional selection requires useEffects
+
+// Question: Should we keep unused code "just in case"?
+// Answer: No - dead code elimination improves maintainability immediately
+
+// Question: Container scrolling vs page scrolling?
+// Answer: Container for UX enhancement, page for explicit navigation - clear separation
+```
+
+**Architecture Principles Reinforced:**
+- ✅ **Functionality First**: Don't optimize away required functionality
+- ✅ **Clear Separation**: Different concerns use different scrolling approaches
+- ✅ **Dead Code Elimination**: Remove unused code immediately for maintainability
+- ✅ **Cross-Platform Compatibility**: Use precise measurement APIs for consistent behavior
+- ✅ **User Intent Clarity**: Action names should precisely describe what happens
+
+### **Latest Architectural Insights (January 2025)**
+
+**Component Architecture Decisions:**
+- **Bidirectional Selection Reality** - Calendar and shopping cart selection must be synchronized
+- **Shared State Maintainability** - Simple shared state > complex coordination patterns
+- **Cross-Platform Scrolling** - Browser/OS differences require precise measurement APIs
+- **Dead Code Elimination** - Unused functionality creates maintenance burden without benefit
+
+**UX Design Philosophy:**
+- **Explicit vs Automatic Actions** - Clear distinction between user-triggered and system-triggered scrolling
+- **Container Scope Respect** - Auto-scroll enhancements stay within component boundaries
+- **Platform Consistency** - Features must work identically across all supported platforms
+- **Action Clarity** - Button text should precisely describe resulting behavior
+
+---
+
+*Last updated: January 2025 - Component Architecture & Platform Compatibility Complete: Conducted comprehensive analysis of bidirectional selection architecture, confirmed shared state as optimal approach. Resolved cross-platform scrolling issues using precise measurement APIs. Eliminated dead code from CourseSearch component. Established clear separation between page-level navigation and container-level UX enhancement. System now features maintainable architecture with consistent cross-platform behavior.*
