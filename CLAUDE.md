@@ -56,24 +56,28 @@ web/src/
 
 ## Development Commands
 
-### **Frontend**
+### **Frontend (React 19 + Next.js 15)**
 ```bash
 cd web
 npm install
-npm run dev          # Development server
+npm run dev          # Development server with Turbopack
 npm run build        # Production build (clean)
+npm run start        # Production server
 npm run lint         # Quality check
 ```
 
-### **Data Scraping**
+### **Data Scraping (Python 3.8+)**
 ```bash
 # Setup
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
-# Crash-resistant scraping (recommended)
-python resilient_scraper.py     # All subjects with auto-recovery
-python resilient_scraper.py --retry  # Retry failed only
+# Production scraping (recommended)
+python scrape_all_subjects.py   # All subjects with full details
+python cuhk_scraper.py          # Advanced usage and testing
+
+# Individual subject testing
+python -c "from cuhk_scraper import CuhkScraper, ScrapingConfig; CuhkScraper(ScrapingConfig.for_testing()).scrape_subject('CSCI')"
 ```
 
 ## Current Development Priorities
@@ -454,9 +458,10 @@ Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 - Shopping cart displays selectedSections only, not full section type availability
 
 **Data Loading & Performance:**
-- Loads all 13 subjects on startup instead of on-demand (AIST, CENG, CSCI, ENGG, FINA, PHYS, UGCP, UGEA, UGEB, UGEC, UGED, UGFH, UGFN)
-- No lazy loading or progressive enhancement for large datasets
+- Loads all subjects on startup instead of on-demand (200+ subjects available in data/ directory)
+- No lazy loading or progressive enhancement for large datasets  
 - No ETag-based caching for reduced bandwidth
+- Subject loading analytics available via PostHog `subjectToggled` events for optimization decisions
 
 **Real-time Limitations:**
 - No live enrollment number updates during active sessions
@@ -487,7 +492,7 @@ Sync status → isInvalid + lastSynced → Visual indicators → User awareness
 ### **🌍 Timezone Infrastructure Modernization**
 
 **Problem Solved**: Ambiguous timestamps confused international users
-**Solution**: UTC-based timestamp system with automatic local conversion
+**Solution**: UTC-based timestamp system with automatic local conversion (COMPLETED)
 
 ```python
 # Before: Ambiguous local timestamps
@@ -575,25 +580,32 @@ lastDataUpdate.toLocaleString()
 - **Data Quality**: Privacy-aware users opting out creates biased analytics data
 - **Ethical Alignment**: Course planning is personal academic data - invasive tracking inappropriate
 
-**Implementation Decision:**
+**Implementation Decision (Updated):**
 ```typescript
-// ❌ REJECTED: Detailed user tracking (PostHog, Google Analytics)
-// ✅ CHOSEN: Basic performance metrics only (Vercel Analytics)
-import { Analytics } from '@vercel/analytics/react'  // Non-invasive page views
-import { SpeedInsights } from '@vercel/speed-insights/next'  // Performance data
+// ❌ REJECTED: Detailed user tracking (surveillance-style analytics)
+// ✅ CHOSEN: Privacy-first behavioral analytics (PostHog with constraints)
+
+// instrumentation-client.ts - PostHog initialization
+posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+  api_host: '/x8m2k', // Ad blocker bypass via reverse proxy
+  person_profiles: 'never', // No user profiles
+  disable_session_recording: true, // No session recordings  
+  autocapture: false // No automatic click tracking
+})
 ```
 
-**Alternative Data Sources:**
-- Forum feedback and user testimonials  
-- Return visitor patterns (basic Vercel metrics)
-- Direct user feedback through FeedbackButton component
-- Screenshot usage as engagement indicator
+**Current Data Sources (Production):**
+- **PostHog Analytics**: 10 focused event types tracking hypothesis validation
+- **Forum Feedback**: User testimonials and community engagement  
+- **Privacy-First Pageviews**: Automatic page analytics via PostHog
+- **FeedbackButton**: Direct user feedback component integration
+- **Screenshot Feature**: html-to-image engagement tracking
 
-**Architectural Impact:**
-- Simplified analytics architecture
-- Enhanced student trust and forum reputation  
-- Focus on qualitative feedback over quantitative tracking
-- Privacy-by-design approach aligns with academic tool expectations
+**Architectural Impact (Updated with Current Reality):**
+- **Complete Vercel removal**: Migrated from Vercel Analytics to PostHog on Cloudflare Pages
+- **Enhanced student trust**: Privacy-first PostHog configuration with ad blocker bypass
+- **Production analytics**: 10 focused events actively tracking user behavior for product decisions
+- **Privacy-by-design**: No user profiles, no session recording, behavioral patterns only
 
 ## ✅ Latest Achievement: Modern UX & Conflict Management System (August 2025)
 
@@ -1588,19 +1600,19 @@ export const analytics = {
 
 ### **🏗️ Production Infrastructure Status**
 
-**Analytics System: ENTERPRISE-GRADE**
-- ✅ **PostHog Integration**: Privacy-first configuration with reverse proxy
-- ✅ **Ad Blocker Bypass**: Random path routing for accurate student analytics
-- ✅ **Zero Edge Requests**: Vercel-level proxy eliminates consumption
-- ✅ **Environment Separation**: Clean dev/prod configuration with internal user filtering
+**Hosting & Analytics: ENTERPRISE-GRADE**
+- ✅ **Cloudflare Pages**: Complete migration from Vercel, zero hosting costs
+- ✅ **PostHog Integration**: Privacy-first configuration with reverse proxy (`/x8m2k`)
+- ✅ **Ad Blocker Bypass**: Next.js rewrites for accurate student analytics
+- ✅ **Production Analytics**: 10 focused events actively tracking user behavior
 
-**Edge Request Management: CRISIS RESOLVED**
-- ✅ **Vercel Analytics Removal**: Eliminated 56% of Edge request consumption
-- ✅ **Clean Codebase**: All commented analytics code removed
-- ✅ **Monitoring Ready**: PostHog dashboard for accurate visitor tracking
-- ✅ **Future-Proof**: Analytics infrastructure ready for optimization decisions
+**Platform Migration: COMPLETE**
+- ✅ **Vercel Complete Removal**: Analytics, hosting, and Edge function dependencies eliminated
+- ✅ **Clean Codebase**: No legacy Vercel references remain  
+- ✅ **PostHog Dashboard**: Live analytics data collection and visualization
+- ✅ **Sustainable Infrastructure**: No resource consumption limits or costs
 
-**Next Critical Priority**: JSON loading optimization based on PostHog subject access analytics data
+**Current System Status**: Full production analytics collecting hypothesis validation data
 
 ### **Latest Architectural Insights (January 2025)**
 
@@ -1617,13 +1629,13 @@ export const analytics = {
 
 ---
 
-## ✅ Latest Achievement: Cloudflare Migration & Value-Driven Analytics (January 2025)
+## ✅ Current Achievement: Production Analytics & Cloudflare Infrastructure (January 2025)
 
-**Critical Platform Migration & Product Analytics Foundation**: 
-1. **Cloudflare Pages Migration**: Complete transition from Vercel to eliminate Edge request constraints
-2. **Reverse Proxy Re-implementation**: Ad blocker bypass using Next.js rewrites on Cloudflare infrastructure
-3. **Value-Hypothesis Analytics**: Focused tracking system designed to validate core product value propositions
-4. **Privacy-First Product Intelligence**: Strategic analytics focused on user value rather than surveillance
+**Critical Platform Migration & Analytics Implementation Complete**: 
+1. **Cloudflare Pages Migration**: Complete transition from Vercel (DEPLOYED)
+2. **PostHog Analytics Production**: Comprehensive event tracking with privacy-first configuration (LIVE)
+3. **Value-Hypothesis Analytics**: 10 focused events tracking core product value propositions (ACTIVE)
+4. **Ad Blocker Bypass**: Next.js reverse proxy ensuring accurate student analytics (FUNCTIONAL)
 
 ### **🚀 Cloudflare Pages Migration Success**
 
@@ -1653,23 +1665,26 @@ next.config.ts → Next.js rewrites → PostHog (sustainable)
 1. **Utility Tool**: "App helps people plan schedules" (section cycling, conflict resolution)
 2. **Discovery Platform**: "App has browsing/exploration value" (course viewing without enrollment)
 
-**Clean Analytics Architecture:**
+**Production Analytics Architecture (Current):**
 ```typescript
-// Final focused analytics set (4 events only)
+// Production analytics set (10 events) - analytics.ts
 export const analytics = {
-  // Hypothesis 1: Utility validation
+  // === HYPOTHESIS 1: "App Helps People Plan Schedules" ===
   sectionCycled: (course: string) => track('section_cycled', { course }),
+  conflictResolved: (resolutionMethod: string) => track('conflict_resolved', { resolution_method: resolutionMethod }),
   
-  // Hypothesis 2: Discovery validation  
-  courseViewed: (course: string, subject: string, addedToCart: boolean) => 
-    track('course_viewed', { course, subject, resulted_in_enrollment: addedToCart }),
-    
-  searchUsed: (hasResults: boolean) => 
-    track('search_used', { found_results: hasResults }),
+  // === HYPOTHESIS 2: "App Has Discovery/Browsing Value" ===
+  courseViewed: (course: string, subject: string) => track('course_viewed', { course, subject }),
+  courseAdded: (course: string, subject: string, termName: string) => track('course_added', { course, subject, term: termName }),
+  searchUsed: (resultsCount: number) => track('search_used', { results_count: resultsCount }),
+  shuffleUsed: (totalCourses: number) => track('shuffle_used', { total_courses: totalCourses }),
+  shuffleReset: () => track('shuffle_reset'),
   
-  // UX optimization
-  subjectToggled: (subject: string, expanded: boolean) => 
-    track('subject_toggled', { subject, expanded })
+  // === UX & BEHAVIOR OPTIMIZATION ===
+  subjectToggled: (subject: string) => track('subject_toggled', { subject }),
+  courseVisibilityToggled: (course: string, action: 'hidden' | 'shown') => track('course_visibility_toggled', { course, action }),
+  courseRemoved: (course: string, subject: string) => track('course_removed', { course, subject }),
+  termAccessed: (termName: string) => track('term_accessed', { term: termName })
 }
 ```
 
