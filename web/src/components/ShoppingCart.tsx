@@ -94,32 +94,36 @@ export default function ShoppingCart({
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
   
-  // Auto-scroll to selected enrollment
+  // Auto-scroll selected course into view within shopping cart container
   useEffect(() => {
-    if (selectedEnrollment && scrollContainerRef.current) {
-      const selectedElement = itemRefs.current.get(selectedEnrollment)
-      if (selectedElement) {
-        const container = scrollContainerRef.current
-        const elementTop = selectedElement.offsetTop
-        const elementHeight = selectedElement.offsetHeight
-        const containerHeight = container.clientHeight
-        const containerScrollTop = container.scrollTop
-        
-        // Calculate the ideal scroll position to center the element
-        const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
-        
-        // Only scroll if the element is not fully visible
-        const elementBottom = elementTop + elementHeight
-        const visibleTop = containerScrollTop
-        const visibleBottom = containerScrollTop + containerHeight
-        
-        if (elementTop < visibleTop || elementBottom > visibleBottom) {
-          container.scrollTo({
-            top: idealScrollTop,
-            behavior: 'smooth'
-          })
-        }
-      }
+    if (!selectedEnrollment || !scrollContainerRef.current) return
+    
+    const selectedElement = itemRefs.current.get(selectedEnrollment)
+    if (!selectedElement) return
+    
+    const container = scrollContainerRef.current
+    const containerStyle = window.getComputedStyle(container)
+    const containerPaddingTop = parseInt(containerStyle.paddingTop) || 0
+    
+    // Use getBoundingClientRect for cross-platform reliability
+    const containerRect = container.getBoundingClientRect()
+    const elementRect = selectedElement.getBoundingClientRect()
+    const elementTopInContainer = elementRect.top - containerRect.top + container.scrollTop
+    
+    // Position element at top of container with comfortable padding
+    const idealScrollTop = elementTopInContainer - containerPaddingTop - 16
+    
+    // Only scroll if element is not fully visible
+    const elementHeight = selectedElement.offsetHeight
+    const visibleTop = container.scrollTop
+    const visibleBottom = container.scrollTop + container.clientHeight
+    const elementBottom = elementTopInContainer + elementHeight
+    
+    if (elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
+      container.scrollTo({
+        top: Math.max(0, idealScrollTop),
+        behavior: 'smooth'
+      })
     }
   }, [selectedEnrollment])
 

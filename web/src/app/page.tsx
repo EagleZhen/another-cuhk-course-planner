@@ -242,22 +242,8 @@ export default function Home() {
 
   const handleSelectEnrollment = (enrollmentId: string | null) => {
     setSelectedEnrollment(enrollmentId)
-    
-    // If an enrollment is being selected, scroll to shopping cart
-    if (enrollmentId) {
-      // Use setTimeout to ensure the selection happens first, then scroll
-      setTimeout(() => {
-        const shoppingCartElement = document.querySelector('[data-shopping-cart]')
-        if (shoppingCartElement) {
-          shoppingCartElement.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          })
-        }
-      }, 100)
-    }
-    
-    // No auto-clear timeout - selection persists for section cycling
+    // Container-level scrolling is handled by ShoppingCart component
+    // No page-level scrolling needed for side-by-side layout
   }
 
 
