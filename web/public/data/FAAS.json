@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-29T02:27:24.204181+00:00",
+    "scraped_at": "2025-09-02T21:46:26.141955+00:00",
     "subject": "FAAS",
     "subject_title": "Fine Arts",
     "total_courses": 119,
@@ -1061,11 +1061,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "69",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "1",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Putonghua only"
             },
@@ -1093,11 +1093,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "69",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "1",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Putonghua only"
             }
@@ -5121,54 +5121,7 @@
       "course_code": "4213",
       "title": "Creative Workshop IV",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (7345)",
-              "meetings": [
-                {
-                  "time": "Th 4:30PM - 6:15PM",
-                  "location": "Cheng Ming Building 207",
-                  "instructor": "Professor ZHOU Jin",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "3",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only"
-            },
-            {
-              "section": "-E01-EXR (5337)",
-              "meetings": [
-                {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "Cheng Ming Building 207",
-                  "instructor": "Professor ZHOU Jin",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "3",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course is designed to help students refine their skills and strengthen their knowledge in Chinese painting creation. Beside individual artistic development, students will be encouraged to carry out independent research in medium or topic of Chinese painting through seminars and critiques.",
       "enrollment_requirement": "",
       "course_attributes": "",
