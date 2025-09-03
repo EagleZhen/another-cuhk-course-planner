@@ -141,3 +141,18 @@ export interface ConflictZone {
   startMinute: number
   endMinute: number
 }
+
+export interface SearchResults {
+  courses: InternalCourse[]
+  total: number
+  isLimited: boolean
+  isShuffled: boolean
+}
+
+export interface SectionTypeGroup {
+  type: SectionType
+  displayName: string
+  icon: string
+  sections: InternalSection[]
+  priority: number  // Lower number = higher priority (0 = highest)
+}

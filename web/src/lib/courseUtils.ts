@@ -10,7 +10,8 @@ import type {
   InternalSection, 
   InternalMeeting, 
   SectionAvailability,
-  SectionType
+  SectionType,
+  SectionTypeGroup
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 
@@ -28,17 +29,6 @@ export function extractSectionType(sectionCode: string): string {
   return foundType || '?'
 }
 
-// Re-export types for backward compatibility
-export type {
-  TimeRange,
-  CalendarEvent,
-  CourseEnrollment,
-  ConflictZone,
-  InternalCourse,
-  InternalSection,
-  InternalMeeting,
-  SectionType
-}
 
 /**
  * Parse time string like "Mo 14:30 - 15:15" or "Th 1:30PM - 2:15PM" into structured time range
@@ -307,15 +297,6 @@ export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
   })
   
   return zones
-}
-
-// Section type grouping interface
-export interface SectionTypeGroup {
-  type: SectionType
-  displayName: string
-  icon: string
-  sections: InternalSection[]
-  priority: number  // Lower number = higher priority (0 = highest)
 }
 
 /**
