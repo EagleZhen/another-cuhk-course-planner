@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo, startTransition } from 'react'
+import { useState, useEffect, useMemo, useCallback, startTransition } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -48,8 +48,14 @@ export default function CourseSearch({
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
-  const [isSearching, setIsSearching] = useState(false)
+  const [isFiltering, setIsFiltering] = useState(false)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
+  const [displayResults, setDisplayResults] = useState<SearchResults>({ 
+    courses: [], 
+    total: 0, 
+    isLimited: false, 
+    isShuffled: false 
+  })
   
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
@@ -69,12 +75,12 @@ export default function CourseSearch({
     // Immediate update for empty search (instant clear)
     if (searchTerm === '') {
       setDebouncedSearchTerm('')
-      setIsSearching(false)
+      setIsFiltering(false)
       return
     }
     
     // Show searching state when user is typing
-    setIsSearching(true)
+    setIsFiltering(true)
     
     // Short delay for single characters (responsive but not overwhelming)
     const delay = searchTerm.length === 1 ? 400 : 200
@@ -84,7 +90,7 @@ export default function CourseSearch({
       // This prevents search processing from blocking user input
       startTransition(() => {
         setDebouncedSearchTerm(searchTerm)
-        setIsSearching(false)
+        setIsFiltering(false)
       })
     }, delay)
     
@@ -391,92 +397,122 @@ export default function CourseSearch({
     loadCourseData()
   }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
 
-  // Real-time search with useMemo for performance, filtered by current term
-
-  const searchResults = useMemo(() => {
-    // First filter by term - only show courses available in current term
-    let filteredCourses = allCourses.filter(course => 
-      course.terms.some(term => term.termName === currentTerm)
-    )
-    
-    // Apply subject filter if any subjects are selected
-    if (selectedSubjects.size > 0) {
-      filteredCourses = filteredCourses.filter(course => 
-        selectedSubjects.has(course.subject)
-      )
-    }
-    
-    // Apply day filter if any days are selected
-    if (selectedDays.size > 0) {
-      filteredCourses = filteredCourses.filter(course => {
-        const currentTermData = course.terms.find(term => term.termName === currentTerm)
-        if (!currentTermData) return false
-        
-        // Check if course has any sections on selected days
-        return currentTermData.sections.some(section => 
-          section.meetings.some(meeting => {
-            const dayIndex = getDayIndex(meeting.time)
-            return dayIndex !== null && selectedDays.has(dayIndex)
-          })
+  // Async filtering function for non-blocking computation
+  const performFiltering = useCallback(async (
+    courses: InternalCourse[],
+    term: string,
+    searchTerm: string,
+    subjects: Set<string>,
+    days: Set<number>,
+    shuffle: number
+  ): Promise<SearchResults> => {
+    return new Promise<SearchResults>((resolve) => {
+      // Use setTimeout to defer computation to next frame, preventing UI blocking
+      setTimeout(() => {
+        // First filter by term - only show courses available in current term
+        let filteredCourses = courses.filter(course => 
+          course.terms.some(termData => termData.termName === term)
         )
-      })
-    }
-    
-    // Determine if user has applied any filters or search
-    const hasFiltersOrSearch = debouncedSearchTerm.trim() || selectedSubjects.size > 0 || selectedDays.size > 0
-    
-    // Apply search term filter if provided
-    let finalCourses = filteredCourses
-    if (debouncedSearchTerm.trim()) {
-      const searchLower = debouncedSearchTerm.toLowerCase()
-      finalCourses = filteredCourses.filter(course => {
-        // Create full course code without space for searching
-        const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
         
-        return (
-          fullCourseCode.includes(searchLower) ||
-          course.courseCode.toLowerCase().includes(searchLower) ||
-          course.title.toLowerCase().includes(searchLower) ||
-          course.terms.some(term =>
-            term.sections.some(section =>
-              section.meetings.some(meeting =>
-                meeting.instructor.toLowerCase().includes(searchLower)
+        // Apply subject filter if any subjects are selected
+        if (subjects.size > 0) {
+          filteredCourses = filteredCourses.filter(course => 
+            subjects.has(course.subject)
+          )
+        }
+        
+        // Apply day filter if any days are selected
+        if (days.size > 0) {
+          filteredCourses = filteredCourses.filter(course => {
+            const currentTermData = course.terms.find(termData => termData.termName === term)
+            if (!currentTermData) return false
+            
+            // Check if course has any sections on selected days
+            return currentTermData.sections.some(section => 
+              section.meetings.some(meeting => {
+                const dayIndex = getDayIndex(meeting.time)
+                return dayIndex !== null && days.has(dayIndex)
+              })
+            )
+          })
+        }
+        
+        // Determine if user has applied any filters or search
+        const hasFiltersOrSearch = searchTerm.trim() || subjects.size > 0 || days.size > 0
+        
+        // Apply search term filter if provided
+        let finalCourses = filteredCourses
+        if (searchTerm.trim()) {
+          const searchLower = searchTerm.toLowerCase()
+          finalCourses = filteredCourses.filter(course => {
+            // Create full course code without space for searching
+            const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
+            
+            return (
+              fullCourseCode.includes(searchLower) ||
+              course.courseCode.toLowerCase().includes(searchLower) ||
+              course.title.toLowerCase().includes(searchLower) ||
+              course.terms.some(termData =>
+                termData.sections.some(section =>
+                  section.meetings.some(meeting =>
+                    meeting.instructor.toLowerCase().includes(searchLower)
+                  )
+                )
               )
             )
-          )
-        )
-      })
-    }
+          })
+        }
 
-    // Apply shuffle if triggered (one-off action based on shuffleTrigger counter)
-    if (shuffleTrigger > 0) {
-      // Create a copy and shuffle using Fisher-Yates algorithm
-      finalCourses = [...finalCourses]
-      for (let i = finalCourses.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [finalCourses[i], finalCourses[j]] = [finalCourses[j], finalCourses[i]]
-      }
-    }
+        // Apply shuffle if triggered (one-off action based on shuffleTrigger counter)
+        if (shuffle > 0) {
+          // Create a copy and shuffle using Fisher-Yates algorithm
+          finalCourses = [...finalCourses]
+          for (let i = finalCourses.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [finalCourses[i], finalCourses[j]] = [finalCourses[j], finalCourses[i]]
+          }
+        }
 
-    // Simple limiting logic based on user intent
-    const limit = hasFiltersOrSearch ? 100 : 10
+        // Simple limiting logic based on user intent
+        const limit = hasFiltersOrSearch ? 100 : 10
 
-    return {
-      courses: finalCourses.slice(0, limit),
-      total: finalCourses.length,
-      isLimited: finalCourses.length > limit,
-      isShuffled: shuffleTrigger > 0
-    }
-  }, [debouncedSearchTerm, allCourses, currentTerm, selectedSubjects, selectedDays, shuffleTrigger])
+        resolve({
+          courses: finalCourses.slice(0, limit),
+          total: finalCourses.length,
+          isLimited: finalCourses.length > limit,
+          isShuffled: shuffle > 0
+        })
+      }, 0)
+    })
+  }, [])
+
+  // Non-blocking filter update effect
+  useEffect(() => {
+    if (allCourses.length === 0) return
+    
+    // Immediately show filtering state
+    setIsFiltering(true)
+    
+    // Perform filtering in background
+    performFiltering(
+      allCourses,
+      currentTerm,
+      debouncedSearchTerm,
+      selectedSubjects,
+      selectedDays,
+      shuffleTrigger
+    ).then((results: SearchResults) => {
+      setDisplayResults(results)
+      setIsFiltering(false)
+    })
+  }, [allCourses, currentTerm, debouncedSearchTerm, selectedSubjects, selectedDays, shuffleTrigger, performFiltering])
 
   // Track search analytics - only when search is used
   useEffect(() => {
     if (debouncedSearchTerm.trim()) {
-      analytics.searchUsed(searchResults.total)
+      analytics.searchUsed(displayResults.total)
     }
-  }, [debouncedSearchTerm, searchResults.total])
-
-  // No complex filter tracking - keep it simple for MVP
+  }, [debouncedSearchTerm, displayResults.total])
 
   return (
     <div className="space-y-4">
@@ -489,9 +525,9 @@ export default function CourseSearch({
               placeholder="Search courses (e.g., UGFH1000, In Dialogue with Nature, YU Bei)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full transition-all duration-200 ${isSearching ? 'pr-8' : ''}`}
+              className={`w-full transition-all duration-200 ${isFiltering ? 'pr-8' : ''}`}
             />
-            {isSearching && (
+            {isFiltering && (
               <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <div className="w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
               </div>
@@ -755,7 +791,7 @@ export default function CourseSearch({
               </div>
             </div>
           </div>
-        ) : searchResults.courses.length === 0 ? (
+        ) : displayResults.courses.length === 0 ? (
           <div className="text-center py-12">
             {searchTerm || selectedSubjects.size > 0 ? (
               // No results for search/filter
@@ -801,12 +837,12 @@ export default function CourseSearch({
           <>
             <div className="flex items-center justify-between mb-3">
               <div className="text-sm text-gray-600">
-                Showing {searchResults.courses.length} course{searchResults.courses.length !== 1 ? 's' : ''}
-                {searchResults.total > searchResults.courses.length && (
-                  <span className="font-medium"> of {searchResults.total} total</span>
+                Showing {displayResults.courses.length} course{displayResults.courses.length !== 1 ? 's' : ''}
+                {displayResults.total > displayResults.courses.length && (
+                  <span className="font-medium"> of {displayResults.total} total</span>
                 )}
                 {searchTerm && ` matching "${searchTerm}"`}
-                {searchResults.isShuffled && (
+                {displayResults.isShuffled && (
                   <>
                     <span className="text-blue-600 font-medium"> (shuffled)</span>
                     <Button
@@ -826,13 +862,13 @@ export default function CourseSearch({
                 )}
               </div>
               
-              {searchResults.total > 1 && (
+              {displayResults.total > 1 && (
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => {
                     // Track shuffle usage for discovery behavior analysis
-                    analytics.shuffleUsed(searchResults.total)
+                    analytics.shuffleUsed(displayResults.total)
                     setShuffleTrigger(prev => prev + 1)
                   }}
                   className="h-6 px-2 text-xs"
@@ -844,7 +880,7 @@ export default function CourseSearch({
             </div>
             
             {/* Show helpful message when results are limited */}
-            {searchResults.isLimited && (
+            {displayResults.isLimited && (
               <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
                 <div className="flex items-start gap-2">
                   <span className="text-amber-600 text-3xl">💡</span>
@@ -858,7 +894,7 @@ export default function CourseSearch({
             )}
             
             <div className="space-y-3">
-              {searchResults.courses.map((course, index) => (
+              {displayResults.courses.map((course, index) => (
                 <CourseCard
                   key={`${course.subject}-${course.courseCode}-${index}`} 
                   course={course}
