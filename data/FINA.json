@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-08-29T02:38:38.619823+00:00",
+    "scraped_at": "2025-09-02T22:01:19.672948+00:00",
     "subject": "FINA",
     "subject_title": "Finance",
     "total_courses": 162,
@@ -630,10 +630,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "36",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "30",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -913,7 +913,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -1131,7 +1131,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "12",
+                "waitlist_total": "11",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -1456,7 +1456,7 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "70",
+                "enrolled": "68",
                 "waitlist_capacity": "999",
                 "waitlist_total": "8",
                 "available_seats": "0",
@@ -2869,7 +2869,7 @@
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3462,10 +3462,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "40",
+                "enrolled": "39",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4086,10 +4086,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4288,7 +4288,754 @@
       "course_code": "4290",
       "title": "Actuarial Internship",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AAJ1-PRJ (9931)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ABJ1-PRJ (9911)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ACJ1-PRJ (9937)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ADJ1-PRJ (9906)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Siu Hang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AEJ1-PRJ (9932)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AFJ1-PRJ (9938)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AGJ1-PRJ (9925)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AHJ1-PRJ (9939)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AIJ1-PRJ (9912)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AJ01-PRJ (9902)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Siu Hang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AJJ1-PRJ (9926)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AKJ1-PRJ (9910)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ALJ1-PRJ (9909)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BJ01-PRJ (9916)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CJ01-PRJ (9933)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (9907)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EJ01-PRJ (9934)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ01-PRJ (9922)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GJ01-PRJ (9917)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (9927)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IJ01-PRJ (9918)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JJ01-PRJ (9908)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEH Jia Hsing",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KJ01-PRJ (9935)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LJ01-PRJ (9903)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Siu Hang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "MJ01-PRJ (9928)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "NJ01-PRJ (9919)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OJ01-PRJ (9913)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PJ01-PRJ (9923)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "QJ01-PRJ (9929)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "RJ01-PRJ (9920)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (9914)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "TJ01-PRJ (9904)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Siu Hang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "UJ01-PRJ (9936)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "VJ01-PRJ (9905)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Siu Hang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "XJ01-PRJ (9930)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "YJ01-PRJ (9921)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NG Cheuk Yin Andrew",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (9915)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "Internship experience in actuarial departments of insurance and related companies for more than five months. A written report should be submitted for evaluation.",
       "enrollment_requirement": "",
       "course_attributes": "Capstone Course\nInternship",
@@ -4862,7 +5609,7 @@
                 "capacity": "45",
                 "enrolled": "48",
                 "waitlist_capacity": "999",
-                "waitlist_total": "15",
+                "waitlist_total": "14",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -4920,7 +5667,7 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "58",
+                "enrolled": "57",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -4973,10 +5720,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "41",
+                "enrolled": "43",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6097,10 +6844,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "55",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6141,10 +6888,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "55",
+                "enrolled": "56",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6197,10 +6944,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "56",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6229,10 +6976,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "57",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6422,10 +7169,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "55",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6466,10 +7213,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "55",
+                "enrolled": "56",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6534,10 +7281,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "56",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6572,10 +7319,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "58",
+                "enrolled": "59",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6814,10 +7561,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "6",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "54",
+                "available_seats": "58",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -7060,10 +7807,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "57",
+                "enrolled": "59",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7134,10 +7881,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "55",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7276,10 +8023,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "57",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7458,7 +8205,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "69",
+                "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -7742,11 +8489,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "58",
+                "enrolled": "60",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -7774,10 +8521,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "54",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7947,10 +8694,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "49",
+                "enrolled": "51",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8094,11 +8841,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "58",
+                "enrolled": "60",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -8209,10 +8956,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "36",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8586,10 +9333,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "33",
+                "enrolled": "36",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8986,10 +9733,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "54",
+                "enrolled": "56",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9122,10 +9869,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "32",
+                "enrolled": "36",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "44",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9154,10 +9901,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9459,10 +10206,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "57",
+                "enrolled": "59",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9515,10 +10262,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "54",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9725,10 +10472,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "32",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9812,10 +10559,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "36",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9884,10 +10631,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "18",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9938,11 +10685,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "58",
+                "enrolled": "60",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -10911,10 +11658,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "55",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11023,10 +11770,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "57",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11067,10 +11814,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11121,10 +11868,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "36",
+                "enrolled": "39",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11428,10 +12175,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "27",
+                "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11482,11 +12229,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -11588,15 +12335,9 @@
               "meetings": [
                 {
                   "time": "Mo 2:30PM - 5:15PM",
-                  "location": "Cheng Yu Tung Building 410",
+                  "location": "Cheng Yu Tung Building 202",
                   "instructor": "Dr. KOT Hung Wan",
-                  "dates": "1/9"
-                },
-                {
-                  "time": "Mo 2:30PM - 5:15PM",
-                  "location": "Cheng Yu Tung Bldg 615",
-                  "instructor": "Dr. KOT Hung Wan",
-                  "dates": "8/9"
+                  "dates": "1/9, 8/9"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
@@ -12209,10 +12950,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "28",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
