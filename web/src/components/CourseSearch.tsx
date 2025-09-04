@@ -791,6 +791,13 @@ export default function CourseSearch({
               </div>
             </div>
           </div>
+        ) : isFiltering ? (
+          // Prominent loading state during filtering
+          <div className="flex flex-col items-center justify-center py-16">
+            <div className="w-8 h-8 border-3 border-gray-200 border-t-blue-500 rounded-full animate-spin mb-4"></div>
+            <h3 className="text-lg font-medium text-gray-700 mb-2">Processing filters...</h3>
+            <p className="text-sm text-gray-500">Searching through course data</p>
+          </div>
         ) : displayResults.courses.length === 0 ? (
           <div className="text-center py-12">
             {searchTerm || selectedSubjects.size > 0 ? (
