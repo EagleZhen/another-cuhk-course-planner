@@ -1250,7 +1250,7 @@ export async function captureCalendarScreenshot(
     const headerHeight = 40
     const sectionSpacing = 10 // Space between calendar and unscheduled section
     const footerSpacing = -30 // Smaller spacing between unscheduled and footer
-    const bottomMargin = 40 // More space below footer for better balance
+    const bottomMargin = 60 // More space below footer to prevent text clipping
     
     // Calculate total content dimensions
     const maxWidth = Math.max(
@@ -1310,31 +1310,38 @@ export async function captureCalendarScreenshot(
               ctx.drawImage(unscheduledImage, unscheduledX, unscheduledY, unscheduledInfo.actualWidth, unscheduledInfo.actualHeight)
             }
             
-            // Modern footer with proper spacing
+            // Two-line footer with brand emphasis
             const footerStartY = totalContentHeight + headerHeight + padding + footerSpacing
             
-            // Single line footer with subtle URL emphasis
-            const footerTextY = footerStartY + 20
-            
-            // Measure text widths for positioning
-            ctx.font = '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            // Line 1: Mixed emphasis - light prefix + prominent app name
+            const line1Y = footerStartY + 20
             const prefixText = 'Generated from '
-            const prefixWidth = ctx.measureText(prefixText).width
-            const urlWidth = ctx.measureText(websiteUrl).width
-            const totalWidth = prefixWidth + urlWidth
+            const appName = 'Another CUHK Course Planner'
             
-            // Starting position for centered text
+            // Measure text for positioning
+            ctx.font = '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            const prefixWidth = ctx.measureText(prefixText).width
+            ctx.font = '500 16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            const appNameWidth = ctx.measureText(appName).width
+            const totalWidth = prefixWidth + appNameWidth
             const startX = (finalWidth - totalWidth) / 2
             
-            // "Generated from" in regular gray
+            // "Generated from" - lighter
             ctx.fillStyle = '#6b7280'
+            ctx.font = '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
             ctx.textAlign = 'left'
-            ctx.fillText(prefixText, startX, footerTextY)
+            ctx.fillText(prefixText, startX, line1Y)
             
-            // URL in slightly darker gray with medium font weight
+            // App name - prominent
             ctx.fillStyle = '#4b5563'
             ctx.font = '500 16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
-            ctx.fillText(websiteUrl, startX + prefixWidth, footerTextY)
+            ctx.fillText(appName, startX + prefixWidth, line1Y)
+            
+            // Line 2: URL (secondary) - lighter and smaller
+            ctx.fillStyle = '#6b7280'  // Lighter gray
+            ctx.font = '14px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            ctx.textAlign = 'center'  // Reset to center for URL
+            ctx.fillText(websiteUrl, finalWidth / 2, footerStartY + 40)
             
             // Download
             canvas.toBlob((blob) => {
