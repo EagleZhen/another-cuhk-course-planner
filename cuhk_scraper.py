@@ -339,7 +339,8 @@ class CuhkScraper:
             Response object
             
         Note:
-            Retries infinitely for network issues (ConnectionError, Timeout, server errors)
+            Retries infinitely for network issues (ConnectionError, Timeout, ConnectionResetError, server errors)
+            Pre-loads response content to catch connection drops during response reading
             Does not retry for client errors (4xx)
         """
         # Set default timeout if not provided
@@ -359,7 +360,15 @@ class CuhkScraper:
                 
                 # Check for HTTP errors
                 response.raise_for_status()
-                return response
+                
+                # Pre-load response content to catch ConnectionResetError here
+                # This forces immediate reading of the response body
+                try:
+                    _ = response.content  # This will trigger ConnectionResetError if connection drops
+                    return response
+                except ConnectionResetError:
+                    # Treat as network issue and retry
+                    raise ConnectionError("Connection reset during response reading")
                 
             except (ConnectionError, Timeout) as e:
                 attempt += 1
