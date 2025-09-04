@@ -525,13 +525,8 @@ export default function CourseSearch({
               placeholder="Search courses (e.g., UGFH1000, In Dialogue with Nature, YU Bei)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full transition-all duration-200 ${isFiltering ? 'pr-8' : ''}`}
+              className="w-full"
             />
-            {isFiltering && (
-              <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                <div className="w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
-              </div>
-            )}
           </div>
           <div className="flex items-center gap-2 text-xs text-gray-600">
             <Info className="w-3 h-3" />
