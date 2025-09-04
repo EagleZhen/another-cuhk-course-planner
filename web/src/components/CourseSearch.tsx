@@ -992,7 +992,7 @@ function InstructorFilters({
             <Button 
               variant={isSelected ? "default" : "outline"}
               size="sm"
-              className="h-6 pl-2 pr-1 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group"
+              className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group ${formattedInstructor !== 'Staff' ? 'pr-1' : 'pr-2'}`}
               onClick={(e) => {
                 e.stopPropagation()
                 onToggleInstructor(formattedInstructor)
@@ -1000,17 +1000,22 @@ function InstructorFilters({
               title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
             >
               {formattedInstructor}
-              <div className={`h-4 w-px mx-1 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
-              <div
-                className="h-4 w-4 p-0 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                }}
-                title={`Search Google for "CUHK ${formattedInstructor}"`}
-              >
-                <Search className={`w-2.5 h-2.5 transition-opacity ${isSelected ? 'text-white opacity-90 hover:opacity-100' : 'text-gray-600 opacity-70 hover:opacity-100'}`} />
-              </div>
+              {/* Only show search button for specific instructors, not "Staff" */}
+              {formattedInstructor !== 'Staff' && (
+                <>
+                  <div className={`h-4 w-px mx-1 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
+                  <div
+                    className="h-4 w-4 p-0 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                    }}
+                    title={`Search Google for "CUHK ${formattedInstructor}"`}
+                  >
+                    <Search className={`w-2.5 h-2.5 transition-opacity ${isSelected ? 'text-white opacity-90 hover:opacity-100' : 'text-gray-600 opacity-70 hover:opacity-100'}`} />
+                  </div>
+                </>
+              )}
             </Button>
           </div>
         )
