@@ -1178,9 +1178,10 @@ export async function captureCalendarScreenshot(
     
     // Step 3: Calculate final layout dimensions  
     const padding = 50
-    const headerHeight = 90
-    const sectionSpacing = 20 // Space between calendar and unscheduled section
-    const footerSpacing = 20 // Same spacing as between sections for consistency
+    const headerHeight = 40
+    const sectionSpacing = 10 // Space between calendar and unscheduled section
+    const footerSpacing = -30 // Smaller spacing between unscheduled and footer
+    const bottomMargin = 40 // More space below footer for better balance
     
     // Calculate total content dimensions
     const maxWidth = Math.max(
@@ -1191,7 +1192,7 @@ export async function captureCalendarScreenshot(
       (unscheduledInfo ? unscheduledInfo.actualHeight + sectionSpacing : 0)
     
     const finalWidth = Math.max(maxWidth + (padding * 2), 1000)
-    const finalHeight = totalContentHeight + headerHeight + footerSpacing + padding // Top padding + header + content + footer spacing + bottom margin
+    const finalHeight = totalContentHeight + headerHeight + footerSpacing + bottomMargin + padding // Top padding + header + content + footer spacing + bottom margin
     
     const canvas = document.createElement('canvas')
     const scale = 2 // High DPI scaling for crisp text
@@ -1210,9 +1211,9 @@ export async function captureCalendarScreenshot(
     
     // Header with your app's Geist font (exactly matching Next.js)
     ctx.fillStyle = '#111827'
-    ctx.font = 'bold 40px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+    ctx.font = 'bold 30px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
     ctx.textAlign = 'center'
-    ctx.fillText(termName, finalWidth / 2, padding + 55)
+    ctx.fillText(termName, finalWidth / 2, padding + 10)
     
     console.log(`📏 Final dimensions: ${finalWidth}x${finalHeight}`)
     
@@ -1240,15 +1241,31 @@ export async function captureCalendarScreenshot(
               ctx.drawImage(unscheduledImage, unscheduledX, unscheduledY, unscheduledInfo.actualWidth, unscheduledInfo.actualHeight)
             }
             
-            // Footer with matching Geist font
+            // Modern footer with proper spacing
+            const footerStartY = totalContentHeight + headerHeight + padding + footerSpacing
+            
+            // Single line footer with subtle URL emphasis
+            const footerTextY = footerStartY + 20
+            
+            // Measure text widths for positioning
+            ctx.font = '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            const prefixText = 'Generated from '
+            const prefixWidth = ctx.measureText(prefixText).width
+            const urlWidth = ctx.measureText(websiteUrl).width
+            const totalWidth = prefixWidth + urlWidth
+            
+            // Starting position for centered text
+            const startX = (finalWidth - totalWidth) / 2
+            
+            // "Generated from" in regular gray
             ctx.fillStyle = '#6b7280'
-            ctx.font = '20px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
-            ctx.textAlign = 'center'
-            ctx.fillText(
-              `Generated from ${websiteUrl}`,
-              finalWidth / 2,
-              finalHeight - 10 // Small bottom margin for footer text
-            )
+            ctx.textAlign = 'left'
+            ctx.fillText(prefixText, startX, footerTextY)
+            
+            // URL in slightly darker gray with medium font weight
+            ctx.fillStyle = '#4b5563'
+            ctx.font = '500 16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            ctx.fillText(websiteUrl, startX + prefixWidth, footerTextY)
             
             // Download
             canvas.toBlob((blob) => {
