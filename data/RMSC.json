@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-03T12:01:42.156540+00:00",
+    "scraped_at": "2025-09-04T05:03:00.947468+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 36,
@@ -523,12 +523,17 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand the risk management topics covered in the source material;\n(2) speak about and present clearly (in English) the topics covered;\n(3) participate in discussions with others about sophisticated risk management topics; and\n(4) prepare questions for presenters, just as in seminars.",
+      "course_syllabus": "This is an advanced course aiming at introducing current issues and special topics in risk management.\nStudents are required to present books and current articles in the related topics assigned by the instructor.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Homework or assignment": "40",
+        "Presentation": "45",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Email to course instructor\n3. Student-staff consultative committee meeting(s).",
+      "required_readings": "Chan, Ernie. (2013) Algorithmic trading: winning strategies and their rationale. Wiley.",
+      "recommended_readings": "Prado, Marcos Lopez de. (2018) Advances in Financial Machine Learning. Wiley."
     },
     {
       "subject": "RMSC",
@@ -610,12 +615,16 @@
       "campus": "Main Campus",
       "academic_group": "Risk Management Science PC",
       "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand the basic financial derivatives and their pricing;\n(2) learn the simulation of stochastic processes, in particular Ito’s processes;\n(3) learn the application of Ito’s lemma in simulation;\n(4) understand value at risk for measuring market risk;\n(5) acquire programming skills in EXCEL VBA; and\n\n(6) use variance reduction to enhance simulation quality.",
+      "course_syllabus": "This course starts with presenting standard topics in simulation including random variable generations, variance reduction methods and statistical analysis of simulation outputs. The course then reviews the applications of these methods to derivative security pricing. Topics addressed include: importance sampling, martingale control variables, stratification and the estimation of derivatives. Additional topics include the use of low discrepancy sequence (quasi-random numbers), pricing American options and scenario simulation for risk management.",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Homework or assignment": "15",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term and term-end course evaluation\n\n2. Email to course instructor\n\n3. Student-staff consultative committee meeting(s).",
+      "required_readings": "Chan, N.H. and Wong, H.Y. (2006), Simulation Techniques in Financial Risk Management, Wiley.",
+      "recommended_readings": "Hull, J, Options, Futures and Other Derivatives, Prentice Hall (the most updated edition).\n\nRoss, S.M. (2002), Simulation 3rd Edition, Academic Press."
     },
     {
       "subject": "RMSC",
@@ -730,10 +739,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "107",
+                "enrolled": "108",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -750,10 +759,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "107",
+                "enrolled": "108",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1678,11 +1687,11 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "99",
+                "enrolled": "97",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -1904,10 +1913,10 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "87",
+                "enrolled": "89",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
