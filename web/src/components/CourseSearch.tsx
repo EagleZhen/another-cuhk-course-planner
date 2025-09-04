@@ -786,8 +786,8 @@ export default function CourseSearch({
               </div>
             </div>
           </div>
-        ) : isFiltering ? (
-          // Prominent loading state during filtering
+        ) : isFiltering && displayResults.courses.length === 0 ? (
+          // Full-screen loading for initial filtering (no existing results)
           <div className="flex flex-col items-center justify-center py-16">
             <div className="w-8 h-8 border-3 border-gray-200 border-t-blue-500 rounded-full animate-spin mb-4"></div>
             <h3 className="text-lg font-medium text-gray-700 mb-2">Processing filters...</h3>
@@ -838,13 +838,34 @@ export default function CourseSearch({
         ) : (
           <>
             <div className="flex items-center justify-between mb-3">
-              <div className="text-sm text-gray-600">
-                Showing {displayResults.courses.length} course{displayResults.courses.length !== 1 ? 's' : ''}
-                {displayResults.total > displayResults.courses.length && (
-                  <span className="font-medium"> of {displayResults.total} total</span>
-                )}
-                {searchTerm && ` matching "${searchTerm}"`}
-                {displayResults.isShuffled && (
+              <div className="text-sm text-gray-600 flex items-center gap-2">
+                <>
+                  {/* Always show current status */}
+                  Showing {displayResults.courses.length} course{displayResults.courses.length !== 1 ? 's' : ''}
+                  {displayResults.total > displayResults.courses.length && (
+                    <span className="font-medium"> of {displayResults.total} total</span>
+                  )}
+                  {searchTerm && ` matching "${searchTerm}"`}
+                  {/* Show day filtering status similar to subject filtering */}
+                  {selectedDays.size > 0 && (
+                    <>
+                      <span> filtered by </span>
+                      <span className="font-semibold text-blue-600">
+                        {Array.from(selectedDays).sort().map(day => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'][day]).join(', ')}
+                      </span>
+                      <span> ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})</span>
+                    </>
+                  )}
+                  
+                  {/* Add loading indicator as pill badge */}
+                  {isFiltering && (
+                    <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
+                      <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                      Updating
+                    </span>
+                  )}
+                </>
+                {!isFiltering && displayResults.isShuffled && (
                   <>
                     <span className="text-blue-600 font-medium"> (shuffled)</span>
                     <Button
@@ -896,7 +917,7 @@ export default function CourseSearch({
             )}
             
             <div className="space-y-3">
-              {displayResults.courses.map((course, index) => (
+                {displayResults.courses.map((course, index) => (
                 <CourseCard
                   key={`${course.subject}-${course.courseCode}-${index}`} 
                   course={course}
@@ -986,7 +1007,7 @@ function InstructorFilters({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${formattedInstructor}`)
                 }}
-                title={`Search Google for "CUHK ${formattedInstructor}" for more relevant results`}
+                title={`Search Google for "CUHK ${formattedInstructor}"`}
               >
                 <Search className={`w-2.5 h-2.5 transition-opacity ${isSelected ? 'text-white opacity-90 hover:opacity-100' : 'text-gray-600 opacity-70 hover:opacity-100'}`} />
               </div>
