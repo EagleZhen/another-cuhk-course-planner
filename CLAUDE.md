@@ -893,7 +893,7 @@ import type { SearchResults } from '@/lib/types'
 **Critical User Experience Improvements**: 
 1. **Prominent Loading UX**: Replaced small search bar spinner with full-screen loading state for clear user feedback
 2. **Filter Button Consistency**: Unified styling between day and subject filter buttons with consistent borders and dimensions
-3. **Button Stability**: Eliminated resize/shift issues during toggle states using fixed widths (w-12 for days, w-14 for subjects)
+3. **Button Stability**: Eliminated resize/shift issues during toggle states using consistent padding (px-2) and borders (border-1)
 4. **Date Format Enhancement**: Improved data sync timestamps to use readable month names (Jan 15, 2025 vs 1/15/2025)
 5. **UI Cleanup**: Removed redundant loading indicators after implementing prominent loading states
 
@@ -917,13 +917,14 @@ import type { SearchResults } from '@/lib/types'
 **Button Consistency Pattern:**
 ```typescript
 // Unified styling approach for all filter buttons
-const buttonStyles = "h-6 text-xs font-normal border-1"
+// Key insight: px-2 + border-1 keeps width consistent between toggle states
+const buttonStyles = "h-6 px-2 text-xs font-normal border-1"
 
-// Day buttons: Fixed width for 3-char names (Mon, Tue, Wed, Thu, Fri)
-className={`${buttonStyles} w-12`}
+// Day buttons: 3-char names (Mon, Tue, Wed, Thu, Fri)
+className={`${buttonStyles}`}
 
-// Subject buttons: Fixed width for 4-char codes (CSCI, LAWS, etc.)
-className={`${buttonStyles} w-14 font-mono`}
+// Subject buttons: 4-char codes (CSCI, LAWS, etc.) with monospace font
+className={`${buttonStyles} font-mono`}
 ```
 
 **Key UX Design Insights:**
@@ -957,11 +958,180 @@ className={`${buttonStyles} w-14 font-mono`}
 - **International Usability** - Design for global user base from the start
 
 **Technical Implementation Patterns:**
-- **Fixed Button Widths** - Prevent layout shift during state changes
+- **Consistent Button Padding & Borders** - px-2 + border-1 prevents layout shift during state changes
 - **Async Processing with Immediate Feedback** - setTimeout(fn, 0) for non-blocking operations
 - **Centralized Loading States** - Single prominent indicator > distributed small ones
 - **Locale-Aware Formatting** - Use browser APIs with proper locale options
 
 ---
 
-*Last updated: September 2025 - UX Optimization Complete: Implemented prominent loading states for clear user feedback, unified filter button styling with fixed dimensions, enhanced date readability with English month names, and eliminated redundant loading indicators. System now provides immediate visual feedback with consistent, professional UI behavior across all interactive elements.*
+---
+
+## ✅ Latest Achievement: Advanced UX Enhancements & Interactive Educational Features (September 2025)
+
+**Major UX & Educational Improvements**: 
+1. **Intelligent Loading States**: Replaced flashing content with inline status indicators using professional pill badges
+2. **Interactive Educational Badges**: Transformed static credits/grading info into clickable CUHK resource links
+3. **Smart Empty State Handling**: Added contextual guidance when course section filters return no results
+4. **Refined Button Interactions**: Conditional search functionality for meaningful instructor searches only
+5. **Performance-Ready Analytics**: Designed comprehensive filtering performance tracking for real-world usage insights
+
+### **🎯 Advanced Loading UX Philosophy**
+
+**Inline Status Integration:**
+```typescript
+// Before: Disruptive full-content replacement
+{isFiltering ? <LoadingScreen /> : <Results />}
+
+// After: Contextual inline status with content preservation
+<>
+  Showing 15 courses filtered by Mon, Wed (2 days)
+  {isFiltering && (
+    <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
+      <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+      Updating
+    </span>
+  )}
+</>
+```
+
+**Professional Loading Design Principles:**
+- **Content Preservation**: Never hide existing information during updates
+- **Contextual Placement**: Loading indicators appear where users expect them
+- **Professional Aesthetics**: Pill badges match modern app design language
+- **Clear Messaging**: Concise, action-oriented status text
+
+### **📚 Educational UX Innovation**
+
+**Interactive Information Architecture:**
+```typescript
+// Transformed static badges into educational resources
+<Badge 
+  className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+  onClick={() => window.open('https://www.res.cuhk.edu.hk/...', '_blank')}
+  title="Click to learn about CUHK term course load limits"
+>
+  {course.credits} credits
+  <Search className="w-2.5 h-2.5 opacity-60" />
+</Badge>
+```
+
+**Educational Integration Benefits:**
+- ✅ **Contextual Learning**: Information available exactly when students need it
+- ✅ **Official Sources**: Direct links to authoritative CUHK documentation
+- ✅ **Visual Affordance**: Subtle search icons indicate interactivity
+- ✅ **Academic Planning**: Credits badge → term course load limits, Grading badge → GPA system understanding
+
+### **🧠 Smart Empty State UX**
+
+**Context-Aware Messaging System:**
+```typescript
+// Intelligent empty state with actionable guidance
+const hasActiveFilters = selectedInstructors.size > 0 || selectedDays.size > 0
+
+{filteredSections.length === 0 && (
+  <div className="col-span-full text-center py-6 px-4 border-2 border-dashed border-gray-300 rounded-lg">
+    {hasActiveFilters ? (
+      <>
+        <p>No sections match your filters</p>
+        <p className="text-xs">Try removing day or instructor filters to see more options</p>
+      </>
+    ) : (
+      <>
+        <p>No compatible sections available</p>
+        <p className="text-xs">Check section compatibility with your current selections</p>
+      </>
+    )}
+  </div>
+)}
+```
+
+**Smart UX Features:**
+- **Root Cause Analysis**: Distinguishes between filter-caused vs compatibility-caused emptiness
+- **Actionable Guidance**: Specific instructions for resolution
+- **Visual Clarity**: Dashed borders indicate temporary/filterable state
+- **User Empowerment**: Users understand why they see empty results and how to fix it
+
+### **⚡ Performance Analytics Architecture**
+
+**Comprehensive Performance Monitoring Design:**
+```typescript
+// Real-world performance tracking for diverse hardware
+filteringPerformance: (
+  duration: number, 
+  filterType: 'subject' | 'day' | 'search' | 'combined',
+  resultsCount: number,
+  totalCourses: number,
+  filterCombination: string[]
+) => {
+  track('filtering_performance', {
+    duration_ms: duration,
+    filter_type: filterType,
+    results_count: resultsCount,
+    total_courses: totalCourses,
+    filter_combination: filterCombination
+  })
+}
+```
+
+**Performance Intelligence Strategy:**
+- **Hardware Distribution Analysis**: Understanding performance across student device spectrum
+- **Filter Optimization**: Identifying which operations need performance improvement
+- **UX Decision Support**: Data-driven decisions for pagination, virtualization, or optimization
+- **Regression Detection**: Monitoring performance degradation over time
+
+### **🎨 Refined Interaction Design**
+
+**Conditional Search Functionality:**
+```typescript
+// Smart search button display logic
+{formattedInstructor !== 'Staff' && (
+  <>
+    <div className="h-4 w-px mx-1 bg-gray-400/60" />
+    <div className="h-4 w-4 ... cursor-pointer" onClick={() => googleSearchAndOpen(`CUHK ${formattedInstructor}`)}>
+      <Search className="w-2.5 h-2.5 ..." />
+    </div>
+  </>
+)}
+
+// Dynamic button padding for visual consistency
+className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group ${
+  formattedInstructor !== 'Staff' ? 'pr-1' : 'pr-2'
+}`}
+```
+
+**Interaction Design Principles:**
+- **Contextual Functionality**: Search only available when meaningful
+- **Visual Consistency**: Dynamic padding maintains professional appearance
+- **Logical Behavior**: Features appear only when they provide value
+- **Clean Design**: No orphaned UI elements or awkward spacing
+
+### **Latest Architectural Insights (September 2025)**
+
+**Modern Loading UX Philosophy:**
+- **Inline Status > Modal Loading** - Users prefer contextual updates over full-screen interruptions
+- **Content Preservation** - Never hide existing information during updates
+- **Professional Polish** - Pill badges and inline indicators feel more modern than overlay approaches
+- **Immediate Feedback** - Users need instant visual acknowledgment of their actions
+
+**Educational UX Innovation:**
+- **Information Architecture** - Static displays → Interactive learning resources
+- **Contextual Education** - Provide information exactly when students need it
+- **Official Source Integration** - Direct links to authoritative documentation
+- **Progressive Disclosure** - Advanced features available but not overwhelming
+
+**Smart UX Design Patterns:**
+- **Context-Aware Messaging** - Different empty states require different explanations
+- **Root Cause Communication** - Users need to understand why they see certain results
+- **Actionable Guidance** - Empty states should always suggest next steps
+- **Visual Hierarchy** - Dashed borders, proper spacing, and typography guide user understanding
+
+**Performance-Driven Development:**
+- **Real-World Monitoring** - Student hardware diversity requires comprehensive performance tracking
+- **Data-Driven Decisions** - Analytics should inform UX improvements and optimization priorities
+- **Proactive Optimization** - Identify performance bottlenecks before they impact user experience
+- **Hardware-Inclusive Design** - Features must work well across diverse device specifications
+
+---
+
+*Last updated: September 2025 - Advanced UX Complete: Implemented intelligent inline loading states with professional pill badges, transformed static badges into interactive educational resources linking to official CUHK documentation, added smart empty state handling with contextual guidance, refined conditional interaction design for meaningful functionality only, and established comprehensive performance analytics architecture for real-world usage insights across diverse student hardware.*
