@@ -1,9 +1,9 @@
 {
   "scraping_log": {
-    "started_at": "2025-09-03T13:48:44.241387+00:00",
-    "last_updated": "2025-09-04T07:36:35.205025+00:00",
-    "duration_human": "17h 47m 50s",
-    "total_subjects": 263,
+    "started_at": "2025-09-04T10:53:30.312127+00:00",
+    "last_updated": "2025-09-04T11:32:12.934691+00:00",
+    "duration_human": "38m 42s",
+    "total_subjects": 4,
     "completed": 263,
     "failed": 0,
     "subjects": {
@@ -751,11 +751,11 @@
       },
       "CHLT": {
         "status": "completed",
-        "last_scraped": "2025-09-03T16:16:40.240646+00:00",
+        "last_scraped": "2025-09-04T11:06:56.500594+00:00",
         "courses_count": 38,
         "courses_scraped": 38,
         "output_file": "data/CHLT.json",
-        "duration_minutes": 14.8,
+        "duration_minutes": 13.44,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2221,11 +2221,11 @@
       },
       "LING": {
         "status": "completed",
-        "last_scraped": "2025-09-04T00:27:31.733257+00:00",
+        "last_scraped": "2025-09-04T11:12:41.741179+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/LING.json",
-        "duration_minutes": 13.96,
+        "duration_minutes": 5.74,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3257,11 +3257,11 @@
       },
       "SEEM": {
         "status": "completed",
-        "last_scraped": "2025-09-04T05:16:51.918285+00:00",
+        "last_scraped": "2025-09-04T11:18:28.606114+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/SEEM.json",
-        "duration_minutes": 8.18,
+        "duration_minutes": 5.76,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3537,11 +3537,11 @@
       },
       "THEO": {
         "status": "completed",
-        "last_scraped": "2025-09-04T06:19:04.423249+00:00",
+        "last_scraped": "2025-09-04T11:32:12.934691+00:00",
         "courses_count": 198,
         "courses_scraped": 198,
         "output_file": "data/THEO.json",
-        "duration_minutes": 13.84,
+        "duration_minutes": 13.72,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
