@@ -27,17 +27,9 @@ export async function captureCalendarScreenshot(
   const restoreAllElements = () => {
     try {
       originalStates.forEach(state => {
-        // Special case: if we triggered expansion, click again to collapse
-        if (state.originalStyle === 'TRIGGERED_EXPANSION') {
-          try {
-            state.element.click() // Click again to return to collapsed state
-          } catch (clickError) {
-            console.warn('⚠️ Could not restore expansion state:', clickError)
-          }
-        } else {
-          // Normal style restoration
-          state.element.style.cssText = state.originalStyle
-        }
+        // Normal style restoration (no more click-based expansion/restoration)
+        console.log(`🔄 Restoring element with original style: "${state.originalStyle}"`)
+        state.element.style.cssText = state.originalStyle
         
         // Restore text content
         state.originalContent?.forEach(({ element, originalText }) => {
@@ -130,22 +122,16 @@ export async function captureCalendarScreenshot(
           console.log('⚠️ ChevronDown icon not found with selector: svg.w-4.h-4.text-gray-400')
         }
         
-        // Hide small preview cards in header for cleaner screenshot
-        const previewCardsContainer = element.querySelector('.flex.gap-2.flex-wrap') as HTMLElement
-        if (previewCardsContainer) {
-          const originalContainerClass = previewCardsContainer.getAttribute('class') || ''
-          originalClasses.push({ element: previewCardsContainer, originalClass: originalContainerClass })
-          previewCardsContainer.setAttribute('class', originalContainerClass + ' hidden')
+        // Check if content is currently expanded before we do anything
+        let wasExpandedBefore = false
+        const expandableContent = element.querySelector('[class*="px-3"][class*="pb-3"]') as HTMLElement
+        if (expandableContent) {
+          wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' && 
+                            expandableContent.style.display !== 'none'
         }
         
-        // Also hide individual preview cards as backup
-        const previewCards = element.querySelectorAll('.flex.gap-2.flex-wrap span[class*="px-2 py-0.5"]')
-        previewCards.forEach(card => {
-          const cardElement = card as HTMLElement
-          const originalClass = cardElement.getAttribute('class') || ''
-          originalClasses.push({ element: cardElement, originalClass })
-          cardElement.setAttribute('class', originalClass + ' hidden')
-        })
+        // EXPERIMENTAL: Don't hide preview cards, let CSS expansion handle the display logic
+        console.log('🔍 EXPERIMENTAL: Not hiding preview cards, relying on CSS expansion to show proper content')
         
         // Adjust course card widths for better screenshot proportions
         const courseCards = element.querySelectorAll('.flex.flex-wrap.gap-2 > div')
@@ -164,34 +150,17 @@ export async function captureCalendarScreenshot(
           cardElement.style.minWidth = '140px' // Slightly reduced from 150px
         })
         
-        // Force expand the main content - comprehensive approach
-        let wasExpandedBefore = false
+        // Force expand the main content - comprehensive approach (variables already declared above)
         
-        // Check if content is currently expanded by looking for expanded content
-        const expandableContent = element.querySelector('[class*="px-3"][class*="pb-3"]') as HTMLElement
-        if (expandableContent) {
-          wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' && 
-                            expandableContent.style.display !== 'none'
-        }
-        
-        // If not expanded, trigger expansion by clicking the expand trigger (REVERT TO WORKING APPROACH)
-        if (!wasExpandedBefore) {
-          const expandTrigger = element.querySelector('[class*="cursor-pointer"]') as HTMLElement
-          if (expandTrigger) {
-            // Simulate click to trigger React state change
-            expandTrigger.click()
-            
-            // Wait for React to update the DOM
-            await new Promise(resolve => setTimeout(resolve, 100))
-            
-            // Store that we triggered the expansion for restoration later
-            originalStates.push({
-              element: expandTrigger,
-              originalStyle: 'TRIGGERED_EXPANSION', // Special marker
-              originalContent: [],
-              originalClasses: []
-            })
-          }
+        // If not expanded, use CSS-only expansion for screenshot (don't change React state)
+        if (!wasExpandedBefore && expandableContent) {
+          console.log('📸 Using CSS-only expansion to avoid React state changes')
+          // Force expansion using pure CSS - no clicks to avoid React state changes
+          expandableContent.style.display = 'block'
+          expandableContent.style.height = 'auto'
+          expandableContent.style.overflow = 'visible'
+          expandableContent.style.maxHeight = 'none'
+          expandableContent.style.opacity = '1'
         }
         
         // Also ensure the expandable content is fully visible
