@@ -1179,6 +1179,19 @@ export async function captureCalendarScreenshot(
       }
     }
     
+    // Step 0: Clear selections for clean screenshot
+    if (unscheduledElement) {
+      // Find all selected course cards and remove selection
+      const selectedCards = unscheduledElement.querySelectorAll('[class*="scale-105"], [class*="shadow-lg"]')
+      selectedCards.forEach(card => {
+        const cardElement = card as HTMLElement
+        // Remove click to clear selection
+        cardElement.click()
+      })
+      // Wait for React to update
+      await new Promise(resolve => setTimeout(resolve, 50))
+    }
+
     // Step 1: Prepare calendar
     console.log('📏 Preparing calendar...')
     const calendarInfo = await prepareElementForCapture(calendarElement, false)
