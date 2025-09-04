@@ -374,7 +374,7 @@ class CuhkScraper:
                 attempt += 1
                 # Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, max 60s
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
-                self.logger.warning(f"🌐 Network issue (attempt {attempt}), retrying in {wait_time}s: {type(e).__name__}")
+                self.logger.warning(f"🌐 Network issue (attempt {attempt}), retrying in {wait_time}s: {e}")
                 time.sleep(wait_time)
                 
             except HTTPError as e:
