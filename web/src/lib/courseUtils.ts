@@ -989,8 +989,17 @@ export async function captureCalendarScreenshot(
   const restoreAllElements = () => {
     try {
       originalStates.forEach(state => {
-        // Restore main element style
-        state.element.style.cssText = state.originalStyle
+        // Special case: if we triggered expansion, click again to collapse
+        if (state.originalStyle === 'TRIGGERED_EXPANSION') {
+          try {
+            state.element.click() // Click again to return to collapsed state
+          } catch (clickError) {
+            console.warn('⚠️ Could not restore expansion state:', clickError)
+          }
+        } else {
+          // Normal style restoration
+          state.element.style.cssText = state.originalStyle
+        }
         
         // Restore text content
         state.originalContent?.forEach(({ element, originalText }) => {
@@ -1093,8 +1102,16 @@ export async function captureCalendarScreenshot(
           chevron.setAttribute('class', originalClass + ' hidden')
         }
         
-        // Hide small preview cards in header
-        const previewCards = element.querySelectorAll('.flex.gap-2.flex-wrap > span')
+        // Hide small preview cards in header for cleaner screenshot
+        const previewCardsContainer = element.querySelector('.flex.gap-2.flex-wrap') as HTMLElement
+        if (previewCardsContainer) {
+          const originalContainerClass = previewCardsContainer.getAttribute('class') || ''
+          originalClasses.push({ element: previewCardsContainer, originalClass: originalContainerClass })
+          previewCardsContainer.setAttribute('class', originalContainerClass + ' hidden')
+        }
+        
+        // Also hide individual preview cards as backup
+        const previewCards = element.querySelectorAll('.flex.gap-2.flex-wrap span[class*="px-2 py-0.5"]')
         previewCards.forEach(card => {
           const cardElement = card as HTMLElement
           const originalClass = cardElement.getAttribute('class') || ''
@@ -1102,12 +1119,51 @@ export async function captureCalendarScreenshot(
           cardElement.setAttribute('class', originalClass + ' hidden')
         })
         
-        // Force expand the main content
-        const expandableContent = element.querySelector('.px-3.pb-3.pt-0') as HTMLElement
-        if (expandableContent && getComputedStyle(expandableContent).display === 'none') {
-          const originalClass = expandableContent.getAttribute('class') || ''
-          originalClasses.push({ element: expandableContent, originalClass })
+        // Force expand the main content - comprehensive approach
+        let wasExpandedBefore = false
+        
+        // Check if content is currently expanded by looking for expanded content
+        const expandableContent = element.querySelector('[class*="px-3"][class*="pb-3"]') as HTMLElement
+        if (expandableContent) {
+          wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' && 
+                            expandableContent.style.display !== 'none'
+        }
+        
+        // If not expanded, try to trigger expansion by clicking the expand trigger
+        if (!wasExpandedBefore) {
+          const expandTrigger = element.querySelector('[class*="cursor-pointer"]') as HTMLElement
+          if (expandTrigger) {
+            // Simulate click to trigger React state change
+            expandTrigger.click()
+            
+            // Wait for React to update the DOM
+            await new Promise(resolve => setTimeout(resolve, 100))
+            
+            // Store that we triggered the expansion for restoration later
+            originalStates.push({
+              element: expandTrigger,
+              originalStyle: 'TRIGGERED_EXPANSION', // Special marker
+              originalContent: [],
+              originalClasses: []
+            })
+          }
+        }
+        
+        // Also ensure the expandable content is fully visible
+        if (expandableContent) {
+          const originalStyle = expandableContent.style.cssText
+          originalStates.push({
+            element: expandableContent,
+            originalStyle,
+            originalContent: [],
+            originalClasses: []
+          })
+          
+          // Force full expansion
           expandableContent.style.display = 'block'
+          expandableContent.style.height = 'auto'
+          expandableContent.style.overflow = 'visible'
+          expandableContent.style.maxHeight = 'none'
         }
       }
       
