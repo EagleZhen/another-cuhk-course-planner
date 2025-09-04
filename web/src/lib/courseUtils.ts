@@ -977,76 +977,171 @@ export async function captureCalendarScreenshot(
 ): Promise<void> {
   const { toPng } = await import('html-to-image')
   
+  // Store original state for restoration
+  const originalStates: Array<{
+    element: HTMLElement
+    originalStyle: string
+    originalContent?: { element: HTMLElement; originalText: string }[]
+    originalClasses?: { element: HTMLElement; originalClass: string }[]
+  }> = []
+
+  // Helper to restore all elements to original state
+  const restoreAllElements = () => {
+    try {
+      originalStates.forEach(state => {
+        // Restore main element style
+        state.element.style.cssText = state.originalStyle
+        
+        // Restore text content
+        state.originalContent?.forEach(({ element, originalText }) => {
+          element.textContent = originalText
+        })
+        
+        // Restore class names
+        state.originalClasses?.forEach(({ element, originalClass }) => {
+          element.setAttribute('class', originalClass)
+        })
+      })
+    } catch (restoreError) {
+      console.warn('⚠️ Element restoration had issues:', restoreError)
+    }
+  }
+
   try {
     console.log('📸 Starting calendar screenshot...')
     
-    // Helper function to expand element for full capture
-    const prepareElementForCapture = async (element: HTMLElement, forceExpand = false) => {
+    // Helper to prepare element for screenshot capture
+    const prepareElementForCapture = async (element: HTMLElement, isUnscheduled = false) => {
       const originalStyle = element.style.cssText
-      const fullContentHeight = element.scrollHeight
-      const contentWidth = Math.max(element.scrollWidth, 800)
+      const originalContent: Array<{ element: HTMLElement; originalText: string }> = []
+      const originalClasses: Array<{ element: HTMLElement; originalClass: string }> = []
       
-      // For unscheduled sections, force expansion to show all content
-      let expandedStateChanged = false
-      if (forceExpand) {
-        // Force expand by clicking the expand trigger
-        const expandTrigger = element.querySelector('[class*="cursor-pointer"]') as HTMLElement
-        
-        if (expandTrigger) {
-          // Simulate click to expand if not already expanded
-          const expandableContent = element.querySelector('.px-3.pb-3.pt-0')
-          if (!expandableContent || getComputedStyle(expandableContent).display === 'none') {
-            expandTrigger.click()
-            expandedStateChanged = true
-            console.log('📋 Clicked to expand unscheduled section for screenshot')
-            
-            // Wait for React state update and re-render
-            await new Promise(resolve => setTimeout(resolve, 100))
-          }
-        }
-      }
+      // Store state for restoration
+      originalStates.push({
+        element,
+        originalStyle,
+        originalContent,
+        originalClasses
+      })
       
-      // Temporarily expand to show ALL content
+      // Expand element for capture
       element.style.maxHeight = 'none'
       element.style.height = 'auto'
       element.style.overflow = 'visible'
       element.style.overflowY = 'visible'
       
-      // Handle parent constraints
-      const parentContainer = element.parentElement
-      let originalParentStyle = ''
-      if (parentContainer) {
-        originalParentStyle = parentContainer.style.cssText
-        parentContainer.style.height = 'auto'
-        parentContainer.style.maxHeight = 'none'
+      if (isUnscheduled) {
+        // Ensure parent container has enough padding for borders
+        element.style.paddingRight = '24px' // Increased padding
+        element.style.paddingBottom = '24px' // Increased padding
+        element.style.width = 'auto' // Allow container to expand
+        element.style.minWidth = '100%' // Ensure full width
       }
       
-      // Force layout and wait for rendering
-      element.getBoundingClientRect()
-      await new Promise(resolve => setTimeout(resolve, 300)) // Longer wait for expansion
+      if (isUnscheduled) {
+        // Apply screenshot-optimized styling for calendar consistency
+        const cardContainer = element.querySelector('.border.border-gray-200.rounded-lg.shadow-sm') as HTMLElement
+        if (cardContainer) {
+          const originalClass = cardContainer.getAttribute('class') || ''
+          const originalStyle = cardContainer.style.cssText
+          originalClasses.push({ element: cardContainer, originalClass })
+          
+          // Transform from card to distinct section with proper borders
+          cardContainer.setAttribute('class', 'border border-gray-200 bg-white')
+          
+          // Align left border with time column's right border (30px from left)
+          cardContainer.style.marginLeft = '30px'
+          cardContainer.style.marginRight = '16px' // Increased margin to prevent right border clipping
+          cardContainer.style.marginBottom = '16px' // Increased margin to prevent bottom border clipping
+          cardContainer.style.boxSizing = 'border-box' // Include borders in width calculation
+          
+          // Constrain container width to prevent overflow beyond screenshot bounds
+          const availableWidth = calendarInfo.actualWidth - 30 - 16 // Calendar width minus left and right margins
+          cardContainer.style.width = `${availableWidth}px`
+          
+          // Store original style for restoration
+          originalStates.push({
+            element: cardContainer,
+            originalStyle: originalStyle,
+            originalContent: [],
+            originalClasses: []
+          })
+        }
+        
+        // Adjust course card widths for better screenshot proportions
+        const courseCards = element.querySelectorAll('.flex.flex-wrap.gap-2 > div')
+        courseCards.forEach(card => {
+          const cardElement = card as HTMLElement
+          const originalStyle = cardElement.style.cssText
+          originalStates.push({
+            element: cardElement,
+            originalStyle,
+            originalContent: [],
+            originalClasses: []
+          })
+          
+          // Make cards slightly narrower to prevent right border clipping
+          cardElement.style.maxWidth = '160px' // Slightly reduced from 180px
+          cardElement.style.minWidth = '140px' // Slightly reduced from 150px
+        })
+        
+        // Hide interactive elements for professional look
+        const chevron = element.querySelector('[class*="w-4 h-4 text-gray-400"]') as HTMLElement
+        if (chevron) {
+          const originalClass = chevron.getAttribute('class') || ''
+          originalClasses.push({ element: chevron, originalClass })
+          chevron.setAttribute('class', originalClass + ' hidden')
+        }
+        
+        // Hide small preview cards in header
+        const previewCards = element.querySelectorAll('.flex.gap-2.flex-wrap > span')
+        previewCards.forEach(card => {
+          const cardElement = card as HTMLElement
+          const originalClass = cardElement.getAttribute('class') || ''
+          originalClasses.push({ element: cardElement, originalClass })
+          cardElement.setAttribute('class', originalClass + ' hidden')
+        })
+        
+        // Force expand the main content
+        const expandableContent = element.querySelector('.px-3.pb-3.pt-0') as HTMLElement
+        if (expandableContent && getComputedStyle(expandableContent).display === 'none') {
+          const originalClass = expandableContent.getAttribute('class') || ''
+          originalClasses.push({ element: expandableContent, originalClass })
+          expandableContent.style.display = 'block'
+        }
+      }
       
-      const expandedRect = element.getBoundingClientRect()
-      const actualWidth = Math.max(expandedRect.width, contentWidth)
-      const actualHeight = Math.max(expandedRect.height, fullContentHeight)
+      // Force layout recalculation
+      element.offsetHeight
+      await new Promise(resolve => setTimeout(resolve, 50))
       
+      const rect = element.getBoundingClientRect()
       return {
-        originalStyle,
-        originalParentStyle,
-        parentContainer,
-        actualWidth,
-        actualHeight,
-        expandedStateChanged
+        element,
+        actualWidth: Math.max(rect.width, 800),
+        actualHeight: rect.height
       }
     }
     
-    // Step 1: Capture calendar element
-    console.log('📏 Preparing calendar for capture...')
-    const calendarInfo = await prepareElementForCapture(calendarElement)
+    // Step 1: Prepare calendar
+    console.log('📏 Preparing calendar...')
+    const calendarInfo = await prepareElementForCapture(calendarElement, false)
     
-    const calendarDataUrl = await toPng(calendarElement, {
+    // Step 2: Prepare unscheduled (if it exists)
+    let unscheduledInfo: any = null
+    if (unscheduledElement) {
+      console.log('📏 Preparing unscheduled...')
+      unscheduledInfo = await prepareElementForCapture(unscheduledElement, true)
+      // Match width to calendar for perfect alignment
+      unscheduledInfo.actualWidth = calendarInfo.actualWidth
+    }
+    
+    // Step 3: Capture images with proper error handling
+    console.log('📷 Capturing images...')
+    const calendarDataUrl = await toPng(calendarInfo.element, {
       quality: 1.0,
       backgroundColor: '#ffffff',
-      pixelRatio: 5.0,
+      pixelRatio: 3.0, // Reduced from 5.0 for better performance
       width: calendarInfo.actualWidth,
       height: calendarInfo.actualHeight,
       style: {
@@ -1056,28 +1151,13 @@ export async function captureCalendarScreenshot(
       skipAutoScale: true,
     })
     
-    // Restore calendar styles
-    calendarElement.style.cssText = calendarInfo.originalStyle
-    if (calendarInfo.parentContainer) {
-      calendarInfo.parentContainer.style.cssText = calendarInfo.originalParentStyle
-    }
-    
-    // Step 2: Capture unscheduled element (if it exists)
     let unscheduledDataUrl: string | null = null
-    let unscheduledInfo: any = null
-    
-    if (unscheduledElement) {
-      console.log('📏 Preparing unscheduled section for capture...')
-      unscheduledInfo = await prepareElementForCapture(unscheduledElement, true) // Force expand
-      
-      // Match width to calendar for better alignment
-      const targetWidth = calendarInfo.actualWidth
-      
-      unscheduledDataUrl = await toPng(unscheduledElement, {
+    if (unscheduledElement && unscheduledInfo) {
+      unscheduledDataUrl = await toPng(unscheduledInfo.element, {
         quality: 1.0,
         backgroundColor: '#ffffff',
-        pixelRatio: 5.0,
-        width: targetWidth, // Use calendar width for consistency
+        pixelRatio: 3.0, // Reduced from 5.0 for better performance
+        width: unscheduledInfo.actualWidth,
         height: unscheduledInfo.actualHeight,
         style: {
           transform: 'scale(1)',
@@ -1085,16 +1165,11 @@ export async function captureCalendarScreenshot(
         },
         skipAutoScale: true,
       })
-      
-      // Update width info to match calendar
-      unscheduledInfo.actualWidth = targetWidth
-      
-      // Restore unscheduled styles
-      unscheduledElement.style.cssText = unscheduledInfo.originalStyle
-      if (unscheduledInfo.parentContainer) {
-        unscheduledInfo.parentContainer.style.cssText = unscheduledInfo.originalParentStyle
-      }
     }
+    
+    // Restore elements immediately after capture
+    restoreAllElements()
+    console.log('🔄 Elements restored to original state')
     
     console.log(`📏 Calendar: ${calendarInfo.actualWidth}x${calendarInfo.actualHeight}`)
     if (unscheduledInfo) {
@@ -1104,8 +1179,8 @@ export async function captureCalendarScreenshot(
     // Step 3: Calculate final layout dimensions  
     const padding = 50
     const headerHeight = 90
-    const footerHeight = 30 // Slightly larger for better proportions
     const sectionSpacing = 20 // Space between calendar and unscheduled section
+    const footerSpacing = 20 // Same spacing as between sections for consistency
     
     // Calculate total content dimensions
     const maxWidth = Math.max(
@@ -1116,7 +1191,7 @@ export async function captureCalendarScreenshot(
       (unscheduledInfo ? unscheduledInfo.actualHeight + sectionSpacing : 0)
     
     const finalWidth = Math.max(maxWidth + (padding * 2), 1000)
-    const finalHeight = totalContentHeight + headerHeight + footerHeight + (padding * 2)
+    const finalHeight = totalContentHeight + headerHeight + footerSpacing + padding // Top padding + header + content + footer spacing + bottom margin
     
     const canvas = document.createElement('canvas')
     const scale = 2 // High DPI scaling for crisp text
@@ -1172,7 +1247,7 @@ export async function captureCalendarScreenshot(
             ctx.fillText(
               `Generated from ${websiteUrl}`,
               finalWidth / 2,
-              finalHeight - padding / 2
+              finalHeight - 10 // Small bottom margin for footer text
             )
             
             // Download
@@ -1196,6 +1271,7 @@ export async function captureCalendarScreenshot(
               resolve()
             }, 'image/png', 0.95)
           } catch (drawError) {
+            console.error('❌ Drawing error:', drawError)
             reject(drawError)
           }
         }
@@ -1215,6 +1291,8 @@ export async function captureCalendarScreenshot(
     })
     
   } catch (error) {
+    // Always restore elements on error
+    restoreAllElements()
     console.error('❌ Screenshot failed:', error)
     throw error
   }

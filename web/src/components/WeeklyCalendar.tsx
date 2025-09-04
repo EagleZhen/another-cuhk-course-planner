@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera } from 'lucide-react'
+import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, extractSectionType } from '@/lib/courseUtils'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
 
@@ -739,7 +739,15 @@ function UnscheduledSectionsCard({
         <div className="p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1 min-w-0">
-              <span className="text-sm font-medium text-gray-700">📋 Unscheduled ({unscheduledSections.length})</span>
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-gray-500" />
+                <span className="text-sm font-medium text-gray-700">
+                  {unscheduledSections.length === 1 
+                    ? '1 Unscheduled Course'
+                    : `${unscheduledSections.length} Unscheduled Courses`
+                  }
+                </span>
+              </div>
               
               <div className="flex gap-2 flex-wrap">
                 {unscheduledSections.map((item, index) => {
