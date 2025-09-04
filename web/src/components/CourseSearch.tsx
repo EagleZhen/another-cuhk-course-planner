@@ -1256,7 +1256,7 @@ function CourseCard({
                 title="Click to learn about CUHK term course load limits"
               >
                 {course.credits} credits
-                <Search className="w-2.5 h-2.5 opacity-60" />
+                <Info className="w-2.5 h-2.5 opacity-60" />
               </Badge>
               {course.gradingBasis && (
                 /* Interactive Grading Basis Badge */
@@ -1269,7 +1269,7 @@ function CourseCard({
                   title="Click to learn about CUHK grading systems"
                 >
                   {course.gradingBasis}
-                  <Search className="w-2.5 h-2.5 opacity-60" />
+                  <Info className="w-2.5 h-2.5 opacity-60" />
                 </Badge>
               )}
               {/* Show all instructors as filter toggle buttons */}
@@ -1442,7 +1442,7 @@ function CourseCard({
                 title="Click to learn about CUHK term course load limits"
               >
                 {course.credits} credits
-                <Search className="w-2.5 h-2.5 opacity-60" />
+                <Info className="w-2.5 h-2.5 opacity-60" />
               </Badge>
               {course.gradingBasis && (
                 /* Interactive Grading Basis Badge */
@@ -1455,7 +1455,7 @@ function CourseCard({
                   title="Click to learn about CUHK grading systems"
                 >
                   {course.gradingBasis}
-                  <Search className="w-2.5 h-2.5 opacity-60" />
+                  <Info className="w-2.5 h-2.5 opacity-60" />
                 </Badge>
               )}
               {/* Show instructors as filter toggle buttons on mobile */}
