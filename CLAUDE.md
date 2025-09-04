@@ -1134,4 +1134,126 @@ className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-cent
 
 ---
 
-*Last updated: September 2025 - Advanced UX Complete: Implemented intelligent inline loading states with professional pill badges, transformed static badges into interactive educational resources linking to official CUHK documentation, added smart empty state handling with contextual guidance, refined conditional interaction design for meaningful functionality only, and established comprehensive performance analytics architecture for real-world usage insights across diverse student hardware.*
+## ✅ Latest Achievement: Screenshot System Architecture Refactoring & Modularization (September 2025)
+
+**Major Screenshot System Improvements**: 
+1. **Clean Code Architecture**: Extracted screenshot functionality from `courseUtils.ts` to dedicated `screenshotUtils.ts` module for better separation of concerns
+2. **Bug Fix & Optimization**: Resolved width calculation timing issues, border clipping problems, and selection state persistence issues
+3. **Professional Screenshot Output**: Implemented clean screenshots with hidden UI elements (chevrons, selection effects) while preserving interactive functionality
+4. **State Management Improvements**: Developed CSS-only manipulation approach to avoid React state conflicts during screenshot capture
+5. **Container Width Calculation**: Fixed dynamic width calculation using actual calendar dimensions instead of hardcoded assumptions
+
+### **🏗️ Screenshot Architecture Refactoring**
+
+**Problem Addressed**: Screenshot functionality was embedded in `courseUtils.ts`, creating maintainability issues and architectural debt during the extraction process.
+
+**Modular Architecture Implementation:**
+```typescript
+// Before: Mixed responsibilities
+courseUtils.ts → Screenshot + Course utilities (tightly coupled)
+
+// After: Clean separation of concerns
+courseUtils.ts → Pure course utilities only
+screenshotUtils.ts → Dedicated screenshot functionality
+```
+
+**Refactoring Process & Issues Resolved:**
+1. **Phase 1: Module Extraction** - Moved complete screenshot function to separate module
+2. **Phase 2: Import Updates** - Updated WeeklyCalendar.tsx to use new module
+3. **Phase 3: Bug Investigation** - Identified and resolved timing-based width calculation issues
+
+### **🐛 Critical Bug Fixes During Refactoring**
+
+**Width Calculation Timing Bug:**
+```typescript
+// PROBLEMATIC: Width set after getBoundingClientRect()
+const info = await prepareElement(element) // getBoundingClientRect() called here
+setContainerWidth(calendarWidth - margins)   // Width set after measurement
+
+// FIXED: Width set during element preparation
+const info = await prepareElement(element, true, calendarWidth) // Width set before measurement
+```
+
+**Selection State Persistence:**
+- **Root Cause**: Click-based selection clearing was changing React state permanently
+- **Solution**: CSS-only visual effect clearing (`className` → `transform: scale(1)`) without React state changes
+- **Result**: Clean screenshots with proper UI restoration
+
+**Unscheduled Course Card Width:**
+- **Issue**: Hard-coded 800px assumption caused narrow container width
+- **Fix**: Dynamic calculation using actual `calendarInfo.actualWidth`
+- **Improvement**: Proper alignment with calendar while preserving border visibility
+
+### **🎨 Professional Screenshot Styling**
+
+**UI Element Management:**
+```typescript
+// Hide interactive elements for professional appearance
+const chevron = element.querySelector('svg.w-4.h-4.text-gray-400') as HTMLElement
+chevron.setAttribute('class', originalClass + ' hidden')
+
+// Clear selection visual effects without React state changes  
+const cleanClass = originalClass
+  .replace(/scale-105/g, 'scale-100')
+  .replace(/shadow-lg/g, 'shadow-sm')
+```
+
+**CSS-Only Expansion Approach:**
+- **Expansion**: Pure CSS manipulation (`display: block`, `height: auto`) without React clicks
+- **Benefit**: Maintains React state consistency while achieving visual expansion
+- **Restoration**: Simple `style.cssText = originalStyle` restoration
+
+### **🧠 Architectural Insights & Lessons Learned**
+
+**Screenshot Functionality Best Practices:**
+- **Pure DOM Manipulation**: Screenshot processes should be purely visual and never interfere with React state
+- **Timing Matters**: Element styling must happen before measurement, not after
+- **State Preservation**: Avoid click-based interactions during screenshot to prevent state pollution
+- **Clean Restoration**: CSS property restoration is more reliable than class manipulation
+
+**Modular Architecture Benefits:**
+- **Separation of Concerns**: Screenshot logic isolated from business logic
+- **Maintainability**: Easier to debug and enhance screenshot features independently  
+- **Testability**: Screenshot functionality can be tested in isolation
+- **Code Clarity**: `courseUtils.ts` now focuses purely on course-related utilities
+
+**Debugging Methodology:**
+- **Systematic Approach**: Debug logs revealed timing issues that weren't obvious from code inspection
+- **Root Cause Analysis**: Understanding that DOM manipulation timing affects measurement accuracy
+- **CSS vs React State**: Learning when to use CSS manipulation vs React state changes
+
+### **📋 Future Maintenance & Enhancement Opportunities**
+
+**Conditional Debug Logging System (Priority: Low)**
+```typescript
+// Proposed debug utility for development/troubleshooting
+const debug = {
+  screenshot: (msg: string) => localStorage.getItem('debug-screenshot') && console.log(`📸 ${msg}`),
+  layout: (msg: string) => localStorage.getItem('debug-layout') && console.log(`📏 ${msg}`)
+}
+
+// Enable via browser console: localStorage.setItem('debug-screenshot', 'true')
+```
+
+**Screenshot Enhancement Ideas:**
+- **Silent Screenshots**: Implement element cloning approach for zero UI impact during capture
+- **Dynamic Layouts**: Better responsive handling for different screen sizes and content lengths
+- **Export Options**: Multiple format support (PNG, PDF, etc.) and quality settings
+
+### **Latest Architectural Insights (September 2025)**
+
+**Code Organization Philosophy:**
+- **Single Responsibility Modules** - Each file should have one clear purpose and responsibility
+- **Clean Import Architecture** - Explicit separation between types, utilities, and specialized functionality
+- **State Management Boundaries** - Screenshot processes should not cross React state boundaries
+- **Timing-Aware Development** - DOM manipulation order significantly impacts measurement accuracy
+
+**Debugging & Problem-Solving Approach:**
+- **Debug-Driven Development** - Strategic console logging reveals issues invisible to code inspection
+- **Systematic Issue Isolation** - Break complex problems into testable, debuggable components  
+- **Root Cause Analysis** - Understanding why problems occur prevents recurring similar issues
+- **User Experience Priority** - Technical solutions must preserve and enhance user experience
+
+---
+
+*Last updated: September 2025 - Screenshot System Refactoring Complete: Successfully extracted screenshot functionality to dedicated module, resolved width calculation timing bugs, fixed selection state persistence issues, implemented professional screenshot styling with hidden UI elements, and established CSS-only manipulation approach for React state preservation during screenshot capture.*
