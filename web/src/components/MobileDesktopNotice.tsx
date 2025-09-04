@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Monitor } from 'lucide-react'
 
 export default function MobileDesktopNotice() {
@@ -57,13 +58,15 @@ export default function MobileDesktopNotice() {
                 </div>
               </div>
             )}
-            <img 
+            <Image 
               src="/og-image.png" 
               alt="Desktop view showing shopping cart and weekly calendar side by side"
-              className={`w-full h-full object-cover transition-opacity duration-300 ${
+              fill
+              className={`object-cover transition-opacity duration-300 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setImageLoaded(true)}
+              priority
             />
           </div>
         </div>
