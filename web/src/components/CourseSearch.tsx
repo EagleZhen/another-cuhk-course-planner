@@ -1246,10 +1246,30 @@ function CourseCard({
               {course.title}
             </CardDescription>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
-              <Badge variant="secondary">{course.credits} credits</Badge>
+              {/* Interactive Credits Badge */}
+              <Badge 
+                variant="secondary" 
+                className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+                onClick={() => {
+                  window.open('https://www.res.cuhk.edu.hk/en-gb/undergraduate-students/information-for-year-1-students/62-undergraduate-students/information-for-year-1-students/course-selection-and-add-drop#:~:text=3.-,Term%20Course%20Load,-Students%20should%20observe', '_blank', 'noopener,noreferrer')
+                }}
+                title="Click to learn about CUHK term course load limits"
+              >
+                {course.credits} credits
+                <Search className="w-2.5 h-2.5 opacity-60" />
+              </Badge>
               {course.gradingBasis && (
-                <Badge variant="secondary" className="text-xs">
+                /* Interactive Grading Basis Badge */
+                <Badge 
+                  variant="secondary" 
+                  className="text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+                  onClick={() => {
+                    window.open('https://www.res.cuhk.edu.hk/en-gb/general-information/grading-system-of-undergraduate-programmes', '_blank', 'noopener,noreferrer')
+                  }}
+                  title="Click to learn about CUHK grading systems"
+                >
                   {course.gradingBasis}
+                  <Search className="w-2.5 h-2.5 opacity-60" />
                 </Badge>
               )}
               {/* Show all instructors as filter toggle buttons */}
@@ -1412,10 +1432,30 @@ function CourseCard({
           {/* Course metadata */}
           <div>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
-              <Badge variant="secondary">{course.credits} credits</Badge>
+              {/* Interactive Credits Badge */}
+              <Badge 
+                variant="secondary" 
+                className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+                onClick={() => {
+                  window.open('https://www.res.cuhk.edu.hk/en-gb/undergraduate-students/information-for-year-1-students/62-undergraduate-students/information-for-year-1-students/course-selection-and-add-drop#:~:text=3.-,Term%20Course%20Load,-Students%20should%20observe', '_blank', 'noopener,noreferrer')
+                }}
+                title="Click to learn about CUHK term course load limits"
+              >
+                {course.credits} credits
+                <Search className="w-2.5 h-2.5 opacity-60" />
+              </Badge>
               {course.gradingBasis && (
-                <Badge variant="secondary" className="text-xs">
+                /* Interactive Grading Basis Badge */
+                <Badge 
+                  variant="secondary" 
+                  className="text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+                  onClick={() => {
+                    window.open('https://www.res.cuhk.edu.hk/en-gb/general-information/grading-system-of-undergraduate-programmes', '_blank', 'noopener,noreferrer')
+                  }}
+                  title="Click to learn about CUHK grading systems"
+                >
                   {course.gradingBasis}
+                  <Search className="w-2.5 h-2.5 opacity-60" />
                 </Badge>
               )}
               {/* Show instructors as filter toggle buttons on mobile */}
