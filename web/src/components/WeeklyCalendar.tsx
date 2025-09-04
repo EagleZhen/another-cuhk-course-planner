@@ -219,7 +219,15 @@ export default function WeeklyCalendar({
     setIsCapturing(true)
     try {
       console.log('Starting screenshot capture...')
-      await captureCalendarScreenshot(calendarRef.current, selectedTerm)
+      
+      // Find unscheduled section using data attribute (can be null)
+      const unscheduledElement = document.querySelector('[data-screenshot="unscheduled"]') as HTMLElement | null
+      
+      await captureCalendarScreenshot(
+        calendarRef.current, 
+        unscheduledElement,
+        selectedTerm
+      )
       console.log('Screenshot completed successfully')
     } catch (error) {
       console.error('Screenshot capture failed:', error)
@@ -723,7 +731,7 @@ function UnscheduledSectionsCard({
   }, [selectedEnrollment, unscheduledSections])
   
   return (
-    <div className="px-4 py-1 bg-white">
+    <div data-screenshot="unscheduled" className="px-4 py-1 bg-white">
       <div 
         className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 transition-all bg-white cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}

@@ -967,10 +967,11 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
 
 /**
  * Captures a calendar screenshot with term name header and website attribution
- * Robust implementation that captures the full scrollable content
+ * Now supports compositing calendar and unscheduled sections together
  */
 export async function captureCalendarScreenshot(
-  scrollableElement: HTMLElement,
+  calendarElement: HTMLElement,
+  unscheduledElement: HTMLElement | null,
   termName: string,
   websiteUrl: string = typeof window !== 'undefined' ? window.location.origin : ''
 ): Promise<void> {
@@ -979,66 +980,143 @@ export async function captureCalendarScreenshot(
   try {
     console.log('📸 Starting calendar screenshot...')
     
-    // Step 1: Store original styles and get full content dimensions
-    const originalStyle = scrollableElement.style.cssText
-    const fullContentHeight = scrollableElement.scrollHeight
-    const contentWidth = Math.max(scrollableElement.scrollWidth, 800)
-    
-    console.log(`📏 Original visible: ${scrollableElement.clientHeight}px, Full content: ${fullContentHeight}px`)
-    
-    // Step 2: Temporarily expand to show ALL content (remove all constraints)
-    scrollableElement.style.maxHeight = 'none'
-    scrollableElement.style.height = 'auto' // Let it expand naturally
-    scrollableElement.style.overflow = 'visible'
-    scrollableElement.style.overflowY = 'visible'
-    
-    // Also ensure parent containers don't constrain us
-    const parentContainer = scrollableElement.parentElement
-    let originalParentStyle = ''
-    if (parentContainer) {
-      originalParentStyle = parentContainer.style.cssText
-      parentContainer.style.height = 'auto'
-      parentContainer.style.maxHeight = 'none'
+    // Helper function to expand element for full capture
+    const prepareElementForCapture = async (element: HTMLElement, forceExpand = false) => {
+      const originalStyle = element.style.cssText
+      const fullContentHeight = element.scrollHeight
+      const contentWidth = Math.max(element.scrollWidth, 800)
+      
+      // For unscheduled sections, force expansion to show all content
+      let expandedStateChanged = false
+      if (forceExpand) {
+        // Force expand by clicking the expand trigger
+        const expandTrigger = element.querySelector('[class*="cursor-pointer"]') as HTMLElement
+        
+        if (expandTrigger) {
+          // Simulate click to expand if not already expanded
+          const expandableContent = element.querySelector('.px-3.pb-3.pt-0')
+          if (!expandableContent || getComputedStyle(expandableContent).display === 'none') {
+            expandTrigger.click()
+            expandedStateChanged = true
+            console.log('📋 Clicked to expand unscheduled section for screenshot')
+            
+            // Wait for React state update and re-render
+            await new Promise(resolve => setTimeout(resolve, 100))
+          }
+        }
+      }
+      
+      // Temporarily expand to show ALL content
+      element.style.maxHeight = 'none'
+      element.style.height = 'auto'
+      element.style.overflow = 'visible'
+      element.style.overflowY = 'visible'
+      
+      // Handle parent constraints
+      const parentContainer = element.parentElement
+      let originalParentStyle = ''
+      if (parentContainer) {
+        originalParentStyle = parentContainer.style.cssText
+        parentContainer.style.height = 'auto'
+        parentContainer.style.maxHeight = 'none'
+      }
+      
+      // Force layout and wait for rendering
+      element.getBoundingClientRect()
+      await new Promise(resolve => setTimeout(resolve, 300)) // Longer wait for expansion
+      
+      const expandedRect = element.getBoundingClientRect()
+      const actualWidth = Math.max(expandedRect.width, contentWidth)
+      const actualHeight = Math.max(expandedRect.height, fullContentHeight)
+      
+      return {
+        originalStyle,
+        originalParentStyle,
+        parentContainer,
+        actualWidth,
+        actualHeight,
+        expandedStateChanged
+      }
     }
     
-    // Step 3: Force layout and wait for rendering
-    scrollableElement.getBoundingClientRect()
-    await new Promise(resolve => setTimeout(resolve, 200)) // More time for layout
+    // Step 1: Capture calendar element
+    console.log('📏 Preparing calendar for capture...')
+    const calendarInfo = await prepareElementForCapture(calendarElement)
     
-    // Step 4: Get actual expanded dimensions
-    const expandedRect = scrollableElement.getBoundingClientRect()
-    const actualWidth = Math.max(expandedRect.width, contentWidth)
-    const actualHeight = Math.max(expandedRect.height, fullContentHeight)
-    
-    console.log(`📏 Expanded to: ${actualWidth}x${actualHeight}`)
-    
-    // Step 5: Capture the expanded content with high resolution
-    const calendarDataUrl = await toPng(scrollableElement, {
-      quality: 1.0, // Maximum quality
+    const calendarDataUrl = await toPng(calendarElement, {
+      quality: 1.0,
       backgroundColor: '#ffffff',
-      pixelRatio: 5.0, // Very high resolution for crisp output
-      width: actualWidth,
-      height: actualHeight,
+      pixelRatio: 5.0,
+      width: calendarInfo.actualWidth,
+      height: calendarInfo.actualHeight,
       style: {
         transform: 'scale(1)',
         transformOrigin: 'top left',
       },
-      skipAutoScale: true, // Prevent auto-scaling issues
+      skipAutoScale: true,
     })
     
-    // Step 6: Restore original styles immediately
-    scrollableElement.style.cssText = originalStyle
-    if (parentContainer) {
-      parentContainer.style.cssText = originalParentStyle
+    // Restore calendar styles
+    calendarElement.style.cssText = calendarInfo.originalStyle
+    if (calendarInfo.parentContainer) {
+      calendarInfo.parentContainer.style.cssText = calendarInfo.originalParentStyle
     }
     
-    // Step 7: Create final image with header and footer
-    const padding = 50 // Minimal padding for tight layout
-    const headerHeight = 90 // Compact header
-    const footerHeight = 5 // Compact footer
+    // Step 2: Capture unscheduled element (if it exists)
+    let unscheduledDataUrl: string | null = null
+    let unscheduledInfo: any = null
     
-    const finalWidth = Math.max(actualWidth + (padding * 2), 1000)
-    const finalHeight = actualHeight + headerHeight + footerHeight + (padding * 2)
+    if (unscheduledElement) {
+      console.log('📏 Preparing unscheduled section for capture...')
+      unscheduledInfo = await prepareElementForCapture(unscheduledElement, true) // Force expand
+      
+      // Match width to calendar for better alignment
+      const targetWidth = calendarInfo.actualWidth
+      
+      unscheduledDataUrl = await toPng(unscheduledElement, {
+        quality: 1.0,
+        backgroundColor: '#ffffff',
+        pixelRatio: 5.0,
+        width: targetWidth, // Use calendar width for consistency
+        height: unscheduledInfo.actualHeight,
+        style: {
+          transform: 'scale(1)',
+          transformOrigin: 'top left',
+        },
+        skipAutoScale: true,
+      })
+      
+      // Update width info to match calendar
+      unscheduledInfo.actualWidth = targetWidth
+      
+      // Restore unscheduled styles
+      unscheduledElement.style.cssText = unscheduledInfo.originalStyle
+      if (unscheduledInfo.parentContainer) {
+        unscheduledInfo.parentContainer.style.cssText = unscheduledInfo.originalParentStyle
+      }
+    }
+    
+    console.log(`📏 Calendar: ${calendarInfo.actualWidth}x${calendarInfo.actualHeight}`)
+    if (unscheduledInfo) {
+      console.log(`📏 Unscheduled: ${unscheduledInfo.actualWidth}x${unscheduledInfo.actualHeight}`)
+    }
+    
+    // Step 3: Calculate final layout dimensions  
+    const padding = 50
+    const headerHeight = 90
+    const footerHeight = 30 // Slightly larger for better proportions
+    const sectionSpacing = 20 // Space between calendar and unscheduled section
+    
+    // Calculate total content dimensions
+    const maxWidth = Math.max(
+      calendarInfo.actualWidth, 
+      unscheduledInfo ? unscheduledInfo.actualWidth : 0
+    )
+    const totalContentHeight = calendarInfo.actualHeight + 
+      (unscheduledInfo ? unscheduledInfo.actualHeight + sectionSpacing : 0)
+    
+    const finalWidth = Math.max(maxWidth + (padding * 2), 1000)
+    const finalHeight = totalContentHeight + headerHeight + footerHeight + (padding * 2)
     
     const canvas = document.createElement('canvas')
     const scale = 2 // High DPI scaling for crisp text
@@ -1061,50 +1139,79 @@ export async function captureCalendarScreenshot(
     ctx.textAlign = 'center'
     ctx.fillText(termName, finalWidth / 2, padding + 55)
     
-    // Load and draw calendar
+    console.log(`📏 Final dimensions: ${finalWidth}x${finalHeight}`)
+    
+    // Load and composite images
     const calendarImage = new Image()
+    const unscheduledImage = unscheduledDataUrl ? new Image() : null
     
     return new Promise<void>((resolve, reject) => {
-      calendarImage.onload = () => {
-        // Draw calendar centered
-        const calendarX = (finalWidth - actualWidth) / 2
-        const calendarY = padding + headerHeight
-        ctx.drawImage(calendarImage, calendarX, calendarY, actualWidth, actualHeight)
-        
-        // Footer with matching Geist font - larger text
-        ctx.fillStyle = '#6b7280'
-        ctx.font = '20px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
-        ctx.textAlign = 'center'
-        ctx.fillText(
-          `Generated from ${websiteUrl}`,
-          finalWidth / 2,
-          finalHeight - padding + 30
-        )
-        
-        // Download
-        canvas.toBlob((blob) => {
-          if (!blob) {
-            reject(new Error('Failed to create image'))
-            return
+      let imagesLoaded = 0
+      const totalImages = unscheduledImage ? 2 : 1
+      
+      const checkImagesLoaded = () => {
+        imagesLoaded++
+        if (imagesLoaded === totalImages) {
+          try {
+            // Draw calendar centered
+            const calendarX = (finalWidth - calendarInfo.actualWidth) / 2
+            const calendarY = padding + headerHeight
+            ctx.drawImage(calendarImage, calendarX, calendarY, calendarInfo.actualWidth, calendarInfo.actualHeight)
+            
+            // Draw unscheduled section below calendar (if exists)
+            if (unscheduledImage && unscheduledInfo) {
+              const unscheduledX = (finalWidth - unscheduledInfo.actualWidth) / 2
+              const unscheduledY = calendarY + calendarInfo.actualHeight + sectionSpacing
+              ctx.drawImage(unscheduledImage, unscheduledX, unscheduledY, unscheduledInfo.actualWidth, unscheduledInfo.actualHeight)
+            }
+            
+            // Footer with matching Geist font
+            ctx.fillStyle = '#6b7280'
+            ctx.font = '20px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            ctx.textAlign = 'center'
+            ctx.fillText(
+              `Generated from ${websiteUrl}`,
+              finalWidth / 2,
+              finalHeight - padding / 2
+            )
+            
+            // Download
+            canvas.toBlob((blob) => {
+              if (!blob) {
+                reject(new Error('Failed to create image'))
+                return
+              }
+              
+              const url = URL.createObjectURL(blob)
+              const link = document.createElement('a')
+              link.href = url
+              link.download = `${termName.replace(/\s+/g, '-')}-schedule-${new Date().toISOString().split('T')[0]}.png`
+              
+              document.body.appendChild(link)
+              link.click()
+              document.body.removeChild(link)
+              URL.revokeObjectURL(url)
+              
+              console.log('✅ Calendar screenshot with unscheduled sections saved successfully!')
+              resolve()
+            }, 'image/png', 0.95)
+          } catch (drawError) {
+            reject(drawError)
           }
-          
-          const url = URL.createObjectURL(blob)
-          const link = document.createElement('a')
-          link.href = url
-          link.download = `${termName.replace(/\s+/g, '-')}-schedule-${new Date().toISOString().split('T')[0]}.png`
-          
-          document.body.appendChild(link)
-          link.click()
-          document.body.removeChild(link)
-          URL.revokeObjectURL(url)
-          
-          console.log('✅ Calendar screenshot saved successfully!')
-          resolve()
-        }, 'image/png', 0.95)
+        }
       }
       
+      // Load calendar image
+      calendarImage.onload = checkImagesLoaded
       calendarImage.onerror = () => reject(new Error('Failed to load calendar image'))
       calendarImage.src = calendarDataUrl
+      
+      // Load unscheduled image if it exists
+      if (unscheduledImage && unscheduledDataUrl) {
+        unscheduledImage.onload = checkImagesLoaded
+        unscheduledImage.onerror = () => reject(new Error('Failed to load unscheduled image'))
+        unscheduledImage.src = unscheduledDataUrl
+      }
     })
     
   } catch (error) {
