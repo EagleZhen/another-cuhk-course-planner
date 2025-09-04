@@ -28,7 +28,7 @@ class ScrapingConfig:
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
-    progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename
+    progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename (use os.path.join for production)
     progress_update_interval: int = 60  # Save progress every N seconds
     
     # Scraping scope configuration
@@ -49,7 +49,7 @@ class ScrapingConfig:
             output_mode="per_subject",  # Per-subject files for production
             output_directory="data",     # Production data directory
             track_progress=True,         # Enable progress tracking
-            progress_file="data/scraping_progress.json",
+            progress_file=os.path.join("data", "scraping_progress.json"),  # Windows-safe path
             progress_update_interval=60,  # 1-minute periodic saves
             # Full scraping scope for production
             get_details=True,
