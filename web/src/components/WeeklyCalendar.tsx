@@ -4,7 +4,8 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, captureCalendarScreenshot, extractSectionType } from '@/lib/courseUtils'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType } from '@/lib/courseUtils'
+import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
 
 // Clean calendar architecture - time-first approach
