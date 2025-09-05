@@ -17,12 +17,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Another CUHK Course Planner",
-  description: "Interactive weekly calendar for CUHK courses with automatic conflict detection and easy section management.",
+  description: "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
 
   // Open Graph (Facebook, WhatsApp, Discord, Instagram, etc.)
   openGraph: {
     title: "Another CUHK Course Planner",
-    description: "Interactive weekly calendar for CUHK courses with automatic conflict detection and easy section management.",
+    description: "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
     url: "https://another-cuhk-course-planner.com", // Your final custom domain
     siteName: "Another CUHK Course Planner",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Another CUHK Course Planner",
-    description: "Interactive weekly calendar for CUHK courses with automatic conflict detection and easy section management.",
+    description: "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
     images: ["https://another-cuhk-course-planner.com/og-image.png"], // Will work with final custom domain
   },
 
@@ -54,6 +54,18 @@ export const metadata: Metadata = {
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
+  },
+
+  other: {
+    'application/ld+json': JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Another CUHK Course Planner",
+      "description": "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
+      "url": "https://another-cuhk-course-planner.com",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web Browser"
+    })
   },
 };
 
