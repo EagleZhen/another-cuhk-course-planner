@@ -1,9 +1,9 @@
 {
   "scraping_log": {
-    "started_at": "2025-09-04T16:11:28.881170+00:00",
-    "last_updated": "2025-09-04T23:52:00.752592+00:00",
-    "duration_human": "7h 40m 31s",
-    "total_subjects": 263,
+    "started_at": "2025-09-06T02:15:56.524558+00:00",
+    "last_updated": "2025-09-06T02:40:16.924840+00:00",
+    "duration_human": "24m 20s",
+    "total_subjects": 4,
     "completed": 263,
     "failed": 0,
     "subjects": {
@@ -457,7 +457,7 @@
       },
       "BUDS": {
         "status": "completed",
-        "last_scraped": "2025-09-04T17:02:58.909786+00:00",
+        "last_scraped": "2025-09-06T02:16:38.218433+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/BUDS.json",
@@ -1241,11 +1241,11 @@
       },
       "ELTU": {
         "status": "completed",
-        "last_scraped": "2025-09-04T18:52:50.029635+00:00",
+        "last_scraped": "2025-09-06T02:26:41.146393+00:00",
         "courses_count": 50,
         "courses_scraped": 50,
         "output_file": "data/ELTU.json",
-        "duration_minutes": 7.21,
+        "duration_minutes": 10.03,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3257,11 +3257,11 @@
       },
       "SEEM": {
         "status": "completed",
-        "last_scraped": "2025-09-04T22:51:40.365597+00:00",
+        "last_scraped": "2025-09-06T02:30:47.821247+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/SEEM.json",
-        "duration_minutes": 3.44,
+        "duration_minutes": 4.09,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3537,11 +3537,11 @@
       },
       "THEO": {
         "status": "completed",
-        "last_scraped": "2025-09-04T23:24:18.270455+00:00",
+        "last_scraped": "2025-09-06T02:40:16.924199+00:00",
         "courses_count": 198,
         "courses_scraped": 198,
         "output_file": "data/THEO.json",
-        "duration_minutes": 7.77,
+        "duration_minutes": 9.47,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
