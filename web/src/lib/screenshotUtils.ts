@@ -3,6 +3,137 @@
  * Extracted from courseUtils.ts for better separation of concerns
  */
 
+// Layout configuration - centralized spacing and dimensions
+interface LayoutConfig {
+  padding: number
+  headerHeight: number
+  sectionSpacing: number  // Between calendar and unscheduled
+  footerSpacing: number   // Between content and footer (context-dependent)
+  bottomMargin: number    // Below footer
+  minWidth: number        // Minimum canvas width
+}
+
+// Typography configuration - centralized font definitions
+const FONTS = {
+  // Geist font stack matching Next.js application
+  base: 'Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+  header: 'bold 30px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+  footerPrefix: '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+  footerBrand: '500 16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+  footerUrl: '14px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+} as const
+
+// Layout calculation result
+interface ScreenshotLayout {
+  canvas: {
+    width: number
+    height: number
+  }
+  header: {
+    x: number
+    y: number
+  }
+  calendar: {
+    x: number
+    y: number
+    width: number
+    height: number
+  }
+  unscheduled?: {
+    x: number
+    y: number
+    width: number
+    height: number
+  }
+  footer: {
+    line1Y: number
+    line2Y: number
+    textStartX: number
+  }
+}
+
+/**
+ * Calculate screenshot layout dimensions and positions
+ * Centralizes all spacing and positioning logic
+ * 
+ * @param calendarDimensions - Calendar element dimensions
+ * @param unscheduledDimensions - Optional unscheduled section dimensions
+ * @returns Complete layout specification with all element positions
+ * 
+ * Layout Flow:
+ * [Header]
+ * [Calendar]
+ * [Unscheduled] (optional)
+ * [Footer - Line 1: Generated from Another CUHK Course Planner]
+ * [Footer - Line 2: website URL]
+ */
+function calculateScreenshotLayout(
+  calendarDimensions: { width: number; height: number },
+  unscheduledDimensions?: { width: number; height: number }
+): ScreenshotLayout {
+  const config: LayoutConfig = {
+    padding: 50,
+    headerHeight: 40,
+    sectionSpacing: 10,
+    footerSpacing: unscheduledDimensions ? -30 : 10, // Tighter with unscheduled, normal without
+    bottomMargin: 60,
+    minWidth: 1000
+  }
+
+  // Calculate content dimensions
+  const maxContentWidth = Math.max(
+    calendarDimensions.width,
+    unscheduledDimensions?.width || 0
+  )
+  
+  const totalContentHeight = calendarDimensions.height + 
+    (unscheduledDimensions ? unscheduledDimensions.height + config.sectionSpacing : 0)
+
+  // Calculate final canvas size
+  const canvasWidth = Math.max(maxContentWidth + (config.padding * 2), config.minWidth)
+  const canvasHeight = totalContentHeight + config.headerHeight + config.footerSpacing + config.bottomMargin + config.padding
+
+  // Calculate element positions
+  const headerX = canvasWidth / 2
+  const headerY = config.padding + 10
+
+  const calendarX = (canvasWidth - calendarDimensions.width) / 2
+  const calendarY = config.padding + config.headerHeight
+
+  const unscheduledLayout = unscheduledDimensions ? {
+    x: (canvasWidth - unscheduledDimensions.width) / 2,
+    y: calendarY + calendarDimensions.height + config.sectionSpacing,
+    width: unscheduledDimensions.width,
+    height: unscheduledDimensions.height
+  } : undefined
+
+  // Footer positioning
+  const footerStartY = totalContentHeight + config.headerHeight + config.padding + config.footerSpacing
+  
+  return {
+    canvas: {
+      width: canvasWidth,
+      height: canvasHeight
+    },
+    header: {
+      x: headerX,
+      y: headerY
+    },
+    calendar: {
+      x: calendarX,
+      y: calendarY,
+      width: calendarDimensions.width,
+      height: calendarDimensions.height
+    },
+    unscheduled: unscheduledLayout,
+    footer: {
+      line1Y: footerStartY + 20,
+      line2Y: footerStartY + 40,
+      textStartX: canvasWidth / 2 // Will be adjusted during text rendering
+    }
+  }
+}
+
 /**
  * Captures a calendar screenshot with term name header and website attribution
  * Now supports compositing calendar and unscheduled sections together
@@ -280,28 +411,16 @@ export async function captureCalendarScreenshot(
       console.log(`📏 Unscheduled: ${unscheduledInfo.actualWidth}x${unscheduledInfo.actualHeight}`)
     }
     
-    // Step 3: Calculate final layout dimensions  
-    const padding = 50
-    const headerHeight = 40
-    const sectionSpacing = 10 // Space between calendar and unscheduled section
-    const footerSpacing = unscheduledInfo ? -30 : 10 // Negative spacing only when unscheduled exists, positive otherwise
-    const bottomMargin = 60 // More space below footer to prevent text clipping
-    
-    // Calculate total content dimensions
-    const maxWidth = Math.max(
-      calendarInfo.actualWidth, 
-      unscheduledInfo ? unscheduledInfo.actualWidth : 0
+    // Step 3: Calculate layout using centralized system
+    const layout = calculateScreenshotLayout(
+      { width: calendarInfo.actualWidth, height: calendarInfo.actualHeight },
+      unscheduledInfo ? { width: unscheduledInfo.actualWidth, height: unscheduledInfo.actualHeight } : undefined
     )
-    const totalContentHeight = calendarInfo.actualHeight + 
-      (unscheduledInfo ? unscheduledInfo.actualHeight + sectionSpacing : 0)
-    
-    const finalWidth = Math.max(maxWidth + (padding * 2), 1000)
-    const finalHeight = totalContentHeight + headerHeight + footerSpacing + bottomMargin + padding // Top padding + header + content + footer spacing + bottom margin
     
     const canvas = document.createElement('canvas')
     const scale = 2 // High DPI scaling for crisp text
-    canvas.width = finalWidth * scale
-    canvas.height = finalHeight * scale
+    canvas.width = layout.canvas.width * scale
+    canvas.height = layout.canvas.height * scale
     const ctx = canvas.getContext('2d')
     
     if (!ctx) throw new Error('Failed to get canvas context')
@@ -311,15 +430,15 @@ export async function captureCalendarScreenshot(
     
     // White background
     ctx.fillStyle = '#ffffff'
-    ctx.fillRect(0, 0, finalWidth, finalHeight)
+    ctx.fillRect(0, 0, layout.canvas.width, layout.canvas.height)
     
-    // Header with your app's Geist font (exactly matching Next.js)
+    // Header with consistent typography
     ctx.fillStyle = '#111827'
-    ctx.font = 'bold 30px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+    ctx.font = FONTS.header
     ctx.textAlign = 'center'
-    ctx.fillText(termName, finalWidth / 2, padding + 10)
+    ctx.fillText(termName, layout.header.x, layout.header.y)
     
-    console.log(`📏 Final dimensions: ${finalWidth}x${finalHeight}`)
+    console.log(`📏 Final dimensions: ${layout.canvas.width}x${layout.canvas.height}`)
     
     // Load and composite images
     const calendarImage = new Image()
@@ -333,50 +452,42 @@ export async function captureCalendarScreenshot(
         imagesLoaded++
         if (imagesLoaded === totalImages) {
           try {
-            // Draw calendar centered
-            const calendarX = (finalWidth - calendarInfo.actualWidth) / 2
-            const calendarY = padding + headerHeight
-            ctx.drawImage(calendarImage, calendarX, calendarY, calendarInfo.actualWidth, calendarInfo.actualHeight)
+            // Draw calendar using layout position
+            ctx.drawImage(calendarImage, layout.calendar.x, layout.calendar.y, layout.calendar.width, layout.calendar.height)
             
-            // Draw unscheduled section below calendar (if exists)
-            if (unscheduledImage && unscheduledInfo) {
-              const unscheduledX = (finalWidth - unscheduledInfo.actualWidth) / 2
-              const unscheduledY = calendarY + calendarInfo.actualHeight + sectionSpacing
-              ctx.drawImage(unscheduledImage, unscheduledX, unscheduledY, unscheduledInfo.actualWidth, unscheduledInfo.actualHeight)
+            // Draw unscheduled section using layout position (if exists)
+            if (unscheduledImage && layout.unscheduled) {
+              ctx.drawImage(unscheduledImage, layout.unscheduled.x, layout.unscheduled.y, layout.unscheduled.width, layout.unscheduled.height)
             }
             
-            // Two-line footer with brand emphasis
-            const footerStartY = totalContentHeight + headerHeight + padding + footerSpacing
-            
-            // Line 1: Mixed emphasis - light prefix + prominent app name
-            const line1Y = footerStartY + 20
+            // Two-line footer with brand emphasis using layout system
             const prefixText = 'Generated from '
             const appName = 'Another CUHK Course Planner'
             
-            // Measure text for positioning
-            ctx.font = '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            // Measure text for positioning using consistent fonts
+            ctx.font = FONTS.footerPrefix
             const prefixWidth = ctx.measureText(prefixText).width
-            ctx.font = '500 16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            ctx.font = FONTS.footerBrand
             const appNameWidth = ctx.measureText(appName).width
             const totalWidth = prefixWidth + appNameWidth
-            const startX = (finalWidth - totalWidth) / 2
+            const startX = (layout.canvas.width - totalWidth) / 2
             
-            // "Generated from" - lighter
+            // Line 1: "Generated from" - lighter
             ctx.fillStyle = '#6b7280'
-            ctx.font = '16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
+            ctx.font = FONTS.footerPrefix
             ctx.textAlign = 'left'
-            ctx.fillText(prefixText, startX, line1Y)
+            ctx.fillText(prefixText, startX, layout.footer.line1Y)
             
-            // App name - prominent
+            // Line 1: App name - prominent
             ctx.fillStyle = '#4b5563'
-            ctx.font = '500 16px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
-            ctx.fillText(appName, startX + prefixWidth, line1Y)
+            ctx.font = FONTS.footerBrand
+            ctx.fillText(appName, startX + prefixWidth, layout.footer.line1Y)
             
             // Line 2: URL (secondary) - lighter and smaller
-            ctx.fillStyle = '#6b7280'  // Lighter gray
-            ctx.font = '14px Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif'
-            ctx.textAlign = 'center'  // Reset to center for URL
-            ctx.fillText(websiteUrl, finalWidth / 2, footerStartY + 40)
+            ctx.fillStyle = '#6b7280'
+            ctx.font = FONTS.footerUrl
+            ctx.textAlign = 'center'
+            ctx.fillText(websiteUrl, layout.canvas.width / 2, layout.footer.line2Y)
             
             // Download
             canvas.toBlob((blob) => {
