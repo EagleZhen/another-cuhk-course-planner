@@ -323,7 +323,7 @@ export default function ShoppingCart({
                           onToggleVisibility(enrollment.courseId)
                         }}
                         className="h-5 w-5 p-0 cursor-pointer"
-                        title={isVisible ? 'Hide all sections on the calendar' : 'Show all sections on the calendar'}
+                        title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
                           <Eye className="w-3 h-3 text-gray-600" />
