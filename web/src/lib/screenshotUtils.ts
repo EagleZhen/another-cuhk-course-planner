@@ -509,11 +509,22 @@ function drawScreenshotFooter(ctx: CanvasRenderingContext2D, websiteUrl: string,
   ctx.font = FONTS.footerBrand
   ctx.fillText(appName, startX + prefixWidth, layout.footer.line1Y)
   
-  // Line 2: URL (secondary) - lighter and smaller
+  // Line 2: URL (secondary) - lighter and smaller with underline
   ctx.fillStyle = '#6b7280'
   ctx.font = FONTS.footerUrl
   ctx.textAlign = 'center'
-  ctx.fillText(websiteUrl, layout.canvas.width / 2, layout.footer.line2Y)
+  const urlX = layout.canvas.width / 2
+  ctx.fillText(websiteUrl, urlX, layout.footer.line2Y)
+  
+  // Add underline to make it look like a clickable link
+  const urlWidth = ctx.measureText(websiteUrl).width
+  const underlineY = layout.footer.line2Y + 2 // Slightly below text baseline
+  ctx.beginPath()
+  ctx.moveTo(urlX - urlWidth / 2, underlineY)
+  ctx.lineTo(urlX + urlWidth / 2, underlineY)
+  ctx.strokeStyle = '#6b7280'
+  ctx.lineWidth = 1
+  ctx.stroke()
 }
 
 /**
