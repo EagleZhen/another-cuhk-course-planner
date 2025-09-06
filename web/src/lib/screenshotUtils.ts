@@ -546,7 +546,12 @@ function downloadCompositeImage(
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      link.download = `${termName.replace(/\s+/g, '-')}-schedule-${new Date().toISOString().split('T')[0]}.png`
+      
+      // Generate filename with date and time for better uniqueness
+      const now = new Date()
+      const dateStr = now.toISOString().split('T')[0] // YYYY-MM-DD
+      const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-') // HH-MM-SS
+      link.download = `${termName.replace(/\s+/g, '-')}-Schedule-${dateStr}-${timeStr}.png`
       
       document.body.appendChild(link)
       link.click()
