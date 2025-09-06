@@ -1256,4 +1256,123 @@ const debug = {
 
 ---
 
-*Last updated: September 2025 - Screenshot System Refactoring Complete: Successfully extracted screenshot functionality to dedicated module, resolved width calculation timing bugs, fixed selection state persistence issues, implemented professional screenshot styling with hidden UI elements, and established CSS-only manipulation approach for React state preservation during screenshot capture.*
+---
+
+## ✅ Latest Achievement: Advanced Screenshot System Architecture & Configuration-Driven Design (September 2025)
+
+**Major Screenshot Architecture Modernization**: 
+1. **Complete Configuration Centralization**: Extracted all magic numbers, DOM selectors, and styling constants to centralized `SCREENSHOT_CONFIG`
+2. **Type-Safe Element Operations**: Implemented dedicated query functions (`findCardContainer()`, `findChevronIcon()`) preventing selector errors
+3. **State Management Class**: Created `ScreenshotStateManager` for guaranteed cleanup and memory management
+4. **Modular Function Architecture**: Decomposed 400+ line monolithic function into focused, single-responsibility functions
+5. **Professional Link Styling**: Added underlined website URL for intuitive visual recognition as clickable link
+6. **Enhanced Filename Generation**: Implemented date-time filename format for better file organization and uniqueness
+
+### **🏗️ Configuration-Driven Architecture**
+
+**Centralized Configuration System:**
+```typescript
+const SCREENSHOT_CONFIG = {
+  selectors: {
+    cardContainer: '.border.border-gray-200.rounded-lg.shadow-sm',
+    chevronIcon: 'svg.w-4.h-4.text-gray-400',
+    expandableContent: '[class*="px-3"][class*="pb-3"]',
+    courseCards: '.flex.flex-wrap.gap-2 > div',
+    selectedCards: '[class*="scale-105"], [class*="shadow-lg"]'
+  },
+  layout: {
+    default: { padding: 50, headerHeight: 40, footerSpacing: 10, ... },
+    withUnscheduled: { padding: 50, headerHeight: 40, footerSpacing: -30, ... }
+  },
+  canvas: { scale: 2, backgroundColor: '#ffffff', pixelRatio: 3.0, ... },
+  styling: { unscheduledContainer: { ... }, courseCard: { ... } },
+  classReplacements: { 'scale-105': 'scale-100', 'shadow-lg': 'shadow-sm' }
+}
+```
+
+**Type-Safe Element Operations:**
+```typescript
+// Before: Magic selectors scattered throughout codebase
+element.querySelector('.border.border-gray-200.rounded-lg.shadow-sm')
+
+// After: Centralized, type-safe element queries
+function findCardContainer(element: HTMLElement): HTMLElement | null {
+  return element.querySelector(SCREENSHOT_CONFIG.selectors.cardContainer)
+}
+```
+
+### **🎯 Modular Function Architecture**
+
+**Clean Separation of Concerns:**
+```typescript
+// State Management
+class ScreenshotStateManager {
+  storeElementState()    // Track DOM changes
+  restoreAllElements()   // Guaranteed cleanup
+  clear()               // Memory management
+}
+
+// Element Preparation (Specialized)
+prepareCalendarElement()     // Basic calendar styling
+prepareUnscheduledElement()  // Complex unscheduled section handling
+
+// Visual Operations
+clearSelectionEffects()     // CSS-only selection clearing
+applyUnscheduledContainerStyling()  // Configuration-driven styling
+
+// Canvas Operations  
+drawScreenshotHeader()       // Term name rendering
+drawScreenshotFooter()       // Branded footer with underlined URL
+downloadCompositeImage()     // File generation with timestamp
+```
+
+### **📊 Professional UX Enhancements**
+
+**Link Visual Recognition:**
+- **Underlined Website URL**: Added canvas-drawn underline to footer URL for intuitive link recognition
+- **Proper Typography**: Consistent Geist font stack across all text elements
+- **Visual Hierarchy**: Color-coded text (darker brand name, lighter URL) for clear information priority
+
+**Enhanced File Organization:**
+```typescript
+// Filename Format: {term-name}-Schedule-{YYYY-MM-DD}-{HH-MM-SS}.png
+// Example: Fall-2024-Schedule-2025-01-15-14-23-47.png
+```
+
+### **🔧 Architecture Analysis & Optimization Decision**
+
+**Critical Architecture Assessment:**
+- ✅ **Optimal Abstraction Level**: Functions focused but not over-decomposed
+- ✅ **Configuration Sweet Spot**: Centralized without over-engineering
+- ✅ **Performance Efficient**: Direct DOM manipulation, no unnecessary abstractions
+- ✅ **Maintainability Excellence**: Easy to find/change settings, clear responsibilities
+- ✅ **Error Handling Robust**: Guaranteed cleanup via try/catch/finally pattern
+
+**Refactoring Stopping Point Decision:**
+- **Assessment**: Further refactoring would add complexity without meaningful benefit
+- **Principle**: Code architecture should balance maintainability, readability, and performance
+- **Result**: Current implementation represents textbook example of well-architected code knowing when to stop
+
+### **Latest Architectural Insights (September 2025)**
+
+**Configuration-Driven Development Philosophy:**
+- **Single Source of Truth** - All customizable values centralized for easy maintenance
+- **Type-Safe Operations** - Dedicated functions prevent runtime selector errors
+- **Separation of Concerns** - Each function has single, clear responsibility
+- **Professional Polish** - Visual details (underlines, typography) matter for user trust
+
+**Screenshot Architecture Principles:**
+- **State Preservation** - Never permanently modify React component state during capture
+- **CSS-Only Manipulation** - Visual changes through style properties, not component interactions  
+- **Guaranteed Cleanup** - Error-resistant restoration of original DOM state
+- **Performance-First** - Efficient canvas operations with minimal memory usage
+
+**Code Quality Framework:**
+- **Stop Refactoring When**: Adding complexity without clear benefit
+- **Maintainability Test**: Can new developer understand and modify safely?
+- **Architecture Balance**: Flexibility vs simplicity, abstraction vs directness
+- **Production Ready**: Robust error handling, memory management, user experience polish
+
+---
+
+*Last updated: September 2025 - Screenshot System Architecture Complete: Successfully implemented configuration-driven design with centralized constants, type-safe element operations, modular function architecture, professional UX enhancements (underlined URL, timestamped filenames), and established optimal refactoring stopping point through critical architecture analysis.*

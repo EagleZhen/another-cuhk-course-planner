@@ -179,11 +179,24 @@ export default function ShoppingCart({
   const statusCounts = getStatusCounts()
 
   return (
-    <Card className="h-[800px] flex flex-col gap-2" data-shopping-cart>
+    <Card className="h-[800px] flex flex-col gap-2 py-2 pt-6" data-shopping-cart>
       <CardHeader className="pb-0 pt-2 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Shopping Cart</CardTitle>
-          <Badge variant="outline" className="text-xs">
+          <Badge 
+            variant="secondary" 
+            className="text-xs"
+            title={(() => {
+              const visibleCount = courseEnrollments.filter(enrollment => enrollment.isVisible).length
+              const totalCount = courseEnrollments.length
+              
+              if (visibleCount === totalCount) {
+                return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'} in shopping cart`
+              }
+              
+              return `${visibleCount} visible, ${totalCount} total ${totalCount === 1 ? 'course' : 'courses'} in shopping cart`
+            })()}
+          >
             {(() => {
               const visibleCount = courseEnrollments.filter(enrollment => enrollment.isVisible).length
               const totalCount = courseEnrollments.length
@@ -544,24 +557,27 @@ export default function ShoppingCart({
       
       {/* Schedule Summary - Outside scrollable area */}
       {courseEnrollments.length > 0 && (
-        <div className="border-t px-3 py-2 flex-shrink-0 space-y-1">
+        <div className="border-t px-3 py-2 flex-shrink-0 space-y-2">
           {/* Row 1: Credits + Conflicts (optional) */}
           <div className="flex justify-between text-xs text-gray-600">
-            <span>
+            <span
+              title={statusCounts.visibleCredits === statusCounts.totalCredits
+                ? `${statusCounts.totalCredits.toFixed(1)} total credits from enrolled courses`
+                : `${statusCounts.visibleCredits.toFixed(1)} visible credits, ${statusCounts.totalCredits.toFixed(1)} total credits from enrolled courses`
+              }
+            >
               {statusCounts.visibleCredits === statusCounts.totalCredits 
                 ? `${statusCounts.totalCredits.toFixed(1)} credits`
                 : `${statusCounts.visibleCredits.toFixed(1)} / ${statusCounts.totalCredits.toFixed(1)} credits`
               }
             </span>
             {statusCounts.conflicts.total > 0 && (
-              <div className="flex items-center gap-1 text-purple-500">
+              <div 
+                className="flex items-center gap-1 text-purple-500"
+                title="Some courses have scheduling conflicts"
+              >
                 <AlertTriangle className="w-3 h-3" />
-                <span>
-                  {statusCounts.conflicts.visible === statusCounts.conflicts.total
-                    ? 'Conflicts'
-                    : `${statusCounts.conflicts.visible}/${statusCounts.conflicts.total} Conflicts`
-                  }
-                </span>
+                <span>Conflicts</span>
               </div>
             )}
           </div>
