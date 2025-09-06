@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-04T23:50:02.840570+00:00",
+    "scraped_at": "2025-09-06T11:56:55.041323+00:00",
     "subject": "URBD",
     "subject_title": "Urban Design",
     "total_courses": 11,
@@ -54,10 +54,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "104",
+                "enrolled": "106",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -74,7 +74,7 @@
               ],
               "availability": {
                 "capacity": "36",
-                "enrolled": "36",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -94,7 +94,7 @@
               ],
               "availability": {
                 "capacity": "36",
-                "enrolled": "36",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -360,11 +360,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "30",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -395,46 +395,7 @@
       "course_code": "5732",
       "title": "Topical Studies in Urban Design 2 - Urban Transport Networks",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (3598)",
-              "meetings": [
-                {
-                  "time": "Mo 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 504",
-                  "instructor": "Professor PAETZOLD Daniel Amos Sebastian",
-                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
-                },
-                {
-                  "time": "Mo 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 504",
-                  "instructor": "Professor PAETZOLD Daniel Amos Sebastian",
-                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
-                },
-                {
-                  "time": "Mo 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 504",
-                  "instructor": "Professor PAETZOLD Daniel Amos Sebastian",
-                  "dates": "13/4"
-                }
-              ],
-              "availability": {
-                "capacity": "40",
-                "enrolled": "23",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "The course will provide an introduction into history and application of complex urban transportation systems that are globally in use or conception. It will provide introduction to transport concepts, planning aspects, technical requirements and ways of implementation.",
       "enrollment_requirement": "For students of MArch, MSc in Urban Design and MSc in Advanced Environmental Planning Technologies.",
       "course_attributes": "",
