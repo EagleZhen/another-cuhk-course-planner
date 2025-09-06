@@ -284,7 +284,7 @@ export async function captureCalendarScreenshot(
     const padding = 50
     const headerHeight = 40
     const sectionSpacing = 10 // Space between calendar and unscheduled section
-    const footerSpacing = -30 // Smaller spacing between unscheduled and footer
+    const footerSpacing = unscheduledInfo ? -30 : 10 // Negative spacing only when unscheduled exists, positive otherwise
     const bottomMargin = 60 // More space below footer to prevent text clipping
     
     // Calculate total content dimensions
