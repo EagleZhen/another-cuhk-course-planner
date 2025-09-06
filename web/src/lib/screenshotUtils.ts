@@ -134,31 +134,45 @@ function calculateScreenshotLayout(
   }
 }
 
-/**
- * Captures a calendar screenshot with term name header and website attribution
- * Now supports compositing calendar and unscheduled sections together
- */
-export async function captureCalendarScreenshot(
-  calendarElement: HTMLElement,
-  unscheduledElement: HTMLElement | null,
-  termName: string,
-  websiteUrl: string = typeof window !== 'undefined' ? window.location.origin : ''
-): Promise<void> {
-  const { toPng } = await import('html-to-image')
-  
-  // Store original state for restoration
-  const originalStates: Array<{
-    element: HTMLElement
-    originalStyle: string
-    originalContent?: { element: HTMLElement; originalText: string }[]
-    originalClasses?: { element: HTMLElement; originalClass: string }[]
-  }> = []
+// State management for element restoration during screenshot process
+interface ElementState {
+  element: HTMLElement
+  originalStyle: string
+  originalContent?: { element: HTMLElement; originalText: string }[]
+  originalClasses?: { element: HTMLElement; originalClass: string }[]
+}
 
-  // Helper to restore all elements to original state
-  const restoreAllElements = () => {
+/**
+ * Manages element state restoration during screenshot capture
+ * Centralizes all cleanup logic to ensure UI consistency
+ */
+class ScreenshotStateManager {
+  private originalStates: ElementState[] = []
+
+  /**
+   * Store current element state for later restoration
+   */
+  storeElementState(
+    element: HTMLElement, 
+    originalStyle: string,
+    originalContent: Array<{ element: HTMLElement; originalText: string }> = [],
+    originalClasses: Array<{ element: HTMLElement; originalClass: string }> = []
+  ): void {
+    this.originalStates.push({
+      element,
+      originalStyle,
+      originalContent,
+      originalClasses
+    })
+  }
+
+  /**
+   * Restore all elements to their original state
+   * Critical for maintaining UI consistency after screenshot
+   */
+  restoreAllElements(): void {
     try {
-      originalStates.forEach(state => {
-        // Normal style restoration (no more click-based expansion/restoration)
+      this.originalStates.forEach(state => {
         console.log(`🔄 Restoring element with original style: "${state.originalStyle}"`)
         state.element.style.cssText = state.originalStyle
         
@@ -177,139 +191,262 @@ export async function captureCalendarScreenshot(
     }
   }
 
+  /**
+   * Clear stored states (for memory management)
+   */
+  clear(): void {
+    this.originalStates = []
+  }
+}
+
+/**
+ * Prepare calendar element for screenshot capture
+ * Handles basic visibility and sizing requirements
+ */
+function prepareCalendarElement(element: HTMLElement, stateManager: ScreenshotStateManager): void {
+  const originalStyle = element.style.cssText
+  stateManager.storeElementState(element, originalStyle)
+  
+  // Expand element for capture
+  element.style.maxHeight = 'none'
+  element.style.height = 'auto'
+  element.style.overflow = 'visible'
+  element.style.overflowY = 'visible'
+}
+
+/**
+ * Prepare unscheduled section element for screenshot capture
+ * Handles complex styling, expansion, and visual cleanup
+ */
+function prepareUnscheduledElement(
+  element: HTMLElement, 
+  stateManager: ScreenshotStateManager, 
+  calendarWidth?: number
+): void {
+  const originalStyle = element.style.cssText
+  stateManager.storeElementState(element, originalStyle)
+  
+  // Container sizing and overflow
+  element.style.paddingRight = '32px' // Extra padding for right border visibility
+  element.style.paddingBottom = '24px' // Increased padding
+  element.style.width = 'auto' // Allow container to expand
+  element.style.minWidth = '100%' // Ensure full width
+  element.style.overflow = 'visible' // Ensure borders aren't clipped
+  element.style.boxSizing = 'content-box' // Don't include padding in width calculation
+  element.style.maxHeight = 'none'
+  element.style.height = 'auto'
+  element.style.overflowY = 'visible'
+  
+  // Configure card container styling
+  const cardContainer = element.querySelector('.border.border-gray-200.rounded-lg.shadow-sm') as HTMLElement
+  if (cardContainer) {
+    const originalClass = cardContainer.getAttribute('class') || ''
+    const originalStyle = cardContainer.style.cssText
+    stateManager.storeElementState(cardContainer, originalStyle, [], [{ element: cardContainer, originalClass }])
+    
+    // Transform from card to distinct section with proper borders
+    cardContainer.setAttribute('class', 'border border-gray-200 bg-white')
+    
+    // Align left border with time column's right border (30px from left)
+    cardContainer.style.marginLeft = '30px'
+    cardContainer.style.marginRight = '16px' // Increased margin to prevent right border clipping
+    cardContainer.style.marginBottom = '16px' // Increased margin to prevent bottom border clipping
+    cardContainer.style.boxSizing = 'border-box' // Include borders in width calculation
+    
+    // Set width based on calendar width if provided
+    if (calendarWidth) {
+      const availableWidth = calendarWidth - 30 - 16 // Calendar width minus left and right margins
+      cardContainer.style.width = `${availableWidth}px`
+      console.log(`📏 Set unscheduled container width: ${availableWidth}px during element preparation`)
+    }
+  }
+  
+  // Hide interactive elements for professional look
+  const chevron = element.querySelector('svg.w-4.h-4.text-gray-400') as HTMLElement
+  if (chevron) {
+    const originalClass = chevron.getAttribute('class') || ''
+    stateManager.storeElementState(chevron, chevron.style.cssText, [], [{ element: chevron, originalClass }])
+    chevron.setAttribute('class', originalClass + ' hidden')
+  } else {
+    console.log('⚠️ ChevronDown icon not found with selector: svg.w-4.h-4.text-gray-400')
+  }
+  
+  // Handle content expansion
+  const expandableContent = element.querySelector('[class*="px-3"][class*="pb-3"]') as HTMLElement
+  if (expandableContent) {
+    const wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' && 
+                              expandableContent.style.display !== 'none'
+    
+    console.log('🔍 EXPERIMENTAL: Not hiding preview cards, relying on CSS expansion to show proper content')
+    
+    // If not expanded, use CSS-only expansion for screenshot (don't change React state)
+    if (!wasExpandedBefore) {
+      console.log('📸 Using CSS-only expansion to avoid React state changes')
+      const originalStyle = expandableContent.style.cssText
+      stateManager.storeElementState(expandableContent, originalStyle)
+      
+      // Force expansion using pure CSS - no clicks to avoid React state changes
+      expandableContent.style.display = 'block'
+      expandableContent.style.height = 'auto'
+      expandableContent.style.overflow = 'visible'
+      expandableContent.style.maxHeight = 'none'
+      expandableContent.style.opacity = '1'
+    }
+  }
+  
+  // Adjust course card widths for better screenshot proportions
+  const courseCards = element.querySelectorAll('.flex.flex-wrap.gap-2 > div')
+  courseCards.forEach(card => {
+    const cardElement = card as HTMLElement
+    const originalStyle = cardElement.style.cssText
+    stateManager.storeElementState(cardElement, originalStyle)
+    
+    // Make cards slightly narrower to prevent right border clipping
+    cardElement.style.maxWidth = '160px' // Slightly reduced from 180px
+    cardElement.style.minWidth = '140px' // Slightly reduced from 150px
+  })
+}
+
+/**
+ * Clear visual selection effects from unscheduled section for clean screenshot
+ * Uses CSS-only approach to avoid React state changes
+ */
+function clearSelectionEffects(element: HTMLElement, stateManager: ScreenshotStateManager): void {
+  console.log('🧹 Clearing selection visual effects for clean screenshot...')
+  const selectedCards = element.querySelectorAll('[class*="scale-105"], [class*="shadow-lg"]')
+  console.log(`Found ${selectedCards.length} cards with selection effects to clear`)
+  
+  selectedCards.forEach(card => {
+    const cardElement = card as HTMLElement
+    const originalClass = cardElement.getAttribute('class') || ''
+    
+    stateManager.storeElementState(cardElement, cardElement.style.cssText, [], [{ element: cardElement, originalClass }])
+    
+    // Remove selection visual effects (scale, shadow) via CSS
+    const cleanClass = originalClass
+      .replace(/scale-105/g, 'scale-100')
+      .replace(/shadow-lg/g, 'shadow-sm')
+    cardElement.setAttribute('class', cleanClass)
+    
+    // Also force remove transform via CSS
+    cardElement.style.transform = 'scale(1)'
+  })
+}
+
+/**
+ * Capture element as PNG data URL using html-to-image
+ */
+async function captureElementAsPng(element: HTMLElement, width: number, height: number): Promise<string> {
+  const { toPng } = await import('html-to-image')
+  
+  return await toPng(element, {
+    quality: 1.0,
+    backgroundColor: '#ffffff',
+    pixelRatio: 3.0, // Reduced from 5.0 for better performance
+    width: width,
+    height: height,
+    style: {
+      transform: 'scale(1)',
+      transformOrigin: 'top left',
+    },
+    skipAutoScale: true,
+  })
+}
+
+/**
+ * Draw screenshot header with term name
+ */
+function drawScreenshotHeader(ctx: CanvasRenderingContext2D, termName: string, layout: ScreenshotLayout): void {
+  ctx.fillStyle = '#111827'
+  ctx.font = FONTS.header
+  ctx.textAlign = 'center'
+  ctx.fillText(termName, layout.header.x, layout.header.y)
+}
+
+/**
+ * Draw screenshot footer with app branding and URL
+ */
+function drawScreenshotFooter(ctx: CanvasRenderingContext2D, websiteUrl: string, layout: ScreenshotLayout): void {
+  const prefixText = 'Generated from '
+  const appName = 'Another CUHK Course Planner'
+  
+  // Measure text for positioning using consistent fonts
+  ctx.font = FONTS.footerPrefix
+  const prefixWidth = ctx.measureText(prefixText).width
+  ctx.font = FONTS.footerBrand
+  const appNameWidth = ctx.measureText(appName).width
+  const totalWidth = prefixWidth + appNameWidth
+  const startX = (layout.canvas.width - totalWidth) / 2
+  
+  // Line 1: "Generated from" - lighter
+  ctx.fillStyle = '#6b7280'
+  ctx.font = FONTS.footerPrefix
+  ctx.textAlign = 'left'
+  ctx.fillText(prefixText, startX, layout.footer.line1Y)
+  
+  // Line 1: App name - prominent
+  ctx.fillStyle = '#4b5563'
+  ctx.font = FONTS.footerBrand
+  ctx.fillText(appName, startX + prefixWidth, layout.footer.line1Y)
+  
+  // Line 2: URL (secondary) - lighter and smaller
+  ctx.fillStyle = '#6b7280'
+  ctx.font = FONTS.footerUrl
+  ctx.textAlign = 'center'
+  ctx.fillText(websiteUrl, layout.canvas.width / 2, layout.footer.line2Y)
+}
+
+/**
+ * Create final composite image and trigger download
+ */
+function downloadCompositeImage(
+  canvas: HTMLCanvasElement,
+  termName: string
+): Promise<void> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        reject(new Error('Failed to create image'))
+        return
+      }
+      
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `${termName.replace(/\s+/g, '-')}-schedule-${new Date().toISOString().split('T')[0]}.png`
+      
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+      
+      console.log('✅ Calendar screenshot with unscheduled sections saved successfully!')
+      resolve()
+    }, 'image/png', 0.95)
+  })
+}
+
+/**
+ * Captures a calendar screenshot with term name header and website attribution
+ * Now supports compositing calendar and unscheduled sections together
+ */
+export async function captureCalendarScreenshot(
+  calendarElement: HTMLElement,
+  unscheduledElement: HTMLElement | null,
+  termName: string,
+  websiteUrl: string = typeof window !== 'undefined' ? window.location.origin : ''
+): Promise<void> {
+  const stateManager = new ScreenshotStateManager()
+
   try {
     console.log('📸 Starting calendar screenshot...')
     
-    // Helper to prepare element for screenshot capture
+    // Helper to prepare element for screenshot capture with measurements
     const prepareElementForCapture = async (element: HTMLElement, isUnscheduled = false, calendarWidth?: number) => {
-      const originalStyle = element.style.cssText
-      const originalContent: Array<{ element: HTMLElement; originalText: string }> = []
-      const originalClasses: Array<{ element: HTMLElement; originalClass: string }> = []
-      
-      // Store state for restoration
-      originalStates.push({
-        element,
-        originalStyle,
-        originalContent,
-        originalClasses
-      })
-      
-      // Expand element for capture
-      element.style.maxHeight = 'none'
-      element.style.height = 'auto'
-      element.style.overflow = 'visible'
-      element.style.overflowY = 'visible'
-      
       if (isUnscheduled) {
-        // Ensure parent container has enough padding for borders
-        element.style.paddingRight = '32px' // Extra padding for right border visibility
-        element.style.paddingBottom = '24px' // Increased padding
-        element.style.width = 'auto' // Allow container to expand
-        element.style.minWidth = '100%' // Ensure full width
-        element.style.overflow = 'visible' // Ensure borders aren't clipped
-        element.style.boxSizing = 'content-box' // Don't include padding in width calculation
-      }
-      
-      if (isUnscheduled) {
-        // Apply screenshot-optimized styling for calendar consistency
-        const cardContainer = element.querySelector('.border.border-gray-200.rounded-lg.shadow-sm') as HTMLElement
-        if (cardContainer) {
-          const originalClass = cardContainer.getAttribute('class') || ''
-          const originalStyle = cardContainer.style.cssText
-          originalClasses.push({ element: cardContainer, originalClass })
-          
-          // Transform from card to distinct section with proper borders
-          cardContainer.setAttribute('class', 'border border-gray-200 bg-white')
-          
-          // Align left border with time column's right border (30px from left)
-          cardContainer.style.marginLeft = '30px'
-          cardContainer.style.marginRight = '16px' // Increased margin to prevent right border clipping
-          cardContainer.style.marginBottom = '16px' // Increased margin to prevent bottom border clipping
-          cardContainer.style.boxSizing = 'border-box' // Include borders in width calculation
-          
-          // Set width based on calendar width if provided
-          if (calendarWidth) {
-            const availableWidth = calendarWidth - 30 - 16 // Calendar width minus left and right margins
-            cardContainer.style.width = `${availableWidth}px`
-            console.log(`📏 Set unscheduled container width: ${availableWidth}px during element preparation`)
-          }
-          
-          // Store original style for restoration
-          originalStates.push({
-            element: cardContainer,
-            originalStyle: originalStyle,
-            originalContent: [],
-            originalClasses: []
-          })
-        }
-        
-        // Hide interactive elements for professional look - target the specific ChevronDown from WeeklyCalendar
-        const chevron = element.querySelector('svg.w-4.h-4.text-gray-400') as HTMLElement
-        if (chevron) {
-          const originalClass = chevron.getAttribute('class') || ''
-          originalClasses.push({ element: chevron, originalClass })
-          chevron.setAttribute('class', originalClass + ' hidden')
-        } else {
-          console.log('⚠️ ChevronDown icon not found with selector: svg.w-4.h-4.text-gray-400')
-        }
-        
-        // Check if content is currently expanded before we do anything
-        let wasExpandedBefore = false
-        const expandableContent = element.querySelector('[class*="px-3"][class*="pb-3"]') as HTMLElement
-        if (expandableContent) {
-          wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' && 
-                            expandableContent.style.display !== 'none'
-        }
-        
-        // EXPERIMENTAL: Don't hide preview cards, let CSS expansion handle the display logic
-        console.log('🔍 EXPERIMENTAL: Not hiding preview cards, relying on CSS expansion to show proper content')
-        
-        // Adjust course card widths for better screenshot proportions
-        const courseCards = element.querySelectorAll('.flex.flex-wrap.gap-2 > div')
-        courseCards.forEach(card => {
-          const cardElement = card as HTMLElement
-          const originalStyle = cardElement.style.cssText
-          originalStates.push({
-            element: cardElement,
-            originalStyle,
-            originalContent: [],
-            originalClasses: []
-          })
-          
-          // Make cards slightly narrower to prevent right border clipping
-          cardElement.style.maxWidth = '160px' // Slightly reduced from 180px
-          cardElement.style.minWidth = '140px' // Slightly reduced from 150px
-        })
-        
-        // Force expand the main content - comprehensive approach (variables already declared above)
-        
-        // If not expanded, use CSS-only expansion for screenshot (don't change React state)
-        if (!wasExpandedBefore && expandableContent) {
-          console.log('📸 Using CSS-only expansion to avoid React state changes')
-          // Force expansion using pure CSS - no clicks to avoid React state changes
-          expandableContent.style.display = 'block'
-          expandableContent.style.height = 'auto'
-          expandableContent.style.overflow = 'visible'
-          expandableContent.style.maxHeight = 'none'
-          expandableContent.style.opacity = '1'
-        }
-        
-        // Also ensure the expandable content is fully visible
-        if (expandableContent) {
-          const originalStyle = expandableContent.style.cssText
-          originalStates.push({
-            element: expandableContent,
-            originalStyle,
-            originalContent: [],
-            originalClasses: []
-          })
-          
-          // Force full expansion
-          expandableContent.style.display = 'block'
-          expandableContent.style.height = 'auto'
-          expandableContent.style.overflow = 'visible'
-          expandableContent.style.maxHeight = 'none'
-        }
+        prepareUnscheduledElement(element, stateManager, calendarWidth)
+      } else {
+        prepareCalendarElement(element, stateManager)
       }
       
       // Force layout recalculation
@@ -343,67 +480,20 @@ export async function captureCalendarScreenshot(
     
     // Step 2.5: Clear selection visual effects for clean screenshot (CSS only)
     if (unscheduledElement) {
-      console.log('🧹 Clearing selection visual effects for clean screenshot...')
-      // Find all selected course cards and remove visual selection effects
-      const selectedCards = unscheduledElement.querySelectorAll('[class*="scale-105"], [class*="shadow-lg"]')
-      console.log(`Found ${selectedCards.length} cards with selection effects to clear`)
-      
-      selectedCards.forEach(card => {
-        const cardElement = card as HTMLElement
-        const originalClass = cardElement.getAttribute('class') || ''
-        
-        // Store original for restoration
-        originalStates.push({
-          element: cardElement,
-          originalStyle: cardElement.style.cssText,
-          originalContent: [],
-          originalClasses: [{ element: cardElement, originalClass }]
-        })
-        
-        // Remove selection visual effects (scale, shadow) via CSS
-        const cleanClass = originalClass
-          .replace(/scale-105/g, 'scale-100')
-          .replace(/shadow-lg/g, 'shadow-sm')
-        cardElement.setAttribute('class', cleanClass)
-        
-        // Also force remove transform via CSS
-        cardElement.style.transform = 'scale(1)'
-      })
+      clearSelectionEffects(unscheduledElement, stateManager)
     }
     
     // Step 3: Capture images with proper error handling
     console.log('📷 Capturing images...')
-    const calendarDataUrl = await toPng(calendarInfo.element, {
-      quality: 1.0,
-      backgroundColor: '#ffffff',
-      pixelRatio: 3.0, // Reduced from 5.0 for better performance
-      width: calendarInfo.actualWidth,
-      height: calendarInfo.actualHeight,
-      style: {
-        transform: 'scale(1)',
-        transformOrigin: 'top left',
-      },
-      skipAutoScale: true,
-    })
+    const calendarDataUrl = await captureElementAsPng(calendarInfo.element, calendarInfo.actualWidth, calendarInfo.actualHeight)
     
     let unscheduledDataUrl: string | null = null
     if (unscheduledElement && unscheduledInfo) {
-      unscheduledDataUrl = await toPng(unscheduledInfo.element, {
-        quality: 1.0,
-        backgroundColor: '#ffffff',
-        pixelRatio: 3.0, // Reduced from 5.0 for better performance
-        width: unscheduledInfo.actualWidth,
-        height: unscheduledInfo.actualHeight,
-        style: {
-          transform: 'scale(1)',
-          transformOrigin: 'top left',
-        },
-        skipAutoScale: true,
-      })
+      unscheduledDataUrl = await captureElementAsPng(unscheduledInfo.element, unscheduledInfo.actualWidth, unscheduledInfo.actualHeight)
     }
     
     // Restore elements immediately after capture
-    restoreAllElements()
+    stateManager.restoreAllElements()
     console.log('🔄 Elements restored to original state')
     
     console.log(`📏 Calendar: ${calendarInfo.actualWidth}x${calendarInfo.actualHeight}`)
@@ -433,10 +523,7 @@ export async function captureCalendarScreenshot(
     ctx.fillRect(0, 0, layout.canvas.width, layout.canvas.height)
     
     // Header with consistent typography
-    ctx.fillStyle = '#111827'
-    ctx.font = FONTS.header
-    ctx.textAlign = 'center'
-    ctx.fillText(termName, layout.header.x, layout.header.y)
+    drawScreenshotHeader(ctx, termName, layout)
     
     console.log(`📏 Final dimensions: ${layout.canvas.width}x${layout.canvas.height}`)
     
@@ -461,54 +548,10 @@ export async function captureCalendarScreenshot(
             }
             
             // Two-line footer with brand emphasis using layout system
-            const prefixText = 'Generated from '
-            const appName = 'Another CUHK Course Planner'
+            drawScreenshotFooter(ctx, websiteUrl, layout)
             
-            // Measure text for positioning using consistent fonts
-            ctx.font = FONTS.footerPrefix
-            const prefixWidth = ctx.measureText(prefixText).width
-            ctx.font = FONTS.footerBrand
-            const appNameWidth = ctx.measureText(appName).width
-            const totalWidth = prefixWidth + appNameWidth
-            const startX = (layout.canvas.width - totalWidth) / 2
-            
-            // Line 1: "Generated from" - lighter
-            ctx.fillStyle = '#6b7280'
-            ctx.font = FONTS.footerPrefix
-            ctx.textAlign = 'left'
-            ctx.fillText(prefixText, startX, layout.footer.line1Y)
-            
-            // Line 1: App name - prominent
-            ctx.fillStyle = '#4b5563'
-            ctx.font = FONTS.footerBrand
-            ctx.fillText(appName, startX + prefixWidth, layout.footer.line1Y)
-            
-            // Line 2: URL (secondary) - lighter and smaller
-            ctx.fillStyle = '#6b7280'
-            ctx.font = FONTS.footerUrl
-            ctx.textAlign = 'center'
-            ctx.fillText(websiteUrl, layout.canvas.width / 2, layout.footer.line2Y)
-            
-            // Download
-            canvas.toBlob((blob) => {
-              if (!blob) {
-                reject(new Error('Failed to create image'))
-                return
-              }
-              
-              const url = URL.createObjectURL(blob)
-              const link = document.createElement('a')
-              link.href = url
-              link.download = `${termName.replace(/\s+/g, '-')}-schedule-${new Date().toISOString().split('T')[0]}.png`
-              
-              document.body.appendChild(link)
-              link.click()
-              document.body.removeChild(link)
-              URL.revokeObjectURL(url)
-              
-              console.log('✅ Calendar screenshot with unscheduled sections saved successfully!')
-              resolve()
-            }, 'image/png', 0.95)
+            // Download composite image
+            downloadCompositeImage(canvas, termName).then(resolve).catch(reject)
           } catch (drawError) {
             console.error('❌ Drawing error:', drawError)
             reject(drawError)
@@ -531,8 +574,11 @@ export async function captureCalendarScreenshot(
     
   } catch (error) {
     // Always restore elements on error
-    restoreAllElements()
+    stateManager.restoreAllElements()
     console.error('❌ Screenshot failed:', error)
     throw error
+  } finally {
+    // Clean up state manager
+    stateManager.clear()
   }
 }
