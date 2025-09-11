@@ -5,12 +5,12 @@
    ❌ Failed: 0
 
 📊 Scraping Performance Analysis:
-   ⏱️ Total time: 17 hours 19.6 minutes (1039.6 minutes)
+   ⏱️ Total time: 9 hours 16.5 minutes (556.5 minutes)
    📚 Total courses: 8,840
-   📋 Average per subject: 4.0 minutes
-   📖 Average per course: 0.12 minutes
-   🏃 Fastest: AENP - 0.0 minutes (0 courses)
-   🐌 Slowest: UGFN - 7 hours 36.0 minutes (1 courses)
+   📋 Average per subject: 2.1 minutes
+   📖 Average per course: 0.06 minutes
+   🏃 Fastest: ANAT - 0.0 minutes (0 courses)
+   🐌 Slowest: MESC - 22.7 minutes (13 courses)
 
 🔍 Finding course data files...
 📁 Found 259 course JSON files
@@ -66,15 +66,15 @@
    44. XWAS
 
 📈 DETAILED SCRAPING STATISTICS:
-   ⏱️ Total scraping time: 17 hours 19.6 minutes (1039.6 minutes)
+   ⏱️ Total scraping time: 9 hours 16.5 minutes (556.5 minutes)
    📚 Total courses scraped: 8,840
    📋 Subjects completed: 263
-   📖 Efficiency: 0.12 minutes per course
+   📖 Efficiency: 0.06 minutes per course
 
 🔍 Performance Insights:
-   🏆 Fastest subject: AENP (0.0 minutes, 0 courses)
-   🐢 Slowest subject: UGFN (7 hours 36.0 minutes, 1 courses)
-   📊 Time range: 45600.0x difference
+   🏆 Fastest subject: ANAT (0.0 minutes, 0 courses)
+   🐢 Slowest subject: MESC (22.7 minutes, 13 courses)
+   📊 Time range: 2266.0x difference
 
 📊 Summary:
    ✅ Valid files ready to copy: 215
@@ -98,5 +98,5 @@
 📂 Destination: C:\Programming\Codes\another-cuhk-course-planner\web\public\data
 
 📝 Logs saved to:
-   📄 logs/migration\migration_log_20250910_082635.txt
+   📄 logs/migration\migration_log_20250911_193003.txt
    🔄 logs/migration\latest_migration.txt (git tracked)
