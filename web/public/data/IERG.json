@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-10T14:33:42.561040+00:00",
+    "scraped_at": "2025-09-11T16:43:10.938659+00:00",
     "subject": "IERG",
     "subject_title": "Information Engineering",
     "total_courses": 85,
@@ -1738,10 +1738,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "44",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1758,10 +1758,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "44",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2180,10 +2180,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "58",
+                "enrolled": "57",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2404,66 +2404,7 @@
       "course_code": "4080",
       "title": "Building Scalable Internet-based Services",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (5515)",
-              "meetings": [
-                {
-                  "time": "Th 1:30PM - 2:15PM",
-                  "location": "Science Centre L5",
-                  "instructor": "Dr. MA Pui Kit",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
-                },
-                {
-                  "time": "Tu 11:30AM - 1:15PM",
-                  "location": "Ho Sin-Hang Engg Bldg 801",
-                  "instructor": "Dr. MA Pui Kit",
-                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
-                },
-                {
-                  "time": "Tu 11:30AM - 1:15PM",
-                  "location": "Ho Sin-Hang Engg Bldg 801",
-                  "instructor": "Dr. MA Pui Kit",
-                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T01-TUT (5514)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Dr. MA Pui Kit",
-                  "dates": "01/09/2025 - 24/11/2025"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "Mobile devices has greatly increased the demand of Internet-based services. Large-scale online services such as Pinterest and Instagram must be designed in a way such that they can be scaled up and scaled out in a rapid and seamless manner. This course will teach students how to build scalable online services and applications. In particular, the design principles and engineering considerations for different core components, including the front-end system, the load-balancer, performance monitoring, content-delivery networking, fault-tolerant mega data store, distributed messaging services, backend big data processing/ analytics will be discussed. As a course project, the students will prototype a scalable Internet service by leveraging industrial-strength component offerings from leading infrastructure and platform service providers.\n\nAdvisory note: Students are expected to have background in object oriented programming.",
       "enrollment_requirement": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312.",
       "course_attributes": "",
@@ -2523,10 +2464,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2543,10 +2484,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3312,10 +3253,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
-                "available_seats": "36",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3332,10 +3273,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
-                "available_seats": "36",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3506,10 +3447,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "44",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3526,10 +3467,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "44",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3806,10 +3747,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "33",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3826,10 +3767,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "33",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5467,7 +5408,7 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "92",
+                "enrolled": "91",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -5604,10 +5545,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "16",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "54",
+                "available_seats": "56",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6462,10 +6403,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "31",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"

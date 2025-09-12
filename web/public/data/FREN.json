@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-10T13:31:35.411756+00:00",
+    "scraped_at": "2025-09-11T15:37:25.657640+00:00",
     "subject": "FREN",
     "subject_title": "French",
     "total_courses": 19,
@@ -29,10 +29,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "23",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "French and English"
@@ -75,11 +75,11 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "22",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "French and English"
             },
@@ -211,11 +211,11 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "24",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
-                "available_seats": "0",
-                "status": "Waitlisted"
+                "waitlist_total": "1",
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "French and English"
             },
@@ -231,10 +231,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "French and English"
@@ -251,11 +251,11 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "French and English"
             }
@@ -1090,10 +1090,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "15",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "French and English"
@@ -1191,9 +1191,9 @@
                 "capacity": "24",
                 "enrolled": "24",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
+                "waitlist_total": "1",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "French and English"
             }
