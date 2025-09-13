@@ -16,7 +16,7 @@ import { analytics } from '@/lib/analytics'
 
 export default function Home() {
   // Reference to CourseSearch's setSearchTerm function
-  const setSearchTermRef = useRef<((term: string) => void) | null>(null)
+  const setSearchTermRef = useRef<((term: string, fromCourseDetails?: boolean) => void) | null>(null)
   // Available terms
   const availableTerms = [
     "2025-26 Term 1",
@@ -266,7 +266,7 @@ export default function Home() {
   const handleShowCourseDetails = (courseCode: string) => {
     // Auto-populate search term and scroll to first course result
     if (setSearchTermRef.current) {
-      setSearchTermRef.current(courseCode)
+      setSearchTermRef.current(courseCode, true) // Pass true to indicate this is from course details
     }
     
     // Scroll to first course card with a slight delay to allow results to load
@@ -275,7 +275,7 @@ export default function Home() {
       if (firstCourseCard) {
         firstCourseCard.scrollIntoView({ 
           behavior: 'smooth', 
-          block: 'center' 
+          block: 'start' // Changed to 'start' to position at top of viewport
         })
       } else {
         // Fallback to course search section if no results found yet

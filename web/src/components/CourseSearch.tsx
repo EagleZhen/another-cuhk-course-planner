@@ -26,7 +26,7 @@ interface CourseSearchProps {
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onScrollToCart?: (enrollmentId: string) => void // Explicit scroll to shopping cart
-  onSearchControlReady?: (setSearchTerm: (term: string) => void) => void
+  onSearchControlReady?: (setSearchTerm: (term: string, fromCourseDetails?: boolean) => void) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
@@ -58,6 +58,7 @@ export default function CourseSearch({
     isShuffled: false 
   })
   const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
+  const [isFromCourseDetails, setIsFromCourseDetails] = useState(false) // Track if search is from course details
   
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
@@ -102,8 +103,9 @@ export default function CourseSearch({
   // Expose search function to parent
   useEffect(() => {
     if (onSearchControlReady) {
-      onSearchControlReady((term: string) => {
+      onSearchControlReady((term: string, fromCourseDetails = false) => {
         setSearchTerm(term)
+        setIsFromCourseDetails(fromCourseDetails)
         // Increment search sequence to trigger auto-expansion of first result
         setSearchSequence(prev => prev + 1)
       })
@@ -1002,6 +1004,8 @@ export default function CourseSearch({
                     currentTerm={currentTerm}
                     searchSequence={searchSequence}
                     isFirstResult={index === 0}
+                    isFromCourseDetails={isFromCourseDetails}
+                    shouldAutoExpand={index === 0 && displayResults.courses.length === 1 && isFromCourseDetails}
                     initialSelections={(() => {
                     const courseKey = `${course.subject}${course.courseCode}`
                     const courseSelections = new Map<string, string>()
@@ -1131,7 +1135,9 @@ function CourseCard({
   onScrollToCart,
   courseEnrollments,
   isFirstResult = false,
-  searchSequence = 0
+  searchSequence = 0,
+  isFromCourseDetails = false,
+  shouldAutoExpand = false
 }: { 
   course: InternalCourse
   currentTerm: string
@@ -1145,17 +1151,19 @@ function CourseCard({
   courseEnrollments: CourseEnrollment[]
   isFirstResult?: boolean
   searchSequence?: number
+  isFromCourseDetails?: boolean
+  shouldAutoExpand?: boolean
 }) {
-  const [expanded, setExpanded] = useState(isFirstResult)
+  const [expanded, setExpanded] = useState(shouldAutoExpand)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
   
-  // Auto-expand when this becomes the first result and a new search occurs
+  // Auto-expand when should auto-expand and a new search occurs
   useEffect(() => {
-    if (isFirstResult && searchSequence > 0) {
+    if (shouldAutoExpand && searchSequence > 0) {
       setExpanded(true)
     }
-  }, [isFirstResult, searchSequence])
+  }, [shouldAutoExpand, searchSequence])
   
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {
