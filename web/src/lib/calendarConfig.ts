@@ -134,10 +134,10 @@ export const DEFAULT_CALENDAR_CONFIG: CalendarLayoutConfig = {
   startHour: 8,
   endHour: 18,
   displayConfig: {
+    showTitle: false,
     showTime: true,
     showLocation: true,
     showInstructor: false,
-    showTitle: false
   },
   showWeekends: false
 }

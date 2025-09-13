@@ -135,11 +135,10 @@ export default function WeeklyCalendar({
     updateScrollState()
   }
 
-  // Toggle functions
-  const toggleTime = () => setLocalDisplayConfig(prev => ({ ...prev, showTime: !prev.showTime }))
-  const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
-  const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
-  const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
+  // Generic toggle function - eliminates repetitive code
+  const toggleDisplayOption = useCallback((option: keyof CalendarDisplayConfig) => {
+    setLocalDisplayConfig(prev => ({ ...prev, [option]: !prev[option] }))
+  }, [])
   
   // Update scroll indicators when content changes
   useEffect(() => {
@@ -219,23 +218,21 @@ export default function WeeklyCalendar({
     }
   }
   
-  // Use simplified day configuration system
-  const activeDays = calendarConfig.activeDays
-  const days = activeDays // Simple and readable
-  
-  // Use configurable hour range
-  const defaultStartHour = calendarConfig.startHour
-  const defaultEndHour = calendarConfig.endHour
+  // Use configurable days directly
+  const days = calendarConfig.activeDays
   
   // Calculate dynamic hour height based on display configuration
-  const referenceCardHeight = calculateReferenceCardHeight(localDisplayConfig)
-  const dynamicHourHeight = calculateDynamicHourHeight(referenceCardHeight)
+  const dynamicHourHeight = calculateDynamicHourHeight(
+    calculateReferenceCardHeight(localDisplayConfig)
+  )
   
   const latestEndTime = events.length > 0 
-    ? Math.max(defaultEndHour, ...events.map(event => event.endHour))
-    : defaultEndHour
+    ? Math.max(calendarConfig.endHour, ...events.map(event => event.endHour))
+    : calendarConfig.endHour
   
-  const hours = Array.from({ length: latestEndTime - defaultStartHour + 1 }, (_, i) => defaultStartHour + i)
+  const hours = Array.from({ 
+    length: latestEndTime - calendarConfig.startHour + 1 
+  }, (_, i) => calendarConfig.startHour + i)
 
   return (
     <Card className="h-full flex flex-col gap-2">
@@ -246,10 +243,7 @@ export default function WeeklyCalendar({
             <CardTitle>Weekly Schedule</CardTitle>
             <DisplayToggleButtons
               displayConfig={localDisplayConfig}
-              onToggleTime={toggleTime}
-              onToggleLocation={toggleLocation}
-              onToggleInstructor={toggleInstructor}
-              onToggleTitle={toggleTitle}
+              onToggle={toggleDisplayOption}
             />
           </div>
           
@@ -301,10 +295,7 @@ export default function WeeklyCalendar({
           
           <DisplayToggleButtons
             displayConfig={localDisplayConfig}
-            onToggleTime={toggleTime}
-            onToggleLocation={toggleLocation}
-            onToggleInstructor={toggleInstructor}
-            onToggleTitle={toggleTitle}
+            onToggle={toggleDisplayOption}
           />
         </div>
       </CardHeader>
@@ -423,8 +414,8 @@ export default function WeeklyCalendar({
                       const minStart = Math.min(...startTimes)
                       const maxEnd = Math.max(...endTimes)
                       
-                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, defaultStartHour, dynamicHourHeight) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
-                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, defaultStartHour, dynamicHourHeight) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, calendarConfig.startHour, dynamicHourHeight) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, calendarConfig.startHour, dynamicHourHeight) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
                       
                       return (
                         <div
@@ -446,7 +437,7 @@ export default function WeeklyCalendar({
                     {/* Event cards with dynamic time-based positioning */}
                     {eventGroups.map((group) => {
                       return group.map((event, stackIndex) => {
-                        const { top, height } = getCardDimensions(event, defaultStartHour, dynamicHourHeight)
+                        const { top, height } = getCardDimensions(event, calendarConfig.startHour, dynamicHourHeight)
                         const isConflicted = group.length > 1
                         const isSelected = selectedEnrollment === event.enrollmentId
                         
@@ -571,55 +562,36 @@ export default function WeeklyCalendar({
   )
 }
 
-// Display Toggle Buttons Component
+// Display Toggle Buttons Component - data-driven approach eliminates repetition
 function DisplayToggleButtons({ 
   displayConfig, 
-  onToggleTime, 
-  onToggleLocation, 
-  onToggleInstructor,
-  onToggleTitle
+  onToggle
 }: {
   displayConfig: CalendarDisplayConfig
-  onToggleTime: () => void
-  onToggleLocation: () => void
-  onToggleInstructor: () => void
-  onToggleTitle: () => void
+  onToggle: (option: keyof CalendarDisplayConfig) => void
 }) {
+  // Configuration-driven button definition - easy to maintain and extend
+  const toggleButtons = [
+    { key: 'showTitle' as const, label: 'Title' },
+    { key: 'showTime' as const, label: 'Time' },
+    { key: 'showLocation' as const, label: 'Location' },
+    { key: 'showInstructor' as const, label: 'Instructor' }
+  ]
+
   return (
     <div className="flex items-center gap-2">
       <div className="text-xs text-gray-500 font-medium">Show:</div>
-      <Button
-        variant={displayConfig.showTitle ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleTitle}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Title
-      </Button>
-      <Button
-        variant={displayConfig.showTime ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleTime}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Time
-      </Button>
-      <Button
-        variant={displayConfig.showLocation ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleLocation}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Location
-      </Button>
-      <Button
-        variant={displayConfig.showInstructor ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleInstructor}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Instructor
-      </Button>
+      {toggleButtons.map(({ key, label }) => (
+        <Button
+          key={key}
+          variant={displayConfig[key] ? "default" : "outline"}
+          size="sm"
+          onClick={() => onToggle(key)}
+          className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+        >
+          {label}
+        </Button>
+      ))}
     </div>
   )
 }
@@ -830,7 +802,7 @@ function UnscheduledSectionsCard({
                     
                     {displayConfig.showLocation && (
                       <div className={`${TEXT_STYLES.LOCATION} truncate`}>
-                        {item.meeting.location || 'TBA'}
+                        {item.meeting.location === 'TBA' ? 'No set location' : item.meeting.location}
                       </div>
                     )}
                     
