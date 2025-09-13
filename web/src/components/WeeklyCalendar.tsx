@@ -15,6 +15,9 @@ import {
   DAYS,
   getDayIndex,
   getDayKey,
+  getRequiredDays,
+  getGridColumns,
+  hasWeekendCourses,
   type WeekDay,
   type CalendarDisplayConfig,
   type CalendarLayoutConfig 
@@ -218,8 +221,9 @@ export default function WeeklyCalendar({
     }
   }
   
-  // Use configurable days directly
-  const days = calendarConfig.activeDays
+  // Dynamic day detection - show weekends only when courses exist
+  const days = getRequiredDays(events)
+  const gridColumns = getGridColumns(days.length)
   
   // Calculate dynamic hour height based on display configuration
   const dynamicHourHeight = calculateDynamicHourHeight(
@@ -240,7 +244,14 @@ export default function WeeklyCalendar({
         {/* Desktop layout: everything in one row */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <CardTitle>Weekly Schedule</CardTitle>
+            <div className="flex items-center gap-2">
+              <CardTitle>Weekly Schedule</CardTitle>
+              {hasWeekendCourses(events) && (
+                <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
+                  📅 Includes weekend courses
+                </span>
+              )}
+            </div>
             <DisplayToggleButtons
               displayConfig={localDisplayConfig}
               onToggle={toggleDisplayOption}
@@ -270,7 +281,14 @@ export default function WeeklyCalendar({
 
         {/* Mobile layout: title row, then controls row */}
         <div className="md:hidden">
-          <CardTitle className="mb-3">Weekly Schedule</CardTitle>
+          <div className="flex items-center gap-2 mb-3">
+            <CardTitle>Weekly Schedule</CardTitle>
+            {hasWeekendCourses(events) && (
+              <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
+                📅 Weekend
+              </span>
+            )}
+          </div>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
               <Button
@@ -340,7 +358,7 @@ export default function WeeklyCalendar({
           <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
             <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef} onScroll={handleScroll}>
               {/* Sticky Header Row */}
-              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: `${CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
+              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: gridColumns}}>
                 <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
                   Time
                 </div>
@@ -354,7 +372,7 @@ export default function WeeklyCalendar({
               {/* Calendar Content Grid */}
               <div 
                 className="grid" 
-                style={{gridTemplateColumns: `${CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
+                style={{gridTemplateColumns: gridColumns}}
                 onClick={(e) => {
                   const target = e.target as HTMLElement
                   const isEmptySpace = !target.closest('[data-course-card]')

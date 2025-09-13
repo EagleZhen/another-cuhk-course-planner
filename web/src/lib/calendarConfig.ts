@@ -165,6 +165,32 @@ export function isWeekend(day: WeekDay): boolean {
   return DAYS[day].isWeekend
 }
 
+/**
+ * Detect if any events occur on weekends (Saturday or Sunday).
+ * Uses binary logic: if ANY weekend course exists, show full week.
+ */
+export function hasWeekendCourses(events: Array<{ day: number }>): boolean {
+  return events.some(event => event.day === 5 || event.day === 6) // Saturday=5, Sunday=6
+}
+
+/**
+ * Get appropriate days to display based on events.
+ * Academic week approach: Monday-first, show weekends only when needed.
+ */
+export function getRequiredDays(events: Array<{ day: number }>): WeekDay[] {
+  return hasWeekendCourses(events) ? DAY_COMBINATIONS.full : DAY_COMBINATIONS.weekdays
+}
+
+/**
+ * Generate CSS grid-template-columns string for calendar layout.
+ * Creates responsive column layout: fixed time column + equal day columns.
+ */
+export function getGridColumns(dayCount: number): string {
+  const timeColumnWidth = CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH
+  const dayColumns = Array(dayCount).fill('1fr').join(' ')
+  return `${timeColumnWidth}px ${dayColumns}`
+}
+
 /** Get calendar configuration with weekend support */
 export function getCalendarConfigWithWeekends(includeWeekends: boolean): CalendarLayoutConfig {
   return {
