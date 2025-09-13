@@ -140,19 +140,50 @@ export default function CourseSearch({
     return availableSubjects.filter(subject => subjectsInTerm.has(subject))
   }, [availableSubjects, allCourses, currentTerm])
 
-  // Calculate days that have courses in current filtered results
+  // Calculate days available from courses filtered by non-day criteria (avoids self-loop)
   const availableDays = useMemo(() => {
     // During initial loading, show all days
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
     
+    // Filter courses by everything EXCEPT day filters to avoid self-loop
+    const coursesFilteredByNonDayFilters = allCourses.filter(course => {
+      // Apply term filter
+      const termData = course.terms.find(term => term.termName === currentTerm)
+      if (!termData) return false
+      
+      // Apply subject filter (if any)
+      if (selectedSubjects.size > 0 && !selectedSubjects.has(course.subject)) return false
+      
+      // Apply search filter (if any)
+      if (debouncedSearchTerm.trim()) {
+        const searchLower = debouncedSearchTerm.toLowerCase()
+        const courseCode = `${course.subject}${course.courseCode}`.toLowerCase()
+        const title = course.title.toLowerCase()
+        const description = course.description?.toLowerCase() || ''
+        
+        // Check if search term matches course code, title, or description
+        if (!courseCode.includes(searchLower) && 
+            !title.includes(searchLower) && 
+            !description.includes(searchLower)) {
+          
+          // Also check instructor names in current term
+          const hasMatchingInstructor = termData.sections.some(section =>
+            section.meetings.some(meeting =>
+              meeting.instructor.toLowerCase().includes(searchLower)
+            )
+          )
+          
+          if (!hasMatchingInstructor) return false
+        }
+      }
+      
+      // ✅ DON'T apply selectedDays filter here - that would create self-loop
+      return true
+    })
+    
+    // Calculate available days from the filtered courses
     const daysWithCourses = new Set<number>()
-    
-    // Use filtered results if available, otherwise fall back to all courses in term
-    const coursesToCheck = displayResults.courses.length > 0 ? displayResults.courses : allCourses.filter(course => 
-      course.terms.some(term => term.termName === currentTerm)
-    )
-    
-    coursesToCheck.forEach(course => {
+    coursesFilteredByNonDayFilters.forEach(course => {
       const termData = course.terms.find(term => term.termName === currentTerm)
       if (termData) {
         termData.sections.forEach(section => {
@@ -164,10 +195,9 @@ export default function CourseSearch({
       }
     })
     
-    // Return day keys that have courses in the filtered results
-    const result = DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
-    return result.length > 0 ? result : DAY_COMBINATIONS.full // Fallback to all days if none found
-  }, [displayResults.courses, allCourses, currentTerm])
+    // Return day keys that have courses in the filtered set
+    return DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
+  }, [allCourses, currentTerm, selectedSubjects, debouncedSearchTerm]) // ✅ No selectedDays dependency!
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
