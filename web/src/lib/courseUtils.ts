@@ -31,10 +31,11 @@ export function extractSectionType(sectionCode: string): string {
 
 
 /**
- * Parse time string like "Mo 14:30 - 15:15" or "Th 1:30PM - 2:15PM" into structured time range
+ * Parse time string like "Mo 14:30 - 15:15" or "Sa 2:00PM - 5:15PM" into structured time range
+ * Now supports weekend days: Saturday (Sa) and Sunday (Su)
  */
 export function parseTimeRange(timeStr: string): TimeRange | null {
-  const dayMatch = timeStr.match(/(Mo|Tu|We|Th|Fr)/)
+  const dayMatch = timeStr.match(/(Mo|Tu|We|Th|Fr|Sa|Su)/)
   
   if (!dayMatch) return null
   
@@ -221,6 +222,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
 
 /**
  * Get day index from time string (0=Monday, 1=Tuesday, etc.)
+ * Now supports weekend days: Saturday=5, Sunday=6
  */
 export function getDayIndex(timeStr: string): number {
   if (timeStr.includes('Mo')) return 0
@@ -228,6 +230,8 @@ export function getDayIndex(timeStr: string): number {
   if (timeStr.includes('We')) return 2
   if (timeStr.includes('Th')) return 3
   if (timeStr.includes('Fr')) return 4
+  if (timeStr.includes('Sa')) return 5  // Saturday support
+  if (timeStr.includes('Su')) return 6  // Sunday support
   return -1 // Return -1 for times without valid day info (TBA, etc.)
 }
 

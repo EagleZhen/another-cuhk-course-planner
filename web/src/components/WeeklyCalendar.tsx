@@ -17,7 +17,6 @@ import {
   getDayKey,
   getRequiredDays,
   getGridColumns,
-  hasWeekendCourses,
   type WeekDay,
   type CalendarDisplayConfig,
   type CalendarLayoutConfig 
@@ -244,14 +243,7 @@ export default function WeeklyCalendar({
         {/* Desktop layout: everything in one row */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <CardTitle>Weekly Schedule</CardTitle>
-              {hasWeekendCourses(events) && (
-                <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
-                  📅 Includes weekend courses
-                </span>
-              )}
-            </div>
+            <CardTitle>Weekly Schedule</CardTitle>
             <DisplayToggleButtons
               displayConfig={localDisplayConfig}
               onToggle={toggleDisplayOption}
@@ -281,14 +273,7 @@ export default function WeeklyCalendar({
 
         {/* Mobile layout: title row, then controls row */}
         <div className="md:hidden">
-          <div className="flex items-center gap-2 mb-3">
-            <CardTitle>Weekly Schedule</CardTitle>
-            {hasWeekendCourses(events) && (
-              <span className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
-                📅 Weekend
-              </span>
-            )}
-          </div>
+          <CardTitle className="mb-3">Weekly Schedule</CardTitle>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
               <Button
