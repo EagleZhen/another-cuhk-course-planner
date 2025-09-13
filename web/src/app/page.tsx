@@ -636,7 +636,14 @@ export default function Home() {
         <footer className="mt-16 mb-8 text-center">
           <div className="space-y-2">
             <div className="text-sm text-slate-400 italic font-light tracking-wide">
-              &ldquo;There&apos;s more to explore here.&rdquo;
+              <a
+                href="https://www.youtube.com/watch?v=YS2KB_cFrTo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-600 transition-colors duration-200"
+              >
+                &ldquo;There&apos;s more to explore here.&rdquo;
+              </a>
             </div>
             <div className="text-xs text-slate-500 font-medium">
               Crafted by{' '}
@@ -644,7 +651,7 @@ export default function Home() {
                 href="https://www.youtube.com/@EagleZhen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 hover:font-light transition-all duration-100"
+                className="text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
                 EZ
               </a>
