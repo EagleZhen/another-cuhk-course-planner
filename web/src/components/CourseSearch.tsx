@@ -140,6 +140,35 @@ export default function CourseSearch({
     return availableSubjects.filter(subject => subjectsInTerm.has(subject))
   }, [availableSubjects, allCourses, currentTerm])
 
+  // Calculate days that have courses in current filtered results
+  const availableDays = useMemo(() => {
+    // During initial loading, show all days
+    if (allCourses.length === 0) return DAY_COMBINATIONS.full
+    
+    const daysWithCourses = new Set<number>()
+    
+    // Use filtered results if available, otherwise fall back to all courses in term
+    const coursesToCheck = displayResults.courses.length > 0 ? displayResults.courses : allCourses.filter(course => 
+      course.terms.some(term => term.termName === currentTerm)
+    )
+    
+    coursesToCheck.forEach(course => {
+      const termData = course.terms.find(term => term.termName === currentTerm)
+      if (termData) {
+        termData.sections.forEach(section => {
+          section.meetings.forEach(meeting => {
+            const dayIndex = getDayIndex(meeting.time)
+            if (dayIndex !== -1) daysWithCourses.add(dayIndex)
+          })
+        })
+      }
+    })
+    
+    // Return day keys that have courses in the filtered results
+    const result = DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
+    return result.length > 0 ? result : DAY_COMBINATIONS.full // Fallback to all days if none found
+  }, [displayResults.courses, allCourses, currentTerm])
+
   // Notify parent when available subjects are discovered
   useEffect(() => {
     if (subjectsWithCourses.length > 0 && onAvailableSubjectsUpdate) {
@@ -592,8 +621,8 @@ export default function CourseSearch({
           <div className="flex items-center gap-2 flex-wrap mt-2">
             <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
             
-            {/* Day filter buttons - using centralized calendar configuration */}
-            {DAY_COMBINATIONS.full.map((dayKey: WeekDay) => {
+            {/* Day filter buttons - only show days with courses in current results */}
+            {availableDays.length > 0 ? availableDays.map((dayKey: WeekDay) => {
               const dayInfo = DAYS[dayKey]
               const isSelected = selectedDays.has(dayInfo.index)
               const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
@@ -610,7 +639,9 @@ export default function CourseSearch({
                   {shortName}
                 </Button>
               )
-            })}
+            }) : (
+              <span className="text-xs text-gray-400 italic">No courses available for day filtering</span>
+            )}
             
             {/* Clear day filters button */}
             {selectedDays.size > 0 && (
@@ -1072,6 +1103,24 @@ function CourseCard({
   const [expanded, setExpanded] = useState(false)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
+  
+  // Calculate days available for this specific course
+  const availableDays = useMemo(() => {
+    const daysWithCourses = new Set<number>()
+    const termData = course.terms.find(term => term.termName === currentTerm)
+    
+    if (termData) {
+      termData.sections.forEach(section => {
+        section.meetings.forEach(meeting => {
+          const dayIndex = getDayIndex(meeting.time)
+          if (dayIndex !== -1) daysWithCourses.add(dayIndex)
+        })
+      })
+    }
+    
+    // Return day keys that have courses in this specific course
+    return DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
+  }, [course, currentTerm])
   
   // Fully decoupled: CourseCard manages its own state
   const [localSelections, setLocalSelections] = useState<Map<string, string>>(initialSelections)
@@ -1580,8 +1629,8 @@ function CourseCard({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-medium text-gray-700">Filters:</span>
               
-              {/* Day filter buttons - using centralized calendar configuration */}
-              {DAY_COMBINATIONS.full.map((dayKey: WeekDay) => {
+              {/* Day filter buttons - only show days with courses in current results */}
+              {availableDays.length > 0 ? availableDays.map((dayKey: WeekDay) => {
                 const dayInfo = DAYS[dayKey]
                 const isSelected = selectedDays.has(dayInfo.index)
                 const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
@@ -1598,7 +1647,9 @@ function CourseCard({
                     {shortName}
                   </Button>
                 )
-              })}
+              }) : (
+                <span className="text-xs text-gray-400 italic">No days available for filtering</span>
+              )}
               
               {/* Clear day filters button */}
               {selectedDays.size > 0 && (
