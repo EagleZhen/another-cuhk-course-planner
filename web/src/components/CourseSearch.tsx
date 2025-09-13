@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
+import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
@@ -591,19 +592,20 @@ export default function CourseSearch({
           <div className="flex items-center gap-2 flex-wrap mt-2">
             <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
             
-            {/* Day filter buttons */}
-            {(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const).map((dayName, dayIndex) => {
-              const isSelected = selectedDays.has(dayIndex)
-              const shortName = dayName.slice(0, 3) // Mon, Tue, Wed, Thu, Fri
+            {/* Day filter buttons - using centralized calendar configuration */}
+            {DAY_COMBINATIONS.full.map((dayKey: WeekDay) => {
+              const dayInfo = DAYS[dayKey]
+              const isSelected = selectedDays.has(dayInfo.index)
+              const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
               
               return (
                 <Button
-                  key={dayName}
+                  key={dayKey}
                   variant={isSelected ? "default" : "outline"}
                   size="sm"
-                  onClick={() => toggleDayFilter(dayIndex)}
+                  onClick={() => toggleDayFilter(dayInfo.index)}
                   className="h-6 px-2 text-xs font-normal border-1"
-                  title={isSelected ? `Remove ${dayName} filter` : `Show only courses with classes on ${dayName}`}
+                  title={isSelected ? `Remove ${dayInfo.displayName} filter` : `Show only courses with classes on ${dayInfo.displayName}`}
                 >
                   {shortName}
                 </Button>
@@ -815,7 +817,10 @@ export default function CourseSearch({
                   <div className="space-y-1">
                     {searchTerm && <p>• Clearing the search term</p>}
                     {selectedSubjects.size > 0 && <p>• Changing or removing subject filters</p>}
-                    {selectedDays.size > 0 && <p>• Removing day filters (currently filtering by {Array.from(selectedDays).map(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'][day]).join(', ')})</p>}
+                    {selectedDays.size > 0 && <p>• Removing day filters (currently filtering by {Array.from(selectedDays).map(dayIndex => {
+                      const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
+                      return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
+                    }).join(', ')})</p>}
                     <p>• Searching for course codes like &ldquo;CSCI3100&rdquo;</p>
                     <p>• Searching for course titles like &ldquo;In Dialogue with Nature&rdquo;</p>
                     <p>• Searching for instructor names</p>
@@ -851,7 +856,10 @@ export default function CourseSearch({
                     <>
                       <span> filtered by </span>
                       <span className="font-semibold text-blue-600">
-                        {Array.from(selectedDays).sort().map(day => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'][day]).join(', ')}
+                        {Array.from(selectedDays).sort().map(dayIndex => {
+                          const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
+                          return dayKey || `Day${dayIndex}`
+                        }).join(', ')}
                       </span>
                       <span> ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})</span>
                     </>
@@ -1572,19 +1580,20 @@ function CourseCard({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-medium text-gray-700">Filters:</span>
               
-              {/* Day filter buttons */}
-              {(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const).map((dayName, dayIndex) => {
-                const isSelected = selectedDays.has(dayIndex)
-                const shortName = dayName.slice(0, 3) // Mon, Tue, Wed, Thu, Fri
+              {/* Day filter buttons - using centralized calendar configuration */}
+              {DAY_COMBINATIONS.full.map((dayKey: WeekDay) => {
+                const dayInfo = DAYS[dayKey]
+                const isSelected = selectedDays.has(dayInfo.index)
+                const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
                 
                 return (
                   <Button
-                    key={dayName}
+                    key={dayKey}
                     variant={isSelected ? "default" : "outline"}
                     size="sm"
-                    onClick={() => toggleDayFilter(dayIndex)}
+                    onClick={() => toggleDayFilter(dayInfo.index)}
                     className="h-6 px-2 text-xs font-normal border-1"
-                    title={isSelected ? `Remove ${dayName} filter` : `Filter by ${dayName}`}
+                    title={isSelected ? `Remove ${dayInfo.displayName} filter` : `Filter by ${dayInfo.displayName}`}
                   >
                     {shortName}
                   </Button>
