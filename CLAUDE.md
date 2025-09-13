@@ -1,18 +1,12 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+**CUHK Course Planner**: Production-ready Next.js course scheduling application with enterprise-grade architecture.
 
-## Project Overview
-
-**CUHK Course Planner**: Next.js web application solving outdated course data problems with enterprise-grade architecture.
+## System Status (September 2025) - ✅ PRODUCTION READY
 
 **Components:**
-1. **Course Data Scraper** (`cuhk_scraper.py`): ✅ **PRODUCTION READY** - Python scraper with crash-resistant JSONL recovery
-2. **Web Interface**: 🏆 **ENTERPRISE-GRADE** - Type-safe React frontend with clean architecture
-
-## Current System Status (September 2025)
-
-### **🏗️ Production-Ready Architecture**
+- **Course Data Scraper** (`cuhk_scraper.py`): Crash-resistant JSONL recovery
+- **Web Interface**: Type-safe React frontend with weekend support
 
 **Clean Three-Layer System:**
 ```typescript
@@ -24,29 +18,34 @@ Raw scraped     Runtime check    Clean domain    Type-safe UI
 **File Structure:**
 ```
 web/src/
-├── app/page.tsx              # State hub + localStorage persistence
+├── app/page.tsx              # State hub + localStorage persistence + course details navigation
 ├── components/
-│   ├── CourseSearch.tsx      # Search + course-level day filtering + section compatibility  
-│   ├── WeeklyCalendar.tsx    # Dynamic config + mobile optimized + conflict zones
-│   └── ShoppingCart.tsx      # Section cycling + enrollment mgmt
+│   ├── CourseSearch.tsx      # Search + weekend-aware day filtering + section compatibility
+│   ├── WeeklyCalendar.tsx    # Weekend support + dynamic config + conflict zones
+│   └── ShoppingCart.tsx      # Section cycling + course details navigation
 └── lib/
     ├── types.ts              # Internal models (zero `any`)
     ├── validation.ts         # Zod schemas + transformation
-    └── courseUtils.ts        # Pure functions + utilities
+    ├── courseUtils.ts        # Pure functions + utilities + weekend parsing
+    ├── calendarConfig.ts     # Centralized weekend-aware calendar configuration
+    └── screenshotUtils.ts    # Modular screenshot functionality
 ```
 
 ### **🚀 Key Features Implemented**
 
-**Dynamic Calendar System:**
+**Dynamic Calendar System with Weekend Support:**
 - **Configuration-Driven Layout**: User-toggleable info density with mathematical scaling
+- **Weekend Course Detection**: Automatic Sat/Sun column display when courses exist (Monday-first academic week)
 - **Reference-Based Sizing**: 45-minute class = reference → dynamic hour height calculation
 - **Synchronized Conflict Zones**: Perfect alignment between card rendering and conflict visualization
 
 **Advanced Course Management:**
 - **Smart Badge System**: Dual availability + waitlist indicators with risk-assessment coloring
+- **Weekend-Aware Day Filtering**: Logical self-loop-free filtering with dynamic day button visibility
 - **Section Compatibility**: CUHK cohort system (A-LEC ↔ AE01-EXR) with hierarchical cascade clearing
+- **Course Details Navigation**: Shopping cart → course search integration with auto-scroll
 - **TBA Course Handling**: Unscheduled events with expandable interface
-- **Persistent State**: Cross-session localStorage with version migration
+- **Educational UX**: Interactive CUHK documentation links with credit system tooltips
 
 **Production Quality:**
 - ✅ Zero TypeScript errors/warnings
@@ -120,8 +119,11 @@ python -c "from cuhk_scraper import CuhkScraper, ScrapingConfig; CuhkScraper(Scr
 - **Data Protection**: Zero course outcome data loss, server error fail-safes, automated scraping
 - **UX Complete**: Visual consistency, conflict detection, interactive search, screenshot system
 
-**Lower Priority Enhancements:**
-- Course-level retry tooling, SEO implementation, weekend support, performance monitoring
+**Completed in Latest Session:**
+- ✅ **Full Weekend Course Support**: Calendar display, day filtering, and section parsing
+- ✅ **Self-Loop-Free Day Filtering**: Logical architecture preventing infinite filter dependencies
+- ✅ **Course Details Navigation**: Seamless shopping cart to course search integration
+- ✅ **Educational UX Enhancement**: CUHK documentation links with informative tooltips
 
 ## Core Implementation Details
 
@@ -160,6 +162,52 @@ const dynamicHourHeight = referenceCardHeight / (45/60) // 45min reference
 // Dual badge logic: [👥 Availability] + [⏰ Waitlist] (conditional)
 // Risk assessment: Green (safe) → Yellow (risky) → Red (dangerous)
 // Context-aware display: Only show waitlist when relevant (>0 or closed+capacity)
+```
+
+**Weekend Course Support Architecture:**
+```typescript
+// 1. Centralized Configuration (calendarConfig.ts)
+export const DAYS: Record<WeekDay, DayInfo> = {
+  'Mon': { index: 0, displayName: 'Monday', isWeekend: false },
+  'Tue': { index: 1, displayName: 'Tuesday', isWeekend: false },
+  // ... continues through all 7 days including Sat/Sun
+}
+
+// 2. Weekend Detection Logic
+export function hasWeekendCourses(events: Array<{ day: number }>): boolean {
+  return events.some(event => event.day === 5 || event.day === 6) // Sat=5, Sun=6
+}
+
+// 3. Dynamic Day Requirements
+export function getRequiredDays(events: Array<{ day: number }>): WeekDay[] {
+  return hasWeekendCourses(events) ? DAY_COMBINATIONS.full : DAY_COMBINATIONS.weekdays
+}
+```
+
+**Self-Loop-Free Day Filtering:**
+```typescript
+// Problem: Day filters affecting their own availability calculation
+// Solution: Filter by everything EXCEPT day filters to avoid self-loop
+const availableDays = useMemo(() => {
+  const coursesFilteredByNonDayFilters = allCourses.filter(course => {
+    // ✅ Apply term, subject, search filters
+    // ❌ DON'T apply selectedDays filter here - prevents self-loop
+    return termMatch && subjectMatch && searchMatch
+  })
+  // Calculate available days from this stable filtered set
+}, [allCourses, currentTerm, selectedSubjects, searchTerm]) // ✅ No selectedDays dependency
+```
+
+**Course Details Navigation Pattern:**
+```typescript
+// Shopping Cart → Course Search integration
+const handleShowCourseDetails = (courseCode: string) => {
+  if (setSearchTermRef.current) {
+    setSearchTermRef.current(courseCode, true) // Flag: from course details
+  }
+  // Smart scroll with sticky header offset calculation
+  setTimeout(() => scrollToFirstResult(), 100)
+}
 ```
 
 ### **Data Flow Architecture**
@@ -1375,4 +1423,130 @@ downloadCompositeImage()     // File generation with timestamp
 
 ---
 
-*Last updated: September 2025 - Screenshot System Architecture Complete: Successfully implemented configuration-driven design with centralized constants, type-safe element operations, modular function architecture, professional UX enhancements (underlined URL, timestamped filenames), and established optimal refactoring stopping point through critical architecture analysis.*
+## ✅ Latest Achievement: Weekend Course Support & Educational UX Enhancement (September 2025)
+
+**Complete Weekend Course Integration**:
+1. **Full Weekend Support**: Calendar columns, day filtering, and section parsing now handle Saturday/Sunday courses
+2. **Self-Loop-Free Day Filtering**: Implemented logical architecture preventing infinite filter dependencies
+3. **Course Details Navigation**: Shopping cart info buttons navigate to course search with auto-populated search
+4. **Educational Link Enhancement**: Converted CUHK documentation from window.open() to proper HTML links with enhanced tooltips
+
+### **🏗️ Weekend Course Architecture Implementation**
+
+**Problem Solved**: Previous system only supported Mon-Fri, causing weekend courses to appear in "unscheduled" sections
+**Root Cause**: Day parsing functions and calendar configuration hardcoded weekday assumptions
+
+**Architecture Changes:**
+```typescript
+// Before: Hardcoded weekday assumptions
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
+const dayIndex = timeStr.includes('Sa') ? -1 : parseWeekday(timeStr) // Weekend = unscheduled
+
+// After: Dynamic weekend-aware configuration
+import { DAYS, DAY_COMBINATIONS, getRequiredDays } from '@/lib/calendarConfig'
+const days = getRequiredDays(events) // Shows weekends when courses exist
+const dayIndex = getDayIndex(timeStr) // Supports Sa=5, Su=6
+```
+
+**Key Implementation Details:**
+- ✅ **Centralized Configuration**: Single source of truth for day definitions in `calendarConfig.ts`
+- ✅ **Monday-First Academic Week**: Proper university calendar layout (Mon-Sun vs Sun-Sat)
+- ✅ **Binary Weekend Logic**: Show full week when ANY weekend course exists (consistent UX)
+- ✅ **Weekend Parsing**: Enhanced `getDayIndex()` function supports "Sa 9:00AM - 12:15PM" format
+
+### **🔄 Self-Loop-Free Day Filtering Architecture**
+
+**Problem Solved**: Day filters created logical inconsistencies and potential infinite loops
+**Root Cause**: Day filter availability calculation depended on day filter selections (circular dependency)
+
+**Logical Architecture:**
+```typescript
+// ❌ PROBLEMATIC: Self-referencing dependency
+const availableDays = useMemo(() => {
+  return calculateDaysFromFilteredResults(displayResults.courses)
+}, [displayResults.courses]) // displayResults depends on selectedDays!
+
+// ✅ SOLUTION: Filter by non-day criteria only
+const availableDays = useMemo(() => {
+  const coursesFilteredByNonDayFilters = allCourses.filter(course => {
+    return termMatch && subjectMatch && searchMatch // NO day filtering
+  })
+  return calculateDaysFromCourses(coursesFilteredByNonDayFilters)
+}, [allCourses, currentTerm, selectedSubjects, searchTerm]) // No selectedDays!
+```
+
+**Benefits:**
+- ✅ **Logical UX**: Day buttons only show for courses matching current non-day filters
+- ✅ **No Circular Dependencies**: Day filter availability doesn't depend on day filter selections
+- ✅ **Stable Performance**: Dependencies prevent unnecessary recalculations
+- ✅ **Intuitive Behavior**: Filter by CSCI → only shows days that have CSCI courses
+
+### **🔗 Course Details Navigation Integration**
+
+**Feature Implementation**: Shopping cart course cards now include info buttons for course details
+**UX Flow**: Shopping cart info button → auto-populate course search → scroll to results
+
+**Technical Implementation:**
+```typescript
+// Shopping Cart Integration
+<button onClick={() => onShowCourseDetails(`${course.subject}${course.courseCode}`)}>
+  <Info className="w-3 h-3" title="View course details" />
+</button>
+
+// Page-Level Navigation Handler
+const handleShowCourseDetails = (courseCode: string) => {
+  if (setSearchTermRef.current) {
+    setSearchTermRef.current(courseCode, true) // Flag: from course details
+  }
+  // Smart scroll accounting for sticky header
+  setTimeout(() => scrollToFirstCourseWithHeaderOffset(), 100)
+}
+```
+
+### **📚 Educational UX Enhancement**
+
+**CUHK Documentation Links**: Converted from `window.open()` to proper HTML links
+**Enhanced Tooltips**: Added educational context for credit system understanding
+
+**Implementation:**
+```tsx
+// Before: JavaScript popup
+<Badge onClick={() => window.open('https://...')}>
+  {course.credits} credits
+</Badge>
+
+// After: Proper HTML link with enhanced tooltip
+<a href="https://www.res.cuhk.edu.hk/..." target="_blank" rel="noopener noreferrer">
+  <Badge title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Click to learn more about course load limits.">
+    {course.credits} credits
+    <Info className="w-2.5 h-2.5" />
+  </Badge>
+</a>
+```
+
+**Benefits:**
+- ✅ **URL Preview**: Users can see destination before clicking
+- ✅ **Accessibility**: Screen readers and keyboard navigation support
+- ✅ **Educational Value**: Tooltips explain CUHK's credit-hour system
+- ✅ **Trust Building**: Transparent links to official CUHK documentation
+
+### **Latest Architectural Insights (September 2025)**
+
+**Weekend Support Philosophy:**
+- **Data-Driven Display** - Show weekend columns only when data contains weekend courses
+- **Academic Calendar Standards** - Monday-first week ordering matches university conventions
+- **Binary Weekend Logic** - Show all weekends when any weekend course exists (consistency over optimization)
+
+**Filter Architecture Best Practices:**
+- **Avoid Self-References** - Filter calculations must not depend on their own outputs
+- **Logical Dependency Trees** - Each filter layer depends only on more fundamental data
+- **Stable Performance** - Dependency arrays should reflect actual data dependencies, not derived state
+
+**Educational UX Design:**
+- **Transparency Over Convenience** - HTML links provide better user trust than programmatic popups
+- **Contextual Learning** - Tooltips provide educational value exactly when users need it
+- **Progressive Disclosure** - Basic info in tooltip, detailed info behind click
+
+---
+
+*Last updated: September 2025 - Weekend Course Support Complete: Successfully implemented full weekend course integration with self-loop-free day filtering architecture, course details navigation system, and educational UX enhancements. System now properly handles Saturday/Sunday courses with logical filter dependencies and enhanced user educational experience.*
