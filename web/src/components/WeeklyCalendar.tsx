@@ -6,47 +6,23 @@ import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
+import { 
+  DEFAULT_CALENDAR_CONFIG, 
+  CALENDAR_LAYOUT_CONSTANTS,
+  TEXT_STYLES,
+  ROW_HEIGHTS,
+  MINIMUM_COURSE_DURATION_MINUTES,
+  getDayIndex,
+  getRequiredDays,
+  getGridColumns,
+  type CalendarDisplayConfig,
+  type CalendarLayoutConfig 
+} from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
 
-// Clean calendar architecture - time-first approach
-interface CalendarDisplayConfig {
-  showTime: boolean
-  showLocation: boolean  
-  showInstructor: boolean
-  showTitle: boolean
-}
-
-// Fixed calendar constants - never change regardless of content
-const CALENDAR_CONSTANTS = {
-  HOUR_HEIGHT: 64,        // Fixed hour height for consistent time mapping
-  TIME_COLUMN_WIDTH: 48,
-  STACK_OFFSET: 16,       // Offset for conflicting cards
-  CARD_PADDING: 4,        // Fixed padding for all cards
-  MIN_CARD_HEIGHT: 24,    // Absolute minimum for very short events
-} as const
-
-// Typography styles for consistent rendering - timetable priorities
-const TEXT_STYLES = {
-  COURSE_CODE: 'text-xs font-semibold leading-tight',       // Most important: What course
-  TITLE: 'text-[9px] leading-tight opacity-85',            // Course title - smaller than course code
-  TIME: 'text-[10px] leading-tight opacity-90',            // Critical: When to go
-  LOCATION: 'text-[10px] leading-tight opacity-85',        // Critical: Where to go
-  INSTRUCTOR: 'text-[8px] leading-tight opacity-70',       // Less critical: Who teaches
-} as const
-
-// Row height constants based on typography (in pixels) - timetable priorities
-const ROW_HEIGHTS = {
-  COURSE_CODE: 14,     // text-xs with leading-tight (course code + section type)
-  TITLE: 11,           // text-[9px] with leading-tight (course title)
-  TIME: 12,            // text-[10px] with leading-tight
-  LOCATION: 12,        // text-[10px] with leading-tight  
-  INSTRUCTOR: 10,      // text-[8px] with leading-tight
-} as const
-
-// Reference duration for 45-minute standard class
-const REFERENCE_DURATION_MINUTES = 45
-
-// Dynamic height calculation functions
+/**
+ * Calculate the total height needed for a course card based on display configuration
+ */
 const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
   let totalHeight = ROW_HEIGHTS.COURSE_CODE // Course code + section type always shown
   
@@ -56,24 +32,39 @@ const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): num
   if (displayConfig.showInstructor) totalHeight += ROW_HEIGHTS.INSTRUCTOR
   
   // Add padding (4px top + 4px bottom)
-  totalHeight += CALENDAR_CONSTANTS.CARD_PADDING * 2
+  totalHeight += CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
   
   return totalHeight
 }
 
+/**
+ * Calculate dynamic hour height based on minimum course duration requirements
+ */
 const calculateDynamicHourHeight = (referenceCardHeight: number): number => {
-  // 45 minutes = 0.75 hours
-  const referenceDurationHours = REFERENCE_DURATION_MINUTES / 60
+  const referenceDurationHours = MINIMUM_COURSE_DURATION_MINUTES / 60
   return referenceCardHeight / referenceDurationHours
 }
 
-// Pure time-to-pixel conversion (now accepts dynamic hour height)
-const timeToPixels = (hour: number, minute: number, startHour: number, hourHeight: number = CALENDAR_CONSTANTS.HOUR_HEIGHT): number => {
+/**
+ * Convert time to pixel position with dynamic hour height support
+ */
+const timeToPixels = (
+  hour: number, 
+  minute: number, 
+  startHour: number, 
+  hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT
+): number => {
   return ((hour - startHour) * hourHeight) + (minute / 60) * hourHeight
 }
 
-// Calculate card dimensions from pure time data (now accepts dynamic hour height)
-const getCardDimensions = (event: CalendarEvent, startHour: number, hourHeight: number = CALENDAR_CONSTANTS.HOUR_HEIGHT) => {
+/**
+ * Calculate card dimensions from time data with dynamic scaling
+ */
+const getCardDimensions = (
+  event: CalendarEvent, 
+  startHour: number, 
+  hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT
+) => {
   const top = timeToPixels(event.startHour, event.startMinute, startHour, hourHeight)
   const timeBasedHeight = timeToPixels(event.endHour, event.endMinute, startHour, hourHeight) - top
   
@@ -94,6 +85,7 @@ interface WeeklyCalendarProps {
   availableTerms?: string[]
   selectedEnrollment?: string | null
   displayConfig?: CalendarDisplayConfig
+  calendarConfig?: CalendarLayoutConfig  // New: flexible calendar configuration
   onTermChange?: (term: string) => void
   onToggleVisibility?: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -106,6 +98,7 @@ export default function WeeklyCalendar({
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
   displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
+  calendarConfig = DEFAULT_CALENDAR_CONFIG,
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
@@ -125,92 +118,92 @@ export default function WeeklyCalendar({
   
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
-  
-  // Calculate scroll state for indicators
-  const updateScrollState = useCallback(() => {
+
+  const updateScrollStateHandler = useCallback(() => {
     if (!calendarRef.current) return
     
     const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
-    
-    // Handle case where content shrunk and we're now past the bottom
     const maxScrollTop = Math.max(0, scrollHeight - clientHeight)
     
-    // If we're scrolled past the new bottom, adjust position
+    // Auto-adjust if scrolled past the new bottom
     if (scrollTop > maxScrollTop) {
       calendarRef.current.scrollTop = maxScrollTop
     }
     
-    // Use current scroll position (might have been adjusted)
     const currentScrollTop = calendarRef.current.scrollTop
     const tolerance = 1
-    const significantScrollThreshold = 5 // Filter out tiny amounts (padding/borders)
+    const significantScrollThreshold = 5
     
-    const canScrollUp = currentScrollTop > tolerance
-    const canScrollDown = scrollHeight > clientHeight && 
-                          maxScrollTop > significantScrollThreshold && 
-                          currentScrollTop < maxScrollTop - tolerance
-    
-    setScrollState({ canScrollUp, canScrollDown })
+    setScrollState({
+      canScrollUp: currentScrollTop > tolerance,
+      canScrollDown: scrollHeight > clientHeight && 
+                     maxScrollTop > significantScrollThreshold && 
+                     currentScrollTop < maxScrollTop - tolerance
+    })
   }, [])
 
-  // Scroll handler for indicators
-  const handleScroll = () => {
-    updateScrollState()
-  }
+  const handleScroll = useCallback(() => {
+    updateScrollStateHandler()
+  }, [updateScrollStateHandler])
 
-  // Toggle functions
-  const toggleTime = () => setLocalDisplayConfig(prev => ({ ...prev, showTime: !prev.showTime }))
-  const toggleLocation = () => setLocalDisplayConfig(prev => ({ ...prev, showLocation: !prev.showLocation }))
-  const toggleInstructor = () => setLocalDisplayConfig(prev => ({ ...prev, showInstructor: !prev.showInstructor }))
-  const toggleTitle = () => setLocalDisplayConfig(prev => ({ ...prev, showTitle: !prev.showTitle }))
-  
+  const scrollToTopHandler = useCallback(() => {
+    if (calendarRef.current) {
+      calendarRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [])
+
+  const scrollToBottomHandler = useCallback(() => {
+    if (calendarRef.current) {
+      calendarRef.current.scrollTo({ top: calendarRef.current.scrollHeight, behavior: 'smooth' })
+    }
+  }, [])
+
+  const toggleDisplayOption = useCallback((option: keyof CalendarDisplayConfig) => {
+    setLocalDisplayConfig(prev => ({ ...prev, [option]: !prev[option] }))
+  }, [])
+
   // Update scroll indicators when content changes
   useEffect(() => {
     if (!calendarRef.current) return
     
-    // ResizeObserver detects when calendar content size actually changes
-    const resizeObserver = new ResizeObserver(() => {
-      updateScrollState()
-    })
-    
+    const resizeObserver = new ResizeObserver(updateScrollStateHandler)
     resizeObserver.observe(calendarRef.current)
     
-    // Also update immediately on config/events change
-    updateScrollState()
+    // Update immediately on config/events change
+    updateScrollStateHandler()
     
     return () => resizeObserver.disconnect()
-  }, [localDisplayConfig, events, updateScrollState])
+  }, [localDisplayConfig, events, updateScrollStateHandler])
   
   // Auto-scroll to selected event
   useEffect(() => {
-    if (selectedEnrollment && calendarRef.current) {
-      const selectedElement = eventRefs.current.get(selectedEnrollment)
-      if (selectedElement) {
-        const container = calendarRef.current
-        const elementTop = selectedElement.offsetTop
-        const elementHeight = selectedElement.offsetHeight
-        const containerHeight = container.clientHeight
-        const containerScrollTop = container.scrollTop
-        
-        // Calculate the ideal scroll position to center the element
-        const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
-        
-        // Only scroll if the element is not fully visible
-        const elementBottom = elementTop + elementHeight
-        const visibleTop = containerScrollTop
-        const visibleBottom = containerScrollTop + containerHeight
-        
-        if (elementTop < visibleTop || elementBottom > visibleBottom) {
-          container.scrollTo({
-            top: idealScrollTop,
-            behavior: 'smooth'
-          })
-        }
-      }
+    if (!selectedEnrollment || !calendarRef.current) return
+    
+    const selectedElement = eventRefs.current.get(selectedEnrollment)
+    if (!selectedElement) return
+    
+    const container = calendarRef.current
+    const elementTop = selectedElement.offsetTop
+    const elementHeight = selectedElement.offsetHeight
+    const containerHeight = container.clientHeight
+    const containerScrollTop = container.scrollTop
+    
+    // Calculate ideal scroll position to center the element
+    const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
+    
+    // Only scroll if element is not fully visible
+    const elementBottom = elementTop + elementHeight
+    const visibleTop = containerScrollTop
+    const visibleBottom = containerScrollTop + containerHeight
+    
+    if (elementTop < visibleTop || elementBottom > visibleBottom) {
+      container.scrollTo({
+        top: idealScrollTop,
+        behavior: 'smooth'
+      })
     }
   }, [selectedEnrollment, events])
-  
-  // Screenshot function
+
   const handleScreenshot = async () => {
     if (!calendarRef.current) {
       console.error('Calendar element not found')
@@ -221,56 +214,49 @@ export default function WeeklyCalendar({
     try {
       console.log('Starting screenshot capture...')
       
-      // Find unscheduled section using data attribute (can be null)
+      // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector('[data-screenshot="unscheduled"]') as HTMLElement | null
       
-      await captureCalendarScreenshot(
-        calendarRef.current, 
-        unscheduledElement,
-        selectedTerm
-      )
+      await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
       console.log('Screenshot completed successfully')
     } catch (error) {
       console.error('Screenshot capture failed:', error)
-      // Show detailed error information
       if (error instanceof Error) {
-        console.error('Error message:', error.message)
-        console.error('Error stack:', error.stack)
+        console.error('Error details:', { message: error.message, stack: error.stack })
       }
     } finally {
       setIsCapturing(false)
     }
   }
   
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
-  
-  // Fixed hour range - consistent time grid
-  const defaultStartHour = 8
-  const defaultEndHour = 18
+  // Dynamic day detection - show weekends only when courses exist
+  const days = getRequiredDays(events)
+  const gridColumns = getGridColumns(days.length)
   
   // Calculate dynamic hour height based on display configuration
-  const referenceCardHeight = calculateReferenceCardHeight(localDisplayConfig)
-  const dynamicHourHeight = calculateDynamicHourHeight(referenceCardHeight)
+  const dynamicHourHeight = calculateDynamicHourHeight(
+    calculateReferenceCardHeight(localDisplayConfig)
+  )
   
   const latestEndTime = events.length > 0 
-    ? Math.max(defaultEndHour, ...events.map(event => event.endHour))
-    : defaultEndHour
+    ? Math.max(calendarConfig.endHour, ...events.map(event => event.endHour))
+    : calendarConfig.endHour
   
-  const hours = Array.from({ length: latestEndTime - defaultStartHour + 1 }, (_, i) => defaultStartHour + i)
+  const hours = Array.from({ 
+    length: latestEndTime - calendarConfig.startHour + 1 
+  }, (_, i) => calendarConfig.startHour + i)
 
   return (
     <Card className="h-full flex flex-col gap-2">
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
+        {/* #region Desktop Layout */}
         {/* Desktop layout: everything in one row */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
             <CardTitle>Weekly Schedule</CardTitle>
             <DisplayToggleButtons
               displayConfig={localDisplayConfig}
-              onToggleTime={toggleTime}
-              onToggleLocation={toggleLocation}
-              onToggleInstructor={toggleInstructor}
-              onToggleTitle={toggleTitle}
+              onToggle={toggleDisplayOption}
             />
           </div>
           
@@ -294,7 +280,9 @@ export default function WeeklyCalendar({
             />
           </div>
         </div>
+        {/* #endregion */}
 
+        {/* #region Mobile Layout */}
         {/* Mobile layout: title row, then controls row */}
         <div className="md:hidden">
           <CardTitle className="mb-3">Weekly Schedule</CardTitle>
@@ -322,12 +310,10 @@ export default function WeeklyCalendar({
           
           <DisplayToggleButtons
             displayConfig={localDisplayConfig}
-            onToggleTime={toggleTime}
-            onToggleLocation={toggleLocation}
-            onToggleInstructor={toggleInstructor}
-            onToggleTitle={toggleTitle}
+            onToggle={toggleDisplayOption}
           />
         </div>
+        {/* #endregion */}
       </CardHeader>
       
       {/* Unscheduled Events Row */}
@@ -345,21 +331,16 @@ export default function WeeklyCalendar({
         {/* Scroll indicators */}
         {scrollState.canScrollUp && (
           <button 
-            className="absolute top-12 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1"
-            onClick={() => calendarRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 top-12 -left-2"
+            onClick={scrollToTopHandler}
           >
             <ChevronUp className="w-4 h-4 text-gray-700" />
           </button>
         )}
         {scrollState.canScrollDown && (
           <button 
-            className="absolute bottom-8 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1"
-            onClick={() => {
-              if (calendarRef.current) {
-                const { scrollHeight, clientHeight } = calendarRef.current
-                calendarRef.current.scrollTo({ top: scrollHeight - clientHeight, behavior: 'smooth' })
-              }
-            }}
+            className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 bottom-8 -left-2"
+            onClick={scrollToBottomHandler}
           >
             <ChevronDown className="w-4 h-4 text-gray-700" />
           </button>
@@ -367,15 +348,15 @@ export default function WeeklyCalendar({
         
         {/* Mobile horizontal scroll wrapper */}
         <div className="overflow-x-auto h-full">
-          <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
+          <div className="h-full" style={{ minWidth: `${CALENDAR_LAYOUT_CONSTANTS.MINIMUM_CALENDAR_WIDTH}px` }}>
             <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef} onScroll={handleScroll}>
               {/* Sticky Header Row */}
-              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
-                <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
+              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: gridColumns, height: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`}}>
+                <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
                   Time
                 </div>
                 {days.map((day) => (
-                  <div key={day} className="h-8 flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white">
+                  <div key={day} className="h-full flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white">
                     {day}
                   </div>
                 ))}
@@ -384,7 +365,7 @@ export default function WeeklyCalendar({
               {/* Calendar Content Grid */}
               <div 
                 className="grid" 
-                style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
+                style={{gridTemplateColumns: gridColumns}}
                 onClick={(e) => {
                   const target = e.target as HTMLElement
                   const isEmptySpace = !target.closest('[data-course-card]')
@@ -406,9 +387,11 @@ export default function WeeklyCalendar({
             </div>
 
             {/* Day columns with clean time-based rendering */}
-            {days.map((day, dayIndex) => {
+            {days.map((day) => {
+              // Get the CalendarEvent.day index for this day key
+              const calendarEventDayIndex = getDayIndex(day)
               const dayEvents = events
-                .filter(event => event.day === dayIndex)
+                .filter(event => event.day === calendarEventDayIndex)
                 .map(event => ({
                   ...event,
                   hasConflict: events.some(other => 
@@ -442,8 +425,8 @@ export default function WeeklyCalendar({
                       const minStart = Math.min(...startTimes)
                       const maxEnd = Math.max(...endTimes)
                       
-                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, defaultStartHour, dynamicHourHeight) - CALENDAR_CONSTANTS.CARD_PADDING
-                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, defaultStartHour, dynamicHourHeight) + CALENDAR_CONSTANTS.CARD_PADDING
+                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, calendarConfig.startHour, dynamicHourHeight) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, calendarConfig.startHour, dynamicHourHeight) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
                       
                       return (
                         <div
@@ -465,13 +448,13 @@ export default function WeeklyCalendar({
                     {/* Event cards with dynamic time-based positioning */}
                     {eventGroups.map((group) => {
                       return group.map((event, stackIndex) => {
-                        const { top, height } = getCardDimensions(event, defaultStartHour, dynamicHourHeight)
+                        const { top, height } = getCardDimensions(event, calendarConfig.startHour, dynamicHourHeight)
                         const isConflicted = group.length > 1
                         const isSelected = selectedEnrollment === event.enrollmentId
                         
                         // Stacking for conflicts
-                        const stackOffset = isConflicted ? stackIndex * CALENDAR_CONSTANTS.STACK_OFFSET : 0
-                        const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_CONSTANTS.STACK_OFFSET : 0
+                        const stackOffset = isConflicted ? stackIndex * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET : 0
+                        const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET : 0
                         
                         // Z-index should be lower than sticky header (z-50)
                         let zIndex = isConflicted ? 20 + stackIndex : 10
@@ -494,9 +477,9 @@ export default function WeeklyCalendar({
                               position: 'absolute',
                               top: `${top}px`,
                               height: `${height}px`,
-                              left: `${CALENDAR_CONSTANTS.CARD_PADDING + stackOffset}px`,
-                              right: `${CALENDAR_CONSTANTS.CARD_PADDING + rightOffset}px`,
-                              padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`,
+                              left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + stackOffset}px`,
+                              right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
+                              padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
                               zIndex,
                               ...(isSelected && {
                                 backgroundImage: `repeating-linear-gradient(
@@ -590,55 +573,36 @@ export default function WeeklyCalendar({
   )
 }
 
-// Display Toggle Buttons Component
+// Display Toggle Buttons Component - data-driven approach eliminates repetition
 function DisplayToggleButtons({ 
   displayConfig, 
-  onToggleTime, 
-  onToggleLocation, 
-  onToggleInstructor,
-  onToggleTitle
+  onToggle
 }: {
   displayConfig: CalendarDisplayConfig
-  onToggleTime: () => void
-  onToggleLocation: () => void
-  onToggleInstructor: () => void
-  onToggleTitle: () => void
+  onToggle: (option: keyof CalendarDisplayConfig) => void
 }) {
+  // Configuration-driven button definition - easy to maintain and extend
+  const toggleButtons = [
+    { key: 'showTitle' as const, label: 'Title' },
+    { key: 'showTime' as const, label: 'Time' },
+    { key: 'showLocation' as const, label: 'Location' },
+    { key: 'showInstructor' as const, label: 'Instructor' }
+  ]
+
   return (
     <div className="flex items-center gap-2">
       <div className="text-xs text-gray-500 font-medium">Show:</div>
-      <Button
-        variant={displayConfig.showTitle ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleTitle}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Title
-      </Button>
-      <Button
-        variant={displayConfig.showTime ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleTime}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Time
-      </Button>
-      <Button
-        variant={displayConfig.showLocation ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleLocation}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Location
-      </Button>
-      <Button
-        variant={displayConfig.showInstructor ? "default" : "outline"}
-        size="sm"
-        onClick={onToggleInstructor}
-        className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
-      >
-        Instructor
-      </Button>
+      {toggleButtons.map(({ key, label }) => (
+        <Button
+          key={key}
+          variant={displayConfig[key] ? "default" : "outline"}
+          size="sm"
+          onClick={() => onToggle(key)}
+          className="h-6 px-2 text-xs font-normal border-1 cursor-pointer"
+        >
+          {label}
+        </Button>
+      ))}
     </div>
   )
 }
@@ -740,9 +704,9 @@ function UnscheduledSectionsCard({
         <div className="p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1 min-w-0">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <Calendar className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
                   {unscheduledSections.length === 1 
                     ? '1 Unscheduled Course'
                     : `${unscheduledSections.length} Unscheduled Courses`
@@ -750,7 +714,7 @@ function UnscheduledSectionsCard({
                 </span>
               </div>
               
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap min-w-0">
                 {unscheduledSections.map((item, index) => {
                   const isSelected = selectedEnrollment === item.enrollment.courseId
                   
@@ -759,7 +723,7 @@ function UnscheduledSectionsCard({
                       key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
                       className={`
                         ${item.enrollment.color || 'bg-indigo-500'}
-                        px-2 py-0.5 text-xs rounded text-white cursor-pointer hover:scale-105 transition-all
+                        px-2 py-0.5 rounded font-mono text-xs text-white cursor-pointer hover:scale-105 transition-all
                         ${isSelected ? 'scale-105 shadow-lg' : ''}
                       `}
                       style={isSelected ? {
@@ -811,7 +775,7 @@ function UnscheduledSectionsCard({
                     style={{
                       width: 'calc((100% - 32px) / 5)',
                       minHeight: '60px',
-                      padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`,
+                      padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
                       ...(isSelected && {
                         backgroundImage: `repeating-linear-gradient(
                           45deg,
@@ -849,7 +813,7 @@ function UnscheduledSectionsCard({
                     
                     {displayConfig.showLocation && (
                       <div className={`${TEXT_STYLES.LOCATION} truncate`}>
-                        {item.meeting.location || 'TBA'}
+                        {item.meeting.location === 'TBA' ? 'No set location' : item.meeting.location}
                       </div>
                     )}
                     
