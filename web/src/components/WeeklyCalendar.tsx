@@ -704,9 +704,9 @@ function UnscheduledSectionsCard({
         <div className="p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1 min-w-0">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <Calendar className="w-4 h-4 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
                   {unscheduledSections.length === 1 
                     ? '1 Unscheduled Course'
                     : `${unscheduledSections.length} Unscheduled Courses`
@@ -714,7 +714,7 @@ function UnscheduledSectionsCard({
                 </span>
               </div>
               
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap min-w-0">
                 {unscheduledSections.map((item, index) => {
                   const isSelected = selectedEnrollment === item.enrollment.courseId
                   
