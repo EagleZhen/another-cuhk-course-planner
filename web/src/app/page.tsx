@@ -639,7 +639,15 @@ export default function Home() {
               &ldquo;There&apos;s more to explore here.&rdquo;
             </div>
             <div className="text-xs text-slate-500 font-medium">
-              Crafted by EZ
+              Crafted by{' '}
+              <a
+                href="https://www.youtube.com/@EagleZhen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-slate-900 hover:font-light transition-all duration-100"
+              >
+                EZ
+              </a>
             </div>
           </div>
         </footer>
