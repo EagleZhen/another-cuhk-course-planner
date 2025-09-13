@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo, useCallback, startTransition } from 'react'
+import { useState, useEffect, useMemo, useCallback, startTransition, useRef } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -57,6 +57,7 @@ export default function CourseSearch({
     isLimited: false, 
     isShuffled: false 
   })
+  const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
   
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
@@ -101,7 +102,11 @@ export default function CourseSearch({
   // Expose search function to parent
   useEffect(() => {
     if (onSearchControlReady) {
-      onSearchControlReady(setSearchTerm)
+      onSearchControlReady((term: string) => {
+        setSearchTerm(term)
+        // Increment search sequence to trigger auto-expansion of first result
+        setSearchSequence(prev => prev + 1)
+      })
     }
   }, [onSearchControlReady])
 
@@ -118,6 +123,7 @@ export default function CourseSearch({
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
+  const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
   
@@ -987,11 +993,16 @@ export default function CourseSearch({
             
             <div className="space-y-3">
                 {displayResults.courses.map((course, index) => (
-                <CourseCard
-                  key={`${course.subject}-${course.courseCode}-${index}`} 
-                  course={course}
-                  currentTerm={currentTerm}
-                  initialSelections={(() => {
+                <div 
+                  key={`${course.subject}-${course.courseCode}-${index}`}
+                  ref={index === 0 ? firstCourseCardRef : null}
+                >
+                  <CourseCard
+                    course={course}
+                    currentTerm={currentTerm}
+                    searchSequence={searchSequence}
+                    isFirstResult={index === 0}
+                    initialSelections={(() => {
                     const courseKey = `${course.subject}${course.courseCode}`
                     const courseSelections = new Map<string, string>()
                     for (const [key, sectionId] of selectedSections) {
@@ -1028,6 +1039,7 @@ export default function CourseSearch({
                   onScrollToCart={onScrollToCart}
                   courseEnrollments={courseEnrollments}
                 />
+                </div>
               ))}
             </div>
           </>
@@ -1117,7 +1129,9 @@ function CourseCard({
   isAdded,
   hasSelectionsChanged,
   onScrollToCart,
-  courseEnrollments
+  courseEnrollments,
+  isFirstResult = false,
+  searchSequence = 0
 }: { 
   course: InternalCourse
   currentTerm: string
@@ -1129,10 +1143,19 @@ function CourseCard({
   hasSelectionsChanged: boolean
   onScrollToCart?: (enrollmentId: string) => void
   courseEnrollments: CourseEnrollment[]
+  isFirstResult?: boolean
+  searchSequence?: number
 }) {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(isFirstResult)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
+  
+  // Auto-expand when this becomes the first result and a new search occurs
+  useEffect(() => {
+    if (isFirstResult && searchSequence > 0) {
+      setExpanded(true)
+    }
+  }, [isFirstResult, searchSequence])
   
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {

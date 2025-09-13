@@ -263,6 +263,33 @@ export default function Home() {
     }, 100)
   }
 
+  const handleShowCourseDetails = (courseCode: string) => {
+    // Auto-populate search term and scroll to first course result
+    if (setSearchTermRef.current) {
+      setSearchTermRef.current(courseCode)
+    }
+    
+    // Scroll to first course card with a slight delay to allow results to load
+    setTimeout(() => {
+      const firstCourseCard = document.querySelector('[data-course-search] .space-y-3 > div:first-child')
+      if (firstCourseCard) {
+        firstCourseCard.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        })
+      } else {
+        // Fallback to course search section if no results found yet
+        const courseSearchElement = document.querySelector('[data-course-search]')
+        if (courseSearchElement) {
+          courseSearchElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          })
+        }
+      }
+    }, 300) // Slightly longer delay to allow search debouncing and result rendering
+  }
+
 
   const handleRemoveCourse = (enrollmentId: string) => {
     // Check if there are conflicts before removal (for conflict resolution tracking)
@@ -502,12 +529,13 @@ export default function Home() {
               onRemoveCourse={handleRemoveCourse}
               onSelectEnrollment={handleSelectEnrollment}
               onSectionChange={handleSectionChange}
+              onShowCourseDetails={handleShowCourseDetails}
             />
           </div>
         </div>
 
         {/* Bottom Section - Course Search (Full Width) */}
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto" data-course-search>
           <Card className="gap-0">
             <CardHeader>
               <div className="space-y-2">

@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, MapPin } from 'lucide-react'
+import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, MapPin, Info } from 'lucide-react'
 import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
@@ -19,6 +19,7 @@ interface ShoppingCartProps {
   onRemoveCourse: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
+  onShowCourseDetails?: (courseCode: string) => void // Navigate to course search and show details
 }
 
 export default function ShoppingCart({ 
@@ -30,7 +31,8 @@ export default function ShoppingCart({
   onToggleVisibility, 
   onRemoveCourse,
   onSelectEnrollment,
-  onSectionChange
+  onSectionChange,
+  onShowCourseDetails
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
@@ -257,7 +259,7 @@ export default function ShoppingCart({
                     }
                   }}
                   className={`
-                    border rounded p-2 transition-all duration-300 relative
+                    border rounded p-2 transition-all duration-300 relative group
                     border-l-4 border-gray-200
                     ${isInvalid 
                       ? 'bg-orange-50 opacity-75' 
@@ -302,6 +304,18 @@ export default function ShoppingCart({
                         <span className="font-semibold text-sm">
                           {enrollment.course.subject}{enrollment.course.courseCode}
                         </span>
+                        {onShowCourseDetails && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
+                            }}
+                            className="p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                            title="View course details"
+                          >
+                            <Info className="w-3 h-3 text-gray-400 hover:text-gray-600" />
+                          </button>
+                        )}
                       </div>
                       {/* Status indicators only for critical issues not shown in badges */}
                       <div className="flex items-center gap-1 flex-shrink-0">
