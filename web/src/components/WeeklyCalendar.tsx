@@ -723,7 +723,7 @@ function UnscheduledSectionsCard({
                       key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
                       className={`
                         ${item.enrollment.color || 'bg-indigo-500'}
-                        px-2 py-0.5 text-xs rounded text-white cursor-pointer hover:scale-105 transition-all
+                        px-2 py-0.5 rounded font-mono text-xs text-white cursor-pointer hover:scale-105 transition-all
                         ${isSelected ? 'scale-105 shadow-lg' : ''}
                       `}
                       style={isSelected ? {
