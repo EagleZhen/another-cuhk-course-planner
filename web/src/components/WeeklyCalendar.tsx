@@ -6,45 +6,20 @@ import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
+import { 
+  DEFAULT_CALENDAR_CONFIG, 
+  CALENDAR_LAYOUT_CONSTANTS,
+  TEXT_STYLES,
+  ROW_HEIGHTS,
+  MINIMUM_COURSE_DURATION_MINUTES,
+  DAYS,
+  getDayIndex,
+  getDayKey,
+  type WeekDay,
+  type CalendarDisplayConfig,
+  type CalendarLayoutConfig 
+} from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
-
-// Clean calendar architecture - time-first approach
-interface CalendarDisplayConfig {
-  showTime: boolean
-  showLocation: boolean  
-  showInstructor: boolean
-  showTitle: boolean
-}
-
-// Fixed calendar constants - never change regardless of content
-const CALENDAR_CONSTANTS = {
-  HOUR_HEIGHT: 64,        // Fixed hour height for consistent time mapping
-  TIME_COLUMN_WIDTH: 48,
-  STACK_OFFSET: 16,       // Offset for conflicting cards
-  CARD_PADDING: 4,        // Fixed padding for all cards
-  MIN_CARD_HEIGHT: 24,    // Absolute minimum for very short events
-} as const
-
-// Typography styles for consistent rendering - timetable priorities
-const TEXT_STYLES = {
-  COURSE_CODE: 'text-xs font-semibold leading-tight',       // Most important: What course
-  TITLE: 'text-[9px] leading-tight opacity-85',            // Course title - smaller than course code
-  TIME: 'text-[10px] leading-tight opacity-90',            // Critical: When to go
-  LOCATION: 'text-[10px] leading-tight opacity-85',        // Critical: Where to go
-  INSTRUCTOR: 'text-[8px] leading-tight opacity-70',       // Less critical: Who teaches
-} as const
-
-// Row height constants based on typography (in pixels) - timetable priorities
-const ROW_HEIGHTS = {
-  COURSE_CODE: 14,     // text-xs with leading-tight (course code + section type)
-  TITLE: 11,           // text-[9px] with leading-tight (course title)
-  TIME: 12,            // text-[10px] with leading-tight
-  LOCATION: 12,        // text-[10px] with leading-tight  
-  INSTRUCTOR: 10,      // text-[8px] with leading-tight
-} as const
-
-// Reference duration for 45-minute standard class
-const REFERENCE_DURATION_MINUTES = 45
 
 // Dynamic height calculation functions
 const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
@@ -56,24 +31,24 @@ const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): num
   if (displayConfig.showInstructor) totalHeight += ROW_HEIGHTS.INSTRUCTOR
   
   // Add padding (4px top + 4px bottom)
-  totalHeight += CALENDAR_CONSTANTS.CARD_PADDING * 2
+  totalHeight += CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
   
   return totalHeight
 }
 
 const calculateDynamicHourHeight = (referenceCardHeight: number): number => {
-  // 45 minutes = 0.75 hours
-  const referenceDurationHours = REFERENCE_DURATION_MINUTES / 60
+  // Convert minimum duration to hours for proportional scaling
+  const referenceDurationHours = MINIMUM_COURSE_DURATION_MINUTES / 60
   return referenceCardHeight / referenceDurationHours
 }
 
 // Pure time-to-pixel conversion (now accepts dynamic hour height)
-const timeToPixels = (hour: number, minute: number, startHour: number, hourHeight: number = CALENDAR_CONSTANTS.HOUR_HEIGHT): number => {
+const timeToPixels = (hour: number, minute: number, startHour: number, hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT): number => {
   return ((hour - startHour) * hourHeight) + (minute / 60) * hourHeight
 }
 
 // Calculate card dimensions from pure time data (now accepts dynamic hour height)
-const getCardDimensions = (event: CalendarEvent, startHour: number, hourHeight: number = CALENDAR_CONSTANTS.HOUR_HEIGHT) => {
+const getCardDimensions = (event: CalendarEvent, startHour: number, hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT) => {
   const top = timeToPixels(event.startHour, event.startMinute, startHour, hourHeight)
   const timeBasedHeight = timeToPixels(event.endHour, event.endMinute, startHour, hourHeight) - top
   
@@ -94,6 +69,7 @@ interface WeeklyCalendarProps {
   availableTerms?: string[]
   selectedEnrollment?: string | null
   displayConfig?: CalendarDisplayConfig
+  calendarConfig?: CalendarLayoutConfig  // New: flexible calendar configuration
   onTermChange?: (term: string) => void
   onToggleVisibility?: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -106,6 +82,7 @@ export default function WeeklyCalendar({
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
   displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
+  calendarConfig = DEFAULT_CALENDAR_CONFIG,
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
@@ -242,11 +219,13 @@ export default function WeeklyCalendar({
     }
   }
   
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
+  // Use simplified day configuration system
+  const activeDays = calendarConfig.activeDays
+  const days = activeDays // Simple and readable
   
-  // Fixed hour range - consistent time grid
-  const defaultStartHour = 8
-  const defaultEndHour = 18
+  // Use configurable hour range
+  const defaultStartHour = calendarConfig.startHour
+  const defaultEndHour = calendarConfig.endHour
   
   // Calculate dynamic hour height based on display configuration
   const referenceCardHeight = calculateReferenceCardHeight(localDisplayConfig)
@@ -370,7 +349,7 @@ export default function WeeklyCalendar({
           <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
             <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef} onScroll={handleScroll}>
               {/* Sticky Header Row */}
-              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
+              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: `${CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}>
                 <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
                   Time
                 </div>
@@ -384,7 +363,7 @@ export default function WeeklyCalendar({
               {/* Calendar Content Grid */}
               <div 
                 className="grid" 
-                style={{gridTemplateColumns: `${CALENDAR_CONSTANTS.TIME_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
+                style={{gridTemplateColumns: `${CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH}px 1fr 1fr 1fr 1fr 1fr`}}
                 onClick={(e) => {
                   const target = e.target as HTMLElement
                   const isEmptySpace = !target.closest('[data-course-card]')
@@ -407,8 +386,10 @@ export default function WeeklyCalendar({
 
             {/* Day columns with clean time-based rendering */}
             {days.map((day, dayIndex) => {
+              // Get the CalendarEvent.day index for this day key
+              const calendarEventDayIndex = getDayIndex(day)
               const dayEvents = events
-                .filter(event => event.day === dayIndex)
+                .filter(event => event.day === calendarEventDayIndex)
                 .map(event => ({
                   ...event,
                   hasConflict: events.some(other => 
@@ -442,8 +423,8 @@ export default function WeeklyCalendar({
                       const minStart = Math.min(...startTimes)
                       const maxEnd = Math.max(...endTimes)
                       
-                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, defaultStartHour, dynamicHourHeight) - CALENDAR_CONSTANTS.CARD_PADDING
-                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, defaultStartHour, dynamicHourHeight) + CALENDAR_CONSTANTS.CARD_PADDING
+                      const zoneTop = timeToPixels(Math.floor(minStart / 60), minStart % 60, defaultStartHour, dynamicHourHeight) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                      const zoneBottom = timeToPixels(Math.floor(maxEnd / 60), maxEnd % 60, defaultStartHour, dynamicHourHeight) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
                       
                       return (
                         <div
@@ -470,8 +451,8 @@ export default function WeeklyCalendar({
                         const isSelected = selectedEnrollment === event.enrollmentId
                         
                         // Stacking for conflicts
-                        const stackOffset = isConflicted ? stackIndex * CALENDAR_CONSTANTS.STACK_OFFSET : 0
-                        const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_CONSTANTS.STACK_OFFSET : 0
+                        const stackOffset = isConflicted ? stackIndex * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET : 0
+                        const rightOffset = isConflicted ? (group.length - 1 - stackIndex) * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET : 0
                         
                         // Z-index should be lower than sticky header (z-50)
                         let zIndex = isConflicted ? 20 + stackIndex : 10
@@ -494,9 +475,9 @@ export default function WeeklyCalendar({
                               position: 'absolute',
                               top: `${top}px`,
                               height: `${height}px`,
-                              left: `${CALENDAR_CONSTANTS.CARD_PADDING + stackOffset}px`,
-                              right: `${CALENDAR_CONSTANTS.CARD_PADDING + rightOffset}px`,
-                              padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`,
+                              left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + stackOffset}px`,
+                              right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
+                              padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
                               zIndex,
                               ...(isSelected && {
                                 backgroundImage: `repeating-linear-gradient(
@@ -811,7 +792,7 @@ function UnscheduledSectionsCard({
                     style={{
                       width: 'calc((100% - 32px) / 5)',
                       minHeight: '60px',
-                      padding: `${CALENDAR_CONSTANTS.CARD_PADDING}px`,
+                      padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
                       ...(isSelected && {
                         backgroundImage: `repeating-linear-gradient(
                           45deg,
