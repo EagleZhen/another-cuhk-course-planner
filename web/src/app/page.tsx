@@ -273,9 +273,18 @@ export default function Home() {
     setTimeout(() => {
       const firstCourseCard = document.querySelector('[data-course-search] .space-y-3 > div:first-child')
       if (firstCourseCard) {
-        firstCourseCard.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' // Changed to 'start' to position at top of viewport
+        // Get the sticky header height to offset scroll position
+        const stickyHeader = document.querySelector('[data-course-search] .sticky')
+        const headerHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0
+        const additionalPadding = 16 // Add some breathing room
+        
+        // Calculate target position accounting for sticky header
+        const elementRect = firstCourseCard.getBoundingClientRect()
+        const targetY = window.pageYOffset + elementRect.top - headerHeight - additionalPadding
+        
+        window.scrollTo({
+          top: targetY,
+          behavior: 'smooth'
         })
       } else {
         // Fallback to course search section if no results found yet
