@@ -12,18 +12,17 @@ import {
   TEXT_STYLES,
   ROW_HEIGHTS,
   MINIMUM_COURSE_DURATION_MINUTES,
-  DAYS,
   getDayIndex,
-  getDayKey,
   getRequiredDays,
   getGridColumns,
-  type WeekDay,
   type CalendarDisplayConfig,
   type CalendarLayoutConfig 
 } from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
 
-// Dynamic height calculation functions
+/**
+ * Calculate the total height needed for a course card based on display configuration
+ */
 const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
   let totalHeight = ROW_HEIGHTS.COURSE_CODE // Course code + section type always shown
   
@@ -38,19 +37,34 @@ const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): num
   return totalHeight
 }
 
+/**
+ * Calculate dynamic hour height based on minimum course duration requirements
+ */
 const calculateDynamicHourHeight = (referenceCardHeight: number): number => {
-  // Convert minimum duration to hours for proportional scaling
   const referenceDurationHours = MINIMUM_COURSE_DURATION_MINUTES / 60
   return referenceCardHeight / referenceDurationHours
 }
 
-// Pure time-to-pixel conversion (now accepts dynamic hour height)
-const timeToPixels = (hour: number, minute: number, startHour: number, hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT): number => {
+/**
+ * Convert time to pixel position with dynamic hour height support
+ */
+const timeToPixels = (
+  hour: number, 
+  minute: number, 
+  startHour: number, 
+  hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT
+): number => {
   return ((hour - startHour) * hourHeight) + (minute / 60) * hourHeight
 }
 
-// Calculate card dimensions from pure time data (now accepts dynamic hour height)
-const getCardDimensions = (event: CalendarEvent, startHour: number, hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT) => {
+/**
+ * Calculate card dimensions from time data with dynamic scaling
+ */
+const getCardDimensions = (
+  event: CalendarEvent, 
+  startHour: number, 
+  hourHeight: number = CALENDAR_LAYOUT_CONSTANTS.BASE_HOUR_SLOT_HEIGHT
+) => {
   const top = timeToPixels(event.startHour, event.startMinute, startHour, hourHeight)
   const timeBasedHeight = timeToPixels(event.endHour, event.endMinute, startHour, hourHeight) - top
   
@@ -104,91 +118,92 @@ export default function WeeklyCalendar({
   
   // Ref for capturing the calendar component
   const calendarRef = useRef<HTMLDivElement>(null)
-  
-  // Calculate scroll state for indicators
-  const updateScrollState = useCallback(() => {
+
+  const updateScrollStateHandler = useCallback(() => {
     if (!calendarRef.current) return
     
     const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
-    
-    // Handle case where content shrunk and we're now past the bottom
     const maxScrollTop = Math.max(0, scrollHeight - clientHeight)
     
-    // If we're scrolled past the new bottom, adjust position
+    // Auto-adjust if scrolled past the new bottom
     if (scrollTop > maxScrollTop) {
       calendarRef.current.scrollTop = maxScrollTop
     }
     
-    // Use current scroll position (might have been adjusted)
     const currentScrollTop = calendarRef.current.scrollTop
     const tolerance = 1
-    const significantScrollThreshold = 5 // Filter out tiny amounts (padding/borders)
+    const significantScrollThreshold = 5
     
-    const canScrollUp = currentScrollTop > tolerance
-    const canScrollDown = scrollHeight > clientHeight && 
-                          maxScrollTop > significantScrollThreshold && 
-                          currentScrollTop < maxScrollTop - tolerance
-    
-    setScrollState({ canScrollUp, canScrollDown })
+    setScrollState({
+      canScrollUp: currentScrollTop > tolerance,
+      canScrollDown: scrollHeight > clientHeight && 
+                     maxScrollTop > significantScrollThreshold && 
+                     currentScrollTop < maxScrollTop - tolerance
+    })
   }, [])
 
-  // Scroll handler for indicators
-  const handleScroll = () => {
-    updateScrollState()
-  }
+  const handleScroll = useCallback(() => {
+    updateScrollStateHandler()
+  }, [updateScrollStateHandler])
 
-  // Generic toggle function - eliminates repetitive code
+  const scrollToTopHandler = useCallback(() => {
+    if (calendarRef.current) {
+      calendarRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [])
+
+  const scrollToBottomHandler = useCallback(() => {
+    if (calendarRef.current) {
+      calendarRef.current.scrollTo({ top: calendarRef.current.scrollHeight, behavior: 'smooth' })
+    }
+  }, [])
+
   const toggleDisplayOption = useCallback((option: keyof CalendarDisplayConfig) => {
     setLocalDisplayConfig(prev => ({ ...prev, [option]: !prev[option] }))
   }, [])
-  
+
   // Update scroll indicators when content changes
   useEffect(() => {
     if (!calendarRef.current) return
     
-    // ResizeObserver detects when calendar content size actually changes
-    const resizeObserver = new ResizeObserver(() => {
-      updateScrollState()
-    })
-    
+    const resizeObserver = new ResizeObserver(updateScrollStateHandler)
     resizeObserver.observe(calendarRef.current)
     
-    // Also update immediately on config/events change
-    updateScrollState()
+    // Update immediately on config/events change
+    updateScrollStateHandler()
     
     return () => resizeObserver.disconnect()
-  }, [localDisplayConfig, events, updateScrollState])
+  }, [localDisplayConfig, events, updateScrollStateHandler])
   
   // Auto-scroll to selected event
   useEffect(() => {
-    if (selectedEnrollment && calendarRef.current) {
-      const selectedElement = eventRefs.current.get(selectedEnrollment)
-      if (selectedElement) {
-        const container = calendarRef.current
-        const elementTop = selectedElement.offsetTop
-        const elementHeight = selectedElement.offsetHeight
-        const containerHeight = container.clientHeight
-        const containerScrollTop = container.scrollTop
-        
-        // Calculate the ideal scroll position to center the element
-        const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
-        
-        // Only scroll if the element is not fully visible
-        const elementBottom = elementTop + elementHeight
-        const visibleTop = containerScrollTop
-        const visibleBottom = containerScrollTop + containerHeight
-        
-        if (elementTop < visibleTop || elementBottom > visibleBottom) {
-          container.scrollTo({
-            top: idealScrollTop,
-            behavior: 'smooth'
-          })
-        }
-      }
+    if (!selectedEnrollment || !calendarRef.current) return
+    
+    const selectedElement = eventRefs.current.get(selectedEnrollment)
+    if (!selectedElement) return
+    
+    const container = calendarRef.current
+    const elementTop = selectedElement.offsetTop
+    const elementHeight = selectedElement.offsetHeight
+    const containerHeight = container.clientHeight
+    const containerScrollTop = container.scrollTop
+    
+    // Calculate ideal scroll position to center the element
+    const idealScrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2)
+    
+    // Only scroll if element is not fully visible
+    const elementBottom = elementTop + elementHeight
+    const visibleTop = containerScrollTop
+    const visibleBottom = containerScrollTop + containerHeight
+    
+    if (elementTop < visibleTop || elementBottom > visibleBottom) {
+      container.scrollTo({
+        top: idealScrollTop,
+        behavior: 'smooth'
+      })
     }
   }, [selectedEnrollment, events])
-  
-  // Screenshot function
+
   const handleScreenshot = async () => {
     if (!calendarRef.current) {
       console.error('Calendar element not found')
@@ -199,21 +214,15 @@ export default function WeeklyCalendar({
     try {
       console.log('Starting screenshot capture...')
       
-      // Find unscheduled section using data attribute (can be null)
+      // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector('[data-screenshot="unscheduled"]') as HTMLElement | null
       
-      await captureCalendarScreenshot(
-        calendarRef.current, 
-        unscheduledElement,
-        selectedTerm
-      )
+      await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
       console.log('Screenshot completed successfully')
     } catch (error) {
       console.error('Screenshot capture failed:', error)
-      // Show detailed error information
       if (error instanceof Error) {
-        console.error('Error message:', error.message)
-        console.error('Error stack:', error.stack)
+        console.error('Error details:', { message: error.message, stack: error.stack })
       }
     } finally {
       setIsCapturing(false)
@@ -240,6 +249,7 @@ export default function WeeklyCalendar({
   return (
     <Card className="h-full flex flex-col gap-2">
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
+        {/* #region Desktop Layout */}
         {/* Desktop layout: everything in one row */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -270,7 +280,9 @@ export default function WeeklyCalendar({
             />
           </div>
         </div>
+        {/* #endregion */}
 
+        {/* #region Mobile Layout */}
         {/* Mobile layout: title row, then controls row */}
         <div className="md:hidden">
           <CardTitle className="mb-3">Weekly Schedule</CardTitle>
@@ -301,6 +313,7 @@ export default function WeeklyCalendar({
             onToggle={toggleDisplayOption}
           />
         </div>
+        {/* #endregion */}
       </CardHeader>
       
       {/* Unscheduled Events Row */}
@@ -318,21 +331,16 @@ export default function WeeklyCalendar({
         {/* Scroll indicators */}
         {scrollState.canScrollUp && (
           <button 
-            className="absolute top-12 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1"
-            onClick={() => calendarRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 top-12 -left-2"
+            onClick={scrollToTopHandler}
           >
             <ChevronUp className="w-4 h-4 text-gray-700" />
           </button>
         )}
         {scrollState.canScrollDown && (
           <button 
-            className="absolute bottom-8 -left-2 z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1"
-            onClick={() => {
-              if (calendarRef.current) {
-                const { scrollHeight, clientHeight } = calendarRef.current
-                calendarRef.current.scrollTo({ top: scrollHeight - clientHeight, behavior: 'smooth' })
-              }
-            }}
+            className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 bottom-8 -left-2"
+            onClick={scrollToBottomHandler}
           >
             <ChevronDown className="w-4 h-4 text-gray-700" />
           </button>
@@ -340,15 +348,15 @@ export default function WeeklyCalendar({
         
         {/* Mobile horizontal scroll wrapper */}
         <div className="overflow-x-auto h-full">
-          <div className="min-w-[640px] h-full"> {/* Wider minimum width for better course code display */}
+          <div className="h-full" style={{ minWidth: `${CALENDAR_LAYOUT_CONSTANTS.MINIMUM_CALENDAR_WIDTH}px` }}>
             <div className="h-full max-h-[720px] overflow-y-auto" ref={calendarRef} onScroll={handleScroll}>
               {/* Sticky Header Row */}
-              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: gridColumns}}>
-                <div className="h-8 flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
+              <div className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs" style={{gridTemplateColumns: gridColumns, height: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`}}>
+                <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
                   Time
                 </div>
                 {days.map((day) => (
-                  <div key={day} className="h-8 flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white">
+                  <div key={day} className="h-full flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white">
                     {day}
                   </div>
                 ))}
@@ -379,7 +387,7 @@ export default function WeeklyCalendar({
             </div>
 
             {/* Day columns with clean time-based rendering */}
-            {days.map((day, dayIndex) => {
+            {days.map((day) => {
               // Get the CalendarEvent.day index for this day key
               const calendarEventDayIndex = getDayIndex(day)
               const dayEvents = events

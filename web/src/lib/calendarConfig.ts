@@ -85,6 +85,10 @@ export const CALENDAR_LAYOUT_CONSTANTS = {
   COURSE_CARD_PADDING: 4,
   /** Absolute minimum height for very short events (accessibility requirement) */
   MINIMUM_CARD_HEIGHT: 24,
+  /** Minimum calendar width for proper display on smaller screens */
+  MINIMUM_CALENDAR_WIDTH: 640,
+  /** Height of sticky header for scroll calculations */
+  STICKY_HEADER_HEIGHT: 32,
 } as const
 
 /**
@@ -155,7 +159,7 @@ export function getDayIndex(day: WeekDay): number {
 /** Get readable day key from CalendarEvent.day index */
 export function getDayKey(index: number): WeekDay {
   // Simple lookup - no complex mapping needed
-  const dayEntry = Object.entries(DAYS).find(([_, info]) => info.index === index)
+  const dayEntry = Object.entries(DAYS).find(([, info]) => info.index === index)
   if (!dayEntry) throw new Error(`Invalid day index: ${index}`)
   return dayEntry[0] as WeekDay
 }
