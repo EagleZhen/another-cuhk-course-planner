@@ -103,7 +103,7 @@ export default function WeeklyCalendar({
   onSelectEnrollment
 }: WeeklyCalendarProps) {
   // Global config for display preferences - uses single hydration source
-  const { config, updateConfig } = useAppConfig()
+  const { config, updateConfig, isHydrated } = useAppConfig()
   const localDisplayConfig = config.calendarDisplay
   const [isCapturing, setIsCapturing] = useState(false)
   
@@ -254,10 +254,18 @@ export default function WeeklyCalendar({
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
             <CardTitle>Weekly Schedule</CardTitle>
-            <DisplayToggleButtons
-              displayConfig={localDisplayConfig}
-              onToggle={toggleDisplayOption}
-            />
+            <div className="flex items-center gap-2">
+              <DisplayToggleButtons
+                displayConfig={localDisplayConfig}
+                onToggle={toggleDisplayOption}
+              />
+              {!isHydrated && (
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
+                  <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                  Loading preferences
+                </span>
+              )}
+            </div>
           </div>
           
           <div className="flex items-center gap-2">
@@ -308,10 +316,18 @@ export default function WeeklyCalendar({
             </div>
           </div>
           
-          <DisplayToggleButtons
-            displayConfig={localDisplayConfig}
-            onToggle={toggleDisplayOption}
-          />
+          <div className="flex items-center gap-2">
+            <DisplayToggleButtons
+              displayConfig={localDisplayConfig}
+              onToggle={toggleDisplayOption}
+            />
+            {!isHydrated && (
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
+                <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                Loading preferences
+              </span>
+            )}
+          </div>
         </div>
         {/* #endregion */}
       </CardHeader>

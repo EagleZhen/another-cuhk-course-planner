@@ -81,8 +81,8 @@ export function useAppConfig() {
 
   // Load real config after hydration to prevent mismatch
   useEffect(() => {
-    setIsHydrated(true)
     setConfig(loadConfig())
+    setIsHydrated(true)
   }, [])
 
   const updateConfig = useCallback((path: string, value: unknown) => {
