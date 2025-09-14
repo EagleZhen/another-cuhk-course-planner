@@ -441,10 +441,10 @@ export default function Home() {
   }, [])
 
   // Pure validation function
-  const validateEnrollments = useCallback((enrollments: CourseEnrollment[], freshCourses: InternalCourse[]): CourseEnrollment[] => {
+  const validateEnrollments = useCallback((enrollments: CourseEnrollment[], freshCourses: InternalCourse[], currentTerm: string): CourseEnrollment[] => {
     return enrollments.map(enrollment => {
       const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
-      console.log(`🔍 Validating ${courseKey} (enrolled in: ${enrollment.termName})`)
+      console.log(`🔍 Validating ${courseKey}`)
 
       // Find fresh course data
       const freshCourse = freshCourses.find(course =>
@@ -462,28 +462,38 @@ export default function Home() {
 
       console.log(`✅ Found fresh course ${courseKey}, available terms:`, freshCourse.terms.map(t => t.termName))
 
-      // Use the enrollment's stored term for validation
-      const enrollmentTerm = enrollment.termName
-      if (!enrollmentTerm) {
-        console.warn(`⚠️ Course ${courseKey}: No term information in enrollment`)
-        return enrollment
-      }
+      // Use the selected sections to determine which term this enrollment is for
+      // Since sections have unique IDs, we can find which term they belong to
+      const enrollmentTermData = freshCourse.terms.find(term =>
+        enrollment.selectedSections.some(selectedSection =>
+          term.sections.some(termSection => termSection.id === selectedSection.id)
+        )
+      )
 
-      const termData = freshCourse.terms.find(t => t.termName === enrollmentTerm)
-      if (!termData) {
-        console.warn(`⚠️ Course ${courseKey}: Term "${enrollmentTerm}" not found in fresh data. Available: ${freshCourse.terms.map(t => t.termName).join(', ')}`)
+      if (!enrollmentTermData) {
+        console.warn(`⚠️ Course ${courseKey}: Enrolled sections no longer exist in any term`)
         return {
           ...enrollment,
           isInvalid: true,
-          invalidReason: 'Course not available in current term. Click the info icon to select available terms.'
+          invalidReason: 'Course sections no longer available. Click the info icon to select available terms.'
         }
       }
 
-      console.log(`✅ Found term data for ${courseKey} in ${enrollmentTerm}, sections:`, termData.sections?.length || 0)
+      console.log(`✅ Found term data for ${courseKey} in ${enrollmentTermData.termName}, sections:`, enrollmentTermData.sections?.length || 0)
+
+      // CRITICAL CHECK: Is the enrollment term different from current term?
+      if (enrollmentTermData.termName !== currentTerm) {
+        console.warn(`⚠️ Course ${courseKey}: Enrolled in "${enrollmentTermData.termName}" but currently viewing "${currentTerm}"`)
+        return {
+          ...enrollment,
+          isInvalid: true,
+          invalidReason: `Course enrolled in ${enrollmentTermData.termName} but currently viewing ${currentTerm}. Click the info icon to select available terms.`
+        }
+      }
 
       // Check if term exists but has no sections available
-      if (!termData.sections || termData.sections.length === 0) {
-        console.warn(`⚠️ Course ${courseKey}: No sections available in term "${enrollmentTerm}"`)
+      if (!enrollmentTermData.sections || enrollmentTermData.sections.length === 0) {
+        console.warn(`⚠️ Course ${courseKey}: No sections available in term "${enrollmentTermData.termName}"`)
         return {
           ...enrollment,
           isInvalid: true,
@@ -493,7 +503,7 @@ export default function Home() {
 
       // Update sections with fresh data
       const syncedSections = enrollment.selectedSections.map(oldSection => {
-        const freshSection = termData.sections.find(s => s.id === oldSection.id)
+        const freshSection = enrollmentTermData.sections.find(s => s.id === oldSection.id)
 
         if (!freshSection) {
           console.warn(`⚠️ Section ${oldSection.sectionCode} no longer exists for ${courseKey}`)
@@ -524,7 +534,7 @@ export default function Home() {
       console.log(`📊 Fresh courses available: ${allCourseData.length}`)
       console.log(`📚 Enrolled courses to validate: ${courseEnrollments.length}`)
 
-      const validatedEnrollments = validateEnrollments(courseEnrollments, allCourseData)
+      const validatedEnrollments = validateEnrollments(courseEnrollments, allCourseData, currentTerm)
 
       const invalidCount = validatedEnrollments.filter(e => e.isInvalid).length
       if (invalidCount > 0) {
