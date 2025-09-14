@@ -42,7 +42,6 @@ export default function Home() {
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
   const [lastDataUpdate, setLastDataUpdate] = useState<Date | null>(null)
-  const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
@@ -111,7 +110,11 @@ export default function Home() {
             ...enrollment,
             courseId: migratedCourseId, // Use migrated courseId
             color: getDeterministicColor(courseKey), // Regenerate color for consistency
-            isVisible: enrollment.isVisible ?? true // Default to visible if undefined
+            isVisible: enrollment.isVisible ?? true, // Default to visible if undefined
+            // Clear any persisted invalid flags so sync can re-evaluate fresh
+            isInvalid: undefined,
+            invalidReason: undefined,
+            lastSynced: undefined
           }
         }).filter(Boolean) // Remove invalid enrollments
         
@@ -121,6 +124,10 @@ export default function Home() {
         // No saved schedule for this term, start fresh
         setCourseEnrollments([])
       }
+
+      // Reset validation flag when switching terms
+      setIsValidated(false)
+
       // Clear section selections when switching terms
       setSelectedSections(new Map())
       
@@ -417,43 +424,30 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
-  // Store fresh course data for sync validation
-  const [freshCourseData, setFreshCourseData] = useState<InternalCourse[] | null>(null)
+  // Simple state for validation
+  const [allCourseData, setAllCourseData] = useState<InternalCourse[] | null>(null)
+  const [isValidated, setIsValidated] = useState(false)
 
-  // Handle data updates from CourseSearch - just update timestamp and store fresh data
+  // Handle data updates from CourseSearch - simple approach
   const handleDataUpdate = useCallback((timestamp: Date, allFreshCourses?: InternalCourse[]) => {
     setLastDataUpdate(timestamp)
     console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
 
-    // Store fresh course data for one-time sync after localStorage restore
+    // Store fresh course data for validation
     if (allFreshCourses) {
-      setFreshCourseData(allFreshCourses) // Store fresh data for sync
-      setLastSyncTimestamp(timestamp) // Mark when fresh data arrived
+      setAllCourseData(allFreshCourses)
       console.log(`📋 Fresh course data available: ${allFreshCourses.length} courses`)
     }
   }, [])
 
-  // One-time sync that runs after both data loading and localStorage restore complete
-  useEffect(() => {
-    // Only sync if we have all required data: fresh courses, localStorage enrollments, and sync timestamp
-    if (!lastSyncTimestamp || !freshCourseData || courseEnrollments.length === 0) {
-      return
-    }
-
-    // Check if we've already synced this data load
-    if (lastDataUpdate && lastSyncTimestamp.getTime() === lastDataUpdate.getTime()) {
-      console.log('📋 Sync already completed for this data load, skipping')
-      return
-    }
-
-    console.log('🔄 Running one-time sync to validate localStorage courses against fresh catalog data')
-
-    // Perform sync validation
-    const syncedEnrollments = courseEnrollments.map(enrollment => {
+  // Pure validation function
+  const validateEnrollments = useCallback((enrollments: CourseEnrollment[], freshCourses: InternalCourse[]): CourseEnrollment[] => {
+    return enrollments.map(enrollment => {
       const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+      console.log(`🔍 Validating ${courseKey} (enrolled in: ${enrollment.termName})`)
 
       // Find fresh course data
-      const freshCourse = freshCourseData.find(course =>
+      const freshCourse = freshCourses.find(course =>
         `${course.subject}${course.courseCode}` === courseKey
       )
 
@@ -462,10 +456,11 @@ export default function Home() {
         return {
           ...enrollment,
           isInvalid: true,
-          invalidReason: 'Course no longer available',
-          lastSynced: lastSyncTimestamp
+          invalidReason: 'Course no longer available. Click the info icon to browse alternatives.'
         }
       }
+
+      console.log(`✅ Found fresh course ${courseKey}, available terms:`, freshCourse.terms.map(t => t.termName))
 
       // Use the enrollment's stored term for validation
       const enrollmentTerm = enrollment.termName
@@ -476,12 +471,23 @@ export default function Home() {
 
       const termData = freshCourse.terms.find(t => t.termName === enrollmentTerm)
       if (!termData) {
-        console.warn(`⚠️ Course ${courseKey}: Term "${enrollmentTerm}" not found in fresh data`)
+        console.warn(`⚠️ Course ${courseKey}: Term "${enrollmentTerm}" not found in fresh data. Available: ${freshCourse.terms.map(t => t.termName).join(', ')}`)
         return {
           ...enrollment,
           isInvalid: true,
-          invalidReason: 'Course not available in current term',
-          lastSynced: lastSyncTimestamp
+          invalidReason: 'Course not available in current term. Click the info icon to select available terms.'
+        }
+      }
+
+      console.log(`✅ Found term data for ${courseKey} in ${enrollmentTerm}, sections:`, termData.sections?.length || 0)
+
+      // Check if term exists but has no sections available
+      if (!termData.sections || termData.sections.length === 0) {
+        console.warn(`⚠️ Course ${courseKey}: No sections available in term "${enrollmentTerm}"`)
+        return {
+          ...enrollment,
+          isInvalid: true,
+          invalidReason: 'No sections available in current term. Click the info icon to select available terms.'
         }
       }
 
@@ -506,33 +512,31 @@ export default function Home() {
         course: freshCourse, // Always use fresh course data
         selectedSections: syncedSections,
         isInvalid: hasInvalidSections,
-        invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
-        lastSynced: lastSyncTimestamp
+        invalidReason: hasInvalidSections ? 'Some sections no longer available. Click the info icon to select valid sections.' : undefined
       }
     })
+  }, [])
 
-    // Apply synced enrollments if there were changes
-    const hasChanges = syncedEnrollments.some((synced, index) =>
-      JSON.stringify(synced) !== JSON.stringify(courseEnrollments[index])
-    )
+  // Simple one-time validation when fresh data becomes available
+  useEffect(() => {
+    if (allCourseData && courseEnrollments.length > 0 && !isValidated) {
+      console.log('🔄 Running one-time validation of localStorage courses')
+      console.log(`📊 Fresh courses available: ${allCourseData.length}`)
+      console.log(`📚 Enrolled courses to validate: ${courseEnrollments.length}`)
 
-    if (hasChanges) {
-      const invalidCount = syncedEnrollments.filter(e => e.isInvalid).length
+      const validatedEnrollments = validateEnrollments(courseEnrollments, allCourseData)
+
+      const invalidCount = validatedEnrollments.filter(e => e.isInvalid).length
       if (invalidCount > 0) {
-        console.warn(`⚠️ ${invalidCount} enrollments have invalid data after sync`)
+        console.warn(`⚠️ ${invalidCount} enrollments have invalid data`)
       } else {
-        console.log(`✅ Successfully synced ${syncedEnrollments.length} enrollments`)
+        console.log(`✅ All ${validatedEnrollments.length} enrollments are valid`)
       }
 
-      setCourseEnrollments(syncedEnrollments)
-    } else {
-      console.log(`✅ All ${courseEnrollments.length} enrollments remain valid after sync`)
+      setCourseEnrollments(validatedEnrollments)
+      setIsValidated(true) // Never run again
     }
-
-    // Mark this data load as synced
-    setLastSyncTimestamp(lastDataUpdate)
-
-  }, [lastSyncTimestamp, freshCourseData, courseEnrollments, lastDataUpdate])
+  }, [allCourseData, isValidated])
 
   return (
     <div className="min-h-screen bg-gray-50">
