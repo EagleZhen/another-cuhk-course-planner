@@ -9,7 +9,7 @@ import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes } from '@/lib/courseUtils'
-import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
+import type { InternalCourse, CourseEnrollment, SectionType, InternalSection, InternalTerm } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { useAppConfig } from '@/lib/appConfig'
 
@@ -125,8 +125,8 @@ export default function Home() {
         setCourseEnrollments([])
       }
 
-      // Reset validation flag when switching terms
-      setIsValidated(false)
+      // Reset validation flags when switching terms
+      setHasValidated(false)
 
       // Clear section selections when switching terms
       setSelectedSections(new Map())
@@ -201,11 +201,11 @@ export default function Home() {
   // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
     // Generate events from enrollments
-    const events = enrollmentsToCalendarEvents(courseEnrollments)
-    
+    const events = enrollmentsToCalendarEvents(validatedEnrollments)
+
     // Detect conflicts and return
     return detectConflicts(events)
-  }, [courseEnrollments])
+  }, [validatedEnrollments])
 
   // Track conflict resolution when conflicts are resolved after user actions
   useEffect(() => {
@@ -231,23 +231,23 @@ export default function Home() {
   const handleToggleVisibility = (enrollmentId: string) => {
     // Check if there are conflicts and we're hiding a course (for conflict resolution tracking)
     const hasConflicts = calendarEvents.some(event => event.hasConflict)
-    const targetEnrollment = courseEnrollments.find(e => e.courseId === enrollmentId)
-    
+    const targetEnrollment = validatedEnrollments.find(e => e.courseId === enrollmentId)
+
     if (hasConflicts && targetEnrollment?.isVisible) {
       // Only track when hiding a visible course during conflicts
       setLastResolutionMethod('course_hiding')
     }
-    
+
     // Track general visibility toggle behavior (regardless of conflicts)
     if (targetEnrollment) {
       const courseKey = `${targetEnrollment.course.subject}${targetEnrollment.course.courseCode}`
       const action = targetEnrollment.isVisible ? 'hidden' : 'shown'
       analytics.courseVisibilityToggled(courseKey, action)
     }
-    
-    setCourseEnrollments(prev => 
-      prev.map(enrollment => 
-        enrollment.courseId === enrollmentId 
+
+    setCourseEnrollments(prev =>
+      prev.map(enrollment =>
+        enrollment.courseId === enrollmentId
           ? { ...enrollment, isVisible: !enrollment.isVisible }
           : enrollment
       )
@@ -319,15 +319,15 @@ export default function Home() {
     if (hasConflicts) {
       setLastResolutionMethod('course_removal')
     }
-    
+
     // Track general course removal behavior (regardless of conflicts)
-    const targetEnrollment = courseEnrollments.find(e => e.courseId === enrollmentId)
+    const targetEnrollment = validatedEnrollments.find(e => e.courseId === enrollmentId)
     if (targetEnrollment) {
       const courseKey = `${targetEnrollment.course.subject}${targetEnrollment.course.courseCode}`
       analytics.courseRemoved(courseKey, targetEnrollment.course.subject)
     }
-    
-    setCourseEnrollments(prev => 
+
+    setCourseEnrollments(prev =>
       prev.filter(enrollment => enrollment.courseId !== enrollmentId)
     )
   }
@@ -424,93 +424,84 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
-  // Simple state for validation
-  const [allCourseData, setAllCourseData] = useState<InternalCourse[] | null>(null)
-  const [isValidated, setIsValidated] = useState(false)
 
-  // Handle data updates from CourseSearch - simple approach
-  const handleDataUpdate = useCallback((timestamp: Date, allFreshCourses?: InternalCourse[]) => {
-    setLastDataUpdate(timestamp)
-    console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
+  // Course data state
+  const [courseData, setCourseData] = useState<InternalCourse[] | null>(null)
+  const [courseDataReady, setCourseDataReady] = useState(false)
 
-    // Store fresh course data for validation
-    if (allFreshCourses) {
-      setAllCourseData(allFreshCourses)
-      console.log(`📋 Fresh course data available: ${allFreshCourses.length} courses`)
-    }
-  }, [])
-
-  // Helper functions for clean validation
-  const getCourseInCurrentTerm = (freshCourses: InternalCourse[], courseKey: string, currentTerm: string) => {
-    const freshCourse = freshCourses.find(course => `${course.subject}${course.courseCode}` === courseKey)
-    if (!freshCourse) return null
-
-    const currentTermData = freshCourse.terms.find(term => term.termName === currentTerm)
-    if (!currentTermData || !currentTermData.sections?.length) return null
-
-    return { freshCourse, currentTermData }
-  }
-
-  const updateSectionsWithFreshData = (enrollment: CourseEnrollment, currentTermData: any) => {
-    const updatedSections = enrollment.selectedSections.map(oldSection => {
-      const freshSection = currentTermData.sections.find((s: any) => s.id === oldSection.id)
-      if (!freshSection) {
-        return { ...oldSection, isInvalid: true }
+  // Custom hook for enrollment validation with honest dependencies
+  const useEnrollmentValidation = (
+    enrollments: CourseEnrollment[],
+    courses: InternalCourse[] | null,
+    currentTerm: string,
+    shouldValidate: boolean
+  ) => {
+    return useMemo(() => {
+      if (!shouldValidate || !courses || enrollments.length === 0) {
+        return enrollments
       }
-      return freshSection
-    })
 
-    const hasInvalidSections = updatedSections.some((s: any) => s.isInvalid)
-    return { updatedSections, hasInvalidSections }
-  }
+      console.log('🔄 Running enrollment validation')
+      console.log(`📚 Enrolled courses to validate: ${enrollments.length}`)
 
-  // Simplified validation function - just 2 cases
-  const validateEnrollments = useCallback((enrollments: CourseEnrollment[], freshCourses: InternalCourse[], currentTerm: string): CourseEnrollment[] => {
-    return enrollments.map(enrollment => {
-      const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
-      console.log(`🔍 Validating ${courseKey}`)
+      const getCourseInCurrentTerm = (courses: InternalCourse[], courseKey: string, currentTerm: string) => {
+        const course = courses.find(c => `${c.subject}${c.courseCode}` === courseKey)
+        if (!course) return null
 
-      // Case 1: Course not available in current term (covers all "course not available" scenarios)
-      const courseInCurrentTerm = getCourseInCurrentTerm(freshCourses, courseKey, currentTerm)
+        const termData = course.terms.find(term => term.termName === currentTerm)
+        if (!termData || !termData.sections?.length) return null
 
-      if (!courseInCurrentTerm) {
-        console.warn(`⚠️ Course ${courseKey} not available in ${currentTerm}`)
+        return { course, termData }
+      }
+
+      const updateSectionsWithFreshData = (enrollment: CourseEnrollment, termData: InternalTerm) => {
+        const updatedSections = enrollment.selectedSections.map(oldSection => {
+          const freshSection = termData.sections.find(s => s.id === oldSection.id)
+          if (!freshSection) {
+            return { ...oldSection, isInvalid: true }
+          }
+          return freshSection
+        })
+
+        const hasInvalidSections = updatedSections.some(s => 'isInvalid' in s && s.isInvalid)
+        return { updatedSections, hasInvalidSections }
+      }
+
+      const validatedEnrollments = enrollments.map(enrollment => {
+        const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+        console.log(`🔍 Validating ${courseKey}`)
+
+        // Case 1: Course not available in current term
+        const courseInCurrentTerm = getCourseInCurrentTerm(courses, courseKey, currentTerm)
+
+        if (!courseInCurrentTerm) {
+          console.warn(`⚠️ Course ${courseKey} not available in ${currentTerm}`)
+          return {
+            ...enrollment,
+            isInvalid: true,
+            invalidReason: 'Course not available in current term. Click the info icon to select available terms.'
+          }
+        }
+
+        const { course, termData } = courseInCurrentTerm
+
+        // Case 2: Some sections no longer available
+        const { updatedSections, hasInvalidSections } = updateSectionsWithFreshData(enrollment, termData)
+
+        if (hasInvalidSections) {
+          console.warn(`⚠️ Some sections for ${courseKey} are no longer available`)
+        } else {
+          console.log(`✅ ${courseKey} validated successfully`)
+        }
+
         return {
           ...enrollment,
-          isInvalid: true,
-          invalidReason: 'Course not available in current term. Click the info icon to select available terms.'
+          course, // Always use fresh course data
+          selectedSections: updatedSections,
+          isInvalid: hasInvalidSections,
+          invalidReason: hasInvalidSections ? 'Some sections no longer available. Click the info icon to select valid sections.' : undefined
         }
-      }
-
-      const { freshCourse, currentTermData } = courseInCurrentTerm
-
-      // Case 2: Some sections no longer available (covers all "section issues")
-      const { updatedSections, hasInvalidSections } = updateSectionsWithFreshData(enrollment, currentTermData)
-
-      if (hasInvalidSections) {
-        console.warn(`⚠️ Some sections for ${courseKey} are no longer available`)
-      } else {
-        console.log(`✅ ${courseKey} validated successfully`)
-      }
-
-      return {
-        ...enrollment,
-        course: freshCourse, // Always use fresh course data
-        selectedSections: updatedSections,
-        isInvalid: hasInvalidSections,
-        invalidReason: hasInvalidSections ? 'Some sections no longer available. Click the info icon to select valid sections.' : undefined
-      }
-    })
-  }, [])
-
-  // Simple one-time validation when fresh data becomes available
-  useEffect(() => {
-    if (allCourseData && courseEnrollments.length > 0 && !isValidated) {
-      console.log('🔄 Running one-time validation of localStorage courses')
-      console.log(`📊 Fresh courses available: ${allCourseData.length}`)
-      console.log(`📚 Enrolled courses to validate: ${courseEnrollments.length}`)
-
-      const validatedEnrollments = validateEnrollments(courseEnrollments, allCourseData, currentTerm)
+      })
 
       const invalidCount = validatedEnrollments.filter(e => e.isInvalid).length
       if (invalidCount > 0) {
@@ -519,10 +510,30 @@ export default function Home() {
         console.log(`✅ All ${validatedEnrollments.length} enrollments are valid`)
       }
 
-      setCourseEnrollments(validatedEnrollments)
-      setIsValidated(true) // Never run again
+      return validatedEnrollments
+    }, [enrollments, courses, currentTerm, shouldValidate])
+  }
+
+  // Apply validation to course enrollments
+  const validatedEnrollments = useEnrollmentValidation(
+    courseEnrollments,
+    courseData,
+    currentTerm,
+    courseDataReady // Only validate when course data is ready
+  )
+
+  // Handle data updates
+  const handleDataUpdate = useCallback((timestamp: Date, allCourses?: InternalCourse[]) => {
+    setLastDataUpdate(timestamp)
+    console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
+
+    if (allCourses) {
+      setCourseData(allCourses)
+      setCourseDataReady(true)
+      console.log(`📋 Course data ready: ${allCourses.length} courses`)
     }
-  }, [allCourseData, isValidated])
+  }, [])
+
 
   return (
     <div className="min-h-screen bg-gray-50">

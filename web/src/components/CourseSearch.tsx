@@ -57,7 +57,6 @@ export default function CourseSearch({
     isLimited: false, 
     isShuffled: false 
   })
-  const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
   const [isFromCourseDetails, setIsFromCourseDetails] = useState(false) // Track if search is from course details
   
   // Day filter toggle function
