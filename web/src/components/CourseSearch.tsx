@@ -887,7 +887,7 @@ export default function CourseSearch({
                     {searchTerm && <p>• Clearing the search term</p>}
                     {selectedSubjects.size > 0 && <p>• Changing or removing subject filters</p>}
                     {selectedDays.size > 0 && <p>• Removing day filters (currently filtering by {Array.from(selectedDays).map(dayIndex => {
-                      const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
+                      const dayKey = Object.entries(DAYS).find(([, info]) => info.index === dayIndex)?.[0] as WeekDay
                       return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
                     }).join(', ')})</p>}
                     <p>• Searching for course codes like &ldquo;CSCI3100&rdquo;</p>
@@ -926,7 +926,7 @@ export default function CourseSearch({
                       <span> filtered by </span>
                       <span className="font-semibold text-blue-600">
                         {Array.from(selectedDays).sort().map(dayIndex => {
-                          const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
+                          const dayKey = Object.entries(DAYS).find(([, info]) => info.index === dayIndex)?.[0] as WeekDay
                           return dayKey || `Day${dayIndex}`
                         }).join(', ')}
                       </span>
@@ -1002,9 +1002,6 @@ export default function CourseSearch({
                   <CourseCard
                     course={course}
                     currentTerm={currentTerm}
-                    searchSequence={searchSequence}
-                    isFirstResult={index === 0}
-                    isFromCourseDetails={isFromCourseDetails}
                     shouldAutoExpand={index === 0 && displayResults.courses.length === 1 && isFromCourseDetails}
                     initialSelections={(() => {
                     const courseKey = `${course.subject}${course.courseCode}`
@@ -1134,9 +1131,6 @@ function CourseCard({
   hasSelectionsChanged,
   onScrollToCart,
   courseEnrollments,
-  isFirstResult = false,
-  searchSequence = 0,
-  isFromCourseDetails = false,
   shouldAutoExpand = false
 }: { 
   course: InternalCourse
@@ -1149,21 +1143,18 @@ function CourseCard({
   hasSelectionsChanged: boolean
   onScrollToCart?: (enrollmentId: string) => void
   courseEnrollments: CourseEnrollment[]
-  isFirstResult?: boolean
-  searchSequence?: number
-  isFromCourseDetails?: boolean
   shouldAutoExpand?: boolean
 }) {
   const [expanded, setExpanded] = useState(shouldAutoExpand)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
   
-  // Auto-expand when should auto-expand and a new search occurs
+  // Auto-expand when should auto-expand
   useEffect(() => {
-    if (shouldAutoExpand && searchSequence > 0) {
+    if (shouldAutoExpand) {
       setExpanded(true)
     }
-  }, [shouldAutoExpand, searchSequence])
+  }, [shouldAutoExpand])
   
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {

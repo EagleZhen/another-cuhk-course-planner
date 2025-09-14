@@ -28,10 +28,10 @@ const DEFAULT_CONFIG: AppConfig = {
   lastModified: new Date().toISOString(),
   currentTerm: "",
   calendarDisplay: {
-    showTitle: true,
+    showTitle: false,
     showTime: true,
     showLocation: true,
-    showInstructor: true
+    showInstructor: false
   },
   termConfigs: {}
 }
@@ -55,16 +55,16 @@ export function saveConfig(config: AppConfig): void {
 }
 
 // Helper function to set nested values using path notation
-function setNestedPath(obj: any, path: string, value: any): void {
+function setNestedPath(obj: Record<string, unknown>, path: string, value: unknown): void {
   const keys = path.split('/')
   const lastKey = keys.pop()!
 
-  let current = obj
+  let current: Record<string, unknown> = obj
   for (const key of keys) {
     if (!current[key]) {
       current[key] = {}
     }
-    current = current[key]
+    current = current[key] as Record<string, unknown>
   }
 
   current[lastKey] = value
@@ -73,7 +73,7 @@ function setNestedPath(obj: any, path: string, value: any): void {
 export function useAppConfig() {
   const [config, setConfig] = useState(() => loadConfig())
 
-  const updateConfig = useCallback((path: string, value: any) => {
+  const updateConfig = useCallback((path: string, value: unknown) => {
     setConfig(current => {
       const newConfig = { ...current }
       setNestedPath(newConfig, path, value)

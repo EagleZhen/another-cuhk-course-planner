@@ -11,24 +11,29 @@ import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
+import { useAppConfig } from '@/lib/appConfig'
 
 // Color assignment is now handled in courseUtils.ts
 
 export default function Home() {
   // Reference to CourseSearch's setSearchTerm function
   const setSearchTermRef = useRef<((term: string, fromCourseDetails?: boolean) => void) | null>(null)
-  // Available terms
-  const availableTerms = [
+
+  // App configuration with persistence
+  const { config, updateConfig } = useAppConfig()
+
+  // Available terms (TODO: make dynamic)
+  const availableTerms = useMemo(() => [
     "2025-26 Term 1",
-    "2025-26 Term 2", 
+    "2025-26 Term 2",
     "2025-26 Term 3",
     "2025-26 Term 4",
     "2025-26 Summer Session",
     "2025-26 Acad Year (Medicine)"
-  ]
-  
-  // Current term state
-  const [currentTerm, setCurrentTerm] = useState("2025-26 Term 1")
+  ], [])
+
+  // Current term from config
+  const currentTerm = config.currentTerm || availableTerms[0]
   
   // Current data format version for localStorage migration
   const SCHEDULE_DATA_VERSION = 1
@@ -53,8 +58,12 @@ export default function Home() {
   // Track hydration status and session start
   useEffect(() => {
     setIsHydrated(true)
-    
-  }, [])
+
+    // Initialize currentTerm if empty
+    if (!config.currentTerm) {
+      updateConfig('currentTerm', availableTerms[0])
+    }
+  }, [config.currentTerm, updateConfig, availableTerms])
 
   // Auto-restore schedule from localStorage when term changes (client-side only)
   useEffect(() => {
@@ -210,8 +219,9 @@ export default function Home() {
   const handleTermChange = (newTerm: string) => {
     // Track term access for planning behavior analysis
     analytics.termAccessed(newTerm)
-    
-    setCurrentTerm(newTerm)
+
+    // Update config with persistence
+    updateConfig('currentTerm', newTerm)
     // localStorage useEffect will automatically restore/clear schedule for new term
   }
 
@@ -513,8 +523,8 @@ export default function Home() {
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
             <div className="h-[800px]">
-              <WeeklyCalendar 
-                events={calendarEvents} 
+              <WeeklyCalendar
+                events={calendarEvents}
                 unscheduledSections={getUnscheduledSections(courseEnrollments)}
                 selectedTerm={currentTerm}
                 availableTerms={availableTerms}

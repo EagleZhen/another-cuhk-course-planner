@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
-import { 
-  DEFAULT_CALENDAR_CONFIG, 
+import {
+  DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
   TEXT_STYLES,
   ROW_HEIGHTS,
@@ -16,9 +16,10 @@ import {
   getRequiredDays,
   getGridColumns,
   type CalendarDisplayConfig,
-  type CalendarLayoutConfig 
+  type CalendarLayoutConfig
 } from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
+import { useAppConfig } from '@/lib/appConfig'
 
 /**
  * Calculate the total height needed for a course card based on display configuration
@@ -84,7 +85,6 @@ interface WeeklyCalendarProps {
   selectedTerm?: string
   availableTerms?: string[]
   selectedEnrollment?: string | null
-  displayConfig?: CalendarDisplayConfig
   calendarConfig?: CalendarLayoutConfig  // New: flexible calendar configuration
   onTermChange?: (term: string) => void
   onToggleVisibility?: (enrollmentId: string) => void
@@ -97,14 +97,14 @@ export default function WeeklyCalendar({
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
   selectedEnrollment,
-  displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
   calendarConfig = DEFAULT_CALENDAR_CONFIG,
   onTermChange,
   onToggleVisibility,
   onSelectEnrollment
 }: WeeklyCalendarProps) {
-  // Local state for display configuration testing
-  const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
+  // Global config for display preferences
+  const { config, updateConfig } = useAppConfig()
+  const localDisplayConfig = config.calendarDisplay
   const [isCapturing, setIsCapturing] = useState(false)
   
   // Refs for auto-scrolling to selected events
@@ -159,8 +159,8 @@ export default function WeeklyCalendar({
   }, [])
 
   const toggleDisplayOption = useCallback((option: keyof CalendarDisplayConfig) => {
-    setLocalDisplayConfig(prev => ({ ...prev, [option]: !prev[option] }))
-  }, [])
+    updateConfig(`calendarDisplay/${option}`, !config.calendarDisplay[option])
+  }, [config.calendarDisplay, updateConfig])
 
   // Update scroll indicators when content changes
   useEffect(() => {
