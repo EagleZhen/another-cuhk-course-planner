@@ -255,13 +255,15 @@ export default function CourseSearch({
     )
   }
 
-  // Load course data on component mount and when term changes
+  // Load ALL course data ONCE on component mount
   useEffect(() => {
-    // Skip loading if data is already loaded this session for this term
+    // Skip loading if data is already loaded this session
     if (hasDataLoaded) {
       console.log('📦 Course data already loaded this session, skipping reload')
       return
     }
+
+    console.log('📂 Loading ALL course data once for all terms...')
 
     const loadCourseData = async () => {
       setLoading(true)
@@ -463,7 +465,7 @@ export default function CourseSearch({
     }
 
     loadCourseData()
-  }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
+  }, [onDataUpdate]) // Only run once on mount to load ALL data
 
   // Async filtering function for non-blocking computation
   const performFiltering = useCallback(async (
