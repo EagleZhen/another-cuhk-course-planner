@@ -102,7 +102,7 @@ export default function WeeklyCalendar({
   onToggleVisibility,
   onSelectEnrollment
 }: WeeklyCalendarProps) {
-  // Global config for display preferences
+  // Global config for display preferences - uses single hydration source
   const { config, updateConfig } = useAppConfig()
   const localDisplayConfig = config.calendarDisplay
   const [isCapturing, setIsCapturing] = useState(false)

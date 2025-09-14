@@ -19,8 +19,8 @@ export default function Home() {
   // Reference to CourseSearch's setSearchTerm function
   const setSearchTermRef = useRef<((term: string, fromCourseDetails?: boolean) => void) | null>(null)
 
-  // App configuration with persistence
-  const { config, updateConfig } = useAppConfig()
+  // App configuration with persistence - single source of hydration truth
+  const { config, updateConfig, isHydrated } = useAppConfig()
 
   // Available terms (TODO: make dynamic)
   const availableTerms = useMemo(() => [
@@ -47,7 +47,6 @@ export default function Home() {
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
   const [subjectSearchTerm, setSubjectSearchTerm] = useState('')
-  const [isHydrated, setIsHydrated] = useState<boolean>(false)
   
   // Conflict resolution tracking
   const [lastResolutionMethod, setLastResolutionMethod] = useState<string | null>(null)
@@ -55,15 +54,12 @@ export default function Home() {
   // Term-specific subject filter persistence (session state only)
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
 
-  // Track hydration status and session start
+  // Initialize currentTerm if empty (only after app config is hydrated)
   useEffect(() => {
-    setIsHydrated(true)
-
-    // Initialize currentTerm if empty
-    if (!config.currentTerm) {
+    if (isHydrated && !config.currentTerm) {
       updateConfig('currentTerm', availableTerms[0])
     }
-  }, [config.currentTerm, updateConfig, availableTerms])
+  }, [config.currentTerm, updateConfig, availableTerms, isHydrated])
 
   // Auto-restore schedule from localStorage when term changes (client-side only)
   useEffect(() => {

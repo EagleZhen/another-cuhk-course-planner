@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 interface CalendarDisplay {
   showTitle: boolean
@@ -38,6 +38,11 @@ const DEFAULT_CONFIG: AppConfig = {
 
 export function loadConfig(): AppConfig {
   try {
+    // Check if we're in browser environment
+    if (typeof window === 'undefined') {
+      return DEFAULT_CONFIG
+    }
+
     const stored = localStorage.getItem('app-config')
     if (!stored) return DEFAULT_CONFIG
 
@@ -71,7 +76,14 @@ function setNestedPath(obj: Record<string, unknown>, path: string, value: unknow
 }
 
 export function useAppConfig() {
-  const [config, setConfig] = useState(() => loadConfig())
+  const [config, setConfig] = useState(() => DEFAULT_CONFIG)
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  // Load real config after hydration to prevent mismatch
+  useEffect(() => {
+    setIsHydrated(true)
+    setConfig(loadConfig())
+  }, [])
 
   const updateConfig = useCallback((path: string, value: unknown) => {
     setConfig(current => {
@@ -83,7 +95,7 @@ export function useAppConfig() {
     })
   }, [])
 
-  return { config, updateConfig }
+  return { config, updateConfig, isHydrated }
 }
 
 // Export types for use in components
