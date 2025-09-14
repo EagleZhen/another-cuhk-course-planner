@@ -262,7 +262,7 @@ export default function WeeklyCalendar({
               {!isHydrated && (
                 <span className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
                   <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                  Loading preferences
+                  Loading Data
                 </span>
               )}
             </div>
