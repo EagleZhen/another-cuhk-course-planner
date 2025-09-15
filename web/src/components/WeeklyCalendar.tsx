@@ -92,14 +92,14 @@ interface WeeklyCalendarProps {
   onSelectEnrollment?: (enrollmentId: string | null) => void
 }
 
-export default function WeeklyCalendar({ 
-  events, 
+export default function WeeklyCalendar({
+  events,
   unscheduledSections = [],
-  selectedTerm = "2025-26 Term 2", 
-  availableTerms = ["2025-26 Term 2"],
   courseEnrollments,
+  selectedTerm,
+  availableTerms,
   selectedEnrollment,
-  displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
+  displayConfig = { showTitle: false, showTime: true, showLocation: true, showInstructor: false },
   calendarConfig = DEFAULT_CALENDAR_CONFIG,
   onTermChange,
   onToggleVisibility,
