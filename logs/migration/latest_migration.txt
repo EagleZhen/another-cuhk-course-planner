@@ -5,12 +5,12 @@
    ❌ Failed: 0
 
 📊 Scraping Performance Analysis:
-   ⏱️ Total time: 5 hours 44.9 minutes (344.9 minutes)
+   ⏱️ Total time: 5 hours 58.6 minutes (358.6 minutes)
    📚 Total courses: 8,840
-   📋 Average per subject: 1.3 minutes
+   📋 Average per subject: 1.4 minutes
    📖 Average per course: 0.04 minutes
    🏃 Fastest: AENP - 0.0 minutes (0 courses)
-   🐌 Slowest: LAWS - 11.2 minutes (330 courses)
+   🐌 Slowest: LAWS - 12.0 minutes (330 courses)
 
 🔍 Finding course data files...
 📁 Found 259 course JSON files
@@ -66,15 +66,15 @@
    44. XWAS
 
 📈 DETAILED SCRAPING STATISTICS:
-   ⏱️ Total scraping time: 5 hours 44.9 minutes (344.9 minutes)
+   ⏱️ Total scraping time: 5 hours 58.6 minutes (358.6 minutes)
    📚 Total courses scraped: 8,840
    📋 Subjects completed: 263
    📖 Efficiency: 0.04 minutes per course
 
 🔍 Performance Insights:
    🏆 Fastest subject: AENP (0.0 minutes, 0 courses)
-   🐢 Slowest subject: LAWS (11.2 minutes, 330 courses)
-   📊 Time range: 1122.0x difference
+   🐢 Slowest subject: LAWS (12.0 minutes, 330 courses)
+   📊 Time range: 1203.0x difference
 
 📊 Summary:
    ✅ Valid files ready to copy: 215
@@ -98,5 +98,5 @@
 📂 Destination: C:\Programming\Codes\another-cuhk-course-planner\web\public\data
 
 📝 Logs saved to:
-   📄 logs/migration\migration_log_20250914_181851.txt
+   📄 logs/migration\migration_log_20250915_102107.txt
    🔄 logs/migration\latest_migration.txt (git tracked)
