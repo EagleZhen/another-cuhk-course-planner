@@ -230,7 +230,34 @@ export default function WeeklyCalendar({
       setIsCapturing(false)
     }
   }
-  
+
+  const handleExportCalendar = () => {
+    const result = generateICSCalendar(courseEnrollments, selectedTerm)
+
+    if (result.error) {
+      console.error('Export failed:', result.error)
+      alert(result.error)
+      return
+    }
+
+    if (result.icsContent && result.filename) {
+      // Create blob and download
+      const blob = new Blob([result.icsContent], { type: 'text/calendar;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+
+      const link = document.createElement('a')
+      link.href = url
+      link.download = result.filename
+
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+
+      console.log(`Calendar exported as ${result.filename}`)
+    }
+  }
+
   // Dynamic day detection - show weekends only when courses exist
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
