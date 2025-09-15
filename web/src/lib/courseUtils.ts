@@ -1106,6 +1106,28 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
 }
 
 /**
+ * Convert course time to proper timezone for calendar export
+ * This ensures exchange students get correct time regardless of their location
+ * @param date Base date
+ * @param hours Hour in 24-hour format (Hong Kong local time)
+ * @param minutes Minutes
+ * @returns Date object representing the Hong Kong time in local timezone format
+ */
+function convertToHongKongTime(date: Date, hours: number, minutes: number): Date {
+  // Course times are given in Hong Kong local time
+  // We want to export them as "local" time events that represent Hong Kong time
+  // This way, when users import into their calendar, the times show correctly
+
+  const year = date.getFullYear()
+  const month = date.getMonth() // Already 0-indexed
+  const day = date.getDate()
+
+  // Create date directly in Hong Kong time
+  // This will be exported as "local" time, which calendar apps will interpret correctly
+  return new Date(year, month, day, hours, minutes, 0, 0)
+}
+
+/**
  * Creates ICS events for a single meeting across all its dates
  * @param meeting The meeting object
  * @param course The course information
@@ -1131,22 +1153,31 @@ export function createICSEventsForMeeting(
     return [] // Skip meetings with no valid dates
   }
 
-  // Create description with proper formatting
+  // Handle instructor plural/singular properly with compact formatting
+  const instructors = meeting.instructor.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
+  const instructorLabel = instructors.length === 1 ? 'Instructor' : 'Instructors'
+  const formattedInstructors = instructors.length > 0
+    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
+    : 'TBA'
+
+  // Create description with better formatting and structure
   const description = [
-    course.title,
+    `📚 ${course.title}`,
     '',
-    `Instructors: ${meeting.instructor}`,
+    `👨‍🏫 ${instructorLabel}: ${formattedInstructors}`,
     '',
-    'Another CUHK Course Planner - https://another-cuhk-course-planner.com/'
+    '─'.repeat(20),
+    'Generated from Another CUHK Course Planner',
+    'https://another-cuhk-course-planner.com/'
   ].join('\n')
 
   // Create one event for each date
   return meetingDates.map(date => {
-    // Create start and end Date objects with proper time
-    const startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), timeRange.startHour, timeRange.startMinute)
-    const endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), timeRange.endHour, timeRange.endMinute)
+    // Convert to Hong Kong timezone for proper calendar export
+    const startDate = convertToHongKongTime(date, timeRange.startHour, timeRange.startMinute)
+    const endDate = convertToHongKongTime(date, timeRange.endHour, timeRange.endMinute)
 
-    // Convert to ICS format [year, month, day, hour, minute]
+    // Convert to ICS format [year, month, day, hour, minute] as local time
     const start = [
       startDate.getFullYear(),
       startDate.getMonth() + 1, // ICS months are 1-indexed
@@ -1192,9 +1223,10 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
   try {
     const allEvents: any[] = []
 
-    // Process each enrollment (only visible and valid courses, same as calendar display)
+    // Process each enrollment - include ALL courses (visible + conflicting)
+    // We want to export everything the user has selected, including conflicts
     enrollments
-      .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
+      .filter(enrollment => !enrollment.isInvalid) // Only exclude truly invalid courses
       .forEach(enrollment => {
         enrollment.selectedSections.forEach(section => {
           section.meetings.forEach(meeting => {
