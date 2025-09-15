@@ -293,6 +293,17 @@ export default function WeeklyCalendar({
             <Button
               variant="outline"
               size="sm"
+              onClick={handleExportCalendar}
+              className="flex items-center gap-2 cursor-pointer"
+              title="Export visible courses as calendar file (.ics) - compatible with Google Calendar, Outlook, Apple Calendar"
+            >
+              <Download className="w-4 h-4" />
+              Export
+            </Button>
+
+            <Button
+              variant="outline"
+              size="sm"
               onClick={handleScreenshot}
               disabled={isCapturing}
               className="flex items-center gap-2 cursor-pointer"
@@ -317,6 +328,17 @@ export default function WeeklyCalendar({
           <CardTitle className="mb-3">Weekly Schedule</CardTitle>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleExportCalendar}
+                className="flex items-center gap-1 cursor-pointer flex-shrink-0"
+                title="Export visible courses as calendar file (.ics) - compatible with Google Calendar, Outlook, Apple Calendar"
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden xs:inline">Export</span>
+              </Button>
+
               <Button
                 variant="outline"
                 size="sm"

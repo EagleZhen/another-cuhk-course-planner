@@ -1169,9 +1169,10 @@ export function createICSEventsForMeeting(
       location: meeting.location,
       start,
       end,
+      startInputType: 'local' as const,
       startOutputType: 'local' as const,
+      endInputType: 'local' as const,
       endOutputType: 'local' as const,
-      timezone: 'Asia/Hong_Kong', // Explicitly set Hong Kong timezone regardless of user location
       productId: 'Another CUHK Course Planner'
     }
   })
