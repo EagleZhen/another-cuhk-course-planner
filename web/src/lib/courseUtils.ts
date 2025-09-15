@@ -1,14 +1,14 @@
 // Unified course utilities for conflict detection and data transformation
 // Uses clean internal types with proper validation boundaries
 
-import type { 
-  TimeRange, 
-  CalendarEvent, 
-  CourseEnrollment, 
-  ConflictZone, 
-  InternalCourse, 
-  InternalSection, 
-  InternalMeeting, 
+import type {
+  TimeRange,
+  CalendarEvent,
+  CourseEnrollment,
+  ConflictZone,
+  InternalCourse,
+  InternalSection,
+  InternalMeeting,
   SectionAvailability,
   SectionType,
   SectionTypeGroup
@@ -1104,4 +1104,77 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
     return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
   }).filter(date => date !== null) as Date[]
 }
+
+/**
+ * Creates ICS events for a single meeting across all its dates
+ * @param meeting The meeting object
+ * @param course The course information
+ * @param section The section information
+ * @param termName The current term name
+ * @returns Array of ICS event objects
+ */
+export function createICSEventsForMeeting(
+  meeting: InternalMeeting,
+  course: InternalCourse,
+  section: InternalSection,
+  termName: string
+): any[] {
+  // Parse time information
+  const timeRange = parseTimeRange(meeting.time)
+  if (!timeRange) {
+    return [] // Skip unscheduled meetings
+  }
+
+  // Parse dates
+  const meetingDates = parseMeetingDates(meeting.dates, termName)
+  if (meetingDates.length === 0) {
+    return [] // Skip meetings with no valid dates
+  }
+
+  // Create description with proper formatting
+  const description = [
+    course.title,
+    '',
+    `Instructors: ${meeting.instructor}`,
+    '',
+    'Another CUHK Course Planner - https://another-cuhk-course-planner.com/'
+  ].join('\n')
+
+  // Create one event for each date
+  return meetingDates.map(date => {
+    // Create start and end Date objects with proper time
+    const startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), timeRange.startHour, timeRange.startMinute)
+    const endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), timeRange.endHour, timeRange.endMinute)
+
+    // Convert to ICS format [year, month, day, hour, minute]
+    const start = [
+      startDate.getFullYear(),
+      startDate.getMonth() + 1, // ICS months are 1-indexed
+      startDate.getDate(),
+      startDate.getHours(),
+      startDate.getMinutes()
+    ] as [number, number, number, number, number]
+
+    const end = [
+      endDate.getFullYear(),
+      endDate.getMonth() + 1, // ICS months are 1-indexed
+      endDate.getDate(),
+      endDate.getHours(),
+      endDate.getMinutes()
+    ] as [number, number, number, number, number]
+
+    return {
+      title: `${course.subject}${course.courseCode} ${section.sectionType}`,
+      description,
+      location: meeting.location,
+      start,
+      end,
+      startInputType: 'local' as const,
+      startOutputType: 'utc' as const,
+      endInputType: 'local' as const,
+      endOutputType: 'utc' as const,
+      timezone: 'Asia/Hong_Kong', // Explicitly set Hong Kong timezone regardless of user location
+      productId: 'Another CUHK Course Planner'
+    }
+  })
 }
