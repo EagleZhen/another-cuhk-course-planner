@@ -3,8 +3,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download } from 'lucide-react'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType, generateICSCalendar } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import { 
   DEFAULT_CALENDAR_CONFIG, 
@@ -81,6 +81,7 @@ interface WeeklyCalendarProps {
     section: InternalSection
     meeting: InternalMeeting
   }>
+  courseEnrollments: CourseEnrollment[]
   selectedTerm?: string
   availableTerms?: string[]
   selectedEnrollment?: string | null
@@ -96,6 +97,7 @@ export default function WeeklyCalendar({
   unscheduledSections = [],
   selectedTerm = "2025-26 Term 2", 
   availableTerms = ["2025-26 Term 2"],
+  courseEnrollments,
   selectedEnrollment,
   displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
   calendarConfig = DEFAULT_CALENDAR_CONFIG,

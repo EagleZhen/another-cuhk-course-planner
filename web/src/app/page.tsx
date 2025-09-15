@@ -513,9 +513,10 @@ export default function Home() {
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
             <div className="h-[800px]">
-              <WeeklyCalendar 
-                events={calendarEvents} 
+              <WeeklyCalendar
+                events={calendarEvents}
                 unscheduledSections={getUnscheduledSections(courseEnrollments)}
+                courseEnrollments={courseEnrollments}
                 selectedTerm={currentTerm}
                 availableTerms={availableTerms}
                 selectedEnrollment={selectedEnrollment}
