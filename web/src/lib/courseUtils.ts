@@ -1169,12 +1169,64 @@ export function createICSEventsForMeeting(
       location: meeting.location,
       start,
       end,
-      startInputType: 'local' as const,
-      startOutputType: 'utc' as const,
-      endInputType: 'local' as const,
-      endOutputType: 'utc' as const,
+      startOutputType: 'local' as const,
+      endOutputType: 'local' as const,
       timezone: 'Asia/Hong_Kong', // Explicitly set Hong Kong timezone regardless of user location
       productId: 'Another CUHK Course Planner'
     }
   })
+}
+
+/**
+ * Generates ICS calendar file content from course enrollments
+ * @param enrollments Array of course enrollments
+ * @param termName Current term name
+ * @returns Object with ICS content and filename, or error
+ */
+export function generateICSCalendar(enrollments: CourseEnrollment[], termName: string): {
+  icsContent?: string
+  filename?: string
+  error?: string
+} {
+  try {
+    const allEvents: any[] = []
+
+    // Process each enrollment (only visible and valid courses, same as calendar display)
+    enrollments
+      .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
+      .forEach(enrollment => {
+        enrollment.selectedSections.forEach(section => {
+          section.meetings.forEach(meeting => {
+            const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)
+            allEvents.push(...events)
+          })
+        })
+      })
+
+    if (allEvents.length === 0) {
+      return { error: 'No schedulable events found. Make sure you have courses with valid meeting times.' }
+    }
+
+    // Generate ICS content using the ics library
+    const { error, value } = createEvents(allEvents)
+
+    if (error) {
+      console.error('ICS generation error:', error)
+      return { error: 'Failed to generate calendar file. Please try again.' }
+    }
+
+    // Generate filename following same pattern as screenshot
+    const now = new Date()
+    const dateStr = now.toISOString().split('T')[0] // YYYY-MM-DD
+    const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-') // HH-MM-SS
+    const filename = `${termName.replace(/\s+/g, '-')}-Schedule-${dateStr}-${timeStr}.ics`
+
+    return {
+      icsContent: value,
+      filename
+    }
+  } catch (error) {
+    console.error('Unexpected error during ICS generation:', error)
+    return { error: 'An unexpected error occurred while generating the calendar file.' }
+  }
 }
