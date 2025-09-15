@@ -14,6 +14,7 @@ import type {
   SectionTypeGroup
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
+import { createEvent, createEvents } from 'ics'
 
 /**
  * Extract section type from section code using centralized config
@@ -1051,4 +1052,56 @@ export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
   })
   const url = `https://julac-cuhk.primo.exlibrisgroup.com/discovery/search?${params.toString()}`
   window.open(url, '_blank', 'noopener,noreferrer')
+}
+
+// === CALENDAR EXPORT UTILITIES ===
+
+/**
+ * Extracts academic year information from term name
+ * @param termName Term name like "2025-26 Term 2"
+ * @returns Object with first year and second year of the academic year
+ */
+export function getAcademicYear(termName: string): { firstYear: number; secondYear: number } {
+  // Extract academic year from term name (e.g., "2025-26 Term 2" → "2025-26")
+  const academicYearMatch = termName.match(/(\d{4})-(\d{2})/)
+
+  if (!academicYearMatch) {
+    throw new Error(`Invalid term name format: ${termName}`)
+  }
+
+  const firstYear = parseInt(academicYearMatch[1]) // 2025
+  const secondYear = firstYear + 1 // 2026
+
+  return { firstYear, secondYear }
+}
+
+/**
+ * Parses meeting dates string and converts to actual Date objects
+ * @param dates Comma-separated dates like "5/1, 12/1, 19/1"
+ * @param termName Term name like "2025-26 Term 2"
+ * @returns Array of Date objects
+ */
+export function parseMeetingDates(dates: string, termName: string): Date[] {
+  // Handle TBA or empty dates - be strict about TBA match
+  if (!dates || dates.trim() === '' || dates.trim().toUpperCase() === 'TBA') {
+    return []
+  }
+
+  const { firstYear, secondYear } = getAcademicYear(termName)
+
+  return dates.split(',').map(dateStr => {
+    const trimmedDate = dateStr.trim()
+    const [day, month] = trimmedDate.split('/').map(Number)
+
+    if (isNaN(day) || isNaN(month) || month < 1 || month > 12) {
+      console.warn(`Invalid date format: "${trimmedDate}" in dates: "${dates}"`)
+      return null
+    }
+
+    // Academic year logic: Sep-Dec = first year, Jan-Aug = second year
+    const year = (month >= 9 && month <= 12) ? firstYear : secondYear
+
+    return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
+  }).filter(date => date !== null) as Date[]
+}
 }
