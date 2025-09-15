@@ -1155,7 +1155,6 @@ export function createICSEventsForMeeting(
 
   // Handle instructor plural/singular properly with compact formatting
   const instructors = meeting.instructor.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
-  const instructorLabel = instructors.length === 1 ? 'Instructor' : 'Instructors'
   const formattedInstructors = instructors.length > 0
     ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
     : 'TBA'
@@ -1164,7 +1163,7 @@ export function createICSEventsForMeeting(
   const description = [
     `📚 ${course.title}`,
     '',
-    `👨‍🏫 ${instructorLabel}: ${formattedInstructors}`,
+    `🧑🏻‍🏫 ${formattedInstructors}`,
     '',
     '─'.repeat(20),
     'Generated from Another CUHK Course Planner',
@@ -1237,7 +1236,7 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
       })
 
     if (allEvents.length === 0) {
-      return { error: 'No schedulable events found. Make sure you have courses with valid meeting times.' }
+      return { error: 'No scheduled events found. Courses with valid meeting times are required for exporting to a .ics file.' }
     }
 
     // Generate ICS content using the ics library
