@@ -1234,10 +1234,10 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
   try {
     const allEvents: ICSEvent[] = []
 
-    // Process each enrollment - include ALL courses (visible + conflicting)
-    // We want to export everything the user has selected, including conflicts
+    // Process each enrollment - only include visible and valid courses
+    // Invisible courses (toggled off) should not be exported to calendar
     enrollments
-      .filter(enrollment => !enrollment.isInvalid) // Only exclude truly invalid courses
+      .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
       .forEach(enrollment => {
         enrollment.selectedSections.forEach(section => {
           section.meetings.forEach(meeting => {
