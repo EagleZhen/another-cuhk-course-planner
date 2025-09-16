@@ -14,7 +14,7 @@ import type {
   SectionTypeGroup
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
-import { createEvent, createEvents } from 'ics'
+import { createEvents } from 'ics'
 import moment from 'moment-timezone'
 
 /**
@@ -1114,7 +1114,7 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
  * @param minutes Minutes
  * @returns Moment object in UTC for ICS export
  */
-function convertToHongKongUTC(date: Date, hours: number, minutes: number) {
+function convertToHongKongUTC(date: Date, hours: number, minutes: number): moment.Moment {
   const year = date.getFullYear()
   const month = date.getMonth() + 1 // moment expects 1-indexed months
   const day = date.getDate()
@@ -1134,12 +1134,25 @@ function convertToHongKongUTC(date: Date, hours: number, minutes: number) {
  * @param termName The current term name
  * @returns Array of ICS event objects
  */
+interface ICSEvent {
+  title: string
+  description: string
+  location: string
+  start: [number, number, number, number, number]
+  end: [number, number, number, number, number]
+  startInputType: 'utc'
+  startOutputType: 'utc'
+  endInputType: 'utc'
+  endOutputType: 'utc'
+  productId: string
+}
+
 export function createICSEventsForMeeting(
   meeting: InternalMeeting,
   course: InternalCourse,
   section: InternalSection,
   termName: string
-): any[] {
+): ICSEvent[] {
   // Parse time information
   const timeRange = parseTimeRange(meeting.time)
   if (!timeRange) {
@@ -1219,7 +1232,7 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
   error?: string
 } {
   try {
-    const allEvents: any[] = []
+    const allEvents: ICSEvent[] = []
 
     // Process each enrollment - include ALL courses (visible + conflicting)
     // We want to export everything the user has selected, including conflicts

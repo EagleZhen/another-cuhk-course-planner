@@ -212,13 +212,18 @@ export default function WeeklyCalendar({
       return
     }
 
+    if (!selectedTerm) {
+      console.error('No term selected for screenshot')
+      return
+    }
+
     setIsCapturing(true)
     try {
       console.log('Starting screenshot capture...')
-      
+
       // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector('[data-screenshot="unscheduled"]') as HTMLElement | null
-      
+
       await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
       console.log('Screenshot completed successfully')
     } catch (error) {
@@ -232,6 +237,12 @@ export default function WeeklyCalendar({
   }
 
   const handleExportCalendar = () => {
+    if (!selectedTerm) {
+      console.error('No term selected for export')
+      alert('Please select a term before exporting')
+      return
+    }
+
     const result = generateICSCalendar(courseEnrollments, selectedTerm)
 
     if (result.error) {
@@ -313,11 +324,13 @@ export default function WeeklyCalendar({
               {isCapturing ? 'Capturing...' : 'Screenshot'}
             </Button>
             
-            <TermSelector 
-              selectedTerm={selectedTerm}
-              availableTerms={availableTerms}
-              onTermChange={onTermChange}
-            />
+            {selectedTerm && availableTerms && (
+              <TermSelector
+                selectedTerm={selectedTerm}
+                availableTerms={availableTerms}
+                onTermChange={onTermChange}
+              />
+            )}
           </div>
         </div>
         {/* #endregion */}
@@ -351,11 +364,13 @@ export default function WeeklyCalendar({
                 <span className="hidden xs:inline">{isCapturing ? 'Capturing...' : 'Screenshot'}</span>
               </Button>
               
-              <TermSelector 
-                selectedTerm={selectedTerm}
-                availableTerms={availableTerms}
-                onTermChange={onTermChange}
-              />
+              {selectedTerm && availableTerms && (
+                <TermSelector
+                  selectedTerm={selectedTerm}
+                  availableTerms={availableTerms}
+                  onTermChange={onTermChange}
+                />
+              )}
             </div>
           </div>
           
