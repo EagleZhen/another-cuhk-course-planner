@@ -15,6 +15,7 @@ import type {
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { createEvent, createEvents } from 'ics'
+import moment from 'moment-timezone'
 
 /**
  * Extract section type from section code using centralized config
@@ -1106,25 +1107,23 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
 }
 
 /**
- * Convert course time to proper timezone for calendar export
+ * Convert course time to UTC using Hong Kong timezone for calendar export
  * This ensures exchange students get correct time regardless of their location
  * @param date Base date
  * @param hours Hour in 24-hour format (Hong Kong local time)
  * @param minutes Minutes
- * @returns Date object representing the Hong Kong time in local timezone format
+ * @returns Moment object in UTC for ICS export
  */
-function convertToHongKongTime(date: Date, hours: number, minutes: number): Date {
-  // Course times are given in Hong Kong local time
-  // We want to export them as "local" time events that represent Hong Kong time
-  // This way, when users import into their calendar, the times show correctly
-
+function convertToHongKongUTC(date: Date, hours: number, minutes: number) {
   const year = date.getFullYear()
-  const month = date.getMonth() // Already 0-indexed
+  const month = date.getMonth() + 1 // moment expects 1-indexed months
   const day = date.getDate()
 
-  // Create date directly in Hong Kong time
-  // This will be exported as "local" time, which calendar apps will interpret correctly
-  return new Date(year, month, day, hours, minutes, 0, 0)
+  // Format time string for Hong Kong timezone parsing
+  const timeString = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:00`
+
+  // Parse as Hong Kong time and convert to UTC
+  return moment.tz(timeString, 'Asia/Hong_Kong').utc()
 }
 
 /**
@@ -1172,25 +1171,25 @@ export function createICSEventsForMeeting(
 
   // Create one event for each date
   return meetingDates.map(date => {
-    // Convert to Hong Kong timezone for proper calendar export
-    const startDate = convertToHongKongTime(date, timeRange.startHour, timeRange.startMinute)
-    const endDate = convertToHongKongTime(date, timeRange.endHour, timeRange.endMinute)
+    // Convert to UTC using Hong Kong timezone
+    const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
+    const endUTC = convertToHongKongUTC(date, timeRange.endHour, timeRange.endMinute)
 
-    // Convert to ICS format [year, month, day, hour, minute] as local time
+    // Convert to ICS format [year, month, day, hour, minute] in UTC
     const start = [
-      startDate.getFullYear(),
-      startDate.getMonth() + 1, // ICS months are 1-indexed
-      startDate.getDate(),
-      startDate.getHours(),
-      startDate.getMinutes()
+      startUTC.get('year'),
+      startUTC.get('month') + 1, // moment months are 0-indexed, ICS needs 1-indexed
+      startUTC.get('date'),
+      startUTC.get('hour'),
+      startUTC.get('minute')
     ] as [number, number, number, number, number]
 
     const end = [
-      endDate.getFullYear(),
-      endDate.getMonth() + 1, // ICS months are 1-indexed
-      endDate.getDate(),
-      endDate.getHours(),
-      endDate.getMinutes()
+      endUTC.get('year'),
+      endUTC.get('month') + 1, // moment months are 0-indexed, ICS needs 1-indexed
+      endUTC.get('date'),
+      endUTC.get('hour'),
+      endUTC.get('minute')
     ] as [number, number, number, number, number]
 
     return {
@@ -1199,10 +1198,10 @@ export function createICSEventsForMeeting(
       location: meeting.location,
       start,
       end,
-      startInputType: 'local' as const,
-      startOutputType: 'local' as const,
-      endInputType: 'local' as const,
-      endOutputType: 'local' as const,
+      startInputType: 'utc' as const,
+      startOutputType: 'utc' as const,
+      endInputType: 'utc' as const,
+      endOutputType: 'utc' as const,
       productId: 'Another CUHK Course Planner'
     }
   })
