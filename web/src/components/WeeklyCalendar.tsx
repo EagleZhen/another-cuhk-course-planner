@@ -3,8 +3,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download } from 'lucide-react'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType, generateICSCalendar } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import { 
   DEFAULT_CALENDAR_CONFIG, 
@@ -81,6 +81,7 @@ interface WeeklyCalendarProps {
     section: InternalSection
     meeting: InternalMeeting
   }>
+  courseEnrollments: CourseEnrollment[]
   selectedTerm?: string
   availableTerms?: string[]
   selectedEnrollment?: string | null
@@ -91,13 +92,14 @@ interface WeeklyCalendarProps {
   onSelectEnrollment?: (enrollmentId: string | null) => void
 }
 
-export default function WeeklyCalendar({ 
-  events, 
+export default function WeeklyCalendar({
+  events,
   unscheduledSections = [],
-  selectedTerm = "2025-26 Term 2", 
-  availableTerms = ["2025-26 Term 2"],
+  courseEnrollments,
+  selectedTerm,
+  availableTerms,
   selectedEnrollment,
-  displayConfig = { showTime: true, showLocation: true, showInstructor: false, showTitle: false },
+  displayConfig = { showTitle: false, showTime: true, showLocation: true, showInstructor: false },
   calendarConfig = DEFAULT_CALENDAR_CONFIG,
   onTermChange,
   onToggleVisibility,
@@ -210,13 +212,18 @@ export default function WeeklyCalendar({
       return
     }
 
+    if (!selectedTerm) {
+      console.error('No term selected for screenshot')
+      return
+    }
+
     setIsCapturing(true)
     try {
       console.log('Starting screenshot capture...')
-      
+
       // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector('[data-screenshot="unscheduled"]') as HTMLElement | null
-      
+
       await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
       console.log('Screenshot completed successfully')
     } catch (error) {
@@ -228,7 +235,40 @@ export default function WeeklyCalendar({
       setIsCapturing(false)
     }
   }
-  
+
+  const handleExportCalendar = () => {
+    if (!selectedTerm) {
+      console.error('No term selected for export')
+      alert('Please select a term before exporting')
+      return
+    }
+
+    const result = generateICSCalendar(courseEnrollments, selectedTerm)
+
+    if (result.error) {
+      console.error('Export failed:', result.error)
+      alert(result.error)
+      return
+    }
+
+    if (result.icsContent && result.filename) {
+      // Create blob and download
+      const blob = new Blob([result.icsContent], { type: 'text/calendar;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+
+      const link = document.createElement('a')
+      link.href = url
+      link.download = result.filename
+
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+
+      console.log(`Calendar exported as ${result.filename}`)
+    }
+  }
+
   // Dynamic day detection - show weekends only when courses exist
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
@@ -264,6 +304,17 @@ export default function WeeklyCalendar({
             <Button
               variant="outline"
               size="sm"
+              onClick={handleExportCalendar}
+              className="flex items-center gap-2 cursor-pointer"
+              title="Export visible courses as calendar file (.ics) - can be imported into Google Calendar, Outlook, Apple Calendar, etc."
+            >
+              <Download className="w-4 h-4" />
+              .ics
+            </Button>
+
+            <Button
+              variant="outline"
+              size="sm"
               onClick={handleScreenshot}
               disabled={isCapturing}
               className="flex items-center gap-2 cursor-pointer"
@@ -273,11 +324,13 @@ export default function WeeklyCalendar({
               {isCapturing ? 'Capturing...' : 'Screenshot'}
             </Button>
             
-            <TermSelector 
-              selectedTerm={selectedTerm}
-              availableTerms={availableTerms}
-              onTermChange={onTermChange}
-            />
+            {selectedTerm && availableTerms && (
+              <TermSelector
+                selectedTerm={selectedTerm}
+                availableTerms={availableTerms}
+                onTermChange={onTermChange}
+              />
+            )}
           </div>
         </div>
         {/* #endregion */}
@@ -291,6 +344,17 @@ export default function WeeklyCalendar({
               <Button
                 variant="outline"
                 size="sm"
+                onClick={handleExportCalendar}
+                className="flex items-center gap-1 cursor-pointer flex-shrink-0"
+                title="Export visible courses as calendar file (.ics) - can be imported into Google Calendar, Outlook, Apple Calendar, etc."
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden xs:inline">.ics</span>
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
                 onClick={handleScreenshot}
                 disabled={isCapturing}
                 className="flex items-center gap-1 cursor-pointer flex-shrink-0"
@@ -300,11 +364,13 @@ export default function WeeklyCalendar({
                 <span className="hidden xs:inline">{isCapturing ? 'Capturing...' : 'Screenshot'}</span>
               </Button>
               
-              <TermSelector 
-                selectedTerm={selectedTerm}
-                availableTerms={availableTerms}
-                onTermChange={onTermChange}
-              />
+              {selectedTerm && availableTerms && (
+                <TermSelector
+                  selectedTerm={selectedTerm}
+                  availableTerms={availableTerms}
+                  onTermChange={onTermChange}
+                />
+              )}
             </div>
           </div>
           

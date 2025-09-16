@@ -1,19 +1,21 @@
 // Unified course utilities for conflict detection and data transformation
 // Uses clean internal types with proper validation boundaries
 
-import type { 
-  TimeRange, 
-  CalendarEvent, 
-  CourseEnrollment, 
-  ConflictZone, 
-  InternalCourse, 
-  InternalSection, 
-  InternalMeeting, 
+import type {
+  TimeRange,
+  CalendarEvent,
+  CourseEnrollment,
+  ConflictZone,
+  InternalCourse,
+  InternalSection,
+  InternalMeeting,
   SectionAvailability,
   SectionType,
   SectionTypeGroup
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
+import { createEvents } from 'ics'
+import moment from 'moment-timezone'
 
 /**
  * Extract section type from section code using centralized config
@@ -1051,4 +1053,224 @@ export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
   })
   const url = `https://julac-cuhk.primo.exlibrisgroup.com/discovery/search?${params.toString()}`
   window.open(url, '_blank', 'noopener,noreferrer')
+}
+
+// === CALENDAR EXPORT UTILITIES ===
+
+/**
+ * Extracts academic year information from term name
+ * @param termName Term name like "2025-26 Term 2"
+ * @returns Object with first year and second year of the academic year
+ */
+export function getAcademicYear(termName: string): { firstYear: number; secondYear: number } {
+  // Extract academic year from term name (e.g., "2025-26 Term 2" → "2025-26")
+  const academicYearMatch = termName.match(/(\d{4})-(\d{2})/)
+
+  if (!academicYearMatch) {
+    throw new Error(`Invalid term name format: ${termName}`)
+  }
+
+  const firstYear = parseInt(academicYearMatch[1]) // 2025
+  const secondYear = firstYear + 1 // 2026
+
+  return { firstYear, secondYear }
+}
+
+/**
+ * Parses meeting dates string and converts to actual Date objects
+ * @param dates Comma-separated dates like "5/1, 12/1, 19/1"
+ * @param termName Term name like "2025-26 Term 2"
+ * @returns Array of Date objects
+ */
+export function parseMeetingDates(dates: string, termName: string): Date[] {
+  // Handle TBA or empty dates - be strict about TBA match
+  if (!dates || dates.trim() === '' || dates.trim().toUpperCase() === 'TBA') {
+    return []
+  }
+
+  const { firstYear, secondYear } = getAcademicYear(termName)
+
+  return dates.split(',').map(dateStr => {
+    const trimmedDate = dateStr.trim()
+    const [day, month] = trimmedDate.split('/').map(Number)
+
+    if (isNaN(day) || isNaN(month) || month < 1 || month > 12) {
+      console.warn(`Invalid date format: "${trimmedDate}" in dates: "${dates}"`)
+      return null
+    }
+
+    // Academic year logic: Sep-Dec = first year, Jan-Aug = second year
+    const year = (month >= 9 && month <= 12) ? firstYear : secondYear
+
+    return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
+  }).filter(date => date !== null) as Date[]
+}
+
+/**
+ * Convert course time to UTC using Hong Kong timezone for calendar export
+ * This ensures exchange students get correct time regardless of their location
+ * @param date Base date
+ * @param hours Hour in 24-hour format (Hong Kong local time)
+ * @param minutes Minutes
+ * @returns Moment object in UTC for ICS export
+ */
+function convertToHongKongUTC(date: Date, hours: number, minutes: number): moment.Moment {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1 // moment expects 1-indexed months
+  const day = date.getDate()
+
+  // Format time string for Hong Kong timezone parsing
+  const timeString = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:00`
+
+  // Parse as Hong Kong time and convert to UTC
+  return moment.tz(timeString, 'Asia/Hong_Kong').utc()
+}
+
+/**
+ * Creates ICS events for a single meeting across all its dates
+ * @param meeting The meeting object
+ * @param course The course information
+ * @param section The section information
+ * @param termName The current term name
+ * @returns Array of ICS event objects
+ */
+interface ICSEvent {
+  title: string
+  description: string
+  location: string
+  start: [number, number, number, number, number]
+  end: [number, number, number, number, number]
+  startInputType: 'utc'
+  startOutputType: 'utc'
+  endInputType: 'utc'
+  endOutputType: 'utc'
+  productId: string
+}
+
+export function createICSEventsForMeeting(
+  meeting: InternalMeeting,
+  course: InternalCourse,
+  section: InternalSection,
+  termName: string
+): ICSEvent[] {
+  // Parse time information
+  const timeRange = parseTimeRange(meeting.time)
+  if (!timeRange) {
+    return [] // Skip unscheduled meetings
+  }
+
+  // Parse dates
+  const meetingDates = parseMeetingDates(meeting.dates, termName)
+  if (meetingDates.length === 0) {
+    return [] // Skip meetings with no valid dates
+  }
+
+  // Handle instructor plural/singular properly with compact formatting
+  const instructors = meeting.instructor.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
+  const formattedInstructors = instructors.length > 0
+    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
+    : 'TBA'
+
+  // Create description with better formatting and structure
+  const description = [
+    `📚 ${course.title}`,
+    '',
+    `🧑🏻‍🏫 ${formattedInstructors}`,
+    '',
+    '─'.repeat(20),
+    'Generated from Another CUHK Course Planner',
+    'https://another-cuhk-course-planner.com/'
+  ].join('\n')
+
+  // Create one event for each date
+  return meetingDates.map(date => {
+    // Convert to UTC using Hong Kong timezone
+    const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
+    const endUTC = convertToHongKongUTC(date, timeRange.endHour, timeRange.endMinute)
+
+    // Convert to ICS format [year, month, day, hour, minute] in UTC
+    const start = [
+      startUTC.get('year'),
+      startUTC.get('month') + 1, // moment months are 0-indexed, ICS needs 1-indexed
+      startUTC.get('date'),
+      startUTC.get('hour'),
+      startUTC.get('minute')
+    ] as [number, number, number, number, number]
+
+    const end = [
+      endUTC.get('year'),
+      endUTC.get('month') + 1, // moment months are 0-indexed, ICS needs 1-indexed
+      endUTC.get('date'),
+      endUTC.get('hour'),
+      endUTC.get('minute')
+    ] as [number, number, number, number, number]
+
+    return {
+      title: `${course.subject}${course.courseCode} ${section.sectionType}`,
+      description,
+      location: meeting.location,
+      start,
+      end,
+      startInputType: 'utc' as const,
+      startOutputType: 'utc' as const,
+      endInputType: 'utc' as const,
+      endOutputType: 'utc' as const,
+      productId: 'Another CUHK Course Planner'
+    }
+  })
+}
+
+/**
+ * Generates ICS calendar file content from course enrollments
+ * @param enrollments Array of course enrollments
+ * @param termName Current term name
+ * @returns Object with ICS content and filename, or error
+ */
+export function generateICSCalendar(enrollments: CourseEnrollment[], termName: string): {
+  icsContent?: string
+  filename?: string
+  error?: string
+} {
+  try {
+    const allEvents: ICSEvent[] = []
+
+    // Process each enrollment - include ALL courses (visible + conflicting)
+    // We want to export everything the user has selected, including conflicts
+    enrollments
+      .filter(enrollment => !enrollment.isInvalid) // Only exclude truly invalid courses
+      .forEach(enrollment => {
+        enrollment.selectedSections.forEach(section => {
+          section.meetings.forEach(meeting => {
+            const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)
+            allEvents.push(...events)
+          })
+        })
+      })
+
+    if (allEvents.length === 0) {
+      return { error: 'No scheduled events found. Courses with valid meeting times are required for exporting to a .ics file.' }
+    }
+
+    // Generate ICS content using the ics library
+    const { error, value } = createEvents(allEvents)
+
+    if (error) {
+      console.error('ICS generation error:', error)
+      return { error: 'Failed to generate calendar file. Please try again.' }
+    }
+
+    // Generate filename following same pattern as screenshot
+    const now = new Date()
+    const dateStr = now.toISOString().split('T')[0] // YYYY-MM-DD
+    const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-') // HH-MM-SS
+    const filename = `${termName.replace(/\s+/g, '-')}-Schedule-${dateStr}-${timeStr}.ics`
+
+    return {
+      icsContent: value,
+      filename
+    }
+  } catch (error) {
+    console.error('Unexpected error during ICS generation:', error)
+    return { error: 'An unexpected error occurred while generating the calendar file.' }
+  }
 }

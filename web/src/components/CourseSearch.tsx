@@ -2071,7 +2071,7 @@ function CourseCard({
                                 </div>
                                 {/* Row 2: Instructor */}
                                 <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                  <span>👨‍🏫</span>
+                                  <span>🧑🏻‍🏫</span>
                                   <div className="flex items-center gap-1 min-w-0 flex-1">
                                     <span className="truncate" title={formattedInstructor}>
                                       {formattedInstructor}
