@@ -15,22 +15,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Shared metadata constants for better maintainability
+const SITE_CONFIG = {
+  name: "Another CUHK Course Planner",
+  description: "Interactive CUHK timetable planner with automatic conflict detection & easy resolution, fast course search, .ics export, and screenshot features.",
+  url: "https://another-cuhk-course-planner.com",
+  ogImage: "https://another-cuhk-course-planner.com/og-image.png",
+  ogImageAlt: "CUHK Course Planner - Weekly calendar and shopping cart interface showing course scheduling with conflict detection",
+} as const
+
 export const metadata: Metadata = {
-  title: "Another CUHK Course Planner",
-  description: "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
+  title: SITE_CONFIG.name,
+  description: SITE_CONFIG.description,
 
   // Open Graph (Facebook, WhatsApp, Discord, Instagram, etc.)
   openGraph: {
-    title: "Another CUHK Course Planner",
-    description: "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
-    url: "https://another-cuhk-course-planner.com", // Your final custom domain
-    siteName: "Another CUHK Course Planner",
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
     images: [
       {
-        url: "https://another-cuhk-course-planner.com/og-image.png", // Will work with both temporary and final domain
+        url: SITE_CONFIG.ogImage,
         width: 1200,
         height: 630,
-        alt: "CUHK Course Planner - Weekly calendar and shopping cart interface showing course scheduling with conflict detection",
+        alt: SITE_CONFIG.ogImageAlt,
       },
     ],
     locale: "en_US",
@@ -40,9 +49,9 @@ export const metadata: Metadata = {
   // Twitter Card (X, Threads)
   twitter: {
     card: "summary_large_image",
-    title: "Another CUHK Course Planner",
-    description: "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
-    images: ["https://another-cuhk-course-planner.com/og-image.png"], // Will work with final custom domain
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    images: [SITE_CONFIG.ogImage],
   },
 
   icons: {
@@ -60,9 +69,9 @@ export const metadata: Metadata = {
     'application/ld+json': JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Another CUHK Course Planner",
-      "description": "Interactive timetable planner for CUHK courses with automatic conflict detection and easy section management.",
-      "url": "https://another-cuhk-course-planner.com",
+      "name": SITE_CONFIG.name,
+      "description": SITE_CONFIG.description,
+      "url": SITE_CONFIG.url,
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Web Browser"
     })
