@@ -306,10 +306,10 @@ export default function WeeklyCalendar({
               size="sm"
               onClick={handleExportCalendar}
               className="flex items-center gap-2 cursor-pointer"
-              title="Export visible courses as calendar file (.ics) - compatible with Google Calendar, Outlook, Apple Calendar"
+              title="Export visible courses as calendar file (.ics) - can be imported into Google Calendar, Outlook, Apple Calendar, etc."
             >
               <Download className="w-4 h-4" />
-              Export
+              .ics
             </Button>
 
             <Button
@@ -346,10 +346,10 @@ export default function WeeklyCalendar({
                 size="sm"
                 onClick={handleExportCalendar}
                 className="flex items-center gap-1 cursor-pointer flex-shrink-0"
-                title="Export visible courses as calendar file (.ics) - compatible with Google Calendar, Outlook, Apple Calendar"
+                title="Export visible courses as calendar file (.ics) - can be imported into Google Calendar, Outlook, Apple Calendar, etc."
               >
                 <Download className="w-4 h-4" />
-                <span className="hidden xs:inline">Export</span>
+                <span className="hidden xs:inline">.ics</span>
               </Button>
 
               <Button
