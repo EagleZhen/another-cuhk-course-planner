@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-15T04:50:03.381492+00:00",
+    "scraped_at": "2025-09-18T18:02:57.550825+00:00",
     "subject": "EMBA",
     "subject_title": "Executive MBA",
     "total_courses": 12,
@@ -156,6 +156,50 @@
       "title": "Seminar on Business and Management Issues",
       "credits": "3.00",
       "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "PS01-SEM (9627)",
+              "meetings": [
+                {
+                  "time": "Th 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Ms. YANG Zehua, \nProfessor SONG Zhiping",
+                  "dates": "8/1"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Ms. YANG Zehua, \nProfessor SONG Zhiping",
+                  "dates": "9/1"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Ms. YANG Zehua, \nProfessor SONG Zhiping",
+                  "dates": "10/1"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Ms. YANG Zehua, \nProfessor SONG Zhiping",
+                  "dates": "11/1"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        },
         {
           "term_code": "2405",
           "term_name": "2025-26 Term 4",
@@ -344,6 +388,44 @@
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
+            },
+            {
+              "section": "PF01-FLD (1223)",
+              "meetings": [
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "28/3"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "27/3"
+                },
+                {
+                  "time": "Th 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "26/3"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "29/3"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
             }
           ]
         },
@@ -536,10 +618,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "8",
+                "enrolled": "7",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "52",
+                "available_seats": "53",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -912,10 +994,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "18",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"

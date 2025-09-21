@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-15T04:04:47.540207+00:00",
+    "scraped_at": "2025-09-18T17:14:26.198440+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
     "total_courses": 83,
@@ -193,10 +193,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "81",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "69",
+                "available_seats": "68",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -219,10 +219,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "81",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "69",
+                "available_seats": "68",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -417,11 +417,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "100",
+                "enrolled": "99",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -449,11 +449,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "100",
+                "enrolled": "99",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -1181,7 +1181,7 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "151",
+                "enrolled": "153",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1245,7 +1245,7 @@
               ],
               "availability": {
                 "capacity": "85",
-                "enrolled": "86",
+                "enrolled": "88",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1851,10 +1851,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "66",
+                "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1877,10 +1877,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "66",
+                "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2382,10 +2382,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "11",
+                "enrolled": "12",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "89",
+                "available_seats": "88",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2402,10 +2402,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "11",
+                "enrolled": "12",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "89",
+                "available_seats": "88",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2821,14 +2821,8 @@
           "term_name": "2025-26 Term 1",
           "schedule": [
             {
-              "section": "--LEC (5519)",
+              "section": "--LEC (9956)",
               "meetings": [
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Science Centre L2",
-                  "instructor": "Professor LI Shaohua",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                },
                 {
                   "time": "We 1:30PM - 2:15PM",
                   "location": "Science Centre L2",
@@ -2846,20 +2840,26 @@
                   "location": "Y.C. Liang Hall 103",
                   "instructor": "Professor LI Shaohua",
                   "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor LI Shaohua",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "10",
                 "enrolled": "6",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "94",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
             },
             {
-              "section": "-T01-TUT (7088)",
+              "section": "-T01-TUT (9957)",
               "meetings": [
                 {
                   "time": "Th 2:30PM - 3:15PM",
@@ -2869,11 +2869,11 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "10",
                 "enrolled": "6",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "94",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3329,7 +3329,7 @@
               ],
               "availability": {
                 "capacity": "210",
-                "enrolled": "210",
+                "enrolled": "213",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3389,10 +3389,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "56",
+                "enrolled": "57",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3409,10 +3409,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "20",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4154,11 +4154,11 @@
               ],
               "availability": {
                 "capacity": "190",
-                "enrolled": "189",
+                "enrolled": "191",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -4186,10 +4186,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "65",
+                "enrolled": "67",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5935,10 +5935,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "43",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5961,10 +5961,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "43",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "57",
+                "available_seats": "58",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8054,11 +8054,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -8440,10 +8440,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "32",
+                "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "30",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8472,10 +8472,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "12",
+                "enrolled": "10",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8551,10 +8551,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "39",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8894,10 +8894,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "43",
+                "enrolled": "44",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8920,10 +8920,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "43",
+                "enrolled": "44",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9398,6 +9398,26 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor LIU Shengchao",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AQM1-TMC (9949)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Zhiding",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -10024,6 +10044,26 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor LIU Shengchao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AQM1-TMC (9629)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Zhiding",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -10690,6 +10730,26 @@
               "class_attributes": "English only"
             },
             {
+              "section": "AQM1-TMC (9950)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Zhiding",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
               "section": "EM01-TMC (2579)",
               "meetings": [
                 {
@@ -11302,6 +11362,26 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor LIU Shengchao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AQM1-TMC (9630)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Zhiding",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -11968,6 +12048,26 @@
               "class_attributes": "English only"
             },
             {
+              "section": "AQM1-TMC (9951)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Zhiding",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
               "section": "EM01-TMC (2506)",
               "meetings": [
                 {
@@ -12580,6 +12680,26 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor LIU Shengchao",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AQM1-TMC (9631)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Zhiding",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],

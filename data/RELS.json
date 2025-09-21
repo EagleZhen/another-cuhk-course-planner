@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-15T09:16:51.007822+00:00",
+    "scraped_at": "2025-09-18T22:02:33.394320+00:00",
     "subject": "RELS",
     "subject_title": "Religious Studies & Theology",
     "total_courses": 58,
@@ -211,10 +211,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "44",
+                "enrolled": "43",
                 "waitlist_capacity": "9999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English"
@@ -1206,10 +1206,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "11",
+                "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1555,7 +1555,34 @@
       "course_code": "6116",
       "title": "Buddhist Studies: Seminar II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9633)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Xingyi",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
       "description": "This seminar examines Buddhism as a dynamic process of borrowing, conflict and interaction between and within traditions that have been identified as Buddhist. We will begin by studying some representative works of both primary and secondary source (such as those put together by Donald Lopez in his Buddhism in Practice). Specific themes and topics will then be chosen in accordance with students’ interest for in-depth examination. The specific content will be designed by the teacher who offers the courses.",
       "enrollment_requirement": "For students in MPhil-PhD Religious Studies",
       "course_attributes": "",
@@ -1709,7 +1736,34 @@
       "course_code": "6132",
       "title": "Biblical Studies: Seminar II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9634)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Sonia Kwok",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "Discussion in seminar setting on special issues related to biblical studies. Students are allowed to take these courses for more than once, and gain the units each time they pass the course.",
       "enrollment_requirement": "For students in MPhil-PhD Religious Studies",
       "course_attributes": "",

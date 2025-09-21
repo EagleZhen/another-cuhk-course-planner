@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-15T06:24:24.817718+00:00",
+    "scraped_at": "2025-09-18T19:27:57.052907+00:00",
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
     "total_courses": 24,
@@ -129,10 +129,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "43",
+                "enrolled": "35",
                 "waitlist_capacity": "10",
                 "waitlist_total": "1",
-                "available_seats": "37",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -200,9 +200,9 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "86",
                 "waitlist_capacity": "30",
-                "waitlist_total": "21",
+                "waitlist_total": "13",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -350,9 +350,9 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "133",
+                "enrolled": "135",
                 "waitlist_capacity": "10",
-                "waitlist_total": "10",
+                "waitlist_total": "9",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -800,34 +800,34 @@
                 {
                   "time": "We 7:00PM - 10:00PM",
                   "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Staff",
+                  "instructor": "Mr. NG Sau Koon",
                   "dates": "3/9, 10/9, 17/9, 24/9"
                 },
                 {
                   "time": "We 7:00PM - 10:00PM",
                   "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Staff",
+                  "instructor": "Mr. NG Sau Koon",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
                   "time": "We 7:00PM - 10:00PM",
                   "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Staff",
+                  "instructor": "Mr. NG Sau Koon",
                   "dates": "5/11, 12/11, 19/11, 26/11"
                 },
                 {
                   "time": "We 7:00PM - 10:00PM",
                   "location": "William M W Mong Eng Bldg 1004",
-                  "instructor": "Staff",
+                  "instructor": "Mr. NG Sau Koon",
                   "dates": "3/12, 10/12"
                 }
               ],
               "availability": {
                 "capacity": "160",
-                "enrolled": "156",
+                "enrolled": "158",
                 "waitlist_capacity": "10",
-                "waitlist_total": "9",
-                "available_seats": "4",
+                "waitlist_total": "7",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -943,10 +943,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "96",
+                "enrolled": "94",
                 "waitlist_capacity": "10",
                 "waitlist_total": "5",
-                "available_seats": "4",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1099,9 +1099,9 @@
               ],
               "availability": {
                 "capacity": "85",
-                "enrolled": "105",
+                "enrolled": "110",
                 "waitlist_capacity": "30",
-                "waitlist_total": "16",
+                "waitlist_total": "9",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -1456,6 +1456,192 @@
       "title": "Advanced Research and Development Project I",
       "credits": "3.00",
       "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "CJ01-PRJ (9958)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (9959)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHIU Dah Ming",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "96",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GJ01-PRJ (9960)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XING Guoliang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "94",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (9961)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "95",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KJ01-PRJ (9962)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Kehuan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "95",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PJ01-PRJ (9963)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHAO Changhong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (9964)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "XJ01-PRJ (9965)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YUE Xiangyu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "95",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (9966)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
         {
           "term_code": "2400",
           "term_name": "2025-26 Term 3",
