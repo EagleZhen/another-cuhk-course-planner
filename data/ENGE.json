@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-15T04:58:15.909750+00:00",
+    "scraped_at": "2025-09-21T16:20:27.820181+00:00",
     "subject": "ENGE",
     "subject_title": "English",
     "total_courses": 158,
@@ -5303,10 +5303,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "46",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5323,10 +5323,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "9",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6101,10 +6101,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6281,10 +6281,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "13",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "37",
+                "available_seats": "36",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8588,10 +8588,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8620,10 +8620,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "8",
+                "enrolled": "7",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -12430,10 +12430,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "48",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -12471,22 +12471,16 @@
               "section": "--LEC (4541)",
               "meetings": [
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
                   "instructor": "Professor JUNG Jookyoung",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
                   "instructor": "Professor JUNG Jookyoung",
-                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
-                },
-                {
-                  "time": "Tu 6:30PM - 9:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 305",
-                  "instructor": "Professor JUNG Jookyoung",
-                  "dates": "14/4"
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
               "availability": {
@@ -12876,40 +12870,7 @@
       "course_code": "5590",
       "title": "Computer Applications in Second Language Teaching",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (4539)",
-              "meetings": [
-                {
-                  "time": "Th 6:30PM - 9:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G04",
-                  "instructor": "Staff",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
-                },
-                {
-                  "time": "Th 6:30PM - 9:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G04",
-                  "instructor": "Staff",
-                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "33",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course enables students to understand the relationship between second language acquisition theories and computer applications to language learning (CALL) and gain familiarity with computer software and Internet resources available for English/second language teaching. Students learns to use computers and the Internet as teaching aids, design learning activities using a range of CALL software, and evaluate software and Internet resources for teaching purposes.",
       "enrollment_requirement": "For students in MA English (Applied English Linguistics) or MPhil English (Applied English Linguistics)",
       "course_attributes": "",
@@ -12935,7 +12896,46 @@
       "course_code": "5600",
       "title": "Special Topics in Applied English Linguistics",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9628)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. WONG Man Ho Ivy",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. WONG Man Ho Ivy",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. WONG Man Ho Ivy",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course provides an opportunity for students to be exposed to some current developments in certain area of applied linguistic research in English. The topics vary according to the research expertise of the staff or the visiting academics.\n\nSubject to the approval of the postgraduate linguistics coordinator, students are allowed to take the above course more than once and gain the units each time they pass the course. However, students cannot take courses with the same course code more than once in a single term.",
       "enrollment_requirement": "For students in MA English (Applied English Linguistics) or MPhil English (Applied English Linguistics)",
       "course_attributes": "",

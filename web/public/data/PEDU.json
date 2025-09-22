@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-15T08:27:22.605894+00:00",
+    "scraped_at": "2025-09-21T19:09:40.052728+00:00",
     "subject": "PEDU",
     "subject_title": "Education (PG)",
     "total_courses": 88,
@@ -29,10 +29,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "71",
+                "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "928",
+                "available_seats": "929",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -231,10 +231,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "139",
+                "enrolled": "138",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "860",
+                "available_seats": "861",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -714,11 +714,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -828,10 +828,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "59",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "940",
+                "available_seats": "942",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -909,10 +909,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "63",
+                "enrolled": "62",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "936",
+                "available_seats": "937",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1403,13 +1403,19 @@
                   "time": "Sa 9:30AM - 12:00PM",
                   "location": "Wu Ho Man Yuen Bldg 508",
                   "instructor": "Professor OU Dongshu",
-                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11"
+                  "dates": "18/10, 25/10, 1/11, 8/11, 15/11, 22/11"
                 },
                 {
                   "time": "Sa 9:30AM - 12:00PM",
                   "location": "Ho Tim Building M1",
                   "instructor": "Professor OU Dongshu",
                   "dates": "27/9, 4/10, 11/10"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:00PM",
+                  "location": "Sino Building LT2",
+                  "instructor": "Professor OU Dongshu",
+                  "dates": "29/11"
                 }
               ],
               "availability": {
@@ -1705,10 +1711,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "276",
+                "enrolled": "277",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "723",
+                "available_seats": "722",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2259,7 +2265,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor JONG Siu Yung",
+                  "instructor": "Professor CHAI Ching Sing, \nProfessor JONG Siu Yung",
                   "dates": "01/09/2025 - 24/11/2025"
                 }
               ],
@@ -2285,7 +2291,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor JONG Siu Yung",
+                  "instructor": "Professor CHAI Ching Sing, \nProfessor JONG Siu Yung",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -2577,62 +2583,30 @@
               "section": "--LEC (1823)",
               "meetings": [
                 {
-                  "time": "We 6:30PM - 9:00PM",
+                  "time": "We 6:30PM - 9:15PM",
                   "location": "Li Koon Chun Hall LT1",
                   "instructor": "Professor NG Fei Yin",
                   "dates": "3/9, 10/9, 17/9, 24/9"
                 },
                 {
-                  "time": "We 6:30PM - 9:00PM",
+                  "time": "We 6:30PM - 9:15PM",
                   "location": "Li Koon Chun Hall LT1",
                   "instructor": "Professor NG Fei Yin",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
-                  "time": "We 6:30PM - 9:00PM",
+                  "time": "We 6:30PM - 9:15PM",
                   "location": "Li Koon Chun Hall LT1",
                   "instructor": "Professor NG Fei Yin",
-                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "124",
+                "enrolled": "123",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "875",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "A-LEC (9605)",
-              "meetings": [
-                {
-                  "time": "We 9:30AM - 12:00PM",
-                  "location": "Wu Ho Man Yuen Bldg 505",
-                  "instructor": "Professor NG Fei Yin",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 9:30AM - 12:00PM",
-                  "location": "Wu Ho Man Yuen Bldg 505",
-                  "instructor": "Professor NG Fei Yin",
-                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4"
-                }
-              ],
-              "availability": {
-                "capacity": "90",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "90",
+                "available_seats": "876",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2850,10 +2824,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "100",
+                "enrolled": "99",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "899",
+                "available_seats": "900",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2969,10 +2943,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "104",
+                "enrolled": "103",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "895",
+                "available_seats": "896",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3066,10 +3040,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "156",
+                "enrolled": "155",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "843",
+                "available_seats": "844",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3186,10 +3160,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "105",
+                "enrolled": "104",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3453,16 +3427,16 @@
               "section": "--LEC (4473)",
               "meetings": [
                 {
-                  "time": "Mo 6:30PM - 9:00PM",
+                  "time": "Mo 6:30PM - 9:15PM",
                   "location": "Chen Kou Bun Bldg 108",
                   "instructor": "Professor YIN Hongbiao",
                   "dates": "1/9, 8/9, 15/9, 22/9, 29/9"
                 },
                 {
-                  "time": "Mo 6:30PM - 9:00PM",
+                  "time": "Mo 6:30PM - 9:15PM",
                   "location": "Chen Kou Bun Bldg 108",
                   "instructor": "Professor YIN Hongbiao",
-                  "dates": "13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                  "dates": "13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
                 }
               ],
               "availability": {
@@ -3710,21 +3684,27 @@
               "meetings": [
                 {
                   "time": "We 6:30PM - 9:00PM",
-                  "location": "Wong Foo Yuan Bldg UG01",
+                  "location": "Ho Tim Building G6",
                   "instructor": "Professor TEO Kheng Guan Timothy",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
+                  "dates": "17/9, 24/9"
                 },
                 {
                   "time": "We 6:30PM - 9:00PM",
-                  "location": "Wong Foo Yuan Bldg UG01",
+                  "location": "Ho Tim Building G6",
                   "instructor": "Professor TEO Kheng Guan Timothy",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
                   "time": "We 6:30PM - 9:00PM",
-                  "location": "Wong Foo Yuan Bldg UG01",
+                  "location": "Ho Tim Building G6",
                   "instructor": "Professor TEO Kheng Guan Timothy",
                   "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12"
+                },
+                {
+                  "time": "We 6:30PM - 9:00PM",
+                  "location": "Wong Foo Yuan Bldg UG01",
+                  "instructor": "Professor TEO Kheng Guan Timothy",
+                  "dates": "3/9, 10/9"
                 }
               ],
               "availability": {
@@ -3928,16 +3908,16 @@
               "section": "--LEC (4474)",
               "meetings": [
                 {
-                  "time": "Mo 6:30PM - 9:00PM",
+                  "time": "Mo 6:30PM - 9:15PM",
                   "location": "Wong Foo Yuan Bldg 106",
                   "instructor": "Dr. YAU Jenny Yuk Ping",
                   "dates": "1/9, 8/9, 15/9, 22/9, 29/9"
                 },
                 {
-                  "time": "Mo 6:30PM - 9:00PM",
+                  "time": "Mo 6:30PM - 9:15PM",
                   "location": "Wong Foo Yuan Bldg 106",
                   "instructor": "Dr. YAU Jenny Yuk Ping",
-                  "dates": "13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                  "dates": "13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
                 }
               ],
               "availability": {
@@ -4141,10 +4121,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "90",
+                "enrolled": "92",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "909",
+                "available_seats": "907",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -4207,10 +4187,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "97",
+                "enrolled": "96",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "902",
+                "available_seats": "903",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -4256,10 +4236,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "3",
+                "enrolled": "6",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "996",
+                "available_seats": "993",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -4481,10 +4461,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "999",
+                "available_seats": "998",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
