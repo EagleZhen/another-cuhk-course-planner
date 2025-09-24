@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-21T16:12:43.671294+00:00",
+    "scraped_at": "2025-09-22T15:56:00.366973+00:00",
     "subject": "ELTU",
     "subject_title": "English Language Teaching Unit",
     "total_courses": 50,
@@ -470,6 +470,44 @@
                 "waitlist_total": "0",
                 "available_seats": "2",
                 "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "APC1-CLW (9472)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 411",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "20",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -13098,10 +13136,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"

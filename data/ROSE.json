@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-21T19:51:06.352358+00:00",
+    "scraped_at": "2025-09-22T19:24:43.223754+00:00",
     "subject": "ROSE",
     "subject_title": "Robotics",
     "total_courses": 10,
@@ -86,16 +86,22 @@
               "section": "--LEC (9578)",
               "meetings": [
                 {
-                  "time": "We 6:30PM - 9:15PM",
-                  "location": "Lady Shaw Bldg LT2",
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
                   "instructor": "Professor CHEN Fei",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
-                  "time": "We 6:30PM - 9:15PM",
-                  "location": "Lady Shaw Bldg LT2",
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
                   "instructor": "Professor CHEN Fei",
-                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor CHEN Fei",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
                 }
               ],
               "availability": {
@@ -281,10 +287,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "79",
+                "enrolled": "78",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -326,22 +332,16 @@
               "section": "--LEC (3675)",
               "meetings": [
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
-                  "location": "Lady Shaw Bldg LT1",
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
                   "instructor": "Staff",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
-                  "location": "Lady Shaw Bldg LT1",
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
                   "instructor": "Staff",
-                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
-                },
-                {
-                  "time": "Tu 6:30PM - 9:15PM",
-                  "location": "Lady Shaw Bldg LT1",
-                  "instructor": "Staff",
-                  "dates": "14/4"
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
                 }
               ],
               "availability": {
