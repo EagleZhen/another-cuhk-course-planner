@@ -515,16 +515,19 @@ export default function CourseSearch({
           finalCourses = filteredCourses.filter(course => {
             // Create full course code without space for searching
             const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
-            
+
+            // Get current term data for instructor search
+            const currentTermData = course.terms.find(termData => termData.termName === term)
+            if (!currentTermData) return false // Safety check
+
             return (
               fullCourseCode.includes(searchLower) ||
               course.courseCode.toLowerCase().includes(searchLower) ||
               course.title.toLowerCase().includes(searchLower) ||
-              course.terms.some(termData =>
-                termData.sections.some(section =>
-                  section.meetings.some(meeting =>
-                    meeting.instructor.toLowerCase().includes(searchLower)
-                  )
+              // FIXED: Only search instructors in current term
+              currentTermData.sections.some(section =>
+                section.meetings.some(meeting =>
+                  meeting.instructor.toLowerCase().includes(searchLower)
                 )
               )
             )
