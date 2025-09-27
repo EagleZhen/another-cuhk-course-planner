@@ -59,6 +59,7 @@ python scrape_all_subjects.py   # Production scraping
 - **Layout Optimization**: Flex-wrap architecture preventing horizontal overflow
 - **Weekend Integration**: Full Saturday/Sunday course support with self-loop-free filtering
 - **Screenshot System**: Modular architecture with configuration-driven design
+- **Term-Scoped Search Fix**: Fixed instructor search to only match current term data
 
 ## Core Implementation Details
 
@@ -98,6 +99,12 @@ return prefix1 === null || prefix2 === null || prefix1 === prefix2
 
 ## Known Issues & Future Considerations
 
+**Critical Issues to Address:**
+- **Partial Data Loading**: App continues with incomplete data when network fails mid-load (~50MB, 259 files)
+  - False "course no longer exists" errors when sync runs with partial data
+  - Need all-or-nothing loading with retry mechanism and user feedback
+- **Analytics Gap**: No performance metrics for ~50MB data loading duration and user experience
+
 **Current Limitations:**
 - Loads all subjects on startup (200+ files) instead of on-demand
 - No live enrollment updates during active sessions
@@ -107,6 +114,27 @@ return prefix1 === null || prefix2 === null || prefix1 === prefix2
 - WeeklyCalendar props could use defaults instead of optional typing
 - Subject loading could be optimized with analytics-driven preloading
 - Could benefit from lazy loading for non-essential subjects
+
+## 🔄 Immediate TODOs
+
+**High Priority (Data Integrity):**
+1. **Implement All-or-Nothing Loading**: Prevent app from proceeding with incomplete course data
+   - Add loading error states with retry mechanism
+   - Protect sync logic from running with partial data
+   - Show clear user feedback when loading fails
+
+**Medium Priority (Analytics & UX):**
+2. **Add Data Loading Performance Metrics**: Track loading duration and success rates
+   ```typescript
+   analytics.dataLoadCompleted(durationSeconds, dataSizeMB, successRate)
+   ```
+3. **Cross-Term Search Enhancement**: Consider showing other-term matches with clear separation
+   - Phase 1: Current term only (implemented)
+   - Phase 2: Separated results with visual distinction
+
+**Future Architecture (Long-term):**
+4. **Term-Scoped Data Architecture**: Consider TermSpecificCourse model to eliminate repeated term extraction
+5. **Intelligent Subject Loading**: Load popular subjects first, others on-demand
 
 ## Quality Standards
 
@@ -136,4 +164,4 @@ return prefix1 === null || prefix2 === null || prefix1 === prefix2
 - **Performance**: Clean builds, optimal bundle sizes
 - **Architecture**: Component decoupling, bidirectional selection patterns
 
-*Last updated: September 2025 - Production-ready system with calendar export, responsive layout, and international timezone support. All major features complete and deployment-ready.*
+*Last updated: September 2025 - Production-ready system with term-scoped search, calendar export, and responsive layout. Critical data integrity improvements needed for partial loading scenarios.*
