@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-22T16:28:49.030546+00:00",
+    "scraped_at": "2025-09-25T13:30:52.076244+00:00",
     "subject": "FINA",
     "subject_title": "Finance",
     "total_courses": 162,
@@ -2957,10 +2957,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "28",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "32",
+                "available_seats": "33",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7533,11 +7533,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "65",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Putonghua only"
             },
@@ -11205,6 +11205,44 @@
               "class_attributes": "Putonghua only"
             }
           ]
+        },
+        {
+          "term_code": "2405",
+          "term_name": "2025-26 Term 4",
+          "schedule": [
+            {
+              "section": "P-LEC (1049)",
+              "meetings": [
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Jiange",
+                  "dates": "22/5"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Jiange",
+                  "dates": "23/5"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Jiange",
+                  "dates": "24/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
         }
       ],
       "description": "Topics and issues in subfields of finance are addressed in this course.\nThe experiential learning components such as field trip/company visit etc. may be offered as course components if deemed necessary by course instructor.",
@@ -12553,18 +12591,6 @@
             {
               "section": "--LEC (2730)",
               "meetings": [
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Wen Lan Tang LG204",
-                  "instructor": "Dr. LEE Wing Yan",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
-                },
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Wen Lan Tang LG204",
-                  "instructor": "Dr. LEE Wing Yan",
-                  "dates": "24/2, 3/3"
-                },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "Wu Ho Man Yuen Bldg 301",

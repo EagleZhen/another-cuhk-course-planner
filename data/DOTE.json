@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-22T15:30:08.716890+00:00",
+    "scraped_at": "2025-09-25T12:29:36.908329+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
     "total_courses": 104,
@@ -315,10 +315,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "56",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3673,10 +3673,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "34",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5338,11 +5338,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "57",
+                "enrolled": "62",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Putonghua only"
             }
@@ -5859,6 +5859,12 @@
                   "location": "Cheng Yu Tung Building 209A",
                   "instructor": "Professor ZHANG Renyu",
                   "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor ZHANG Renyu",
+                  "dates": "3/3"
                 }
               ],
               "availability": {
@@ -6461,6 +6467,32 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BB-LEC (9650)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 410",
+                  "instructor": "Professor WU Jing",
+                  "dates": "25/11, 2/12, 9/12, 16/12, 23/12, 30/12, 6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 410",
+                  "instructor": "Professor WU Jing",
+                  "dates": "24/2"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "75",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },

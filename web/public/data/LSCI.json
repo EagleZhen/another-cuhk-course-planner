@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-09-22T17:42:07.848088+00:00",
+    "scraped_at": "2025-09-25T14:45:39.527115+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
     "total_courses": 96,
@@ -113,11 +113,11 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "200",
+                "enrolled": "199",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -1605,70 +1605,7 @@
       "course_code": "5431",
       "title": "Chemical Biology",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (3617)",
-              "meetings": [
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
-                },
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "23/2"
-                },
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "9/3, 16/3, 23/3, 30/3"
-                },
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Mong Man Wai Bldg 702",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "13/4"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Basic Med Sci Bldg Rm2",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Basic Med Sci Bldg Rm2",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "25/2"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Basic Med Sci Bldg Rm2",
-                  "instructor": "Professor CHAN Michael Kenneth",
-                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "2",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "18",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "The discipline of chemical biology is focused on the application of chemical principles, particularly organic chemistry, to the study and manipulation of biological systems. Two major focus areas include the development of chemical tools to proteins and cells, and in the identification and creation of novel compounds as therapeutics for the treatment of human disease. The course will begin with a brief review of organic chemistry fundamentals and bio-orthogonal ligand reactions. It will then cover case studies to illustrate the power of chemical biology to solve important problems at the chemistry-biology interface.",
       "enrollment_requirement": "For students in MPhil-PhD Biochemistry; Biology; Environmental Science; Food and Nutritional Sciences; Molecular Biotechnology; Cell Molecular Biology\nCourse Exclusion: BCHE3110",
       "course_attributes": "",
@@ -3487,10 +3424,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "55",
+                "enrolled": "56",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"

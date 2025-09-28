@@ -1,19 +1,19 @@
 {
   "scraping_log": {
-    "started_at": "2025-09-22T13:54:48.674786+00:00",
-    "last_updated": "2025-09-22T20:20:57.265468+00:00",
-    "duration_human": "6h 26m 8s",
+    "started_at": "2025-09-25T10:53:01.817161+00:00",
+    "last_updated": "2025-09-25T17:30:55.776643+00:00",
+    "duration_human": "6h 37m 53s",
     "total_subjects": 263,
     "completed": 263,
     "failed": 0,
     "subjects": {
       "CSCI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:16:28.421935+00:00",
+        "last_scraped": "2025-09-25T12:15:56.336721+00:00",
         "courses_count": 83,
         "courses_scraped": 83,
         "output_file": "data/CSCI.json",
-        "duration_minutes": 5.06,
+        "duration_minutes": 5.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -23,11 +23,11 @@
       },
       "ACCT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T13:59:14.925553+00:00",
+        "last_scraped": "2025-09-25T10:57:47.819634+00:00",
         "courses_count": 95,
         "courses_scraped": 95,
         "output_file": "data/ACCT.json",
-        "duration_minutes": 4.44,
+        "duration_minutes": 4.77,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -37,11 +37,11 @@
       },
       "ACPY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:00:19.951405+00:00",
+        "last_scraped": "2025-09-25T10:58:55.933255+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/ACPY.json",
-        "duration_minutes": 1.07,
+        "duration_minutes": 1.12,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -51,11 +51,11 @@
       },
       "AENP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:00:22.429884+00:00",
+        "last_scraped": "2025-09-25T10:58:57.340075+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/AENP.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -65,11 +65,11 @@
       },
       "AEPT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:00:23.785678+00:00",
+        "last_scraped": "2025-09-25T10:58:59.886176+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/AEPT.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.03,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -79,11 +79,11 @@
       },
       "AIMS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:00:46.519020+00:00",
+        "last_scraped": "2025-09-25T10:59:24.858784+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/AIMS.json",
-        "duration_minutes": 0.36,
+        "duration_minutes": 0.4,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -93,11 +93,11 @@
       },
       "AIST": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:01:51.166062+00:00",
+        "last_scraped": "2025-09-25T11:00:33.532416+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/AIST.json",
-        "duration_minutes": 1.06,
+        "duration_minutes": 1.13,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -107,7 +107,7 @@
       },
       "ANAT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:01:52.566353+00:00",
+        "last_scraped": "2025-09-25T11:00:34.943252+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/ANAT.json",
@@ -121,11 +121,11 @@
       },
       "ANIC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:02:39.124793+00:00",
+        "last_scraped": "2025-09-25T11:01:20.771999+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/ANIC.json",
-        "duration_minutes": 0.76,
+        "duration_minutes": 0.75,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -135,11 +135,11 @@
       },
       "ANTH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:09:03.498167+00:00",
+        "last_scraped": "2025-09-25T11:07:47.863209+00:00",
         "courses_count": 155,
         "courses_scraped": 155,
         "output_file": "data/ANTH.json",
-        "duration_minutes": 6.39,
+        "duration_minutes": 6.43,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -149,7 +149,7 @@
       },
       "APEP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:09:04.873753+00:00",
+        "last_scraped": "2025-09-25T11:07:49.227313+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/APEP.json",
@@ -163,11 +163,11 @@
       },
       "ARAB": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:09:14.093040+00:00",
+        "last_scraped": "2025-09-25T11:07:59.453169+00:00",
         "courses_count": 4,
         "courses_scraped": 4,
         "output_file": "data/ARAB.json",
-        "duration_minutes": 0.14,
+        "duration_minutes": 0.15,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -177,11 +177,11 @@
       },
       "ARCH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:13:17.415567+00:00",
+        "last_scraped": "2025-09-25T11:12:10.520463+00:00",
         "courses_count": 70,
         "courses_scraped": 70,
         "output_file": "data/ARCH.json",
-        "duration_minutes": 4.04,
+        "duration_minutes": 4.17,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -191,11 +191,11 @@
       },
       "ARTS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:13:39.997451+00:00",
+        "last_scraped": "2025-09-25T11:12:31.986246+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/ARTS.json",
-        "duration_minutes": 0.36,
+        "duration_minutes": 0.34,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -205,11 +205,11 @@
       },
       "ASEI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:13:47.693188+00:00",
+        "last_scraped": "2025-09-25T11:12:39.002614+00:00",
         "courses_count": 4,
         "courses_scraped": 4,
         "output_file": "data/ASEI.json",
-        "duration_minutes": 0.11,
+        "duration_minutes": 0.1,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -219,11 +219,11 @@
       },
       "BAMS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:14:02.314914+00:00",
+        "last_scraped": "2025-09-25T11:12:51.088856+00:00",
         "courses_count": 6,
         "courses_scraped": 6,
         "output_file": "data/BAMS.json",
-        "duration_minutes": 0.23,
+        "duration_minutes": 0.18,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -233,11 +233,11 @@
       },
       "BASA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:14:06.362647+00:00",
+        "last_scraped": "2025-09-25T11:12:56.881819+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/BASA.json",
-        "duration_minutes": 0.05,
+        "duration_minutes": 0.08,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -247,11 +247,11 @@
       },
       "BBMS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:14:28.259644+00:00",
+        "last_scraped": "2025-09-25T11:13:20.324368+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/BBMS.json",
-        "duration_minutes": 0.35,
+        "duration_minutes": 0.37,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -261,7 +261,7 @@
       },
       "BCHE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:15:47.886031+00:00",
+        "last_scraped": "2025-09-25T11:14:39.738175+00:00",
         "courses_count": 40,
         "courses_scraped": 40,
         "output_file": "data/BCHE.json",
@@ -275,7 +275,7 @@
       },
       "BCHM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:15:49.270077+00:00",
+        "last_scraped": "2025-09-25T11:14:41.107371+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/BCHM.json",
@@ -289,11 +289,11 @@
       },
       "BCJC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:15:51.159484+00:00",
+        "last_scraped": "2025-09-25T11:14:47.565688+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/BCJC.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.09,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -303,11 +303,11 @@
       },
       "BCME": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:20:31.072575+00:00",
+        "last_scraped": "2025-09-25T11:19:26.821165+00:00",
         "courses_count": 132,
         "courses_scraped": 132,
         "output_file": "data/BCME.json",
-        "duration_minutes": 4.65,
+        "duration_minutes": 4.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -317,11 +317,11 @@
       },
       "BECE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:21:13.781587+00:00",
+        "last_scraped": "2025-09-25T11:20:11.344233+00:00",
         "courses_count": 22,
         "courses_scraped": 22,
         "output_file": "data/BECE.json",
-        "duration_minutes": 0.69,
+        "duration_minutes": 0.72,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -331,11 +331,11 @@
       },
       "BEHM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:21:27.449978+00:00",
+        "last_scraped": "2025-09-25T11:20:23.642403+00:00",
         "courses_count": 4,
         "courses_scraped": 4,
         "output_file": "data/BEHM.json",
-        "duration_minutes": 0.21,
+        "duration_minutes": 0.19,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -345,11 +345,11 @@
       },
       "BEST": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:21:46.359201+00:00",
+        "last_scraped": "2025-09-25T11:20:40.965848+00:00",
         "courses_count": 9,
         "courses_scraped": 9,
         "output_file": "data/BEST.json",
-        "duration_minutes": 0.3,
+        "duration_minutes": 0.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -359,11 +359,11 @@
       },
       "BIOL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:23:21.085413+00:00",
+        "last_scraped": "2025-09-25T11:22:16.938162+00:00",
         "courses_count": 48,
         "courses_scraped": 48,
         "output_file": "data/BIOL.json",
-        "duration_minutes": 1.56,
+        "duration_minutes": 1.58,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -373,11 +373,11 @@
       },
       "BIOS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:23:40.347202+00:00",
+        "last_scraped": "2025-09-25T11:22:34.742422+00:00",
         "courses_count": 9,
         "courses_scraped": 9,
         "output_file": "data/BIOS.json",
-        "duration_minutes": 0.3,
+        "duration_minutes": 0.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -387,11 +387,11 @@
       },
       "BMBL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:24:12.023505+00:00",
+        "last_scraped": "2025-09-25T11:23:05.115362+00:00",
         "courses_count": 14,
         "courses_scraped": 14,
         "output_file": "data/BMBL.json",
-        "duration_minutes": 0.51,
+        "duration_minutes": 0.49,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -401,11 +401,11 @@
       },
       "BMED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:24:47.729041+00:00",
+        "last_scraped": "2025-09-25T11:23:40.233430+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/BMED.json",
-        "duration_minutes": 0.58,
+        "duration_minutes": 0.57,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -415,11 +415,11 @@
       },
       "BMEG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:28:13.633358+00:00",
+        "last_scraped": "2025-09-25T11:27:10.787500+00:00",
         "courses_count": 58,
         "courses_scraped": 58,
         "output_file": "data/BMEG.json",
-        "duration_minutes": 3.41,
+        "duration_minutes": 3.49,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -429,7 +429,7 @@
       },
       "BMJC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:28:16.151056+00:00",
+        "last_scraped": "2025-09-25T11:27:13.287088+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/BMJC.json",
@@ -443,11 +443,11 @@
       },
       "BSCG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:28:43.797333+00:00",
+        "last_scraped": "2025-09-25T11:27:42.777292+00:00",
         "courses_count": 17,
         "courses_scraped": 17,
         "output_file": "data/BSCG.json",
-        "duration_minutes": 0.44,
+        "duration_minutes": 0.47,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -457,11 +457,11 @@
       },
       "BUDS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:29:15.018909+00:00",
+        "last_scraped": "2025-09-25T11:28:12.396734+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/BUDS.json",
-        "duration_minutes": 0.5,
+        "duration_minutes": 0.48,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -471,11 +471,11 @@
       },
       "CCNU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:29:17.553881+00:00",
+        "last_scraped": "2025-09-25T11:28:13.754560+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/CCNU.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -485,11 +485,11 @@
       },
       "CCSS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:30:23.782434+00:00",
+        "last_scraped": "2025-09-25T11:29:21.466855+00:00",
         "courses_count": 40,
         "courses_scraped": 40,
         "output_file": "data/CCSS.json",
-        "duration_minutes": 1.09,
+        "duration_minutes": 1.11,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -499,11 +499,11 @@
       },
       "CDAS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:30:38.535072+00:00",
+        "last_scraped": "2025-09-25T11:29:35.664265+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/CDAS.json",
-        "duration_minutes": 0.23,
+        "duration_minutes": 0.22,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -513,11 +513,11 @@
       },
       "CENG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:31:38.068431+00:00",
+        "last_scraped": "2025-09-25T11:30:36.697819+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/CENG.json",
-        "duration_minutes": 0.97,
+        "duration_minutes": 1.0,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -527,11 +527,11 @@
       },
       "CGEN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:32:16.797325+00:00",
+        "last_scraped": "2025-09-25T11:31:14.381682+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/CGEN.json",
-        "duration_minutes": 0.63,
+        "duration_minutes": 0.61,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -541,11 +541,11 @@
       },
       "CHCU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:32:18.222870+00:00",
+        "last_scraped": "2025-09-25T11:31:16.923452+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/CHCU.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -555,11 +555,11 @@
       },
       "CHED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:32:56.347776+00:00",
+        "last_scraped": "2025-09-25T11:31:56.490070+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/CHED.json",
-        "duration_minutes": 0.62,
+        "duration_minutes": 0.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -569,11 +569,11 @@
       },
       "CHEM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:37:23.839455+00:00",
+        "last_scraped": "2025-09-25T11:36:24.615316+00:00",
         "courses_count": 114,
         "courses_scraped": 114,
         "output_file": "data/CHEM.json",
-        "duration_minutes": 4.44,
+        "duration_minutes": 4.45,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -583,11 +583,11 @@
       },
       "CHES": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:41:01.825321+00:00",
+        "last_scraped": "2025-09-25T11:40:04.496565+00:00",
         "courses_count": 115,
         "courses_scraped": 115,
         "output_file": "data/CHES.json",
-        "duration_minutes": 3.62,
+        "duration_minutes": 3.65,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -597,11 +597,11 @@
       },
       "CHLL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:47:54.745084+00:00",
+        "last_scraped": "2025-09-25T11:46:56.344652+00:00",
         "courses_count": 187,
         "courses_scraped": 187,
         "output_file": "data/CHLL.json",
-        "duration_minutes": 6.86,
+        "duration_minutes": 6.85,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -611,11 +611,11 @@
       },
       "ENGG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:06:57.837000+00:00",
+        "last_scraped": "2025-09-25T13:07:57.857743+00:00",
         "courses_count": 48,
         "courses_scraped": 48,
         "output_file": "data/ENGG.json",
-        "duration_minutes": 3.34,
+        "duration_minutes": 3.84,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -625,11 +625,11 @@
       },
       "PHYS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:13:51.720858+00:00",
+        "last_scraped": "2025-09-25T16:22:14.943927+00:00",
         "courses_count": 100,
         "courses_scraped": 100,
         "output_file": "data/PHYS.json",
-        "duration_minutes": 6.35,
+        "duration_minutes": 6.33,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -639,11 +639,11 @@
       },
       "UGCP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:02:42.744252+00:00",
+        "last_scraped": "2025-09-25T17:11:59.749743+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/UGCP.json",
-        "duration_minutes": 0.1,
+        "duration_minutes": 0.12,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -653,11 +653,11 @@
       },
       "UGFN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:19:04.874646+00:00",
+        "last_scraped": "2025-09-25T17:28:59.671795+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/UGFN.json",
-        "duration_minutes": 1.92,
+        "duration_minutes": 1.89,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -667,11 +667,11 @@
       },
       "UGFH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:17:08.689385+00:00",
+        "last_scraped": "2025-09-25T17:27:05.187790+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/UGFH.json",
-        "duration_minutes": 1.9,
+        "duration_minutes": 2.43,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -681,11 +681,11 @@
       },
       "UGEA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:04:24.883732+00:00",
+        "last_scraped": "2025-09-25T17:13:42.616738+00:00",
         "courses_count": 30,
         "courses_scraped": 30,
         "output_file": "data/UGEA.json",
-        "duration_minutes": 1.68,
+        "duration_minutes": 1.7,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -695,11 +695,11 @@
       },
       "UGEB": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:06:41.928626+00:00",
+        "last_scraped": "2025-09-25T17:16:00.469417+00:00",
         "courses_count": 58,
         "courses_scraped": 58,
         "output_file": "data/UGEB.json",
-        "duration_minutes": 2.27,
+        "duration_minutes": 2.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -709,11 +709,11 @@
       },
       "UGEC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:11:35.684883+00:00",
+        "last_scraped": "2025-09-25T17:20:58.648144+00:00",
         "courses_count": 128,
         "courses_scraped": 128,
         "output_file": "data/UGEC.json",
-        "duration_minutes": 4.88,
+        "duration_minutes": 4.95,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -723,11 +723,11 @@
       },
       "UGED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:15:13.420638+00:00",
+        "last_scraped": "2025-09-25T17:24:38.323908+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/UGED.json",
-        "duration_minutes": 3.61,
+        "duration_minutes": 3.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -737,11 +737,11 @@
       },
       "FINA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:28:49.096524+00:00",
+        "last_scraped": "2025-09-25T13:30:52.148780+00:00",
         "courses_count": 162,
         "courses_scraped": 162,
         "output_file": "data/FINA.json",
-        "duration_minutes": 7.05,
+        "duration_minutes": 7.43,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -751,11 +751,11 @@
       },
       "CHLT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:51:56.379578+00:00",
+        "last_scraped": "2025-09-25T11:51:01.195822+00:00",
         "courses_count": 38,
         "courses_scraped": 38,
         "output_file": "data/CHLT.json",
-        "duration_minutes": 4.01,
+        "duration_minutes": 4.06,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -765,7 +765,7 @@
       },
       "CHPR": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:52:30.419720+00:00",
+        "last_scraped": "2025-09-25T11:51:35.098840+00:00",
         "courses_count": 18,
         "courses_scraped": 18,
         "output_file": "data/CHPR.json",
@@ -779,11 +779,11 @@
       },
       "CHPY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:54:37.886573+00:00",
+        "last_scraped": "2025-09-25T11:53:44.257573+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/CHPY.json",
-        "duration_minutes": 2.11,
+        "duration_minutes": 2.14,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -793,11 +793,11 @@
       },
       "CLCC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:56:45.745398+00:00",
+        "last_scraped": "2025-09-25T11:55:55.977198+00:00",
         "courses_count": 42,
         "courses_scraped": 42,
         "output_file": "data/CLCC.json",
-        "duration_minutes": 2.11,
+        "duration_minutes": 2.18,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -807,7 +807,7 @@
       },
       "CLCE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:56:50.873100+00:00",
+        "last_scraped": "2025-09-25T11:56:01.227601+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/CLCE.json",
@@ -821,11 +821,11 @@
       },
       "CLCH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:56:56.947366+00:00",
+        "last_scraped": "2025-09-25T11:56:05.243066+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/CLCH.json",
-        "duration_minutes": 0.08,
+        "duration_minutes": 0.05,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -835,11 +835,11 @@
       },
       "CLCP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T14:59:58.082241+00:00",
+        "last_scraped": "2025-09-25T11:59:04.876068+00:00",
         "courses_count": 45,
         "courses_scraped": 45,
         "output_file": "data/CLCP.json",
-        "duration_minutes": 3.0,
+        "duration_minutes": 2.98,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -849,11 +849,11 @@
       },
       "CLED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:00:40.911602+00:00",
+        "last_scraped": "2025-09-25T11:59:46.362088+00:00",
         "courses_count": 22,
         "courses_scraped": 22,
         "output_file": "data/CLED.json",
-        "duration_minutes": 0.7,
+        "duration_minutes": 0.67,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -863,7 +863,7 @@
       },
       "CLGY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:00:42.254439+00:00",
+        "last_scraped": "2025-09-25T11:59:47.775747+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/CLGY.json",
@@ -877,11 +877,11 @@
       },
       "CMBI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:01:54.335745+00:00",
+        "last_scraped": "2025-09-25T12:01:01.067988+00:00",
         "courses_count": 37,
         "courses_scraped": 37,
         "output_file": "data/CMBI.json",
-        "duration_minutes": 1.18,
+        "duration_minutes": 1.2,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -891,11 +891,11 @@
       },
       "CMSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:02:35.362963+00:00",
+        "last_scraped": "2025-09-25T12:01:41.295692+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/CMSC.json",
-        "duration_minutes": 0.67,
+        "duration_minutes": 0.65,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -905,11 +905,11 @@
       },
       "CNGT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:03:05.834680+00:00",
+        "last_scraped": "2025-09-25T12:02:11.101475+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/CNGT.json",
-        "duration_minutes": 0.49,
+        "duration_minutes": 0.48,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -919,7 +919,7 @@
       },
       "CODS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:03:08.397354+00:00",
+        "last_scraped": "2025-09-25T12:02:13.647726+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/CODS.json",
@@ -933,11 +933,11 @@
       },
       "COMM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:11:10.092287+00:00",
+        "last_scraped": "2025-09-25T12:10:21.682741+00:00",
         "courses_count": 211,
         "courses_scraped": 211,
         "output_file": "data/COMM.json",
-        "duration_minutes": 8.01,
+        "duration_minutes": 8.12,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -947,11 +947,11 @@
       },
       "COOP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:11:23.488098+00:00",
+        "last_scraped": "2025-09-25T12:10:39.025583+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/COOP.json",
-        "duration_minutes": 0.21,
+        "duration_minutes": 0.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -961,11 +961,11 @@
       },
       "CULS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:18:42.186720+00:00",
+        "last_scraped": "2025-09-25T12:18:11.848300+00:00",
         "courses_count": 65,
         "courses_scraped": 65,
         "output_file": "data/CULS.json",
-        "duration_minutes": 2.21,
+        "duration_minutes": 2.24,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -975,11 +975,11 @@
       },
       "CUMT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:18:56.859902+00:00",
+        "last_scraped": "2025-09-25T12:18:24.204764+00:00",
         "courses_count": 7,
         "courses_scraped": 7,
         "output_file": "data/CUMT.json",
-        "duration_minutes": 0.23,
+        "duration_minutes": 0.19,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -989,11 +989,11 @@
       },
       "CURE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:24:15.185896+00:00",
+        "last_scraped": "2025-09-25T12:23:41.257800+00:00",
         "courses_count": 150,
         "courses_scraped": 150,
         "output_file": "data/CURE.json",
-        "duration_minutes": 5.29,
+        "duration_minutes": 5.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1003,11 +1003,11 @@
       },
       "CVSM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:24:32.492255+00:00",
+        "last_scraped": "2025-09-25T12:24:01.982652+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/CVSM.json",
-        "duration_minutes": 0.27,
+        "duration_minutes": 0.33,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1017,7 +1017,7 @@
       },
       "DBAC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:25:26.943472+00:00",
+        "last_scraped": "2025-09-25T12:24:56.659944+00:00",
         "courses_count": 26,
         "courses_scraped": 26,
         "output_file": "data/DBAC.json",
@@ -1031,11 +1031,11 @@
       },
       "DIUS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:25:44.946126+00:00",
+        "last_scraped": "2025-09-25T12:25:12.321854+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/DIUS.json",
-        "duration_minutes": 0.28,
+        "duration_minutes": 0.24,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1045,11 +1045,11 @@
       },
       "DOTE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:30:08.759955+00:00",
+        "last_scraped": "2025-09-25T12:29:36.945189+00:00",
         "courses_count": 104,
         "courses_scraped": 104,
         "output_file": "data/DOTE.json",
-        "duration_minutes": 4.38,
+        "duration_minutes": 4.39,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1059,11 +1059,11 @@
       },
       "DROI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:31:04.484815+00:00",
+        "last_scraped": "2025-09-25T12:30:30.360203+00:00",
         "courses_count": 15,
         "courses_scraped": 15,
         "output_file": "data/DROI.json",
-        "duration_minutes": 0.91,
+        "duration_minutes": 0.87,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1073,7 +1073,7 @@
       },
       "DSME": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:31:05.844539+00:00",
+        "last_scraped": "2025-09-25T12:30:31.784574+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/DSME.json",
@@ -1087,11 +1087,11 @@
       },
       "DSPS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:32:19.579090+00:00",
+        "last_scraped": "2025-09-25T12:31:46.077050+00:00",
         "courses_count": 35,
         "courses_scraped": 35,
         "output_file": "data/DSPS.json",
-        "duration_minutes": 1.21,
+        "duration_minutes": 1.22,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1101,11 +1101,11 @@
       },
       "EASC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:33:28.785778+00:00",
+        "last_scraped": "2025-09-25T12:32:49.448351+00:00",
         "courses_count": 33,
         "courses_scraped": 33,
         "output_file": "data/EASC.json",
-        "duration_minutes": 1.14,
+        "duration_minutes": 1.04,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1115,11 +1115,11 @@
       },
       "ECLT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:34:09.894195+00:00",
+        "last_scraped": "2025-09-25T12:33:28.699839+00:00",
         "courses_count": 14,
         "courses_scraped": 14,
         "output_file": "data/ECLT.json",
-        "duration_minutes": 0.67,
+        "duration_minutes": 0.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1129,11 +1129,11 @@
       },
       "ECON": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:39:01.121091+00:00",
+        "last_scraped": "2025-09-25T12:38:25.246362+00:00",
         "courses_count": 130,
         "courses_scraped": 130,
         "output_file": "data/ECON.json",
-        "duration_minutes": 4.84,
+        "duration_minutes": 4.92,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1143,11 +1143,11 @@
       },
       "ECTM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:39:04.694314+00:00",
+        "last_scraped": "2025-09-25T12:38:26.646747+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/ECTM.json",
-        "duration_minutes": 0.04,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1157,11 +1157,11 @@
       },
       "EDUC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:40:11.036437+00:00",
+        "last_scraped": "2025-09-25T12:39:31.794200+00:00",
         "courses_count": 29,
         "courses_scraped": 29,
         "output_file": "data/EDUC.json",
-        "duration_minutes": 1.09,
+        "duration_minutes": 1.07,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1171,11 +1171,11 @@
       },
       "EEEN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:40:50.991243+00:00",
+        "last_scraped": "2025-09-25T12:40:11.367663+00:00",
         "courses_count": 15,
         "courses_scraped": 15,
         "output_file": "data/EEEN.json",
-        "duration_minutes": 0.65,
+        "duration_minutes": 0.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1185,11 +1185,11 @@
       },
       "EESC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:44:50.511835+00:00",
+        "last_scraped": "2025-09-25T12:44:16.308544+00:00",
         "courses_count": 116,
         "courses_scraped": 116,
         "output_file": "data/EESC.json",
-        "duration_minutes": 3.97,
+        "duration_minutes": 4.06,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1199,11 +1199,11 @@
       },
       "EIHP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:44:51.872036+00:00",
+        "last_scraped": "2025-09-25T12:44:18.825342+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/EIHP.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1213,11 +1213,11 @@
       },
       "ELED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:45:31.993200+00:00",
+        "last_scraped": "2025-09-25T12:45:00.531186+00:00",
         "courses_count": 17,
         "courses_scraped": 17,
         "output_file": "data/ELED.json",
-        "duration_minutes": 0.65,
+        "duration_minutes": 0.68,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1227,11 +1227,11 @@
       },
       "ELEG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:49:50.359350+00:00",
+        "last_scraped": "2025-09-25T12:49:33.006335+00:00",
         "courses_count": 72,
         "courses_scraped": 72,
         "output_file": "data/ELEG.json",
-        "duration_minutes": 4.29,
+        "duration_minutes": 4.52,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1241,11 +1241,11 @@
       },
       "ELTU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:56:00.544496+00:00",
+        "last_scraped": "2025-09-25T12:56:15.934551+00:00",
         "courses_count": 50,
         "courses_scraped": 50,
         "output_file": "data/ELTU.json",
-        "duration_minutes": 6.15,
+        "duration_minutes": 6.7,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1255,11 +1255,11 @@
       },
       "EMBA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:56:42.471634+00:00",
+        "last_scraped": "2025-09-25T12:57:00.562764+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/EMBA.json",
-        "duration_minutes": 0.68,
+        "duration_minutes": 0.73,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1269,11 +1269,11 @@
       },
       "EMBF": {
         "status": "completed",
-        "last_scraped": "2025-09-22T15:56:44.976623+00:00",
+        "last_scraped": "2025-09-25T12:57:02.015139+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/EMBF.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1283,11 +1283,11 @@
       },
       "ENGE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:03:36.279901+00:00",
+        "last_scraped": "2025-09-25T13:04:06.315050+00:00",
         "courses_count": 158,
         "courses_scraped": 158,
         "output_file": "data/ENGE.json",
-        "duration_minutes": 6.84,
+        "duration_minutes": 7.05,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1297,11 +1297,11 @@
       },
       "ENLC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:06:59.998490+00:00",
+        "last_scraped": "2025-09-25T13:08:01.207156+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/ENLC.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.04,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1311,11 +1311,11 @@
       },
       "ENLT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:07:26.083894+00:00",
+        "last_scraped": "2025-09-25T13:08:29.621536+00:00",
         "courses_count": 13,
         "courses_scraped": 13,
         "output_file": "data/ENLT.json",
-        "duration_minutes": 0.42,
+        "duration_minutes": 0.46,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1325,11 +1325,11 @@
       },
       "ENSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:08:22.489226+00:00",
+        "last_scraped": "2025-09-25T13:09:28.133504+00:00",
         "courses_count": 32,
         "courses_scraped": 32,
         "output_file": "data/ENSC.json",
-        "duration_minutes": 0.92,
+        "duration_minutes": 0.96,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1339,11 +1339,11 @@
       },
       "EPBI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:08:39.944789+00:00",
+        "last_scraped": "2025-09-25T13:09:40.042652+00:00",
         "courses_count": 4,
         "courses_scraped": 4,
         "output_file": "data/EPBI.json",
-        "duration_minutes": 0.27,
+        "duration_minutes": 0.18,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1353,11 +1353,11 @@
       },
       "EPID": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:08:59.638139+00:00",
+        "last_scraped": "2025-09-25T13:10:00.308507+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/EPID.json",
-        "duration_minutes": 0.31,
+        "duration_minutes": 0.32,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1367,11 +1367,11 @@
       },
       "EPIN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:09:35.686416+00:00",
+        "last_scraped": "2025-09-25T13:10:37.511334+00:00",
         "courses_count": 15,
         "courses_scraped": 15,
         "output_file": "data/EPIN.json",
-        "duration_minutes": 0.58,
+        "duration_minutes": 0.6,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1381,11 +1381,11 @@
       },
       "EPSY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:10:15.216902+00:00",
+        "last_scraped": "2025-09-25T13:11:20.922548+00:00",
         "courses_count": 20,
         "courses_scraped": 20,
         "output_file": "data/EPSY.json",
-        "duration_minutes": 0.64,
+        "duration_minutes": 0.71,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1395,11 +1395,11 @@
       },
       "ESGS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:10:57.630490+00:00",
+        "last_scraped": "2025-09-25T13:12:06.590748+00:00",
         "courses_count": 18,
         "courses_scraped": 18,
         "output_file": "data/ESGS.json",
-        "duration_minutes": 0.69,
+        "duration_minutes": 0.74,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1409,11 +1409,11 @@
       },
       "ESSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:12:10.147952+00:00",
+        "last_scraped": "2025-09-25T13:13:23.578547+00:00",
         "courses_count": 45,
         "courses_scraped": 45,
         "output_file": "data/ESSC.json",
-        "duration_minutes": 1.19,
+        "duration_minutes": 1.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1423,11 +1423,11 @@
       },
       "ESTR": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:16:37.517183+00:00",
+        "last_scraped": "2025-09-25T13:18:05.521625+00:00",
         "courses_count": 132,
         "courses_scraped": 132,
         "output_file": "data/ESTR.json",
-        "duration_minutes": 4.44,
+        "duration_minutes": 4.68,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1437,11 +1437,11 @@
       },
       "EXSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:16:41.116717+00:00",
+        "last_scraped": "2025-09-25T13:18:06.878967+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/EXSC.json",
-        "duration_minutes": 0.04,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1451,11 +1451,11 @@
       },
       "EX_PGDE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:16:44.153728+00:00",
+        "last_scraped": "2025-09-25T13:18:08.821427+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/EX_PGDE.json",
-        "duration_minutes": 0.03,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1465,11 +1465,11 @@
       },
       "EX_RPG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:16:47.201272+00:00",
+        "last_scraped": "2025-09-25T13:18:10.678326+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/EX_RPG.json",
-        "duration_minutes": 0.03,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1479,11 +1479,11 @@
       },
       "EX_TPG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:16:49.040409+00:00",
+        "last_scraped": "2025-09-25T13:18:13.845712+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/EX_TPG.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.04,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1493,7 +1493,7 @@
       },
       "EX_UG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:16:50.367491+00:00",
+        "last_scraped": "2025-09-25T13:18:15.185889+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/EX_UG.json",
@@ -1507,11 +1507,11 @@
       },
       "FAAS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:21:43.172826+00:00",
+        "last_scraped": "2025-09-25T13:23:23.563513+00:00",
         "courses_count": 119,
         "courses_scraped": 119,
         "output_file": "data/FAAS.json",
-        "duration_minutes": 4.86,
+        "duration_minutes": 5.12,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1521,7 +1521,7 @@
       },
       "FAME": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:21:45.035996+00:00",
+        "last_scraped": "2025-09-25T13:23:25.513366+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/FAME.json",
@@ -1535,11 +1535,11 @@
       },
       "FNSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:30:18.104313+00:00",
+        "last_scraped": "2025-09-25T13:32:25.627067+00:00",
         "courses_count": 45,
         "courses_scraped": 45,
         "output_file": "data/FNSC.json",
-        "duration_minutes": 1.47,
+        "duration_minutes": 1.54,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1549,11 +1549,11 @@
       },
       "FREN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:31:07.910695+00:00",
+        "last_scraped": "2025-09-25T13:33:16.843171+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/FREN.json",
-        "duration_minutes": 0.81,
+        "duration_minutes": 0.84,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1563,11 +1563,11 @@
       },
       "FTEC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:32:49.549655+00:00",
+        "last_scraped": "2025-09-25T13:35:01.433735+00:00",
         "courses_count": 33,
         "courses_scraped": 33,
         "output_file": "data/FTEC.json",
-        "duration_minutes": 1.68,
+        "duration_minutes": 1.73,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1577,11 +1577,11 @@
       },
       "GAST": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:33:19.034155+00:00",
+        "last_scraped": "2025-09-25T13:35:29.743029+00:00",
         "courses_count": 14,
         "courses_scraped": 14,
         "output_file": "data/GAST.json",
-        "duration_minutes": 0.47,
+        "duration_minutes": 0.45,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1591,7 +1591,7 @@
       },
       "GDRS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:35:54.983678+00:00",
+        "last_scraped": "2025-09-25T13:38:05.701647+00:00",
         "courses_count": 70,
         "courses_scraped": 70,
         "output_file": "data/GDRS.json",
@@ -1605,11 +1605,11 @@
       },
       "GECC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:37:17.209896+00:00",
+        "last_scraped": "2025-09-25T13:39:31.728647+00:00",
         "courses_count": 9,
         "courses_scraped": 9,
         "output_file": "data/GECC.json",
-        "duration_minutes": 1.35,
+        "duration_minutes": 1.42,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1619,11 +1619,11 @@
       },
       "GECW": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:37:49.450563+00:00",
+        "last_scraped": "2025-09-25T13:40:06.697787+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/GECW.json",
-        "duration_minutes": 0.52,
+        "duration_minutes": 0.57,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1633,11 +1633,11 @@
       },
       "GEJC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:37:54.194451+00:00",
+        "last_scraped": "2025-09-25T13:40:12.055684+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/GEJC.json",
-        "duration_minutes": 0.06,
+        "duration_minutes": 0.07,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1647,11 +1647,11 @@
       },
       "GEMC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:38:03.576816+00:00",
+        "last_scraped": "2025-09-25T13:40:22.228620+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/GEMC.json",
-        "duration_minutes": 0.14,
+        "duration_minutes": 0.15,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1661,11 +1661,11 @@
       },
       "GENA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:39:19.054511+00:00",
+        "last_scraped": "2025-09-25T13:41:39.264076+00:00",
         "courses_count": 24,
         "courses_scraped": 24,
         "output_file": "data/GENA.json",
-        "duration_minutes": 1.24,
+        "duration_minutes": 1.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1675,11 +1675,11 @@
       },
       "GEOR": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:39:20.500455+00:00",
+        "last_scraped": "2025-09-25T13:41:41.783139+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/GEOR.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1689,11 +1689,11 @@
       },
       "GERM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:40:06.387007+00:00",
+        "last_scraped": "2025-09-25T13:42:30.131816+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/GERM.json",
-        "duration_minutes": 0.75,
+        "duration_minutes": 0.79,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1703,11 +1703,11 @@
       },
       "GESC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:41:39.979266+00:00",
+        "last_scraped": "2025-09-25T13:44:05.099190+00:00",
         "courses_count": 43,
         "courses_scraped": 43,
         "output_file": "data/GESC.json",
-        "duration_minutes": 1.54,
+        "duration_minutes": 1.57,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1717,11 +1717,11 @@
       },
       "GESH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:41:57.844617+00:00",
+        "last_scraped": "2025-09-25T13:44:22.107061+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/GESH.json",
-        "duration_minutes": 0.28,
+        "duration_minutes": 0.27,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1731,11 +1731,11 @@
       },
       "GEUC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:42:57.800498+00:00",
+        "last_scraped": "2025-09-25T13:45:24.240854+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/GEUC.json",
-        "duration_minutes": 0.98,
+        "duration_minutes": 1.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1745,7 +1745,7 @@
       },
       "GEWS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:43:45.147435+00:00",
+        "last_scraped": "2025-09-25T13:46:11.722860+00:00",
         "courses_count": 20,
         "courses_scraped": 20,
         "output_file": "data/GEWS.json",
@@ -1759,7 +1759,7 @@
       },
       "GEYS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:43:58.832028+00:00",
+        "last_scraped": "2025-09-25T13:46:25.497913+00:00",
         "courses_count": 3,
         "courses_scraped": 3,
         "output_file": "data/GEYS.json",
@@ -1773,11 +1773,11 @@
       },
       "GISM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:44:23.390015+00:00",
+        "last_scraped": "2025-09-25T13:46:51.843510+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/GISM.json",
-        "duration_minutes": 0.39,
+        "duration_minutes": 0.42,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1787,11 +1787,11 @@
       },
       "GLBS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:45:24.886543+00:00",
+        "last_scraped": "2025-09-25T13:47:54.203101+00:00",
         "courses_count": 37,
         "courses_scraped": 37,
         "output_file": "data/GLBS.json",
-        "duration_minutes": 1.01,
+        "duration_minutes": 1.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1801,11 +1801,11 @@
       },
       "GLEF": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:45:46.054892+00:00",
+        "last_scraped": "2025-09-25T13:48:16.367716+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/GLEF.json",
-        "duration_minutes": 0.34,
+        "duration_minutes": 0.35,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1815,11 +1815,11 @@
       },
       "GLOF": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:45:47.361969+00:00",
+        "last_scraped": "2025-09-25T13:48:18.929436+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/GLOF.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.03,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1829,11 +1829,11 @@
       },
       "GLSD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:47:09.881287+00:00",
+        "last_scraped": "2025-09-25T13:49:43.195404+00:00",
         "courses_count": 38,
         "courses_scraped": 38,
         "output_file": "data/GLSD.json",
-        "duration_minutes": 1.36,
+        "duration_minutes": 1.39,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1843,11 +1843,11 @@
       },
       "GNBF": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:47:34.149836+00:00",
+        "last_scraped": "2025-09-25T13:50:08.767171+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/GNBF.json",
-        "duration_minutes": 0.39,
+        "duration_minutes": 0.41,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1857,11 +1857,11 @@
       },
       "GNED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:47:35.423030+00:00",
+        "last_scraped": "2025-09-25T13:50:11.308685+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/GNED.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.03,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1871,11 +1871,11 @@
       },
       "GPAD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:50:47.380015+00:00",
+        "last_scraped": "2025-09-25T13:53:32.836705+00:00",
         "courses_count": 96,
         "courses_scraped": 96,
         "output_file": "data/GPAD.json",
-        "duration_minutes": 3.18,
+        "duration_minutes": 3.34,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1885,11 +1885,11 @@
       },
       "GPEC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:51:48.162199+00:00",
+        "last_scraped": "2025-09-25T13:54:37.125633+00:00",
         "courses_count": 28,
         "courses_scraped": 28,
         "output_file": "data/GPEC.json",
-        "duration_minutes": 1.0,
+        "duration_minutes": 1.05,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1899,11 +1899,11 @@
       },
       "GPGC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:52:19.390631+00:00",
+        "last_scraped": "2025-09-25T13:55:11.216246+00:00",
         "courses_count": 17,
         "courses_scraped": 17,
         "output_file": "data/GPGC.json",
-        "duration_minutes": 0.5,
+        "duration_minutes": 0.55,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1913,11 +1913,11 @@
       },
       "GPSU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:52:30.664451+00:00",
+        "last_scraped": "2025-09-25T13:55:23.645785+00:00",
         "courses_count": 6,
         "courses_scraped": 6,
         "output_file": "data/GPSU.json",
-        "duration_minutes": 0.17,
+        "duration_minutes": 0.19,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1927,11 +1927,11 @@
       },
       "GRMD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:55:30.903813+00:00",
+        "last_scraped": "2025-09-25T13:58:29.480599+00:00",
         "courses_count": 82,
         "courses_scraped": 82,
         "output_file": "data/GRMD.json",
-        "duration_minutes": 2.99,
+        "duration_minutes": 3.08,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1941,11 +1941,11 @@
       },
       "GRON": {
         "status": "completed",
-        "last_scraped": "2025-09-22T16:56:00.400030+00:00",
+        "last_scraped": "2025-09-25T13:59:00.736031+00:00",
         "courses_count": 14,
         "courses_scraped": 14,
         "output_file": "data/GRON.json",
-        "duration_minutes": 0.47,
+        "duration_minutes": 0.5,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1955,11 +1955,11 @@
       },
       "HIST": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:04:01.621758+00:00",
+        "last_scraped": "2025-09-25T14:07:16.968903+00:00",
         "courses_count": 210,
         "courses_scraped": 210,
         "output_file": "data/HIST.json",
-        "duration_minutes": 8.0,
+        "duration_minutes": 8.25,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1969,11 +1969,11 @@
       },
       "HKSL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:04:38.971479+00:00",
+        "last_scraped": "2025-09-25T14:07:56.693170+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/HKSL.json",
-        "duration_minutes": 0.6,
+        "duration_minutes": 0.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1983,11 +1983,11 @@
       },
       "HPSB": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:04:50.112484+00:00",
+        "last_scraped": "2025-09-25T14:08:08.396899+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/HPSB.json",
-        "duration_minutes": 0.17,
+        "duration_minutes": 0.18,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -1997,7 +1997,7 @@
       },
       "HSGS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:04:51.489163+00:00",
+        "last_scraped": "2025-09-25T14:08:09.839176+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/HSGS.json",
@@ -2011,11 +2011,11 @@
       },
       "HSOC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:05:05.717120+00:00",
+        "last_scraped": "2025-09-25T14:08:23.626405+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/HSOC.json",
-        "duration_minutes": 0.22,
+        "duration_minutes": 0.21,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2025,11 +2025,11 @@
       },
       "HSYS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:06:02.424873+00:00",
+        "last_scraped": "2025-09-25T14:09:17.877078+00:00",
         "courses_count": 26,
         "courses_scraped": 26,
         "output_file": "data/HSYS.json",
-        "duration_minutes": 0.93,
+        "duration_minutes": 0.89,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2039,11 +2039,11 @@
       },
       "HTMG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:10:15.425433+00:00",
+        "last_scraped": "2025-09-25T14:13:27.897942+00:00",
         "courses_count": 114,
         "courses_scraped": 114,
         "output_file": "data/HTMG.json",
-        "duration_minutes": 4.2,
+        "duration_minutes": 4.15,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2053,11 +2053,11 @@
       },
       "IASP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:10:35.361880+00:00",
+        "last_scraped": "2025-09-25T14:13:45.622268+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/IASP.json",
-        "duration_minutes": 0.31,
+        "duration_minutes": 0.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2067,11 +2067,11 @@
       },
       "IBBA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:10:51.147754+00:00",
+        "last_scraped": "2025-09-25T14:14:02.339057+00:00",
         "courses_count": 7,
         "courses_scraped": 7,
         "output_file": "data/IBBA.json",
-        "duration_minutes": 0.25,
+        "duration_minutes": 0.26,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2081,11 +2081,11 @@
       },
       "IEMS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:11:50.826743+00:00",
+        "last_scraped": "2025-09-25T14:15:00.738407+00:00",
         "courses_count": 24,
         "courses_scraped": 24,
         "output_file": "data/IEMS.json",
-        "duration_minutes": 0.98,
+        "duration_minutes": 0.96,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2095,11 +2095,11 @@
       },
       "IERG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:16:12.611275+00:00",
+        "last_scraped": "2025-09-25T14:19:32.362858+00:00",
         "courses_count": 85,
         "courses_scraped": 85,
         "output_file": "data/IERG.json",
-        "duration_minutes": 4.35,
+        "duration_minutes": 4.51,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2109,11 +2109,11 @@
       },
       "IMSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:16:29.361720+00:00",
+        "last_scraped": "2025-09-25T14:19:48.300703+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/IMSC.json",
-        "duration_minutes": 0.26,
+        "duration_minutes": 0.25,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2123,11 +2123,11 @@
       },
       "INDA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:16:33.467366+00:00",
+        "last_scraped": "2025-09-25T14:19:49.684004+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/INDA.json",
-        "duration_minutes": 0.05,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2137,11 +2137,11 @@
       },
       "INFD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:16:56.159203+00:00",
+        "last_scraped": "2025-09-25T14:20:10.382694+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/INFD.json",
-        "duration_minutes": 0.36,
+        "duration_minutes": 0.33,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2151,11 +2151,11 @@
       },
       "ITAL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:17:15.736932+00:00",
+        "last_scraped": "2025-09-25T14:20:30.373066+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/ITAL.json",
-        "duration_minutes": 0.31,
+        "duration_minutes": 0.32,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2165,11 +2165,11 @@
       },
       "JASP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:21:30.444044+00:00",
+        "last_scraped": "2025-09-25T14:24:48.393424+00:00",
         "courses_count": 104,
         "courses_scraped": 104,
         "output_file": "data/JASP.json",
-        "duration_minutes": 4.23,
+        "duration_minutes": 4.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2179,11 +2179,11 @@
       },
       "KORE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:22:23.417833+00:00",
+        "last_scraped": "2025-09-25T14:25:45.972725+00:00",
         "courses_count": 19,
         "courses_scraped": 19,
         "output_file": "data/KORE.json",
-        "duration_minutes": 0.87,
+        "duration_minutes": 0.94,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2193,11 +2193,11 @@
       },
       "LAWS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:34:54.504690+00:00",
+        "last_scraped": "2025-09-25T14:38:47.409133+00:00",
         "courses_count": 330,
         "courses_scraped": 330,
         "output_file": "data/LAWS.json",
-        "duration_minutes": 12.5,
+        "duration_minutes": 13.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2207,11 +2207,11 @@
       },
       "LDTE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:35:19.050068+00:00",
+        "last_scraped": "2025-09-25T14:39:14.076077+00:00",
         "courses_count": 13,
         "courses_scraped": 13,
         "output_file": "data/LDTE.json",
-        "duration_minutes": 0.39,
+        "duration_minutes": 0.43,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2221,11 +2221,11 @@
       },
       "LING": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:38:37.133102+00:00",
+        "last_scraped": "2025-09-25T14:42:07.361343+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/LING.json",
-        "duration_minutes": 3.28,
+        "duration_minutes": 2.87,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2235,11 +2235,11 @@
       },
       "LSCI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:42:07.877368+00:00",
+        "last_scraped": "2025-09-25T14:45:39.556775+00:00",
         "courses_count": 96,
         "courses_scraped": 96,
         "output_file": "data/LSCI.json",
-        "duration_minutes": 3.5,
+        "duration_minutes": 3.52,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2249,11 +2249,11 @@
       },
       "LSCM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:42:09.271917+00:00",
+        "last_scraped": "2025-09-25T14:45:42.051812+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/LSCM.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2263,11 +2263,11 @@
       },
       "LSED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:42:29.810272+00:00",
+        "last_scraped": "2025-09-25T14:46:06.089872+00:00",
         "courses_count": 13,
         "courses_scraped": 13,
         "output_file": "data/LSED.json",
-        "duration_minutes": 0.33,
+        "duration_minutes": 0.38,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2277,11 +2277,11 @@
       },
       "MAED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:42:45.141619+00:00",
+        "last_scraped": "2025-09-25T14:46:19.970780+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/MAED.json",
-        "duration_minutes": 0.24,
+        "duration_minutes": 0.21,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2291,11 +2291,11 @@
       },
       "MAEG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:44:56.232288+00:00",
+        "last_scraped": "2025-09-25T14:48:28.909460+00:00",
         "courses_count": 56,
         "courses_scraped": 56,
         "output_file": "data/MAEG.json",
-        "duration_minutes": 2.17,
+        "duration_minutes": 2.13,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2305,7 +2305,7 @@
       },
       "MAPE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:44:57.628099+00:00",
+        "last_scraped": "2025-09-25T14:48:30.418916+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MAPE.json",
@@ -2319,7 +2319,7 @@
       },
       "MASE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:45:08.678947+00:00",
+        "last_scraped": "2025-09-25T14:48:41.779612+00:00",
         "courses_count": 6,
         "courses_scraped": 6,
         "output_file": "data/MASE.json",
@@ -2333,11 +2333,11 @@
       },
       "MATH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:51:13.912644+00:00",
+        "last_scraped": "2025-09-25T14:55:06.273716+00:00",
         "courses_count": 114,
         "courses_scraped": 114,
         "output_file": "data/MATH.json",
-        "duration_minutes": 6.07,
+        "duration_minutes": 6.39,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2347,7 +2347,7 @@
       },
       "MAVE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:51:15.453476+00:00",
+        "last_scraped": "2025-09-25T14:55:07.660757+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MAVE.json",
@@ -2361,11 +2361,11 @@
       },
       "MBAC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:51:47.919426+00:00",
+        "last_scraped": "2025-09-25T14:55:41.951437+00:00",
         "courses_count": 16,
         "courses_scraped": 16,
         "output_file": "data/MBAC.json",
-        "duration_minutes": 0.52,
+        "duration_minutes": 0.55,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2375,11 +2375,11 @@
       },
       "MBTE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:52:56.612409+00:00",
+        "last_scraped": "2025-09-25T14:56:51.653554+00:00",
         "courses_count": 36,
         "courses_scraped": 36,
         "output_file": "data/MBTE.json",
-        "duration_minutes": 1.13,
+        "duration_minutes": 1.14,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2389,11 +2389,11 @@
       },
       "MCLE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:53:20.118264+00:00",
+        "last_scraped": "2025-09-25T14:57:16.029057+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/MCLE.json",
-        "duration_minutes": 0.37,
+        "duration_minutes": 0.39,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2403,11 +2403,11 @@
       },
       "MCLS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:53:21.990527+00:00",
+        "last_scraped": "2025-09-25T14:57:18.533304+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MCLS.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2417,7 +2417,7 @@
       },
       "MCNS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:53:54.315708+00:00",
+        "last_scraped": "2025-09-25T14:57:50.970661+00:00",
         "courses_count": 17,
         "courses_scraped": 17,
         "output_file": "data/MCNS.json",
@@ -2431,11 +2431,11 @@
       },
       "MECM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:54:11.723984+00:00",
+        "last_scraped": "2025-09-25T14:58:08.792505+00:00",
         "courses_count": 7,
         "courses_scraped": 7,
         "output_file": "data/MECM.json",
-        "duration_minutes": 0.27,
+        "duration_minutes": 0.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2445,11 +2445,11 @@
       },
       "MEDF": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:54:30.796323+00:00",
+        "last_scraped": "2025-09-25T14:58:27.105546+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/MEDF.json",
-        "duration_minutes": 0.3,
+        "duration_minutes": 0.29,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2459,11 +2459,11 @@
       },
       "MEDM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:54:46.138517+00:00",
+        "last_scraped": "2025-09-25T14:58:43.735951+00:00",
         "courses_count": 8,
         "courses_scraped": 8,
         "output_file": "data/MEDM.json",
-        "duration_minutes": 0.24,
+        "duration_minutes": 0.26,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2473,7 +2473,7 @@
       },
       "MEDP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:54:52.543946+00:00",
+        "last_scraped": "2025-09-25T14:58:50.014952+00:00",
         "courses_count": 3,
         "courses_scraped": 3,
         "output_file": "data/MEDP.json",
@@ -2487,11 +2487,11 @@
       },
       "MEDU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T17:56:47.705404+00:00",
+        "last_scraped": "2025-09-25T15:00:50.598902+00:00",
         "courses_count": 56,
         "courses_scraped": 56,
         "output_file": "data/MEDU.json",
-        "duration_minutes": 1.9,
+        "duration_minutes": 1.99,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2501,11 +2501,11 @@
       },
       "MESC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:06:28.758757+00:00",
+        "last_scraped": "2025-09-25T15:11:39.467644+00:00",
         "courses_count": 13,
         "courses_scraped": 13,
         "output_file": "data/MESC.json",
-        "duration_minutes": 9.67,
+        "duration_minutes": 10.8,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2515,11 +2515,11 @@
       },
       "MFMD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:06:50.121676+00:00",
+        "last_scraped": "2025-09-25T15:12:03.288759+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/MFMD.json",
-        "duration_minutes": 0.34,
+        "duration_minutes": 0.38,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2529,11 +2529,11 @@
       },
       "MGNT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:10:58.487258+00:00",
+        "last_scraped": "2025-09-25T15:16:28.932756+00:00",
         "courses_count": 102,
         "courses_scraped": 102,
         "output_file": "data/MGNT.json",
-        "duration_minutes": 4.12,
+        "duration_minutes": 4.41,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2543,11 +2543,11 @@
       },
       "MHLS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:11:18.738756+00:00",
+        "last_scraped": "2025-09-25T15:16:49.936503+00:00",
         "courses_count": 13,
         "courses_scraped": 13,
         "output_file": "data/MHLS.json",
-        "duration_minutes": 0.32,
+        "duration_minutes": 0.33,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2557,11 +2557,11 @@
       },
       "MICY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:12:39.453725+00:00",
+        "last_scraped": "2025-09-25T15:18:14.096976+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/MICY.json",
-        "duration_minutes": 1.33,
+        "duration_minutes": 1.39,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2571,7 +2571,7 @@
       },
       "MIEG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:12:44.044509+00:00",
+        "last_scraped": "2025-09-25T15:18:18.769806+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/MIEG.json",
@@ -2585,7 +2585,7 @@
       },
       "MITE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:12:46.688792+00:00",
+        "last_scraped": "2025-09-25T15:18:21.314213+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MITE.json",
@@ -2599,11 +2599,11 @@
       },
       "MKTG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:15:55.914637+00:00",
+        "last_scraped": "2025-09-25T15:21:39.174222+00:00",
         "courses_count": 79,
         "courses_scraped": 79,
         "output_file": "data/MKTG.json",
-        "duration_minutes": 3.14,
+        "duration_minutes": 3.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2613,11 +2613,11 @@
       },
       "MLSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:16:20.859004+00:00",
+        "last_scraped": "2025-09-25T15:22:05.092247+00:00",
         "courses_count": 14,
         "courses_scraped": 14,
         "output_file": "data/MLSC.json",
-        "duration_minutes": 0.4,
+        "duration_minutes": 0.41,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2627,11 +2627,11 @@
       },
       "MMAT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:17:33.732355+00:00",
+        "last_scraped": "2025-09-25T15:23:21.474724+00:00",
         "courses_count": 42,
         "courses_scraped": 42,
         "output_file": "data/MMAT.json",
-        "duration_minutes": 1.2,
+        "duration_minutes": 1.26,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2641,7 +2641,7 @@
       },
       "MPTE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:17:35.263197+00:00",
+        "last_scraped": "2025-09-25T15:23:22.948531+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MPTE.json",
@@ -2655,11 +2655,11 @@
       },
       "MPUP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:18:12.448133+00:00",
+        "last_scraped": "2025-09-25T15:24:02.793622+00:00",
         "courses_count": 21,
         "courses_scraped": 21,
         "output_file": "data/MPUP.json",
-        "duration_minutes": 0.6,
+        "duration_minutes": 0.65,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2669,11 +2669,11 @@
       },
       "MRGO": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:18:50.517155+00:00",
+        "last_scraped": "2025-09-25T15:24:42.449513+00:00",
         "courses_count": 20,
         "courses_scraped": 20,
         "output_file": "data/MRGO.json",
-        "duration_minutes": 0.62,
+        "duration_minutes": 0.64,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2683,7 +2683,7 @@
       },
       "MSAE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:18:52.272686+00:00",
+        "last_scraped": "2025-09-25T15:24:43.923283+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MSAE.json",
@@ -2697,11 +2697,11 @@
       },
       "MSEG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:19:14.089909+00:00",
+        "last_scraped": "2025-09-25T15:25:06.543656+00:00",
         "courses_count": 7,
         "courses_scraped": 7,
         "output_file": "data/MSEG.json",
-        "duration_minutes": 0.35,
+        "duration_minutes": 0.36,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2711,11 +2711,11 @@
       },
       "MSMR": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:19:15.395002+00:00",
+        "last_scraped": "2025-09-25T15:25:09.065318+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MSMR.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2725,11 +2725,11 @@
       },
       "MTCI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:19:16.680916+00:00",
+        "last_scraped": "2025-09-25T15:25:10.553336+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/MTCI.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2739,11 +2739,11 @@
       },
       "MUSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:27:01.193992+00:00",
+        "last_scraped": "2025-09-25T15:33:23.218195+00:00",
         "courses_count": 230,
         "courses_scraped": 230,
         "output_file": "data/MUSC.json",
-        "duration_minutes": 7.72,
+        "duration_minutes": 8.19,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2753,11 +2753,11 @@
       },
       "NSCI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:27:13.951666+00:00",
+        "last_scraped": "2025-09-25T15:33:35.926575+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/NSCI.json",
-        "duration_minutes": 0.2,
+        "duration_minutes": 0.19,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2767,7 +2767,7 @@
       },
       "NSSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:27:15.352321+00:00",
+        "last_scraped": "2025-09-25T15:33:37.273178+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/NSSC.json",
@@ -2781,11 +2781,11 @@
       },
       "NURS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:35:24.650937+00:00",
+        "last_scraped": "2025-09-25T15:42:32.310849+00:00",
         "courses_count": 122,
         "courses_scraped": 122,
         "output_file": "data/NURS.json",
-        "duration_minutes": 8.14,
+        "duration_minutes": 8.9,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2795,11 +2795,11 @@
       },
       "OBGY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:36:45.972270+00:00",
+        "last_scraped": "2025-09-25T15:44:01.116965+00:00",
         "courses_count": 17,
         "courses_scraped": 17,
         "output_file": "data/OBGY.json",
-        "duration_minutes": 1.34,
+        "duration_minutes": 1.46,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2809,7 +2809,7 @@
       },
       "OBSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:37:03.202906+00:00",
+        "last_scraped": "2025-09-25T15:44:18.231018+00:00",
         "courses_count": 9,
         "courses_scraped": 9,
         "output_file": "data/OBSC.json",
@@ -2823,11 +2823,11 @@
       },
       "OENV": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:37:24.878114+00:00",
+        "last_scraped": "2025-09-25T15:44:41.847203+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/OENV.json",
-        "duration_minutes": 0.34,
+        "duration_minutes": 0.38,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2837,11 +2837,11 @@
       },
       "OMBA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:37:27.355595+00:00",
+        "last_scraped": "2025-09-25T15:44:43.277339+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/OMBA.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2851,11 +2851,11 @@
       },
       "ORLC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:37:52.185210+00:00",
+        "last_scraped": "2025-09-25T15:45:10.849777+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/ORLC.json",
-        "duration_minutes": 0.4,
+        "duration_minutes": 0.44,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2865,11 +2865,11 @@
       },
       "ORTY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:38:59.301975+00:00",
+        "last_scraped": "2025-09-25T15:46:20.188092+00:00",
         "courses_count": 31,
         "courses_scraped": 31,
         "output_file": "data/ORTY.json",
-        "duration_minutes": 1.1,
+        "duration_minutes": 1.14,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2879,11 +2879,11 @@
       },
       "OVSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:41:06.871944+00:00",
+        "last_scraped": "2025-09-25T15:48:41.190457+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/OVSC.json",
-        "duration_minutes": 2.11,
+        "duration_minutes": 2.33,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2893,11 +2893,11 @@
       },
       "PBHT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:41:32.077205+00:00",
+        "last_scraped": "2025-09-25T15:49:08.758473+00:00",
         "courses_count": 14,
         "courses_scraped": 14,
         "output_file": "data/PBHT.json",
-        "duration_minutes": 0.4,
+        "duration_minutes": 0.44,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2907,11 +2907,11 @@
       },
       "PEDU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:44:43.723910+00:00",
+        "last_scraped": "2025-09-25T15:52:29.355244+00:00",
         "courses_count": 88,
         "courses_scraped": 88,
         "output_file": "data/PEDU.json",
-        "duration_minutes": 3.18,
+        "duration_minutes": 3.33,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2921,11 +2921,11 @@
       },
       "PGDC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:45:09.497540+00:00",
+        "last_scraped": "2025-09-25T15:52:52.850630+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/PGDC.json",
-        "duration_minutes": 0.41,
+        "duration_minutes": 0.37,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2935,11 +2935,11 @@
       },
       "PGDE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:49:10.676066+00:00",
+        "last_scraped": "2025-09-25T15:57:02.595982+00:00",
         "courses_count": 110,
         "courses_scraped": 110,
         "output_file": "data/PGDE.json",
-        "duration_minutes": 4.0,
+        "duration_minutes": 4.14,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2949,11 +2949,11 @@
       },
       "PGDP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:51:30.762446+00:00",
+        "last_scraped": "2025-09-25T15:59:29.301852+00:00",
         "courses_count": 68,
         "courses_scraped": 68,
         "output_file": "data/PGDP.json",
-        "duration_minutes": 2.32,
+        "duration_minutes": 2.43,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2963,11 +2963,11 @@
       },
       "PHAR": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:54:48.498328+00:00",
+        "last_scraped": "2025-09-25T16:02:57.837264+00:00",
         "courses_count": 92,
         "courses_scraped": 92,
         "output_file": "data/PHAR.json",
-        "duration_minutes": 3.28,
+        "duration_minutes": 3.46,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2977,11 +2977,11 @@
       },
       "PHEC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T18:55:20.785511+00:00",
+        "last_scraped": "2025-09-25T16:03:26.790918+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/PHEC.json",
-        "duration_minutes": 0.52,
+        "duration_minutes": 0.46,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -2991,11 +2991,11 @@
       },
       "PHED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:00:20.026091+00:00",
+        "last_scraped": "2025-09-25T16:08:50.171262+00:00",
         "courses_count": 79,
         "courses_scraped": 79,
         "output_file": "data/PHED.json",
-        "duration_minutes": 4.97,
+        "duration_minutes": 5.37,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3005,11 +3005,11 @@
       },
       "PHIL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:05:55.766545+00:00",
+        "last_scraped": "2025-09-25T16:14:17.436226+00:00",
         "courses_count": 134,
         "courses_scraped": 134,
         "output_file": "data/PHIL.json",
-        "duration_minutes": 5.58,
+        "duration_minutes": 5.44,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3019,11 +3019,11 @@
       },
       "PHMA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:05:57.086346+00:00",
+        "last_scraped": "2025-09-25T16:14:18.797368+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/PHMA.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3033,11 +3033,11 @@
       },
       "PHPC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:07:28.135465+00:00",
+        "last_scraped": "2025-09-25T16:15:51.865631+00:00",
         "courses_count": 47,
         "courses_scraped": 47,
         "output_file": "data/PHPC.json",
-        "duration_minutes": 1.5,
+        "duration_minutes": 1.53,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3047,11 +3047,11 @@
       },
       "PHUG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:07:29.501556+00:00",
+        "last_scraped": "2025-09-25T16:15:54.397195+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/PHUG.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.03,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3061,11 +3061,11 @@
       },
       "PHYY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:13:54.237452+00:00",
+        "last_scraped": "2025-09-25T16:22:16.293548+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/PHYY.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3075,11 +3075,11 @@
       },
       "POPG": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:14:11.725650+00:00",
+        "last_scraped": "2025-09-25T16:22:34.231425+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/POPG.json",
-        "duration_minutes": 0.27,
+        "duration_minutes": 0.28,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3089,11 +3089,11 @@
       },
       "POPN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:14:13.078117+00:00",
+        "last_scraped": "2025-09-25T16:22:35.600786+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/POPN.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3103,11 +3103,11 @@
       },
       "PRHC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:14:15.321455+00:00",
+        "last_scraped": "2025-09-25T16:22:42.417352+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/PRHC.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.1,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3117,7 +3117,7 @@
       },
       "PSYC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:19:59.598199+00:00",
+        "last_scraped": "2025-09-25T16:28:26.825547+00:00",
         "courses_count": 134,
         "courses_scraped": 134,
         "output_file": "data/PSYC.json",
@@ -3131,11 +3131,11 @@
       },
       "PUBH": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:20:29.284323+00:00",
+        "last_scraped": "2025-09-25T16:28:56.171289+00:00",
         "courses_count": 12,
         "courses_scraped": 12,
         "output_file": "data/PUBH.json",
-        "duration_minutes": 0.48,
+        "duration_minutes": 0.47,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3145,7 +3145,7 @@
       },
       "REES": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:20:30.740546+00:00",
+        "last_scraped": "2025-09-25T16:28:57.588923+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/REES.json",
@@ -3159,11 +3159,11 @@
       },
       "RELS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:22:19.995956+00:00",
+        "last_scraped": "2025-09-25T16:30:49.524621+00:00",
         "courses_count": 58,
         "courses_scraped": 58,
         "output_file": "data/RELS.json",
-        "duration_minutes": 1.8,
+        "duration_minutes": 1.85,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3173,11 +3173,11 @@
       },
       "RMCE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:22:50.890423+00:00",
+        "last_scraped": "2025-09-25T16:31:22.367648+00:00",
         "courses_count": 18,
         "courses_scraped": 18,
         "output_file": "data/RMCE.json",
-        "duration_minutes": 0.5,
+        "duration_minutes": 0.53,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3187,7 +3187,7 @@
       },
       "RMED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:22:53.074032+00:00",
+        "last_scraped": "2025-09-25T16:31:24.702368+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/RMED.json",
@@ -3201,11 +3201,11 @@
       },
       "RMSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:24:23.336077+00:00",
+        "last_scraped": "2025-09-25T16:33:03.408133+00:00",
         "courses_count": 36,
         "courses_scraped": 36,
         "output_file": "data/RMSC.json",
-        "duration_minutes": 1.49,
+        "duration_minutes": 1.63,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3215,7 +3215,7 @@
       },
       "ROSE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:24:43.228581+00:00",
+        "last_scraped": "2025-09-25T16:33:23.319177+00:00",
         "courses_count": 10,
         "courses_scraped": 10,
         "output_file": "data/ROSE.json",
@@ -3229,11 +3229,11 @@
       },
       "RUSS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:24:57.354605+00:00",
+        "last_scraped": "2025-09-25T16:33:36.799901+00:00",
         "courses_count": 6,
         "courses_scraped": 6,
         "output_file": "data/RUSS.json",
-        "duration_minutes": 0.22,
+        "duration_minutes": 0.21,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3243,11 +3243,11 @@
       },
       "SBMS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:26:54.259289+00:00",
+        "last_scraped": "2025-09-25T16:35:38.380349+00:00",
         "courses_count": 47,
         "courses_scraped": 47,
         "output_file": "data/SBMS.json",
-        "duration_minutes": 1.93,
+        "duration_minutes": 2.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3257,11 +3257,11 @@
       },
       "SEEM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:29:59.521881+00:00",
+        "last_scraped": "2025-09-25T16:38:47.078096+00:00",
         "courses_count": 77,
         "courses_scraped": 77,
         "output_file": "data/SEEM.json",
-        "duration_minutes": 3.07,
+        "duration_minutes": 3.13,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3271,11 +3271,11 @@
       },
       "SENV": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:30:00.881293+00:00",
+        "last_scraped": "2025-09-25T16:38:50.744981+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/SENV.json",
-        "duration_minutes": 0.01,
+        "duration_minutes": 0.04,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3285,11 +3285,11 @@
       },
       "SGCL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:30:45.913683+00:00",
+        "last_scraped": "2025-09-25T16:39:41.018658+00:00",
         "courses_count": 23,
         "courses_scraped": 23,
         "output_file": "data/SGCL.json",
-        "duration_minutes": 0.73,
+        "duration_minutes": 0.82,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3299,11 +3299,11 @@
       },
       "SILP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:30:58.385898+00:00",
+        "last_scraped": "2025-09-25T16:39:54.258007+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/SILP.json",
-        "duration_minutes": 0.19,
+        "duration_minutes": 0.2,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3313,11 +3313,11 @@
       },
       "SLPA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:32:11.281602+00:00",
+        "last_scraped": "2025-09-25T16:41:07.914544+00:00",
         "courses_count": 40,
         "courses_scraped": 40,
         "output_file": "data/SLPA.json",
-        "duration_minutes": 1.2,
+        "duration_minutes": 1.21,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3327,11 +3327,11 @@
       },
       "SOCI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:36:47.680446+00:00",
+        "last_scraped": "2025-09-25T16:45:49.615245+00:00",
         "courses_count": 93,
         "courses_scraped": 93,
         "output_file": "data/SOCI.json",
-        "duration_minutes": 4.59,
+        "duration_minutes": 4.68,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3341,11 +3341,11 @@
       },
       "SOSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:37:33.452806+00:00",
+        "last_scraped": "2025-09-25T16:46:36.120808+00:00",
         "courses_count": 15,
         "courses_scraped": 15,
         "output_file": "data/SOSC.json",
-        "duration_minutes": 0.75,
+        "duration_minutes": 0.76,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3355,11 +3355,11 @@
       },
       "SOWK": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:42:48.856104+00:00",
+        "last_scraped": "2025-09-25T16:51:54.958767+00:00",
         "courses_count": 112,
         "courses_scraped": 112,
         "output_file": "data/SOWK.json",
-        "duration_minutes": 5.24,
+        "duration_minutes": 5.3,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3369,11 +3369,11 @@
       },
       "SPAN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:43:43.517108+00:00",
+        "last_scraped": "2025-09-25T16:52:46.438622+00:00",
         "courses_count": 21,
         "courses_scraped": 21,
         "output_file": "data/SPAN.json",
-        "duration_minutes": 0.89,
+        "duration_minutes": 0.84,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3383,11 +3383,11 @@
       },
       "SPED": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:45:44.576341+00:00",
+        "last_scraped": "2025-09-25T16:54:50.633961+00:00",
         "courses_count": 55,
         "courses_scraped": 55,
         "output_file": "data/SPED.json",
-        "duration_minutes": 2.0,
+        "duration_minutes": 2.05,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3397,11 +3397,11 @@
       },
       "SPSY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:45:45.919581+00:00",
+        "last_scraped": "2025-09-25T16:54:54.177481+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/SPSY.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.04,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3411,11 +3411,11 @@
       },
       "SSMU": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:45:48.356715+00:00",
+        "last_scraped": "2025-09-25T16:54:58.208768+00:00",
         "courses_count": 1,
         "courses_scraped": 1,
         "output_file": "data/SSMU.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.05,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3425,11 +3425,11 @@
       },
       "SSPA": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:46:39.761858+00:00",
+        "last_scraped": "2025-09-25T16:55:48.221767+00:00",
         "courses_count": 23,
         "courses_scraped": 23,
         "output_file": "data/SSPA.json",
-        "duration_minutes": 0.84,
+        "duration_minutes": 0.82,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3439,11 +3439,11 @@
       },
       "SSPE": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:46:50.425725+00:00",
+        "last_scraped": "2025-09-25T16:55:59.346496+00:00",
         "courses_count": 2,
         "courses_scraped": 2,
         "output_file": "data/SSPE.json",
-        "duration_minutes": 0.16,
+        "duration_minutes": 0.17,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3453,11 +3453,11 @@
       },
       "STAR": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:47:12.835147+00:00",
+        "last_scraped": "2025-09-25T16:56:21.135799+00:00",
         "courses_count": 6,
         "courses_scraped": 6,
         "output_file": "data/STAR.json",
-        "duration_minutes": 0.36,
+        "duration_minutes": 0.35,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3467,11 +3467,11 @@
       },
       "STAT": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:50:34.781777+00:00",
+        "last_scraped": "2025-09-25T16:59:42.586405+00:00",
         "courses_count": 70,
         "courses_scraped": 70,
         "output_file": "data/STAT.json",
-        "duration_minutes": 3.35,
+        "duration_minutes": 3.34,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3481,11 +3481,11 @@
       },
       "SURY": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:51:27.688154+00:00",
+        "last_scraped": "2025-09-25T17:00:36.211845+00:00",
         "courses_count": 21,
         "courses_scraped": 21,
         "output_file": "data/SURY.json",
-        "duration_minutes": 0.86,
+        "duration_minutes": 0.88,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3495,11 +3495,11 @@
       },
       "SUTM": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:51:47.823215+00:00",
+        "last_scraped": "2025-09-25T17:00:57.373476+00:00",
         "courses_count": 9,
         "courses_scraped": 9,
         "output_file": "data/SUTM.json",
-        "duration_minutes": 0.32,
+        "duration_minutes": 0.34,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3509,11 +3509,11 @@
       },
       "TESL": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:51:59.926338+00:00",
+        "last_scraped": "2025-09-25T17:01:08.446297+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/TESL.json",
-        "duration_minutes": 0.18,
+        "duration_minutes": 0.17,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3523,11 +3523,11 @@
       },
       "THAI": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:52:07.917771+00:00",
+        "last_scraped": "2025-09-25T17:01:15.821213+00:00",
         "courses_count": 3,
         "courses_scraped": 3,
         "output_file": "data/THAI.json",
-        "duration_minutes": 0.12,
+        "duration_minutes": 0.11,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3537,11 +3537,11 @@
       },
       "THEO": {
         "status": "completed",
-        "last_scraped": "2025-09-22T19:59:12.458600+00:00",
+        "last_scraped": "2025-09-25T17:08:30.402783+00:00",
         "courses_count": 198,
         "courses_scraped": 198,
         "output_file": "data/THEO.json",
-        "duration_minutes": 7.06,
+        "duration_minutes": 7.23,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3551,11 +3551,11 @@
       },
       "TRAN": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:02:35.419346+00:00",
+        "last_scraped": "2025-09-25T17:11:51.584009+00:00",
         "courses_count": 83,
         "courses_scraped": 83,
         "output_file": "data/TRAN.json",
-        "duration_minutes": 3.37,
+        "duration_minutes": 3.34,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3565,11 +3565,11 @@
       },
       "URBD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:19:26.890063+00:00",
+        "last_scraped": "2025-09-25T17:29:22.786078+00:00",
         "courses_count": 11,
         "courses_scraped": 11,
         "output_file": "data/URBD.json",
-        "duration_minutes": 0.35,
+        "duration_minutes": 0.37,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3579,11 +3579,11 @@
       },
       "URSP": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:37.814825+00:00",
+        "last_scraped": "2025-09-25T17:30:33.010516+00:00",
         "courses_count": 35,
         "courses_scraped": 35,
         "output_file": "data/URSP.json",
-        "duration_minutes": 1.16,
+        "duration_minutes": 1.15,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3593,11 +3593,11 @@
       },
       "WOHS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:45.718387+00:00",
+        "last_scraped": "2025-09-25T17:30:41.838095+00:00",
         "courses_count": 5,
         "courses_scraped": 5,
         "output_file": "data/WOHS.json",
-        "duration_minutes": 0.11,
+        "duration_minutes": 0.13,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3607,11 +3607,11 @@
       },
       "XCBS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:48.222022+00:00",
+        "last_scraped": "2025-09-25T17:30:43.308727+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/XCBS.json",
-        "duration_minutes": 0.02,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3621,7 +3621,7 @@
       },
       "XCCS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:49.607669+00:00",
+        "last_scraped": "2025-09-25T17:30:44.647833+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/XCCS.json",
@@ -3635,11 +3635,11 @@
       },
       "XFUD": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:53.224776+00:00",
+        "last_scraped": "2025-09-25T17:30:50.576345+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/XFUD.json",
-        "duration_minutes": 0.04,
+        "duration_minutes": 0.08,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3649,7 +3649,7 @@
       },
       "XUNC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:54.633892+00:00",
+        "last_scraped": "2025-09-25T17:30:51.912966+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/XUNC.json",
@@ -3663,11 +3663,11 @@
       },
       "XUSC": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:55.956031+00:00",
+        "last_scraped": "2025-09-25T17:30:54.407778+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/XUSC.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.02,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3677,11 +3677,11 @@
       },
       "XWAS": {
         "status": "completed",
-        "last_scraped": "2025-09-22T20:20:57.265468+00:00",
+        "last_scraped": "2025-09-25T17:30:55.776643+00:00",
         "courses_count": 0,
         "courses_scraped": 0,
         "output_file": "data/XWAS.json",
-        "duration_minutes": 0.0,
+        "duration_minutes": 0.01,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
