@@ -873,13 +873,13 @@ function UnscheduledSectionsCard({
                     
                     {displayConfig.showTime && (
                       <div className={`${TEXT_STYLES.TIME} truncate`}>
-                        {item.meeting.time === 'TBA' ? 'No set time' : item.meeting.time}
+                        {item.meeting.time === 'TBA' ? 'No Set Time' : item.meeting.time}
                       </div>
                     )}
                     
                     {displayConfig.showLocation && (
                       <div className={`${TEXT_STYLES.LOCATION} truncate`}>
-                        {item.meeting.location === 'TBA' ? 'No set location' : item.meeting.location}
+                        {item.meeting.location === 'TBA' ? 'No Set Location' : item.meeting.location}
                       </div>
                     )}
                     
