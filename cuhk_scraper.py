@@ -1016,6 +1016,8 @@ class CuhkScraper:
         desc_elem = soup.find('span', {'id': 'uc_course_lbl_crse_descrlong'})
         if desc_elem:
             # Use HTML content (not extracted text) to preserve <br> tags and formatting
+            # TODO: Consider preserving original HTML and converting to markdown later for better robustness
+            # This would allow re-processing if conversion logic improves without re-scraping
             desc_html = str(desc_elem)
             course.description, _ = html_to_clean_markdown(desc_html)
         
@@ -1528,29 +1530,33 @@ class CuhkScraper:
     
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
+        # TODO: Consider preserving original HTML alongside markdown conversion
+        # This would allow re-processing with improved conversion logic without re-scraping
+        # Current approach: HTML → Markdown (one-way, conversion challenges with complex HTML)
+        # Future approach: Store both HTML and Markdown, convert HTML post-scraping
         soup = BeautifulSoup(html, 'html.parser')
-        
+
         # Extract Assessment Types (table structure)
         assessment_table = soup.find('table', {'id': 'uc_course_outcome_gv_ast'})
         if assessment_table and hasattr(assessment_table, 'find_all'):
             # Type guard: ensure it's a Tag before passing to _parse_assessment_table
             course.assessment_types = self._parse_assessment_table(assessment_table)
-        
+
         # Extract Learning Outcomes (convert to Markdown for rich formatting)
         learning_outcome_span = soup.find('span', {'id': 'uc_course_outcome_lbl_learning_outcome'})
         if learning_outcome_span:
             course.learning_outcomes = self._html_to_markdown(str(learning_outcome_span))
-        
+
         # Extract Course Syllabus (convert to Markdown for tables and lists)
         syllabus_span = soup.find('span', {'id': 'uc_course_outcome_lbl_course_syllabus'})
         if syllabus_span:
             course.course_syllabus = self._html_to_markdown(str(syllabus_span))
-        
+
         # Extract Feedback for Evaluation (convert to Markdown)
         feedback_span = soup.find('span', {'id': 'uc_course_outcome_lbl_feedback'})
         if feedback_span:
             course.feedback_evaluation = self._html_to_markdown(str(feedback_span))
-        
+
         # Extract Required Readings (convert to Markdown for lists)
         required_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_req_reading'})
         if required_reading_span:
