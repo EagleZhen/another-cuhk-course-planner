@@ -49,7 +49,7 @@ class ScrapingConfig:
             output_mode="per_subject",  # Per-subject files for production
             output_directory="data",     # Production data directory
             track_progress=True,         # Enable progress tracking
-            progress_file=os.path.join("data", "scraping_progress.json"),  # Windows-safe path
+            progress_file=os.path.join("data", "summary", "scraping_progress.json"),  # Windows-safe path
             progress_update_interval=60,  # 1-minute periodic saves
             # Full scraping scope for production
             get_details=True,
@@ -1515,7 +1515,8 @@ class CuhkScraper:
         self.logger.info(f"   • These courses currently have empty course outcome data")
         
         # Save failure details to file for easy retry
-        failure_file = "data/failed_course_outcomes.txt"
+        failure_file = os.path.join("data", "summary", "failed_course_outcomes.txt")
+        os.makedirs(os.path.dirname(failure_file), exist_ok=True)
         with open(failure_file, 'w') as f:
             f.write("# Failed Course Outcomes - Manual Retry Needed\n")
             f.write(f"# Generated: {utc_now_iso()}\n\n")
@@ -1554,12 +1555,12 @@ class CuhkScraper:
         required_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_req_reading'})
         if required_reading_span:
             course.required_readings = self._html_to_markdown(str(required_reading_span))
-        
+
         # Extract Recommended Readings (convert to Markdown for lists)
         recommended_reading_span = soup.find('span', {'id': 'uc_course_outcome_lbl_rec_reading'})
         if recommended_reading_span:
             course.recommended_readings = self._html_to_markdown(str(recommended_reading_span))
-        
+
         self.logger.info(f"Course Outcome parsed for {course.course_code}")
     
     def _parse_assessment_table(self, table: Optional[Tag]) -> Dict[str, str]:
