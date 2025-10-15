@@ -1,0 +1,20 @@
+[project]
+name = "another-cuhk-course-planner"
+version = "0.1.0"
+description = "Interactive CUHK timetable planner with automatic conflict detection & easy resolution, fast course search, .ics export, and screenshot features."
+authors = [
+    {name = "EZ"}
+]
+readme = "README.md"
+requires-python = ">=3.9, <3.13"
+dependencies = [
+    "beautifulsoup4 (>=4.14.2,<5.0.0)",
+    "markdownify (>=1.2.0,<2.0.0)",
+    "ddddocr (>=1.5.6,<2.0.0)",
+    "requests (>=2.32.5,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
