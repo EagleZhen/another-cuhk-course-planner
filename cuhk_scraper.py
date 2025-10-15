@@ -49,7 +49,7 @@ class ScrapingConfig:
             output_mode="per_subject",  # Per-subject files for production
             output_directory="data",     # Production data directory
             track_progress=True,         # Enable progress tracking
-            progress_file=os.path.join("logs", "scraping_progress.json"),  # Scraping metadata in logs/
+            progress_file=os.path.join("logs", "summary", "scraping_progress.json"),  # Scraping metadata in logs/
             progress_update_interval=60,  # 1-minute periodic saves
             # Full scraping scope for production
             get_details=True,
@@ -1517,7 +1517,7 @@ class CuhkScraper:
         self.logger.info(f"   • These courses currently have empty course outcome data")
         
         # Save failure details to file for easy retry
-        failure_file = os.path.join("logs", "failed_course_outcomes.txt")
+        failure_file = os.path.join("logs", "summary", "failed_course_outcomes.txt")
         os.makedirs(os.path.dirname(failure_file), exist_ok=True)
         with open(failure_file, 'w') as f:
             f.write("# Failed Course Outcomes - Manual Retry Needed\n")
