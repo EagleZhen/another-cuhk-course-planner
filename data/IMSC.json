@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T12:37:33.131220+00:00",
+    "scraped_at": "2025-10-15T22:52:15.891900+00:00",
     "subject": "IMSC",
     "subject_title": "Artic BSc PhD Pgm in Math Sci",
     "total_courses": 8,
@@ -287,7 +287,102 @@
       "course_code": "2028",
       "title": "Calculus II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9668)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9669)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This is a continuation of IMSC2018. The following topics will be discussed: multiple integrals in n-dimensions: areas and n-volumes, surface areas, volumes of submanifolds and hypersurfaces in n-space, change of variables; vector analysis: line integrals, surface integrals, integration on submanifolds, Green theorem, divergence theorem and Stokes theorem in n-dimensions.",
       "enrollment_requirement": "Not for students who have taken MATH2020/2028. Pre-requisite: IMSC2018.",
       "course_attributes": "",
@@ -313,7 +408,102 @@
       "course_code": "2048",
       "title": "Algebra II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9670)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9671)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Staff",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Staff",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This is a continuation of IMSC1038. Topics include: abstract vector spaces, linear transformations, matrix representation, nullity and rank, properties of determinants, diagonalization, Cayley-Hamilton theorem, inner product spaces, normal and self-adjoint operators, unitary and orthogonal operators, bilinear forms, dual spaces, canonical forms, spectral theorem.",
       "enrollment_requirement": "Not for students who have taken MATH2040/2048. Pre-requisite: IMSC1038.",
       "course_attributes": "",
@@ -442,7 +632,102 @@
       "course_code": "2068",
       "title": "Analysis II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9672)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Staff",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Staff",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Staff",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 8:30AM - 9:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 8:30AM - 9:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 8:30AM - 9:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9673)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This is a continuation of IMSC2058. Topics include: differentiability in one or higher dimensions, mean-value theorem, Taylor theorem, convexity; integrability in one or higher dimensions, fundamental theorem of calculus, improper integrals, Fubini's theorem for double series and continuous functions; power series, radius of convergence, series for elementary functions, real analyticity; sequence and series of functions, uniform convergence.",
       "enrollment_requirement": "Not for students who have taken MATH2060/2068. Pre-requisite: IMSC2058.",
       "course_attributes": "",

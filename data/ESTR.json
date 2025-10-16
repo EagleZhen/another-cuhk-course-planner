@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T11:37:03.949426+00:00",
+    "scraped_at": "2025-10-15T21:51:58.129374+00:00",
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
     "total_courses": 132,
@@ -555,10 +555,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "56",
+                "enrolled": "54",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -587,10 +587,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "56",
+                "enrolled": "54",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1325,72 +1325,7 @@
       "course_code": "2100",
       "title": "Embedded System Design",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (4753)",
-              "meetings": [
-                {
-                  "time": "Tu 4:30PM - 5:15PM",
-                  "location": "Yasumoto Int'l Acad Park 407",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
-                },
-                {
-                  "time": "Tu 4:30PM - 5:15PM",
-                  "location": "Yasumoto Int'l Acad Park 407",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
-                },
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Lady Shaw Bldg LT4",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-L01-LAB (6389)",
-              "meetings": [
-                {
-                  "time": "Tu 3:30PM - 4:15PM",
-                  "location": "Ho Sin-Hang Engg Bldg 102",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
-                },
-                {
-                  "time": "Tu 3:30PM - 4:15PM",
-                  "location": "Ho Sin-Hang Engg Bldg 102",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
       "enrollment_requirement": "Not for students who have taken CENG2400. Pre-requisite: ENGG2020 or ENGG2120 or ESTR2104.",
       "course_attributes": "",
@@ -1428,67 +1363,67 @@
                 {
                   "time": "Mo 3:30PM - 4:15PM",
                   "location": "Basic Med Sci Bldg LT",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 3:30PM - 4:15PM",
                   "location": "Basic Med Sci Bldg LT",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 3:30PM - 4:15PM",
                   "location": "Basic Med Sci Bldg LT",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 3:30PM - 4:15PM",
                   "location": "Basic Med Sci Bldg LT",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "13/4"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Lady Shaw Bldg LT6",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "13/4"
                 },
                 {
                   "time": "We 2:30PM - 3:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
                   "time": "We 2:30PM - 3:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "25/2"
                 },
                 {
                   "time": "We 2:30PM - 3:15PM",
                   "location": "Basic Med Sci Bldg G18",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
                 }
               ],
@@ -1508,25 +1443,25 @@
                 {
                   "time": "Tu 3:30PM - 4:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 3:30PM - 4:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 3:30PM - 4:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 3:30PM - 4:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "14/4"
                 }
               ],
@@ -1546,25 +1481,25 @@
                 {
                   "time": "Tu 5:30PM - 6:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 },
                 {
                   "time": "Tu 5:30PM - 6:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "24/2"
                 },
                 {
                   "time": "Tu 5:30PM - 6:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "10/3, 17/3, 24/3, 31/3"
                 },
                 {
                   "time": "Tu 5:30PM - 6:15PM",
                   "location": "Mong Man Wai Bldg LT2",
-                  "instructor": "Professor KING Kuo Chin Irwin, \nProfessor LIU Shengchao",
+                  "instructor": "Professor LIU Shengchao",
                   "dates": "14/4"
                 }
               ],
@@ -4335,78 +4270,7 @@
       "course_code": "3300",
       "title": "Digital Communications",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (6860)",
-              "meetings": [
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 403",
-                  "instructor": "Professor LOK Tat Ming",
-                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Professor LOK Tat Ming",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Professor LOK Tat Ming",
-                  "dates": "8/10, 15/10, 22/10"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Professor LOK Tat Ming",
-                  "dates": "5/11, 12/11, 19/11, 26/11"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T01-TUT (7357)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor LOK Tat Ming",
-                  "dates": "01/09/2025 - 24/11/2025"
-                },
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor LOK Tat Ming",
-                  "dates": "01/09/2025 - 24/11/2025"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course introduces the principles of digital communications. Topics include source and channel models, modulation and detection, intersymbol interference and equalization coding, multipath fading, spread spectrum and synchronization.",
       "enrollment_requirement": "Not for students who have taken IERG3010. Pre-requisite: ENGG2310 or ESTR2300 or IERG2310.",
       "course_attributes": "",
@@ -6822,66 +6686,7 @@
       "course_code": "4510",
       "title": "Advances in Logistics and Supply Chain Management",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (6939)",
-              "meetings": [
-                {
-                  "time": "Mo 2:30PM - 3:15PM",
-                  "location": "Mong Man Wai Bldg 705",
-                  "instructor": "Dr. HO Sin Cheung",
-                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
-                },
-                {
-                  "time": "Mo 3:30PM - 4:15PM",
-                  "location": "Mong Man Wai Bldg 705",
-                  "instructor": "Dr. HO Sin Cheung",
-                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
-                },
-                {
-                  "time": "Th 3:30PM - 5:15PM",
-                  "location": "William M W Mong Eng Bldg 703",
-                  "instructor": "Dr. HO Sin Cheung",
-                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T01-TUT (7083)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Dr. HO Sin Cheung",
-                  "dates": "01/09/2025 - 24/11/2025"
-                }
-              ],
-              "availability": {
-                "capacity": "11",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "11",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course covers the advanced topics in logistics and supply chain management. In particular, it uses comprehensive models to describe, and hence explore the optimal strategies in, various important logistics and supply chain management problems. The topics include customer service, channels of distribution, transportation, vehicle routing and scheduling, freight consolidation, facility location and network planning, storage. This course also introduces important practice in logistics and supply chain management, such as material handling systems, information systems for order processing and inventory tracking, purchasing and supply scheduling, business process re-engineering, third-party logistics, and global logistics.",
       "enrollment_requirement": "Not for students who have taken ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610 or SEEM4750",
       "course_attributes": "",

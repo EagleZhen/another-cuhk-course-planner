@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T09:21:00.528836+00:00",
+    "scraped_at": "2025-10-15T20:45:23.166087+00:00",
     "subject": "COMM",
     "subject_title": "Communication",
     "total_courses": 211,
@@ -249,6 +249,44 @@
                   "time": "Mo 10:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 206",
                   "instructor": "Professor MAK Ka Fai",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "D-LEC (9659)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Dr. HU Yang",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Dr. HU Yang",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Dr. HU Yang",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Dr. HU Yang",
                   "dates": "13/4"
                 }
               ],
@@ -2984,7 +3022,7 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "46",
+                "enrolled": "47",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3440,40 +3478,7 @@
         {
           "term_code": "2390",
           "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "B-LEC (7854)",
-              "meetings": [
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Humanities Building 314",
-                  "instructor": "Mr SHAM Ka Ho",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Humanities Building 314",
-                  "instructor": "Mr SHAM Ka Ho",
-                  "dates": "26/2"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Humanities Building 314",
-                  "instructor": "Mr SHAM Ka Ho",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
-                }
-              ],
-              "availability": {
-                "capacity": "18",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "18",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only"
-            }
-          ]
+          "schedule": []
         }
       ],
       "description": "This course combines a basic introduction to the practical skills of photography with an introduction to the idea of visual literacy - a look at the history and social role of the image in the contemporary image-driven multimedia environment.",
@@ -3859,7 +3864,52 @@
       "course_code": "3193",
       "title": "Media and Gender",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9667)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Dr. HE Renyi",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Dr. HE Renyi",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Dr. HE Renyi",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Dr. HE Renyi",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "(UGEC3612 is double-coded with COMM3193.)\n\nThe course is developed and evolved around two major themes, namely mass media and gender. Using key concepts and theories in mass communication and cultural studies, it discusses the influences and power of mass media with an emphasis on gender-related issues. The latter are in turn related to other social and cultural phenomena that will bring in knowledge and perspectives from other disciplines (e.g. sociology and psychology).\n\nThe course will examine several recurring controversies related to gender in mass media. These controversies range from representation of sex and gender in media, to the media portrayals of homosexuals and the treatment of taboos. The course will identify and discuss the many competing viewpoints, and the ensuing actions, held by different stakeholders, including media producers, social activists, government regulators, educators and the general audiences. Their implications to legislation and education will also be identified.\n\nStudents will be able to describe the key characteristics of modern media, in particular their roles in the construction of gender identities and discourses about various gender issues.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -4471,11 +4521,11 @@
                 }
               ],
               "availability": {
-                "capacity": "5",
+                "capacity": "10",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6545,44 +6595,6 @@
           "term_code": "2390",
           "term_name": "2025-26 Term 2",
           "schedule": [
-            {
-              "section": "FJ01-PRJ (8316)",
-              "meetings": [
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 110",
-                  "instructor": "Staff",
-                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
-                },
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 110",
-                  "instructor": "Staff",
-                  "dates": "23/2"
-                },
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 110",
-                  "instructor": "Staff",
-                  "dates": "9/3, 16/3, 23/3, 30/3"
-                },
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 110",
-                  "instructor": "Staff",
-                  "dates": "13/4"
-                }
-              ],
-              "availability": {
-                "capacity": "35",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "35",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
             {
               "section": "GJ01-PRJ (8224)",
               "meetings": [

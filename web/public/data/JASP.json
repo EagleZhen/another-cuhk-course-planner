@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T12:42:35.255391+00:00",
+    "scraped_at": "2025-10-15T22:57:18.796035+00:00",
     "subject": "JASP",
     "subject_title": "Japanese Studies",
     "total_courses": 104,
@@ -69,10 +69,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "34",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -89,10 +89,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "18",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -694,10 +694,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "20",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -1174,10 +1174,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "21",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua"
@@ -2346,10 +2346,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "13",
+                "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English"
@@ -2386,10 +2386,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "6",
+                "enrolled": "5",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English"
@@ -4294,44 +4294,6 @@
               "class_attributes": "Putonghua and Cantonese"
             }
           ]
-        },
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (5205)",
-              "meetings": [
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Lai Chan Pui Ngong LT",
-                  "instructor": "Staff",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Lai Chan Pui Ngong LT",
-                  "instructor": "Staff",
-                  "dates": "26/2"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Lai Chan Pui Ngong LT",
-                  "instructor": "Staff",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
-                }
-              ],
-              "availability": {
-                "capacity": "45",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "45",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
         }
       ],
       "description": "This course explores modern Japan, which underwent perhaps the most striking transformation of any country in the modern world. Narrowly escaping colonization, Japan transformed into one of the most important imperial and economic powers in the world. Modern Japan is also doubly fascinating for a comparative take on the great themes of modern global history: the social upheavals and transformations of capitalism and democracy, the rise and fall of modern imperialism, the experience of total war, and the spread of a mass consumer culture. This course examines the invention of new traditions and the construction of a new national identity, the rise and fall of empire, the devastation of World War II, and the astonishing postwar economic growth and puzzling stagnation in contemporary times. This course explores how people in Japan have dealt with the dilemmas of modernity that challenge us all.",
@@ -5023,38 +4985,6 @@
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua"
-            },
-            {
-              "section": "D-LEC (6069)",
-              "meetings": [
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
-                  "dates": "26/2"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
-                }
-              ],
-              "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
-              },
-              "class_attributes": "Japanese and Cantonese"
             }
           ]
         }
@@ -5093,22 +5023,28 @@
               "section": "--LEC (9021)",
               "meetings": [
                 {
-                  "time": "Th 3:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G06",
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 306",
                   "instructor": "Mr KUZUMOTO Takahiro",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
                 },
                 {
-                  "time": "Th 3:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G06",
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 306",
                   "instructor": "Mr KUZUMOTO Takahiro",
-                  "dates": "26/2"
+                  "dates": "27/2"
                 },
                 {
-                  "time": "Th 3:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G06",
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 306",
                   "instructor": "Mr KUZUMOTO Takahiro",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                  "dates": "10/4, 17/4"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Esther Lee Bldg 306",
+                  "instructor": "Mr KUZUMOTO Takahiro",
+                  "dates": "13/3, 20/3, 27/3"
                 }
               ],
               "availability": {
@@ -5633,52 +5569,7 @@
       "course_code": "3900",
       "title": "Popular Religions in China, Japan and Korea",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (9036)",
-              "meetings": [
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Building 514",
-                  "instructor": "Staff",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
-                },
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Building 514",
-                  "instructor": "Staff",
-                  "dates": "24/2"
-                },
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Building 514",
-                  "instructor": "Staff",
-                  "dates": "10/3, 17/3, 24/3, 31/3"
-                },
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Building 514",
-                  "instructor": "Staff",
-                  "dates": "14/4"
-                }
-              ],
-              "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course explores the East Asian philosophical and religious traditions of Confucianism, Daoism, and Buddhism both from an internal perspective – how did each tradition represent its own values, goals, practices and methods of devotion – and external perspectives – how did the traditions spread across the East Asian subcontinent, assimilate with traditional cultural norms, and influence art and architecture. In addition to these so-called “three teachings,” we also discuss popular religion in South-east Asia, new combinatory religions such as Aum Shinrikyo and Cao Đài, and the impact of East Asian religious ideas on the West. We will also address religion in modern times, understanding how traditions continue to carve out roles for themselves in a secular world.",
       "enrollment_requirement": "",
       "course_attributes": "",

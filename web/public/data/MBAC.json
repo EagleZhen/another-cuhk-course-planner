@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T13:13:06.426989+00:00",
+    "scraped_at": "2025-10-15T23:27:42.423014+00:00",
     "subject": "MBAC",
     "subject_title": "MBA Programmes",
     "total_courses": 16,
@@ -13,6 +13,50 @@
       "title": "Directed Research",
       "credits": "3.00",
       "terms": [
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "PJ01-PRJ (1225)",
+              "meetings": [
+                {
+                  "time": "Th 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "5/3"
+                },
+                {
+                  "time": "Fr 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "6/3"
+                },
+                {
+                  "time": "Sa 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "7/3"
+                },
+                {
+                  "time": "Su 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "8/3"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        },
         {
           "term_code": "2405",
           "term_name": "2025-26 Term 4",

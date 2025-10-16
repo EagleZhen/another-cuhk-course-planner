@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T08:11:12.428488+00:00",
+    "scraped_at": "2025-10-15T19:46:18.772155+00:00",
     "subject": "ASEI",
     "subject_title": "Aero Sci and Earth Info & X",
     "total_courses": 4,
@@ -38,7 +38,108 @@
       "course_code": "2010",
       "title": "Introduction to Aerospace Science and Earth Informatics",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9677)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 303",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 303",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 303",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9678)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This introductory-level course offers a comprehensive overview of the fundamental concepts and applications within the fields of aerospace sciences and Earth informatics. Students will explore the evolution of the solar system, delve into the intricacies of Earth's planetary environment, understand the basics of the tools and technologies used to explore the Earth and space, and gain insights into the multidisciplinary field of aerospace science and engineering. The course emphasizes the acquisition and analysis of data from space and other planets, highlighting its significance in understanding our universe and improving life on Earth.",
       "enrollment_requirement": "",
       "course_attributes": "",

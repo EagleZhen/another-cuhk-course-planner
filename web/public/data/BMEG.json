@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T08:26:14.659619+00:00",
+    "scraped_at": "2025-10-15T20:01:19.990758+00:00",
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
-    "total_courses": 58,
+    "total_courses": 59,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -100,10 +100,10 @@
               ],
               "availability": {
                 "capacity": "85",
-                "enrolled": "84",
+                "enrolled": "83",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -702,6 +702,33 @@
     },
     {
       "subject": "BMEG",
+      "course_code": "2603",
+      "title": "Hospital Experience and Engineering Practicum",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course aims to enrich student experience in hospital environment and appreciation of laboratory skills, engineering and electrical safety and ethical issues. Students will have the opportunity to visit various hospital facilities and laboratories. This course includes professional workshops on laboratory skills and appreciation of ethical issues relevant to the biomedical engineering discipline.",
+      "enrollment_requirement": "Not for students who have taken ENGG2602 or BMEG2602",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Lecture\nOthers\nPracticum\nSeminar",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Biomedical Engineering",
+      "academic_org": "Dept of Biomedical Engineering",
+      "learning_outcomes": "By the end of the course, students should be able to:\n- Acquire hand-on skills of engineering practice; and\n- Understand the fundamentals and daily operation of various medical instruments from the perspectives of end-users, (doctors, technicians, nurses and recipients (patients) through observation and work shadowing; and\n- Appreciate the role of biomedical engineers in hospitals, the importance of disinfection and aseptic techniques, experience the daily operation, information flow and logistics in the running of a hospital; and\n- Relate theory and engineering knowledge to practicing in a real-world setting; and\n- Appreciate the critical importance of safety and ethical issues relevant to the biomedical engineering discipline.",
+      "course_syllabus": "This course aims to enrich student experience in hospital environment and appreciation of laboratory skills, engineering and electrical safety and ethical issues. Students will have the opportunity to visit various hospital facilities and laboratories. This course includes professional workshops on laboratory skills and appreciation of ethical issues relevant to the biomedical engineering discipline.",
+      "assessment_types": {
+        "Attendance": "20",
+        "Homework or assignment": "50",
+        "Project": "15",
+        "Report": "15"
+      },
+      "feedback_evaluation": "1) Student course evaluation\n2) Student/Teacher meetings",
+      "required_readings": "Relevant reading list will be provided by course teachers.",
+      "recommended_readings": "Relevant reading list will be provided by course teachers."
+    },
+    {
+      "subject": "BMEG",
       "course_code": "3101",
       "title": "Medical Instrumentation and Design",
       "credits": "3.00",
@@ -951,10 +978,10 @@
               ],
               "availability": {
                 "capacity": "76",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -971,10 +998,10 @@
               ],
               "availability": {
                 "capacity": "76",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -997,10 +1024,10 @@
               ],
               "availability": {
                 "capacity": "76",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3324,7 +3351,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor CHAN Kai Fung",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -3344,7 +3371,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LI Zheng",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -3703,7 +3730,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor CHAN Pui Barbara",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -3723,7 +3750,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor CHAN Michael Kenneth",
+                  "instructor": "Professor SO Tiffany Yuen Tung",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -3743,7 +3770,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor WAN Chao",
+                  "instructor": "Professor XUE Yang",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -3804,66 +3831,6 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor GAO Zhaoli",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "OJ01-PRJ (7267)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor HO Yi Ping",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "PJ01-PRJ (7061)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "QJ01-PRJ (7059)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -4044,46 +4011,6 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor TUAN Rocky Sung Chi",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "ZYJ1-PRJ (7270)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "ZZJ1-PRJ (7271)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],

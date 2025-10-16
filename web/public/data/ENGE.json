@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-04T11:13:49.134820+00:00",
+    "scraped_at": "2025-10-15T21:38:04.255466+00:00",
     "subject": "ENGE",
     "subject_title": "English",
     "total_courses": 158,
@@ -1132,6 +1132,70 @@
                   "time": "Th 12:30PM - 1:15PM",
                   "location": "Tsang Shiu Tim Bldg 105",
                   "instructor": "Miss Poppy Morgan MILLER",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "H-LEC (9674)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 505",
+                  "instructor": "Miss CAO Wen Yin",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 505",
+                  "instructor": "Miss CAO Wen Yin",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 505",
+                  "instructor": "Miss CAO Wen Yin",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HT01-TUT (9676)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Miss CAO Wen Yin",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Miss CAO Wen Yin",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Miss CAO Wen Yin",
                   "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
@@ -2332,7 +2396,46 @@
       "course_code": "1800",
       "title": "Drama in Performance I",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9675)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "The course will introduce students to what is involved in translating a dramatic text from the page to the stage. Students will analyse some one-act plays in English from a dramaturgical point of view, workshop them in small groups and perform them on the stage before an audience. They will be introduced to the adaptation of texts for performance, to the technical aspects of casting, acting, directing and stagecraft. Emphasis will be placed on communicative aspects of acting, including pronunciation, intonation and voice production. Drama in Performance will complement other major courses in communication, literature and language study.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -8912,10 +9015,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8932,10 +9035,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "9",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
