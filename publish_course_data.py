@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Course Data Copy Script
+Course Data Publishing Script
 
-Validates and copies course JSON files from /data to /web/public/data with comprehensive checks.
+Validates and publishes course JSON files from /data to /web/public/data for deployment.
 - Validates scraped data integrity
 - Checks against scraping_progress.json
 - Reports total scraping time and statistics
 - Saves console output to file
 - Preserves original files in /data
 
-Usage: python move_course_data.py [--dry-run]
+Usage: python publish_course_data.py [--dry-run]
 """
 
 import json
@@ -244,8 +244,8 @@ def main():
     log_dir = "logs"
     os.makedirs(log_dir, exist_ok=True)
 
-    # Single log file for migration
-    log_file = os.path.join(log_dir, "migration_log.txt")
+    # Single log file for publishing course data
+    log_file = os.path.join(log_dir, "publish_courses.log")
 
     # Set up console logging
     logger = ConsoleLogger(log_file)
