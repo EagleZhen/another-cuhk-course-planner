@@ -1,31 +1,34 @@
 #!/usr/bin/env python3
 """
-Course Data Copy Script
+Course Data Publishing Script
 
-Validates and copies course JSON files from /data to /web/public/data with comprehensive checks.
+Validates and publishes course JSON files from /data to /web/public/data for deployment.
 - Validates scraped data integrity
 - Checks against scraping_progress.json
 - Reports total scraping time and statistics
 - Saves console output to file
 - Preserves original files in /data
 
-Usage: python move_course_data.py [--dry-run]
+Usage: python publish_course_data.py [--dry-run]
 """
 
 import json
 import os
+import re
 import shutil
 import glob
 import sys
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from typing import Dict, List, Tuple, Optional
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
-    progress_file = "data/scraping_progress.json"
+    progress_file = "logs/summary/scraping_progress.json"
     if not os.path.exists(progress_file):
         print("⚠️ No scraping_progress.json found - validation will be limited")
         return None
-    
+
     try:
         with open(progress_file, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -105,25 +108,107 @@ def validate_course_file(file_path: str, subject_code: str, progress_data: Optio
     return len(issues) == 0, issues
 
 def find_course_files() -> List[str]:
-    """Find all 4-letter course JSON files in /data directory"""
+    """
+    Find all 4-letter course JSON files in /data directory,
+    excluding EX_ prefixed files (exempt courses with no actual course data)
+    Validates file naming and warns about unexpected files
+    """
     data_dir = "data"
     if not os.path.exists(data_dir):
         return []
-    
+
     # Find JSON files with exactly 4 letter names
     pattern = os.path.join(data_dir, "*.json")
     all_files = glob.glob(pattern)
-    
+
     course_files = []
+    excluded_files = []
+    unexpected_files = []
+
     for file_path in all_files:
         filename = os.path.basename(file_path)
-        name_without_ext = filename[:-5]  # Remove .json
-        
-        # Check if it's exactly 4 letters
-        if len(name_without_ext) == 4 and name_without_ext.isalpha():
+        name_without_ext = os.path.splitext(filename)[0]  # Remove extension
+
+        # Exclude EX_ prefixed files (exemption placeholders with no courses)
+        if name_without_ext.startswith('EX_'):
+            excluded_files.append(name_without_ext)
+            continue
+
+        # Validate it's a proper 4-letter subject code
+        if len(name_without_ext) == 4 and name_without_ext.isalpha() and name_without_ext.isupper():
             course_files.append(file_path)
-    
+        else:
+            # Unexpected file format - report but don't include
+            unexpected_files.append(filename)
+
+    # Report excluded files
+    if excluded_files:
+        print(f"🚫 Excluded {len(excluded_files)} EX_ prefixed files: {', '.join(sorted(excluded_files))}")
+        print()
+
+    # Warn about unexpected files
+    if unexpected_files:
+        print(f"⚠️  Found {len(unexpected_files)} unexpected files in /data:")
+        for f in sorted(unexpected_files):
+            print(f"   - {f}")
+        print()
+
     return sorted(course_files)
+
+def validate_subject_list(found_subjects: List[str]) -> None:
+    """
+    Validate found subjects against hardcoded ALL_SUBJECTS in CourseSearch.tsx
+    Warns if there are discrepancies (added/removed subjects)
+    """
+    # Path to CourseSearch.tsx
+    course_search_path = "web/src/components/CourseSearch.tsx"
+
+    if not os.path.exists(course_search_path):
+        print("⚠️ Could not find CourseSearch.tsx - skipping subject list validation")
+        print()
+        return
+
+    try:
+        # Read CourseSearch.tsx and extract ALL_SUBJECTS array
+        with open(course_search_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Find ALL_SUBJECTS array using regex
+        pattern = r'const ALL_SUBJECTS = \[([\s\S]*?)\]'
+        match = re.search(pattern, content)
+
+        if not match:
+            print("⚠️ Could not find ALL_SUBJECTS in CourseSearch.tsx")
+            print()
+            return
+
+        # Parse the array content
+        array_content = match.group(1)
+        # Extract subject codes (remove quotes, whitespace, commas)
+        hardcoded_subjects = re.findall(r"'([A-Z]{4})'", array_content)
+
+        # Compare lists
+        found_set = set(found_subjects)
+        hardcoded_set = set(hardcoded_subjects)
+
+        added = found_set - hardcoded_set
+        removed = hardcoded_set - found_set
+
+        if added or removed:
+            print("⚠️  SUBJECT LIST CHANGES DETECTED:")
+            if added:
+                print(f"   ➕ Added ({len(added)}): {', '.join(sorted(added))}")
+            if removed:
+                print(f"   ➖ Removed ({len(removed)}): {', '.join(sorted(removed))}")
+            print(f"   📝 Please update ALL_SUBJECTS in {course_search_path}")
+            print()
+        else:
+            print(f"✅ Subject list matches CourseSearch.tsx ({len(found_subjects)} subjects)")
+            print()
+
+    except Exception as e:
+        print(f"⚠️ Error validating subject list: {e}")
+        print()
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
     """Calculate detailed scraping statistics"""
@@ -200,31 +285,39 @@ class ConsoleLogger:
     def __init__(self, filename):
         self.terminal = sys.stdout
         self.log_file = open(filename, 'w', encoding='utf-8')
-    
+
     def write(self, message):
         self.terminal.write(message)
         self.log_file.write(message)
-    
+
     def flush(self):
         self.terminal.flush()
         self.log_file.flush()
-    
+
     def close(self):
         self.log_file.close()
 
+    def get_user_input(self, prompt: str) -> str:
+        """Get user input while temporarily restoring terminal output"""
+        sys.stdout = self.terminal
+        try:
+            answer = input(prompt).strip().lower()
+        finally:
+            sys.stdout = self
+        return answer
+
 def main():
     # Generate log filename with timestamp
-    from datetime import datetime
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    
+
     # Create logs directory structure
-    log_dir = "logs/migration"
+    log_dir = "logs/publish"
     os.makedirs(log_dir, exist_ok=True)
-    
-    # Create both timestamped and latest log files
-    timestamped_log = os.path.join(log_dir, f"migration_log_{timestamp}.txt")
-    latest_log = os.path.join(log_dir, "latest_migration.txt")
-    
+
+    # Create timestamped log file
+    timestamped_log = os.path.join(log_dir, f"publish_{timestamp}.log")
+    latest_log = os.path.join(log_dir, "latest_publish.log")
+
     # Set up console logging (write to timestamped file)
     logger = ConsoleLogger(timestamped_log)
     sys.stdout = logger
@@ -236,65 +329,47 @@ def main():
             print("🔍 DRY RUN MODE - No files will be copied")
             print()
         
-        # Load progress data
-        print("📊 Loading scraping progress data...")
+        # Load progress data (one-line summary)
         progress_data = load_scraping_progress()
-        
         if progress_data:
-            print(f"✅ Progress data loaded:")
             log_data = progress_data.get('scraping_log', {})
-            print(f"   📈 Total subjects: {log_data.get('total_subjects', 'unknown')}")
-            print(f"   ✅ Completed: {log_data.get('completed', 'unknown')}")
-            print(f"   ❌ Failed: {log_data.get('failed', 'unknown')}")
-            
-            # Calculate and display detailed scraping statistics
             stats = calculate_scraping_statistics(progress_data)
             if stats:
-                print()
-                print("📊 Scraping Performance Analysis:")
-                print(f"   ⏱️ Total time: {format_duration(stats['total_minutes'])} ({stats['total_minutes']:.1f} minutes)")
-                print(f"   📚 Total courses: {stats['total_courses']:,}")
-                print(f"   📋 Average per subject: {format_duration(stats['avg_time_per_subject'])}")
-                print(f"   📖 Average per course: {stats['avg_time_per_course']:.2f} minutes")
-                
-                if stats['fastest_subject']:
-                    subj, time, courses = stats['fastest_subject']
-                    print(f"   🏃 Fastest: {subj} - {format_duration(time)} ({courses} courses)")
-                
-                if stats['slowest_subject']:
-                    subj, time, courses = stats['slowest_subject'] 
-                    print(f"   🐌 Slowest: {subj} - {format_duration(time)} ({courses} courses)")
-            print()
-        
+                # Convert UTC timestamp to HK timezone
+                started_at_str = log_data.get('started_at')
+                if started_at_str:
+                    utc_time = datetime.fromisoformat(started_at_str)
+                    hk_time = utc_time.astimezone(ZoneInfo('Asia/Hong_Kong'))
+                    time_str = hk_time.strftime('%Y-%m-%d %H:%M HKT')
+                    print(f"📊 Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed")
+                else:
+                    print(f"📊 Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed")
+
         # Find course files
-        print("🔍 Finding course data files...")
         course_files = find_course_files()
         print(f"📁 Found {len(course_files)} course JSON files")
-        print()
-        
+
         if not course_files:
             print("❌ No course files found to copy")
             return
-        
+
+        # Validate subject list against CourseSearch.tsx
+        found_subjects = [os.path.splitext(os.path.basename(f))[0] for f in course_files]  # Extract subject codes
+        validate_subject_list(found_subjects)
+
         # Create destination directory
         dest_dir = "web/public/data"
         if not dry_run:
             os.makedirs(dest_dir, exist_ok=True)
-            print(f"📂 Destination directory ready: {dest_dir}")
-        else:
-            print(f"📂 Would create destination directory: {dest_dir}")
-        print()
-        
+
         # Validate and categorize files
         valid_files = []
         problematic_files = []
         empty_subjects = []
-        
-        print("🔍 Validating course files...")
         for file_path in course_files:
             filename = os.path.basename(file_path)
-            subject_code = filename[:-5]  # Remove .json extension
-            
+            subject_code = os.path.splitext(filename)[0]  # Remove extension
+
             is_valid, issues = validate_course_file(file_path, subject_code, progress_data)
             
             if is_valid:
@@ -304,14 +379,10 @@ def main():
                 # Check if this subject has no courses
                 if any("No courses found" in issue for issue in issues):
                     empty_subjects.append(subject_code)
-        
-        print(f"✅ Valid files: {len(valid_files)}")
-        
-        # Report subjects with no courses
+
+        # Report subjects with no courses (compact single-line format)
         if empty_subjects:
-            print(f"📭 Subjects with no courses ({len(empty_subjects)}):")
-            for i, subject in enumerate(empty_subjects, 1):
-                print(f"   {i:2d}. {subject}")
+            print(f"📭 Subjects with no courses ({len(empty_subjects)}): {', '.join(sorted(empty_subjects))}")
         else:
             print("✅ All subjects have courses")
         
@@ -325,120 +396,72 @@ def main():
             print(f"⚠️ Files with other issues ({len(non_empty_problematic)}):")
             for file_path, issues in non_empty_problematic:
                 filename = os.path.basename(file_path)
-                subject_code = filename[:-5]
+                subject_code = os.path.splitext(filename)[0]
                 print(f"   - {subject_code}: {', '.join(issues)}")
-        
-        print()
-        
-        # Show detailed scraping statistics BEFORE any user decisions
-        if progress_data:
-            stats = calculate_scraping_statistics(progress_data)
-            if stats:
-                print("📈 DETAILED SCRAPING STATISTICS:")
-                print(f"   ⏱️ Total scraping time: {format_duration(stats['total_minutes'])} ({stats['total_minutes']:.1f} minutes)")
-                print(f"   📚 Total courses scraped: {stats['total_courses']:,}")
-                print(f"   📋 Subjects completed: {stats['completed_subjects']}")
-                print(f"   📖 Efficiency: {stats['avg_time_per_course']:.2f} minutes per course")
-                
-                # Performance insights - focus on subject-level metrics
-                if stats['fastest_subject'] and stats['slowest_subject']:
-                    fast_subj, fast_time, fast_courses = stats['fastest_subject']
-                    slow_subj, slow_time, slow_courses = stats['slowest_subject']
-                    
-                    print()
-                    print("🔍 Performance Insights:")
-                    print(f"   🏆 Fastest subject: {fast_subj} ({format_duration(fast_time)}, {fast_courses} courses)")
-                    print(f"   🐢 Slowest subject: {slow_subj} ({format_duration(slow_time)}, {slow_courses} courses)")
-                    
-                    if fast_time > 0:
-                        time_ratio = slow_time / fast_time
-                        print(f"   📊 Time range: {time_ratio:.1f}x difference")
-                print()
-        
+
         # Determine files to copy (all valid files by default)
         files_to_copy = valid_files.copy()
         
         # Ask if user wants to include problematic files (single confirmation)
         if problematic_files:
-            print(f"📊 Summary:")
+            print("📊 Summary:")
             print(f"   ✅ Valid files ready to copy: {len(valid_files)}")
             print(f"   ⚠️ Problematic files: {len(problematic_files)}")
             print()
-            
-            # Restore original stdout for user input
-            sys.stdout = logger.terminal
-            include_problematic = input("Include problematic files in migration? [y/N]: ").strip().lower()
-            sys.stdout = logger  # Restore logging
-            
+
+            include_problematic = logger.get_user_input("Include problematic files in migration? [y/N]: ")
+
             if include_problematic in ['y', 'yes']:
                 files_to_copy.extend([file_path for file_path, _ in problematic_files])
                 print("➡️ Including all problematic files in copy operation")
             else:
                 print("⏭️ Skipping problematic files")
-            print()
-        
-        print(f"📋 FINAL SUMMARY:")
-        print(f"   Files to copy: {len(files_to_copy)}")
-        print(f"   Files to skip: {len(course_files) - len(files_to_copy)}")
-        print()
-        
+
         if not files_to_copy:
-            print("❌ No files to copy")
+            print("❌ No files to publish")
             return
-        
+
         if not dry_run:
-            # Restore original stdout for user input
-            sys.stdout = logger.terminal
-            proceed = input("Proceed with copying files? [Y/n]: ").strip().lower()
-            sys.stdout = logger  # Restore logging
-            
+            proceed = logger.get_user_input(f"\nProceed with publishing {len(files_to_copy)} files? [Y/n]: ")
+
             if proceed in ['n', 'no']:
                 print("❌ Operation cancelled by user")
                 return
-        
+
         # Copy files
         print()
-        print("🚀 Copying files...")
         copied_count = 0
-        
+
         for file_path in files_to_copy:
             filename = os.path.basename(file_path)
             dest_path = os.path.join(dest_dir, filename)
-            
+
             try:
                 if not dry_run:
                     shutil.copy2(file_path, dest_path)
                 copied_count += 1
             except Exception as e:
                 print(f"❌ Failed to copy {filename}: {e}")
-        
+
+        # Publishing summary
+        print("📋 Publishing Summary:")
+        print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
         if not dry_run:
-            print(f"✅ Successfully copied {copied_count} files")
+            print(f"   📂 Destination: {dest_dir}")
         else:
-            print(f"✅ Would copy {copied_count} files")
-        
-        # Final report
+            print("   🔍 DRY RUN - No files actually copied")
+
         print()
-        print("🎉 COPY OPERATION COMPLETE!")
-        print("=" * 30)
-        print(f"📁 Total files processed: {len(course_files)}")
-        print(f"✅ Files copied: {copied_count}")
-        print(f"⏭️ Files skipped: {len(course_files) - copied_count}")
-        
-        if not dry_run:
-            print(f"📂 Destination: {os.path.abspath(dest_dir)}")
-        
-        print()
-        print(f"📝 Logs saved to:")
+        print("📝 Logs saved to:")
         print(f"   📄 {timestamped_log}")
-        print(f"   🔄 {latest_log} (git tracked)")
-        
+        print(f"   🔄 {latest_log}")
+
     finally:
         # Restore original stdout and close log file
         sys.stdout = logger.terminal
         logger.close()
-        
-        # Copy timestamped log to latest log for git tracking
+
+        # Copy timestamped log to latest log for quick reference
         try:
             shutil.copy2(timestamped_log, latest_log)
         except Exception as e:

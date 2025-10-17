@@ -34,13 +34,13 @@ poetry run python scrape_all_subjects.py
 
 Scrapes all ~259 subjects to `data/*.json` (~50MB total). Takes 1-2 hours.
 
-### 2. Copy data to web app
+### 2. Publish data to web app
 
 ```bash
-poetry run move_course_data.py
+poetry run python publish_course_data.py
 ```
 
-Validates and copies course data from `data/` to `web/public/data/`.
+Validates and publishes course data from `data/` to `web/public/data/` for deployment.
 
 ### 3. Run the web app
 
@@ -60,7 +60,7 @@ Open http://localhost:3000
 .
 ├── cuhk_scraper.py              Main scraper logic
 ├── scrape_all_subjects.py       Run this to scrape all subjects
-├── move_course_data.py          Copy data to web app with validation
+├── publish_course_data.py       Publish data to web app with validation
 ├── data_utils.py                HTML/markdown utilities
 ├── analyze_course_data.py       Data analysis scripts
 │
@@ -68,7 +68,7 @@ Open http://localhost:3000
 ├── logs/                        Scraping logs & progress tracking
 │
 └── web/
-    ├── public/data/             Course data for web app (copy from /data)
+    ├── public/data/             Course data for web app (published from /data)
     └── src/
         ├── app/                 page.tsx = main state hub
         ├── components/          React components
@@ -84,7 +84,7 @@ Open http://localhost:3000
 ```bash
 poetry run python scrape_all_subjects.py  # Production (all subjects)
 poetry run python cuhk_scraper.py         # Test mode (3 courses/subject)
-poetry run move_course_data.py                # Copy data to web app
+poetry run python publish_course_data.py  # Publish data to web app
 ```
 
 **Web app:**
