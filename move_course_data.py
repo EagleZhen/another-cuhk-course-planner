@@ -240,20 +240,15 @@ class ConsoleLogger:
         self.log_file.close()
 
 def main():
-    # Generate log filename with timestamp
-    from datetime import datetime
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    
-    # Create logs directory structure
-    log_dir = "logs/migration"
+    # Create logs directory
+    log_dir = "logs"
     os.makedirs(log_dir, exist_ok=True)
-    
-    # Create both timestamped and latest log files
-    timestamped_log = os.path.join(log_dir, f"migration_log_{timestamp}.txt")
-    latest_log = os.path.join(log_dir, "latest_migration.txt")
-    
-    # Set up console logging (write to timestamped file)
-    logger = ConsoleLogger(timestamped_log)
+
+    # Single log file for migration
+    log_file = os.path.join(log_dir, "migration_log.txt")
+
+    # Set up console logging
+    logger = ConsoleLogger(log_file)
     sys.stdout = logger
     
     try:
@@ -454,22 +449,14 @@ def main():
         
         if not dry_run:
             print(f"📂 Destination: {os.path.abspath(dest_dir)}")
-        
+
         print()
-        print(f"📝 Logs saved to:")
-        print(f"   📄 {timestamped_log}")
-        print(f"   🔄 {latest_log} (git tracked)")
-        
+        print(f"📝 Log saved to: {os.path.abspath(log_file)}")
+
     finally:
         # Restore original stdout and close log file
         sys.stdout = logger.terminal
         logger.close()
-        
-        # Copy timestamped log to latest log for git tracking
-        try:
-            shutil.copy2(timestamped_log, latest_log)
-        except Exception as e:
-            print(f"⚠️ Warning: Could not create latest log: {e}")
 
 if __name__ == "__main__":
     main()
