@@ -124,7 +124,7 @@ def find_course_files() -> List[str]:
 
     for file_path in all_files:
         filename = os.path.basename(file_path)
-        name_without_ext = filename[:-5]  # Remove .json
+        name_without_ext = os.path.splitext(filename)[0]  # Remove extension
 
         # Exclude EX_ prefixed files (exemption placeholders with no courses)
         if name_without_ext.startswith('EX_'):
@@ -151,6 +151,62 @@ def find_course_files() -> List[str]:
         print()
 
     return sorted(course_files)
+
+def validate_subject_list(found_subjects: List[str]) -> None:
+    """
+    Validate found subjects against hardcoded ALL_SUBJECTS in CourseSearch.tsx
+    Warns if there are discrepancies (added/removed subjects)
+    """
+    # Path to CourseSearch.tsx
+    course_search_path = "web/src/components/CourseSearch.tsx"
+
+    if not os.path.exists(course_search_path):
+        print("⚠️ Could not find CourseSearch.tsx - skipping subject list validation")
+        print()
+        return
+
+    try:
+        # Read CourseSearch.tsx and extract ALL_SUBJECTS array
+        with open(course_search_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Find ALL_SUBJECTS array using regex
+        import re
+        pattern = r'const ALL_SUBJECTS = \[([\s\S]*?)\]'
+        match = re.search(pattern, content)
+
+        if not match:
+            print("⚠️ Could not find ALL_SUBJECTS in CourseSearch.tsx")
+            print()
+            return
+
+        # Parse the array content
+        array_content = match.group(1)
+        # Extract subject codes (remove quotes, whitespace, commas)
+        hardcoded_subjects = re.findall(r"'([A-Z]{4})'", array_content)
+
+        # Compare lists
+        found_set = set(found_subjects)
+        hardcoded_set = set(hardcoded_subjects)
+
+        added = found_set - hardcoded_set
+        removed = hardcoded_set - found_set
+
+        if added or removed:
+            print("⚠️  SUBJECT LIST CHANGES DETECTED:")
+            if added:
+                print(f"   ➕ Added ({len(added)}): {', '.join(sorted(added))}")
+            if removed:
+                print(f"   ➖ Removed ({len(removed)}): {', '.join(sorted(removed))}")
+            print(f"   📝 Please update ALL_SUBJECTS in {course_search_path}")
+            print()
+        else:
+            print(f"✅ Subject list matches CourseSearch.tsx ({len(found_subjects)} subjects)")
+            print()
+
+    except Exception as e:
+        print(f"⚠️ Error validating subject list: {e}")
+        print()
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
     """Calculate detailed scraping statistics"""
@@ -298,10 +354,14 @@ def main():
         course_files = find_course_files()
         print(f"📁 Found {len(course_files)} course JSON files")
         print()
-        
+
         if not course_files:
             print("❌ No course files found to copy")
             return
+
+        # Validate subject list against CourseSearch.tsx
+        found_subjects = [os.path.splitext(os.path.basename(f))[0] for f in course_files]  # Extract subject codes
+        validate_subject_list(found_subjects)
         
         # Create destination directory
         dest_dir = "web/public/data"
@@ -320,8 +380,8 @@ def main():
         print("🔍 Validating course files...")
         for file_path in course_files:
             filename = os.path.basename(file_path)
-            subject_code = filename[:-5]  # Remove .json extension
-            
+            subject_code = os.path.splitext(filename)[0]  # Remove extension
+
             is_valid, issues = validate_course_file(file_path, subject_code, progress_data)
             
             if is_valid:
@@ -350,7 +410,7 @@ def main():
             print(f"⚠️ Files with other issues ({len(non_empty_problematic)}):")
             for file_path, issues in non_empty_problematic:
                 filename = os.path.basename(file_path)
-                subject_code = filename[:-5]
+                subject_code = os.path.splitext(filename)[0]
                 print(f"   - {subject_code}: {', '.join(issues)}")
         
         print()
