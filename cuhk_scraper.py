@@ -1392,7 +1392,8 @@ class CuhkScraper:
             # Check if Course Outcome button exists
             outcome_btn = soup.find('input', {'id': 'btn_course_outcome'})
             if not outcome_btn:
-                self.logger.info(f"No Course Outcome button found for {course.course_code}")
+                self.logger.error(f"No Course Outcome button found for {course.course_code}")
+                self._track_failed_course_outcome(course.subject, course.course_code, "no_course_outcome_button")
                 return
             
             # Extract form data for Course Outcome navigation
