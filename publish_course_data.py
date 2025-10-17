@@ -240,15 +240,20 @@ class ConsoleLogger:
         self.log_file.close()
 
 def main():
-    # Create logs directory
-    log_dir = "logs"
+    # Generate log filename with timestamp
+    from datetime import datetime
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    # Create logs directory structure
+    log_dir = "logs/publish"
     os.makedirs(log_dir, exist_ok=True)
 
-    # Single log file for publishing course data
-    log_file = os.path.join(log_dir, "publish_courses.log")
+    # Create timestamped log file
+    timestamped_log = os.path.join(log_dir, f"publish_{timestamp}.log")
+    latest_log = os.path.join(log_dir, "latest_publish.log")
 
-    # Set up console logging
-    logger = ConsoleLogger(log_file)
+    # Set up console logging (write to timestamped file)
+    logger = ConsoleLogger(timestamped_log)
     sys.stdout = logger
     
     try:
@@ -451,12 +456,20 @@ def main():
             print(f"📂 Destination: {os.path.abspath(dest_dir)}")
 
         print()
-        print(f"📝 Log saved to: {os.path.abspath(log_file)}")
+        print("📝 Logs saved to:")
+        print(f"   📄 {timestamped_log}")
+        print(f"   🔄 {latest_log} (latest)")
 
     finally:
         # Restore original stdout and close log file
         sys.stdout = logger.terminal
         logger.close()
+
+        # Copy timestamped log to latest log for quick reference
+        try:
+            shutil.copy2(timestamped_log, latest_log)
+        except Exception as e:
+            print(f"⚠️ Warning: Could not create latest log: {e}")
 
 if __name__ == "__main__":
     main()
