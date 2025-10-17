@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-15T20:45:23.166087+00:00",
+    "scraped_at": "2025-10-17T09:55:16.035435+00:00",
     "subject": "COMM",
     "subject_title": "Communication",
     "total_courses": 211,
@@ -3478,7 +3478,40 @@
         {
           "term_code": "2390",
           "term_name": "2025-26 Term 2",
-          "schedule": []
+          "schedule": [
+            {
+              "section": "B-LEC (7854)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Humanities Building 314",
+                  "instructor": "Mr SHAM Ka Ho",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Humanities Building 314",
+                  "instructor": "Mr SHAM Ka Ho",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Humanities Building 314",
+                  "instructor": "Mr SHAM Ka Ho",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "18",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "18",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
         }
       ],
       "description": "This course combines a basic introduction to the practical skills of photography with an introduction to the idea of visual literacy - a look at the history and social role of the image in the contemporary image-driven multimedia environment.",

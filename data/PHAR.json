@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-16T00:33:15.760777+00:00",
+    "scraped_at": "2025-10-17T13:49:13.724404+00:00",
     "subject": "PHAR",
     "subject_title": "Pharmacy",
     "total_courses": 92,
@@ -2330,147 +2330,23 @@
       "subject": "PHAR",
       "course_code": "3413",
       "title": "Pharmacology and Therapeutics II",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2380",
-          "term_name": "2025-26 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (5777)",
-              "meetings": [
-                {
-                  "time": "Tu 11:30AM - 12:15PM",
-                  "location": "Y.C. Liang Hall G04",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. LEE Chui Ping, \nDr. SEE Christopher Yew Hong, \nDr. TAI Bik Wai, \nDr. YUEN Siu Hong Johnny, \nDr. ZHOU Keary Rui, \nProfessor LAM Tai Ning, \nProfessor YOU Hoi Sze Joyce",
-                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
-                },
-                {
-                  "time": "Tu 11:30AM - 12:15PM",
-                  "location": "Y.C. Liang Hall G04",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. LEE Chui Ping, \nDr. SEE Christopher Yew Hong, \nDr. TAI Bik Wai, \nDr. YUEN Siu Hong Johnny, \nDr. ZHOU Keary Rui, \nProfessor LAM Tai Ning, \nProfessor YOU Hoi Sze Joyce",
-                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
-                },
-                {
-                  "time": "Mo 9:30AM - 10:15AM",
-                  "location": "Mong Man Wai Bldg 707",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. LEE Chui Ping, \nDr. SEE Christopher Yew Hong, \nDr. TAI Bik Wai, \nDr. YUEN Siu Hong Johnny, \nDr. ZHOU Keary Rui, \nProfessor LAM Tai Ning, \nProfessor YOU Hoi Sze Joyce",
-                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "Science Centre LG23",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. LEE Chui Ping, \nDr. SEE Christopher Yew Hong, \nDr. TAI Bik Wai, \nDr. YUEN Siu Hong Johnny, \nDr. ZHOU Keary Rui, \nProfessor LAM Tai Ning, \nProfessor YOU Hoi Sze Joyce",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "Science Centre LG23",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. LEE Chui Ping, \nDr. SEE Christopher Yew Hong, \nDr. TAI Bik Wai, \nDr. YUEN Siu Hong Johnny, \nDr. ZHOU Keary Rui, \nProfessor LAM Tai Ning, \nProfessor YOU Hoi Sze Joyce",
-                  "dates": "8/10, 15/10, 22/10"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "Science Centre LG23",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. LEE Chui Ping, \nDr. SEE Christopher Yew Hong, \nDr. TAI Bik Wai, \nDr. YUEN Siu Hong Johnny, \nDr. ZHOU Keary Rui, \nProfessor LAM Tai Ning, \nProfessor YOU Hoi Sze Joyce",
-                  "dates": "5/11, 12/11, 19/11, 26/11"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "55",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-P01-PRA (9214)",
-              "meetings": [
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. Julia MACEDO ROSA",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. Julia MACEDO ROSA",
-                  "dates": "8/10, 15/10, 22/10"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. Julia MACEDO ROSA",
-                  "dates": "5/11, 12/11, 19/11, 26/11"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "55",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T01-TUT (6154)",
-              "meetings": [
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. Kanchan Rao SINGH, \nDr. SEE Christopher Yew Hong, \nProfessor CHEN Yangchao, \nProfessor John Anthony RUDD, \nProfessor LAM Fu Yuen",
-                  "dates": "8/10, 15/10, 22/10"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. Kanchan Rao SINGH, \nDr. SEE Christopher Yew Hong, \nProfessor CHEN Yangchao, \nProfessor John Anthony RUDD, \nProfessor LAM Fu Yuen",
-                  "dates": "5/11, 12/11, 19/11, 26/11"
-                },
-                {
-                  "time": "We 1:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. Julia MACEDO ROSA, \nDr. Kanchan Rao SINGH, \nDr. SEE Christopher Yew Hong, \nProfessor CHEN Yangchao, \nProfessor John Anthony RUDD, \nProfessor LAM Fu Yuen",
-                  "dates": "3/9, 10/9, 17/9, 24/9"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "55",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "This course provides students with an understanding of the principles of drug action including pharmacodynamics and pharmacokinetics. The pharmacotherapy of disorders associated with various organ systems are discussed in a modular system over four terms. In each module, the general pathology together with the clinical features, diagnostic and monitoring parameters of the therapy are to be introduced. The course will provide the student with an understanding of the mechanisms of action, pharmacological effects, clinical indications and relevant side effects of the most important drugs used. The modules of diseases/drugs covered include central nervous system, cardiovascular system, respiratory system, gastrointestinal system, immunological system, endocrine system, chemotherapy and others. Pharmacoeconomic analysis and its role in pharmacotherapy will also be discussed.",
-      "enrollment_requirement": "Pre-requisite: PHAR2410.",
+      "credits": "",
+      "terms": [],
+      "description": "",
+      "enrollment_requirement": "",
       "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nPracticum\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Sch of Pharmacy",
-      "academic_org": "Sch of Pharmacy",
-      "learning_outcomes": "To recognize the clinical manifestations of disease\nTo counsel patient on the use of drug therapy\nTo recommend appropriate treatment considering patient-related and drug-related factors patient on the use of drug therapy\nTo monitor the efficacy and safety of drug therapy\nTo explain the rationale of drug therapies in terms of the mechanisms of actions and side effect profiles of drugs",
-      "course_syllabus": "Drug Action on the cardivascular system\nDrugs affecting hormone system",
-      "assessment_types": {
-        "Examination": "70",
-        "Others": "30"
-      },
-      "feedback_evaluation": "Course and Teaching Evaluation (CTE)",
-      "required_readings": "Please refer to the course outline provided by course teachers",
-      "recommended_readings": "Pharmacy Suggested Reading:\nPharmacotherapy: A Pathophysiologic Approach by DiPiro, J.T. et al: McGraw-Hill, 11th Edition (2020). (available at Accesspharmacy online)\nGoodman & Gilman's: The Pharmacological Basis of Therapeutics, 14th Edition (2022). (available at Accesspharmacy online)\nPharmacology Suggested Reading:\n1. Rang and Dale’s Pharmacology by Ritter J. M., Flower R. Henderson G., Loke Y.K., MacEwan D., Robinson E., Fullerton J.: Elsevier, 10th Edition (2023)\n2. Basic & Clinical Pharmacology by Katzung, B.G., Trevor, Anthony J., Masters, Susan B.: Lange Medical Publications, 15th Edition (2021)."
+      "academic_career": "",
+      "grading_basis": "",
+      "component": "",
+      "campus": "",
+      "academic_group": "",
+      "academic_org": "",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "PHAR",
