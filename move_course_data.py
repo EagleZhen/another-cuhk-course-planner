@@ -105,24 +105,51 @@ def validate_course_file(file_path: str, subject_code: str, progress_data: Optio
     return len(issues) == 0, issues
 
 def find_course_files() -> List[str]:
-    """Find all 4-letter course JSON files in /data directory"""
+    """
+    Find all 4-letter course JSON files in /data directory,
+    excluding EX_ prefixed files (exempt courses with no actual course data)
+    Validates file naming and warns about unexpected files
+    """
     data_dir = "data"
     if not os.path.exists(data_dir):
         return []
-    
+
     # Find JSON files with exactly 4 letter names
     pattern = os.path.join(data_dir, "*.json")
     all_files = glob.glob(pattern)
-    
+
     course_files = []
+    excluded_files = []
+    unexpected_files = []
+
     for file_path in all_files:
         filename = os.path.basename(file_path)
         name_without_ext = filename[:-5]  # Remove .json
-        
-        # Check if it's exactly 4 letters
-        if len(name_without_ext) == 4 and name_without_ext.isalpha():
+
+        # Exclude EX_ prefixed files (exemption placeholders with no courses)
+        if name_without_ext.startswith('EX_'):
+            excluded_files.append(name_without_ext)
+            continue
+
+        # Validate it's a proper 4-letter subject code
+        if len(name_without_ext) == 4 and name_without_ext.isalpha() and name_without_ext.isupper():
             course_files.append(file_path)
-    
+        else:
+            # Unexpected file format - report but don't include
+            unexpected_files.append(filename)
+
+    # Report excluded files
+    if excluded_files:
+        print(f"🚫 Excluded {len(excluded_files)} EX_ prefixed files: {', '.join(sorted(excluded_files))}")
+        print()
+
+    # Warn about unexpected files
+    if unexpected_files:
+        print(f"⚠️  Found {len(unexpected_files)} unexpected files in /data:")
+        for f in sorted(unexpected_files):
+            print(f"   - {f}")
+        print()
+
     return sorted(course_files)
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
