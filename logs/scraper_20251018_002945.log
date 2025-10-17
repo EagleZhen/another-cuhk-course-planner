@@ -1,0 +1,736 @@
+2025-10-18 00:29:45,368 - INFO - 📝 File logging initialized: logs\scraper_20251018_002945.log
+2025-10-18 00:29:45,518 - INFO - 🛡️  Starting scraping for 1 subjects
+2025-10-18 00:29:45,518 - INFO - 📁 Saving to: data/
+2025-10-18 00:29:45,518 - INFO - 💾 Mode: Memory-safe with immediate saves
+2025-10-18 00:29:45,519 - INFO - 📋 Fetching subject titles from live website...
+2025-10-18 00:29:45,620 - INFO - 📋 Found 263 subjects with titles from live site
+2025-10-18 00:29:45,620 - INFO - ✅ Cached 263 subject titles for metadata
+2025-10-18 00:29:45,622 - INFO - Preserved data for 263 existing subjects
+2025-10-18 00:29:45,622 - INFO - 📊 Progress tracking enabled: logs\summary\scraping_progress.json
+2025-10-18 00:29:45,622 - INFO - 🔄 Processing PHAR (1/1)
+2025-10-18 00:29:45,623 - INFO - 📋 Scraping PHAR, attempt 1
+2025-10-18 00:29:45,755 - INFO - 🔤 OCR produced: SDZU (awaiting server validation)
+2025-10-18 00:29:46,218 - INFO - ✅ Captcha accepted for PHAR: has_courses
+2025-10-18 00:29:46,298 - INFO - Parsed 92 courses from results table
+2025-10-18 00:29:46,309 - INFO - 🚀 Started scraping PHAR
+2025-10-18 00:29:46,309 - INFO - Getting details for all 92 courses...
+2025-10-18 00:29:46,309 - INFO - 📖 Getting details for course 1/92: 1000
+2025-10-18 00:29:46,683 - INFO - Navigating to Course Outcome page for 1000
+2025-10-18 00:29:46,911 - INFO - Course Outcome parsed for 1000
+2025-10-18 00:29:46,912 - INFO - Found 1 terms for 1000: ['2025-26 Term 1']
+2025-10-18 00:29:46,912 - INFO - Scraping term 1/1: 2025-26 Term 1 for 1000
+2025-10-18 00:29:46,938 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:29:46,955 - INFO - Getting enrollment details for section: --LEC (5670)
+2025-10-18 00:29:47,220 - INFO - Getting enrollment details for section: -F01-FLD (8175)
+2025-10-18 00:29:47,600 - INFO - Extracted details for 1000: Credits=2.00, Terms=1
+2025-10-18 00:29:48,601 - INFO - 📖 Getting details for course 2/92: 1004
+2025-10-18 00:29:48,928 - INFO - Navigating to Course Outcome page for 1004
+2025-10-18 00:29:49,157 - INFO - Course Outcome parsed for 1004
+2025-10-18 00:29:49,157 - INFO - Found 1 terms for 1004: ['2025-26 Term 2']
+2025-10-18 00:29:49,157 - INFO - Scraping term 1/1: 2025-26 Term 2 for 1004
+2025-10-18 00:29:49,174 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:29:49,198 - INFO - Getting enrollment details for section: -O01-OTH (6389)
+2025-10-18 00:29:49,538 - INFO - Extracted details for 1004: Credits=1.00, Terms=1
+2025-10-18 00:29:50,539 - INFO - 📖 Getting details for course 3/92: 1110
+2025-10-18 00:29:51,005 - INFO - Navigating to Course Outcome page for 1110
+2025-10-18 00:29:51,236 - INFO - Course Outcome parsed for 1110
+2025-10-18 00:29:51,237 - INFO - Found 1 terms for 1110: ['2025-26 Term 2']
+2025-10-18 00:29:51,237 - INFO - Scraping term 1/1: 2025-26 Term 2 for 1110
+2025-10-18 00:29:51,256 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:29:51,276 - INFO - Getting enrollment details for section: --LEC (6648)
+2025-10-18 00:29:51,563 - INFO - Getting enrollment details for section: -P01-PRA (8946)
+2025-10-18 00:29:51,776 - INFO - Getting enrollment details for section: -T01-TUT (6649)
+2025-10-18 00:29:52,112 - INFO - Extracted details for 1110: Credits=2.00, Terms=1
+2025-10-18 00:29:53,114 - INFO - 📖 Getting details for course 4/92: 1423
+2025-10-18 00:29:53,444 - INFO - Navigating to Course Outcome page for 1423
+2025-10-18 00:29:53,784 - INFO - Course Outcome parsed for 1423
+2025-10-18 00:29:53,785 - INFO - Found 1 terms for 1423: ['2025-26 Term 1']
+2025-10-18 00:29:53,785 - INFO - Scraping term 1/1: 2025-26 Term 1 for 1423
+2025-10-18 00:29:53,806 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:29:53,825 - INFO - Getting enrollment details for section: --LEC (9371)
+2025-10-18 00:29:54,232 - INFO - Getting enrollment details for section: -J01-PRJ (9190)
+2025-10-18 00:29:54,583 - INFO - Getting enrollment details for section: -T01-TUT (9191)
+2025-10-18 00:29:54,871 - INFO - Extracted details for 1423: Credits=2.00, Terms=1
+2025-10-18 00:29:55,872 - INFO - 📖 Getting details for course 5/92: 1433
+2025-10-18 00:29:56,285 - INFO - Navigating to Course Outcome page for 1433
+2025-10-18 00:29:56,593 - INFO - Course Outcome parsed for 1433
+2025-10-18 00:29:56,594 - INFO - Found 1 terms for 1433: ['2025-26 Term 1']
+2025-10-18 00:29:56,594 - INFO - Scraping term 1/1: 2025-26 Term 1 for 1433
+2025-10-18 00:29:56,614 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:29:56,631 - INFO - Getting enrollment details for section: --LEC (9255)
+2025-10-18 00:29:56,942 - INFO - Getting enrollment details for section: -P01-PRA (8178)
+2025-10-18 00:29:57,243 - INFO - Getting enrollment details for section: -T01-TUT (8189)
+2025-10-18 00:29:57,490 - INFO - Extracted details for 1433: Credits=2.00, Terms=1
+2025-10-18 00:29:58,491 - INFO - 📖 Getting details for course 6/92: 1434
+2025-10-18 00:29:58,870 - INFO - Navigating to Course Outcome page for 1434
+2025-10-18 00:29:59,124 - INFO - Course Outcome parsed for 1434
+2025-10-18 00:29:59,125 - INFO - Found 1 terms for 1434: ['2025-26 Term 2']
+2025-10-18 00:29:59,125 - INFO - Scraping term 1/1: 2025-26 Term 2 for 1434
+2025-10-18 00:29:59,145 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:29:59,165 - INFO - Getting enrollment details for section: --LEC (9035)
+2025-10-18 00:29:59,483 - INFO - Getting enrollment details for section: -P01-PRA (8981)
+2025-10-18 00:29:59,792 - INFO - Getting enrollment details for section: -T01-TUT (8974)
+2025-10-18 00:30:00,124 - INFO - Extracted details for 1434: Credits=2.00, Terms=1
+2025-10-18 00:30:01,126 - INFO - 📖 Getting details for course 7/92: 1440
+2025-10-18 00:30:01,542 - INFO - Navigating to Course Outcome page for 1440
+2025-10-18 00:30:01,846 - INFO - Course Outcome parsed for 1440
+2025-10-18 00:30:01,854 - INFO - Found 1 terms for 1440: ['2025-26 Term 2']
+2025-10-18 00:30:01,854 - INFO - Scraping term 1/1: 2025-26 Term 2 for 1440
+2025-10-18 00:30:01,920 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:01,978 - INFO - Getting enrollment details for section: --LEC (6650)
+2025-10-18 00:30:02,331 - INFO - Extracted details for 1440: Credits=1.00, Terms=1
+2025-10-18 00:30:03,332 - INFO - 📖 Getting details for course 8/92: 2018
+2025-10-18 00:30:03,701 - INFO - Navigating to Course Outcome page for 2018
+2025-10-18 00:30:04,006 - INFO - Course Outcome parsed for 2018
+2025-10-18 00:30:04,007 - INFO - No term dropdown found for 2018, using current data
+2025-10-18 00:30:05,022 - INFO - 📖 Getting details for course 9/92: 2110
+2025-10-18 00:30:05,456 - INFO - Navigating to Course Outcome page for 2110
+2025-10-18 00:30:05,708 - INFO - Course Outcome parsed for 2110
+2025-10-18 00:30:05,709 - INFO - Found 1 terms for 2110: ['2025-26 Term 1']
+2025-10-18 00:30:05,709 - INFO - Scraping term 1/1: 2025-26 Term 1 for 2110
+2025-10-18 00:30:05,731 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:05,753 - INFO - Getting enrollment details for section: --LEC (6627)
+2025-10-18 00:30:06,018 - INFO - Getting enrollment details for section: -P01-PRA (8176)
+2025-10-18 00:30:06,360 - INFO - Getting enrollment details for section: -T01-TUT (8169)
+2025-10-18 00:30:06,684 - INFO - Extracted details for 2110: Credits=3.00, Terms=1
+2025-10-18 00:30:07,685 - INFO - 📖 Getting details for course 10/92: 2131
+2025-10-18 00:30:08,063 - INFO - Navigating to Course Outcome page for 2131
+2025-10-18 00:30:08,323 - INFO - Course Outcome parsed for 2131
+2025-10-18 00:30:08,324 - INFO - Found 1 terms for 2131: ['2025-26 Term 1']
+2025-10-18 00:30:08,324 - INFO - Scraping term 1/1: 2025-26 Term 1 for 2131
+2025-10-18 00:30:08,357 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:08,385 - INFO - Getting enrollment details for section: --LEC (9277)
+2025-10-18 00:30:08,669 - INFO - Getting enrollment details for section: -P01-PRA (9200)
+2025-10-18 00:30:09,343 - INFO - Extracted details for 2131: Credits=2.00, Terms=1
+2025-10-18 00:30:10,344 - INFO - 📖 Getting details for course 11/92: 2211
+2025-10-18 00:30:10,783 - INFO - Navigating to Course Outcome page for 2211
+2025-10-18 00:30:11,005 - INFO - Course Outcome parsed for 2211
+2025-10-18 00:30:11,005 - INFO - Found 1 terms for 2211: ['2025-26 Term 1']
+2025-10-18 00:30:11,006 - INFO - Scraping term 1/1: 2025-26 Term 1 for 2211
+2025-10-18 00:30:11,028 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:11,047 - INFO - Getting enrollment details for section: --LEC (9317)
+2025-10-18 00:30:11,320 - INFO - Getting enrollment details for section: -P01-PRA (9180)
+2025-10-18 00:30:11,619 - INFO - Getting enrollment details for section: -T01-TUT (6628)
+2025-10-18 00:30:11,914 - INFO - Extracted details for 2211: Credits=2.00, Terms=1
+2025-10-18 00:30:12,916 - INFO - 📖 Getting details for course 12/92: 2212
+2025-10-18 00:30:13,245 - INFO - Navigating to Course Outcome page for 2212
+2025-10-18 00:30:13,521 - INFO - Course Outcome parsed for 2212
+2025-10-18 00:30:13,523 - INFO - Found 1 terms for 2212: ['2025-26 Term 2']
+2025-10-18 00:30:13,523 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2212
+2025-10-18 00:30:13,549 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:13,575 - INFO - Getting enrollment details for section: --LEC (6651)
+2025-10-18 00:30:13,873 - INFO - Getting enrollment details for section: -P01-PRA (8954)
+2025-10-18 00:30:14,453 - INFO - Getting enrollment details for section: -T01-TUT (6652)
+2025-10-18 00:30:14,810 - INFO - Extracted details for 2212: Credits=2.00, Terms=1
+2025-10-18 00:30:15,811 - INFO - 📖 Getting details for course 13/92: 2213
+2025-10-18 00:30:16,203 - INFO - Navigating to Course Outcome page for 2213
+2025-10-18 00:30:16,430 - INFO - Course Outcome parsed for 2213
+2025-10-18 00:30:16,431 - INFO - Found 1 terms for 2213: ['2025-26 Term 1']
+2025-10-18 00:30:16,431 - INFO - Scraping term 1/1: 2025-26 Term 1 for 2213
+2025-10-18 00:30:16,459 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:16,488 - INFO - Getting enrollment details for section: --LEC (5829)
+2025-10-18 00:30:16,766 - INFO - Getting enrollment details for section: -P01-PRA (8150)
+2025-10-18 00:30:17,091 - INFO - Getting enrollment details for section: -T01-TUT (9213)
+2025-10-18 00:30:17,390 - INFO - Extracted details for 2213: Credits=3.00, Terms=1
+2025-10-18 00:30:18,392 - INFO - 📖 Getting details for course 14/92: 2220
+2025-10-18 00:30:18,852 - INFO - Navigating to Course Outcome page for 2220
+2025-10-18 00:30:19,216 - INFO - Course Outcome parsed for 2220
+2025-10-18 00:30:19,218 - INFO - Found 1 terms for 2220: ['2025-26 Term 2']
+2025-10-18 00:30:19,218 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2220
+2025-10-18 00:30:19,246 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:19,277 - INFO - Getting enrollment details for section: --LEC (9092)
+2025-10-18 00:30:19,631 - INFO - Getting enrollment details for section: -T01-TUT (9105)
+2025-10-18 00:30:20,079 - INFO - Extracted details for 2220: Credits=2.00, Terms=1
+2025-10-18 00:30:21,086 - INFO - 📖 Getting details for course 15/92: 2313
+2025-10-18 00:30:21,520 - INFO - Navigating to Course Outcome page for 2313
+2025-10-18 00:30:21,804 - INFO - Course Outcome parsed for 2313
+2025-10-18 00:30:21,805 - INFO - Found 1 terms for 2313: ['2025-26 Term 1']
+2025-10-18 00:30:21,805 - INFO - Scraping term 1/1: 2025-26 Term 1 for 2313
+2025-10-18 00:30:21,835 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:21,857 - INFO - Getting enrollment details for section: --LEC (9151)
+2025-10-18 00:30:22,178 - INFO - Getting enrollment details for section: -P01-PRA (8188)
+2025-10-18 00:30:22,534 - INFO - Getting enrollment details for section: -T01-TUT (8382)
+2025-10-18 00:30:22,881 - INFO - Extracted details for 2313: Credits=3.00, Terms=1
+2025-10-18 00:30:23,881 - INFO - 📖 Getting details for course 16/92: 2320
+2025-10-18 00:30:24,211 - INFO - Navigating to Course Outcome page for 2320
+2025-10-18 00:30:24,456 - INFO - Course Outcome parsed for 2320
+2025-10-18 00:30:24,458 - INFO - Found 1 terms for 2320: ['2025-26 Term 1']
+2025-10-18 00:30:24,458 - INFO - Scraping term 1/1: 2025-26 Term 1 for 2320
+2025-10-18 00:30:24,491 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:24,512 - INFO - Getting enrollment details for section: --LEC (8095)
+2025-10-18 00:30:24,799 - INFO - Getting enrollment details for section: -T01-TUT (8266)
+2025-10-18 00:30:25,148 - INFO - Extracted details for 2320: Credits=2.00, Terms=1
+2025-10-18 00:30:26,150 - INFO - 📖 Getting details for course 17/92: 2330
+2025-10-18 00:30:26,662 - INFO - Navigating to Course Outcome page for 2330
+2025-10-18 00:30:26,986 - INFO - Course Outcome parsed for 2330
+2025-10-18 00:30:26,987 - INFO - Found 1 terms for 2330: ['2025-26 Term 2']
+2025-10-18 00:30:26,987 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2330
+2025-10-18 00:30:27,019 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:27,050 - INFO - Getting enrollment details for section: --LEC (5809)
+2025-10-18 00:30:27,396 - INFO - Getting enrollment details for section: -P01-PRA (9012)
+2025-10-18 00:30:27,690 - INFO - Getting enrollment details for section: -W01-WKS (5801)
+2025-10-18 00:30:27,950 - INFO - Extracted details for 2330: Credits=2.00, Terms=1
+2025-10-18 00:30:28,952 - INFO - 📖 Getting details for course 18/92: 2410
+2025-10-18 00:30:29,357 - INFO - Navigating to Course Outcome page for 2410
+2025-10-18 00:30:29,676 - INFO - Course Outcome parsed for 2410
+2025-10-18 00:30:29,677 - INFO - Found 1 terms for 2410: ['2025-26 Term 2']
+2025-10-18 00:30:29,677 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2410
+2025-10-18 00:30:29,709 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:29,739 - INFO - Getting enrollment details for section: --LEC (6190)
+2025-10-18 00:30:30,192 - INFO - Getting enrollment details for section: -P01-PRA (6442)
+2025-10-18 00:30:30,629 - INFO - Getting enrollment details for section: -T01-TUT (6435)
+2025-10-18 00:30:31,044 - INFO - Extracted details for 2410: Credits=3.00, Terms=1
+2025-10-18 00:30:32,045 - INFO - 📖 Getting details for course 19/92: 2520
+2025-10-18 00:30:33,525 - INFO - Navigating to Course Outcome page for 2520
+2025-10-18 00:30:35,836 - INFO - Course Outcome parsed for 2520
+2025-10-18 00:30:35,837 - INFO - Found 1 terms for 2520: ['2025-26 Term 2']
+2025-10-18 00:30:35,837 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2520
+2025-10-18 00:30:35,884 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:35,916 - INFO - Getting enrollment details for section: --LEC (9034)
+2025-10-18 00:30:36,233 - INFO - Getting enrollment details for section: -P01-PRA (8980)
+2025-10-18 00:30:36,557 - INFO - Getting enrollment details for section: -T01-TUT (9159)
+2025-10-18 00:30:36,884 - INFO - Extracted details for 2520: Credits=2.00, Terms=1
+2025-10-18 00:30:37,886 - INFO - 📖 Getting details for course 20/92: 2710
+2025-10-18 00:30:38,277 - INFO - Navigating to Course Outcome page for 2710
+2025-10-18 00:30:38,504 - INFO - Course Outcome parsed for 2710
+2025-10-18 00:30:38,505 - INFO - Found 1 terms for 2710: ['2025-26 Term 2']
+2025-10-18 00:30:38,505 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2710
+2025-10-18 00:30:38,532 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:38,559 - INFO - Getting enrollment details for section: --LEC (5839)
+2025-10-18 00:30:38,948 - INFO - Getting enrollment details for section: -P01-PRA (5840)
+2025-10-18 00:30:39,338 - INFO - Extracted details for 2710: Credits=2.00, Terms=1
+2025-10-18 00:30:40,339 - INFO - 📖 Getting details for course 21/92: 2711
+2025-10-18 00:30:40,688 - INFO - Navigating to Course Outcome page for 2711
+2025-10-18 00:30:40,988 - INFO - Course Outcome parsed for 2711
+2025-10-18 00:30:40,988 - INFO - Found 1 terms for 2711: ['2025-26 Term 2']
+2025-10-18 00:30:40,989 - INFO - Scraping term 1/1: 2025-26 Term 2 for 2711
+2025-10-18 00:30:41,010 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:41,030 - INFO - Getting enrollment details for section: --LEC (9065)
+2025-10-18 00:30:41,342 - INFO - Extracted details for 2711: Credits=2.00, Terms=1
+2025-10-18 00:30:42,343 - INFO - 📖 Getting details for course 22/92: 2712
+2025-10-18 00:30:42,703 - INFO - Navigating to Course Outcome page for 2712
+2025-10-18 00:30:42,946 - INFO - Course Outcome parsed for 2712
+2025-10-18 00:30:42,947 - INFO - No term dropdown found for 2712, using current data
+2025-10-18 00:30:43,960 - INFO - 📖 Getting details for course 23/92: 3330
+2025-10-18 00:30:44,394 - INFO - Navigating to Course Outcome page for 3330
+2025-10-18 00:30:44,726 - INFO - Course Outcome parsed for 3330
+2025-10-18 00:30:44,726 - INFO - Found 1 terms for 3330: ['2025-26 Term 1']
+2025-10-18 00:30:44,726 - INFO - Scraping term 1/1: 2025-26 Term 1 for 3330
+2025-10-18 00:30:44,750 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:44,778 - INFO - Getting enrollment details for section: --LEC (6534)
+2025-10-18 00:30:45,155 - INFO - Getting enrollment details for section: -T01-TUT (8120)
+2025-10-18 00:30:45,479 - INFO - Getting enrollment details for section: -W01-WKS (6533)
+2025-10-18 00:30:45,868 - INFO - Extracted details for 3330: Credits=3.00, Terms=1
+2025-10-18 00:30:46,870 - INFO - 📖 Getting details for course 24/92: 3413
+2025-10-18 00:30:47,244 - INFO - Navigating to Course Outcome page for 3413
+2025-10-18 00:30:47,504 - INFO - Course Outcome parsed for 3413
+2025-10-18 00:30:47,505 - INFO - Found 1 terms for 3413: ['2025-26 Term 1']
+2025-10-18 00:30:47,505 - INFO - Scraping term 1/1: 2025-26 Term 1 for 3413
+2025-10-18 00:30:47,534 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:47,562 - INFO - Getting enrollment details for section: --LEC (5777)
+2025-10-18 00:30:47,983 - INFO - Getting enrollment details for section: -P01-PRA (9214)
+2025-10-18 00:30:48,304 - INFO - Getting enrollment details for section: -T01-TUT (6154)
+2025-10-18 00:30:48,598 - INFO - Extracted details for 3413: Credits=3.00, Terms=1
+2025-10-18 00:30:48,613 - INFO - 💾 Progress saved: PHAR - 24/92 courses completed
+2025-10-18 00:30:49,615 - INFO - 📖 Getting details for course 25/92: 3414
+2025-10-18 00:30:50,029 - INFO - Navigating to Course Outcome page for 3414
+2025-10-18 00:30:50,338 - INFO - Course Outcome parsed for 3414
+2025-10-18 00:30:50,339 - INFO - Found 1 terms for 3414: ['2025-26 Term 2']
+2025-10-18 00:30:50,339 - INFO - Scraping term 1/1: 2025-26 Term 2 for 3414
+2025-10-18 00:30:50,363 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:50,384 - INFO - Getting enrollment details for section: --LEC (5815)
+2025-10-18 00:30:50,817 - INFO - Getting enrollment details for section: -T01-TUT (8878)
+2025-10-18 00:30:51,138 - INFO - Extracted details for 3414: Credits=3.00, Terms=1
+2025-10-18 00:30:52,139 - INFO - 📖 Getting details for course 26/92: 3415
+2025-10-18 00:30:52,527 - INFO - Navigating to Course Outcome page for 3415
+2025-10-18 00:30:52,795 - INFO - Course Outcome parsed for 3415
+2025-10-18 00:30:52,796 - INFO - Found 1 terms for 3415: ['2025-26 Term 1']
+2025-10-18 00:30:52,796 - INFO - Scraping term 1/1: 2025-26 Term 1 for 3415
+2025-10-18 00:30:52,826 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:52,862 - INFO - Getting enrollment details for section: --LEC (5693)
+2025-10-18 00:30:53,168 - INFO - Getting enrollment details for section: -T01-TUT (8135)
+2025-10-18 00:30:53,598 - INFO - Extracted details for 3415: Credits=3.00, Terms=1
+2025-10-18 00:30:54,599 - INFO - 📖 Getting details for course 27/92: 3420
+2025-10-18 00:30:55,001 - INFO - Navigating to Course Outcome page for 3420
+2025-10-18 00:30:55,372 - INFO - Course Outcome parsed for 3420
+2025-10-18 00:30:55,373 - INFO - Found 1 terms for 3420: ['2025-26 Term 2']
+2025-10-18 00:30:55,375 - INFO - Scraping term 1/1: 2025-26 Term 2 for 3420
+2025-10-18 00:30:55,418 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:30:55,455 - INFO - Getting enrollment details for section: --LEC (6323)
+2025-10-18 00:30:55,754 - INFO - Extracted details for 3420: Credits=2.00, Terms=1
+2025-10-18 00:30:56,755 - INFO - 📖 Getting details for course 28/92: 3510
+2025-10-18 00:30:57,240 - INFO - Navigating to Course Outcome page for 3510
+2025-10-18 00:30:57,556 - INFO - Course Outcome parsed for 3510
+2025-10-18 00:30:57,557 - INFO - Found 1 terms for 3510: ['2025-26 Term 1']
+2025-10-18 00:30:57,557 - INFO - Scraping term 1/1: 2025-26 Term 1 for 3510
+2025-10-18 00:30:57,583 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:30:57,614 - INFO - Getting enrollment details for section: --LEC (6629)
+2025-10-18 00:30:59,110 - INFO - Getting enrollment details for section: -F01-FLD (8177)
+2025-10-18 00:30:59,425 - INFO - Getting enrollment details for section: -T01-TUT (6630)
+2025-10-18 00:30:59,752 - INFO - Extracted details for 3510: Credits=3.00, Terms=1
+2025-10-18 00:31:00,754 - INFO - 📖 Getting details for course 29/92: 3603
+2025-10-18 00:31:01,135 - INFO - Navigating to Course Outcome page for 3603
+2025-10-18 00:31:01,405 - INFO - Course Outcome parsed for 3603
+2025-10-18 00:31:01,407 - INFO - No term dropdown found for 3603, using current data
+2025-10-18 00:31:02,437 - INFO - 📖 Getting details for course 30/92: 3604
+2025-10-18 00:31:02,793 - INFO - Navigating to Course Outcome page for 3604
+2025-10-18 00:31:03,159 - INFO - Course Outcome parsed for 3604
+2025-10-18 00:31:03,160 - INFO - Found 1 terms for 3604: ['2025-26 Term 2']
+2025-10-18 00:31:03,160 - INFO - Scraping term 1/1: 2025-26 Term 2 for 3604
+2025-10-18 00:31:03,193 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:03,216 - INFO - Getting enrollment details for section: -F01-FLD (8548)
+2025-10-18 00:31:03,606 - INFO - Extracted details for 3604: Credits=1.00, Terms=1
+2025-10-18 00:31:04,607 - INFO - 📖 Getting details for course 31/92: 3605
+2025-10-18 00:31:05,037 - INFO - Navigating to Course Outcome page for 3605
+2025-10-18 00:31:05,318 - INFO - Course Outcome parsed for 3605
+2025-10-18 00:31:05,320 - INFO - Found 1 terms for 3605: ['2025-26 Term 2']
+2025-10-18 00:31:05,320 - INFO - Scraping term 1/1: 2025-26 Term 2 for 3605
+2025-10-18 00:31:05,342 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:05,378 - INFO - Getting enrollment details for section: -F01-FLD (8547)
+2025-10-18 00:31:05,731 - INFO - Extracted details for 3605: Credits=1.00, Terms=1
+2025-10-18 00:31:06,732 - INFO - 📖 Getting details for course 32/92: 3812
+2025-10-18 00:31:07,112 - INFO - Navigating to Course Outcome page for 3812
+2025-10-18 00:31:07,418 - INFO - Course Outcome parsed for 3812
+2025-10-18 00:31:07,420 - INFO - Found 1 terms for 3812: ['2025-26 Term 2']
+2025-10-18 00:31:07,420 - INFO - Scraping term 1/1: 2025-26 Term 2 for 3812
+2025-10-18 00:31:07,442 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:07,467 - INFO - Getting enrollment details for section: -F01-FLD (5808)
+2025-10-18 00:31:07,773 - INFO - Extracted details for 3812: Credits=2.00, Terms=1
+2025-10-18 00:31:08,774 - INFO - 📖 Getting details for course 33/92: 4201
+2025-10-18 00:31:09,141 - INFO - Navigating to Course Outcome page for 4201
+2025-10-18 00:31:09,470 - INFO - Course Outcome parsed for 4201
+2025-10-18 00:31:09,471 - INFO - Found 1 terms for 4201: ['2025-26 Term 2']
+2025-10-18 00:31:09,471 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4201
+2025-10-18 00:31:09,498 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:09,522 - INFO - Getting enrollment details for section: -F01-FLD (6424)
+2025-10-18 00:31:09,939 - INFO - Extracted details for 4201: Credits=2.00, Terms=1
+2025-10-18 00:31:10,941 - INFO - 📖 Getting details for course 34/92: 4204
+2025-10-18 00:31:11,266 - INFO - Navigating to Course Outcome page for 4204
+2025-10-18 00:31:11,563 - INFO - Course Outcome parsed for 4204
+2025-10-18 00:31:11,564 - INFO - Found 1 terms for 4204: ['2025-26 Term 2']
+2025-10-18 00:31:11,564 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4204
+2025-10-18 00:31:11,605 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:11,675 - INFO - Getting enrollment details for section: -F01-FLD (6428)
+2025-10-18 00:31:12,015 - INFO - Extracted details for 4204: Credits=2.00, Terms=1
+2025-10-18 00:31:13,016 - INFO - 📖 Getting details for course 35/92: 4205
+2025-10-18 00:31:14,104 - INFO - Navigating to Course Outcome page for 4205
+2025-10-18 00:31:14,424 - INFO - Course Outcome parsed for 4205
+2025-10-18 00:31:14,426 - INFO - No term dropdown found for 4205, using current data
+2025-10-18 00:31:15,447 - INFO - 📖 Getting details for course 36/92: 4301
+2025-10-18 00:31:15,935 - INFO - Navigating to Course Outcome page for 4301
+2025-10-18 00:31:16,237 - INFO - Course Outcome parsed for 4301
+2025-10-18 00:31:16,238 - INFO - Found 1 terms for 4301: ['2025-26 Term 2']
+2025-10-18 00:31:16,238 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4301
+2025-10-18 00:31:16,266 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:16,298 - INFO - Getting enrollment details for section: -F01-FLD (6390)
+2025-10-18 00:31:16,597 - INFO - Extracted details for 4301: Credits=2.00, Terms=1
+2025-10-18 00:31:17,598 - INFO - 📖 Getting details for course 37/92: 4302
+2025-10-18 00:31:17,956 - INFO - Navigating to Course Outcome page for 4302
+2025-10-18 00:31:18,245 - INFO - Course Outcome parsed for 4302
+2025-10-18 00:31:18,246 - INFO - No term dropdown found for 4302, using current data
+2025-10-18 00:31:19,262 - INFO - 📖 Getting details for course 38/92: 4303
+2025-10-18 00:31:19,578 - INFO - Navigating to Course Outcome page for 4303
+2025-10-18 00:31:19,829 - INFO - Course Outcome parsed for 4303
+2025-10-18 00:31:19,830 - INFO - Found 1 terms for 4303: ['2025-26 Term 2']
+2025-10-18 00:31:19,830 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4303
+2025-10-18 00:31:19,859 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:19,883 - INFO - Getting enrollment details for section: -F01-FLD (6429)
+2025-10-18 00:31:20,186 - INFO - Extracted details for 4303: Credits=2.00, Terms=1
+2025-10-18 00:31:21,187 - INFO - 📖 Getting details for course 39/92: 4304
+2025-10-18 00:31:21,503 - INFO - Navigating to Course Outcome page for 4304
+2025-10-18 00:31:21,786 - INFO - Course Outcome parsed for 4304
+2025-10-18 00:31:21,787 - INFO - Found 1 terms for 4304: ['2025-26 Term 2']
+2025-10-18 00:31:21,787 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4304
+2025-10-18 00:31:21,811 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:21,843 - INFO - Getting enrollment details for section: -F01-FLD (6430)
+2025-10-18 00:31:22,144 - INFO - Extracted details for 4304: Credits=2.00, Terms=1
+2025-10-18 00:31:23,145 - INFO - 📖 Getting details for course 40/92: 4305
+2025-10-18 00:31:23,561 - INFO - Navigating to Course Outcome page for 4305
+2025-10-18 00:31:23,826 - INFO - Course Outcome parsed for 4305
+2025-10-18 00:31:23,828 - INFO - Found 1 terms for 4305: ['2025-26 Term 2']
+2025-10-18 00:31:23,828 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4305
+2025-10-18 00:31:23,858 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:23,884 - INFO - Getting enrollment details for section: -F01-FLD (6431)
+2025-10-18 00:31:24,190 - INFO - Extracted details for 4305: Credits=2.00, Terms=1
+2025-10-18 00:31:25,191 - INFO - 📖 Getting details for course 41/92: 4306
+2025-10-18 00:31:25,520 - INFO - Navigating to Course Outcome page for 4306
+2025-10-18 00:31:25,802 - INFO - Course Outcome parsed for 4306
+2025-10-18 00:31:25,803 - INFO - Found 1 terms for 4306: ['2025-26 Term 2']
+2025-10-18 00:31:25,804 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4306
+2025-10-18 00:31:25,827 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:25,853 - INFO - Getting enrollment details for section: -F01-FLD (7089)
+2025-10-18 00:31:26,156 - INFO - Extracted details for 4306: Credits=2.00, Terms=1
+2025-10-18 00:31:27,158 - INFO - 📖 Getting details for course 42/92: 4307
+2025-10-18 00:31:27,462 - INFO - Navigating to Course Outcome page for 4307
+2025-10-18 00:31:27,704 - INFO - Course Outcome parsed for 4307
+2025-10-18 00:31:27,705 - INFO - Found 1 terms for 4307: ['2025-26 Term 2']
+2025-10-18 00:31:27,705 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4307
+2025-10-18 00:31:27,730 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:27,755 - INFO - Getting enrollment details for section: -F01-FLD (8802)
+2025-10-18 00:31:28,044 - INFO - Extracted details for 4307: Credits=2.00, Terms=1
+2025-10-18 00:31:29,045 - INFO - 📖 Getting details for course 43/92: 4308
+2025-10-18 00:31:29,384 - INFO - Navigating to Course Outcome page for 4308
+2025-10-18 00:31:30,448 - INFO - Course Outcome parsed for 4308
+2025-10-18 00:31:30,449 - INFO - Found 1 terms for 4308: ['2025-26 Term 2']
+2025-10-18 00:31:30,449 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4308
+2025-10-18 00:31:30,468 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:30,494 - INFO - Getting enrollment details for section: -F01-FLD (8767)
+2025-10-18 00:31:30,818 - INFO - Extracted details for 4308: Credits=2.00, Terms=1
+2025-10-18 00:31:31,820 - INFO - 📖 Getting details for course 44/92: 4309
+2025-10-18 00:31:32,164 - INFO - Navigating to Course Outcome page for 4309
+2025-10-18 00:31:33,401 - INFO - Course Outcome parsed for 4309
+2025-10-18 00:31:33,402 - INFO - No term dropdown found for 4309, using current data
+2025-10-18 00:31:34,424 - INFO - 📖 Getting details for course 45/92: 4310
+2025-10-18 00:31:35,739 - INFO - Navigating to Course Outcome page for 4310
+2025-10-18 00:31:36,011 - INFO - Course Outcome parsed for 4310
+2025-10-18 00:31:36,012 - INFO - Found 1 terms for 4310: ['2025-26 Term 2']
+2025-10-18 00:31:36,012 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4310
+2025-10-18 00:31:36,042 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:36,070 - INFO - Getting enrollment details for section: -F01-FLD (6441)
+2025-10-18 00:31:36,324 - INFO - Extracted details for 4310: Credits=2.00, Terms=1
+2025-10-18 00:31:37,325 - INFO - 📖 Getting details for course 46/92: 4350
+2025-10-18 00:31:38,025 - INFO - Navigating to Course Outcome page for 4350
+2025-10-18 00:31:38,267 - INFO - Course Outcome parsed for 4350
+2025-10-18 00:31:38,269 - INFO - Found 1 terms for 4350: ['2025-26 Term 2']
+2025-10-18 00:31:38,269 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4350
+2025-10-18 00:31:38,292 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:38,321 - INFO - Getting enrollment details for section: -F01-FLD (8820)
+2025-10-18 00:31:38,631 - INFO - Extracted details for 4350: Credits=2.00, Terms=1
+2025-10-18 00:31:39,632 - INFO - 📖 Getting details for course 47/92: 4401
+2025-10-18 00:31:40,023 - INFO - Navigating to Course Outcome page for 4401
+2025-10-18 00:31:40,271 - INFO - Course Outcome parsed for 4401
+2025-10-18 00:31:40,272 - INFO - Found 1 terms for 4401: ['2025-26 Term 2']
+2025-10-18 00:31:40,272 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4401
+2025-10-18 00:31:40,294 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:40,320 - INFO - Getting enrollment details for section: -F01-FLD (6432)
+2025-10-18 00:31:40,603 - INFO - Extracted details for 4401: Credits=2.00, Terms=1
+2025-10-18 00:31:41,605 - INFO - 📖 Getting details for course 48/92: 4402
+2025-10-18 00:31:41,937 - INFO - Navigating to Course Outcome page for 4402
+2025-10-18 00:31:42,322 - INFO - Course Outcome parsed for 4402
+2025-10-18 00:31:42,323 - INFO - Found 1 terms for 4402: ['2025-26 Term 2']
+2025-10-18 00:31:42,324 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4402
+2025-10-18 00:31:42,400 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:42,424 - INFO - Getting enrollment details for section: -F01-FLD (6433)
+2025-10-18 00:31:42,774 - INFO - Extracted details for 4402: Credits=2.00, Terms=1
+2025-10-18 00:31:43,775 - INFO - 📖 Getting details for course 49/92: 4403
+2025-10-18 00:31:44,102 - INFO - Navigating to Course Outcome page for 4403
+2025-10-18 00:31:44,371 - INFO - Course Outcome parsed for 4403
+2025-10-18 00:31:44,372 - INFO - No term dropdown found for 4403, using current data
+2025-10-18 00:31:45,394 - INFO - 📖 Getting details for course 50/92: 4501
+2025-10-18 00:31:45,801 - INFO - Navigating to Course Outcome page for 4501
+2025-10-18 00:31:46,181 - INFO - Course Outcome parsed for 4501
+2025-10-18 00:31:46,183 - INFO - Found 1 terms for 4501: ['2025-26 Term 2']
+2025-10-18 00:31:46,183 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4501
+2025-10-18 00:31:46,211 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:46,237 - INFO - Getting enrollment details for section: -F01-FLD (8766)
+2025-10-18 00:31:47,060 - INFO - Extracted details for 4501: Credits=2.00, Terms=1
+2025-10-18 00:31:48,061 - INFO - 📖 Getting details for course 51/92: 4601
+2025-10-18 00:31:48,441 - INFO - Navigating to Course Outcome page for 4601
+2025-10-18 00:31:48,676 - INFO - Course Outcome parsed for 4601
+2025-10-18 00:31:48,677 - INFO - No term dropdown found for 4601, using current data
+2025-10-18 00:31:48,706 - INFO - 💾 Progress saved: PHAR - 51/92 courses completed
+2025-10-18 00:31:49,706 - INFO - 📖 Getting details for course 52/92: 4901
+2025-10-18 00:31:50,055 - INFO - Navigating to Course Outcome page for 4901
+2025-10-18 00:31:50,310 - INFO - Course Outcome parsed for 4901
+2025-10-18 00:31:50,311 - INFO - Found 1 terms for 4901: ['2025-26 Term 2']
+2025-10-18 00:31:50,311 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4901
+2025-10-18 00:31:50,341 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:50,369 - INFO - Getting enrollment details for section: -J01-PRJ (5190)
+2025-10-18 00:31:50,742 - INFO - Extracted details for 4901: Credits=2.00, Terms=1
+2025-10-18 00:31:51,743 - INFO - 📖 Getting details for course 53/92: 4911
+2025-10-18 00:31:52,089 - INFO - Navigating to Course Outcome page for 4911
+2025-10-18 00:31:52,369 - INFO - Course Outcome parsed for 4911
+2025-10-18 00:31:52,369 - INFO - Found 1 terms for 4911: ['2025-26 Term 1']
+2025-10-18 00:31:52,370 - INFO - Scraping term 1/1: 2025-26 Term 1 for 4911
+2025-10-18 00:31:52,396 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:31:52,423 - INFO - Getting enrollment details for section: -J01-PRJ (9170)
+2025-10-18 00:31:52,687 - INFO - Extracted details for 4911: Credits=0.00, Terms=1
+2025-10-18 00:31:53,688 - INFO - 📖 Getting details for course 54/92: 4912
+2025-10-18 00:31:54,010 - INFO - Navigating to Course Outcome page for 4912
+2025-10-18 00:31:54,258 - INFO - Course Outcome parsed for 4912
+2025-10-18 00:31:54,258 - INFO - Found 1 terms for 4912: ['2025-26 Term 2']
+2025-10-18 00:31:54,259 - INFO - Scraping term 1/1: 2025-26 Term 2 for 4912
+2025-10-18 00:31:54,284 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:31:54,309 - INFO - Getting enrollment details for section: -J01-PRJ (6410)
+2025-10-18 00:31:54,609 - INFO - Extracted details for 4912: Credits=6.00, Terms=1
+2025-10-18 00:31:55,611 - INFO - 📖 Getting details for course 55/92: 5110
+2025-10-18 00:31:55,965 - INFO - Navigating to Course Outcome page for 5110
+2025-10-18 00:31:56,219 - INFO - Course Outcome parsed for 5110
+2025-10-18 00:31:56,220 - INFO - Found 1 terms for 5110: ['2025-26 Term 1']
+2025-10-18 00:31:56,220 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5110
+2025-10-18 00:31:56,251 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:31:56,274 - INFO - Getting enrollment details for section: -T01-TUT (2772)
+2025-10-18 00:31:56,636 - INFO - Extracted details for 5110: Credits=1.00, Terms=1
+2025-10-18 00:31:57,637 - INFO - 📖 Getting details for course 56/92: 5120
+2025-10-18 00:31:57,944 - INFO - Navigating to Course Outcome page for 5120
+2025-10-18 00:31:58,181 - INFO - Course Outcome parsed for 5120
+2025-10-18 00:31:58,182 - INFO - No term dropdown found for 5120, using current data
+2025-10-18 00:31:59,196 - INFO - 📖 Getting details for course 57/92: 5130
+2025-10-18 00:31:59,550 - INFO - Navigating to Course Outcome page for 5130
+2025-10-18 00:31:59,814 - INFO - Course Outcome parsed for 5130
+2025-10-18 00:31:59,815 - INFO - No term dropdown found for 5130, using current data
+2025-10-18 00:32:00,835 - INFO - 📖 Getting details for course 58/92: 5210
+2025-10-18 00:32:01,167 - INFO - Navigating to Course Outcome page for 5210
+2025-10-18 00:32:01,489 - INFO - Course Outcome parsed for 5210
+2025-10-18 00:32:01,490 - INFO - Found 2 terms for 5210: ['2025-26 Term 1', '2025-26 Term 2']
+2025-10-18 00:32:01,490 - INFO - Scraping term 1/2: 2025-26 Term 1 for 5210
+2025-10-18 00:32:01,515 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-10-18 00:32:01,623 - INFO - Getting enrollment details for section: -S01-SEM (2755)
+2025-10-18 00:32:02,923 - INFO - Scraping term 2/2: 2025-26 Term 2 for 5210
+2025-10-18 00:32:02,943 - INFO - Switching to 2025-26 Term 2 for 5210
+2025-10-18 00:32:03,045 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:32:03,137 - INFO - Getting enrollment details for section: -S01-SEM (2747)
+2025-10-18 00:32:03,584 - INFO - Extracted details for 5210: Credits=1.00, Terms=2
+2025-10-18 00:32:04,586 - INFO - 📖 Getting details for course 59/92: 5820
+2025-10-18 00:32:04,929 - INFO - Navigating to Course Outcome page for 5820
+2025-10-18 00:32:05,174 - INFO - Course Outcome parsed for 5820
+2025-10-18 00:32:05,176 - INFO - Found 1 terms for 5820: ['2025-26 Term 2']
+2025-10-18 00:32:05,176 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5820
+2025-10-18 00:32:05,203 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:32:05,227 - INFO - Getting enrollment details for section: --LEC (4522)
+2025-10-18 00:32:05,522 - INFO - Extracted details for 5820: Credits=1.50, Terms=1
+2025-10-18 00:32:06,523 - INFO - 📖 Getting details for course 60/92: 5823
+2025-10-18 00:32:06,855 - INFO - Navigating to Course Outcome page for 5823
+2025-10-18 00:32:07,090 - INFO - Course Outcome parsed for 5823
+2025-10-18 00:32:07,091 - INFO - Found 1 terms for 5823: ['2025-26 Term 1']
+2025-10-18 00:32:07,092 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5823
+2025-10-18 00:32:07,116 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:32:07,143 - INFO - Getting enrollment details for section: --LEC (4493)
+2025-10-18 00:32:07,500 - INFO - Extracted details for 5823: Credits=0.00, Terms=1
+2025-10-18 00:32:08,501 - INFO - 📖 Getting details for course 61/92: 5824
+2025-10-18 00:32:08,898 - INFO - Navigating to Course Outcome page for 5824
+2025-10-18 00:32:09,233 - INFO - Course Outcome parsed for 5824
+2025-10-18 00:32:09,234 - INFO - Found 1 terms for 5824: ['2025-26 Term 2']
+2025-10-18 00:32:09,235 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5824
+2025-10-18 00:32:09,268 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:32:09,306 - INFO - Getting enrollment details for section: --LEC (4521)
+2025-10-18 00:32:09,594 - INFO - Extracted details for 5824: Credits=2.00, Terms=1
+2025-10-18 00:32:10,597 - INFO - 📖 Getting details for course 62/92: 5825
+2025-10-18 00:32:10,944 - INFO - Navigating to Course Outcome page for 5825
+2025-10-18 00:32:11,191 - INFO - Course Outcome parsed for 5825
+2025-10-18 00:32:11,192 - INFO - No term dropdown found for 5825, using current data
+2025-10-18 00:32:12,212 - INFO - 📖 Getting details for course 63/92: 5830
+2025-10-18 00:32:12,635 - INFO - Navigating to Course Outcome page for 5830
+2025-10-18 00:32:12,877 - INFO - Course Outcome parsed for 5830
+2025-10-18 00:32:12,879 - INFO - No term dropdown found for 5830, using current data
+2025-10-18 00:32:13,896 - INFO - 📖 Getting details for course 64/92: 5851
+2025-10-18 00:32:14,884 - INFO - Navigating to Course Outcome page for 5851
+2025-10-18 00:32:15,123 - INFO - Course Outcome parsed for 5851
+2025-10-18 00:32:15,124 - INFO - No term dropdown found for 5851, using current data
+2025-10-18 00:32:16,149 - INFO - 📖 Getting details for course 65/92: 5852
+2025-10-18 00:32:16,480 - INFO - Navigating to Course Outcome page for 5852
+2025-10-18 00:32:16,705 - INFO - Course Outcome parsed for 5852
+2025-10-18 00:32:16,706 - INFO - Found 1 terms for 5852: ['2025-26 Term 1']
+2025-10-18 00:32:16,706 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5852
+2025-10-18 00:32:16,728 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:32:16,761 - INFO - Getting enrollment details for section: --LEC (4480)
+2025-10-18 00:32:17,092 - INFO - Extracted details for 5852: Credits=2.00, Terms=1
+2025-10-18 00:32:18,093 - INFO - 📖 Getting details for course 66/92: 5880
+2025-10-18 00:32:18,399 - INFO - Navigating to Course Outcome page for 5880
+2025-10-18 00:32:18,739 - INFO - Course Outcome parsed for 5880
+2025-10-18 00:32:18,741 - INFO - Found 1 terms for 5880: ['2025-26 Term 1']
+2025-10-18 00:32:18,741 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5880
+2025-10-18 00:32:18,766 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:32:18,787 - INFO - Getting enrollment details for section: --LEC (4492)
+2025-10-18 00:32:19,173 - INFO - Extracted details for 5880: Credits=2.00, Terms=1
+2025-10-18 00:32:20,175 - INFO - 📖 Getting details for course 67/92: 5882
+2025-10-18 00:32:20,537 - INFO - Navigating to Course Outcome page for 5882
+2025-10-18 00:32:20,766 - INFO - Course Outcome parsed for 5882
+2025-10-18 00:32:20,767 - INFO - Found 1 terms for 5882: ['2025-26 Term 2']
+2025-10-18 00:32:20,767 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5882
+2025-10-18 00:32:20,890 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:32:20,918 - INFO - Getting enrollment details for section: --LEC (4464)
+2025-10-18 00:32:21,595 - INFO - Extracted details for 5882: Credits=2.00, Terms=1
+2025-10-18 00:32:22,596 - INFO - 📖 Getting details for course 68/92: 5884
+2025-10-18 00:32:22,956 - INFO - Navigating to Course Outcome page for 5884
+2025-10-18 00:32:23,232 - INFO - Course Outcome parsed for 5884
+2025-10-18 00:32:23,233 - INFO - No term dropdown found for 5884, using current data
+2025-10-18 00:32:24,246 - INFO - 📖 Getting details for course 69/92: 5885
+2025-10-18 00:32:24,588 - INFO - Navigating to Course Outcome page for 5885
+2025-10-18 00:32:24,849 - INFO - Course Outcome parsed for 5885
+2025-10-18 00:32:24,849 - INFO - No term dropdown found for 5885, using current data
+2025-10-18 00:32:25,867 - INFO - 📖 Getting details for course 70/92: 5886
+2025-10-18 00:32:26,159 - INFO - Navigating to Course Outcome page for 5886
+2025-10-18 00:32:26,416 - INFO - Course Outcome parsed for 5886
+2025-10-18 00:32:26,416 - INFO - No term dropdown found for 5886, using current data
+2025-10-18 00:32:27,436 - INFO - 📖 Getting details for course 71/92: 5887
+2025-10-18 00:32:27,884 - INFO - Navigating to Course Outcome page for 5887
+2025-10-18 00:32:28,170 - INFO - Course Outcome parsed for 5887
+2025-10-18 00:32:28,170 - INFO - No term dropdown found for 5887, using current data
+2025-10-18 00:32:29,186 - INFO - 📖 Getting details for course 72/92: 5888
+2025-10-18 00:32:29,566 - INFO - Navigating to Course Outcome page for 5888
+2025-10-18 00:32:29,839 - INFO - Course Outcome parsed for 5888
+2025-10-18 00:32:29,840 - INFO - Found 1 terms for 5888: ['2025-26 Summer Session']
+2025-10-18 00:32:29,840 - INFO - Scraping term 1/1: 2025-26 Summer Session for 5888
+2025-10-18 00:32:29,863 - INFO - 'Show sections' button disabled for 2025-26 Summer Session - sections should already be visible
+2025-10-18 00:32:29,886 - INFO - Getting enrollment details for section: --LEC (1166)
+2025-10-18 00:32:30,240 - INFO - Extracted details for 5888: Credits=2.50, Terms=1
+2025-10-18 00:32:31,242 - INFO - 📖 Getting details for course 73/92: 5889
+2025-10-18 00:32:33,429 - INFO - Navigating to Course Outcome page for 5889
+2025-10-18 00:32:33,666 - INFO - Course Outcome parsed for 5889
+2025-10-18 00:32:33,667 - INFO - No term dropdown found for 5889, using current data
+2025-10-18 00:32:34,682 - INFO - 📖 Getting details for course 74/92: 5890
+2025-10-18 00:32:34,972 - INFO - Navigating to Course Outcome page for 5890
+2025-10-18 00:32:35,853 - INFO - Course Outcome parsed for 5890
+2025-10-18 00:32:35,854 - INFO - Found 1 terms for 5890: ['2025-26 Term 2']
+2025-10-18 00:32:35,854 - INFO - Scraping term 1/1: 2025-26 Term 2 for 5890
+2025-10-18 00:32:35,877 - INFO - 'Show sections' button disabled for 2025-26 Term 2 - sections should already be visible
+2025-10-18 00:32:35,905 - INFO - Getting enrollment details for section: --LEC (4463)
+2025-10-18 00:32:36,194 - INFO - Extracted details for 5890: Credits=2.00, Terms=1
+2025-10-18 00:32:37,197 - INFO - 📖 Getting details for course 75/92: 5891
+2025-10-18 00:32:37,587 - INFO - Navigating to Course Outcome page for 5891
+2025-10-18 00:32:37,892 - INFO - Course Outcome parsed for 5891
+2025-10-18 00:32:37,893 - INFO - Found 1 terms for 5891: ['2025-26 Summer Session']
+2025-10-18 00:32:37,893 - INFO - Scraping term 1/1: 2025-26 Summer Session for 5891
+2025-10-18 00:32:37,919 - INFO - 'Show sections' button disabled for 2025-26 Summer Session - sections should already be visible
+2025-10-18 00:32:37,946 - INFO - Getting enrollment details for section: --LEC (1117)
+2025-10-18 00:32:38,247 - INFO - Extracted details for 5891: Credits=2.00, Terms=1
+2025-10-18 00:32:39,248 - INFO - 📖 Getting details for course 76/92: 5892
+2025-10-18 00:32:39,679 - INFO - Navigating to Course Outcome page for 5892
+2025-10-18 00:32:39,940 - INFO - Course Outcome parsed for 5892
+2025-10-18 00:32:39,940 - INFO - Found 1 terms for 5892: ['2025-26 Term 1']
+2025-10-18 00:32:39,940 - INFO - Scraping term 1/1: 2025-26 Term 1 for 5892
+2025-10-18 00:32:39,961 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:32:39,987 - INFO - Getting enrollment details for section: --LEC (3507)
+2025-10-18 00:32:40,268 - INFO - Extracted details for 5892: Credits=2.50, Terms=1
+2025-10-18 00:32:41,268 - INFO - 📖 Getting details for course 77/92: 5901
+2025-10-18 00:32:41,616 - INFO - Navigating to Course Outcome page for 5901
+2025-10-18 00:32:41,863 - INFO - Course Outcome parsed for 5901
+2025-10-18 00:32:41,864 - INFO - Found 2 terms for 5901: ['2025-26 Term 2', '2025-26 Summer Session']
+2025-10-18 00:32:41,865 - INFO - Scraping term 1/2: 2025-26 Term 2 for 5901
+2025-10-18 00:32:41,892 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:32:41,980 - INFO - Getting enrollment details for section: -F01-FLD (3690)
+2025-10-18 00:32:43,322 - INFO - Scraping term 2/2: 2025-26 Summer Session for 5901
+2025-10-18 00:32:43,345 - INFO - Switching to 2025-26 Summer Session for 5901
+2025-10-18 00:32:43,421 - INFO - Clicking 'Show sections' for 2025-26 Summer Session
+2025-10-18 00:32:43,495 - INFO - Getting enrollment details for section: -F01-FLD (1124)
+2025-10-18 00:32:43,759 - INFO - Extracted details for 5901: Credits=1.50, Terms=2
+2025-10-18 00:32:44,766 - INFO - 📖 Getting details for course 78/92: 5902
+2025-10-18 00:32:45,108 - INFO - Navigating to Course Outcome page for 5902
+2025-10-18 00:32:45,325 - INFO - Course Outcome parsed for 5902
+2025-10-18 00:32:45,327 - INFO - Found 2 terms for 5902: ['2025-26 Term 2', '2025-26 Summer Session']
+2025-10-18 00:32:45,328 - INFO - Scraping term 1/2: 2025-26 Term 2 for 5902
+2025-10-18 00:32:45,352 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:32:45,424 - INFO - Getting enrollment details for section: -F01-FLD (3691)
+2025-10-18 00:32:46,723 - INFO - Scraping term 2/2: 2025-26 Summer Session for 5902
+2025-10-18 00:32:46,740 - INFO - Switching to 2025-26 Summer Session for 5902
+2025-10-18 00:32:46,819 - INFO - Clicking 'Show sections' for 2025-26 Summer Session
+2025-10-18 00:32:46,887 - INFO - Getting enrollment details for section: -F01-FLD (1125)
+2025-10-18 00:32:47,163 - INFO - Extracted details for 5902: Credits=1.50, Terms=2
+2025-10-18 00:32:48,164 - INFO - 📖 Getting details for course 79/92: 5924
+2025-10-18 00:32:48,514 - INFO - Navigating to Course Outcome page for 5924
+2025-10-18 00:32:48,789 - INFO - Course Outcome parsed for 5924
+2025-10-18 00:32:48,790 - INFO - Found 1 terms for 5924: ['2025-26 Summer Session']
+2025-10-18 00:32:48,791 - INFO - Scraping term 1/1: 2025-26 Summer Session for 5924
+2025-10-18 00:32:48,815 - INFO - 'Show sections' button disabled for 2025-26 Summer Session - sections should already be visible
+2025-10-18 00:32:48,838 - INFO - Getting enrollment details for section: -J01-PRJ (1165)
+2025-10-18 00:32:49,091 - INFO - Extracted details for 5924: Credits=5.00, Terms=1
+2025-10-18 00:32:49,108 - INFO - 💾 Progress saved: PHAR - 79/92 courses completed
+2025-10-18 00:32:50,109 - INFO - 📖 Getting details for course 80/92: 7110
+2025-10-18 00:32:50,422 - INFO - Navigating to Course Outcome page for 7110
+2025-10-18 00:32:50,654 - INFO - Course Outcome parsed for 7110
+2025-10-18 00:32:50,656 - INFO - Found 2 terms for 7110: ['2025-26 Term 1', '2025-26 Term 2']
+2025-10-18 00:32:50,656 - INFO - Scraping term 1/2: 2025-26 Term 1 for 7110
+2025-10-18 00:32:50,684 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-10-18 00:32:50,765 - INFO - Getting enrollment details for section: -T01-TUT (2756)
+2025-10-18 00:32:51,986 - INFO - Scraping term 2/2: 2025-26 Term 2 for 7110
+2025-10-18 00:32:52,080 - INFO - Switching to 2025-26 Term 2 for 7110
+2025-10-18 00:32:52,157 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:32:52,238 - INFO - Getting enrollment details for section: -T01-TUT (2320)
+2025-10-18 00:32:52,563 - INFO - Extracted details for 7110: Credits=1.00, Terms=2
+2025-10-18 00:32:53,565 - INFO - 📖 Getting details for course 81/92: 7120
+2025-10-18 00:32:53,901 - INFO - Navigating to Course Outcome page for 7120
+2025-10-18 00:32:54,147 - INFO - Course Outcome parsed for 7120
+2025-10-18 00:32:54,148 - INFO - No term dropdown found for 7120, using current data
+2025-10-18 00:32:55,166 - INFO - 📖 Getting details for course 82/92: 7210
+2025-10-18 00:32:55,526 - INFO - Navigating to Course Outcome page for 7210
+2025-10-18 00:32:55,785 - INFO - Course Outcome parsed for 7210
+2025-10-18 00:32:55,785 - INFO - Found 2 terms for 7210: ['2025-26 Term 1', '2025-26 Term 2']
+2025-10-18 00:32:55,787 - INFO - Scraping term 1/2: 2025-26 Term 1 for 7210
+2025-10-18 00:32:55,816 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-10-18 00:32:55,898 - INFO - Getting enrollment details for section: -S01-SEM (2757)
+2025-10-18 00:32:57,178 - INFO - Scraping term 2/2: 2025-26 Term 2 for 7210
+2025-10-18 00:32:57,193 - INFO - Switching to 2025-26 Term 2 for 7210
+2025-10-18 00:32:57,258 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:32:57,322 - INFO - Getting enrollment details for section: -S01-SEM (2748)
+2025-10-18 00:32:57,578 - INFO - Extracted details for 7210: Credits=1.00, Terms=2
+2025-10-18 00:32:58,580 - INFO - 📖 Getting details for course 83/92: 8532
+2025-10-18 00:32:58,843 - INFO - Navigating to Course Outcome page for 8532
+2025-10-18 00:32:59,110 - INFO - Course Outcome parsed for 8532
+2025-10-18 00:32:59,110 - INFO - No term dropdown found for 8532, using current data
+2025-10-18 00:33:00,127 - INFO - 📖 Getting details for course 84/92: 8533
+2025-10-18 00:33:00,533 - INFO - Navigating to Course Outcome page for 8533
+2025-10-18 00:33:00,850 - INFO - Course Outcome parsed for 8533
+2025-10-18 00:33:00,851 - INFO - No term dropdown found for 8533, using current data
+2025-10-18 00:33:01,865 - INFO - 📖 Getting details for course 85/92: 8534
+2025-10-18 00:33:02,155 - INFO - Navigating to Course Outcome page for 8534
+2025-10-18 00:33:02,501 - INFO - Course Outcome parsed for 8534
+2025-10-18 00:33:02,502 - INFO - No term dropdown found for 8534, using current data
+2025-10-18 00:33:03,515 - INFO - 📖 Getting details for course 86/92: 8535
+2025-10-18 00:33:03,831 - INFO - Navigating to Course Outcome page for 8535
+2025-10-18 00:33:04,111 - INFO - Course Outcome parsed for 8535
+2025-10-18 00:33:04,112 - INFO - No term dropdown found for 8535, using current data
+2025-10-18 00:33:05,123 - INFO - 📖 Getting details for course 87/92: 8536
+2025-10-18 00:33:05,397 - INFO - Navigating to Course Outcome page for 8536
+2025-10-18 00:33:05,663 - INFO - Course Outcome parsed for 8536
+2025-10-18 00:33:05,664 - INFO - No term dropdown found for 8536, using current data
+2025-10-18 00:33:06,675 - INFO - 📖 Getting details for course 88/92: 8632
+2025-10-18 00:33:07,007 - INFO - Navigating to Course Outcome page for 8632
+2025-10-18 00:33:07,353 - INFO - Course Outcome parsed for 8632
+2025-10-18 00:33:07,354 - INFO - Found 1 terms for 8632: ['2025-26 Term 1']
+2025-10-18 00:33:07,356 - INFO - Scraping term 1/1: 2025-26 Term 1 for 8632
+2025-10-18 00:33:07,385 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:33:07,400 - INFO - Getting enrollment details for section: -M01-TMC (2781)
+2025-10-18 00:33:07,618 - INFO - Extracted details for 8632: Credits=2.00, Terms=1
+2025-10-18 00:33:08,619 - INFO - 📖 Getting details for course 89/92: 8633
+2025-10-18 00:33:08,965 - INFO - Navigating to Course Outcome page for 8633
+2025-10-18 00:33:09,202 - INFO - Course Outcome parsed for 8633
+2025-10-18 00:33:09,203 - INFO - Found 2 terms for 8633: ['2025-26 Term 1', '2025-26 Term 2']
+2025-10-18 00:33:09,203 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8633
+2025-10-18 00:33:09,220 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-10-18 00:33:09,284 - INFO - Getting enrollment details for section: -M01-TMC (2754)
+2025-10-18 00:33:10,592 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8633
+2025-10-18 00:33:10,606 - INFO - Switching to 2025-26 Term 2 for 8633
+2025-10-18 00:33:10,673 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:33:10,740 - INFO - Getting enrollment details for section: -M01-TMC (2768)
+2025-10-18 00:33:11,127 - INFO - Extracted details for 8633: Credits=3.00, Terms=2
+2025-10-18 00:33:12,128 - INFO - 📖 Getting details for course 90/92: 8634
+2025-10-18 00:33:12,520 - INFO - Navigating to Course Outcome page for 8634
+2025-10-18 00:33:12,829 - INFO - Course Outcome parsed for 8634
+2025-10-18 00:33:12,831 - INFO - Found 2 terms for 8634: ['2025-26 Term 1', '2025-26 Term 2']
+2025-10-18 00:33:12,831 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8634
+2025-10-18 00:33:12,850 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-10-18 00:33:12,920 - INFO - Getting enrollment details for section: -M01-TMC (1116)
+2025-10-18 00:33:14,202 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8634
+2025-10-18 00:33:14,220 - INFO - Switching to 2025-26 Term 2 for 8634
+2025-10-18 00:33:14,280 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:33:14,342 - INFO - Getting enrollment details for section: -M01-TMC (1131)
+2025-10-18 00:33:14,633 - INFO - Extracted details for 8634: Credits=4.00, Terms=2
+2025-10-18 00:33:15,635 - INFO - 📖 Getting details for course 91/92: 8635
+2025-10-18 00:33:16,123 - INFO - Navigating to Course Outcome page for 8635
+2025-10-18 00:33:16,392 - INFO - Course Outcome parsed for 8635
+2025-10-18 00:33:16,394 - INFO - Found 2 terms for 8635: ['2025-26 Term 1', '2025-26 Term 2']
+2025-10-18 00:33:16,394 - INFO - Scraping term 1/2: 2025-26 Term 1 for 8635
+2025-10-18 00:33:16,411 - INFO - Clicking 'Show sections' for 2025-26 Term 1
+2025-10-18 00:33:16,472 - INFO - Getting enrollment details for section: -M01-TMC (1114)
+2025-10-18 00:33:17,745 - INFO - Scraping term 2/2: 2025-26 Term 2 for 8635
+2025-10-18 00:33:17,764 - INFO - Switching to 2025-26 Term 2 for 8635
+2025-10-18 00:33:17,830 - INFO - Clicking 'Show sections' for 2025-26 Term 2
+2025-10-18 00:33:17,891 - INFO - Getting enrollment details for section: -M01-TMC (1132)
+2025-10-18 00:33:18,133 - INFO - Extracted details for 8635: Credits=5.00, Terms=2
+2025-10-18 00:33:19,135 - INFO - 📖 Getting details for course 92/92: 8636
+2025-10-18 00:33:19,519 - INFO - Navigating to Course Outcome page for 8636
+2025-10-18 00:33:19,731 - INFO - Course Outcome parsed for 8636
+2025-10-18 00:33:19,732 - INFO - Found 1 terms for 8636: ['2025-26 Term 1']
+2025-10-18 00:33:19,733 - INFO - Scraping term 1/1: 2025-26 Term 1 for 8636
+2025-10-18 00:33:19,748 - INFO - 'Show sections' button disabled for 2025-26 Term 1 - sections should already be visible
+2025-10-18 00:33:19,765 - INFO - Getting enrollment details for section: -M01-TMC (1115)
+2025-10-18 00:33:20,075 - INFO - Extracted details for 8636: Credits=6.00, Terms=1
+2025-10-18 00:33:20,077 - INFO - 🔍 PHAR: Found 92 courses
+2025-10-18 00:33:20,107 - INFO - 💾 SAVED PHAR → data/PHAR.json
+2025-10-18 00:33:20,119 - INFO - ✅ Completed PHAR: 92 courses in 3.6 minutes
+2025-10-18 00:33:20,119 - INFO - ✅ PHAR completed: 92 courses in 3.6min → data/PHAR.json
+2025-10-18 00:33:20,186 - INFO - ✅ All course outcomes scraped successfully
+2025-10-18 00:33:20,186 - INFO - 🎉 SCRAPING COMPLETED!
+2025-10-18 00:33:20,186 - INFO - ✅ Completed: 1 subjects
+2025-10-18 00:33:20,186 - INFO - ❌ Failed: 0 subjects
