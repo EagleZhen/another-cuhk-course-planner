@@ -14,6 +14,7 @@ Usage: python publish_course_data.py [--dry-run]
 
 import json
 import os
+import re
 import shutil
 import glob
 import sys
@@ -173,7 +174,6 @@ def validate_subject_list(found_subjects: List[str]) -> None:
             content = f.read()
 
         # Find ALL_SUBJECTS array using regex
-        import re
         pattern = r'const ALL_SUBJECTS = \[([\s\S]*?)\]'
         match = re.search(pattern, content)
 
@@ -285,21 +285,29 @@ class ConsoleLogger:
     def __init__(self, filename):
         self.terminal = sys.stdout
         self.log_file = open(filename, 'w', encoding='utf-8')
-    
+
     def write(self, message):
         self.terminal.write(message)
         self.log_file.write(message)
-    
+
     def flush(self):
         self.terminal.flush()
         self.log_file.flush()
-    
+
     def close(self):
         self.log_file.close()
 
+    def get_user_input(self, prompt: str) -> str:
+        """Get user input while temporarily restoring terminal output"""
+        sys.stdout = self.terminal
+        try:
+            answer = input(prompt).strip().lower()
+        finally:
+            sys.stdout = self
+        return answer
+
 def main():
     # Generate log filename with timestamp
-    from datetime import datetime
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     # Create logs directory structure
@@ -400,12 +408,9 @@ def main():
             print(f"   ✅ Valid files ready to copy: {len(valid_files)}")
             print(f"   ⚠️ Problematic files: {len(problematic_files)}")
             print()
-            
-            # Restore original stdout for user input
-            sys.stdout = logger.terminal
-            include_problematic = input("Include problematic files in migration? [y/N]: ").strip().lower()
-            sys.stdout = logger  # Restore logging
-            
+
+            include_problematic = logger.get_user_input("Include problematic files in migration? [y/N]: ")
+
             if include_problematic in ['y', 'yes']:
                 files_to_copy.extend([file_path for file_path, _ in problematic_files])
                 print("➡️ Including all problematic files in copy operation")
@@ -417,10 +422,7 @@ def main():
             return
 
         if not dry_run:
-            # Restore original stdout for user input
-            sys.stdout = logger.terminal
-            proceed = input(f"\nProceed with publishing {len(files_to_copy)} files? [Y/n]: ").strip().lower()
-            sys.stdout = logger  # Restore logging
+            proceed = logger.get_user_input(f"\nProceed with publishing {len(files_to_copy)} files? [Y/n]: ")
 
             if proceed in ['n', 'no']:
                 print("❌ Operation cancelled by user")
