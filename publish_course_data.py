@@ -333,12 +333,10 @@ def main():
                     empty_subjects.append(subject_code)
         
         print(f"✅ Valid files: {len(valid_files)}")
-        
-        # Report subjects with no courses
+
+        # Report subjects with no courses (compact single-line format)
         if empty_subjects:
-            print(f"📭 Subjects with no courses ({len(empty_subjects)}):")
-            for i, subject in enumerate(empty_subjects, 1):
-                print(f"   {i:2d}. {subject}")
+            print(f"📭 Subjects with no courses ({len(empty_subjects)}): {', '.join(sorted(empty_subjects))}")
         else:
             print("✅ All subjects have courses")
         
