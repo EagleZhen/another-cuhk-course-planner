@@ -21,11 +21,11 @@ from typing import Dict, List, Tuple, Optional
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
-    progress_file = "data/scraping_progress.json"
+    progress_file = "logs/summary/scraping_progress.json"
     if not os.path.exists(progress_file):
         print("⚠️ No scraping_progress.json found - validation will be limited")
         return None
-    
+
     try:
         with open(progress_file, 'r', encoding='utf-8') as f:
             return json.load(f)
