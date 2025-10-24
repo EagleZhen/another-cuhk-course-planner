@@ -15,11 +15,10 @@ npm run build        # Production build (must pass with zero errors/warnings)
 npm run lint         # ESLint quality check
 ```
 
-**Data Scraping (Python 3.8+):**
+**Data Scraping (Python 3.8+, Poetry):**
 ```bash
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-python scrape_all_subjects.py   # Production scraping (~50MB, 259 files)
+poetry install                      # Install dependencies
+poetry run python scrape_all_subjects.py   # Production scraping (~50MB, 259 files)
 ```
 
 ## Architecture Overview
@@ -336,7 +335,7 @@ class Course:
 
 **Usage:**
 ```bash
-python scrape_all_subjects.py  # Scrapes all ~259 subjects
+poetry run python scrape_all_subjects.py  # Scrapes all ~259 subjects
 ```
 
 ## Known Issues & Limitations
