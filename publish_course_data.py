@@ -109,15 +109,19 @@ def validate_course_file(file_path: str, subject_code: str, progress_data: Optio
 
 def find_course_files() -> List[str]:
     """
-    Find all 4-letter course JSON files in /data directory,
-    excluding EX_ prefixed files (exempt courses with no actual course data)
+    Find all course JSON files in /data directory,
+    excluding exemption codes (administrative placeholders with no real courses)
     Validates file naming and warns about unexpected files
     """
+    # Exemption codes - administrative placeholders, not real subjects
+    # Must match EXCLUDED_SUBJECTS in scripts/generate_subjects.py
+    EXCLUDED_SUBJECTS = {'EX_PGDE', 'EX_RPG', 'EX_TPG', 'EX_UG', 'XCBS', 'XCCS', 'XFUD', 'XUNC', 'XUSC', 'XWAS'}
+
     data_dir = "data"
     if not os.path.exists(data_dir):
         return []
 
-    # Find JSON files with exactly 4 letter names
+    # Find JSON files
     pattern = os.path.join(data_dir, "*.json")
     all_files = glob.glob(pattern)
 
@@ -129,13 +133,13 @@ def find_course_files() -> List[str]:
         filename = os.path.basename(file_path)
         name_without_ext = os.path.splitext(filename)[0]  # Remove extension
 
-        # Exclude EX_ prefixed files (exemption placeholders with no courses)
-        if name_without_ext.startswith('EX_'):
+        # Exclude exemption codes (consistent with generate_subjects.py)
+        if name_without_ext in EXCLUDED_SUBJECTS:
             excluded_files.append(name_without_ext)
             continue
 
-        # Validate it's a proper 4-letter subject code
-        if len(name_without_ext) == 4 and name_without_ext.isalpha() and name_without_ext.isupper():
+        # Validate it's a proper subject code (4 letters or has underscore for special codes)
+        if (len(name_without_ext) == 4 and name_without_ext.isalpha() and name_without_ext.isupper()) or '_' in name_without_ext:
             course_files.append(file_path)
         else:
             # Unexpected file format - report but don't include
@@ -143,7 +147,7 @@ def find_course_files() -> List[str]:
 
     # Report excluded files
     if excluded_files:
-        print(f"🚫 Excluded {len(excluded_files)} EX_ prefixed files: {', '.join(sorted(excluded_files))}")
+        print(f"🚫 Excluded {len(excluded_files)} exemption codes: {', '.join(sorted(excluded_files))}")
         print()
 
     # Warn about unexpected files
