@@ -253,3 +253,10 @@ const SUBJECT_TITLES: Record<string, string> = {
     'URSP': 'Urban Studies',
     'WOHS': 'Women\'s Health Studies',
 } as const
+
+/**
+ * Get full subject title for display
+ */
+export function getSubjectTitle(subjectCode: string): string {
+  return SUBJECT_TITLES[subjectCode] || subjectCode
+}
