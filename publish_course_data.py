@@ -159,18 +159,18 @@ def find_course_files() -> List[str]:
 
     return sorted(course_files)
 
-def validate_subject_list(found_subjects: List[str]) -> None:
+def validate_subject_list(found_subjects: List[str]) -> bool:
     """
     Validate found subjects against SUBJECT_TITLES in lib/subjects.ts (single source of truth)
-    Warns if there are discrepancies (added/removed subjects)
+    Returns True if validation passes, False if there are discrepancies (blocks publishing)
     """
     # Path to subjects.ts - single source of truth for subject list
     subjects_path = "web/src/lib/subjects.ts"
 
     if not os.path.exists(subjects_path):
-        print("⚠️ Could not find lib/subjects.ts - skipping subject list validation")
+        print("❌ Could not find lib/subjects.ts - publishing blocked")
         print()
-        return
+        return False
 
     try:
         # Read subjects.ts and extract SUBJECT_TITLES keys
@@ -182,9 +182,9 @@ def validate_subject_list(found_subjects: List[str]) -> None:
         match = re.search(pattern, content)
 
         if not match:
-            print("⚠️ Could not find SUBJECT_TITLES in subjects.ts")
+            print("❌ Could not find SUBJECT_TITLES in subjects.ts - publishing blocked")
             print()
-            return
+            return False
 
         # Parse the object keys
         object_content = match.group(1)
@@ -199,21 +199,29 @@ def validate_subject_list(found_subjects: List[str]) -> None:
         removed = registered_set - found_set
 
         if added or removed:
-            print("⚠️  SUBJECT LIST CHANGES DETECTED:")
-            if added:
-                print(f"   ➕ New subjects scraped ({len(added)}): {', '.join(sorted(added))}")
-                print("   📝 Run: poetry run python scripts/generate_subjects.py")
-            if removed:
-                print(f"   ➖ Subjects removed from data ({len(removed)}): {', '.join(sorted(removed))}")
-                print("   📝 Run: poetry run python scripts/generate_subjects.py")
+            print("❌ SUBJECT LIST MISMATCH - PUBLISHING BLOCKED")
             print()
+            if added:
+                print(f"   ➕ New subjects in data ({len(added)}): {', '.join(sorted(added))}")
+            if removed:
+                print(f"   ➖ Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}")
+            print()
+            print("   📝 To fix:")
+            print("      1. Run: poetry run python scripts/generate_subjects.py")
+            print("      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)")
+            print("      3. Run this script again")
+            print()
+            return False
         else:
             print(f"✅ Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
             print()
+            return True
 
     except Exception as e:
-        print(f"⚠️ Error validating subject list: {e}")
+        print(f"❌ Error validating subject list: {e}")
+        print("   Publishing blocked due to validation error")
         print()
+        return False
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
     """Calculate detailed scraping statistics"""
