@@ -366,9 +366,11 @@ def main():
             print("❌ No course files found to copy")
             return
 
-        # Validate subject list against CourseSearch.tsx
+        # Validate subject list against subjects.ts (single source of truth)
         found_subjects = [os.path.splitext(os.path.basename(f))[0] for f in course_files]  # Extract subject codes
-        validate_subject_list(found_subjects)
+        if not validate_subject_list(found_subjects):
+            print("❌ Publishing aborted due to subject list mismatch")
+            sys.exit(1)
 
         # Create destination directory
         dest_dir = "web/public/data"
