@@ -46,6 +46,7 @@ web/src/
 └── lib/
     ├── types.ts                # Internal domain models (zero `any`)
     ├── validation.ts           # Zod schemas + snake_case→camelCase transformation
+    ├── subjects.ts             # Subject code→title mapping (single source of truth)
     ├── courseUtils.ts          # Pure functions (1,276 lines, zero coupling)
     ├── calendarConfig.ts       # Calendar constants + section type config
     ├── analytics.ts            # PostHog wrapper
@@ -237,6 +238,73 @@ const utcTime = hongKongTime.utc()
   startOutputType: 'utc'
 }
 ```
+
+### 8. Subject Management (Single Source of Truth)
+
+**Problem:** Subject codes and titles need to be consistent across data loading, UI tooltips, and publishing validation.
+
+**Solution:** `lib/subjects.ts` serves as the single source of truth for all subject-related data.
+
+**Architecture:**
+```
+data/*.json (scraped) → scripts/generate_subjects.py → lib/subjects.ts → App
+                                                             ↓
+                                                    publish_course_data.py (validates)
+```
+
+**Key Components:**
+
+1. **`lib/subjects.ts`** - Single source of truth (249 subjects)
+   ```typescript
+   const SUBJECT_TITLES: Record<string, string> = {
+     'ACCT': 'Accountancy',
+     'CSCI': 'Computer Science',
+     // ... 247 more
+   } as const
+
+   export function getSubjectTitle(code: string): string
+   export function getAllSubjectCodes(): string[]
+   ```
+
+2. **`scripts/generate_subjects.py`** - Generates TypeScript constant
+   - Reads all `data/*.json` files
+   - Extracts `metadata.subject` and `metadata.subject_title`
+   - Excludes 10 exemption codes: `EX_PGDE`, `EX_RPG`, `EX_TPG`, `EX_UG`, `XCBS`, `XCCS`, `XFUD`, `XUNC`, `XUSC`, `XWAS`
+   - Outputs TypeScript constant for manual copy-paste
+
+3. **`publish_course_data.py`** - Strict validation (blocks on mismatch)
+   - Parses `subjects.ts` to extract registered subjects
+   - Compares with scraped data files
+   - **Blocks publishing** if mismatch detected
+   - Provides clear fix instructions
+
+**Workflow:**
+
+```bash
+# 1. Always run publish script first (validates automatically)
+poetry run python publish_course_data.py
+
+# 2. If subject list mismatch detected, the script will block and tell you to:
+poetry run python scripts/generate_subjects.py
+
+# 3. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant only)
+#    Keep getSubjectTitle() and getAllSubjectCodes() functions intact
+
+# 4. Run publish again to verify
+poetry run python publish_course_data.py
+```
+
+**Benefits:**
+- ✅ Subject tooltips in UI (e.g., "ACCT" → "Accountancy")
+- ✅ CourseSearch loads 249 subjects (not 259, saves 10 network requests)
+- ✅ Guaranteed consistency - publishing blocked if subjects.ts is stale
+- ✅ Zero runtime overhead (static lookup)
+
+**Exclusion List Consistency:**
+All three places use identical exclusion logic:
+- `scripts/generate_subjects.py` - Line 18
+- `publish_course_data.py` - Line 118
+- `web/src/lib/subjects.ts` - Generated output (249 subjects)
 
 ## Data Scraping Architecture
 
