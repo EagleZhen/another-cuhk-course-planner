@@ -161,53 +161,54 @@ def find_course_files() -> List[str]:
 
 def validate_subject_list(found_subjects: List[str]) -> None:
     """
-    Validate found subjects against hardcoded ALL_SUBJECTS in CourseSearch.tsx
+    Validate found subjects against SUBJECT_TITLES in lib/subjects.ts (single source of truth)
     Warns if there are discrepancies (added/removed subjects)
     """
-    # Path to CourseSearch.tsx
-    course_search_path = "web/src/components/CourseSearch.tsx"
+    # Path to subjects.ts - single source of truth for subject list
+    subjects_path = "web/src/lib/subjects.ts"
 
-    if not os.path.exists(course_search_path):
-        print("⚠️ Could not find CourseSearch.tsx - skipping subject list validation")
+    if not os.path.exists(subjects_path):
+        print("⚠️ Could not find lib/subjects.ts - skipping subject list validation")
         print()
         return
 
     try:
-        # Read CourseSearch.tsx and extract ALL_SUBJECTS array
-        with open(course_search_path, 'r', encoding='utf-8') as f:
+        # Read subjects.ts and extract SUBJECT_TITLES keys
+        with open(subjects_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Find ALL_SUBJECTS array using regex
-        pattern = r'const ALL_SUBJECTS = \[([\s\S]*?)\]'
+        # Find SUBJECT_TITLES object using regex
+        pattern = r'const SUBJECT_TITLES[^{]*\{([\s\S]*?)\} as const'
         match = re.search(pattern, content)
 
         if not match:
-            print("⚠️ Could not find ALL_SUBJECTS in CourseSearch.tsx")
+            print("⚠️ Could not find SUBJECT_TITLES in subjects.ts")
             print()
             return
 
-        # Parse the array content
-        array_content = match.group(1)
-        # Extract subject codes (remove quotes, whitespace, commas)
-        hardcoded_subjects = re.findall(r"'([A-Z]{4})'", array_content)
+        # Parse the object keys
+        object_content = match.group(1)
+        # Extract subject codes (keys from 'CODE': 'Title' pairs)
+        registered_subjects = re.findall(r"'([A-Z]{4})':", object_content)
 
         # Compare lists
         found_set = set(found_subjects)
-        hardcoded_set = set(hardcoded_subjects)
+        registered_set = set(registered_subjects)
 
-        added = found_set - hardcoded_set
-        removed = hardcoded_set - found_set
+        added = found_set - registered_set
+        removed = registered_set - found_set
 
         if added or removed:
             print("⚠️  SUBJECT LIST CHANGES DETECTED:")
             if added:
-                print(f"   ➕ Added ({len(added)}): {', '.join(sorted(added))}")
+                print(f"   ➕ New subjects scraped ({len(added)}): {', '.join(sorted(added))}")
+                print("   📝 Run: poetry run python scripts/generate_subjects.py")
             if removed:
-                print(f"   ➖ Removed ({len(removed)}): {', '.join(sorted(removed))}")
-            print(f"   📝 Please update ALL_SUBJECTS in {course_search_path}")
+                print(f"   ➖ Subjects removed from data ({len(removed)}): {', '.join(sorted(removed))}")
+                print("   📝 Run: poetry run python scripts/generate_subjects.py")
             print()
         else:
-            print(f"✅ Subject list matches CourseSearch.tsx ({len(found_subjects)} subjects)")
+            print(f"✅ Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
             print()
 
     except Exception as e:
