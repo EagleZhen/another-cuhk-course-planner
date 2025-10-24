@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
+import { getSubjectTitle } from '@/lib/subjects'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -702,22 +703,27 @@ export default function Home() {
 }
 
 // Persistent Subject Filter Toggle Component
-function SubjectToggle({ 
-  subject, 
+function SubjectToggle({
+  subject,
   isSelected,
-  onSubjectToggle 
-}: { 
+  onSubjectToggle
+}: {
   subject: string
   isSelected: boolean
-  onSubjectToggle: (subject: string) => void 
+  onSubjectToggle: (subject: string) => void
 }) {
+  const subjectTitle = getSubjectTitle(subject)
+  const tooltip = isSelected
+    ? `${subjectTitle} (click to remove filter)`
+    : `${subjectTitle} (click to filter)`
+
   return (
     <Button
       variant={isSelected ? "default" : "outline"}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
       className="h-6 px-2 text-xs font-mono font-normal border-1"
-      title={isSelected ? `Remove ${subject} filter` : `Filter by ${subject} courses`}
+      title={tooltip}
     >
       {subject}
     </Button>
