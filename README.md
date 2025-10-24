@@ -28,8 +28,8 @@ Why is there no one making an actually good one?
 ### 1. Scrape course data
 
 ```bash
-poetry install
-poetry run python scrape_all_subjects.py
+poetry install --no-root
+poetry run python scripts/scrape_all_subjects.py
 ```
 
 Scrapes all ~259 subjects to `data/*.json` (~50MB total). Takes 1-2 hours.
@@ -37,7 +37,7 @@ Scrapes all ~259 subjects to `data/*.json` (~50MB total). Takes 1-2 hours.
 ### 2. Publish data to web app
 
 ```bash
-poetry run python publish_course_data.py
+poetry run python scripts/publish_course_data.py
 ```
 
 Validates and publishes course data from `data/` to `web/public/data/` for deployment.
@@ -58,11 +58,13 @@ Open http://localhost:3000
 
 ```
 .
-├── cuhk_scraper.py              Main scraper logic
-├── scrape_all_subjects.py       Run this to scrape all subjects
-├── publish_course_data.py       Publish data to web app with validation
-├── data_utils.py                HTML/markdown utilities
-├── analyze_course_data.py       Data analysis scripts
+├── scripts/
+│   ├── cuhk_scraper.py          Main scraper logic
+│   ├── scrape_all_subjects.py   Run this to scrape all subjects
+│   ├── publish_course_data.py   Publish data to web app with validation
+│   ├── data_utils.py            HTML/markdown utilities
+│   ├── analyze_course_data.py   Data analysis scripts
+│   └── generate_subjects.py     Generate subject list constant
 │
 ├── data/                        Scraped course JSONs (one per subject)
 ├── logs/                        Scraping logs & progress tracking
@@ -82,9 +84,9 @@ Open http://localhost:3000
 **Scraper:**
 
 ```bash
-poetry run python scrape_all_subjects.py  # Production (all subjects)
-poetry run python cuhk_scraper.py         # Test mode (3 courses/subject)
-poetry run python publish_course_data.py  # Publish data to web app
+poetry run python scripts/scrape_all_subjects.py  # Production (all subjects)
+poetry run python scripts/cuhk_scraper.py         # Test mode (3 courses/subject)
+poetry run python scripts/publish_course_data.py  # Publish data to web app
 ```
 
 **Web app:**

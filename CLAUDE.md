@@ -17,8 +17,8 @@ npm run lint         # ESLint quality check
 
 **Data Scraping (Python 3.8+, Poetry):**
 ```bash
-poetry install                      # Install dependencies
-poetry run python scrape_all_subjects.py   # Production scraping (~50MB, 259 files)
+poetry install --no-root                      # Install dependencies (scripts-only project)
+poetry run python scripts/scrape_all_subjects.py   # Production scraping (~50MB, 259 files)
 ```
 
 ## Architecture Overview
@@ -281,7 +281,7 @@ data/*.json (scraped) → scripts/generate_subjects.py → lib/subjects.ts → A
 
 ```bash
 # 1. Always run publish script first (validates automatically)
-poetry run python publish_course_data.py
+poetry run python scripts/publish_course_data.py
 
 # 2. If subject list mismatch detected, the script will block and tell you to:
 poetry run python scripts/generate_subjects.py
@@ -290,7 +290,7 @@ poetry run python scripts/generate_subjects.py
 #    Keep getSubjectTitle() and getAllSubjectCodes() functions intact
 
 # 4. Run publish again to verify
-poetry run python publish_course_data.py
+poetry run python scripts/publish_course_data.py
 ```
 
 **Benefits:**
@@ -302,12 +302,12 @@ poetry run python publish_course_data.py
 **Exclusion List Consistency:**
 All three places use identical exclusion logic:
 - `scripts/generate_subjects.py` - Line 18
-- `publish_course_data.py` - Line 118
+- `scripts/publish_course_data.py` - Line 118
 - `web/src/lib/subjects.ts` - Generated output (249 subjects)
 
 ## Data Scraping Architecture
 
-**Production Scraper ([cuhk_scraper.py](cuhk_scraper.py)):**
+**Production Scraper ([scripts/cuhk_scraper.py](scripts/cuhk_scraper.py)):**
 - OCR captcha solving with `ddddocr` library
 - Configurable scope: basic listings vs. full details + enrollment + course outcomes
 - Progress tracking with periodic saves (resilient to interruptions)
@@ -335,7 +335,7 @@ class Course:
 
 **Usage:**
 ```bash
-poetry run python scrape_all_subjects.py  # Scrapes all ~259 subjects
+poetry run python scripts/scrape_all_subjects.py  # Scrapes all ~259 subjects
 ```
 
 ## Known Issues & Limitations
