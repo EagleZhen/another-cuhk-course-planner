@@ -159,60 +159,69 @@ def find_course_files() -> List[str]:
 
     return sorted(course_files)
 
-def validate_subject_list(found_subjects: List[str]) -> None:
+def validate_subject_list(found_subjects: List[str]) -> bool:
     """
-    Validate found subjects against hardcoded ALL_SUBJECTS in CourseSearch.tsx
-    Warns if there are discrepancies (added/removed subjects)
+    Validate found subjects against SUBJECT_TITLES in lib/subjects.ts (single source of truth)
+    Returns True if validation passes, False if there are discrepancies (blocks publishing)
     """
-    # Path to CourseSearch.tsx
-    course_search_path = "web/src/components/CourseSearch.tsx"
+    # Path to subjects.ts - single source of truth for subject list
+    subjects_path = "web/src/lib/subjects.ts"
 
-    if not os.path.exists(course_search_path):
-        print("⚠️ Could not find CourseSearch.tsx - skipping subject list validation")
+    if not os.path.exists(subjects_path):
+        print("❌ Could not find lib/subjects.ts - publishing blocked")
         print()
-        return
+        return False
 
     try:
-        # Read CourseSearch.tsx and extract ALL_SUBJECTS array
-        with open(course_search_path, 'r', encoding='utf-8') as f:
+        # Read subjects.ts and extract SUBJECT_TITLES keys
+        with open(subjects_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Find ALL_SUBJECTS array using regex
-        pattern = r'const ALL_SUBJECTS = \[([\s\S]*?)\]'
+        # Find SUBJECT_TITLES object using regex
+        pattern = r'const SUBJECT_TITLES[^{]*\{([\s\S]*?)\} as const'
         match = re.search(pattern, content)
 
         if not match:
-            print("⚠️ Could not find ALL_SUBJECTS in CourseSearch.tsx")
+            print("❌ Could not find SUBJECT_TITLES in subjects.ts - publishing blocked")
             print()
-            return
+            return False
 
-        # Parse the array content
-        array_content = match.group(1)
-        # Extract subject codes (remove quotes, whitespace, commas)
-        hardcoded_subjects = re.findall(r"'([A-Z]{4})'", array_content)
+        # Parse the object keys
+        object_content = match.group(1)
+        # Extract subject codes (keys from 'CODE': 'Title' pairs)
+        registered_subjects = re.findall(r"'([A-Z]{4})':", object_content)
 
         # Compare lists
         found_set = set(found_subjects)
-        hardcoded_set = set(hardcoded_subjects)
+        registered_set = set(registered_subjects)
 
-        added = found_set - hardcoded_set
-        removed = hardcoded_set - found_set
+        added = found_set - registered_set
+        removed = registered_set - found_set
 
         if added or removed:
-            print("⚠️  SUBJECT LIST CHANGES DETECTED:")
+            print("❌ SUBJECT LIST MISMATCH - PUBLISHING BLOCKED")
+            print()
             if added:
-                print(f"   ➕ Added ({len(added)}): {', '.join(sorted(added))}")
+                print(f"   ➕ New subjects in data ({len(added)}): {', '.join(sorted(added))}")
             if removed:
-                print(f"   ➖ Removed ({len(removed)}): {', '.join(sorted(removed))}")
-            print(f"   📝 Please update ALL_SUBJECTS in {course_search_path}")
+                print(f"   ➖ Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}")
             print()
+            print("   📝 To fix:")
+            print("      1. Run: poetry run python scripts/generate_subjects.py")
+            print("      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)")
+            print("      3. Run this script again")
+            print()
+            return False
         else:
-            print(f"✅ Subject list matches CourseSearch.tsx ({len(found_subjects)} subjects)")
+            print(f"✅ Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
             print()
+            return True
 
     except Exception as e:
-        print(f"⚠️ Error validating subject list: {e}")
+        print(f"❌ Error validating subject list: {e}")
+        print("   Publishing blocked due to validation error")
         print()
+        return False
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
     """Calculate detailed scraping statistics"""
@@ -357,9 +366,11 @@ def main():
             print("❌ No course files found to copy")
             return
 
-        # Validate subject list against CourseSearch.tsx
+        # Validate subject list against subjects.ts (single source of truth)
         found_subjects = [os.path.splitext(os.path.basename(f))[0] for f in course_files]  # Extract subject codes
-        validate_subject_list(found_subjects)
+        if not validate_subject_list(found_subjects):
+            print("❌ Publishing aborted due to subject list mismatch")
+            sys.exit(1)
 
         # Create destination directory
         dest_dir = "web/public/data"

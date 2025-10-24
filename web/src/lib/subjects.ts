@@ -264,3 +264,10 @@ const SUBJECT_TITLES: Record<string, string> = {
 export function getSubjectTitle(subjectCode: string): string {
   return SUBJECT_TITLES[subjectCode] || subjectCode
 }
+
+/**
+ * Get all available subject codes
+ */
+export function getAllSubjectCodes(): string[] {
+  return Object.keys(SUBJECT_TITLES)
+}
