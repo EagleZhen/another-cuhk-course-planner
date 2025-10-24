@@ -14,6 +14,9 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 
 def main():
+    # Exemption codes - administrative placeholders, not real subjects
+    EXCLUDED_SUBJECTS = {'EX_PGDE', 'EX_RPG', 'EX_TPG', 'EX_UG', 'XCBS', 'XCCS', 'XFUD', 'XUNC', 'XUSC', 'XWAS'}
+
     subject_titles = {}
 
     for filepath in sorted(DATA_DIR.glob("*.json")):
@@ -22,6 +25,10 @@ def main():
 
         subject = data['metadata']['subject']
         subject_title = data['metadata']['subject_title']
+
+        if subject in EXCLUDED_SUBJECTS:
+            continue
+
         subject_titles[subject] = subject_title
 
     # Generate TypeScript constant
@@ -29,7 +36,7 @@ def main():
     for subject in sorted(subject_titles.keys()):
         title = subject_titles[subject].replace("'", "\\'")
         print(f"    '{subject}': '{title}',")
-    print("} as const;")
+    print("} as const")
 
 
 if __name__ == "__main__":
