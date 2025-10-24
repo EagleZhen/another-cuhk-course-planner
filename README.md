@@ -28,7 +28,7 @@ Why is there no one making an actually good one?
 ### 1. Scrape course data
 
 ```bash
-poetry install
+poetry install --no-root
 poetry run python scripts/scrape_all_subjects.py
 ```
 
