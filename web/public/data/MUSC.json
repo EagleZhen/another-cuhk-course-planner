@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T13:19:06.245109+00:00",
+    "scraped_at": "2025-10-25T00:38:17.988911+00:00",
     "subject": "MUSC",
     "subject_title": "Music",
     "total_courses": 230,
@@ -29,10 +29,10 @@
               ],
               "availability": {
                 "capacity": "72",
-                "enrolled": "71",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1268,7 +1268,7 @@
                 }
               ],
               "availability": {
-                "capacity": "42",
+                "capacity": "44",
                 "enrolled": "44",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
@@ -1664,10 +1664,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "13",
+                "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -4553,7 +4553,7 @@
                 }
               ],
               "availability": {
-                "capacity": "15",
+                "capacity": "17",
                 "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
@@ -5260,7 +5260,7 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
+                "capacity": "22",
                 "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
@@ -7734,7 +7734,34 @@
       "course_code": "4613",
       "title": "Senior Research Project I",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9698)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor MAK Susanna Su Yin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "This course forms the first of a two-part course for capstone research projects in Music. It introduces students to the requisite scholarly and practical skills for conducting such projects.",
       "enrollment_requirement": "",
       "course_attributes": "Capstone Course\nSTOT Course",
@@ -10008,13 +10035,13 @@
               "section": "--LEC (3266)",
               "meetings": [
                 {
-                  "time": "We 4:30PM - 6:15PM",
+                  "time": "We 2:30PM - 5:15PM",
                   "location": "Hui Yeung Shing Bldg 304",
                   "instructor": "Professor MAK Susanna Su Yin",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
                 },
                 {
-                  "time": "We 4:30PM - 6:15PM",
+                  "time": "We 2:30PM - 5:15PM",
                   "location": "Hui Yeung Shing Bldg 304",
                   "instructor": "Professor MAK Susanna Su Yin",
                   "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"

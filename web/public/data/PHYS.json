@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T14:08:38.231958+00:00",
+    "scraped_at": "2025-10-25T01:26:13.196226+00:00",
     "subject": "PHYS",
     "subject_title": "Physics",
     "total_courses": 100,
@@ -662,25 +662,25 @@
               "meetings": [
                 {
                   "time": "Mo 4:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall 106",
+                  "location": "Science Centre L2",
                   "instructor": "Dr. TONG Shiu Sing Dominic",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 4:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall 106",
+                  "location": "Science Centre L2",
                   "instructor": "Dr. TONG Shiu Sing Dominic",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 4:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall 106",
+                  "location": "Science Centre L2",
                   "instructor": "Dr. TONG Shiu Sing Dominic",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 4:30PM - 5:15PM",
-                  "location": "Y.C. Liang Hall 106",
+                  "location": "Science Centre L2",
                   "instructor": "Dr. TONG Shiu Sing Dominic",
                   "dates": "13/4"
                 },
@@ -710,11 +710,11 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
+                "capacity": "45",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -925,11 +925,11 @@
               ],
               "availability": {
                 "capacity": "96",
-                "enrolled": "96",
+                "enrolled": "95",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -977,11 +977,11 @@
               ],
               "availability": {
                 "capacity": "32",
-                "enrolled": "32",
+                "enrolled": "31",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -1023,10 +1023,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "48",
+                "enrolled": "47",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3095,19 +3095,19 @@
               "meetings": [
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Science Centre 326",
+                  "location": "Science Centre 327",
                   "instructor": "Professor WANG Yi",
                   "dates": "3/9, 10/9, 17/9, 24/9"
                 },
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Science Centre 326",
+                  "location": "Science Centre 327",
                   "instructor": "Professor WANG Yi",
                   "dates": "8/10, 15/10, 22/10"
                 },
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Science Centre 326",
+                  "location": "Science Centre 327",
                   "instructor": "Professor WANG Yi",
                   "dates": "5/11, 12/11, 19/11, 26/11"
                 }
@@ -8583,10 +8583,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "1",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8903,7 +8903,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor WANG Yi",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -8919,6 +8919,26 @@
             },
             {
               "section": "BJ01-PRJ (8407)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Hua Bai",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CJ01-PRJ (9708)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -9782,6 +9802,26 @@
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Professor YAN Yangqian",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZAJ1-PRJ (9687)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Ping Wah",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -14267,10 +14307,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "1",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
