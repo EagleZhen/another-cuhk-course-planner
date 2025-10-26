@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T11:27:38.240691+00:00",
+    "scraped_at": "2025-10-24T22:49:43.633194+00:00",
     "subject": "GENA",
     "subject_title": "GE - New Asia College",
     "total_courses": 24,
@@ -29,7 +29,7 @@
               ],
               "availability": {
                 "capacity": "1438",
-                "enrolled": "2303",
+                "enrolled": "2300",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -473,6 +473,64 @@
                   "time": "TBA",
                   "location": "TBA",
                   "instructor": "Dr. CHIU King Pong",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "F-LEC (9700)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Staff",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Staff",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Staff",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "FF01-FLD (9701)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -1505,64 +1563,6 @@
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
-            },
-            {
-              "section": "P-LEC (5527)",
-              "meetings": [
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
-                  "instructor": "Staff",
-                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
-                },
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
-                  "instructor": "Staff",
-                  "dates": "23/2"
-                },
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
-                  "instructor": "Staff",
-                  "dates": "9/3, 16/3, 23/3, 30/3"
-                },
-                {
-                  "time": "Mo 10:30AM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
-                  "instructor": "Staff",
-                  "dates": "13/4"
-                }
-              ],
-              "availability": {
-                "capacity": "35",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "35",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "PF01-FLD (7230)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "35",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "35",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
             }
           ]
         }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T11:30:03.144291+00:00",
+    "scraped_at": "2025-10-24T22:52:05.804873+00:00",
     "subject": "GESC",
     "subject_title": "GE - Shaw College",
     "total_courses": 43,
@@ -29,7 +29,7 @@
               ],
               "availability": {
                 "capacity": "1400",
-                "enrolled": "2273",
+                "enrolled": "2271",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -49,10 +49,10 @@
               ],
               "availability": {
                 "capacity": "2000",
-                "enrolled": "852",
+                "enrolled": "850",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1148",
+                "available_seats": "1150",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -233,7 +233,7 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "90",
+                "enrolled": "91",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -624,11 +624,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -1036,6 +1036,44 @@
                   "location": "Yasumoto Int'l Acad Park 402",
                   "instructor": "Ms. CHAU Wing Sze",
                   "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "MBJ1-PRJ (9702)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 214",
+                  "instructor": "Ms. CHUNG Ho Yan, \nMs. LAI Siu Yuk",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 214",
+                  "instructor": "Ms. CHUNG Ho Yan, \nMs. LAI Siu Yuk",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 214",
+                  "instructor": "Ms. CHUNG Ho Yan, \nMs. LAI Siu Yuk",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 214",
+                  "instructor": "Ms. CHUNG Ho Yan, \nMs. LAI Siu Yuk",
+                  "dates": "14/4"
                 }
               ],
               "availability": {
@@ -1791,7 +1829,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "61",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1811,7 +1849,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "61",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -2264,25 +2302,25 @@
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 114",
-                  "instructor": "Staff",
+                  "instructor": "Dr. Aikins Amoako ASIAMA",
                   "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 114",
-                  "instructor": "Staff",
+                  "instructor": "Dr. Aikins Amoako ASIAMA",
                   "dates": "27/2"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 114",
-                  "instructor": "Staff",
+                  "instructor": "Dr. Aikins Amoako ASIAMA",
                   "dates": "13/3, 20/3, 27/3"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 114",
-                  "instructor": "Staff",
+                  "instructor": "Dr. Aikins Amoako ASIAMA",
                   "dates": "10/4, 17/4"
                 }
               ],

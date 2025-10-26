@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T11:09:14.759152+00:00",
+    "scraped_at": "2025-10-24T22:32:01.768781+00:00",
     "subject": "FAAS",
     "subject_title": "Fine Arts",
     "total_courses": 119,
@@ -3147,7 +3147,78 @@
       "course_code": "3204",
       "title": "Xieyi: Chinese Expressive Painting",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9685)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Professor ZHOU Jin",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Professor ZHOU Jin",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Professor ZHOU Jin",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "-E01-EXR (9686)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Professor ZHOU Jin",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Professor ZHOU Jin",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Professor ZHOU Jin",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
       "description": "This course focuses on the techniques of painting in an expressive manner i.e. in the literati tradition of \"writing the idea\". The techniques and forms of expression such as ink, light colouring, heavy colouring are included. Contents of this course will vary with instructors and students. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.",
       "enrollment_requirement": "",
       "course_attributes": "",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T10:01:15.740724+00:00",
+    "scraped_at": "2025-10-24T21:26:19.323763+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
     "total_courses": 83,
@@ -257,7 +257,7 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "152",
+                "enrolled": "153",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -289,7 +289,7 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "152",
+                "enrolled": "153",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1407,11 +1407,11 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "150",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "100",
+                "available_seats": "150",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1545,11 +1545,11 @@
                 }
               ],
               "availability": {
-                "capacity": "180",
+                "capacity": "150",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "180",
+                "available_seats": "150",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1709,11 +1709,11 @@
                 }
               ],
               "availability": {
-                "capacity": "140",
+                "capacity": "143",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "140",
+                "available_seats": "143",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1729,11 +1729,11 @@
                 }
               ],
               "availability": {
-                "capacity": "140",
+                "capacity": "143",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "140",
+                "available_seats": "143",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2317,10 +2317,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "71",
+                "available_seats": "72",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2349,10 +2349,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "71",
+                "available_seats": "72",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8315,7 +8315,46 @@
       "course_code": "5370",
       "title": "Quantum Computing",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9697)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor LIANG Zhiding",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor LIANG Zhiding",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor LIANG Zhiding",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course provides an introduction to the following topics in quantum computation: 1. Models of quantum computation and communication; 2. Quantum algorithms and their limitations; 3. Other topics (quantum communication, quantum cryptography, quantum proofs, quantum error correction, quantum supremacy).",
       "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN)",
       "course_attributes": "",
@@ -8472,10 +8511,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9080,10 +9119,10 @@
               ],
               "availability": {
                 "capacity": "350",
-                "enrolled": "301",
+                "enrolled": "300",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -10893,10 +10932,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "4",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-17T15:08:08.288271+00:00",
+    "scraped_at": "2025-10-25T02:25:18.460375+00:00",
     "subject": "UGEC",
     "subject_title": "Society and Culture",
     "total_courses": 128,
@@ -912,11 +912,11 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "77",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "80",
+                "available_seats": "77",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -944,11 +944,11 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "77",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "80",
+                "available_seats": "77",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -980,7 +980,52 @@
       "course_code": "1512",
       "title": "Fundamentals of Government",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (9682)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Humanities Building 114",
+                  "instructor": "Staff",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "(UGEC1512 is double-coded with GPAD1020.)\n\nIntroduction to the nature of political inquiry, the basic concepts in political science and the main features of the major types of political systems. Some emphasis is placed on the institutional aspects of government and administration, with concrete examples.",
       "enrollment_requirement": "UGEC1512 is double-coded with GPAD1020. \nNot for Government and Public Administration Majors; and students who have taken GPAD1020.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
       "course_attributes": "",
@@ -1015,22 +1060,28 @@
               "section": "B-LEC (5362)",
               "meetings": [
                 {
-                  "time": "Th 8:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg C1",
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
                   "instructor": "Staff",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
-                  "time": "Th 8:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg C1",
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
                   "instructor": "Staff",
-                  "dates": "26/2"
+                  "dates": "23/2"
                 },
                 {
-                  "time": "Th 8:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg C1",
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
                   "instructor": "Staff",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                  "dates": "13/4"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
                 }
               ],
               "availability": {
@@ -1231,11 +1282,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "100",
+                "enrolled": "98",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -4266,11 +4317,11 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "15",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -7992,7 +8043,78 @@
       "course_code": "3928",
       "title": "Language Disorders",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9691)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Professor FONG Raymond, \nProfessor LEE Yuet Sheung Kathy",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Professor FONG Raymond, \nProfessor LEE Yuet Sheung Kathy",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Professor FONG Raymond, \nProfessor LEE Yuet Sheung Kathy",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9692)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Professor FONG Raymond, \nProfessor LEE Yuet Sheung Kathy",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Professor FONG Raymond, \nProfessor LEE Yuet Sheung Kathy",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Professor FONG Raymond, \nProfessor LEE Yuet Sheung Kathy",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "(UGEC3928 is double-coded with LING3208.)\nThis survey course introduces non-clinical students to fundamental concepts of language disorders in paediatric and adult populations. Characteristics of primary language impairment, aphasia, dysarthria, and hearing impairments, as well as articulation, fluency, and voice and other related disorders affecting language are among the topics to be discussed. Diagnostic techniques and treatment strategies are also introduced.\n\nDiscussions will be made on the impacts of language impairment on one’s cognitive development, academic performance, as well as physical, psychological and social well-being across the lifespan (SDG#3 Good Health and Well-Being). Students will be able to gain a better understanding of how people suffering from these disorders are deprived from healthy lives (SDG#3 Good Health and Well-Being), quality education (SDG#4 Quality Education), employment opportunities (SDG#8 Decent Work and Economic Growth), and social equality (SDG#10 Reduced Inequalities). Students will also come to appreciate the benefits brought by the relevant assessment and treatment in promoting personal wellbeing (SDG#3 Good Health and Well-Being), ensuring inclusive and equitable quality education (SDG#4 Quality Education), providing full and productive employment and decent work for all (SDG#8 Decent Work and Economic Growth), as well as reducing inequality in the society (SDG#10 Reduced Inequalities).",
       "enrollment_requirement": "UGEC3928 is double-coded with LING3208. \nNot for Linguistics Majors; and students who have taken LING3208 or UGEB2991. \nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
       "course_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #10 Reducing Inequality",
