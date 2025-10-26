@@ -331,7 +331,7 @@ export default function ShoppingCart({
                         )}
                       </div>
                       <span className="text-xs text-gray-500 font-medium">
-                        {enrollment.course.credits || '3.0'} credits
+                        {enrollment.course.credits} credits
                       </span>
                     </div>
                     
