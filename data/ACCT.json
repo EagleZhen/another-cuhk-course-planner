@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-24T20:06:56.694162+00:00",
+    "scraped_at": "2025-10-30T10:06:02.721130+00:00",
     "subject": "ACCT",
     "subject_title": "Accountancy",
     "total_courses": 95,
@@ -256,7 +256,7 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "76",
+                "enrolled": "75",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1379,10 +1379,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "35",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5697,10 +5697,34 @@
               "section": "CBF1-FLD (1115)",
               "meetings": [
                 {
-                  "time": "TBA",
+                  "time": "Mo 9:00AM - 5:00PM",
                   "location": "No Room Required",
                   "instructor": "Staff",
-                  "dates": "02/03/2026 - 08/06/2026"
+                  "dates": "9/3"
+                },
+                {
+                  "time": "Tu 9:00AM - 5:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "10/3"
+                },
+                {
+                  "time": "We 9:00AM - 5:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "11/3"
+                },
+                {
+                  "time": "Th 9:00AM - 5:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "12/3"
+                },
+                {
+                  "time": "Fr 9:00AM - 5:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "13/3"
                 }
               ],
               "availability": {
