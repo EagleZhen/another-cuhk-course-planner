@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-10-24T20:16:59.883469+00:00",
+    "scraped_at": "2025-10-30T10:16:58.484860+00:00",
     "subject": "ANTH",
     "subject_title": "Anthropology",
     "total_courses": 155,
@@ -7161,7 +7161,78 @@
       "course_code": "5401",
       "title": "Topics in Ethnography",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9711)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 8:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. SUN Rui",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 8:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. SUN Rui",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 8:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. SUN Rui",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9732)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. SUN Rui",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 8:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. SUN Rui",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 8:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. SUN Rui",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course examines selected topics, both area-related and problem-oriented, within the field of ethnography. Semester offerings will vary with the instructor and may include such topics as regional studies, classic and contemporary ethnographic writings, and the problem of the anthropologist and fieldwork.",
       "enrollment_requirement": "For students in MA Anthropology",
       "course_attributes": "Shared Learning Activities with ANTH5401",
