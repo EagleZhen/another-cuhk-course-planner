@@ -506,7 +506,7 @@ export default function WeeklyCalendar({
                             zIndex: 1,
                             background: 'repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.6) 0px, rgba(239, 68, 68, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)'
                           }}
-                          className="border-2 border-red-600 rounded-sm shadow-xl animate-pulse transition-all duration-300"
+                          className="border-2 border-red-600 rounded-sm animate-pulse transition-all duration-300"
                         />
                       )
                     })}
