@@ -831,10 +831,10 @@ function UnscheduledSectionsCard({
                     key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
-                      rounded-sm text-xs text-white shadow-md
+                      rounded-sm text-xs text-white
                       hover:scale-105 transition-all cursor-pointer
                       overflow-hidden group relative
-                      ${isSelected ? 'scale-105 shadow-2xl' : ''}
+                      ${isSelected ? 'scale-105' : ''}
                     `}
                     style={{
                       width: 'calc((100% - 32px) / 5)',
