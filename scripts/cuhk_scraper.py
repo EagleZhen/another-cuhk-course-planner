@@ -843,34 +843,55 @@ class CuhkScraper:
         return courses
     
     def get_course_details(self, course: Course, current_html: str) -> Optional[Course]:
-        """Get detailed course information by simulating postback"""
+        """Get detailed course information by simulating postback with retry for validation failures"""
         if not course.postback_target:
             self.logger.warning(f"No postback target for course {course.course_code}")
             return course
-        
-        try:
-            soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Prepare postback for course details
-            form_data = self._extract_asp_hidden_fields(soup)
-            form_data['__EVENTTARGET'] = course.postback_target
-            form_data['__EVENTARGUMENT'] = ''
+        # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
+        attempt = 0
+        while True:  # Infinite retry for transient errors
+            try:
+                soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Submit the postback to get course details page
-            response = self._robust_request('POST', self.base_url, data=form_data)
-            
-            # Get course details with all available terms
-            detailed_course = self._get_course_details_with_term_selection(response.text, course)
-            
-            # Debug: save detailed response (using smart saving)
-            self._set_context(self.config, course)  # Set course context
-            self._save_debug_html(response.text, f"course_details_{course.subject}_{course.course_code}.html")
-            
-            return detailed_course
-            
-        except Exception as e:
-            self.logger.error(f"Error getting course details for {course.course_code}: {e}")
-            return course
+                # Prepare postback for course details
+                form_data = self._extract_asp_hidden_fields(soup)
+                form_data['__EVENTTARGET'] = course.postback_target
+                form_data['__EVENTARGUMENT'] = ''
+
+                # Submit the postback to get course details page
+                response = self._robust_request('POST', self.base_url, data=form_data)
+
+                # Get course details with all available terms
+                # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
+                detailed_course = self._get_course_details_with_term_selection(response.text, course)
+
+                # Debug: save detailed response (using smart saving)
+                self._set_context(self.config, course)  # Set course context
+                self._save_debug_html(response.text, f"course_details_{course.subject}_{course.course_code}.html")
+
+                return detailed_course
+
+            except ValueError as e:
+                # Validation error (corrupted HTML, missing buttons, etc.) - retry infinitely
+                attempt += 1
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
+                self.logger.warning(
+                    f"⚠️ Course details validation failed for {course.course_code} "
+                    f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                )
+                time.sleep(wait_time)
+                # Continue loop - re-fetch course details page
+
+            except Exception as e:
+                # Unexpected error - also retry (could be parsing error from bad HTML)
+                attempt += 1
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                self.logger.error(
+                    f"❌ Unexpected error getting course details for {course.course_code} "
+                    f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                )
+                time.sleep(wait_time)
     
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
@@ -1373,38 +1394,45 @@ class CuhkScraper:
     
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
-        try:
-            soup = BeautifulSoup(current_html, 'html.parser')
-            
-            # Check if Course Outcome button exists
-            outcome_btn = soup.find('input', {'id': 'btn_course_outcome'})
-            if not outcome_btn:
-                self.logger.info(f"No Course Outcome button found for {course.course_code}")
-                return
+        soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Prepare postback for Course Outcome page
-            form_data = self._extract_asp_hidden_fields(soup)
-            form_data['btn_course_outcome'] = 'Course Outcome'
+        # Validate parent HTML has Course Outcome button (all courses should have this)
+        outcome_btn = soup.find('input', {'id': 'btn_course_outcome'})
+        if not outcome_btn:
+            # Missing button = corrupted course details page (likely network issue during fetch)
+            # Raise ValueError to trigger retry in get_course_details()
+            raise ValueError(
+                f"Missing Course Outcome button for {course.course_code} - "
+                f"corrupted course details page (likely network issue)"
+            )
 
-            # Submit Course Outcome request
-            self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
-            response = self._robust_request('POST', self.base_url, data=form_data)
-            
-            # Debug: save Course Outcome response (using smart saving)
-            self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
-            
-            # CRITICAL: Validate response before parsing to prevent data loss
-            if not self._validate_course_outcome_response(response.text, course):
-                self.logger.warning(f"Invalid course outcome response for {course.course_code} - preserving existing data")
-                self._track_failed_course_outcome(course.subject, course.course_code, "validation_failed")
-                return  # Don't overwrite existing course outcome data
-            
-            # Parse Course Outcome page only if validation passes
-            self._parse_course_outcome_content(response.text, course)
-            
-        except Exception as e:
-            self.logger.error(f"Error scraping Course Outcome for {course.course_code}: {e}")
-            self._track_failed_course_outcome(course.subject, course.course_code, f"exception: {str(e)}")
+        # Prepare postback for Course Outcome page
+        form_data = self._extract_asp_hidden_fields(soup)
+        form_data['btn_course_outcome'] = 'Course Outcome'
+
+        # Submit Course Outcome request
+        self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
+        response = self._robust_request('POST', self.base_url, data=form_data)
+
+        # Check for PERMANENT system error (don't retry these)
+        if '<title>System error</title>' in response.text or 'System error. Please try again' in response.text:
+            self.logger.error(f"🚨 System error (PERMANENT) for {course.course_code} course outcome - cannot scrape")
+            self._track_failed_course_outcome(course.subject, course.course_code, "system_error_permanent")
+            self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html")
+            return  # Don't retry system errors - they're permanent (malformed data in CUHK database)
+
+        # Debug: save Course Outcome response (using smart saving)
+        self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
+
+        # Validate response structure before parsing
+        if not self._validate_course_outcome_response(response.text, course):
+            # Invalid outcome page = transient corruption
+            # Raise ValueError to trigger retry in get_course_details()
+            self._track_failed_course_outcome(course.subject, course.course_code, "validation_failed")
+            raise ValueError(f"Invalid course outcome page structure for {course.course_code}")
+
+        # Parse Course Outcome page only if validation passes
+        self._parse_course_outcome_content(response.text, course)
     
     def _validate_course_outcome_response(self, html: str, course: Course) -> bool:
         """

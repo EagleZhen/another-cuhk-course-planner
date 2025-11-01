@@ -313,6 +313,8 @@ All three places use identical exclusion logic:
 - Progress tracking with periodic saves (resilient to interruptions)
 - Per-subject JSON output (259 files in `data/`)
 - HTML to Markdown conversion for course outcomes
+- **Infinite retry mechanism** for transient errors (network issues, corrupted HTML)
+- **System error detection** for permanent failures (doesn't retry malformed CUHK data)
 
 **Key Classes:**
 ```python
@@ -338,13 +340,56 @@ class Course:
 poetry run python scripts/scrape_all_subjects.py  # Scrapes all ~259 subjects
 ```
 
+**Retry Mechanism (Robust Error Handling):**
+
+The scraper implements layered retry strategies to prevent data loss from transient network issues:
+
+1. **HTTP Layer** ([`_robust_request()`](scripts/cuhk_scraper.py#L329-389)):
+   - Infinite retry for network errors (ConnectionError, Timeout, 502/503/504)
+   - Exponential backoff (1s → 2s → 4s → ... → max 60s)
+   - Pre-loads response content to catch mid-transfer drops
+
+2. **Validation Layer** ([`get_course_details()`](scripts/cuhk_scraper.py#L845-873)):
+   - Infinite retry for validation failures (corrupted HTML, missing buttons)
+   - Re-fetches entire course details page on corruption
+   - Raises `ValueError` to bubble up transient errors
+
+3. **Domain Layer** ([`_scrape_course_outcome()`](scripts/cuhk_scraper.py#L1395-1435)):
+   - Detects **permanent** system errors (malformed CUHK data) → doesn't retry
+   - Detects **transient** validation errors (missing buttons, corrupted HTML) → raises `ValueError`
+   - Tracks failed outcomes for manual review
+
+**Error Classification:**
+```python
+# Transient (retry infinitely)
+- Network issues (connection drops, timeouts)
+- Corrupted HTML (missing buttons, incomplete pages)
+- Validation failures (malformed responses)
+
+# Permanent (don't retry)
+- System errors on course outcome pages (CUHK database issues)
+- These are tracked in logs/summary/failed_course_outcomes.txt
+```
+
+**Key Pattern:**
+```python
+# Helper method extracts ASP.NET hidden fields (ViewState, etc.)
+# Used 6 times across scraper - eliminates duplication
+form_data = self._extract_asp_hidden_fields(soup)
+```
+
 ## Known Issues & Limitations
 
-**Critical Issues:**
+**Critical Issues (Frontend):**
 - **Partial Data Loading**: App continues with incomplete data when network fails mid-load (~50MB)
   - Causes false "course no longer exists" errors when sync runs with partial data
   - Need all-or-nothing loading with retry mechanism and user feedback
 - **Analytics Gap**: No performance metrics for data loading duration
+
+**Resolved Issues (Scraper):**
+- ✅ **Network-induced data loss** (Fixed Nov 2025): Corrupted HTML from network issues no longer causes silent data loss
+  - Infinite retry mechanism detects missing buttons and re-fetches pages
+  - System errors on course outcomes are properly classified as permanent (no infinite retry)
 
 **Current Limitations:**
 - Loads all subjects on startup (200+ files) instead of on-demand
@@ -412,4 +457,4 @@ poetry run python scripts/scrape_all_subjects.py  # Scrapes all ~259 subjects
    }, [isHydrated])
    ```
 
-*Last updated: October 2025 - Production-ready system. Critical data integrity improvements needed for partial loading scenarios.*
+*Last updated: November 2025 - Production-ready system. Scraper now has robust retry mechanism preventing network-induced data loss. Frontend data loading improvements still needed.*
