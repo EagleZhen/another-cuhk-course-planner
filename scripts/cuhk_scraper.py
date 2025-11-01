@@ -843,34 +843,55 @@ class CuhkScraper:
         return courses
     
     def get_course_details(self, course: Course, current_html: str) -> Optional[Course]:
-        """Get detailed course information by simulating postback"""
+        """Get detailed course information by simulating postback with retry for validation failures"""
         if not course.postback_target:
             self.logger.warning(f"No postback target for course {course.course_code}")
             return course
-        
-        try:
-            soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Prepare postback for course details
-            form_data = self._extract_asp_hidden_fields(soup)
-            form_data['__EVENTTARGET'] = course.postback_target
-            form_data['__EVENTARGUMENT'] = ''
+        # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
+        attempt = 0
+        while True:  # Infinite retry for transient errors
+            try:
+                soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Submit the postback to get course details page
-            response = self._robust_request('POST', self.base_url, data=form_data)
-            
-            # Get course details with all available terms
-            detailed_course = self._get_course_details_with_term_selection(response.text, course)
-            
-            # Debug: save detailed response (using smart saving)
-            self._set_context(self.config, course)  # Set course context
-            self._save_debug_html(response.text, f"course_details_{course.subject}_{course.course_code}.html")
-            
-            return detailed_course
-            
-        except Exception as e:
-            self.logger.error(f"Error getting course details for {course.course_code}: {e}")
-            return course
+                # Prepare postback for course details
+                form_data = self._extract_asp_hidden_fields(soup)
+                form_data['__EVENTTARGET'] = course.postback_target
+                form_data['__EVENTARGUMENT'] = ''
+
+                # Submit the postback to get course details page
+                response = self._robust_request('POST', self.base_url, data=form_data)
+
+                # Get course details with all available terms
+                # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
+                detailed_course = self._get_course_details_with_term_selection(response.text, course)
+
+                # Debug: save detailed response (using smart saving)
+                self._set_context(self.config, course)  # Set course context
+                self._save_debug_html(response.text, f"course_details_{course.subject}_{course.course_code}.html")
+
+                return detailed_course
+
+            except ValueError as e:
+                # Validation error (corrupted HTML, missing buttons, etc.) - retry infinitely
+                attempt += 1
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
+                self.logger.warning(
+                    f"⚠️ Course details validation failed for {course.course_code} "
+                    f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                )
+                time.sleep(wait_time)
+                # Continue loop - re-fetch course details page
+
+            except Exception as e:
+                # Unexpected error - also retry (could be parsing error from bad HTML)
+                attempt += 1
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                self.logger.error(
+                    f"❌ Unexpected error getting course details for {course.course_code} "
+                    f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                )
+                time.sleep(wait_time)
     
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
