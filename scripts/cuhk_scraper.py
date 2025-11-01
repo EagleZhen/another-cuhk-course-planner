@@ -430,7 +430,30 @@ class CuhkScraper:
                 'subject': course.subject,
                 'course_code': course.course_code
             }
-    
+
+    def _extract_asp_hidden_fields(self, soup: BeautifulSoup) -> Dict[str, str]:
+        """
+        Extract ASP.NET hidden form fields (ViewState, EventValidation, etc.)
+
+        ASP.NET Web Forms uses hidden fields to maintain state between postbacks.
+        This method extracts all hidden fields required for form submissions.
+
+        Args:
+            soup: Parsed BeautifulSoup object
+
+        Returns:
+            Dictionary of hidden field names to values
+        """
+        form_data = {}
+
+        for input_elem in soup.find_all('input', {'type': 'hidden'}):
+            name = input_elem.get('name')
+            value = input_elem.get('value', '')
+            if name:
+                form_data[name] = value
+
+        return form_data
+
     def _save_debug_html(self, content: str, filename: str, force_save: bool = False) -> None:
         """Smart HTML debug file saving with separate directory"""
         if not self.current_config:
