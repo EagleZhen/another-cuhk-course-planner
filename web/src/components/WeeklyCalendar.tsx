@@ -526,8 +526,6 @@ export default function WeeklyCalendar({
                         let zIndex = isConflicted ? 20 + stackIndex : 10
                         if (isSelected) zIndex = 40 // Lower than header z-50
                         
-                        const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
-                        
                         return (
                           <div
                             key={event.id}
@@ -558,11 +556,11 @@ export default function WeeklyCalendar({
                               })
                             }}
                             className={`
-                              ${event.color} 
-                              rounded-sm text-xs text-white ${shadowClass}
+                              ${event.color}
+                              rounded-sm text-xs text-white
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'scale-105 shadow-2xl' : ''}
+                              ${isSelected ? 'scale-105' : ''}
                             `}
                             onClick={() => {
                               if (onSelectEnrollment && event.enrollmentId) {
