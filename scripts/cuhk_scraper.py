@@ -1414,6 +1414,13 @@ class CuhkScraper:
         self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
         response = self._robust_request('POST', self.base_url, data=form_data)
 
+        # Check for PERMANENT system error (don't retry these)
+        if '<title>System error</title>' in response.text or 'System error. Please try again' in response.text:
+            self.logger.error(f"🚨 System error (PERMANENT) for {course.course_code} course outcome - cannot scrape")
+            self._track_failed_course_outcome(course.subject, course.course_code, "system_error_permanent")
+            self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html")
+            return  # Don't retry system errors - they're permanent (malformed data in CUHK database)
+
         # Debug: save Course Outcome response (using smart saving)
         self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
 
