@@ -788,7 +788,7 @@ function UnscheduledSectionsCard({
                       className={`
                         ${item.enrollment.color || 'bg-indigo-500'}
                         px-2 py-0.5 rounded font-mono text-xs text-white cursor-pointer hover:scale-105 transition-all
-                        ${isSelected ? 'scale-105 shadow-lg' : ''}
+                        ${isSelected ? 'scale-105' : ''}
                       `}
                       style={isSelected ? {
                         backgroundImage: `repeating-linear-gradient(
