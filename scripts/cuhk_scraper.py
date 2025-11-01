@@ -849,16 +849,13 @@ class CuhkScraper:
             return course
         
         try:
-            # Parse the current page to get form data
             soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Get all hidden form fields
+            # Prepare postback for course details
             form_data = self._extract_asp_hidden_fields(soup)
-
-            # Set postback data
             form_data['__EVENTTARGET'] = course.postback_target
             form_data['__EVENTARGUMENT'] = ''
-            
+
             # Submit the postback to get course details page
             response = self._robust_request('POST', self.base_url, data=form_data)
             
@@ -956,14 +953,12 @@ class CuhkScraper:
             if not is_current_term:
                 self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
 
-                # Extract form data for term change
+                # Prepare postback for term change
                 form_data = self._extract_asp_hidden_fields(soup)
-
-                # Update term selection
                 form_data['uc_course$ddl_class_term'] = term_code
                 form_data['__EVENTTARGET'] = 'uc_course$ddl_class_term'
                 form_data['__EVENTARGUMENT'] = ''
-                
+
                 # Submit term change
                 response = self._robust_request('POST', self.base_url, data=form_data)
                 html = response.text
@@ -978,13 +973,11 @@ class CuhkScraper:
                 if not is_disabled:
                     self.logger.info(f"Clicking 'Show sections' for {term_name}")
 
-                    # Extract form data for show sections
+                    # Prepare postback for showing sections
                     form_data = self._extract_asp_hidden_fields(soup)
-
-                    # Set the show sections postback
                     form_data['uc_course$btn_class_section'] = 'Show sections'
                     form_data['uc_course$ddl_class_term'] = term_code
-                    
+
                     # Submit show sections
                     response = self._robust_request('POST', self.base_url, data=form_data)
                     html = response.text
@@ -1231,16 +1224,13 @@ class CuhkScraper:
                     self.logger.warning(f"Could not parse postback target: {postback_target}")
                     return None
                 
-                # Prepare form data for postback
                 soup = BeautifulSoup(current_html, 'html.parser')
 
-                # Extract all hidden form fields
+                # Prepare postback for section enrollment details
                 form_data = self._extract_asp_hidden_fields(soup)
-
-                # Set postback parameters
                 form_data['__EVENTTARGET'] = event_target
                 form_data['__EVENTARGUMENT'] = ''
-                
+
                 # Submit the postback to get class details
                 response = self._robust_request('POST', self.base_url, data=form_data)
                 class_details_html = response.text
@@ -1392,12 +1382,10 @@ class CuhkScraper:
                 self.logger.info(f"No Course Outcome button found for {course.course_code}")
                 return
 
-            # Extract form data for Course Outcome navigation
+            # Prepare postback for Course Outcome page
             form_data = self._extract_asp_hidden_fields(soup)
-
-            # Set Course Outcome postback data
             form_data['btn_course_outcome'] = 'Course Outcome'
-            
+
             # Submit Course Outcome request
             self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
             response = self._robust_request('POST', self.base_url, data=form_data)
