@@ -1394,38 +1394,38 @@ class CuhkScraper:
     
     def _scrape_course_outcome(self, current_html: str, course: Course) -> None:
         """Navigate to Course Outcome page and extract detailed course information"""
-        try:
-            soup = BeautifulSoup(current_html, 'html.parser')
-            
-            # Check if Course Outcome button exists
-            outcome_btn = soup.find('input', {'id': 'btn_course_outcome'})
-            if not outcome_btn:
-                self.logger.info(f"No Course Outcome button found for {course.course_code}")
-                return
+        soup = BeautifulSoup(current_html, 'html.parser')
 
-            # Prepare postback for Course Outcome page
-            form_data = self._extract_asp_hidden_fields(soup)
-            form_data['btn_course_outcome'] = 'Course Outcome'
+        # Validate parent HTML has Course Outcome button (all courses should have this)
+        outcome_btn = soup.find('input', {'id': 'btn_course_outcome'})
+        if not outcome_btn:
+            # Missing button = corrupted course details page (likely network issue during fetch)
+            # Raise ValueError to trigger retry in get_course_details()
+            raise ValueError(
+                f"Missing Course Outcome button for {course.course_code} - "
+                f"corrupted course details page (likely network issue)"
+            )
 
-            # Submit Course Outcome request
-            self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
-            response = self._robust_request('POST', self.base_url, data=form_data)
-            
-            # Debug: save Course Outcome response (using smart saving)
-            self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
-            
-            # CRITICAL: Validate response before parsing to prevent data loss
-            if not self._validate_course_outcome_response(response.text, course):
-                self.logger.warning(f"Invalid course outcome response for {course.course_code} - preserving existing data")
-                self._track_failed_course_outcome(course.subject, course.course_code, "validation_failed")
-                return  # Don't overwrite existing course outcome data
-            
-            # Parse Course Outcome page only if validation passes
-            self._parse_course_outcome_content(response.text, course)
-            
-        except Exception as e:
-            self.logger.error(f"Error scraping Course Outcome for {course.course_code}: {e}")
-            self._track_failed_course_outcome(course.subject, course.course_code, f"exception: {str(e)}")
+        # Prepare postback for Course Outcome page
+        form_data = self._extract_asp_hidden_fields(soup)
+        form_data['btn_course_outcome'] = 'Course Outcome'
+
+        # Submit Course Outcome request
+        self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
+        response = self._robust_request('POST', self.base_url, data=form_data)
+
+        # Debug: save Course Outcome response (using smart saving)
+        self._save_debug_html(response.text, f"course_outcome_{course.subject}_{course.course_code}.html")
+
+        # Validate response structure before parsing
+        if not self._validate_course_outcome_response(response.text, course):
+            # Invalid outcome page = transient corruption
+            # Raise ValueError to trigger retry in get_course_details()
+            self._track_failed_course_outcome(course.subject, course.course_code, "validation_failed")
+            raise ValueError(f"Invalid course outcome page structure for {course.course_code}")
+
+        # Parse Course Outcome page only if validation passes
+        self._parse_course_outcome_content(response.text, course)
     
     def _validate_course_outcome_response(self, html: str, course: Course) -> bool:
         """
