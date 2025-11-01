@@ -744,15 +744,9 @@ class CuhkScraper:
     
     def _extract_form_data(self, soup: BeautifulSoup) -> Dict[str, str]:
         """Extract necessary form data from the page"""
-        form_data = {}
-        
         # Get ViewState and other ASP.NET form fields
-        for input_elem in soup.find_all('input', {'type': 'hidden'}):
-            name = input_elem.get('name')
-            value = input_elem.get('value', '')
-            if name:
-                form_data[name] = value
-        
+        form_data = self._extract_asp_hidden_fields(soup)
+
         # Get captcha image and solve it
         captcha_img = soup.find('img', {'id': 'imgCaptcha'})
         if captcha_img:
@@ -857,15 +851,10 @@ class CuhkScraper:
         try:
             # Parse the current page to get form data
             soup = BeautifulSoup(current_html, 'html.parser')
-            form_data = {}
-            
+
             # Get all hidden form fields
-            for input_elem in soup.find_all('input', {'type': 'hidden'}):
-                name = input_elem.get('name')
-                value = input_elem.get('value', '')
-                if name:
-                    form_data[name] = value
-            
+            form_data = self._extract_asp_hidden_fields(soup)
+
             # Set postback data
             form_data['__EVENTTARGET'] = course.postback_target
             form_data['__EVENTARGUMENT'] = ''
@@ -966,15 +955,10 @@ class CuhkScraper:
             # If not current term, switch to it
             if not is_current_term:
                 self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
-                
+
                 # Extract form data for term change
-                form_data = {}
-                for input_elem in soup.find_all('input', {'type': 'hidden'}):
-                    name = input_elem.get('name')
-                    value = input_elem.get('value', '')
-                    if name:
-                        form_data[name] = value
-                
+                form_data = self._extract_asp_hidden_fields(soup)
+
                 # Update term selection
                 form_data['uc_course$ddl_class_term'] = term_code
                 form_data['__EVENTTARGET'] = 'uc_course$ddl_class_term'
@@ -993,15 +977,10 @@ class CuhkScraper:
                 
                 if not is_disabled:
                     self.logger.info(f"Clicking 'Show sections' for {term_name}")
-                    
+
                     # Extract form data for show sections
-                    form_data = {}
-                    for input_elem in soup.find_all('input', {'type': 'hidden'}):
-                        name = input_elem.get('name')
-                        value = input_elem.get('value', '')
-                        if name:
-                            form_data[name] = value
-                    
+                    form_data = self._extract_asp_hidden_fields(soup)
+
                     # Set the show sections postback
                     form_data['uc_course$btn_class_section'] = 'Show sections'
                     form_data['uc_course$ddl_class_term'] = term_code
@@ -1254,15 +1233,10 @@ class CuhkScraper:
                 
                 # Prepare form data for postback
                 soup = BeautifulSoup(current_html, 'html.parser')
-                form_data = {}
-                
+
                 # Extract all hidden form fields
-                for input_elem in soup.find_all('input', {'type': 'hidden'}):
-                    name = input_elem.get('name')
-                    value = input_elem.get('value', '')
-                    if name:
-                        form_data[name] = value
-                
+                form_data = self._extract_asp_hidden_fields(soup)
+
                 # Set postback parameters
                 form_data['__EVENTTARGET'] = event_target
                 form_data['__EVENTARGUMENT'] = ''
@@ -1417,15 +1391,10 @@ class CuhkScraper:
             if not outcome_btn:
                 self.logger.info(f"No Course Outcome button found for {course.course_code}")
                 return
-            
+
             # Extract form data for Course Outcome navigation
-            form_data = {}
-            for input_elem in soup.find_all('input', {'type': 'hidden'}):
-                name = input_elem.get('name')
-                value = input_elem.get('value', '')
-                if name:
-                    form_data[name] = value
-            
+            form_data = self._extract_asp_hidden_fields(soup)
+
             # Set Course Outcome postback data
             form_data['btn_course_outcome'] = 'Course Outcome'
             
