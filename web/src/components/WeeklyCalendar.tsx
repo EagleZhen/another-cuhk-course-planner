@@ -506,7 +506,7 @@ export default function WeeklyCalendar({
                             zIndex: 1,
                             background: 'repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.6) 0px, rgba(239, 68, 68, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)'
                           }}
-                          className="border-2 border-red-600 rounded-sm shadow-xl animate-pulse transition-all duration-300"
+                          className="border-2 border-red-600 rounded-sm animate-pulse transition-all duration-300"
                         />
                       )
                     })}
@@ -525,8 +525,6 @@ export default function WeeklyCalendar({
                         // Z-index should be lower than sticky header (z-50)
                         let zIndex = isConflicted ? 20 + stackIndex : 10
                         if (isSelected) zIndex = 40 // Lower than header z-50
-                        
-                        const shadowClass = isConflicted ? 'shadow-lg hover:shadow-xl' : 'shadow-md hover:shadow-lg'
                         
                         return (
                           <div
@@ -558,11 +556,11 @@ export default function WeeklyCalendar({
                               })
                             }}
                             className={`
-                              ${event.color} 
-                              rounded-sm text-xs text-white ${shadowClass}
+                              ${event.color}
+                              rounded-sm text-xs text-white
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'scale-105 shadow-2xl' : ''}
+                              ${isSelected ? 'scale-105' : ''}
                             `}
                             onClick={() => {
                               if (onSelectEnrollment && event.enrollmentId) {
@@ -790,7 +788,7 @@ function UnscheduledSectionsCard({
                       className={`
                         ${item.enrollment.color || 'bg-indigo-500'}
                         px-2 py-0.5 rounded font-mono text-xs text-white cursor-pointer hover:scale-105 transition-all
-                        ${isSelected ? 'scale-105 shadow-lg' : ''}
+                        ${isSelected ? 'scale-105' : ''}
                       `}
                       style={isSelected ? {
                         backgroundImage: `repeating-linear-gradient(
@@ -833,10 +831,10 @@ function UnscheduledSectionsCard({
                     key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
-                      rounded-sm text-xs text-white shadow-md
+                      rounded-sm text-xs text-white
                       hover:scale-105 transition-all cursor-pointer
                       overflow-hidden group relative
-                      ${isSelected ? 'scale-105 shadow-2xl' : ''}
+                      ${isSelected ? 'scale-105' : ''}
                     `}
                     style={{
                       width: 'calc((100% - 32px) / 5)',
