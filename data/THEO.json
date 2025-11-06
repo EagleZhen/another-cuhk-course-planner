@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-02T02:44:10.384034+00:00",
+    "scraped_at": "2025-11-04T19:47:08.313936+00:00",
     "subject": "THEO",
     "subject_title": "Theology",
     "total_courses": 198,
@@ -1862,7 +1862,52 @@
       "course_code": "3236",
       "title": "Theological Studies: Special Topics II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9751)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Professor REN Baixin",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Professor REN Baixin",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Professor REN Baixin",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Professor REN Baixin",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
+            }
+          ]
+        }
+      ],
       "description": "An examination of some basic problems or topics that arise in theological studies, such as sacramental theology, language, myth and symbol; Holy Spirit and sanctification.\n\nOfferings with different subtitles can be taken up for credit, up to a maximum of two times.",
       "enrollment_requirement": "",
       "course_attributes": "",
