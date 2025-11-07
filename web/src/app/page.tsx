@@ -456,7 +456,7 @@ export default function Home() {
           return {
             ...enrollment,
             isInvalid: true,
-            invalidReason: 'Course not available in current term'
+            invalidReason: 'Course no longer available'
           }
         }
         
