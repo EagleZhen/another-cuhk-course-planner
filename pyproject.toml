@@ -6,7 +6,7 @@ authors = [
     {name = "EZ"}
 ]
 readme = "README.md"
-requires-python = ">=3.9, <3.13"
+requires-python = ">=3.10, <3.13"
 dependencies = [
     "beautifulsoup4 (>=4.14.2,<5.0.0)",
     "markdownify (>=1.2.0,<2.0.0)",
@@ -19,3 +19,25 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.14.4,<0.15.0)",
+    "pre-commit (>=4.3.0,<5.0.0)",
+    "isort (>=7.0.0,<8.0.0)"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+skip-magic-trailing-comma = false
+docstring-code-format = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
