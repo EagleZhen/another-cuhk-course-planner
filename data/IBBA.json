@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-04T16:59:35.858186+00:00",
+    "scraped_at": "2025-11-07T17:16:03.194589+00:00",
     "subject": "IBBA",
     "subject_title": "Integrated BBA Programme",
     "total_courses": 7,
@@ -12,7 +12,34 @@
       "course_code": "3010",
       "title": "Issues in Business",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "XJ01-PRJ (9753)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course provides an opportunity for students to integrate knowledge acquired from their business studies in generating a project/research study with the guidance of a teacher.",
       "enrollment_requirement": "",
       "course_attributes": "STOT Course",
