@@ -109,6 +109,33 @@ npm run lint     # ESLint
 
 ---
 
+## Code Formatting
+
+Python code is automatically formatted on commit using **Ruff** (linting + formatting) and **isort** (import sorting).
+
+**Setup (one-time):**
+```bash
+poetry run pre-commit install
+```
+
+**Simple workflow (auto-format on commit):**
+```bash
+git add .
+git commit -m "feat: your message"
+# Formatter runs automatically, files are auto-fixed
+```
+
+**To review changes before committing:**
+```bash
+git add .
+poetry run pre-commit run   # Run formatter on staged files
+git diff                    # Review changes
+git add .
+git commit -m "feat: your message"
+```
+
+---
+
 ## Tech Stack
 
 **Scraper:** Python + requests + BeautifulSoup + ddddocr (OCR captcha solving)
