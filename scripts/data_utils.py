@@ -11,6 +11,7 @@ import json
 import re
 from datetime import datetime, timezone
 from typing import Any, Optional, Tuple
+from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup, Comment, Tag
 from bs4.element import NavigableString
@@ -303,6 +304,22 @@ def utc_now_iso() -> str:
         '2025-08-17T15:45:22.987654+00:00'
     """
     return datetime.now(timezone.utc).isoformat()
+
+
+def utc_to_hkt() -> str:
+    """Convert current UTC time to HK timezone human-readable string
+
+    Returns:
+        str: HK timestamp in format 'YYYY-MM-DD HH:MM:SS HK'
+
+    Examples:
+        >>> utc_to_hkt()
+        '2025-08-17 22:32:15 HK'
+    """
+    utc_now = datetime.now(timezone.utc)
+    hk_tz = ZoneInfo("Asia/Hong_Kong")
+    hk_time = utc_now.astimezone(hk_tz)
+    return hk_time.strftime("%Y-%m-%d %H:%M:%S HK")
 
 
 def clean_class_attributes(class_attrs: str, course_attrs: str) -> str:

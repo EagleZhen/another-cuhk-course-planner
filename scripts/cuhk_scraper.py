@@ -20,6 +20,7 @@ from data_utils import (
     parse_enrollment_status_from_image,
     save_json_with_newline,
     utc_now_iso,
+    utc_to_hkt,
 )
 from requests.exceptions import ConnectionError, HTTPError, Timeout
 
@@ -38,7 +39,8 @@ class ScrapingConfig:
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = "tests/output"  # testing default
     track_progress: bool = False  # Progress tracking for production
-    progress_file: str = "tests/output/scraping_progress.json"  # Progress log filename (use os.path.join for production)
+    # Progress log filename (use os.path.join for production)
+    progress_file: str = "tests/output/scraping_progress.json"
     progress_update_interval: int = 60  # Save progress every N seconds
 
     # Scraping scope configuration
@@ -161,7 +163,8 @@ class ScrapingProgressTracker:
         # Always start with fresh session tracking, but preserve existing subject data
         return {
             "scraping_log": {
-                "started_at": utc_now_iso(),  # Fresh session start time
+                "started_at_hkt": utc_to_hkt(),  # Fresh session start time (HK timezone - PRIMARY)
+                "started_at_utc": utc_now_iso(),  # Fresh session start time (UTC ISO - for machine processing)
                 "last_updated": utc_now_iso(),  # Fresh session activity
                 "duration_human": "0 seconds",  # Fresh session duration
                 "total_subjects": 0,  # Will be set by scrape_all_subjects
