@@ -23,7 +23,8 @@ build-backend = "poetry.core.masonry.api"
 [dependency-groups]
 dev = [
     "ruff (>=0.14.4,<0.15.0)",
-    "pre-commit (>=4.3.0,<5.0.0)"
+    "pre-commit (>=4.3.0,<5.0.0)",
+    "isort (>=7.0.0,<8.0.0)"
 ]
 
 [tool.ruff]
@@ -36,3 +37,7 @@ indent-style = "space"
 line-ending = "lf"
 skip-magic-trailing-comma = false
 docstring-code-format = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
