@@ -25,14 +25,23 @@ Why is there no one making an actually good one?
 
 ## Setup
 
-### 1. Scrape course data
+### 0. Install dependencies
+
+Install [Poetry](https://python-poetry.org/docs/#installation) for Python dependency management.
+
+Then, install Python dependencies:
 
 ```bash
 poetry install --no-root
+```
+
+### 1. Scrape course data
+
+```bash
 poetry run python scripts/scrape_all_subjects.py
 ```
 
-Scrapes all ~259 subjects to `data/*.json` (~50MB total). Takes 1-2 hours.
+Scrapes all ~259 subjects to `data/*.json` (~50MB total). Takes about 7 to 10 hours depending on network latency.
 
 ### 2. Publish data to web app
 
