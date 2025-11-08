@@ -7,9 +7,10 @@ Extracted from cuhk_scraper.py for maintainability and reusability.
 This module has no external dependencies beyond BeautifulSoup and optional markdownify.
 """
 
+import json
 import re
 from datetime import datetime, timezone
-from typing import Optional, Tuple
+from typing import Any, Optional, Tuple
 
 from bs4 import BeautifulSoup, Comment, Tag
 from bs4.element import NavigableString
@@ -493,3 +494,10 @@ def format_duration_human(seconds: int) -> str:
         parts.append(f"{secs}s")
 
     return " ".join(parts)
+
+
+def save_json_with_newline(filepath: str, data: Any) -> None:
+    """Write JSON with UTF-8 encoding, 2-space indent, and trailing newline."""
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+        f.write("\n")

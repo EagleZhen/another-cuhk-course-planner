@@ -18,6 +18,7 @@ from data_utils import (
     format_duration_human,
     html_to_clean_markdown,
     parse_enrollment_status_from_image,
+    save_json_with_newline,
     utc_now_iso,
 )
 from requests.exceptions import ConnectionError, HTTPError, Timeout
@@ -189,8 +190,7 @@ class ScrapingProgressTracker:
                         duration_seconds
                     )
 
-            with open(self.progress_file, "w", encoding="utf-8") as f:
-                json.dump(self.progress_data, f, ensure_ascii=False, indent=2)
+            save_json_with_newline(self.progress_file, self.progress_data)
 
             self.logger.debug(f"💾 Progress saved to {self.progress_file}")
         except Exception as e:
@@ -1894,8 +1894,7 @@ class CuhkScraper:
             # Save to simple filename (no timestamp suffix for better git diffs)
             filename = f"{config.output_directory}/{subject}.json"
 
-            with open(filename, "w", encoding="utf-8") as f:
-                json.dump(subject_data, f, ensure_ascii=False, indent=2)
+            save_json_with_newline(filename, subject_data)
 
             self.logger.info(f"💾 SAVED {subject} → {filename}")
             return filename
@@ -1924,8 +1923,7 @@ class CuhkScraper:
             # Create filename with subject prefix
             filename = f"{config.output_directory}/{subject}_{timestamp}.json"
 
-            with open(filename, "w", encoding="utf-8") as f:
-                json.dump(subject_data, f, ensure_ascii=False, indent=2)
+            save_json_with_newline(filename, subject_data)
 
             exported_files.append(filename)
             self.logger.info(f"Exported {subject} ({len(courses)} courses) to {filename}")
