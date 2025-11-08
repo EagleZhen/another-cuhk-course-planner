@@ -409,6 +409,13 @@ form_data = self._extract_asp_hidden_fields(soup)
 - All external data validated through Zod schemas
 - Strict mode enabled
 
+**Python Formatting:**
+- Pre-commit hooks enforce **Ruff** (linting + formatting) + **isort** (import sorting)
+- Automatic on commit: `poetry run pre-commit install` (one-time setup)
+- Manual run: `poetry run pre-commit run` (checks staged files only)
+- Config: [pyproject.toml](pyproject.toml) (100 char line, double quotes, black-compatible imports)
+- JSON files: Use `save_json_with_newline()` helper in [data_utils.py](scripts/data_utils.py)
+
 **Code Organization:**
 - [validation.ts](web/src/lib/validation.ts): External data + transformation (only file with `any`)
 - [types.ts](web/src/lib/types.ts): Clean internal domain models
