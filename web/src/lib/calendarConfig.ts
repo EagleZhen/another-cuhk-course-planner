@@ -1,7 +1,7 @@
 /**
  * Calendar configuration system for WeeklyCalendar
  * Centralizes all calendar-related constants and configuration options
- * 
+ *
  * Uses CalendarEvent.day convention: 0=Monday, 1=Tuesday, 2=Wednesday, 3=Thursday, 4=Friday, 5=Saturday, 6=Sunday
  * This matches the existing CalendarEvent data structure and eliminates conversion overhead.
  */
@@ -14,7 +14,7 @@ export interface DayInfo {
   /** CalendarEvent.day index (0=Monday, 1=Tuesday, etc.) */
   index: number
   /** Full day name for display */
-  displayName: string  
+  displayName: string
   /** Whether this is a weekend day */
   isWeekend: boolean
 }
@@ -50,7 +50,7 @@ export interface CalendarDisplayConfig {
   showTime: boolean
   /** Show course location (e.g., "LSK LT4") */
   showLocation: boolean
-  /** Show instructor name */  
+  /** Show instructor name */
   showInstructor: boolean
   /** Show full course title */
   showTitle: boolean

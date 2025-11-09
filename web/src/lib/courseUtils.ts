@@ -22,9 +22,9 @@ import moment from 'moment-timezone'
  */
 export function extractSectionType(sectionCode: string): string {
   const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
-  const foundType = sectionTypes.find(type => 
-    sectionCode.includes(type) || 
-    SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some(alias => 
+  const foundType = sectionTypes.find(type =>
+    sectionCode.includes(type) ||
+    SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some(alias =>
       sectionCode.includes(alias)
     )
   )
@@ -38,29 +38,29 @@ export function extractSectionType(sectionCode: string): string {
  */
 export function parseTimeRange(timeStr: string): TimeRange | null {
   const dayMatch = timeStr.match(/(Mo|Tu|We|Th|Fr|Sa|Su)/)
-  
+
   if (!dayMatch) return null
-  
+
   // Try 12-hour format first (e.g., "1:30PM - 2:15PM")
   const timeMatch12 = timeStr.match(/(\d{1,2}):(\d{2})(AM|PM)\s*-\s*(\d{1,2}):(\d{2})(AM|PM)/)
   if (timeMatch12) {
     let startHour = parseInt(timeMatch12[1])
     let endHour = parseInt(timeMatch12[4])
-    
+
     // Convert to 24-hour format
     if (timeMatch12[3] === 'PM' && startHour !== 12) startHour += 12
     if (timeMatch12[3] === 'AM' && startHour === 12) startHour = 0
     if (timeMatch12[6] === 'PM' && endHour !== 12) endHour += 12
     if (timeMatch12[6] === 'AM' && endHour === 12) endHour = 0
-    
+
     const startMinute = parseInt(timeMatch12[2])
     const endMinute = parseInt(timeMatch12[5])
-    
+
     // Check for 0-duration events (e.g., "Fr 12:00AM - 12:00AM") - treat as unscheduled
     if (startHour === endHour && startMinute === endMinute) {
       return null
     }
-    
+
     return {
       day: dayMatch[1],
       startHour,
@@ -69,7 +69,7 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
       endMinute
     }
   }
-  
+
   // Fallback to 24-hour format (e.g., "14:30 - 15:15")
   const timeMatch24 = timeStr.match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/)
   if (timeMatch24) {
@@ -77,12 +77,12 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
     const startMinute = parseInt(timeMatch24[2])
     const endHour = parseInt(timeMatch24[3])
     const endMinute = parseInt(timeMatch24[4])
-    
+
     // Check for 0-duration events (e.g., "Mo 14:30 - 14:30") - treat as unscheduled
     if (startHour === endHour && startMinute === endMinute) {
       return null
     }
-    
+
     return {
       day: dayMatch[1],
       startHour,
@@ -91,7 +91,7 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
       endMinute
     }
   }
-  
+
   return null
 }
 
@@ -100,12 +100,12 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
  */
 export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
   if (time1.day !== time2.day) return false
-  
+
   const start1 = time1.startHour * 60 + time1.startMinute
   const end1 = time1.endHour * 60 + time1.endMinute
   const start2 = time2.startHour * 60 + time2.startMinute
   const end2 = time2.endHour * 60 + time2.endMinute
-  
+
   return start1 < end2 && start2 < end1
 }
 
@@ -114,26 +114,26 @@ export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
  */
 export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
   const visibleEvents = events.filter(event => event.isVisible)
-  
+
   return events.map(event => {
     if (!event.isVisible) {
       return { ...event, hasConflict: false }
     }
-    
+
     const eventTime = parseTimeRange(event.time)
     if (!eventTime) {
       return { ...event, hasConflict: false }
     }
-    
+
     const hasConflict = visibleEvents.some(other => {
       if (other.id === event.id) return false
-      
+
       const otherTime = parseTimeRange(other.time)
       if (!otherTime) return false
-      
+
       return doTimesOverlap(eventTime, otherTime)
     })
-    
+
     return { ...event, hasConflict }
   })
 }
@@ -143,7 +143,7 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
  */
 export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
   const events: CalendarEvent[] = []
-  
+
   enrollments
     .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
     .forEach(enrollment => {
@@ -151,12 +151,12 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
         section.meetings.forEach(meeting => {
           const timeRange = parseTimeRange(meeting.time)
           const dayIndex = getDayIndex(meeting.time)
-          
+
           // Skip meetings without scheduled times (TBA, etc.)
           if (!timeRange || dayIndex === -1) {
             return
           }
-          
+
           events.push({
             id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
             subject: enrollment.course.subject,
@@ -181,7 +181,7 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
         })
       })
     })
-  
+
   return events
 }
 
@@ -198,7 +198,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
     section: InternalSection
     meeting: InternalMeeting
   }> = []
-  
+
   enrollments
     .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
     .forEach(enrollment => {
@@ -206,7 +206,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
         section.meetings.forEach(meeting => {
           const timeRange = parseTimeRange(meeting.time)
           const dayIndex = getDayIndex(meeting.time)
-          
+
           // Include meetings without scheduled times (TBA, etc.)
           if (!timeRange || dayIndex === -1) {
             unscheduledSections.push({
@@ -218,7 +218,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
         })
       })
     })
-  
+
   return unscheduledSections
 }
 
@@ -271,7 +271,7 @@ export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[]
  */
 export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boolean {
   if (event1.day !== event2.day) return false
-  
+
   const start1 = event1.startHour * 60 + event1.startMinute
   const end1 = event1.endHour * 60 + event1.endMinute
   const start2 = event2.startHour * 60 + event2.startMinute
@@ -286,13 +286,13 @@ export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boo
 export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
   const zones: ConflictZone[] = []
   const eventGroups = groupOverlappingEvents(events)
-  
+
   eventGroups.forEach(group => {
     if (group.length > 1) {
       // Find the time range that covers all conflicting events
       const minStart = Math.min(...group.map(e => e.startHour * 60 + e.startMinute))
       const maxEnd = Math.max(...group.map(e => e.endHour * 60 + e.endMinute))
-      
+
       zones.push({
         startHour: Math.floor(minStart / 60),
         startMinute: minStart % 60,
@@ -301,7 +301,7 @@ export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
       })
     }
   })
-  
+
   return zones
 }
 
@@ -312,25 +312,25 @@ export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
 export function parseSectionTypes(course: InternalCourse, termName: string): SectionTypeGroup[] {
   const term = course.terms.find(t => t.termName === termName)
   if (!term?.sections) return []
-  
+
   // Track first occurrence index for natural ordering + group sections by type
   const typeOrder = new Map<SectionType, number>()
   const groups = new Map<SectionType, InternalSection[]>()
-  
+
   term.sections.forEach((section, index) => {
     const type = section.sectionType
-    
+
     // Record first occurrence for data-driven ordering
     if (!typeOrder.has(type)) {
       typeOrder.set(type, index)
     }
-    
+
     if (!groups.has(type)) {
       groups.set(type, [])
     }
     groups.get(type)!.push(section)
   })
-  
+
   // Sort by natural data order (preserves official catalog sequence)
   return Array.from(groups.entries())
     .sort(([typeA], [typeB]) => typeOrder.get(typeA)! - typeOrder.get(typeB)!)
@@ -363,15 +363,15 @@ export function getSectionTypeIcon(type: SectionType): string {
  */
 // Clean, simple version - no legacy code!
 export function isCourseEnrollmentComplete(
-  course: InternalCourse, 
-  termName: string, 
+  course: InternalCourse,
+  termName: string,
   localSelections: Map<string, string>
 ): boolean {
   const sectionTypes = parseSectionTypes(course, termName)
-  
+
   // If no selections, not complete
   if (localSelections.size === 0) return false
-  
+
   // Get currently selected sections (actual InternalSection objects)
   const currentlySelected: InternalSection[] = []
   for (const [sectionType, sectionId] of localSelections) {
@@ -383,27 +383,27 @@ export function isCourseEnrollmentComplete(
       }
     }
   }
-  
+
   // For each section type, check if:
   // 1. User has selected it, OR
   // 2. No compatible sections exist for this type given current selections
   return sectionTypes.every(typeGroup => {
     const hasSelection = localSelections.has(typeGroup.type)
-    
+
     if (hasSelection) return true // User selected this type
-    
+
     // Check if there are any compatible sections for this type
     // Only consider HIGHER priority selections as constraints (hierarchical)
     const higherPrioritySelections = currentlySelected.filter(s => {
       const sPriority = getSectionTypePriority(s.sectionType as SectionType, sectionTypes)
       return sPriority < typeGroup.priority
     })
-    
+
     const { compatible } = categorizeCompatibleSections(
       typeGroup.sections,
       higherPrioritySelections
     )
-    
+
     // If no compatible sections exist, this type is not required
     return compatible.length === 0
   })
@@ -420,11 +420,11 @@ export function getSelectedSectionsForCourse(
   const sectionTypes = parseSectionTypes(course, termName)
   const courseKey = `${course.subject}${course.courseCode}`
   const result: InternalSection[] = []
-  
+
   sectionTypes.forEach(typeGroup => {
     const selectionKey = `${courseKey}_${typeGroup.type}`
     const selectedSectionId = selectedSections.get(selectionKey)
-    
+
     if (selectedSectionId) {
       const section = typeGroup.sections.find(s => s.id === selectedSectionId)
       if (section) {
@@ -432,7 +432,7 @@ export function getSelectedSectionsForCourse(
       }
     }
   })
-  
+
   return result
 }
 
@@ -509,23 +509,23 @@ export function getComputedBorderColor(bgColor: string): string {
  */
 export function getDeterministicColor(courseCode: string): string {
   // Using pre-generated color palette for server/client consistency
-  
+
   // Improved hash function - polynomial rolling hash with proper mixing
   let hash = 0
   const prime = 31 // Well-known prime used in Java String.hashCode()
-  
+
   // Compute polynomial hash without early modulo to avoid collisions
   for (let i = 0; i < courseCode.length; i++) {
     hash = hash * prime + courseCode.charCodeAt(i)
   }
-  
+
   // MurmurHash3-style finalizer for better distribution
   hash = hash ^ (hash >>> 16)
   hash = (hash * 0x85ebca6b) >>> 0  // Multiply by well-researched constant
   hash = hash ^ (hash >>> 13)
   hash = (hash * 0xc2b2ae35) >>> 0  // Second mixing constant
   hash = hash ^ (hash >>> 16)
-  
+
   return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
 }
 
@@ -535,7 +535,7 @@ export function getDeterministicColor(courseCode: string): string {
  */
 export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[] {
   const meetingGroups = new Map<string, InternalMeeting[]>()
-  
+
   meetings.forEach((meeting) => {
     const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructor || 'TBA'}`
     if (!meetingGroups.has(key)) {
@@ -543,7 +543,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
     }
     meetingGroups.get(key)!.push(meeting)
   })
-  
+
   // Return first meeting from each group (they're identical for display purposes)
   return Array.from(meetingGroups.values()).map(group => group[0])
 }
@@ -553,7 +553,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
  */
 export function formatTimeCompact(timeStr: string): string {
   if (!timeStr || timeStr === 'TBA') return 'TBA'
-  
+
   return timeStr
     .replace(/(\d{1,2}):(\d{2})PM/g, (_match: string, h: string, m: string) => {
       const hour = parseInt(h) === 12 ? 12 : parseInt(h) + 12
@@ -571,7 +571,7 @@ export function formatTimeCompact(timeStr: string): string {
  */
 export function formatInstructorCompact(instructor: string): string {
   if (!instructor || instructor === 'TBA') return 'TBA'
-  
+
   return instructor.replace('Professor ', 'Prof. ')
 }
 
@@ -581,7 +581,7 @@ export function formatInstructorCompact(instructor: string): string {
  */
 export function removeInstructorTitle(instructor: string): string {
   if (!instructor || instructor === 'TBA') return 'TBA'
-  
+
   return formatInstructorCompact(instructor)
     .replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
 }
@@ -592,9 +592,9 @@ export function removeInstructorTitle(instructor: string): string {
 
 /**
  * Extract section prefix for compatibility matching
- * Examples: 
+ * Examples:
  *   A-LEC → "A"        (letter prefix - specific cohort)
- *   AE01-EXR → "A"     (letter prefix - specific cohort) 
+ *   AE01-EXR → "A"     (letter prefix - specific cohort)
  *   AT01-TUT → "A"     (letter prefix - specific cohort)
  *   --LEC → null       (dash prefix - universal wildcard)
  *   -E01-EXR → null    (dash prefix - universal wildcard)
@@ -616,10 +616,10 @@ export function getSectionPrefix(sectionCode: string): string | null {
 export function areSectionsCompatible(section1: InternalSection, section2: InternalSection): boolean {
   const prefix1 = getSectionPrefix(section1.sectionCode)
   const prefix2 = getSectionPrefix(section2.sectionCode)
-  
+
   // Universal sections (null prefix) can pair with anything
   if (prefix1 === null || prefix2 === null) return true
-  
+
   // Same letter prefix sections can pair together
   return prefix1 === prefix2
 }
@@ -644,16 +644,16 @@ export function categorizeCompatibleSections(
       hasNoCompatible: false
     }
   }
-  
+
   // Check compatibility with all currently selected sections
   const compatible = availableSections.filter(candidate =>
     selectedSections.every(selected => areSectionsCompatible(candidate, selected))
   )
-  
+
   const incompatible = availableSections.filter(candidate =>
     !selectedSections.every(selected => areSectionsCompatible(candidate, selected))
   )
-  
+
   return {
     compatible,           // Shorthand property: equivalent to compatible: compatible
     incompatible,         // Shorthand property: equivalent to incompatible: incompatible
@@ -672,19 +672,19 @@ export function getCompatibleAlternatives(
 ): InternalSection[] {
   const currentTerm = enrollment.course.terms.find(t => t.termName === termName)
   if (!currentTerm) return []
-  
+
   // Get sections of same type (LEC → LEC alternatives only)
-  const sameTypeSections = currentTerm.sections.filter(s => 
-    s.sectionType === selectedSection.sectionType && 
+  const sameTypeSections = currentTerm.sections.filter(s =>
+    s.sectionType === selectedSection.sectionType &&
     s.id !== selectedSection.id
   )
-  
+
   // Filter by compatibility with OTHER selected sections (different types)
   const otherSelectedSections = enrollment.selectedSections
     .filter(s => s.sectionType !== selectedSection.sectionType)
-  
+
   return sameTypeSections.filter(candidateSection =>
-    otherSelectedSections.every(otherSection => 
+    otherSelectedSections.every(otherSection =>
       areSectionsCompatible(candidateSection, otherSection)
     )
   )
@@ -694,7 +694,7 @@ export function getCompatibleAlternatives(
  * Get the priority index of a section type within course section types
  */
 export function getSectionTypePriority(
-  sectionType: SectionType, 
+  sectionType: SectionType,
   sectionTypes: SectionTypeGroup[]
 ): number {
   const typeGroup = sectionTypes.find(group => group.type === sectionType)
@@ -716,23 +716,23 @@ export function clearIncompatibleLowerSelections(
 ): Map<string, string> {
   const newMap = new Map(selectedSections)
   const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
-  
+
   // Get the new section object
   const termData = course.terms.find(t => t.termName === termName)
   const newSection = termData?.sections.find(s => s.id === newSectionId)
   if (!newSection) return newMap
-  
+
   // Check all lower-priority section types
   sectionTypes
     .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
     .forEach(lowerTypeGroup => {
       const lowerSelectionKey = `${courseKey}_${lowerTypeGroup.type}`
       const currentLowerSelectionId = newMap.get(lowerSelectionKey)
-      
+
       if (currentLowerSelectionId) {
         // Find the currently selected lower section
         const currentLowerSection = lowerTypeGroup.sections.find(s => s.id === currentLowerSelectionId)
-        
+
         // Check if it's still compatible with the new higher-priority selection
         if (currentLowerSection && !areSectionsCompatible(newSection, currentLowerSection)) {
           // Clear the incompatible selection
@@ -741,7 +741,7 @@ export function clearIncompatibleLowerSelections(
         }
       }
     })
-  
+
   return newMap
 }
 
@@ -767,7 +767,7 @@ export function validateSectionCompatibility(enrollment: CourseEnrollment): {
 } {
   const conflicts: string[] = []
   const sections = enrollment.selectedSections
-  
+
   // Check all pairs of sections for compatibility
   for (let i = 0; i < sections.length; i++) {
     for (let j = i + 1; j < sections.length; j++) {
@@ -780,7 +780,7 @@ export function validateSectionCompatibility(enrollment: CourseEnrollment): {
       }
     }
   }
-  
+
   return { isValid: conflicts.length === 0, conflicts }
 }
 
@@ -797,29 +797,29 @@ export function autoCompleteEnrollmentSections(
 ): InternalSection[] {
   const sectionTypes = parseSectionTypes(course, termName)
   const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
-  
+
   // Get the new section object
   const termData = course.terms.find(t => t.termName === termName)
   const newSection = termData?.sections.find(s => s.id === newSectionId)
   if (!newSection) return enrollment.selectedSections
-  
+
   // Start with current sections, replacing the changed one
-  let updatedSections = enrollment.selectedSections.map(section => 
+  let updatedSections = enrollment.selectedSections.map(section =>
     section.sectionType === changedSectionType ? newSection : section
   )
-  
+
   // If we didn't have this section type before, add it
   if (!enrollment.selectedSections.some(s => s.sectionType === changedSectionType)) {
     updatedSections.push(newSection)
   }
-  
+
   // Clear incompatible lower-priority sections
   updatedSections = updatedSections.filter(section => {
     if (section.sectionType === changedSectionType) return true // Keep the new section
-    
+
     const sectionPriority = getSectionTypePriority(section.sectionType, sectionTypes)
     if (sectionPriority <= changedPriority) return true // Keep higher/equal priority sections
-    
+
     // Check if this lower-priority section is still compatible with the new section
     const isCompatible = areSectionsCompatible(newSection, section)
     if (!isCompatible) {
@@ -827,19 +827,19 @@ export function autoCompleteEnrollmentSections(
     }
     return isCompatible
   })
-  
+
   // Auto-add compatible sections for missing lower-priority types
   sectionTypes
     .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
     .forEach(lowerTypeGroup => {
       // Check if we already have a section of this type
       const hasTypeSelected = updatedSections.some(s => s.sectionType === lowerTypeGroup.type)
-      
+
       if (!hasTypeSelected) {
         // Get currently selected sections to check compatibility
         const currentlySelected = updatedSections
         const { compatible } = categorizeCompatibleSections(lowerTypeGroup.sections, currentlySelected)
-        
+
         // Auto-add the first compatible section if available
         if (compatible.length > 0) {
           const firstCompatible = compatible[0]
@@ -848,7 +848,7 @@ export function autoCompleteEnrollmentSections(
         }
       }
     })
-  
+
   return updatedSections
 }
 
@@ -857,16 +857,16 @@ export function autoCompleteEnrollmentSections(
  */
 export function getAvailabilityBadges(availability: SectionAvailability) {
   const { availableSeats, status, waitlistTotal, waitlistCapacity, capacity } = availability
-  
+
   const badges = []
-  
+
   // 1. Course Status Badge (leftmost, most important)
   badges.push({
     type: 'status' as const,
     text: status,
     style: getCourseStatusStyle(status)
   })
-  
+
   // 2. Availability Badge (show available/total seats when capacity > 0)
   if (capacity > 0) {
     badges.push({
@@ -875,7 +875,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
       style: getAvailabilityBadgeStyle(availability)
     })
   }
-  
+
   // 3. Waitlist Badge (only show if waitlist exists)
   if (waitlistTotal > 0 || (status === 'Waitlisted' && waitlistCapacity > 0)) {
     badges.push({
@@ -884,7 +884,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
       style: getWaitlistBadgeStyle(waitlistTotal)
     })
   }
-  
+
   return badges
 }
 
@@ -931,7 +931,7 @@ export function getWaitlistBadgeStyle(waitlistTotal: number) {
       className: 'bg-red-100 text-red-800 border-red-300'
     }
   }
-  
+
   // Moderate: 1-5 people waiting
   return {
     className: 'bg-green-100 text-green-700 border-green-300'
@@ -944,7 +944,7 @@ export function getWaitlistBadgeStyle(waitlistTotal: number) {
  */
 export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
   const { availableSeats, status } = availability
-  
+
   // Closed/Full status takes precedence
   if (status === 'Closed' || availableSeats === 0) {
     return {
@@ -957,15 +957,15 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
       className: 'bg-orange-100 text-orange-800 border-orange-300'
     }
   }
-  
+
   // Low availability (≤10 seats)
   if (availableSeats <= 10) {
     return {
       className: 'bg-yellow-100 text-yellow-800 border-yellow-300'
     }
   }
-  
-  // Good availability 
+
+  // Good availability
   return {
     className: 'bg-green-100 text-green-800 border-green-300'
   }
@@ -988,11 +988,11 @@ export function checkSectionConflict(
   for (const candidateMeeting of candidateSection.meetings) {
     const candidateTime = parseTimeRange(candidateMeeting.time)
     if (!candidateTime) continue // Skip TBA meetings
-    
+
     // Check against all visible enrolled sections
     for (const enrollment of currentEnrollments) {
       if (!enrollment.isVisible || enrollment.isInvalid) continue
-      
+
       for (const enrolledSection of enrollment.selectedSections) {
         for (const enrolledMeeting of enrolledSection.meetings) {
           const enrolledTime = parseTimeRange(enrolledMeeting.time)
@@ -1010,7 +1010,7 @@ export function checkSectionConflict(
       }
     }
   }
-  
+
   return {
     hasConflict: conflictingSections.length > 0,
     conflictingSections: conflictingSections

@@ -13,7 +13,7 @@ const SCREENSHOT_CONFIG = {
     courseCards: '.flex.flex-wrap.gap-2 > div',
     selectedCards: '[class*="scale-105"], [class*="shadow-lg"]'
   },
-  
+
   // Layout configurations
   layout: {
     default: {
@@ -33,7 +33,7 @@ const SCREENSHOT_CONFIG = {
       minWidth: 1000
     }
   },
-  
+
   // Canvas rendering settings
   canvas: {
     scale: 2,           // High DPI scaling for crisp text
@@ -42,7 +42,7 @@ const SCREENSHOT_CONFIG = {
     quality: 0.95,
     pixelRatio: 3.0     // For html-to-image capture
   },
-  
+
   // Element styling during preparation
   styling: {
     unscheduledContainer: {
@@ -58,7 +58,7 @@ const SCREENSHOT_CONFIG = {
     },
     minElementWidth: 800
   },
-  
+
   // CSS class replacements for clean screenshots
   classReplacements: {
     'scale-105': 'scale-100',
@@ -119,19 +119,19 @@ interface ScreenshotLayout {
  * Get appropriate layout configuration based on content type
  */
 function getLayoutConfig(hasUnscheduled: boolean): LayoutConfig {
-  return hasUnscheduled 
-    ? SCREENSHOT_CONFIG.layout.withUnscheduled 
+  return hasUnscheduled
+    ? SCREENSHOT_CONFIG.layout.withUnscheduled
     : SCREENSHOT_CONFIG.layout.default
 }
 
 /**
  * Calculate screenshot layout dimensions and positions
  * Centralizes all spacing and positioning logic
- * 
+ *
  * @param calendarDimensions - Calendar element dimensions
  * @param unscheduledDimensions - Optional unscheduled section dimensions
  * @returns Complete layout specification with all element positions
- * 
+ *
  * Layout Flow:
  * [Header]
  * [Calendar]
@@ -150,8 +150,8 @@ function calculateScreenshotLayout(
     calendarDimensions.width,
     unscheduledDimensions?.width || 0
   )
-  
-  const totalContentHeight = calendarDimensions.height + 
+
+  const totalContentHeight = calendarDimensions.height +
     (unscheduledDimensions ? unscheduledDimensions.height + config.sectionSpacing : 0)
 
   // Calculate final canvas size
@@ -174,7 +174,7 @@ function calculateScreenshotLayout(
 
   // Footer positioning
   const footerStartY = totalContentHeight + config.headerHeight + config.padding + config.footerSpacing
-  
+
   return {
     canvas: {
       width: canvasWidth,
@@ -218,7 +218,7 @@ class ScreenshotStateManager {
    * Store current element state for later restoration
    */
   storeElementState(
-    element: HTMLElement, 
+    element: HTMLElement,
     originalStyle: string,
     originalContent: Array<{ element: HTMLElement; originalText: string }> = [],
     originalClasses: Array<{ element: HTMLElement; originalClass: string }> = []
@@ -240,12 +240,12 @@ class ScreenshotStateManager {
       this.originalStates.forEach(state => {
         console.log(`🔄 Restoring element with original style: "${state.originalStyle}"`)
         state.element.style.cssText = state.originalStyle
-        
+
         // Restore text content
         state.originalContent?.forEach(({ element, originalText }) => {
           element.textContent = originalText
         })
-        
+
         // Restore class names
         state.originalClasses?.forEach(({ element, originalClass }) => {
           element.setAttribute('class', originalClass)
@@ -271,7 +271,7 @@ class ScreenshotStateManager {
 function prepareCalendarElement(element: HTMLElement, stateManager: ScreenshotStateManager): void {
   const originalStyle = element.style.cssText
   stateManager.storeElementState(element, originalStyle)
-  
+
   // Expand element for capture
   element.style.maxHeight = 'none'
   element.style.height = 'auto'
@@ -307,16 +307,16 @@ function findSelectedCards(element: HTMLElement): NodeListOf<Element> {
  */
 function applyUnscheduledContainerStyling(container: HTMLElement, calendarWidth?: number): void {
   const styling = SCREENSHOT_CONFIG.styling.unscheduledContainer
-  
+
   // Transform from card to distinct section with proper borders
   container.setAttribute('class', 'border border-gray-200 bg-white')
-  
+
   // Apply configured margins
   container.style.marginLeft = styling.marginLeft
   container.style.marginRight = styling.marginRight
   container.style.marginBottom = styling.marginBottom
   container.style.boxSizing = 'border-box'
-  
+
   // Set width based on calendar width if provided
   if (calendarWidth) {
     const marginLeft = parseInt(styling.marginLeft)
@@ -332,12 +332,12 @@ function applyUnscheduledContainerStyling(container: HTMLElement, calendarWidth?
  */
 function applyCourseCardStyling(cards: NodeListOf<Element>, stateManager: ScreenshotStateManager): void {
   const styling = SCREENSHOT_CONFIG.styling.courseCard
-  
+
   cards.forEach(card => {
     const cardElement = card as HTMLElement
     const originalStyle = cardElement.style.cssText
     stateManager.storeElementState(cardElement, originalStyle)
-    
+
     cardElement.style.maxWidth = styling.maxWidth
     cardElement.style.minWidth = styling.minWidth
   })
@@ -348,15 +348,15 @@ function applyCourseCardStyling(cards: NodeListOf<Element>, stateManager: Screen
  * Handles complex styling, expansion, and visual cleanup
  */
 function prepareUnscheduledElement(
-  element: HTMLElement, 
-  stateManager: ScreenshotStateManager, 
+  element: HTMLElement,
+  stateManager: ScreenshotStateManager,
   calendarWidth?: number
 ): void {
   const originalStyle = element.style.cssText
   stateManager.storeElementState(element, originalStyle)
-  
+
   const containerStyling = SCREENSHOT_CONFIG.styling.unscheduledContainer
-  
+
   // Container sizing and overflow
   element.style.paddingRight = containerStyling.paddingRight
   element.style.paddingBottom = containerStyling.paddingBottom
@@ -367,17 +367,17 @@ function prepareUnscheduledElement(
   element.style.maxHeight = 'none'
   element.style.height = 'auto'
   element.style.overflowY = 'visible'
-  
+
   // Configure card container styling
   const cardContainer = findCardContainer(element)
   if (cardContainer) {
     const originalClass = cardContainer.getAttribute('class') || ''
     const originalStyle = cardContainer.style.cssText
     stateManager.storeElementState(cardContainer, originalStyle, [], [{ element: cardContainer, originalClass }])
-    
+
     applyUnscheduledContainerStyling(cardContainer, calendarWidth)
   }
-  
+
   // Hide interactive elements for professional look
   const chevron = findChevronIcon(element)
   if (chevron) {
@@ -387,21 +387,21 @@ function prepareUnscheduledElement(
   } else {
     console.log('⚠️ ChevronDown icon not found with configured selector')
   }
-  
+
   // Handle content expansion
   const expandableContent = findExpandableContent(element)
   if (expandableContent) {
-    const wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' && 
+    const wasExpandedBefore = getComputedStyle(expandableContent).display !== 'none' &&
                               expandableContent.style.display !== 'none'
-    
+
     console.log('🔍 EXPERIMENTAL: Not hiding preview cards, relying on CSS expansion to show proper content')
-    
+
     // If not expanded, use CSS-only expansion for screenshot (don't change React state)
     if (!wasExpandedBefore) {
       console.log('📸 Using CSS-only expansion to avoid React state changes')
       const originalStyle = expandableContent.style.cssText
       stateManager.storeElementState(expandableContent, originalStyle)
-      
+
       // Force expansion using pure CSS - no clicks to avoid React state changes
       expandableContent.style.display = 'block'
       expandableContent.style.height = 'auto'
@@ -410,7 +410,7 @@ function prepareUnscheduledElement(
       expandableContent.style.opacity = '1'
     }
   }
-  
+
   // Adjust course card widths for better screenshot proportions
   const courseCards = findCourseCards(element)
   applyCourseCardStyling(courseCards, stateManager)
@@ -436,17 +436,17 @@ function clearSelectionEffects(element: HTMLElement, stateManager: ScreenshotSta
   console.log('🧹 Clearing selection visual effects for clean screenshot...')
   const selectedCards = findSelectedCards(element)
   console.log(`Found ${selectedCards.length} cards with selection effects to clear`)
-  
+
   selectedCards.forEach(card => {
     const cardElement = card as HTMLElement
     const originalClass = cardElement.getAttribute('class') || ''
-    
+
     stateManager.storeElementState(cardElement, cardElement.style.cssText, [], [{ element: cardElement, originalClass }])
-    
+
     // Remove selection visual effects using configured replacements
     const cleanClass = applyClassReplacements(originalClass)
     cardElement.setAttribute('class', cleanClass)
-    
+
     // Also force remove transform via CSS
     cardElement.style.transform = 'scale(1)'
   })
@@ -458,7 +458,7 @@ function clearSelectionEffects(element: HTMLElement, stateManager: ScreenshotSta
 async function captureElementAsPng(element: HTMLElement, width: number, height: number): Promise<string> {
   const { toPng } = await import('html-to-image')
   const canvasConfig = SCREENSHOT_CONFIG.canvas
-  
+
   return await toPng(element, {
     quality: 1.0,
     backgroundColor: canvasConfig.backgroundColor,
@@ -489,7 +489,7 @@ function drawScreenshotHeader(ctx: CanvasRenderingContext2D, termName: string, l
 function drawScreenshotFooter(ctx: CanvasRenderingContext2D, websiteUrl: string, layout: ScreenshotLayout): void {
   const prefixText = 'Generated from '
   const appName = 'Another CUHK Course Planner'
-  
+
   // Measure text for positioning using consistent fonts
   ctx.font = FONTS.footerPrefix
   const prefixWidth = ctx.measureText(prefixText).width
@@ -497,25 +497,25 @@ function drawScreenshotFooter(ctx: CanvasRenderingContext2D, websiteUrl: string,
   const appNameWidth = ctx.measureText(appName).width
   const totalWidth = prefixWidth + appNameWidth
   const startX = (layout.canvas.width - totalWidth) / 2
-  
+
   // Line 1: "Generated from" - lighter
   ctx.fillStyle = '#6b7280'
   ctx.font = FONTS.footerPrefix
   ctx.textAlign = 'left'
   ctx.fillText(prefixText, startX, layout.footer.line1Y)
-  
+
   // Line 1: App name - prominent
   ctx.fillStyle = '#4b5563'
   ctx.font = FONTS.footerBrand
   ctx.fillText(appName, startX + prefixWidth, layout.footer.line1Y)
-  
+
   // Line 2: URL (secondary) - lighter and smaller with underline
   ctx.fillStyle = '#6b7280'
   ctx.font = FONTS.footerUrl
   ctx.textAlign = 'center'
   const urlX = layout.canvas.width / 2
   ctx.fillText(websiteUrl, urlX, layout.footer.line2Y)
-  
+
   // Add underline to make it look like a clickable link
   const urlWidth = ctx.measureText(websiteUrl).width
   const underlineY = layout.footer.line2Y + 2 // Slightly below text baseline
@@ -535,29 +535,29 @@ function downloadCompositeImage(
   termName: string
 ): Promise<void> {
   const canvasConfig = SCREENSHOT_CONFIG.canvas
-  
+
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
       if (!blob) {
         reject(new Error('Failed to create image'))
         return
       }
-      
+
       const url = URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
-      
+
       // Generate filename with date and time for better uniqueness
       const now = new Date()
       const dateStr = now.toISOString().split('T')[0] // YYYY-MM-DD
       const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-') // HH-MM-SS
       link.download = `${termName.replace(/\s+/g, '-')}-Schedule-${dateStr}-${timeStr}.png`
-      
+
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
       URL.revokeObjectURL(url)
-      
+
       console.log('✅ Calendar screenshot with unscheduled sections saved successfully!')
       resolve()
     }, canvasConfig.imageFormat, canvasConfig.quality)
@@ -578,7 +578,7 @@ export async function captureCalendarScreenshot(
 
   try {
     console.log('📸 Starting calendar screenshot...')
-    
+
     // Helper to prepare element for screenshot capture with measurements
     const prepareElementForCapture = async (element: HTMLElement, isUnscheduled = false, calendarWidth?: number) => {
       if (isUnscheduled) {
@@ -586,11 +586,11 @@ export async function captureCalendarScreenshot(
       } else {
         prepareCalendarElement(element, stateManager)
       }
-      
+
       // Force layout recalculation
       void element.offsetHeight
       await new Promise(resolve => setTimeout(resolve, 50))
-      
+
       const rect = element.getBoundingClientRect()
       return {
         element,
@@ -598,11 +598,11 @@ export async function captureCalendarScreenshot(
         actualHeight: rect.height
       }
     }
-    
+
     // Step 1: Prepare calendar
     console.log('📏 Preparing calendar...')
     const calendarInfo = await prepareElementForCapture(calendarElement, false)
-    
+
     // Step 2: Prepare unscheduled (if it exists)
     let unscheduledInfo: {
       element: HTMLElement
@@ -612,82 +612,82 @@ export async function captureCalendarScreenshot(
     if (unscheduledElement) {
       console.log('📏 Preparing unscheduled...')
       unscheduledInfo = await prepareElementForCapture(unscheduledElement, true, calendarInfo.actualWidth)
-      // Match width to calendar for perfect alignment  
+      // Match width to calendar for perfect alignment
       unscheduledInfo.actualWidth = calendarInfo.actualWidth
     }
-    
+
     // Step 2.5: Clear selection visual effects for clean screenshot (CSS only)
     if (unscheduledElement) {
       clearSelectionEffects(unscheduledElement, stateManager)
     }
-    
+
     // Step 3: Capture images with proper error handling
     console.log('📷 Capturing images...')
     const calendarDataUrl = await captureElementAsPng(calendarInfo.element, calendarInfo.actualWidth, calendarInfo.actualHeight)
-    
+
     let unscheduledDataUrl: string | null = null
     if (unscheduledElement && unscheduledInfo) {
       unscheduledDataUrl = await captureElementAsPng(unscheduledInfo.element, unscheduledInfo.actualWidth, unscheduledInfo.actualHeight)
     }
-    
+
     // Restore elements immediately after capture
     stateManager.restoreAllElements()
     console.log('🔄 Elements restored to original state')
-    
+
     console.log(`📏 Calendar: ${calendarInfo.actualWidth}x${calendarInfo.actualHeight}`)
     if (unscheduledInfo) {
       console.log(`📏 Unscheduled: ${unscheduledInfo.actualWidth}x${unscheduledInfo.actualHeight}`)
     }
-    
+
     // Step 3: Calculate layout using centralized system
     const layout = calculateScreenshotLayout(
       { width: calendarInfo.actualWidth, height: calendarInfo.actualHeight },
       unscheduledInfo ? { width: unscheduledInfo.actualWidth, height: unscheduledInfo.actualHeight } : undefined
     )
-    
+
     const canvas = document.createElement('canvas')
     const canvasConfig = SCREENSHOT_CONFIG.canvas
     canvas.width = layout.canvas.width * canvasConfig.scale
     canvas.height = layout.canvas.height * canvasConfig.scale
     const ctx = canvas.getContext('2d')
-    
+
     if (!ctx) throw new Error('Failed to get canvas context')
-    
+
     // Scale the context for high-DPI rendering
     ctx.scale(canvasConfig.scale, canvasConfig.scale)
-    
+
     // Background using configuration
     ctx.fillStyle = canvasConfig.backgroundColor
     ctx.fillRect(0, 0, layout.canvas.width, layout.canvas.height)
-    
+
     // Header with consistent typography
     drawScreenshotHeader(ctx, termName, layout)
-    
+
     console.log(`📏 Final dimensions: ${layout.canvas.width}x${layout.canvas.height}`)
-    
+
     // Load and composite images
     const calendarImage = new Image()
     const unscheduledImage = unscheduledDataUrl ? new Image() : null
-    
+
     return new Promise<void>((resolve, reject) => {
       let imagesLoaded = 0
       const totalImages = unscheduledImage ? 2 : 1
-      
+
       const checkImagesLoaded = () => {
         imagesLoaded++
         if (imagesLoaded === totalImages) {
           try {
             // Draw calendar using layout position
             ctx.drawImage(calendarImage, layout.calendar.x, layout.calendar.y, layout.calendar.width, layout.calendar.height)
-            
+
             // Draw unscheduled section using layout position (if exists)
             if (unscheduledImage && layout.unscheduled) {
               ctx.drawImage(unscheduledImage, layout.unscheduled.x, layout.unscheduled.y, layout.unscheduled.width, layout.unscheduled.height)
             }
-            
+
             // Two-line footer with brand emphasis using layout system
             drawScreenshotFooter(ctx, websiteUrl, layout)
-            
+
             // Download composite image
             downloadCompositeImage(canvas, termName).then(resolve).catch(reject)
           } catch (drawError) {
@@ -696,12 +696,12 @@ export async function captureCalendarScreenshot(
           }
         }
       }
-      
+
       // Load calendar image
       calendarImage.onload = checkImagesLoaded
       calendarImage.onerror = () => reject(new Error('Failed to load calendar image'))
       calendarImage.src = calendarDataUrl
-      
+
       // Load unscheduled image if it exists
       if (unscheduledImage && unscheduledDataUrl) {
         unscheduledImage.onload = checkImagesLoaded
@@ -709,7 +709,7 @@ export async function captureCalendarScreenshot(
         unscheduledImage.src = unscheduledDataUrl
       }
     })
-    
+
   } catch (error) {
     // Always restore elements on error
     stateManager.restoreAllElements()
