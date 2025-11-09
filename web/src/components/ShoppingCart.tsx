@@ -22,13 +22,13 @@ interface ShoppingCartProps {
   onShowCourseDetails?: (courseCode: string) => void // Navigate to course search and show details
 }
 
-export default function ShoppingCart({ 
+export default function ShoppingCart({
   courseEnrollments,
   calendarEvents,
   selectedEnrollment,
   currentTerm,
   lastDataUpdate,
-  onToggleVisibility, 
+  onToggleVisibility,
   onRemoveCourse,
   onSelectEnrollment,
   onSectionChange,
@@ -37,91 +37,91 @@ export default function ShoppingCart({
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
   const [, forceUpdate] = useState({}) // For timestamp updates
-  
+
   // Update timestamp display every 30 seconds
   useEffect(() => {
     if (!lastDataUpdate) return
-    
+
     const interval = setInterval(() => {
       forceUpdate({}) // Trigger re-render to update relative time
     }, 30000) // Update every 30 seconds
-    
+
     return () => clearInterval(interval)
   }, [lastDataUpdate])
-  
+
   // Note: Removed unused helper functions - cycling now uses direct compatibility checking
-  
+
   // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
   const cycleSection = (enrollment: CourseEnrollment, sectionType: string, direction: 'next' | 'prev') => {
     if (!onSectionChange) return
-    
+
     const currentSection = enrollment.selectedSections.find(s => s.sectionType === sectionType)
     if (!currentSection) return
-    
+
     // Get compatible sections considering ONLY HIGHER priority constraints (hierarchical)
     const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
     const typeGroup = sectionTypes.find(group => group.type === sectionType)
     if (!typeGroup) return
-    
+
     // Only constrain by HIGHER priority sections (lower priority numbers)
     const currentPriority = getSectionTypePriority(sectionType as SectionType, sectionTypes)
     const higherPrioritySelections = enrollment.selectedSections.filter(s => {
       const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
       return sPriority < currentPriority // Higher priority (lower number)
     })
-    
+
     const { compatible } = categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections)
-    
+
     if (compatible.length <= 1) {
       console.log(`🔄 No compatible alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`)
       return // No alternatives to cycle through
     }
-    
+
     const currentIndex = compatible.findIndex(s => s.id === currentSection.id)
     if (currentIndex === -1) return
-    
+
     let newIndex
     if (direction === 'next') {
       newIndex = (currentIndex + 1) % compatible.length
     } else {
       newIndex = currentIndex === 0 ? compatible.length - 1 : currentIndex - 1
     }
-    
+
     const newSection = compatible[newIndex]
     console.log(`🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`)
     console.log(`🔍 Compatible sections for ${sectionType} (constrained by higher priority only):`, compatible.map(s => s.sectionCode))
-    
+
     // Track section cycling for product analytics
     analytics.sectionCycled(`${enrollment.course.subject}${enrollment.course.courseCode}`)
-    
+
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
-  
+
   // Auto-scroll selected course into view within shopping cart container
   useEffect(() => {
     if (!selectedEnrollment || !scrollContainerRef.current) return
-    
+
     const selectedElement = itemRefs.current.get(selectedEnrollment)
     if (!selectedElement) return
-    
+
     const container = scrollContainerRef.current
     const containerStyle = window.getComputedStyle(container)
     const containerPaddingTop = parseInt(containerStyle.paddingTop) || 0
-    
+
     // Use getBoundingClientRect for cross-platform reliability
     const containerRect = container.getBoundingClientRect()
     const elementRect = selectedElement.getBoundingClientRect()
     const elementTopInContainer = elementRect.top - containerRect.top + container.scrollTop
-    
+
     // Position element at top of container with comfortable padding
     const idealScrollTop = elementTopInContainer - containerPaddingTop - 16
-    
+
     // Only scroll if element is not fully visible
     const elementHeight = selectedElement.offsetHeight
     const visibleTop = container.scrollTop
     const visibleBottom = container.scrollTop + container.clientHeight
     const elementBottom = elementTopInContainer + elementHeight
-    
+
     if (elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
       container.scrollTo({
         top: Math.max(0, idealScrollTop),
@@ -136,34 +136,34 @@ export default function ShoppingCart({
   const getStatusCounts = () => {
     const validEnrollments = courseEnrollments.filter(enrollment => !enrollment.isInvalid)
     const visibleValidEnrollments = validEnrollments.filter(enrollment => enrollment.isVisible)
-    
+
     return {
       // Credit counts
       visibleCredits: visibleValidEnrollments.reduce((sum, enrollment) => sum + enrollment.course.credits, 0),
       totalCredits: validEnrollments.reduce((sum, enrollment) => sum + enrollment.course.credits, 0),
-      
+
       // Status counts
       open: {
-        visible: visibleValidEnrollments.filter(enrollment => 
+        visible: visibleValidEnrollments.filter(enrollment =>
           enrollment.selectedSections.every(section => section.availability.status === 'Open')
         ).length,
-        total: validEnrollments.filter(enrollment => 
+        total: validEnrollments.filter(enrollment =>
           enrollment.selectedSections.every(section => section.availability.status === 'Open')
         ).length
       },
       waitlisted: {
-        visible: visibleValidEnrollments.filter(enrollment => 
+        visible: visibleValidEnrollments.filter(enrollment =>
           enrollment.selectedSections.some(section => section.availability.status === 'Waitlisted')
         ).length,
-        total: validEnrollments.filter(enrollment => 
+        total: validEnrollments.filter(enrollment =>
           enrollment.selectedSections.some(section => section.availability.status === 'Waitlisted')
         ).length
       },
       closed: {
-        visible: visibleValidEnrollments.filter(enrollment => 
+        visible: visibleValidEnrollments.filter(enrollment =>
           enrollment.selectedSections.some(section => section.availability.status === 'Closed')
         ).length,
-        total: validEnrollments.filter(enrollment => 
+        total: validEnrollments.filter(enrollment =>
           enrollment.selectedSections.some(section => section.availability.status === 'Closed')
         ).length
       },
@@ -185,29 +185,29 @@ export default function ShoppingCart({
       <CardHeader className="pb-0 pt-2 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Shopping Cart</CardTitle>
-          <Badge 
-            variant="secondary" 
+          <Badge
+            variant="secondary"
             className="text-xs"
             title={(() => {
               const visibleCount = courseEnrollments.filter(enrollment => enrollment.isVisible).length
               const totalCount = courseEnrollments.length
-              
+
               if (visibleCount === totalCount) {
                 return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'} in shopping cart`
               }
-              
+
               return `${visibleCount} visible, ${totalCount} total ${totalCount === 1 ? 'course' : 'courses'} in shopping cart`
             })()}
           >
             {(() => {
               const visibleCount = courseEnrollments.filter(enrollment => enrollment.isVisible).length
               const totalCount = courseEnrollments.length
-              
+
               // Show simple count when all are visible (like credits logic)
               if (visibleCount === totalCount) {
                 return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
               }
-              
+
               // Show visible/total when some are hidden
               return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
             })()}
@@ -223,7 +223,7 @@ export default function ShoppingCart({
           )}
         </div>
       </CardHeader>
-      
+
       <CardContent className="flex-1 overflow-hidden px-3">
         {courseEnrollments.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
@@ -232,22 +232,22 @@ export default function ShoppingCart({
             <p className="text-xs opacity-70">Add courses to get started</p>
           </div>
         ) : (
-          <div 
+          <div
             ref={scrollContainerRef}
             className="space-y-3 overflow-y-auto h-full p-1 pr-2 py-2"
           >
             {courseEnrollments.map((enrollment) => {
               // Find calendar events for this enrollment
-              const enrollmentEvents = calendarEvents.filter(event => 
-                event.subject === enrollment.course.subject && 
+              const enrollmentEvents = calendarEvents.filter(event =>
+                event.subject === enrollment.course.subject &&
                 event.courseCode === enrollment.course.courseCode
               )
               const hasConflict = enrollmentEvents.some(event => event.hasConflict)
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
-              
-              
+
+
               return (
                 <div
                   key={enrollment.courseId}
@@ -261,12 +261,12 @@ export default function ShoppingCart({
                   className={`
                     border rounded p-2 transition-all duration-300 relative group
                     border-l-4 border-gray-200
-                    ${isInvalid 
-                      ? 'bg-orange-50 opacity-75' 
+                    ${isInvalid
+                      ? 'bg-orange-50 opacity-75'
                       : 'bg-white'
                     }
                     ${isSelected && isVisible && !isInvalid
-                      ? `ring-1 shadow-lg scale-[1.02]` 
+                      ? `ring-1 shadow-lg scale-[1.02]`
                       : ''
                     }
                     ${!isVisible || isInvalid ? 'cursor-not-allowed' : 'cursor-pointer'}
@@ -283,7 +283,7 @@ export default function ShoppingCart({
                     } : {})
                   }}
                   title={
-                    !isVisible && !isInvalid 
+                    !isVisible && !isInvalid
                       ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
                       : isInvalid
                         ? enrollment.invalidReason || 'Course data is outdated'
@@ -334,7 +334,7 @@ export default function ShoppingCart({
                         {enrollment.course.credits} credits
                       </span>
                     </div>
-                    
+
                     {/* Quick Actions */}
                     <div className="flex items-center gap-1 flex-shrink-0">
                       <Button
@@ -406,20 +406,20 @@ export default function ShoppingCart({
                       const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
                       const typeGroup = sectionTypes.find(group => group.type === section.sectionType)
                       if (!typeGroup) return null
-                      
+
                       // Only constrain by HIGHER priority sections (lower priority numbers)
                       const higherPrioritySelections = enrollment.selectedSections.filter(s => {
                         const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
                         const currentPriority = getSectionTypePriority(section.sectionType, sectionTypes)
                         return sPriority < currentPriority // Higher priority (lower number)
                       })
-                      
+
                       const { compatible } = categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections)
-                      
+
                       const canCycle = compatible.length > 1
                       const currentIndex = compatible.findIndex(s => s.id === section.id)
                       const sectionPosition = `${currentIndex + 1}/${compatible.length}`
-                      
+
                       return (
                         <div key={section.id} className="bg-gray-50 rounded px-2 py-2 border">
                           {/* Section header with cycling buttons */}
@@ -429,7 +429,7 @@ export default function ShoppingCart({
                                 {section.sectionCode}
                               </div>
                             </div>
-                            
+
                             {/* Cycling controls or "only option" badge */}
                             {canCycle ? (
                               <div className="flex items-center gap-1">
@@ -467,7 +467,7 @@ export default function ShoppingCart({
                               </Badge>
                             )}
                           </div>
-                        
+
                         {/* Row 2: Enrollment Badges */}
                         <div className="flex items-center gap-1 mb-2">
                           {getAvailabilityBadges(section.availability).map((badge) => (
@@ -475,9 +475,9 @@ export default function ShoppingCart({
                               key={badge.type}
                               className={`text-[9px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
                               title={
-                                badge.type === 'status' 
+                                badge.type === 'status'
                                   ? `Course status: ${badge.text}`
-                                  : badge.type === 'availability' 
+                                  : badge.type === 'availability'
                                     ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
                                     : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
                               }
@@ -486,7 +486,7 @@ export default function ShoppingCart({
                             </Badge>
                           ))}
                         </div>
-                        
+
                         {/* Row 3: Teaching Language */}
                         {section.classAttributes && (
                           <div className="flex items-center gap-1 text-gray-500 text-[9px] mb-2">
@@ -496,14 +496,14 @@ export default function ShoppingCart({
                             </span>
                           </div>
                         )}
-                        
+
                         {/* Unique meetings for this section - consolidated by time+location+instructor */}
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
                             const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBA')
                             const location = meeting?.location || 'TBA'
-                            
+
                             return (
                               <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
                                 {/* Row 1: Time */}
@@ -568,7 +568,7 @@ export default function ShoppingCart({
           </div>
         )}
       </CardContent>
-      
+
       {/* Schedule Summary - Outside scrollable area */}
       {courseEnrollments.length > 0 && (
         <div className="border-t px-3 py-2 flex-shrink-0 space-y-2">
@@ -580,13 +580,13 @@ export default function ShoppingCart({
                 : `${statusCounts.visibleCredits.toFixed(1)} visible credits, ${statusCounts.totalCredits.toFixed(1)} total credits from enrolled courses`
               }
             >
-              {statusCounts.visibleCredits === statusCounts.totalCredits 
+              {statusCounts.visibleCredits === statusCounts.totalCredits
                 ? `${statusCounts.totalCredits.toFixed(1)} credits`
                 : `${statusCounts.visibleCredits.toFixed(1)} / ${statusCounts.totalCredits.toFixed(1)} credits`
               }
             </span>
             {statusCounts.conflicts.total > 0 && (
-              <div 
+              <div
                 className="flex items-center gap-1 text-purple-500"
                 title="Some courses have scheduling conflicts"
               >
@@ -595,16 +595,16 @@ export default function ShoppingCart({
               </div>
             )}
           </div>
-          
+
           {/* Row 2: Open, Waitlisted, Closed (all optional) */}
           {(() => {
             // Only show row 2 if there's any status info to display
             const hasStatusInfo = statusCounts.open.total > 0 || statusCounts.waitlisted.total > 0 || statusCounts.closed.total > 0 || statusCounts.invalid.total > 0
-            
+
             return hasStatusInfo && (
               <div className="flex items-center justify-between text-xs">
                 {statusCounts.open.total > 0 && (
-                  <div 
+                  <div
                     className="flex items-center gap-1 text-green-600"
                     title={statusCounts.open.visible === statusCounts.open.total
                       ? `${statusCounts.open.total} courses are open for enrollment`
@@ -621,7 +621,7 @@ export default function ShoppingCart({
                   </div>
                 )}
                 {statusCounts.waitlisted.total > 0 && (
-                  <div 
+                  <div
                     className="flex items-center gap-1 text-yellow-600"
                     title={statusCounts.waitlisted.visible === statusCounts.waitlisted.total
                       ? `${statusCounts.waitlisted.total} courses require waitlist enrollment`
@@ -638,7 +638,7 @@ export default function ShoppingCart({
                   </div>
                 )}
                 {statusCounts.closed.total > 0 && (
-                  <div 
+                  <div
                     className="flex items-center gap-1 text-red-600"
                     title={statusCounts.closed.visible === statusCounts.closed.total
                       ? `${statusCounts.closed.total} courses are closed for enrollment`
@@ -655,7 +655,7 @@ export default function ShoppingCart({
                   </div>
                 )}
                 {statusCounts.invalid.total > 0 && (
-                  <div 
+                  <div
                     className="flex items-center gap-1 text-orange-500"
                     title={statusCounts.invalid.visible === statusCounts.invalid.total
                       ? `${statusCounts.invalid.total} courses have outdated or invalid data`

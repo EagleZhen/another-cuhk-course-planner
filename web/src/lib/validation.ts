@@ -79,9 +79,9 @@ function parseSectionType(sectionCode: string): SectionType {
   // Build regex patterns dynamically from configuration
   const allAliases = Object.entries(SECTION_TYPE_CONFIG)
     .flatMap(([type, config]) => config.aliases.map(alias => ({ alias, type })))
-  
+
   const aliasPattern = allAliases.map(({ alias }) => alias).join('|')
-  
+
   // Pattern 1: --TYPE or -XXX-TYPE (e.g., "--LEC", "-D01-DIS")
   const dashPattern = new RegExp(`-+(?:[A-Z]\\d+-)?(${aliasPattern})`)
   const dashMatch = sectionCode.match(dashPattern)
@@ -91,7 +91,7 @@ function parseSectionType(sectionCode: string): SectionType {
     const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
     return typeEntry?.type as SectionType || 'UNK'
   }
-  
+
   // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
   const startPattern = new RegExp(`^(${aliasPattern})`)
   const startMatch = sectionCode.match(startPattern)
@@ -101,7 +101,7 @@ function parseSectionType(sectionCode: string): SectionType {
     const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
     return typeEntry?.type as SectionType || 'UNK'
   }
-  
+
   // Log unrecognized section codes for debugging and pattern improvement
   console.warn(`⚠️ Unrecognized section code pattern: "${sectionCode}"`)
   return 'UNK'
@@ -114,12 +114,12 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
   const availableSeats = parseInt(external.available_seats)
   const waitlistCapacity = parseInt(external.waitlist_capacity) || 0
   const waitlistTotal = parseInt(external.waitlist_total) || 0
-  
+
   let status: SectionAvailability['status'] = 'Unknown'
   if (external.status === 'Open') status = 'Open'
   else if (external.status === 'Closed') status = 'Closed'
   else if (external.status === 'Waitlisted') status = 'Waitlisted'
-  
+
   return {
     capacity,
     enrolled,
@@ -145,7 +145,7 @@ function transformSection(external: z.infer<typeof ExternalSectionSchema>, cours
   const sectionType = parseSectionType(external.section)
   const meetings = (external.meetings || []).map(transformMeeting)
   const availability = transformAvailability(external.availability)
-  
+
   return {
     id: `${courseKey}_${external.section}`,
     sectionCode: external.section,
@@ -158,10 +158,10 @@ function transformSection(external: z.infer<typeof ExternalSectionSchema>, cours
 
 // Transform external term to internal
 function transformTerm(external: z.infer<typeof ExternalTermSchema>, courseKey: string): InternalTerm {
-  const sections = (external.schedule || []).map(section => 
+  const sections = (external.schedule || []).map(section =>
     transformSection(section, courseKey)
   )
-  
+
   return {
     termCode: external.term_code,
     termName: external.term_name,
@@ -175,12 +175,12 @@ export function transformExternalCourse(external: unknown): InternalCourse {
   try {
     const validated = ExternalCourseSchema.parse(external)
     const courseKey = `${validated.subject}${validated.course_code}`
-    
+
     // Transform to internal types
-    const terms = (validated.terms || []).map(term => 
+    const terms = (validated.terms || []).map(term =>
       transformTerm(term, courseKey)
     )
-    
+
     // Parse and validate credits
     let credits = 0.0 // Default value
     if (validated.credits) {
@@ -189,7 +189,7 @@ export function transformExternalCourse(external: unknown): InternalCourse {
         credits = parsed
       }
     }
-    
+
     return {
       subject: validated.subject,
       courseCode: validated.course_code,
@@ -218,15 +218,15 @@ export function transformExternalCourse(external: unknown): InternalCourse {
 }
 
 // Validate and transform course data file
-export function transformExternalCourseData(external: unknown): { 
+export function transformExternalCourseData(external: unknown): {
   metadata: { subject: string; totalCourses: number }
-  courses: InternalCourse[] 
+  courses: InternalCourse[]
 } {
   try {
     const validated = ExternalCourseDataSchema.parse(external)
-    
+
     const courses = validated.courses.map(transformExternalCourse)
-    
+
     return {
       metadata: {
         subject: validated.metadata.subject,

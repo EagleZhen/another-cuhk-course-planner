@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  
+
   // Twitter Card (X, Threads)
   twitter: {
     card: "summary_large_image",
@@ -91,9 +91,9 @@ export default function RootLayout({
         {/* Data Source Notice */}
         <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
           <span>Data regularly synced from </span>
-          <a 
-            href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx" 
-            target="_blank" 
+          <a
+            href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
+            target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-amber-900 font-medium"
           >
@@ -101,9 +101,9 @@ export default function RootLayout({
           </a>
           <span>. </span>
           <span className="font-semibold">Always verify in </span>
-          <a 
-            href="https://cusis.cuhk.edu.hk/" 
-            target="_blank" 
+          <a
+            href="https://cusis.cuhk.edu.hk/"
+            target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-amber-900 font-bold"
           >

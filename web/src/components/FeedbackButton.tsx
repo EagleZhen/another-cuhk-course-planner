@@ -36,14 +36,14 @@ export default function FeedbackButton() {
         <MessageCircle className="w-5 h-5" />
         <span className="hidden sm:inline">Feedback</span>
       </Button>
-      
+
       {isOpen && (
         <>
-          <div 
-            className="fixed inset-0 z-[55] cursor-pointer" 
+          <div
+            className="fixed inset-0 z-[55] cursor-pointer"
             onClick={() => setIsOpen(false)}
           />
-          
+
           <div className="absolute bottom-full right-0 mb-2 z-[60] bg-white border border-gray-200 rounded-lg shadow-lg min-w-[240px]">
             <div className="p-2 border-b border-gray-100">
               <div className="text-sm font-medium text-gray-900">Share Feedback</div>

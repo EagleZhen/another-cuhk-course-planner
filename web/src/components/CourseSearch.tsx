@@ -33,9 +33,9 @@ interface CourseSearchProps {
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
-export default function CourseSearch({ 
+export default function CourseSearch({
   onAddCourse,
-  onRemoveCourse, 
+  onRemoveCourse,
   courseEnrollments,
   currentTerm,
   availableTerms = [],
@@ -52,15 +52,15 @@ export default function CourseSearch({
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
-  const [displayResults, setDisplayResults] = useState<SearchResults>({ 
-    courses: [], 
-    total: 0, 
-    isLimited: false, 
-    isShuffled: false 
+  const [displayResults, setDisplayResults] = useState<SearchResults>({
+    courses: [],
+    total: 0,
+    isLimited: false,
+    isShuffled: false
   })
   const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
   const [isFromCourseDetails, setIsFromCourseDetails] = useState(false) // Track if search is from course details
-  
+
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
     setSelectedDays(prev => {
@@ -73,7 +73,7 @@ export default function CourseSearch({
       return newSet
     })
   }
-  
+
   // Smooth debouncing for search performance
   useEffect(() => {
     // Immediate update for empty search (instant clear)
@@ -82,13 +82,13 @@ export default function CourseSearch({
       setIsFiltering(false)
       return
     }
-    
+
     // Show searching state when user is typing
     setIsFiltering(true)
-    
+
     // Short delay for single characters (responsive but not overwhelming)
     const delay = searchTerm.length === 1 ? 400 : 200
-    
+
     const timer = setTimeout(() => {
       // Use startTransition to mark search updates as non-urgent
       // This prevents search processing from blocking user input
@@ -97,10 +97,10 @@ export default function CourseSearch({
         setIsFiltering(false)
       })
     }, delay)
-    
+
     return () => clearTimeout(timer)
   }, [searchTerm])
-  
+
   // Expose search function to parent
   useEffect(() => {
     if (onSearchControlReady) {
@@ -129,7 +129,7 @@ export default function CourseSearch({
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
-  
+
   // Removed global state - CourseCard now manages its own state
 
   // Calculate subjects that actually have courses in current term
@@ -137,14 +137,14 @@ export default function CourseSearch({
     if (availableSubjects.length === 0 || allCourses.length === 0) {
       return []
     }
-    
+
     const subjectsInTerm = new Set<string>()
     allCourses.forEach(course => {
       if (course.terms.some(term => term.termName === currentTerm)) {
         subjectsInTerm.add(course.subject)
       }
     })
-    
+
     // Filter available subjects to only include those with courses in current term
     return availableSubjects.filter(subject => subjectsInTerm.has(subject))
   }, [availableSubjects, allCourses, currentTerm])
@@ -153,43 +153,43 @@ export default function CourseSearch({
   const availableDays = useMemo(() => {
     // During initial loading, show all days
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
-    
+
     // Filter courses by everything EXCEPT day filters to avoid self-loop
     const coursesFilteredByNonDayFilters = allCourses.filter(course => {
       // Apply term filter
       const termData = course.terms.find(term => term.termName === currentTerm)
       if (!termData) return false
-      
+
       // Apply subject filter (if any)
       if (selectedSubjects.size > 0 && !selectedSubjects.has(course.subject)) return false
-      
+
       // Apply search filter (if any)
       if (debouncedSearchTerm.trim()) {
         const searchLower = debouncedSearchTerm.toLowerCase()
         const courseCode = `${course.subject}${course.courseCode}`.toLowerCase()
         const title = course.title.toLowerCase()
         const description = course.description?.toLowerCase() || ''
-        
+
         // Check if search term matches course code, title, or description
-        if (!courseCode.includes(searchLower) && 
-            !title.includes(searchLower) && 
+        if (!courseCode.includes(searchLower) &&
+            !title.includes(searchLower) &&
             !description.includes(searchLower)) {
-          
+
           // Also check instructor names in current term
           const hasMatchingInstructor = termData.sections.some(section =>
             section.meetings.some(meeting =>
               meeting.instructor.toLowerCase().includes(searchLower)
             )
           )
-          
+
           if (!hasMatchingInstructor) return false
         }
       }
-      
+
       // ✅ DON'T apply selectedDays filter here - that would create self-loop
       return true
     })
-    
+
     // Calculate available days from the filtered courses
     const daysWithCourses = new Set<number>()
     coursesFilteredByNonDayFilters.forEach(course => {
@@ -203,7 +203,7 @@ export default function CourseSearch({
         })
       }
     })
-    
+
     // Return day keys that have courses in the filtered set
     return DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
   }, [allCourses, currentTerm, selectedSubjects, debouncedSearchTerm]) // ✅ No selectedDays dependency!
@@ -217,14 +217,14 @@ export default function CourseSearch({
 
   // Helper function to check if course is already enrolled
   const isCourseAdded = (course: InternalCourse) => {
-    return courseEnrollments.some(enrollment => 
+    return courseEnrollments.some(enrollment =>
       enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
     )
   }
 
   // Helper function to get enrolled course for comparison
   const getEnrolledCourse = (course: InternalCourse): CourseEnrollment | null => {
-    return courseEnrollments.find(enrollment => 
+    return courseEnrollments.find(enrollment =>
       enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
     ) || null
   }
@@ -233,7 +233,7 @@ export default function CourseSearch({
   const hasSelectionsChanged = (course: InternalCourse): boolean => {
     const enrolled = getEnrolledCourse(course)
     if (!enrolled) return false
-    
+
     // Convert global selections to local format for this course
     const courseKey = `${course.subject}${course.courseCode}`
     const currentLocalSelections = new Map<string, string>()
@@ -243,15 +243,15 @@ export default function CourseSearch({
         currentLocalSelections.set(sectionType, sectionId)
       }
     }
-    
+
     // If no current selections, then no changes are pending (selections were cleared after adding)
     if (currentLocalSelections.size === 0) return false
-    
+
     // If different number of selections, then changes exist
     if (currentLocalSelections.size !== enrolled.selectedSections.length) return true
-    
+
     // Check if any selected sections differ from enrolled sections
-    return enrolled.selectedSections.some(enrolledSection => 
+    return enrolled.selectedSections.some(enrolledSection =>
       currentLocalSelections.get(enrolledSection.sectionType) !== enrolledSection.id
     )
   }
@@ -266,12 +266,12 @@ export default function CourseSearch({
 
     const loadCourseData = async () => {
       setLoading(true)
-      
+
       // Performance tracking
       const startTime = performance.now()
       const subjectLoadTimes: { subject: string, time: number, size: number }[] = []
       let totalDataSize = 0
-      
+
       try {
         // 🚀 Load ALL subjects - using single source of truth from lib/subjects.ts
         // Automatically excludes exemption codes (EX_*, X*)
@@ -293,29 +293,29 @@ export default function CourseSearch({
         let completedCount = 0
 
         console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL...`)
-        
+
         // 🔥 PARALLEL LOADING: Fire ALL requests simultaneously!
         const allPromises = availableSubjects.map(async (subject) => {
           const subjectStartTime = performance.now()
-          
+
           try {
             const response = await fetch(`/data/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
               const subjectEndTime = performance.now()
-              
+
               // Calculate approximate data size (rough estimate)
               const dataSize = JSON.stringify(rawData).length
               const loadTime = subjectEndTime - subjectStartTime
-              
+
               // Update progress as each request completes (thread-safe)
               completedCount++
-              setLoadingProgress(() => ({ 
-                loaded: completedCount, 
-                total: availableSubjects.length, 
-                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${completedCount}/${availableSubjects.length}` 
+              setLoadingProgress(() => ({
+                loaded: completedCount,
+                total: availableSubjects.length,
+                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${completedCount}/${availableSubjects.length}`
               }))
-              
+
               // Extract scraping timestamp from metadata
               let scrapedAt = null
               if (rawData.metadata?.scraped_at) {
@@ -325,12 +325,12 @@ export default function CourseSearch({
                   console.warn(`Invalid scraped_at timestamp in ${subject}.json:`, rawData.metadata.scraped_at)
                 }
               }
-              
+
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
                 console.log(`✅ ${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(dataSize / 1024).toString().padStart(5)}KB, ${Math.round(loadTime).toString().padStart(5)}ms`)
-                
+
                 return {
                   subject,
                   courses: transformedData.courses,
@@ -352,11 +352,11 @@ export default function CourseSearch({
             return { subject, success: false, error: String(error) }
           }
         })
-        
+
         // Wait for ALL requests to complete
         console.log(`⏳ Waiting for all ${availableSubjects.length} parallel requests to complete...`)
         const results = await Promise.all(allPromises)
-        
+
         // Process successful results
         results.forEach(result => {
           if (result.success && result.courses) {
@@ -377,13 +377,13 @@ export default function CourseSearch({
             })
           }
         })
-        
+
         const successCount = results.filter(r => r.success).length
         totalDataSize = subjectLoadTimes.reduce((sum, s) => sum + (s.size * 1024), 0)
 
         // Calculate total load time and log performance summary
         const totalLoadTime = performance.now() - startTime
-        
+
         console.log(`🎉 PARALLEL LOADING COMPLETE!`)
         console.log(`📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`)
         console.log(`⚡ Parallel Performance Summary:`)
@@ -391,7 +391,7 @@ export default function CourseSearch({
         console.log(`   📦 Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`)
         console.log(`   ⚡ Speedup: ALL subjects loaded simultaneously instead of sequentially!`)
         console.log(`   🏆 Previous sequential time would have been: ~${Math.round(subjectLoadTimes.reduce((sum, s) => sum + s.time, 0))}ms`)
-        
+
         // Log fastest and slowest requests for insight
         const validTimes = subjectLoadTimes.filter(s => s.time > 0)
         if (validTimes.length > 0) {
@@ -401,30 +401,30 @@ export default function CourseSearch({
           console.log(`   🐌 Slowest: ${slowest.subject} (${slowest.time}ms, ${slowest.size}KB)`)
           console.log(`   📊 Average per request: ${Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)}ms`)
         }
-        
+
         // Store performance stats for potential UI display
         setPerformanceStats({
           totalLoadTime: Math.round(totalLoadTime),
           subjectLoadTimes,
           totalDataSize: Math.round(totalDataSize / 1024) // KB
         })
-        
+
         if (successCount === 0) {
           console.error('❌ No course data could be loaded - check that /data/ files exist')
         }
-        
+
         setAllCourses(allCoursesData)
         setHasDataLoaded(true) // Mark data as loaded for this session
         setLoading(false)
-        
-        
+
+
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
           const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map(d => d.getTime())))
           console.log(`🕒 Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`)
           onDataUpdate(oldestTimestamp, allCoursesData) // Pass both timestamp and fresh course data for sync
         }
-        
+
       } catch (error) {
         console.error('Failed to load course data:', error)
         setLoading(false)
@@ -449,25 +449,25 @@ export default function CourseSearch({
       // Use setTimeout to defer computation to next frame, preventing UI blocking
       setTimeout(() => {
         // First filter by term - only show courses available in current term
-        let filteredCourses = courses.filter(course => 
+        let filteredCourses = courses.filter(course =>
           course.terms.some(termData => termData.termName === term)
         )
-        
+
         // Apply subject filter if any subjects are selected
         if (subjects.size > 0) {
-          filteredCourses = filteredCourses.filter(course => 
+          filteredCourses = filteredCourses.filter(course =>
             subjects.has(course.subject)
           )
         }
-        
+
         // Apply day filter if any days are selected
         if (days.size > 0) {
           filteredCourses = filteredCourses.filter(course => {
             const currentTermData = course.terms.find(termData => termData.termName === term)
             if (!currentTermData) return false
-            
+
             // Check if course has any sections on selected days
-            return currentTermData.sections.some(section => 
+            return currentTermData.sections.some(section =>
               section.meetings.some(meeting => {
                 const dayIndex = getDayIndex(meeting.time)
                 return dayIndex !== null && days.has(dayIndex)
@@ -475,10 +475,10 @@ export default function CourseSearch({
             )
           })
         }
-        
+
         // Determine if user has applied any filters or search
         const hasFiltersOrSearch = searchTerm.trim() || subjects.size > 0 || days.size > 0
-        
+
         // Apply search term filter if provided
         let finalCourses = filteredCourses
         if (searchTerm.trim()) {
@@ -531,10 +531,10 @@ export default function CourseSearch({
   // Non-blocking filter update effect
   useEffect(() => {
     if (allCourses.length === 0) return
-    
+
     // Immediately show filtering state
     setIsFiltering(true)
-    
+
     // Perform filtering in background
     performFiltering(
       allCourses,
@@ -583,15 +583,15 @@ export default function CourseSearch({
                   <span>{currentTerm}</span>
                   <ChevronDown className="w-3 h-3" />
                 </button>
-                
+
                 {isTermDropdownOpen && (
                   <>
                     {/* Backdrop */}
-                    <div 
-                      className="fixed inset-0 z-40 cursor-pointer" 
+                    <div
+                      className="fixed inset-0 z-40 cursor-pointer"
                       onClick={() => setIsTermDropdownOpen(false)}
                     />
-                    
+
                     {/* Dropdown */}
                     <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
                       <div className="py-1">
@@ -628,17 +628,17 @@ export default function CourseSearch({
               </>
             )}
           </div>
-          
+
           {/* Course-level Day Filters */}
           <div className="flex items-center gap-2 flex-wrap mt-2">
             <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
-            
+
             {/* Day filter buttons - only show days with courses in current results */}
             {availableDays.length > 0 ? availableDays.map((dayKey: WeekDay) => {
               const dayInfo = DAYS[dayKey]
               const isSelected = selectedDays.has(dayInfo.index)
               const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
-              
+
               return (
                 <Button
                   key={dayKey}
@@ -654,7 +654,7 @@ export default function CourseSearch({
             }) : (
               <span className="text-xs text-gray-400 italic">No courses available for day filtering</span>
             )}
-            
+
             {/* Clear day filters button */}
             {selectedDays.size > 0 && (
               <Button
@@ -736,10 +736,10 @@ export default function CourseSearch({
                     {/* Modern Progress Bar */}
                     <div className="relative">
                       <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-                        <div 
+                        <div
                           className="h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500 ease-out"
-                          style={{ 
-                            width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%` 
+                          style={{
+                            width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%`
                           }}
                         ></div>
                       </div>
@@ -756,7 +756,7 @@ export default function CourseSearch({
                               {Math.round(
                                 performanceStats.subjectLoadTimes
                                   .filter(s => s.time > 0)
-                                  .reduce((sum, s) => sum + s.time, 0) / 
+                                  .reduce((sum, s) => sum + s.time, 0) /
                                 performanceStats.subjectLoadTimes.filter(s => s.time > 0).length
                               )}ms
                             </span>
@@ -775,11 +775,11 @@ export default function CourseSearch({
                               {(() => {
                                 const completedRequests = performanceStats.subjectLoadTimes.filter(s => s.time > 0)
                                 if (completedRequests.length < 3) return 'Calculating...'
-                                
+
                                 const avgTime = completedRequests.reduce((sum, s) => sum + s.time, 0) / completedRequests.length
                                 const remaining = loadingProgress.total - loadingProgress.loaded
                                 const estimatedMs = remaining * avgTime
-                                
+
                                 if (estimatedMs < 1000) return '<1s'
                                 if (estimatedMs < 60000) return `${Math.round(estimatedMs / 1000)}s`
                                 return `${Math.round(estimatedMs / 60000)}m`
@@ -848,9 +848,9 @@ export default function CourseSearch({
                 </div>
                 <h3 className="text-lg font-semibold text-gray-600">No courses found</h3>
                 <p className="text-sm text-gray-500 mx-auto truncate">
-                  {searchTerm && selectedSubjects.size > 0 
+                  {searchTerm && selectedSubjects.size > 0
                     ? `No courses match "${searchTerm}" in the selected ${selectedSubjects.size} subject${selectedSubjects.size !== 1 ? 's' : ''}.`
-                    : searchTerm 
+                    : searchTerm
                     ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
                     : `No courses found in the ${selectedSubjects.size} selected subject${selectedSubjects.size !== 1 ? 's' : ''}.`
                   }
@@ -907,7 +907,7 @@ export default function CourseSearch({
                       <span> ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})</span>
                     </>
                   )}
-                  
+
                   {/* Add loading indicator as pill badge */}
                   {isFiltering && (
                     <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
@@ -935,7 +935,7 @@ export default function CourseSearch({
                   </>
                 )}
               </div>
-              
+
               {displayResults.total > 1 && (
                 <Button
                   variant="outline"
@@ -952,7 +952,7 @@ export default function CourseSearch({
                 </Button>
               )}
             </div>
-            
+
             {/* Show helpful message when results are limited */}
             {displayResults.isLimited && (
               <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
@@ -966,10 +966,10 @@ export default function CourseSearch({
                 </div>
               </div>
             )}
-            
+
             <div className="space-y-3">
                 {displayResults.courses.map((course, index) => (
-                <div 
+                <div
                   key={`${course.subject}-${course.courseCode}-${index}`}
                   ref={index === 0 ? firstCourseCardRef : null}
                 >
@@ -995,19 +995,19 @@ export default function CourseSearch({
                     // Convert back to global format and update
                     const courseKey = `${course.subject}${course.courseCode}`
                     const newMap = new Map(selectedSections)
-                    
+
                     // Remove old selections for this course
                     for (const key of newMap.keys()) {
                       if (key.startsWith(courseKey + '_')) {
                         newMap.delete(key)
                       }
                     }
-                    
+
                     // Add new selections
                     for (const [sectionType, sectionId] of newSelections) {
                       newMap.set(`${courseKey}_${sectionType}`, sectionId)
                     }
-                    
+
                     onSelectedSectionsChange(newMap)
                   }}
                   onAddCourse={(course, localSelections) => onAddCourse(course, currentTerm, localSelections)}
@@ -1048,7 +1048,7 @@ function InstructorFilters({
         const isSelected = selectedInstructors.has(formattedInstructor)
         return (
           <div key={formattedInstructor} className="flex items-center">
-            <Button 
+            <Button
               variant={isSelected ? "default" : "outline"}
               size="sm"
               className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group ${formattedInstructor !== 'Staff' ? 'pr-1' : 'pr-2'}`}
@@ -1097,13 +1097,13 @@ function InstructorFilters({
   )
 }
 
-function CourseCard({ 
-  course, 
-  currentTerm, 
+function CourseCard({
+  course,
+  currentTerm,
   initialSelections = new Map(),
   onSectionsChange,
   onAddCourse,
-  onRemoveCourse, 
+  onRemoveCourse,
   isAdded,
   hasSelectionsChanged,
   onScrollToCart,
@@ -1112,7 +1112,7 @@ function CourseCard({
   searchSequence = 0,
   isFromCourseDetails = false,
   shouldAutoExpand = false
-}: { 
+}: {
   course: InternalCourse
   currentTerm: string
   initialSelections?: Map<string, string>
@@ -1131,19 +1131,19 @@ function CourseCard({
   const [expanded, setExpanded] = useState(shouldAutoExpand)
   const [selectedInstructors, setSelectedInstructors] = useState<Set<string>>(new Set())
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set()) // 0=Monday, 1=Tuesday, ..., 4=Friday
-  
+
   // Auto-expand when should auto-expand and a new search occurs
   useEffect(() => {
     if (shouldAutoExpand && searchSequence > 0) {
       setExpanded(true)
     }
   }, [shouldAutoExpand, searchSequence])
-  
+
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {
     const daysWithCourses = new Set<number>()
     const termData = course.terms.find(term => term.termName === currentTerm)
-    
+
     if (termData) {
       termData.sections.forEach(section => {
         section.meetings.forEach(meeting => {
@@ -1152,18 +1152,18 @@ function CourseCard({
         })
       })
     }
-    
+
     // Return day keys that have courses in this specific course
     return DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
   }, [course, currentTerm])
-  
+
   // Fully decoupled: CourseCard manages its own state
   const [localSelections, setLocalSelections] = useState<Map<string, string>>(initialSelections)
   const [showAllSectionTypes, setShowAllSectionTypes] = useState<Set<string>>(new Set())
-  
+
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
-  
+
   // Toggle handler with smart analytics (only tracks expansion)
   const handleToggle = () => {
     if (!expanded) {
@@ -1171,12 +1171,12 @@ function CourseCard({
     }
     setExpanded(!expanded)
   }
-  
+
   // Get enrolled course for this course
-  const enrolledCourse = courseEnrollments.find(enrollment => 
+  const enrolledCourse = courseEnrollments.find(enrollment =>
     enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
   )
-  
+
   // Use local format directly - much simpler!
   const isEnrollmentComplete = isCourseEnrollmentComplete(course, currentTerm, localSelections)
 
@@ -1189,7 +1189,7 @@ function CourseCard({
       newSelected.add(instructor)
     }
     setSelectedInstructors(newSelected)
-    
+
     // Auto-expand when filters are applied
     if (newSelected.size > 0 && !expanded) {
       setExpanded(true)
@@ -1199,7 +1199,7 @@ function CourseCard({
     // This maintains logical consistency between filtered view and selected sections
     if (newSelected.size > 0) {
       const updatedSelections = new Map<string, string>()
-      
+
       // Check each current selection to see if it matches the instructor filter
       for (const [sectionType, sectionId] of localSelections) {
         const typeGroup = sectionTypes.find(tg => tg.type === sectionType)
@@ -1215,7 +1215,7 @@ function CourseCard({
                 return newSelected.has(formattedName)
               })
             })
-            
+
             // Only keep selections that match the instructor filter
             if (sectionMatchesFilter) {
               updatedSelections.set(sectionType, sectionId)
@@ -1225,9 +1225,9 @@ function CourseCard({
           }
         }
       }
-      
+
       // Update local state and notify parent if selections changed
-      if (updatedSelections.size !== localSelections.size || 
+      if (updatedSelections.size !== localSelections.size ||
           Array.from(updatedSelections.entries()).some(([type, id]) => localSelections.get(type) !== id)) {
         setLocalSelections(updatedSelections)
         onSectionsChange(course, updatedSelections)
@@ -1251,7 +1251,7 @@ function CourseCard({
   // Uses inclusive approach: section is shown if ANY meeting falls on selected days
   const sectionMatchesDayFilter = (section: InternalSection): boolean => {
     if (selectedDays.size === 0) return true // No day filter applied
-    
+
     return section.meetings.some(meeting => {
       const dayIndex = getDayIndex(meeting.time)
       return dayIndex !== -1 && selectedDays.has(dayIndex)
@@ -1276,10 +1276,10 @@ function CourseCard({
   })
 
   return (
-    <Card 
+    <Card
       className={`py-5 gap-0 transition-all duration-200 ${
-        !expanded 
-          ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' 
+        !expanded
+          ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer'
           : 'shadow-md'
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
@@ -1401,7 +1401,7 @@ function CourseCard({
                   <Trash2 className="w-3 h-3 mr-1" />
                   Remove
                 </Button>
-                
+
                 {/* Scroll to Cart button */}
                 <Button
                   variant="outline"
@@ -1418,7 +1418,7 @@ function CourseCard({
                   <ShoppingCart className="w-3 h-3 mr-1" />
                   Scroll to Cart
                 </Button>
-                
+
                 {/* Replace/Added status button - for courses already in cart */}
                 <Button
                   variant={hasSelectionsChanged && isEnrollmentComplete ? "default" : "secondary"}
@@ -1432,7 +1432,7 @@ function CourseCard({
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="min-w-[80px]"
                   title={hasSelectionsChanged && isEnrollmentComplete
-                    ? "Replace course with new section selections" 
+                    ? "Replace course with new section selections"
                     : "Course already added to cart"}
                 >
                   {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
@@ -1481,7 +1481,7 @@ function CourseCard({
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
             </CardDescription>
-            
+
             {/* Search buttons below course header */}
             <div className="flex flex-wrap items-center gap-1 mt-2">
               <Button
@@ -1593,12 +1593,12 @@ function CourseCard({
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="w-full"
                   title={hasSelectionsChanged && isEnrollmentComplete
-                    ? "Replace course with new section selections" 
+                    ? "Replace course with new section selections"
                     : "Course already added to cart"}
                 >
                   {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
                 </Button>
-                
+
                 {/* Secondary actions: Scroll to Cart + Remove - side by side */}
                 <div className="flex gap-2">
                   <Button
@@ -1616,7 +1616,7 @@ function CourseCard({
                     <ShoppingCart className="w-3 h-3 mr-1" />
                     Scroll to Cart
                   </Button>
-                  
+
                   <Button
                     variant="destructive"
                     size="sm"
@@ -1651,7 +1651,7 @@ function CourseCard({
                 {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
               </Button>
             )}
-            
+
             {/* Expand button - separate as it's different from cart actions */}
             <Button
               variant="ghost"
@@ -1676,13 +1676,13 @@ function CourseCard({
             {/* Section Filters */}
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-medium text-gray-700">Filters:</span>
-              
+
               {/* Day filter buttons - only show days with courses in current results */}
               {availableDays.length > 0 ? availableDays.map((dayKey: WeekDay) => {
                 const dayInfo = DAYS[dayKey]
                 const isSelected = selectedDays.has(dayInfo.index)
                 const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
-                
+
                 return (
                   <Button
                     key={dayKey}
@@ -1698,7 +1698,7 @@ function CourseCard({
               }) : (
                 <span className="text-xs text-gray-400 italic">No days available for filtering</span>
               )}
-              
+
               {/* Clear day filters button */}
               {selectedDays.size > 0 && (
                 <Button
@@ -1714,7 +1714,7 @@ function CourseCard({
                 </Button>
               )}
             </div>
-            
+
             {/* Section Selection */}
             {sectionTypes.map(typeGroup => {
               // Get currently selected sections for this course to check compatibility
@@ -1729,21 +1729,21 @@ function CourseCard({
                   }
                 }
               }
-              
+
               // Only constrain by HIGHER priority selections (hierarchical flow)
               const higherPrioritySelections = currentlySelectedSections.filter(s => {
                 const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
                 return sPriority < typeGroup.priority  // Lower number = higher priority
               })
-              
+
               // Categorize sections as compatible/incompatible based on higher priority selections only
               const { incompatible } = categorizeCompatibleSections(
-                typeGroup.sections, 
+                typeGroup.sections,
                 higherPrioritySelections
               )
-              
+
               // Note: Higher priority sections can always be changed freely (implemented in logic above)
-              
+
               return (
                 <div key={typeGroup.type}>
                   <h4 className="flex flex-wrap items-center gap-2 font-medium text-sm text-gray-700 mb-2">
@@ -1759,12 +1759,12 @@ function CourseCard({
                       </Badge>
                     )}
                   </h4>
-                  
+
                   {/* Simplified show all toggle - always available for user control */}
                   {(() => {
                     const showingAllForType = showAllSectionTypes.has(typeGroup.type)
                     const selectedSectionId = localSelections.get(typeGroup.type)
-                    
+
                     // Calculate sections using the EXACT same logic as shouldShowSection
                     const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
                       // Priority 1: Instructor filter (always applied)
@@ -1779,48 +1779,48 @@ function CourseCard({
                         })
                         if (!matchesInstructorFilter) return false
                       }
-                      
+
                       // Priority 2: Day filter (always applied)
                       if (!sectionMatchesDayFilter(section)) return false
-                      
+
                       // Priority 3: Show all override (user explicitly wants to see everything)
                       if (showingAllForType) {
                         return true
                       }
-                      
+
                       // Priority 4: Smart filtering (only if requested)
                       if (applySmartFiltering) {
                         if (selectedSectionId) return section.id === selectedSectionId
                         return !incompatible.includes(section)
                       }
-                      
+
                       return true
                     }
-                    
+
                     // Count sections after applying all filters but WITHOUT smart filtering (base available count)
-                    const totalAvailableSections = typeGroup.sections.filter(section => 
+                    const totalAvailableSections = typeGroup.sections.filter(section =>
                       countSectionWithFilters(section, false)
                     ).length
-                    
+
                     // Count sections after applying all filters INCLUDING smart filtering (actually visible count)
-                    const visibleSectionsCount = typeGroup.sections.filter(section => 
+                    const visibleSectionsCount = typeGroup.sections.filter(section =>
                       countSectionWithFilters(section, true)
                     ).length
-                    
+
                     const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
-                    
+
                     // Only show the toggle when there are actually hidden sections
                     if (hiddenSectionsCount > 0 || showingAllForType) {
                       return (
                         <div className="text-xs text-gray-500 flex items-center gap-2 mb-3">
                           <span>
-                            {showingAllForType 
+                            {showingAllForType
                               ? `All ${visibleSectionsCount} options shown`
                               : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`
                             }
                           </span>
-                          <Button 
-                            variant="ghost" 
+                          <Button
+                            variant="ghost"
                             size="sm"
                             onClick={() => {
                               setShowAllSectionTypes(prev => {
@@ -1834,8 +1834,8 @@ function CourseCard({
                               })
                             }}
                             className="h-5 px-2 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full"
-                            title={showingAllForType 
-                              ? `Hide extra ${typeGroup.displayName.toLowerCase()} options` 
+                            title={showingAllForType
+                              ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
                               : `Show all ${typeGroup.displayName.toLowerCase()} options`
                             }
                           >
@@ -1846,7 +1846,7 @@ function CourseCard({
                     }
                     return null
                   })()}
-                
+
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {(() => {
@@ -1864,45 +1864,45 @@ function CourseCard({
                         })
                         if (!matchesInstructorFilter) return false
                       }
-                      
+
                       // Priority 2: Day filter (always applied)
                       if (!sectionMatchesDayFilter(section)) return false
-                      
+
                       // Priority 3: Show all override (user explicitly wants to see everything)
                       if (showAllSectionTypes.has(typeGroup.type)) {
                         return true
                       }
-                      
+
                       // Priority 4: Smart filtering
                       const selectedSectionId = localSelections.get(typeGroup.type)
-                      
+
                       // If section is selected, only show selected section
                       if (selectedSectionId) {
                         return section.id === selectedSectionId
                       }
-                      
+
                       // If no selection, show compatible sections only
                       return !incompatible.includes(section)
                     }
-                    
+
                     return typeGroup.sections.filter(shouldShowSection)
                   })()
                     .map(section => {
                     const isSelected = localSelections.get(typeGroup.type) === section.id
                     const isIncompatible = incompatible.includes(section)
                     const sectionPrefix = getSectionPrefix(section.sectionCode)
-                    
+
                     // Check for time conflicts with current schedule
                     const conflictInfo = checkSectionConflict(section, courseEnrollments)
                     const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
-                    
+
                     return (
-                      <div 
+                      <div
                         key={section.id}
                         className={`p-2 rounded transition-all ${
-                          isSelected 
-                            ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer' 
-                            : isIncompatible 
+                          isSelected
+                            ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer'
+                            : isIncompatible
                               ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
                               : section.availability.status === 'Open'
                                   ? 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
@@ -1920,32 +1920,32 @@ function CourseCard({
                             } else {
                               // Set new selection
                               newSelections.set(typeGroup.type, section.id)
-                              
-                              // Cascade clearing: if this is a higher-priority selection, 
+
+                              // Cascade clearing: if this is a higher-priority selection,
                               // clear incompatible lower-priority selections
                               const newSectionPriority = getSectionTypePriority(typeGroup.type as SectionType, sectionTypes)
-                              
+
                               // Find lower-priority selections to potentially clear
                               const selectionsToCheck = Array.from(newSelections.entries())
                               for (const [otherType, otherSectionId] of selectionsToCheck) {
                                 if (otherType === typeGroup.type) continue // Skip self
-                                
+
                                 const otherPriority = getSectionTypePriority(otherType as SectionType, sectionTypes)
-                                
+
                                 // Only clear LOWER priority selections (higher number = lower priority)
                                 if (otherPriority > newSectionPriority) {
                                   // Check if the new selection makes the other selection incompatible
                                   const otherTypeGroup = sectionTypes.find(tg => tg.type === otherType)
                                   if (otherTypeGroup) {
                                     const otherSection = otherTypeGroup.sections.find(s => s.id === otherSectionId)
-                                    
+
                                     // Check compatibility using the new selection as constraint
                                     if (otherSection) {
                                       const { incompatible } = categorizeCompatibleSections(
                                         otherTypeGroup.sections,
                                         [section] // New higher-priority selection as constraint
                                       )
-                                      
+
                                       // If the other section is now incompatible, clear it
                                       if (incompatible.includes(otherSection)) {
                                         newSelections.delete(otherType)
@@ -1961,7 +1961,7 @@ function CourseCard({
                           }
                         }}
                         title={
-                          isIncompatible 
+                          isIncompatible
                             ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
                             : hasTimeConflict
                               ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
@@ -1980,7 +1980,7 @@ function CourseCard({
                               </div>
                             )}
                           </div>
-                          
+
                           <div className="flex items-center gap-2 flex-shrink-0">
                             <Button
                               variant="ghost"
@@ -1996,7 +1996,7 @@ function CourseCard({
                             </Button>
                           </div>
                         </div>
-                        
+
                         {/* Row 2: Enrollment Badges */}
                         <div className="flex items-center gap-1 mb-2">
                           {getAvailabilityBadges(section.availability).map((badge) => (
@@ -2004,9 +2004,9 @@ function CourseCard({
                               key={badge.type}
                               className={`text-[10px] px-1 py-0 ${badge.style.className}`}
                               title={
-                                badge.type === 'status' 
+                                badge.type === 'status'
                                   ? `Course status: ${badge.text}`
-                                  : badge.type === 'availability' 
+                                  : badge.type === 'availability'
                                     ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
                                     : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
                               }
@@ -2015,7 +2015,7 @@ function CourseCard({
                             </Badge>
                           ))}
                         </div>
-                        
+
                         {/* Row 3: Teaching Language */}
                         {section.classAttributes && (
                           <div className="flex items-center gap-1 text-gray-500 text-[11px] mb-2">
@@ -2025,14 +2025,14 @@ function CourseCard({
                             </span>
                           </div>
                         )}
-                        
+
                         {/* Meetings displayed in unified 3-row emoji format */}
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
                             const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBA')
                             const location = meeting?.location || 'TBA'
-                            
+
                             return (
                               <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
                                 {/* Row 1: Time */}
@@ -2135,14 +2135,14 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
   // Helper function to check if content is same as description
   const isDuplicateOfDescription = (content: string) => {
     if (!content || !course.description) return false
-    
+
     // Normalize both strings for comparison (remove extra whitespace, convert to lowercase)
     const normalizeText = (text: string) => text.replace(/\s+/g, ' ').trim().toLowerCase()
     const normalizedContent = normalizeText(content)
     const normalizedDescription = normalizeText(course.description)
-    
+
     // Consider it duplicate if they're identical or if content is contained in description
-    return normalizedContent === normalizedDescription || 
+    return normalizedContent === normalizedDescription ||
            normalizedDescription.includes(normalizedContent) ||
            normalizedContent.includes(normalizedDescription)
   }
@@ -2158,7 +2158,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
       defaultExpanded: true  // Always expanded (not collapsible)
     },
     {
-      key: 'learningOutcomes', 
+      key: 'learningOutcomes',
       title: 'Learning Outcomes',
       content: course.learningOutcomes,
       isTable: false,
@@ -2167,7 +2167,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     },
     {
       key: 'requiredReadings',
-      title: 'Required Readings', 
+      title: 'Required Readings',
       content: course.requiredReadings,
       isTable: false,
       alwaysVisible: false,  // Hidden - formatting not production-ready
@@ -2176,7 +2176,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     {
       key: 'recommendedReadings',
       title: 'Recommended Readings',
-      content: course.recommendedReadings, 
+      content: course.recommendedReadings,
       isTable: false,
       alwaysVisible: false,  // Hidden - formatting not production-ready
       defaultExpanded: false  // Collapsed by default
@@ -2195,15 +2195,15 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
   const availableSections = sectionConfigs.filter(section => {
     // Rule 1: Skip if empty
     if (!section.content) return false
-    
+
     // Rule 2: Skip if same as description (except for assessment types which are structured differently)
     if (!section.isTable && typeof section.content === 'string' && isDuplicateOfDescription(section.content)) return false
-    
+
     // Rule 3: For assessment types, check if it's an empty object
     if (section.isTable && typeof section.content === 'object') {
       return Object.keys(section.content).length > 0
     }
-    
+
     return true
   })
 
@@ -2216,7 +2216,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
   return (
     <div className="space-y-3">
       {visibleSections.map(section => (
-        <CollapsibleCourseOutcomeSection 
+        <CollapsibleCourseOutcomeSection
           key={section.key}
           title={section.title}
           content={section.content}
@@ -2229,14 +2229,14 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
 }
 
 // Individual Course Outcome Section Component
-function CourseOutcomeSection({ 
-  title, 
-  content, 
-  isTable 
-}: { 
+function CourseOutcomeSection({
+  title,
+  content,
+  isTable
+}: {
   title: string
   content: string | Record<string, string> | undefined
-  isTable: boolean 
+  isTable: boolean
 }) {
   // Early return if no content
   if (!content) return null
@@ -2325,8 +2325,8 @@ function CourseOutcomeSection({
               // Paragraphs with consistent spacing - fix list item wrapping
               p: ({ children, node }) => {
                 // If paragraph is direct child of list item, render inline without wrapper
-                if (node && typeof node === 'object' && 'parent' in node && 
-                    node.parent && typeof node.parent === 'object' && 'tagName' in node.parent && 
+                if (node && typeof node === 'object' && 'parent' in node &&
+                    node.parent && typeof node.parent === 'object' && 'tagName' in node.parent &&
                     node.parent.tagName === 'li') {
                   return <>{children}</>;
                 }
@@ -2342,7 +2342,7 @@ function CourseOutcomeSection({
                   {children}
                 </strong>
               ),
-              // Emphasis/italic text  
+              // Emphasis/italic text
               em: ({ children }) => (
                 <em className="italic text-gray-600">
                   {children}
@@ -2365,19 +2365,19 @@ function CourseOutcomeSection({
 }
 
 // Collapsible Course Outcome Section Component with expand/collapse functionality
-function CollapsibleCourseOutcomeSection({ 
-  title, 
-  content, 
+function CollapsibleCourseOutcomeSection({
+  title,
+  content,
   isTable,
-  defaultExpanded 
-}: { 
+  defaultExpanded
+}: {
   title: string
   content: string | Record<string, string> | undefined
   isTable: boolean
   defaultExpanded: boolean
 }) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
-  
+
   // Early return if no content
   if (!content) return null
 
@@ -2400,7 +2400,7 @@ function CollapsibleCourseOutcomeSection({
           <ChevronDown className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
         )}
       </button>
-      
+
       {isExpanded && (
         <div className="mt-2">
           <CourseOutcomeSection title="" content={content} isTable={isTable} />

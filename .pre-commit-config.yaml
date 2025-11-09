@@ -4,15 +4,20 @@ repos:
     hooks:
       - id: ruff
         args: [--fix]
+        files: '^scripts/.*\.py$'
       - id: ruff-format
+        files: '^scripts/.*\.py$'
 
   - repo: https://github.com/PyCQA/isort
     rev: 7.0.0
     hooks:
       - id: isort
+        files: '^scripts/.*\.py$'
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: trailing-whitespace
+        files: '^(scripts|web/src|tests)/.*\.(py|js|ts|tsx|jsx)$'
       - id: end-of-file-fixer
+        files: '^(scripts|web/src|tests)/.*\.(py|js|ts|tsx|jsx)$'
