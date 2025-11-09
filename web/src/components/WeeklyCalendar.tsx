@@ -19,6 +19,7 @@ import {
   type CalendarLayoutConfig 
 } from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
+import { analytics } from '@/lib/analytics'
 
 /**
  * Calculate the total height needed for a course card based on display configuration
@@ -226,6 +227,7 @@ export default function WeeklyCalendar({
 
       await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
       console.log('Screenshot completed successfully')
+      analytics.screenshotTaken()
     } catch (error) {
       console.error('Screenshot capture failed:', error)
       if (error instanceof Error) {
@@ -266,6 +268,7 @@ export default function WeeklyCalendar({
       URL.revokeObjectURL(url)
 
       console.log(`Calendar exported as ${result.filename}`)
+      analytics.icsExported()
     }
   }
 

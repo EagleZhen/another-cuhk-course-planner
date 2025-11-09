@@ -92,5 +92,17 @@ export const analytics = {
   // Key decisions: Focus on current term UX vs multi-semester planning features?
   termAccessed: (termName: string) => {
     track('term_accessed', { term: termName })
+  },
+
+  // === SCHEDULE FINALIZATION ===
+
+  // Track ICS export → curiosity metric to understand schedule export trends
+  icsExported: () => {
+    track('ics_exported')
+  },
+
+  // Track screenshot export → curiosity metric to understand schedule export trends
+  screenshotTaken: () => {
+    track('screenshot_taken')
   }
 }
