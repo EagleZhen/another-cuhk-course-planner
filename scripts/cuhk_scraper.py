@@ -185,8 +185,8 @@ class ScrapingProgressTracker:
             self.progress_data["scraping_log"]["last_updated"] = utc_now_iso()
 
             # Calculate and include current session duration for real-time monitoring
-            if "started_at" in self.progress_data["scraping_log"]:
-                started_at = self.progress_data["scraping_log"]["started_at"]
+            if "started_at_utc" in self.progress_data["scraping_log"]:
+                started_at = self.progress_data["scraping_log"]["started_at_utc"]
                 duration_seconds = calculate_duration_seconds(started_at)
                 if duration_seconds is not None:
                     self.progress_data["scraping_log"]["duration_human"] = format_duration_human(
