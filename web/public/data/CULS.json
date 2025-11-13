@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-10T17:15:12.489171+00:00",
+    "scraped_at": "2025-11-12T12:25:21.290345+00:00",
     "subject": "CULS",
     "subject_title": "Cultural Studies",
     "total_courses": 65,
@@ -144,7 +144,46 @@
       "course_code": "5203",
       "title": "The Body in Culture",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9761)",
+              "meetings": [
+                {
+                  "time": "Sa 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Staff",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Staff",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Staff",
+                  "dates": "11/4, 18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "Images of the body represent systems of thought, aesthetics beauty and our identity. This course takes a comparative approach to theories of body and embodiment in the Western and the Chinese traditions. In this course we will ask: What is a body? How do we define and represent different bodies? In what ways do cultural values mold our perception of the body? How is the understanding of the body informed and transformed by scientific development? Throughout this course we will seek answers to these questions by focusing on the Western and the Chinese traditions from the cultural and the scientific perspectives. We will analyse some important themes of the subject by integrating a theoretical approach with art, photography, films, novels and short stories.",
       "enrollment_requirement": "For taught postgraduate students under Division of Cultural Studies",
       "course_attributes": "",
@@ -440,6 +479,38 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            },
+            {
+              "section": "C-LEC (9762)",
+              "meetings": [
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Staff",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Staff",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Staff",
+                  "dates": "11/4, 18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "45",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -547,7 +618,34 @@
       "course_code": "5215",
       "title": "M.A. Research Paper",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (9773)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor TAN Jia",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "Research on an approved topic for writing a graduation paper under individualized supervision. Consent of teacher required.",
       "enrollment_requirement": "For students in MA Intercultural Studies",
       "course_attributes": "",

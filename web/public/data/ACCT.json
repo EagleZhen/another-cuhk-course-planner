@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-10T15:57:09.052426+00:00",
+    "scraped_at": "2025-11-12T10:58:38.730033+00:00",
     "subject": "ACCT",
     "subject_title": "Accountancy",
     "total_courses": 95,
@@ -119,10 +119,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "31",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
-                "waitlist_total": "10",
-                "available_seats": "39",
+                "waitlist_total": "8",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -151,7 +151,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "62",
+                "enrolled": "64",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -456,10 +456,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "48",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -750,10 +750,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "88",
+                "enrolled": "89",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "62",
+                "available_seats": "61",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1112,10 +1112,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1144,11 +1144,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -2055,10 +2055,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "8",
+                "enrolled": "9",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "67",
+                "available_seats": "66",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2145,10 +2145,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "11",
+                "enrolled": "10",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "64",
+                "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2655,7 +2655,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "5",
+                "waitlist_total": "6",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2829,9 +2829,9 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
+                "waitlist_total": "1",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -2975,10 +2975,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3311,10 +3311,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "14",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3882,10 +3882,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "31",
+                "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5079,11 +5079,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "60",
+                "enrolled": "59",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -5311,10 +5311,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "38",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5348,50 +5348,6 @@
       "title": "Corporate and Financial Law",
       "credits": "3.00",
       "terms": [
-        {
-          "term_code": "2400",
-          "term_name": "2025-26 Term 3",
-          "schedule": [
-            {
-              "section": "P-LEC (1213)",
-              "meetings": [
-                {
-                  "time": "Fr 9:00AM - 6:00PM",
-                  "location": "Cheng Yu Tung Building LT2",
-                  "instructor": "Dr. WANG Guiguo, \nMr. GU Minkang",
-                  "dates": "27/3"
-                },
-                {
-                  "time": "Th 9:00AM - 6:00PM",
-                  "location": "Cheng Yu Tung Building LT2",
-                  "instructor": "Dr. WANG Guiguo, \nMr. GU Minkang",
-                  "dates": "26/3"
-                },
-                {
-                  "time": "Su 9:00AM - 6:00PM",
-                  "location": "Cheng Yu Tung Building LT2",
-                  "instructor": "Dr. WANG Guiguo, \nMr. GU Minkang",
-                  "dates": "29/3"
-                },
-                {
-                  "time": "Sa 9:00AM - 6:00PM",
-                  "location": "Cheng Yu Tung Building LT2",
-                  "instructor": "Dr. WANG Guiguo, \nMr. GU Minkang",
-                  "dates": "28/3"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "60",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only"
-            }
-          ]
-        },
         {
           "term_code": "2405",
           "term_name": "2025-26 Term 4",
@@ -5828,10 +5784,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "41",
+                "enrolled": "40",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
