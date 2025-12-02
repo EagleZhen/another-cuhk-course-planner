@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-27T12:56:58.771146+00:00",
+    "scraped_at": "2025-12-01T20:41:51.915652+00:00",
     "subject": "NURS",
     "subject_title": "Nursing",
     "total_courses": 122,
@@ -20817,7 +20817,7 @@
                 },
                 {
                   "time": "Tu 1:30PM - 4:15PM",
-                  "location": "Esther Lee Bldg LT3",
+                  "location": "Esther Lee Bldg 302",
                   "instructor": "Dr. LO Ka Ching, \nProfessor LAM Yuen Tung, \nProfessor LAU Ying",
                   "dates": "16/12"
                 },
@@ -20832,6 +20832,12 @@
                   "location": "Chen Kou Bun Bldg UG04",
                   "instructor": "Dr. LO Ka Ching, \nProfessor LAM Yuen Tung, \nProfessor LAU Ying",
                   "dates": "11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Tu 1:30PM - 4:15PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. LO Ka Ching, \nProfessor LAM Yuen Tung, \nProfessor LAU Ying",
+                  "dates": "16/12"
                 }
               ],
               "availability": {
@@ -21114,12 +21120,6 @@
                   "dates": "13/2"
                 },
                 {
-                  "time": "Fr 8:30AM - 12:15PM",
-                  "location": "Esther Lee Bldg LT3",
-                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
-                  "dates": "12/12"
-                },
-                {
                   "time": "Tu 9:30AM - 12:15PM",
                   "location": "Esther Lee Bldg LT3",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
@@ -21133,9 +21133,9 @@
                 },
                 {
                   "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "Mong Man Wai Bldg 707",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
-                  "dates": "6/1, 13/1"
+                  "dates": "6/1"
                 },
                 {
                   "time": "Tu 9:30AM - 11:15AM",
@@ -21148,6 +21148,24 @@
                   "location": "Yasumoto Int'l Acad Park 502",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
                   "dates": "11/11"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
+                  "dates": "13/1"
+                },
+                {
+                  "time": "Fr 8:30AM - 10:15AM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
+                  "dates": "12/12"
+                },
+                {
+                  "time": "Fr 8:30AM - 10:15AM",
+                  "location": "Esther Lee Bldg 302",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. LO Ka Ching, \nProfessor LAU Ying",
+                  "dates": "12/12"
                 }
               ],
               "availability": {
@@ -21255,12 +21273,12 @@
                 }
               ],
               "availability": {
-                "capacity": "30",
+                "capacity": "60",
                 "enrolled": "52",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "8",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -23052,12 +23070,12 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "30",
                 "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "42",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },

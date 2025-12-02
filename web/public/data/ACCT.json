@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-27T07:44:35.516368+00:00",
+    "scraped_at": "2025-12-01T15:43:21.584922+00:00",
     "subject": "ACCT",
     "subject_title": "Accountancy",
     "total_courses": 95,
@@ -456,10 +456,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "45",
+                "enrolled": "44",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -718,10 +718,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "125",
+                "enrolled": "126",
                 "waitlist_capacity": "999",
                 "waitlist_total": "2",
-                "available_seats": "25",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -750,10 +750,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "80",
+                "enrolled": "79",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "70",
+                "available_seats": "71",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -904,10 +904,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2145,10 +2145,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "61",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2185,7 +2185,7 @@
                 "capacity": "65",
                 "enrolled": "65",
                 "waitlist_capacity": "999",
-                "waitlist_total": "6",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2300,10 +2300,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "38",
+                "enrolled": "37",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2585,9 +2585,9 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -2977,7 +2977,7 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "25",
+                "waitlist_total": "24",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3091,10 +3091,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "43",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3311,10 +3311,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "23",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "30",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3615,7 +3615,7 @@
                 "capacity": "51",
                 "enrolled": "51",
                 "waitlist_capacity": "999",
-                "waitlist_total": "11",
+                "waitlist_total": "10",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3737,7 +3737,7 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "3",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -4004,6 +4004,12 @@
               "section": "CB-LEC (3578)",
               "meetings": [
                 {
+                  "time": "Su 9:00AM - 12:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "11/1"
+                },
+                {
                   "time": "We 9:00AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor XIN Xiangang",
@@ -4024,10 +4030,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "43",
+                "enrolled": "45",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4035,6 +4041,12 @@
             {
               "section": "CC-LEC (3739)",
               "meetings": [
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "11/1"
+                },
                 {
                   "time": "We 2:30PM - 5:45PM",
                   "location": "Cheng Yu Tung Building LT4",
@@ -4058,9 +4070,9 @@
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
+                "waitlist_total": "5",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -4752,19 +4764,19 @@
                   "dates": "2/1, 9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
                 },
                 {
-                  "time": "Fr 2:00PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "time": "Mo 2:30PM - 5:45PM",
+                  "location": "TBA",
                   "instructor": "Dr. WONG Ka Lok",
-                  "dates": "27/2"
+                  "dates": "23/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -4911,14 +4923,20 @@
                   "location": "Cheng Yu Tung Building 615",
                   "instructor": "Professor CHEN Jun",
                   "dates": "26/2"
+                },
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHEN Jun",
+                  "dates": "25/1"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "36",
+                "enrolled": "41",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5007,31 +5025,37 @@
               "section": "CC-LEC (2816)",
               "meetings": [
                 {
+                  "time": "Su 2:00PM - 5:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. LAW Man Wai Anthony",
+                  "dates": "14/12"
+                },
+                {
+                  "time": "Su 9:00AM - 1:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LAW Man Wai Anthony",
+                  "dates": "1/3"
+                },
+                {
                   "time": "Fr 9:00AM - 1:00PM",
                   "location": "Wu Ho Man Yuen Bldg 508",
                   "instructor": "Dr. LAW Man Wai Anthony",
-                  "dates": "5/12, 12/12, 19/12"
+                  "dates": "12/12, 19/12"
                 },
                 {
                   "time": "Fr 9:00AM - 1:00PM",
                   "location": "Wu Ho Man Yuen Bldg 508",
                   "instructor": "Dr. LAW Man Wai Anthony",
                   "dates": "2/1, 9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
-                },
-                {
-                  "time": "Fr 9:00AM - 1:00PM",
-                  "location": "Wu Ho Man Yuen Bldg 508",
-                  "instructor": "Dr. LAW Man Wai Anthony",
-                  "dates": "27/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "52",
+                "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
-                "available_seats": "8",
-                "status": "Open"
+                "waitlist_total": "7",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -5100,22 +5124,22 @@
                   "time": "Mo 7:00PM - 9:30PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor SHAO Xinyuan",
-                  "dates": "1/12, 8/12, 15/12, 22/12, 29/12, 5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                  "dates": "9/2"
                 },
                 {
-                  "time": "Mo 7:00PM - 9:30PM",
+                  "time": "Mo 7:00PM - 10:15PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor SHAO Xinyuan",
-                  "dates": "23/2"
+                  "dates": "1/12, 8/12, 15/12, 22/12, 29/12, 5/1, 12/1, 19/1, 26/1, 2/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "waitlist_total": "15",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -5907,10 +5931,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "1",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "60",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -6068,7 +6092,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "60",
+                "enrolled": "61",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -6428,21 +6452,27 @@
                   "time": "Tu 7:00PM - 10:15PM",
                   "location": "Cheng Yu Tung Building 615",
                   "instructor": "Professor ZHANG Qi",
-                  "dates": "2/12, 9/12, 16/12, 23/12, 30/12, 6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                  "dates": "2/12, 9/12, 16/12, 23/12, 30/12, 6/1, 13/1, 20/1"
                 },
                 {
                   "time": "Tu 7:00PM - 10:15PM",
                   "location": "Cheng Yu Tung Building 615",
                   "instructor": "Professor ZHANG Qi",
-                  "dates": "24/2"
+                  "dates": "3/2"
+                },
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Qi",
+                  "dates": "18/1"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "32",
+                "enrolled": "35",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6521,21 +6551,15 @@
                   "location": "Wu Ho Man Yuen Bldg 306",
                   "instructor": "Professor ZHANG Yinglei",
                   "dates": "6/12, 13/12, 20/12, 27/12, 3/1, 10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
-                },
-                {
-                  "time": "Sa 9:00AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 306",
-                  "instructor": "Professor ZHANG Yinglei",
-                  "dates": "28/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
+                "waitlist_total": "3",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -7169,7 +7193,7 @@
                   "time": "Sa 2:00PM - 5:15PM",
                   "location": "Yasumoto Int'l Acad Park LT3",
                   "instructor": "Professor CAO Ying",
-                  "dates": "6/12, 13/12, 20/12, 27/12, 3/1, 10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                  "dates": "6/12, 13/12, 20/12, 27/12, 3/1, 10/1, 17/1, 24/1, 31/1, 7/2"
                 },
                 {
                   "time": "Sa 2:00PM - 5:15PM",
@@ -7182,9 +7206,9 @@
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
+                "waitlist_total": "15",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -7218,10 +7242,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "49",
+                "enrolled": "68",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7321,20 +7345,14 @@
                   "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor YOUNG Danqing Xu",
                   "dates": "6/12, 13/12, 20/12, 27/12, 3/1, 10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
-                },
-                {
-                  "time": "Sa 9:00AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 403",
-                  "instructor": "Professor YOUNG Danqing Xu",
-                  "dates": "28/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "45",
+                "enrolled": "49",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"

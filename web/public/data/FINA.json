@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-11-27T10:34:38.082811+00:00",
+    "scraped_at": "2025-12-01T18:24:36.978438+00:00",
     "subject": "FINA",
     "subject_title": "Finance",
     "total_courses": 162,
@@ -259,10 +259,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "53",
+                "enrolled": "52",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3561,11 +3561,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "65",
+                "enrolled": "64",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -3633,7 +3633,7 @@
                 "capacity": "65",
                 "enrolled": "65",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3703,7 +3703,7 @@
                 "capacity": "65",
                 "enrolled": "65",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -5579,11 +5579,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -5798,31 +5798,37 @@
               "section": "CA-LEC (2060)",
               "meetings": [
                 {
-                  "time": "We 7:00PM - 9:30PM",
+                  "time": "Su 2:00PM - 6:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "1/2"
+                },
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "We 7:00PM - 10:15PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. KOT Hung Wan",
                   "dates": "3/12, 10/12, 17/12"
                 },
                 {
-                  "time": "We 7:00PM - 9:30PM",
+                  "time": "We 7:00PM - 10:15PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. KOT Hung Wan",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 7:00PM - 9:30PM",
-                  "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Dr. KOT Hung Wan",
-                  "dates": "25/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "55",
+                "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -6008,10 +6014,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "65",
+                "enrolled": "64",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6327,10 +6333,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "30",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6632,18 +6638,6 @@
                 },
                 {
                   "time": "Sa 2:00PM - 5:15PM",
-                  "location": "Cheng Yu Tung Building 615",
-                  "instructor": "Professor CHENG Wui Wing Joseph",
-                  "dates": "13/12"
-                },
-                {
-                  "time": "Sa 2:00PM - 5:15PM",
-                  "location": "Cheng Yu Tung Building 615",
-                  "instructor": "Professor CHENG Wui Wing Joseph",
-                  "dates": "7/2"
-                },
-                {
-                  "time": "Sa 2:00PM - 5:15PM",
                   "location": "Cheng Yu Tung Building 409",
                   "instructor": "Professor CHENG Wui Wing Joseph",
                   "dates": "10/1"
@@ -6659,6 +6653,18 @@
                   "location": "Cheng Yu Tung Building LT3",
                   "instructor": "Professor CHENG Wui Wing Joseph",
                   "dates": "31/1"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 615",
+                  "instructor": "Professor CHENG Wui Wing Joseph",
+                  "dates": "7/2"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 202",
+                  "instructor": "Professor CHENG Wui Wing Joseph",
+                  "dates": "13/12"
                 }
               ],
               "availability": {
@@ -7683,21 +7689,15 @@
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Dr. KOT Hung Wan",
                   "dates": "2/12, 9/12, 16/12, 23/12, 30/12, 6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
-                },
-                {
-                  "time": "Tu 2:30PM - 5:45PM",
-                  "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. KOT Hung Wan",
-                  "dates": "24/2"
                 }
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "58",
+                "enrolled": "60",
                 "waitlist_capacity": "15",
-                "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "waitlist_total": "13",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -7757,10 +7757,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "23",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "57",
+                "available_seats": "58",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8615,31 +8615,31 @@
                 {
                   "time": "Sa 8:00PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 409",
-                  "instructor": "Staff",
+                  "instructor": "Dr. SUN Pengfei",
                   "dates": "6/12, 13/12, 20/12"
                 },
                 {
                   "time": "Sa 8:00PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 409",
-                  "instructor": "Staff",
+                  "instructor": "Dr. SUN Pengfei",
                   "dates": "10/1, 17/1, 24/1, 31/1, 7/2"
                 },
                 {
                   "time": "Fr 6:30PM - 9:45PM",
                   "location": "Cheng Yu Tung Building 409",
-                  "instructor": "Staff",
+                  "instructor": "Dr. SUN Pengfei",
                   "dates": "5/12, 12/12"
                 },
                 {
                   "time": "Fr 6:30PM - 9:45PM",
                   "location": "Cheng Yu Tung Building 409",
-                  "instructor": "Staff",
+                  "instructor": "Dr. SUN Pengfei",
                   "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
                 },
                 {
                   "time": "Th 6:30PM - 9:45PM",
                   "location": "Cheng Yu Tung Building 409",
-                  "instructor": "Staff",
+                  "instructor": "Dr. SUN Pengfei",
                   "dates": "4/12, 11/12, 18/12"
                 }
               ],
@@ -9210,8 +9210,14 @@
                 {
                   "time": "Mo 6:30PM - 9:30PM",
                   "location": "Wu Ho Man Yuen Bldg 306",
-                  "instructor": "Staff",
+                  "instructor": "Dr. YU Jianing",
                   "dates": "1/12, 8/12, 15/12, 22/12, 29/12"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT2",
+                  "instructor": "Dr. YU Jianing",
+                  "dates": "5/1"
                 }
               ],
               "availability": {
@@ -12711,13 +12717,13 @@
                   "time": "Tu 2:30PM - 5:15PM",
                   "location": "William M W Mong Eng Bldg 407",
                   "instructor": "Dr. LEE Wing Yan",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                  "dates": "3/3"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "William M W Mong Eng Bldg 407",
+                  "location": "Lee Shau Kee Archi Bldg G01",
                   "instructor": "Dr. LEE Wing Yan",
-                  "dates": "3/3"
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
                 }
               ],
               "availability": {
@@ -12875,18 +12881,6 @@
               "meetings": [
                 {
                   "time": "Tu 9:30AM - 12:15PM",
-                  "location": "Science Centre L4",
-                  "instructor": "Professor WANG Zijia",
-                  "dates": "6/1, 13/1, 20/1, 27/1"
-                },
-                {
-                  "time": "Tu 9:30AM - 12:15PM",
-                  "location": "Science Centre L4",
-                  "instructor": "Professor WANG Zijia",
-                  "dates": "24/2"
-                },
-                {
-                  "time": "Tu 9:30AM - 12:15PM",
                   "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor WANG Zijia",
                   "dates": "2/12, 9/12, 16/12, 23/12"
@@ -12902,6 +12896,24 @@
                   "location": "William M W Mong Eng Bldg 407",
                   "instructor": "Professor WANG Zijia",
                   "dates": "3/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "13/1, 20/1, 27/1"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "6/1"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor WANG Zijia",
+                  "dates": "24/2"
                 }
               ],
               "availability": {
@@ -13225,10 +13237,10 @@
               ],
               "availability": {
                 "capacity": "51",
-                "enrolled": "26",
+                "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -13296,10 +13308,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "5",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
