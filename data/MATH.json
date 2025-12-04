@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-12-01T19:52:32.674620+00:00",
+    "scraped_at": "2025-12-04T07:48:16.376809+00:00",
     "subject": "MATH",
     "subject_title": "Mathematics",
     "total_courses": 114,
@@ -2637,10 +2637,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "39",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -2739,10 +2739,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "3",
+                "enrolled": "4",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7637,10 +7637,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "38",
+                "enrolled": "39",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7669,10 +7669,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "38",
+                "enrolled": "39",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -12118,6 +12118,50 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "IS01-SEM (9793)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg 219",
+                  "instructor": "Professor WAN Yau Heng Tom",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg 219",
+                  "instructor": "Professor WAN Yau Heng Tom",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg 219",
+                  "instructor": "Professor WAN Yau Heng Tom",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg 219",
+                  "instructor": "Professor WAN Yau Heng Tom",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "9",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
