@@ -1340,7 +1340,7 @@ function CourseCard({
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               {/* Interactive Credits Badge */}
               <a
-                href="https://www.res.cuhk.edu.hk/en-gb/undergraduate-students/information-for-year-1-students/62-undergraduate-students/information-for-year-1-students/course-selection-and-add-drop#:~:text=Term%20Course%20Load"
+                href="https://www.oalglobal.cuhk.edu.hk/academics/#:~:text=At%20CUHK%2C%20one%20credit%20or,one%20of%20tutorials%20each%20week."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
@@ -1348,7 +1348,7 @@ function CourseCard({
                 <Badge
                   variant="secondary"
                   className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                  title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Click to learn more about course load limits."
+                  title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Most 3-unit courses consist of 3 hours of lectures or 2 hours of lectures and 1 hour of tutorials each week."
                 >
                   {course.credits} credits
                   <Info className="w-2.5 h-2.5 opacity-60" />
@@ -1357,7 +1357,7 @@ function CourseCard({
               {course.gradingBasis && (
                 /* Interactive Grading Basis Badge */
                 <a
-                  href="https://www.res.cuhk.edu.hk/en-gb/general-information/grading-system-of-undergraduate-programmes"
+                  href="https://www.res.cuhk.edu.hk/general-information/grading-system-of-undergraduate-programmes/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block"
@@ -1531,7 +1531,7 @@ function CourseCard({
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               {/* Interactive Credits Badge */}
               <a
-                href="https://www.res.cuhk.edu.hk/en-gb/undergraduate-students/information-for-year-1-students/62-undergraduate-students/information-for-year-1-students/course-selection-and-add-drop#:~:text=3.-,Term%20Course%20Load,-Students%20should%20observe"
+                href="https://www.oalglobal.cuhk.edu.hk/academics/#:~:text=At%20CUHK%2C%20one%20credit%20or,one%20of%20tutorials%20each%20week."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
@@ -1539,7 +1539,7 @@ function CourseCard({
                 <Badge
                   variant="secondary"
                   className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                  title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Click to learn more about course load limits."
+                  title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Most 3-unit courses consist of 3 hours of lectures or 2 hours of lectures and 1 hour of tutorials each week."
                 >
                   {course.credits} credits
                   <Info className="w-2.5 h-2.5 opacity-60" />
@@ -1548,7 +1548,7 @@ function CourseCard({
               {course.gradingBasis && (
                 /* Interactive Grading Basis Badge */
                 <a
-                  href="https://www.res.cuhk.edu.hk/en-gb/general-information/grading-system-of-undergraduate-programmes"
+                  href="https://www.res.cuhk.edu.hk/general-information/grading-system-of-undergraduate-programmes/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block"
