@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-12-11T07:22:11.028731+00:00",
+    "scraped_at": "2025-12-18T12:42:14.799690+00:00",
     "subject": "GERM",
     "subject_title": "German",
     "total_courses": 19,
@@ -344,6 +344,38 @@
                 "status": "Open"
               },
               "class_attributes": "German and English"
+            },
+            {
+              "section": "LC01-CLW (9836)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Basic Med Sci Bldg Rm1",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Basic Med Sci Bldg Rm1",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Basic Med Sci Bldg Rm1",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
             }
           ]
         }
@@ -390,10 +422,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "0",
+                "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "150",
+                "available_seats": "124",
                 "status": "Open"
               },
               "class_attributes": "German and English"
