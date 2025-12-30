@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-12-23T12:38:38.895942+00:00",
+    "scraped_at": "2025-12-29T13:29:32.770382+00:00",
     "subject": "ROSE",
     "subject_title": "Robotics",
     "total_courses": 10,
@@ -61,15 +61,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon successful completion of this course, students will be able to: 1. Understand fundamental principles and systems in robotics, including kinematics, dynamics, sensors, and actuators.2. Understand basic skills in robot programming using languages such as Python and C++, and frameworks like ROS.3. Gain knowledge about the basic applications of AI and machine learning in robotics, including supervised, unsupervised, and reinforcement learning.4. Develop a basic understanding of multi-robot systems, including aspects of communication, coordination, and control.5. Grasp the concepts and implications of human-robot interaction and stay informed about the future trends in robotics.",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand fundamental principles and systems in robotics, including kinematics, dynamics, sensors, and actuators.\n\n2. Understand basic skills in robot programming using languages such as Python and/or C++, and frameworks like ROS.\n\n3. Gain knowledge about the basic applications of AI and machine learning in robotics, including supervised, unsupervised, and reinforcement learning.\n\n4. Develop a basic understanding of systems, including aspects of communication, coordination, and control.\n\n5. Grasp the concepts and implications of different robot applications and stay informed about the future trends in robotics.",
       "course_syllabus": "The details will be provided by the course instructor.Teaching Plan:\n\n| **Weeks** | **Course Topics** |\n| --- | --- |\n| **1** | Introduction to Robotics and Systems: Definition, Scope, Trends, Importance |\n| **2** | Robotic Kinematics: Forward/Inverse Kinematics, Jacobian |\n| **3** | Robotic Dynamics: Dynamics Models, Newton-Euler and Lagrange-Euler formulations |\n| **4** | Sensors in Robotics: Types, Working Principles, Applications |\n| **5** | Actuators in Robotics: Electric, Hydraulic and Pneumatic Actuators |\n| **6** | Basic Control Theories in Robotics: PID Control, Feedforward Control |\n| **7** | Introduction to Robot Programming: Basics of ROS, Python, C++ |\n| **8** | Basics of AI in Robotics: Supervised Learning, Unsupervised Learning |\n| **9** | Introduction to Machine Learning in Robotics: Reinforcement Learning Concepts |\n| **10** | Multi-Robot Systems: Communication, Coordination, Control |\n| **11** | Human-Robot Interaction: Basic Concepts and Social Implications |\n| **12** | Future of Robotics: Overview of Advanced Topics and Emerging Trends |",
       "assessment_types": {
-        "Examination": "40",
         "Homework or assignment": "40",
-        "Test or quiz": "20"
+        "Project": "30",
+        "Test or quiz": "30"
       },
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels. 1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
-      "required_readings": "* 1.Peter Corke, \"Robotics, Vision and Control: Fundamental Algorithms in MATLAB\", 2nd Edition, Springer, 2017.**2.Siciliano, B., Sciavicco, L., Villani, L., Oriolo, G., \"Robotics: Modelling, Planning and Control\", 4th Edition, Springer, 2013*",
+      "required_readings": "1. Robotics, Vision and Control, 3rd edition, Peter Corke, Springer, 2023.\n2. Artificial Intelligence for Robotics, 2nd edition, Francis X. Govers III, Packt Publishing, 2024.",
       "recommended_readings": "The details will be provided by the course instructor."
     },
     {
