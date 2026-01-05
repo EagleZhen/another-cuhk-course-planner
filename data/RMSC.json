@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2025-12-29T13:29:11.020631+00:00",
+    "scraped_at": "2026-01-04T18:01:43.770050+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 36,
@@ -575,10 +575,10 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "96",
+                "enrolled": "109",
                 "waitlist_capacity": "999",
-                "waitlist_total": "14",
-                "available_seats": "14",
+                "waitlist_total": "1",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -595,10 +595,10 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "96",
+                "enrolled": "109",
                 "waitlist_capacity": "999",
-                "waitlist_total": "14",
-                "available_seats": "14",
+                "waitlist_total": "1",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -882,11 +882,11 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "84",
+                "enrolled": "90",
                 "waitlist_capacity": "999",
-                "waitlist_total": "27",
-                "available_seats": "6",
-                "status": "Open"
+                "waitlist_total": "21",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -902,11 +902,11 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "84",
+                "enrolled": "90",
                 "waitlist_capacity": "999",
-                "waitlist_total": "27",
-                "available_seats": "6",
-                "status": "Open"
+                "waitlist_total": "21",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -1696,7 +1696,13 @@
                   "time": "Sa 2:30PM - 5:15PM",
                   "location": "Yasumoto Int'l Acad Park LT6",
                   "instructor": "Staff",
-                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                  "dates": "10/1"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Staff",
+                  "dates": "24/1, 31/1, 7/2, 14/2"
                 },
                 {
                   "time": "Sa 2:30PM - 5:15PM",
@@ -1709,6 +1715,12 @@
                   "location": "Yasumoto Int'l Acad Park LT6",
                   "instructor": "Staff",
                   "dates": "11/4, 18/4, 25/4"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Staff",
+                  "dates": "16/1"
                 }
               ],
               "availability": {
@@ -2121,21 +2133,21 @@
               "meetings": [
                 {
                   "time": "Mo 6:30PM - 9:30PM",
-                  "location": "Esther Lee Bldg LT4",
-                  "instructor": "Professor SIT Tony",
-                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
-                },
-                {
-                  "time": "Mo 6:30PM - 9:30PM",
-                  "location": "Esther Lee Bldg LT4",
+                  "location": "Wu Ho Man Yuen Bldg 406",
                   "instructor": "Professor SIT Tony",
                   "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 6:30PM - 9:30PM",
-                  "location": "Esther Lee Bldg LT4",
+                  "location": "Wu Ho Man Yuen Bldg 406",
                   "instructor": "Professor SIT Tony",
                   "dates": "13/4, 20/4"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Professor SIT Tony",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 }
               ],
               "availability": {
