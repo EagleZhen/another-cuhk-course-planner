@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar } from '@/lib/courseUtils'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructors, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
   DEFAULT_CALENDAR_CONFIG,
@@ -620,7 +620,7 @@ export default function WeeklyCalendar({
 
                             {localDisplayConfig.showInstructor && (
                               <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                                {event.instructor ? formatInstructorCompact(event.instructor) : 'TBA'}
+                                {event.instructor ? formatInstructors(event.instructor) : 'TBA'}
                               </div>
                             )}
                           </div>
@@ -886,7 +886,7 @@ function UnscheduledSectionsCard({
 
                     {displayConfig.showInstructor && (
                       <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                        {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBA'}
+                        {item.meeting.instructor ? formatInstructors(item.meeting.instructor) : 'TBA'}
                       </div>
                     )}
 

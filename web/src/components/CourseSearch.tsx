@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructors, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
@@ -1044,7 +1044,7 @@ function InstructorFilters({
   return (
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
       {instructors.map(instructor => {
-        const formattedInstructor = formatInstructorCompact(instructor)
+        const formattedInstructor = formatInstructors(instructor)
         const isSelected = selectedInstructors.has(formattedInstructor)
         return (
           <div key={formattedInstructor} className="flex items-center">
@@ -1211,7 +1211,7 @@ function CourseCard({
               if (!meeting.instructor) return false
               const instructorNames = meeting.instructor.split(',').map(name => name.trim())
               return instructorNames.some(instructorName => {
-                const formattedName = formatInstructorCompact(instructorName)
+                const formattedName = formatInstructors(instructorName)
                 return newSelected.has(formattedName)
               })
             })
@@ -1773,7 +1773,7 @@ function CourseCard({
                           if (!meeting.instructor) return false
                           const instructorNames = meeting.instructor.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorCompact(instructorName)
+                            const formattedName = formatInstructors(instructorName)
                             return selectedInstructors.has(formattedName)
                           })
                         })
@@ -1858,7 +1858,7 @@ function CourseCard({
                           if (!meeting.instructor) return false
                           const instructorNames = meeting.instructor.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorCompact(instructorName)
+                            const formattedName = formatInstructors(instructorName)
                             return selectedInstructors.has(formattedName)
                           })
                         })
@@ -2030,7 +2030,7 @@ function CourseCard({
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBA')
+                            const formattedInstructor = formatInstructors(meeting?.instructor || 'TBA')
                             const location = meeting?.location || 'TBA'
 
                             return (
