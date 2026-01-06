@@ -619,7 +619,7 @@ export function getSectionPrefix(sectionCode: string): string | null {
  *   ("CSCI", "3320", "--LEC") → "CSCI3320"
  */
 export function formatCourseCodeWithPrefix(subject: string, courseCode: string, sectionCode: string): string {
-  const prefix = getSectionPrefix(sectionCode) || ''
+  const prefix = getSectionPrefix(sectionCode) ?? ''
   return `${subject}${courseCode}${prefix}`
 }
 
