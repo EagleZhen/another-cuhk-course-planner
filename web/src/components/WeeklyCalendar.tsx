@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download } from 'lucide-react'
+import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download, Undo } from 'lucide-react'
 import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorsCompact, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
@@ -109,6 +109,7 @@ export default function WeeklyCalendar({
   // Local state for display configuration testing
   const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
   const [isCapturing, setIsCapturing] = useState(false)
+  const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
 
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
@@ -304,16 +305,47 @@ export default function WeeklyCalendar({
           </div>
 
           <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleExportCalendar}
-              className="flex items-center gap-2 cursor-pointer"
-              title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
-            >
-              <Download className="w-4 h-4" />
-              .ics
-            </Button>
+            <div className="relative">
+              <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
+                {/* Left: Download .ics */}
+                <button
+                  onClick={handleExportCalendar}
+                  className="flex items-center gap-1 px-2 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                  title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
+                >
+                  <Download className="w-4 h-4" />
+                  .ics
+                </button>
+
+                {/* Separator */}
+                <div className="h-4 w-px bg-gray-300" />
+
+                {/* Right: Expand menu */}
+                <button
+                  onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
+                  className="flex items-center justify-center px-1.5 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                  title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
+                >
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+
+              {isIcsMenuExpanded && (
+                <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  <button
+                    className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
+                    onClick={() => {
+                      setIsIcsMenuExpanded(false)
+                      // TODO: Open undo modal
+                      console.log('Undo import clicked')
+                    }}
+                  >
+                    <Undo className="w-3.5 h-3.5" />
+                    Undo Previous Import
+                  </button>
+                </div>
+              )}
+            </div>
 
             <Button
               variant="outline"
@@ -344,16 +376,47 @@ export default function WeeklyCalendar({
           <CardTitle className="mb-3">Weekly Schedule</CardTitle>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleExportCalendar}
-                className="flex items-center gap-1 cursor-pointer flex-shrink-0"
-                title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
-              >
-                <Download className="w-4 h-4" />
-                <span className="hidden xs:inline">.ics</span>
-              </Button>
+              <div className="relative flex-shrink-0">
+                <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
+                  {/* Left: Download .ics */}
+                  <button
+                    onClick={handleExportCalendar}
+                    className="flex items-center gap-1 px-2 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                    title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
+                  >
+                    <Download className="w-4 h-4" />
+                    <span className="hidden xs:inline">.ics</span>
+                  </button>
+
+                  {/* Separator */}
+                  <div className="h-4 w-px bg-gray-300" />
+
+                  {/* Right: Expand menu */}
+                  <button
+                    onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
+                    className="flex items-center justify-center px-1.5 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                    title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
+                  >
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                {isIcsMenuExpanded && (
+                  <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                    <button
+                      className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
+                      onClick={() => {
+                        setIsIcsMenuExpanded(false)
+                        // TODO: Open undo modal
+                        console.log('Undo import clicked')
+                      }}
+                    >
+                      <Undo className="w-3.5 h-3.5" />
+                      Undo Previous Import
+                    </button>
+                  </div>
+                )}
+              </div>
 
               <Button
                 variant="outline"
