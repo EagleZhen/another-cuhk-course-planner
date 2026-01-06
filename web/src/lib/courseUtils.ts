@@ -167,7 +167,7 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
             sectionType: section.sectionType,
             time: meeting.time,
             location: meeting.location,
-            instructor: meeting.instructor,
+            instructors: meeting.instructors,
             credits: enrollment.course.credits,
             color: enrollment.color,
             isVisible: enrollment.isVisible,
@@ -538,7 +538,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
   const meetingGroups = new Map<string, InternalMeeting[]>()
 
   meetings.forEach((meeting) => {
-    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructor || 'TBA'}`
+    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructors || 'TBA'}`
     if (!meetingGroups.has(key)) {
       meetingGroups.set(key, [])
     }
@@ -1208,7 +1208,7 @@ export function createICSEventsForMeeting(
   }
 
   // Handle instructor plural/singular properly with compact formatting
-  const formattedInstructors = formatInstructors(meeting.instructor)
+  const formattedInstructors = formatInstructors(meeting.instructors)
 
   // Create description with better formatting and structure
   const description = [

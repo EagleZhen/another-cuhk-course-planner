@@ -178,7 +178,7 @@ export default function CourseSearch({
           // Also check instructor names in current term
           const hasMatchingInstructor = termData.sections.some(section =>
             section.meetings.some(meeting =>
-              meeting.instructor.toLowerCase().includes(searchLower)
+              meeting.instructors.toLowerCase().includes(searchLower)
             )
           )
 
@@ -498,7 +498,7 @@ export default function CourseSearch({
               // FIXED: Only search instructors in current term
               currentTermData.sections.some(section =>
                 section.meetings.some(meeting =>
-                  meeting.instructor.toLowerCase().includes(searchLower)
+                  meeting.instructors.toLowerCase().includes(searchLower)
                 )
               )
             )
@@ -1208,8 +1208,8 @@ function CourseCard({
           if (section) {
             // Check if this section has instructors matching the new filter
             const sectionMatchesFilter = section.meetings.some(meeting => {
-              if (!meeting.instructor) return false
-              const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+              if (!meeting.instructors) return false
+              const instructorNames = meeting.instructors.split(',').map(name => name.trim())
               return instructorNames.some(instructorName => {
                 const formattedName = formatInstructors(instructorName)
                 return newSelected.has(formattedName)
@@ -1264,7 +1264,7 @@ function CourseCard({
     currentTermData?.sections.flatMap(section =>
       section.meetings.flatMap(meeting => {
         // Split instructor names by comma if multiple instructors are listed together
-        const instructorString = meeting.instructor || ''
+        const instructorString = meeting.instructors || ''
         return instructorString.split(',').map(name => name.trim()).filter(Boolean)
       })
     ) || []
@@ -1770,8 +1770,8 @@ function CourseCard({
                       // Priority 1: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructor) return false
-                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          if (!meeting.instructors) return false
+                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
                             const formattedName = formatInstructors(instructorName)
                             return selectedInstructors.has(formattedName)
@@ -1855,8 +1855,8 @@ function CourseCard({
                       // Priority 1: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructor) return false
-                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          if (!meeting.instructors) return false
+                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
                             const formattedName = formatInstructors(instructorName)
                             return selectedInstructors.has(formattedName)
@@ -2030,7 +2030,7 @@ function CourseCard({
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructors(meeting?.instructor || 'TBA')
+                            const formattedInstructor = formatInstructors(meeting?.instructors || 'TBA')
                             const location = meeting?.location || 'TBA'
 
                             return (

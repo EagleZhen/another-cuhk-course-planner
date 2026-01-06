@@ -501,7 +501,7 @@ export default function ShoppingCart({
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructors(meeting?.instructor || 'TBA')
+                            const formattedInstructor = formatInstructors(meeting?.instructors || 'TBA')
                             const location = meeting?.location || 'TBA'
 
                             return (

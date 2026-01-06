@@ -620,7 +620,7 @@ export default function WeeklyCalendar({
 
                             {localDisplayConfig.showInstructor && (
                               <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                                {event.instructor ? formatInstructors(event.instructor) : 'TBA'}
+                                {event.instructors ? formatInstructors(event.instructors) : 'TBA'}
                               </div>
                             )}
                           </div>
@@ -886,7 +886,7 @@ function UnscheduledSectionsCard({
 
                     {displayConfig.showInstructor && (
                       <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                        {item.meeting.instructor ? formatInstructors(item.meeting.instructor) : 'TBA'}
+                        {item.meeting.instructors ? formatInstructors(item.meeting.instructors) : 'TBA'}
                       </div>
                     )}
 
