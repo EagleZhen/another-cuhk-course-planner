@@ -606,6 +606,29 @@ export function getSectionPrefix(sectionCode: string): string | null {
 }
 
 /**
+ * Format course code with cohort prefix if exists
+ * Examples:
+ *   "CSCI3320" with A-LEC → "CSCI3320A"
+ *   "CSCI3320" with --LEC → "CSCI3320"
+ */
+export function formatCourseCodeWithPrefix(course: InternalCourse, sectionCode: string): string {
+  const prefix = getSectionPrefix(sectionCode) || ''
+  return `${course.subject}${course.courseCode}${prefix}`
+}
+
+/**
+ * Format full course code display with section type
+ * Examples:
+ *   "CSCI3320" with A-LEC → "CSCI3320A LEC"
+ *   "CSCI3320" with --LEC → "CSCI3320 LEC"
+ */
+export function formatCourseCodeWithSection(course: InternalCourse, sectionCode: string): string {
+  const courseCode = formatCourseCodeWithPrefix(course, sectionCode)
+  const sectionType = extractSectionType(sectionCode)
+  return `${courseCode} ${sectionType}`
+}
+
+/**
  * Check if two sections are compatible for pairing based on CUHK cohort rules
  * Rules:
  * - Letter-prefixed sections (A-LEC, AE01-EXR, AT01-TUT) must match same letter
