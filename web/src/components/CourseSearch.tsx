@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorCompact, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructors, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
@@ -178,7 +178,7 @@ export default function CourseSearch({
           // Also check instructor names in current term
           const hasMatchingInstructor = termData.sections.some(section =>
             section.meetings.some(meeting =>
-              meeting.instructor.toLowerCase().includes(searchLower)
+              meeting.instructors.toLowerCase().includes(searchLower)
             )
           )
 
@@ -498,7 +498,7 @@ export default function CourseSearch({
               // FIXED: Only search instructors in current term
               currentTermData.sections.some(section =>
                 section.meetings.some(meeting =>
-                  meeting.instructor.toLowerCase().includes(searchLower)
+                  meeting.instructors.toLowerCase().includes(searchLower)
                 )
               )
             )
@@ -1044,7 +1044,7 @@ function InstructorFilters({
   return (
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
       {instructors.map(instructor => {
-        const formattedInstructor = formatInstructorCompact(instructor)
+        const formattedInstructor = formatInstructors(instructor)
         const isSelected = selectedInstructors.has(formattedInstructor)
         return (
           <div key={formattedInstructor} className="flex items-center">
@@ -1208,10 +1208,10 @@ function CourseCard({
           if (section) {
             // Check if this section has instructors matching the new filter
             const sectionMatchesFilter = section.meetings.some(meeting => {
-              if (!meeting.instructor) return false
-              const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+              if (!meeting.instructors) return false
+              const instructorNames = meeting.instructors.split(',').map(name => name.trim())
               return instructorNames.some(instructorName => {
-                const formattedName = formatInstructorCompact(instructorName)
+                const formattedName = formatInstructors(instructorName)
                 return newSelected.has(formattedName)
               })
             })
@@ -1258,18 +1258,24 @@ function CourseCard({
     })
   }
 
+  // Helper: Remove title from instructor name for sorting
+  const removeInstructorTitle = (instructor: string): string => {
+    if (!instructor || instructor === 'TBA') return 'TBA'
+    return formatInstructors(instructor).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+  }
+
   // Get unique instructors from current term, sorted alphabetically
   const currentTermData = course.terms.find(term => term.termName === currentTerm)
   const instructors = Array.from(new Set(
     currentTermData?.sections.flatMap(section =>
       section.meetings.flatMap(meeting => {
         // Split instructor names by comma if multiple instructors are listed together
-        const instructorString = meeting.instructor || ''
+        const instructorString = meeting.instructors || ''
         return instructorString.split(',').map(name => name.trim()).filter(Boolean)
       })
     ) || []
   )).filter(Boolean).sort((a, b) => {
-    // Sort alphabetically by the name part using utility function
+    // Sort alphabetically by the name part (without title)
     const nameA = removeInstructorTitle(a)
     const nameB = removeInstructorTitle(b)
     return nameA.localeCompare(nameB)
@@ -1770,10 +1776,10 @@ function CourseCard({
                       // Priority 1: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructor) return false
-                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          if (!meeting.instructors) return false
+                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorCompact(instructorName)
+                            const formattedName = formatInstructors(instructorName)
                             return selectedInstructors.has(formattedName)
                           })
                         })
@@ -1855,10 +1861,10 @@ function CourseCard({
                       // Priority 1: Instructor filter (always applied)
                       if (selectedInstructors.size > 0) {
                         const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructor) return false
-                          const instructorNames = meeting.instructor.split(',').map(name => name.trim())
+                          if (!meeting.instructors) return false
+                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorCompact(instructorName)
+                            const formattedName = formatInstructors(instructorName)
                             return selectedInstructors.has(formattedName)
                           })
                         })
@@ -2030,7 +2036,7 @@ function CourseCard({
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructorCompact(meeting?.instructor || 'TBA')
+                            const formattedInstructor = formatInstructors(meeting?.instructors || 'TBA')
                             const location = meeting?.location || 'TBA'
 
                             return (

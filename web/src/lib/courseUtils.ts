@@ -19,8 +19,9 @@ import moment from 'moment-timezone'
 
 /**
  * Extract section type from section code using centralized config
+ * Internal helper - use formatCourseCodeWithSection() for display
  */
-export function extractSectionType(sectionCode: string): string {
+function extractSectionType(sectionCode: string): string {
   const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
   const foundType = sectionTypes.find(type =>
     sectionCode.includes(type) ||
@@ -166,7 +167,7 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
             sectionType: section.sectionType,
             time: meeting.time,
             location: meeting.location,
-            instructor: meeting.instructor,
+            instructors: meeting.instructors,
             credits: enrollment.course.credits,
             color: enrollment.color,
             isVisible: enrollment.isVisible,
@@ -537,7 +538,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
   const meetingGroups = new Map<string, InternalMeeting[]>()
 
   meetings.forEach((meeting) => {
-    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructor || 'TBA'}`
+    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructors || 'TBA'}`
     if (!meetingGroups.has(key)) {
       meetingGroups.set(key, [])
     }
@@ -568,22 +569,28 @@ export function formatTimeCompact(timeStr: string): string {
 
 /**
  * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
+ * Internal helper - use formatInstructors() for display
  */
-export function formatInstructorCompact(instructor: string): string {
+function formatInstructorCompact(instructor: string): string {
   if (!instructor || instructor === 'TBA') return 'TBA'
 
   return instructor.replace('Professor ', 'Prof. ')
 }
 
 /**
- * Remove titles from instructor name for consistent operations (sorting, searching)
- * Used for alphabetical sorting and search optimization across the app
+ * Format instructor string (potentially multiple comma-separated names) for display
+ * Handles multiple instructors and formats each one
+ * Examples:
+ *   "Professor Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
+ *   "TBA" → "TBA"
  */
-export function removeInstructorTitle(instructor: string): string {
-  if (!instructor || instructor === 'TBA') return 'TBA'
+export function formatInstructors(instructorString: string): string {
+  if (!instructorString) return 'TBA'
 
-  return formatInstructorCompact(instructor)
-    .replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+  const instructors = instructorString.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
+  return instructors.length > 0
+    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
+    : 'TBA'
 }
 
 // ========================================
@@ -603,6 +610,29 @@ export function getSectionPrefix(sectionCode: string): string | null {
   // Check if starts with letter (not dash) - indicates specific cohort
   const match = sectionCode.match(/^([A-Z])/)
   return match ? match[1] : null // null = universal wildcard section
+}
+
+/**
+ * Format course code with cohort prefix if exists
+ * Examples:
+ *   ("CSCI", "3320", "A-LEC") → "CSCI3320A"
+ *   ("CSCI", "3320", "--LEC") → "CSCI3320"
+ */
+export function formatCourseCodeWithPrefix(subject: string, courseCode: string, sectionCode: string): string {
+  const prefix = getSectionPrefix(sectionCode) ?? ''
+  return `${subject}${courseCode}${prefix}`
+}
+
+/**
+ * Format full course code display with section type
+ * Examples:
+ *   ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
+ *   ("CSCI", "3320", "--LEC") → "CSCI3320 LEC"
+ */
+export function formatCourseCodeWithSection(subject: string, courseCode: string, sectionCode: string): string {
+  const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, sectionCode)
+  const sectionType = extractSectionType(sectionCode)
+  return `${formattedCode} ${sectionType}`
 }
 
 /**
@@ -1135,6 +1165,7 @@ function convertToHongKongUTC(date: Date, hours: number, minutes: number): momen
  * @returns Array of ICS event objects
  */
 interface ICSEvent {
+  uid: string
   title: string
   description: string
   location: string
@@ -1166,10 +1197,7 @@ export function createICSEventsForMeeting(
   }
 
   // Handle instructor plural/singular properly with compact formatting
-  const instructors = meeting.instructor.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
-  const formattedInstructors = instructors.length > 0
-    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
-    : 'TBA'
+  const formattedInstructors = formatInstructors(meeting.instructors)
 
   // Create description with better formatting and structure
   const description = [
@@ -1184,6 +1212,15 @@ export function createICSEventsForMeeting(
 
   // Create one event for each date
   return meetingDates.map(date => {
+    // Generate deterministic UID for consistent event identification
+    // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    const dateStr = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+    const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
+    const prefix = getSectionPrefix(section.sectionCode)
+    const prefixPart = prefix ? `${prefix}-` : ''
+    const uid = `${course.subject}${course.courseCode}-${prefixPart}${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
+
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
     const endUTC = convertToHongKongUTC(date, timeRange.endHour, timeRange.endMinute)
@@ -1206,7 +1243,8 @@ export function createICSEventsForMeeting(
     ] as [number, number, number, number, number]
 
     return {
-      title: `${course.subject}${course.courseCode} ${section.sectionType}`,
+      uid,
+      title: formatCourseCodeWithSection(course.subject, course.courseCode, section.sectionCode),
       description,
       location: meeting.location,
       start,

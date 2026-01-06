@@ -40,7 +40,7 @@ export interface InternalSection {
 export interface InternalMeeting {
   time: string
   location: string
-  instructor: string
+  instructors: string
   dates: string
 }
 
@@ -103,7 +103,7 @@ export interface CalendarEvent {
   sectionType: SectionType
   time: string
   location: string
-  instructor: string
+  instructors: string
   credits: number
   color: string
   isVisible: boolean

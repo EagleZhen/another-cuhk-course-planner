@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorCompact, extractSectionType, generateICSCalendar } from '@/lib/courseUtils'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructors, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
   DEFAULT_CALENDAR_CONFIG,
@@ -597,7 +597,7 @@ export default function WeeklyCalendar({
 
                             {/* Course content with conditional rendering based on config */}
                             <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
-                              {event.subject}{event.courseCode} {extractSectionType(event.sectionCode)}
+                              {formatCourseCodeWithSection(event.subject, event.courseCode, event.sectionCode)}
                             </div>
 
                             {localDisplayConfig.showTitle && (
@@ -620,7 +620,7 @@ export default function WeeklyCalendar({
 
                             {localDisplayConfig.showInstructor && (
                               <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                                {event.instructor ? formatInstructorCompact(event.instructor) : 'TBA'}
+                                {event.instructors ? formatInstructors(event.instructors) : 'TBA'}
                               </div>
                             )}
                           </div>
@@ -810,7 +810,7 @@ function UnscheduledSectionsCard({
                         }
                       }}
                     >
-                      {item.enrollment.course.subject}{item.enrollment.course.courseCode}
+                      {formatCourseCodeWithPrefix(item.enrollment.course.subject, item.enrollment.course.courseCode, item.section.sectionCode)}
                     </span>
                   )
                 })}
@@ -863,7 +863,7 @@ function UnscheduledSectionsCard({
                     }}
                   >
                     <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-1`}>
-                      {item.enrollment.course.subject}{item.enrollment.course.courseCode} {extractSectionType(item.section.id)}
+                      {formatCourseCodeWithSection(item.enrollment.course.subject, item.enrollment.course.courseCode, item.section.sectionCode)}
                     </div>
 
                     {displayConfig.showTitle && (
@@ -886,7 +886,7 @@ function UnscheduledSectionsCard({
 
                     {displayConfig.showInstructor && (
                       <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                        {item.meeting.instructor ? formatInstructorCompact(item.meeting.instructor) : 'TBA'}
+                        {item.meeting.instructors ? formatInstructors(item.meeting.instructors) : 'TBA'}
                       </div>
                     )}
 

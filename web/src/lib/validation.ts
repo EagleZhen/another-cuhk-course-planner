@@ -135,7 +135,7 @@ function transformMeeting(external: z.infer<typeof ExternalMeetingSchema>): Inte
   return {
     time: external.time || 'TBA',
     location: external.location || 'TBA',
-    instructor: external.instructor || 'TBA',
+    instructors: external.instructor || 'TBA',
     dates: external.dates || 'TBA'
   }
 }
