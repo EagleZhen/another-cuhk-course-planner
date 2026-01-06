@@ -346,6 +346,7 @@ export default function WeeklyCalendar({
       URL.revokeObjectURL(url)
 
       console.log(`Undo file generated: ${undoFilename}`)
+      analytics.icsUndo()
       event.target.value = '' // Reset input for future uploads
     }
 

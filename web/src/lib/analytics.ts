@@ -101,6 +101,12 @@ export const analytics = {
     track('ics_exported')
   },
 
+  // Track ICS undo file generation → measures import mistake frequency
+  // Key questions: How often do users need to undo? Is the feature valuable?
+  icsUndo: () => {
+    track('ics_undo')
+  },
+
   // Track screenshot export → curiosity metric to understand schedule export trends
   screenshotTaken: () => {
     track('screenshot_taken')
