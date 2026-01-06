@@ -343,16 +343,33 @@ export function formatInstructorsCompact(instructorString: string): string
 
 **UI Implementation in [WeeklyCalendar.tsx](web/src/components/WeeklyCalendar.tsx):**
 - **Split button pattern** matching instructor toggle button style
-- Left section: Download .ics (main action)
+- Left section: Download .ics with confirmation dialog (includes tips on creating new calendar)
 - Right section: Dropdown with "Undo Previous Import" option
+- **Inline helper text** in dropdown: "Upload original .ics to cancel events" (always visible, not hidden in tooltip)
 - Independent hover effects for each section
+- Z-index `z-[60]` for dropdown menu (avoids overlap with sticky calendar header's `z-50`)
 
-**User Flow:**
-1. Click dropdown chevron → "Undo Previous Import" menu appears
-2. Click menu item → Instruction dialog with confirm
-3. File picker opens → User uploads original .ics file
-4. Validation checks `PRODID` → Warns if file wasn't from our app (allows proceed)
+**Export Confirmation Dialog ([WeeklyCalendar.tsx:251-258](web/src/components/WeeklyCalendar.tsx#L251-L258)):**
+```typescript
+const proceed = confirm(
+  '💡 How to use the .ics file:\n\n' +
+  '1. Create a NEW calendar in your calendar app (Google Calendar, Outlook, etc.).\n' +
+  '2. Import the downloaded .ics file to that NEW calendar\n\n' +
+  'This keeps your course schedule separate and easier to manage.\n\n' +
+  'P.S. If you imported to the wrong calendar, use the dropdown menu (▼) → "Undo Previous Import" to cancel all events.\n\n' +
+  'Click OK to proceed with the export.'
+)
+```
+
+**User Flow (Undo Feature):**
+1. Click dropdown chevron → "Undo Previous Import" menu appears with inline helper text
+2. Click menu item → File picker opens immediately
+3. User selects original .ics file → Confirmation dialog appears
+4. User confirms → Validation checks `PRODID` → Warns if file wasn't from our app (allows proceed)
 5. Auto-download `(UNDO) filename.ics` with modified events
+
+**Key Implementation Detail - Browser User Activation:**
+File picker must open immediately on click to maintain "user activation" chain. Confirmation dialog happens AFTER file selection to avoid browser security errors ("File chooser dialog can only be shown with a user activation").
 
 **Processing Logic in [courseUtils.ts](web/src/lib/courseUtils.ts:1322):**
 ```typescript
@@ -365,10 +382,13 @@ export function processICSForUndo(content: string): {
   // Validate file origin
   const isFromOurApp = content.includes('PRODID:Another CUHK Course Planner')
 
-  // Simple string replacement approach (not complex ICS parsing)
+  // Detect original line ending style to preserve it (CRLF vs LF)
+  const eol = content.includes('\r\n') ? '\r\n' : '\n'
+
+  // Add STATUS:CANCELLED after each BEGIN:VEVENT
   const modifiedContent = content.replace(
     /BEGIN:VEVENT/g,
-    'BEGIN:VEVENT\nSTATUS:CANCELLED'
+    `BEGIN:VEVENT${eol}STATUS:CANCELLED`
   )
 
   return {
@@ -380,17 +400,24 @@ export function processICSForUndo(content: string): {
 ```
 
 **Key Design Decisions:**
+- ✅ Confirmation dialog AFTER file selection (avoids user activation security issues)
+- ✅ Line ending preservation (CRLF vs LF) for cross-platform compatibility
 - ✅ Simple string replacement vs. complex ICS parsing (more robust)
 - ✅ Warning dialog instead of blocking validation (user choice)
 - ✅ `(UNDO)` filename prefix at front for better visibility
+- ✅ Inline helper text vs tooltips (users actually see instructions)
+- ✅ Export confirmation with tips about new calendar + undo feature mention
 - ✅ Alert/confirm boxes instead of modal (simpler UX)
 - ✅ Programmatic file input trigger (hidden input element)
+- ✅ Analytics tracking: `icsExported()` and `icsUndo()` events
 
 **Benefits:**
 - ✅ One-click undo for mistaken calendar imports
 - ✅ Works with any calendar app supporting ICS standard (RFC 5545)
 - ✅ Validates file origin but allows flexibility for edge cases
 - ✅ Consistent UI pattern across calendar export features
+- ✅ Proactive user education (export tips mention undo feature)
+- ✅ No browser security errors (proper user activation handling)
 
 ## Data Scraping Architecture
 
