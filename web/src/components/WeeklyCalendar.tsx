@@ -290,6 +290,13 @@ export default function WeeklyCalendar({
     const file = event.target.files?.[0]
     if (!file) return
 
+    // Validate file extension
+    if (!file.name.toLowerCase().endsWith('.ics')) {
+      alert('Please select a valid .ics file.')
+      event.target.value = ''
+      return
+    }
+
     // Confirm before processing
     const proceed = confirm(
       'This will create a modified .ics file with "STATUS:CANCELLED" for all the events in the original .ics file.\n\n' +
