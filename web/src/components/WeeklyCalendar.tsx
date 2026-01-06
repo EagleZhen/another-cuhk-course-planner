@@ -3,8 +3,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorsCompact, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar } from '@/lib/courseUtils'
+import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download, Undo } from 'lucide-react'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorsCompact, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar, processICSForUndo } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
   DEFAULT_CALENDAR_CONFIG,
@@ -109,9 +109,11 @@ export default function WeeklyCalendar({
   // Local state for display configuration testing
   const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
   const [isCapturing, setIsCapturing] = useState(false)
+  const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
 
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   // Scroll state for indicators
   const [scrollState, setScrollState] = useState({
@@ -245,6 +247,18 @@ export default function WeeklyCalendar({
       return
     }
 
+    // Confirm and provide import instructions
+    const proceed = confirm(
+      '💡 How to use the .ics file:\n\n' +
+      '1. Create a NEW calendar in your calendar app (Google Calendar, Outlook, etc.).\n' +
+      '2. Import the downloaded .ics file to that NEW calendar\n\n' +
+      'This keeps your course schedule separate and easier to manage.\n\n' +
+      'P.S. If you imported to the wrong calendar, use the dropdown menu (⌄) → "Undo Previous Import" to cancel all events.\n\n' +
+      'Click OK to proceed with the export.'
+    )
+
+    if (!proceed) return
+
     const result = generateICSCalendar(courseEnrollments, selectedTerm)
 
     if (result.error) {
@@ -270,6 +284,91 @@ export default function WeeklyCalendar({
       console.log(`Calendar exported as ${result.filename}`)
       analytics.icsExported()
     }
+  }
+
+  const handleUndoFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    // Validate file extension
+    if (!file.name.toLowerCase().endsWith('.ics')) {
+      alert('Please select a valid .ics file.')
+      event.target.value = ''
+      return
+    }
+
+    // Confirm before processing
+    const proceed = confirm(
+      'This will modifiy the selected .ics file, which adds "STATUS:CANCELLED" to each of the calendar events in the file.\n\n' +
+      'When you re-import the UNDO .ics file to your calendar, all events will be automatically removed, essentially undoing the previous import.\n\n' +
+      'Click OK to generate the UNDO file.'
+    )
+
+    if (!proceed) {
+      event.target.value = ''
+      return
+    }
+
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const content = e.target?.result as string
+      if (!content) return
+
+      // Process the ICS file using utility function
+      const result = processICSForUndo(content)
+
+      if (!result.success) {
+        alert(result.error || 'Failed to process file')
+        event.target.value = ''
+        return
+      }
+
+      // Show warning if file wasn't from our app
+      if (result.needsWarning) {
+        const proceed = confirm(
+          'Warning: This file may not be from Another CUHK Course Planner.\n\n' +
+          'Proceeding might cancel unrelated events in your calendar.\n\n' +
+          'Do you want to continue?'
+        )
+        if (!proceed) {
+          event.target.value = ''
+          return
+        }
+      }
+
+      // Generate filename with (UNDO) prefix at the front
+      const undoFilename = `(UNDO) ${file.name}`
+
+      // Trigger download
+      const blob = new Blob([result.modifiedContent!], { type: 'text/calendar;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+
+      const link = document.createElement('a')
+      link.href = url
+      link.download = undoFilename
+
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+
+      console.log(`Undo file generated: ${undoFilename}`)
+      analytics.icsUndo()
+      event.target.value = '' // Reset input for future uploads
+    }
+
+    reader.onerror = () => {
+      console.error('Failed to read file for UNDO file generation:', reader.error)
+      alert('Failed to read the selected file. Please check the file and try again.')
+      event.target.value = ''
+    }
+
+    reader.readAsText(file)
+  }
+
+  const handleUndoClick = () => {
+    setIsIcsMenuExpanded(false)
+    fileInputRef.current?.click()
   }
 
   // Dynamic day detection - show weekends only when courses exist
@@ -304,16 +403,54 @@ export default function WeeklyCalendar({
           </div>
 
           <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleExportCalendar}
-              className="flex items-center gap-2 cursor-pointer"
-              title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
-            >
-              <Download className="w-4 h-4" />
-              .ics
-            </Button>
+            <div className="relative">
+              <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
+                {/* Left: Download .ics */}
+                <Button
+                  variant="ghost"
+                  onClick={handleExportCalendar}
+                  className="gap-1 h-full hover:bg-gray-100 rounded-none"
+                  title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
+                >
+                  <Download className="w-4 h-4" />
+                  .ics
+                </Button>
+
+                {/* Separator */}
+                <div className="h-4 w-px bg-gray-300" />
+
+                {/* Right: Expand menu */}
+                <Button
+                  variant="ghost"
+                  onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
+                  className="h-full hover:bg-gray-100 rounded-none"
+                  title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
+                  aria-expanded={isIcsMenuExpanded}
+                  aria-haspopup="true"
+                  aria-label="ICS file options"
+                >
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
+                </Button>
+              </div>
+
+              {isIcsMenuExpanded && (
+                <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]" role="menu" aria-label="ICS file options menu">
+                  <Button
+                    variant="ghost"
+                    onClick={handleUndoClick}
+                    className="w-full justify-start h-auto flex-col items-start gap-0.5"
+                  >
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <Undo className="w-3.5 h-3.5" />
+                      Undo Previous Import
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      Upload original .ics to cancel events
+                    </div>
+                  </Button>
+                </div>
+              )}
+            </div>
 
             <Button
               variant="outline"
@@ -344,16 +481,54 @@ export default function WeeklyCalendar({
           <CardTitle className="mb-3">Weekly Schedule</CardTitle>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleExportCalendar}
-                className="flex items-center gap-1 cursor-pointer flex-shrink-0"
-                title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
-              >
-                <Download className="w-4 h-4" />
-                <span className="hidden xs:inline">.ics</span>
-              </Button>
+              <div className="relative flex-shrink-0">
+                <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
+                  {/* Left: Download .ics */}
+                  <Button
+                    variant="ghost"
+                    onClick={handleExportCalendar}
+                    className="gap-1 h-full hover:bg-gray-100 rounded-none"
+                    title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
+                  >
+                    <Download className="w-4 h-4" />
+                    <span className="hidden xs:inline">.ics</span>
+                  </Button>
+
+                  {/* Separator */}
+                  <div className="h-4 w-px bg-gray-300" />
+
+                  {/* Right: Expand menu */}
+                  <Button
+                    variant="ghost"
+                    onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
+                    className="h-full hover:bg-gray-100 rounded-none"
+                    title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
+                    aria-expanded={isIcsMenuExpanded}
+                    aria-haspopup="true"
+                    aria-label="ICS file options"
+                  >
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
+                  </Button>
+                </div>
+
+                {isIcsMenuExpanded && (
+                  <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]" role="menu" aria-label="ICS file options menu">
+                    <Button
+                      variant="ghost"
+                      onClick={handleUndoClick}
+                      className="w-full justify-start h-auto flex-col items-start gap-0.5"
+                    >
+                      <div className="flex items-center gap-2 text-sm font-medium">
+                        <Undo className="w-3.5 h-3.5" />
+                        Undo Previous Import
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        Upload original .ics to cancel events
+                      </div>
+                    </Button>
+                  </div>
+                )}
+              </div>
 
               <Button
                 variant="outline"
@@ -636,6 +811,15 @@ export default function WeeklyCalendar({
           </div>
         </div>
       </CardContent>
+
+      {/* Hidden file input for undo ICS upload */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".ics"
+        onChange={handleUndoFileUpload}
+        className="hidden"
+      />
     </Card>
   )
 }

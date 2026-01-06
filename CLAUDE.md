@@ -305,6 +305,120 @@ All three places use identical exclusion logic:
 - `scripts/publish_course_data.py` - Line 118
 - `web/src/lib/subjects.ts` - Generated output (249 subjects)
 
+### 9. Display Formatting Helpers (Centralized Logic)
+
+**Problem:** Course codes and instructor names need consistent formatting across the app. Cohort prefixes (A, B, etc.) should be shown with course codes, and multiple instructors need proper title formatting.
+
+**Solution in [courseUtils.ts](web/src/lib/courseUtils.ts):**
+```typescript
+// Course code formatting with cohort prefix
+export function formatCourseCodeWithPrefix(subject: string, courseCode: string, sectionCode: string): string
+// Examples: ("CSCI", "3320", "A-LEC") → "CSCI3320A"
+//           ("CSCI", "3320", "--LEC") → "CSCI3320"
+
+export function formatCourseCodeWithSection(subject: string, courseCode: string, sectionCode: string): string
+// Examples: ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
+
+// Multi-instructor formatting
+export function formatInstructorsCompact(instructorString: string): string
+// Example: "Professor Noam NOKED, Professor Steven Brian GALLAGHER"
+//       → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
+```
+
+**Internal Helpers (Not Exported):**
+- `extractSectionType()` - Extracts section type from section code
+- `formatInstructorCompact()` - Formats single instructor ("Professor" → "Prof.")
+
+**Benefits:**
+- ✅ Consistent cohort prefix display across WeeklyCalendar, ShoppingCart, ICS exports
+- ✅ Proper multi-instructor formatting (fixes bug where only first instructor was formatted)
+- ✅ Prevents misuse by hiding single-item helpers (internal only)
+- ✅ Simple string-based signatures work with any data structure
+
+### 10. ICS Calendar Import Undo (STATUS:CANCELLED Pattern)
+
+**Problem:** Users sometimes import course schedules to the wrong calendar app (Google Calendar, Outlook, Apple Calendar). Standard ICS exports don't provide a way to undo this mistake, requiring manual deletion of each event.
+
+**Solution:** Generate an "undo file" that adds `STATUS:CANCELLED` to all events. When re-imported, calendar apps recognize the CANCELLED status and remove the corresponding events.
+
+**UI Implementation in [WeeklyCalendar.tsx](web/src/components/WeeklyCalendar.tsx):**
+- **Split button pattern** matching instructor toggle button style
+- Left section: Download .ics with confirmation dialog (includes tips on creating new calendar)
+- Right section: Dropdown with "Undo Previous Import" option
+- **Inline helper text** in dropdown: "Upload original .ics to cancel events" (always visible, not hidden in tooltip)
+- Independent hover effects for each section
+- Z-index `z-[60]` for dropdown menu (avoids overlap with sticky calendar header's `z-50`)
+
+**Export Confirmation Dialog ([WeeklyCalendar.tsx:251-258](web/src/components/WeeklyCalendar.tsx#L251-L258)):**
+```typescript
+const proceed = confirm(
+  '💡 How to use the .ics file:\n\n' +
+  '1. Create a NEW calendar in your calendar app (Google Calendar, Outlook, etc.).\n' +
+  '2. Import the downloaded .ics file to that NEW calendar\n\n' +
+  'This keeps your course schedule separate and easier to manage.\n\n' +
+  'P.S. If you imported to the wrong calendar, use the dropdown menu (▼) → "Undo Previous Import" to cancel all events.\n\n' +
+  'Click OK to proceed with the export.'
+)
+```
+
+**User Flow (Undo Feature):**
+1. Click dropdown chevron → "Undo Previous Import" menu appears with inline helper text
+2. Click menu item → File picker opens immediately
+3. User selects original .ics file → Confirmation dialog appears
+4. User confirms → Validation checks `PRODID` → Warns if file wasn't from our app (allows proceed)
+5. Auto-download `(UNDO) filename.ics` with modified events
+
+**Key Implementation Detail - Browser User Activation:**
+File picker must open immediately on click to maintain "user activation" chain. Confirmation dialog happens AFTER file selection to avoid browser security errors ("File chooser dialog can only be shown with a user activation").
+
+**Processing Logic in [courseUtils.ts](web/src/lib/courseUtils.ts:1322):**
+```typescript
+export function processICSForUndo(content: string): {
+  success: boolean
+  modifiedContent?: string
+  needsWarning?: boolean
+  error?: string
+} {
+  // Validate file origin
+  const isFromOurApp = content.includes('PRODID:Another CUHK Course Planner')
+
+  // Detect original line ending style to preserve it (CRLF vs LF)
+  const eol = content.includes('\r\n') ? '\r\n' : '\n'
+
+  // Add STATUS:CANCELLED after each BEGIN:VEVENT
+  const modifiedContent = content.replace(
+    /BEGIN:VEVENT/g,
+    `BEGIN:VEVENT${eol}STATUS:CANCELLED`
+  )
+
+  return {
+    success: true,
+    modifiedContent,
+    needsWarning: !isFromOurApp  // Warn but allow non-app files
+  }
+}
+```
+
+**Key Design Decisions:**
+- ✅ Confirmation dialog AFTER file selection (avoids user activation security issues)
+- ✅ Line ending preservation (CRLF vs LF) for cross-platform compatibility
+- ✅ Simple string replacement vs. complex ICS parsing (more robust)
+- ✅ Warning dialog instead of blocking validation (user choice)
+- ✅ `(UNDO)` filename prefix at front for better visibility
+- ✅ Inline helper text vs tooltips (users actually see instructions)
+- ✅ Export confirmation with tips about new calendar + undo feature mention
+- ✅ Alert/confirm boxes instead of modal (simpler UX)
+- ✅ Programmatic file input trigger (hidden input element)
+- ✅ Analytics tracking: `icsExported()` and `icsUndo()` events
+
+**Benefits:**
+- ✅ One-click undo for mistaken calendar imports
+- ✅ Works with any calendar app supporting ICS standard (RFC 5545)
+- ✅ Validates file origin but allows flexibility for edge cases
+- ✅ Consistent UI pattern across calendar export features
+- ✅ Proactive user education (export tips mention undo feature)
+- ✅ No browser security errors (proper user activation handling)
+
 ## Data Scraping Architecture
 
 **Production Scraper ([scripts/cuhk_scraper.py](scripts/cuhk_scraper.py)):**
