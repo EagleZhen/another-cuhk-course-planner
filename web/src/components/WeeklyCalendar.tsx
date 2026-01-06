@@ -113,6 +113,7 @@ export default function WeeklyCalendar({
 
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   // Scroll state for indicators
   const [scrollState, setScrollState] = useState({
@@ -327,6 +328,20 @@ export default function WeeklyCalendar({
     reader.readAsText(file)
   }
 
+  const handleUndoClick = () => {
+    setIsIcsMenuExpanded(false)
+
+    const proceed = confirm(
+      'Upload your previously downloaded .ics file to generate an undo file.\n\n' +
+      'The undo file will cancel all events when re-imported to your calendar.\n\n' +
+      'Click OK to select the file.'
+    )
+
+    if (proceed) {
+      fileInputRef.current?.click()
+    }
+  }
+
   // Dynamic day detection - show weekends only when courses exist
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
@@ -388,11 +403,7 @@ export default function WeeklyCalendar({
                 <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-10">
                   <button
                     className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
-                    onClick={() => {
-                      setIsIcsMenuExpanded(false)
-                      // TODO: Open undo modal
-                      console.log('Undo import clicked')
-                    }}
+                    onClick={handleUndoClick}
                   >
                     <Undo className="w-3.5 h-3.5" />
                     Undo Previous Import
@@ -459,11 +470,7 @@ export default function WeeklyCalendar({
                   <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-10">
                     <button
                       className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
-                      onClick={() => {
-                        setIsIcsMenuExpanded(false)
-                        // TODO: Open undo modal
-                        console.log('Undo import clicked')
-                      }}
+                      onClick={handleUndoClick}
                     >
                       <Undo className="w-3.5 h-3.5" />
                       Undo Previous Import
@@ -753,6 +760,15 @@ export default function WeeklyCalendar({
           </div>
         </div>
       </CardContent>
+
+      {/* Hidden file input for undo ICS upload */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".ics"
+        onChange={handleUndoFileUpload}
+        className="hidden"
+      />
     </Card>
   )
 }
