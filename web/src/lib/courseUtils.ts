@@ -608,24 +608,24 @@ export function getSectionPrefix(sectionCode: string): string | null {
 /**
  * Format course code with cohort prefix if exists
  * Examples:
- *   "CSCI3320" with A-LEC → "CSCI3320A"
- *   "CSCI3320" with --LEC → "CSCI3320"
+ *   ("CSCI", "3320", "A-LEC") → "CSCI3320A"
+ *   ("CSCI", "3320", "--LEC") → "CSCI3320"
  */
-export function formatCourseCodeWithPrefix(course: InternalCourse, sectionCode: string): string {
+export function formatCourseCodeWithPrefix(subject: string, courseCode: string, sectionCode: string): string {
   const prefix = getSectionPrefix(sectionCode) || ''
-  return `${course.subject}${course.courseCode}${prefix}`
+  return `${subject}${courseCode}${prefix}`
 }
 
 /**
  * Format full course code display with section type
  * Examples:
- *   "CSCI3320" with A-LEC → "CSCI3320A LEC"
- *   "CSCI3320" with --LEC → "CSCI3320 LEC"
+ *   ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
+ *   ("CSCI", "3320", "--LEC") → "CSCI3320 LEC"
  */
-export function formatCourseCodeWithSection(course: InternalCourse, sectionCode: string): string {
-  const courseCode = formatCourseCodeWithPrefix(course, sectionCode)
+export function formatCourseCodeWithSection(subject: string, courseCode: string, sectionCode: string): string {
+  const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, sectionCode)
   const sectionType = extractSectionType(sectionCode)
-  return `${courseCode} ${sectionType}`
+  return `${formattedCode} ${sectionType}`
 }
 
 /**
@@ -1217,10 +1217,6 @@ export function createICSEventsForMeeting(
     const prefixPart = prefix ? `${prefix}-` : ''
     const uid = `${course.subject}${course.courseCode}-${prefixPart}${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
 
-    // Create succinct title with cohort prefix if exists
-    // Example: "CSCI3320A LEC" (with prefix) or "CSCI3320 LEC" (without prefix)
-    const courseWithPrefix = prefix ? `${course.subject}${course.courseCode}${prefix}` : `${course.subject}${course.courseCode}`
-
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
     const endUTC = convertToHongKongUTC(date, timeRange.endHour, timeRange.endMinute)
@@ -1244,7 +1240,7 @@ export function createICSEventsForMeeting(
 
     return {
       uid,
-      title: `${courseWithPrefix} ${section.sectionType}`,
+      title: formatCourseCodeWithSection(course.subject, course.courseCode, section.sectionCode),
       description,
       location: meeting.location,
       start,
