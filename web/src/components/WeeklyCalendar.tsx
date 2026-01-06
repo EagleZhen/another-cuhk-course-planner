@@ -410,16 +410,20 @@ export default function WeeklyCalendar({
                   onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
                   className="flex items-center justify-center px-1.5 h-full hover:bg-gray-100 transition-colors cursor-pointer"
                   title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
+                  aria-expanded={isIcsMenuExpanded}
+                  aria-haspopup="true"
+                  aria-label="ICS file options"
                 >
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
                 </button>
               </div>
 
               {isIcsMenuExpanded && (
-                <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]">
+                <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]" role="menu" aria-label="ICS file options menu">
                   <div
                     className="px-3 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
                     onClick={handleUndoClick}
+                    role="menuitem"
                   >
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <Undo className="w-3.5 h-3.5" />
@@ -482,16 +486,20 @@ export default function WeeklyCalendar({
                     onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
                     className="flex items-center justify-center px-1.5 h-full hover:bg-gray-100 transition-colors cursor-pointer"
                     title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
+                    aria-expanded={isIcsMenuExpanded}
+                    aria-haspopup="true"
+                    aria-label="ICS file options"
                   >
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 {isIcsMenuExpanded && (
-                  <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]">
+                  <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]" role="menu" aria-label="ICS file options menu">
                     <div
                       className="px-3 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
                       onClick={handleUndoClick}
+                      role="menuitem"
                     >
                       <div className="flex items-center gap-2 text-sm font-medium">
                         <Undo className="w-3.5 h-3.5" />
