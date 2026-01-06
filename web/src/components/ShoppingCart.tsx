@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, MapPin, Info } from 'lucide-react'
-import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructors, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix } from '@/lib/courseUtils'
+import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorsCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 
@@ -501,7 +501,7 @@ export default function ShoppingCart({
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructors(meeting?.instructors || 'TBA')
+                            const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
                             const location = meeting?.location || 'TBA'
 
                             return (

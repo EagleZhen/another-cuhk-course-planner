@@ -569,7 +569,7 @@ export function formatTimeCompact(timeStr: string): string {
 
 /**
  * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
- * Internal helper - use formatInstructors() for display
+ * Internal helper - use formatInstructorsCompact() for display
  */
 function formatInstructorCompact(instructor: string): string {
   if (!instructor || instructor === 'TBA') return 'TBA'
@@ -584,7 +584,7 @@ function formatInstructorCompact(instructor: string): string {
  *   "Professor Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
  *   "TBA" → "TBA"
  */
-export function formatInstructors(instructorString: string): string {
+export function formatInstructorsCompact(instructorString: string): string {
   if (!instructorString) return 'TBA'
 
   const instructors = instructorString.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
@@ -1197,7 +1197,7 @@ export function createICSEventsForMeeting(
   }
 
   // Handle instructor plural/singular properly with compact formatting
-  const formattedInstructors = formatInstructors(meeting.instructors)
+  const formattedInstructors = formatInstructorsCompact(meeting.instructors)
 
   // Create description with better formatting and structure
   const description = [

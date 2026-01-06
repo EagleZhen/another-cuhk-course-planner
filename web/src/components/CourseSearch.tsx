@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructors, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
@@ -1044,7 +1044,7 @@ function InstructorFilters({
   return (
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
       {instructors.map(instructor => {
-        const formattedInstructor = formatInstructors(instructor)
+        const formattedInstructor = formatInstructorsCompact(instructor)
         const isSelected = selectedInstructors.has(formattedInstructor)
         return (
           <div key={formattedInstructor} className="flex items-center">
@@ -1211,7 +1211,7 @@ function CourseCard({
               if (!meeting.instructors) return false
               const instructorNames = meeting.instructors.split(',').map(name => name.trim())
               return instructorNames.some(instructorName => {
-                const formattedName = formatInstructors(instructorName)
+                const formattedName = formatInstructorsCompact(instructorName)
                 return newSelected.has(formattedName)
               })
             })
@@ -1261,7 +1261,7 @@ function CourseCard({
   // Helper: Remove title from instructor name for sorting
   const removeInstructorTitle = (instructor: string): string => {
     if (!instructor || instructor === 'TBA') return 'TBA'
-    return formatInstructors(instructor).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+    return formatInstructorsCompact(instructor).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
   }
 
   // Get unique instructors from current term, sorted alphabetically
@@ -1779,7 +1779,7 @@ function CourseCard({
                           if (!meeting.instructors) return false
                           const instructorNames = meeting.instructors.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructors(instructorName)
+                            const formattedName = formatInstructorsCompact(instructorName)
                             return selectedInstructors.has(formattedName)
                           })
                         })
@@ -1864,7 +1864,7 @@ function CourseCard({
                           if (!meeting.instructors) return false
                           const instructorNames = meeting.instructors.split(',').map(name => name.trim())
                           return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructors(instructorName)
+                            const formattedName = formatInstructorsCompact(instructorName)
                             return selectedInstructors.has(formattedName)
                           })
                         })
@@ -2036,7 +2036,7 @@ function CourseCard({
                         <div className="space-y-1">
                           {getUniqueMeetings(section.meetings).map((meeting, index) => {
                             const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructors(meeting?.instructors || 'TBA')
+                            const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
                             const location = meeting?.location || 'TBA'
 
                             return (
