@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, MapPin, Info } from 'lucide-react'
-import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen } from '@/lib/courseUtils'
+import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 
@@ -299,10 +299,10 @@ export default function ShoppingCart({
                 >
                   {/* Course Header */}
                   <div className="flex items-center justify-between mb-2">
-                    <div className={`flex items-center gap-2 flex-1 min-w-0 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                    <div className={`flex items-center gap-1 flex-1 min-w-0 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                       <div className="flex items-center gap-1">
                         <span className="font-semibold text-sm">
-                          {enrollment.course.subject}{enrollment.course.courseCode}
+                          {formatCourseCodeWithPrefix(enrollment.course.subject, enrollment.course.courseCode, enrollment.selectedSections[0]?.sectionCode || '')}
                         </span>
                         {onShowCourseDetails && (
                           <button
