@@ -409,7 +409,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={handleExportCalendar}
-                  className="gap-1 !px-1.5 h-full hover:bg-gray-100 rounded-none"
+                  className="gap-1 h-full hover:bg-gray-100 rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
                   <Download className="w-4 h-4" />
@@ -423,7 +423,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                  className="!px-1 h-full hover:bg-gray-100 rounded-none"
+                  className="h-full hover:bg-gray-100 rounded-none"
                   title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
                   aria-expanded={isIcsMenuExpanded}
                   aria-haspopup="true"
@@ -487,7 +487,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={handleExportCalendar}
-                    className="gap-1 !px-1.5 h-full hover:bg-gray-100 rounded-none"
+                    className="gap-1 h-full hover:bg-gray-100 rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
                     <Download className="w-4 h-4" />
@@ -501,7 +501,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                    className="!px-1 h-full hover:bg-gray-100 rounded-none"
+                    className="h-full hover:bg-gray-100 rounded-none"
                     title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
                     aria-expanded={isIcsMenuExpanded}
                     aria-haspopup="true"
