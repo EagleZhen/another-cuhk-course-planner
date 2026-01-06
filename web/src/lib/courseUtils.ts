@@ -19,8 +19,9 @@ import moment from 'moment-timezone'
 
 /**
  * Extract section type from section code using centralized config
+ * Internal helper - use formatCourseCodeWithSection() for display
  */
-export function extractSectionType(sectionCode: string): string {
+function extractSectionType(sectionCode: string): string {
   const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
   const foundType = sectionTypes.find(type =>
     sectionCode.includes(type) ||
