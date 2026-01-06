@@ -1186,10 +1186,13 @@ export function createICSEventsForMeeting(
   // Create one event for each date
   return meetingDates.map(date => {
     // Generate deterministic UID for consistent event identification
-    // Example: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     const dateStr = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
     const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
-    const uid = `${course.subject}${course.courseCode}-${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
+    const prefix = getSectionPrefix(section.sectionCode)
+    const prefixPart = prefix ? `${prefix}-` : ''
+    const uid = `${course.subject}${course.courseCode}-${prefixPart}${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
 
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
