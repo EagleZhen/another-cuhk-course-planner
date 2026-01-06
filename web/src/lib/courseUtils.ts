@@ -581,7 +581,7 @@ function formatInstructorCompact(instructor: string): string {
  * Format instructor string (potentially multiple comma-separated names) for display
  * Handles multiple instructors and formats each one
  * Examples:
- *   "Prof. Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
+ *   "Professor Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
  *   "TBA" → "TBA"
  */
 export function formatInstructors(instructorString: string): string {
