@@ -569,11 +569,28 @@ export function formatTimeCompact(timeStr: string): string {
 
 /**
  * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
+ * Internal helper - use formatInstructors() for display
  */
-export function formatInstructorCompact(instructor: string): string {
+function formatInstructorCompact(instructor: string): string {
   if (!instructor || instructor === 'TBA') return 'TBA'
 
   return instructor.replace('Professor ', 'Prof. ')
+}
+
+/**
+ * Format instructor string (potentially multiple comma-separated names) for display
+ * Handles multiple instructors and formats each one
+ * Examples:
+ *   "Prof. Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
+ *   "TBA" → "TBA"
+ */
+export function formatInstructors(instructorString: string): string {
+  if (!instructorString) return 'TBA'
+
+  const instructors = instructorString.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
+  return instructors.length > 0
+    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
+    : 'TBA'
 }
 
 /**
@@ -583,7 +600,7 @@ export function formatInstructorCompact(instructor: string): string {
 export function removeInstructorTitle(instructor: string): string {
   if (!instructor || instructor === 'TBA') return 'TBA'
 
-  return formatInstructorCompact(instructor)
+  return formatInstructors(instructor)
     .replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
 }
 
@@ -1191,10 +1208,7 @@ export function createICSEventsForMeeting(
   }
 
   // Handle instructor plural/singular properly with compact formatting
-  const instructors = meeting.instructor.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
-  const formattedInstructors = instructors.length > 0
-    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
-    : 'TBA'
+  const formattedInstructors = formatInstructors(meeting.instructor)
 
   // Create description with better formatting and structure
   const description = [
