@@ -1135,6 +1135,7 @@ function convertToHongKongUTC(date: Date, hours: number, minutes: number): momen
  * @returns Array of ICS event objects
  */
 interface ICSEvent {
+  uid: string
   title: string
   description: string
   location: string
@@ -1184,6 +1185,12 @@ export function createICSEventsForMeeting(
 
   // Create one event for each date
   return meetingDates.map(date => {
+    // Generate deterministic UID for consistent event identification
+    // Example: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    const dateStr = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+    const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
+    const uid = `${course.subject}${course.courseCode}-${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
+
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
     const endUTC = convertToHongKongUTC(date, timeRange.endHour, timeRange.endMinute)
@@ -1206,6 +1213,7 @@ export function createICSEventsForMeeting(
     ] as [number, number, number, number, number]
 
     return {
+      uid,
       title: `${course.subject}${course.courseCode} ${section.sectionType}`,
       description,
       location: meeting.location,
