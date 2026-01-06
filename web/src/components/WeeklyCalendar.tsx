@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download, Undo } from 'lucide-react'
-import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorsCompact, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar } from '@/lib/courseUtils'
+import { groupOverlappingEvents, eventsOverlap, formatTimeCompact, formatInstructorsCompact, formatCourseCodeWithPrefix, formatCourseCodeWithSection, generateICSCalendar, processICSForUndo } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
   DEFAULT_CALENDAR_CONFIG,
@@ -271,6 +271,60 @@ export default function WeeklyCalendar({
       console.log(`Calendar exported as ${result.filename}`)
       analytics.icsExported()
     }
+  }
+
+  const handleUndoFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const content = e.target?.result as string
+      if (!content) return
+
+      // Process the ICS file using utility function
+      const result = processICSForUndo(content)
+
+      if (!result.success) {
+        alert(result.error || 'Failed to process file')
+        event.target.value = ''
+        return
+      }
+
+      // Show warning if file wasn't from our app
+      if (result.needsWarning) {
+        const proceed = confirm(
+          'Warning: This file may not be from Another CUHK Course Planner.\n\n' +
+          'Proceeding might cancel unrelated events in your calendar.\n\n' +
+          'Do you want to continue?'
+        )
+        if (!proceed) {
+          event.target.value = ''
+          return
+        }
+      }
+
+      // Generate filename with (UNDO) prefix at the front
+      const undoFilename = `(UNDO) ${file.name}`
+
+      // Trigger download
+      const blob = new Blob([result.modifiedContent!], { type: 'text/calendar;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+
+      const link = document.createElement('a')
+      link.href = url
+      link.download = undoFilename
+
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+
+      console.log(`Undo file generated: ${undoFilename}`)
+      event.target.value = '' // Reset input for future uploads
+    }
+
+    reader.readAsText(file)
   }
 
   // Dynamic day detection - show weekends only when courses exist
