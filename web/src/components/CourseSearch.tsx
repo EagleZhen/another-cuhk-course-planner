@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructors, removeInstructorTitle, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructors, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
@@ -1258,6 +1258,12 @@ function CourseCard({
     })
   }
 
+  // Helper: Remove title from instructor name for sorting
+  const removeInstructorTitle = (instructor: string): string => {
+    if (!instructor || instructor === 'TBA') return 'TBA'
+    return formatInstructors(instructor).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
+  }
+
   // Get unique instructors from current term, sorted alphabetically
   const currentTermData = course.terms.find(term => term.termName === currentTerm)
   const instructors = Array.from(new Set(
@@ -1269,7 +1275,7 @@ function CourseCard({
       })
     ) || []
   )).filter(Boolean).sort((a, b) => {
-    // Sort alphabetically by the name part using utility function
+    // Sort alphabetically by the name part (without title)
     const nameA = removeInstructorTitle(a)
     const nameB = removeInstructorTitle(b)
     return nameA.localeCompare(nameB)

@@ -593,17 +593,6 @@ export function formatInstructors(instructorString: string): string {
     : 'TBA'
 }
 
-/**
- * Remove titles from instructor name for consistent operations (sorting, searching)
- * Used for alphabetical sorting and search optimization across the app
- */
-export function removeInstructorTitle(instructor: string): string {
-  if (!instructor || instructor === 'TBA') return 'TBA'
-
-  return formatInstructors(instructor)
-    .replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
-}
-
 // ========================================
 // Section Compatibility & Selection Logic
 // ========================================
