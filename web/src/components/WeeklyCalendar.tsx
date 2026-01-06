@@ -331,15 +331,11 @@ export default function WeeklyCalendar({
   const handleUndoClick = () => {
     setIsIcsMenuExpanded(false)
 
-    const proceed = confirm(
-      'Upload your previously downloaded .ics file to generate an undo file.\n\n' +
-      'The undo file will cancel all events when re-imported to your calendar.\n\n' +
-      'Click OK to select the file.'
-    )
-
-    if (proceed) {
+    // Trigger file picker directly - confirm dialog breaks "user activation" in some browsers
+    // Use setTimeout to ensure click happens after dropdown closes
+    setTimeout(() => {
       fileInputRef.current?.click()
-    }
+    }, 0)
   }
 
   // Dynamic day detection - show weekends only when courses exist
@@ -404,6 +400,7 @@ export default function WeeklyCalendar({
                   <button
                     className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
                     onClick={handleUndoClick}
+                    title="Upload your previously downloaded .ics file. The modified file will cancel all events when re-imported to your calendar."
                   >
                     <Undo className="w-3.5 h-3.5" />
                     Undo Previous Import
@@ -471,6 +468,7 @@ export default function WeeklyCalendar({
                     <button
                       className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
                       onClick={handleUndoClick}
+                      title="Upload your previously downloaded .ics file. The modified file will cancel all events when re-imported to your calendar."
                     >
                       <Undo className="w-3.5 h-3.5" />
                       Undo Previous Import
