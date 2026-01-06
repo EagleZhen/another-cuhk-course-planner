@@ -350,6 +350,12 @@ export default function WeeklyCalendar({
       event.target.value = '' // Reset input for future uploads
     }
 
+    reader.onerror = () => {
+      console.error('Failed to read file for UNDO file generation:', reader.error)
+      alert('Failed to read the selected file. Please check the file and try again.')
+      event.target.value = ''
+    }
+
     reader.readAsText(file)
   }
 
