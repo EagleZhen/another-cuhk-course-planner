@@ -278,6 +278,18 @@ export default function WeeklyCalendar({
     const file = event.target.files?.[0]
     if (!file) return
 
+    // Confirm before processing
+    const proceed = confirm(
+      'This creates a modified .ics file with STATUS:CANCELLED.\n\n' +
+      'When you re-import the UNDO file to your calendar, all events will be automatically removed.\n\n' +
+      'Proceed to generate the UNDO file?'
+    )
+
+    if (!proceed) {
+      event.target.value = ''
+      return
+    }
+
     const reader = new FileReader()
     reader.onload = (e) => {
       const content = e.target?.result as string
@@ -330,12 +342,7 @@ export default function WeeklyCalendar({
 
   const handleUndoClick = () => {
     setIsIcsMenuExpanded(false)
-
-    // Trigger file picker directly - confirm dialog breaks "user activation" in some browsers
-    // Use setTimeout to ensure click happens after dropdown closes
-    setTimeout(() => {
-      fileInputRef.current?.click()
-    }, 0)
+    fileInputRef.current?.click()
   }
 
   // Dynamic day detection - show weekends only when courses exist
@@ -397,14 +404,18 @@ export default function WeeklyCalendar({
 
               {isIcsMenuExpanded && (
                 <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]">
-                  <button
-                    className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
+                  <div
+                    className="px-3 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
                     onClick={handleUndoClick}
-                    title="Upload your previously downloaded .ics file. The modified file will cancel all events when re-imported to your calendar."
                   >
-                    <Undo className="w-3.5 h-3.5" />
-                    Undo Previous Import
-                  </button>
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <Undo className="w-3.5 h-3.5" />
+                      Undo Previous Import
+                    </div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                      Upload original .ics to cancel events
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -465,14 +476,18 @@ export default function WeeklyCalendar({
 
                 {isIcsMenuExpanded && (
                   <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]">
-                    <button
-                      className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
+                    <div
+                      className="px-3 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
                       onClick={handleUndoClick}
-                      title="Upload your previously downloaded .ics file. The modified file will cancel all events when re-imported to your calendar."
                     >
-                      <Undo className="w-3.5 h-3.5" />
-                      Undo Previous Import
-                    </button>
+                      <div className="flex items-center gap-2 text-sm font-medium">
+                        <Undo className="w-3.5 h-3.5" />
+                        Undo Previous Import
+                      </div>
+                      <div className="text-xs text-gray-500 mt-0.5">
+                        Upload original .ics to cancel events
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
