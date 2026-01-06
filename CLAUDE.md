@@ -305,6 +305,36 @@ All three places use identical exclusion logic:
 - `scripts/publish_course_data.py` - Line 118
 - `web/src/lib/subjects.ts` - Generated output (249 subjects)
 
+### 9. Display Formatting Helpers (Centralized Logic)
+
+**Problem:** Course codes and instructor names need consistent formatting across the app. Cohort prefixes (A, B, etc.) should be shown with course codes, and multiple instructors need proper title formatting.
+
+**Solution in [courseUtils.ts](web/src/lib/courseUtils.ts):**
+```typescript
+// Course code formatting with cohort prefix
+export function formatCourseCodeWithPrefix(subject: string, courseCode: string, sectionCode: string): string
+// Examples: ("CSCI", "3320", "A-LEC") → "CSCI3320A"
+//           ("CSCI", "3320", "--LEC") → "CSCI3320"
+
+export function formatCourseCodeWithSection(subject: string, courseCode: string, sectionCode: string): string
+// Examples: ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
+
+// Multi-instructor formatting
+export function formatInstructorsCompact(instructorString: string): string
+// Example: "Professor Noam NOKED, Professor Steven Brian GALLAGHER"
+//       → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
+```
+
+**Internal Helpers (Not Exported):**
+- `extractSectionType()` - Extracts section type from section code
+- `formatInstructorCompact()` - Formats single instructor ("Professor" → "Prof.")
+
+**Benefits:**
+- ✅ Consistent cohort prefix display across WeeklyCalendar, ShoppingCart, ICS exports
+- ✅ Proper multi-instructor formatting (fixes bug where only first instructor was formatted)
+- ✅ Prevents misuse by hiding single-item helpers (internal only)
+- ✅ Simple string-based signatures work with any data structure
+
 ## Data Scraping Architecture
 
 **Production Scraper ([scripts/cuhk_scraper.py](scripts/cuhk_scraper.py)):**
