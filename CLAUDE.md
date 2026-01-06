@@ -335,6 +335,63 @@ export function formatInstructorsCompact(instructorString: string): string
 - ✅ Prevents misuse by hiding single-item helpers (internal only)
 - ✅ Simple string-based signatures work with any data structure
 
+### 10. ICS Calendar Import Undo (STATUS:CANCELLED Pattern)
+
+**Problem:** Users sometimes import course schedules to the wrong calendar app (Google Calendar, Outlook, Apple Calendar). Standard ICS exports don't provide a way to undo this mistake, requiring manual deletion of each event.
+
+**Solution:** Generate an "undo file" that adds `STATUS:CANCELLED` to all events. When re-imported, calendar apps recognize the CANCELLED status and remove the corresponding events.
+
+**UI Implementation in [WeeklyCalendar.tsx](web/src/components/WeeklyCalendar.tsx):**
+- **Split button pattern** matching instructor toggle button style
+- Left section: Download .ics (main action)
+- Right section: Dropdown with "Undo Previous Import" option
+- Independent hover effects for each section
+
+**User Flow:**
+1. Click dropdown chevron → "Undo Previous Import" menu appears
+2. Click menu item → Instruction dialog with confirm
+3. File picker opens → User uploads original .ics file
+4. Validation checks `PRODID` → Warns if file wasn't from our app (allows proceed)
+5. Auto-download `(UNDO) filename.ics` with modified events
+
+**Processing Logic in [courseUtils.ts](web/src/lib/courseUtils.ts:1322):**
+```typescript
+export function processICSForUndo(content: string): {
+  success: boolean
+  modifiedContent?: string
+  needsWarning?: boolean
+  error?: string
+} {
+  // Validate file origin
+  const isFromOurApp = content.includes('PRODID:Another CUHK Course Planner')
+
+  // Simple string replacement approach (not complex ICS parsing)
+  const modifiedContent = content.replace(
+    /BEGIN:VEVENT/g,
+    'BEGIN:VEVENT\nSTATUS:CANCELLED'
+  )
+
+  return {
+    success: true,
+    modifiedContent,
+    needsWarning: !isFromOurApp  // Warn but allow non-app files
+  }
+}
+```
+
+**Key Design Decisions:**
+- ✅ Simple string replacement vs. complex ICS parsing (more robust)
+- ✅ Warning dialog instead of blocking validation (user choice)
+- ✅ `(UNDO)` filename prefix at front for better visibility
+- ✅ Alert/confirm boxes instead of modal (simpler UX)
+- ✅ Programmatic file input trigger (hidden input element)
+
+**Benefits:**
+- ✅ One-click undo for mistaken calendar imports
+- ✅ Works with any calendar app supporting ICS standard (RFC 5545)
+- ✅ Validates file origin but allows flexibility for edge cases
+- ✅ Consistent UI pattern across calendar export features
+
 ## Data Scraping Architecture
 
 **Production Scraper ([scripts/cuhk_scraper.py](scripts/cuhk_scraper.py)):**
