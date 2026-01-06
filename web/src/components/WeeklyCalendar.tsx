@@ -400,7 +400,7 @@ export default function WeeklyCalendar({
               </div>
 
               {isIcsMenuExpanded && (
-                <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]">
                   <button
                     className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
                     onClick={handleUndoClick}
@@ -467,7 +467,7 @@ export default function WeeklyCalendar({
                 </div>
 
                 {isIcsMenuExpanded && (
-                  <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]">
                     <button
                       className="w-full px-3 py-2 text-sm text-left hover:bg-gray-100 transition-colors cursor-pointer flex items-center gap-2"
                       onClick={handleUndoClick}
