@@ -406,46 +406,48 @@ export default function WeeklyCalendar({
             <div className="relative">
               <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
                 {/* Left: Download .ics */}
-                <button
+                <Button
+                  variant="ghost"
                   onClick={handleExportCalendar}
-                  className="flex items-center gap-1 px-2 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="gap-1 !px-1.5 h-full hover:bg-gray-100 rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
                   <Download className="w-4 h-4" />
                   .ics
-                </button>
+                </Button>
 
                 {/* Separator */}
                 <div className="h-4 w-px bg-gray-300" />
 
                 {/* Right: Expand menu */}
-                <button
+                <Button
+                  variant="ghost"
                   onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                  className="flex items-center justify-center px-1.5 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                  className="!px-1 h-full hover:bg-gray-100 rounded-none"
                   title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
                   aria-expanded={isIcsMenuExpanded}
                   aria-haspopup="true"
                   aria-label="ICS file options"
                 >
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
-                </button>
+                </Button>
               </div>
 
               {isIcsMenuExpanded && (
                 <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]" role="menu" aria-label="ICS file options menu">
-                  <div
-                    className="px-3 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
+                  <Button
+                    variant="ghost"
                     onClick={handleUndoClick}
-                    role="menuitem"
+                    className="w-full justify-start h-auto flex-col items-start gap-0.5"
                   >
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <Undo className="w-3.5 h-3.5" />
                       Undo Previous Import
                     </div>
-                    <div className="text-xs text-gray-500 mt-0.5">
+                    <div className="text-xs text-gray-500">
                       Upload original .ics to cancel events
                     </div>
-                  </div>
+                  </Button>
                 </div>
               )}
             </div>
@@ -482,46 +484,48 @@ export default function WeeklyCalendar({
               <div className="relative flex-shrink-0">
                 <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
                   {/* Left: Download .ics */}
-                  <button
+                  <Button
+                    variant="ghost"
                     onClick={handleExportCalendar}
-                    className="flex items-center gap-1 px-2 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                    className="gap-1 !px-1.5 h-full hover:bg-gray-100 rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
                     <Download className="w-4 h-4" />
                     <span className="hidden xs:inline">.ics</span>
-                  </button>
+                  </Button>
 
                   {/* Separator */}
                   <div className="h-4 w-px bg-gray-300" />
 
                   {/* Right: Expand menu */}
-                  <button
+                  <Button
+                    variant="ghost"
                     onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                    className="flex items-center justify-center px-1.5 h-full hover:bg-gray-100 transition-colors cursor-pointer"
+                    className="!px-1 h-full hover:bg-gray-100 rounded-none"
                     title={isIcsMenuExpanded ? "Hide options" : "Show more options"}
                     aria-expanded={isIcsMenuExpanded}
                     aria-haspopup="true"
                     aria-label="ICS file options"
                   >
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`} />
-                  </button>
+                  </Button>
                 </div>
 
                 {isIcsMenuExpanded && (
                   <div className="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-200 rounded-md shadow-lg z-[60]" role="menu" aria-label="ICS file options menu">
-                    <div
-                      className="px-3 py-2 cursor-pointer hover:bg-gray-50 transition-colors"
+                    <Button
+                      variant="ghost"
                       onClick={handleUndoClick}
-                      role="menuitem"
+                      className="w-full justify-start h-auto flex-col items-start gap-0.5"
                     >
                       <div className="flex items-center gap-2 text-sm font-medium">
                         <Undo className="w-3.5 h-3.5" />
                         Undo Previous Import
                       </div>
-                      <div className="text-xs text-gray-500 mt-0.5">
+                      <div className="text-xs text-gray-500">
                         Upload original .ics to cancel events
                       </div>
-                    </div>
+                    </Button>
                   </div>
                 )}
               </div>
