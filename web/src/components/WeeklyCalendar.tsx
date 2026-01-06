@@ -247,6 +247,18 @@ export default function WeeklyCalendar({
       return
     }
 
+    // Confirm and provide import instructions
+    const proceed = confirm(
+      '💡 How to use the .ics file:\n\n' +
+      '1. Create a NEW calendar in your calendar app (Google Calendar, Outlook, etc.)\n' +
+      '2. Import the downloaded .ics file to that NEW calendar in the settings of that app\n\n' +
+      'This keeps your course schedule separate and easier to manage.\n\n' +
+      'P.S. If you imported to the wrong calendar, use the dropdown menu (▼) → "Undo Previous Import" to cancel all events.\n\n' +
+      'Proceed to download the .ics file?'
+    )
+
+    if (!proceed) return
+
     const result = generateICSCalendar(courseEnrollments, selectedTerm)
 
     if (result.error) {
