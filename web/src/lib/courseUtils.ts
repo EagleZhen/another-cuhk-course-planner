@@ -1194,6 +1194,10 @@ export function createICSEventsForMeeting(
     const prefixPart = prefix ? `${prefix}-` : ''
     const uid = `${course.subject}${course.courseCode}-${prefixPart}${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
 
+    // Create succinct title with cohort prefix if exists
+    // Example: "CSCI3320A LEC" (with prefix) or "CSCI3320 LEC" (without prefix)
+    const courseWithPrefix = prefix ? `${course.subject}${course.courseCode}${prefix}` : `${course.subject}${course.courseCode}`
+
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
     const endUTC = convertToHongKongUTC(date, timeRange.endHour, timeRange.endMinute)
@@ -1217,7 +1221,7 @@ export function createICSEventsForMeeting(
 
     return {
       uid,
-      title: `${course.subject}${course.courseCode} ${section.sectionType}`,
+      title: `${courseWithPrefix} ${section.sectionType}`,
       description,
       location: meeting.location,
       start,
