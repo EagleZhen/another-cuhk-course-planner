@@ -253,7 +253,7 @@ export default function WeeklyCalendar({
       '1. Create a NEW calendar in your calendar app (Google Calendar, Outlook, etc.).\n' +
       '2. Import the downloaded .ics file to that NEW calendar\n\n' +
       'This keeps your course schedule separate and easier to manage.\n\n' +
-      'P.S. If you imported to the wrong calendar, use the dropdown menu (▼) → "Undo Previous Import" to cancel all events.\n\n' +
+      'P.S. If you imported to the wrong calendar, use the dropdown menu (⌄) → "Undo Previous Import" to cancel all events.\n\n' +
       'Click OK to proceed with the export.'
     )
 
@@ -299,9 +299,9 @@ export default function WeeklyCalendar({
 
     // Confirm before processing
     const proceed = confirm(
-      'This will create a modified .ics file with "STATUS:CANCELLED" for all the events in the original .ics file.\n\n' +
-      'When you re-import the UNDO file to your calendar, all events will be automatically removed.\n\n' +
-      'Proceed to generate the UNDO file?'
+      'This will modifiy the selected .ics file, which adds "STATUS:CANCELLED" to each of the calendar events in the file.\n\n' +
+      'When you re-import the UNDO .ics file to your calendar, all events will be automatically removed, essentially undoing the previous import.\n\n' +
+      'Click OK to generate the UNDO file.'
     )
 
     if (!proceed) {
