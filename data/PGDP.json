@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-06T09:57:05.105423+00:00",
+    "scraped_at": "2026-01-07T13:57:54.844703+00:00",
     "subject": "PGDP",
     "subject_title": "PgD Education (Primary)",
     "total_courses": 68,
@@ -2482,7 +2482,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "16",
+                "waitlist_total": "15",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2641,7 +2641,7 @@
                 "capacity": "70",
                 "enrolled": "66",
                 "waitlist_capacity": "99",
-                "waitlist_total": "13",
+                "waitlist_total": "11",
                 "available_seats": "4",
                 "status": "Open"
               },
@@ -2729,10 +2729,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "57",
+                "enrolled": "56",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": ""
@@ -2817,7 +2817,7 @@
                 "capacity": "70",
                 "enrolled": "65",
                 "waitlist_capacity": "99",
-                "waitlist_total": "30",
+                "waitlist_total": "29",
                 "available_seats": "5",
                 "status": "Open"
               },
@@ -2977,10 +2977,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "57",
+                "enrolled": "56",
                 "waitlist_capacity": "99",
                 "waitlist_total": "1",
-                "available_seats": "13",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": ""
@@ -3144,7 +3144,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "99",
-                "waitlist_total": "15",
+                "waitlist_total": "11",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3288,7 +3288,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "99",
-                "waitlist_total": "18",
+                "waitlist_total": "17",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3614,10 +3614,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "39",
+                "enrolled": "37",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "33",
                 "status": "Open"
               },
               "class_attributes": ""
@@ -3782,10 +3782,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "53",
+                "enrolled": "55",
                 "waitlist_capacity": "99",
-                "waitlist_total": "15",
-                "available_seats": "47",
+                "waitlist_total": "12",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": ""
@@ -3839,7 +3839,34 @@
       "course_code": "5901",
       "title": "Teaching Practicum",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9766)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": ""
+            }
+          ]
+        }
+      ],
       "description": "Teaching Practicum (TP) is an integral part of the Postgraduate Diploma in Education (Primary) Programme. It provides opportunities for students to put theory into classroom practice. In order to support students’ professional development, practicum supervision will be conducted by the Faculty’s TP supervisors during the TP period. TP supervisors will assess students through formative and summative assessment, taking into consideration students’ teaching performance as well as their professional behaviour and attitude.\n\n(Individual course teachers may update the grade descriptors as and whenever necessary. Please refer to the course outline of the respective teachers for details.)",
       "enrollment_requirement": "For PGDP students only",
       "course_attributes": "Cantonese only",

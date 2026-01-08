@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-06T07:25:03.471306+00:00",
+    "scraped_at": "2026-01-07T11:15:57.438583+00:00",
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
     "total_courses": 132,
@@ -177,10 +177,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "19",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -215,10 +215,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "19",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -331,10 +331,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "46",
+                "enrolled": "48",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -363,10 +363,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "46",
+                "enrolled": "48",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -452,10 +452,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "44",
+                "enrolled": "46",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -484,10 +484,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "44",
+                "enrolled": "46",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5686,7 +5686,96 @@
       "course_code": "4400",
       "title": "Kinetic Energy Harvesting Devices and Systems",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9874)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 401",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9875)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LIAO Wei Hsin",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "In this course, we will discuss kinetic energy harvesting devices and systems, from basic mechanisms to applications. The first half semester of this course will start with talking about the fundaments of kinetic energy harvesting, including mechanisms of electromagnetic, piezoelectric, triboelectric, electrostatic, and others. And then it will cover basic device designs and energy transfer; physics and circuit models; electromechanical modeling and analysis; simulation methods and practice; and interfacing circuits. The second half semester will cover the applications of kinetic energy harvesting in various situations, including power plants, wind turbine, vibrations, hydro system, ocean waves, body motions and others, and ends with discussions on kinetic energy harvesting technology in the future. The evaluation will be based on final project, midterm exam, homework, lab report, and participation in class.",
       "enrollment_requirement": "Not for students who have taken ENER4010 or EEEN4010. Pre-requisite: MAEG3030 or with the consent of the course instructor.",
       "course_attributes": "",
