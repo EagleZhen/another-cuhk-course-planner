@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-07T15:20:03.085218+00:00",
+    "scraped_at": "2026-01-09T09:35:33.107292+00:00",
     "subject": "UGEB",
     "subject_title": "Nature, Science and Technology",
     "total_courses": 58,
@@ -681,10 +681,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "45",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "54",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -752,10 +752,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -772,10 +772,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -2176,50 +2176,6 @@
               "class_attributes": "Cantonese only"
             }
           ]
-        },
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "B-LEC (5830)",
-              "meetings": [
-                {
-                  "time": "Fr 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 401",
-                  "instructor": "Dr. CHEUNG Yu San",
-                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
-                },
-                {
-                  "time": "Fr 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 401",
-                  "instructor": "Dr. CHEUNG Yu San",
-                  "dates": "27/2"
-                },
-                {
-                  "time": "Fr 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 401",
-                  "instructor": "Dr. CHEUNG Yu San",
-                  "dates": "13/3, 20/3, 27/3"
-                },
-                {
-                  "time": "Fr 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 401",
-                  "instructor": "Dr. CHEUNG Yu San",
-                  "dates": "10/4, 17/4"
-                }
-              ],
-              "availability": {
-                "capacity": "40",
-                "enrolled": "8",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "32",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only"
-            }
-          ]
         }
       ],
       "description": "The course is designed to illustrate the basic principles of chemistry (e.g., atomic structure, chemical bonding, molecular properties, etc.) via case studies of some celebrated accidental discoveries (and wild claims) in science. Topics include nuclei, atoms, small molecules, radioactivity, polymers, and analytical methods in chemistry. Real-life applications and trivia are also covered.",
@@ -2370,46 +2326,7 @@
       "course_code": "2381",
       "title": "Chemistry for a Sustainable Future",
       "credits": "2.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "A-LEC (7161)",
-              "meetings": [
-                {
-                  "time": "Th 10:30AM - 12:15PM",
-                  "location": "Y.C. Liang Hall G04",
-                  "instructor": "Dr. CHAN Ka Long Donald",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
-                },
-                {
-                  "time": "Th 10:30AM - 12:15PM",
-                  "location": "Y.C. Liang Hall G04",
-                  "instructor": "Dr. CHAN Ka Long Donald",
-                  "dates": "26/2"
-                },
-                {
-                  "time": "Th 10:30AM - 12:15PM",
-                  "location": "Y.C. Liang Hall G04",
-                  "instructor": "Dr. CHAN Ka Long Donald",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "4",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "46",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "Chemical pollution has a substantial impact on human health and well-being. At the same time, the global demand for energy and natural resources is growing, leading to more pollution or even climate changes. In order to integrate environmental sustainability with economic growth, it is important to develop clean energy research technology, environmentally sound industrial processes and sustainable production patterns.\n\nThis course is designed for students with minimal background in chemistry to acquire chemical knowledge related to sustainable development. It introduces the basic concepts of chemistry that are essential for students to understand the scientific aspects of environmental and human health challenges such as pollution and energy crisis. This course also discusses the principles of green chemistry and explain how they are applied to real-life technologies to create a sustainable future for the world.",
       "enrollment_requirement": "Not for CHEM,ENSC Majors; NSCI concentration in Analytical & Testing Sciences; Chemical Sciences; or Environmental Studies; students who have taken CHEM2382, UGEB2370,2380,2410,2420 or 2440\nCo-requisite:Courses with course code prefix as \"UGFH\" or \"UGFN\"",
       "course_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #7 Affordable and Clean Energy\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #12 Responsible Consumption and Production\nSDG-GE #13 Climate Action",
@@ -2526,52 +2443,7 @@
       "course_code": "2410",
       "title": "Chemistry in Action",
       "credits": "2.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (5832)",
-              "meetings": [
-                {
-                  "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Dr. MAK Kin Wah",
-                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
-                },
-                {
-                  "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Dr. MAK Kin Wah",
-                  "dates": "23/2"
-                },
-                {
-                  "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Dr. MAK Kin Wah",
-                  "dates": "9/3, 16/3, 23/3, 30/3"
-                },
-                {
-                  "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
-                  "instructor": "Dr. MAK Kin Wah",
-                  "dates": "13/4"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "10",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course is designed for students with minimal background in Chemistry to acquire some general chemical knowledge related to our daily lives. The main objective is to acquaint students with some scientific background knowledge in chemistry. Students will be able to read about science and technology with some degree of critical judgment. This knowledge is essential for students to solve some problems in daily lives, such as to choose the right products and to compare the risk and benefits in some cases. This course will emphasize practical applications of chemistry to problems solving such as environmental pollution, energy resources, and human health. Some demonstrations will be carried out during classes.",
       "enrollment_requirement": "Not for stud major in prog by Fac of MED;not for Chem;students in the con. areas of NatSciProg: AnaTestSci;or ChemSci; students taken CHEM2382,UGEB2370,2380,2420or2440.Co-requisite:UGFH1000,UGFN1000or1001(only applicable to stud admitted to 4year curri)",
       "course_attributes": "",
@@ -3999,10 +3871,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "99",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
