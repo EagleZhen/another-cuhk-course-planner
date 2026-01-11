@@ -335,7 +335,117 @@ export function formatInstructorsCompact(instructorString: string): string
 - ✅ Prevents misuse by hiding single-item helpers (internal only)
 - ✅ Simple string-based signatures work with any data structure
 
-### 10. ICS Calendar Import Undo (STATUS:CANCELLED Pattern)
+### 10. Mobile Notice Image Loading Priority & Versioning
+
+**Problem:** Mobile users see a desktop preview notice with image (~100KB), but course data loading (200+ JSON files, ~50MB) starts simultaneously, causing the small image to compete for bandwidth and load slowly. Need ability to re-show notice for promotion campaigns.
+
+**Solution:** Event-based coordination between `MobileDesktopNotice` and `CourseSearch` to delay heavy data loading until preview image is ready, with versioning system for controlled re-display.
+
+**Centralized Configuration ([lib/constants.ts](web/src/lib/constants.ts)):**
+```typescript
+// Single source of truth - change version here to re-show notice to all users
+export const MOBILE_BREAKPOINT = 768
+export const NOTICE_STORAGE_KEY = 'desktop-notice-version'
+export const NOTICE_VERSION = '1'  // Bump to '2', '3', etc. for re-showing
+export const NOTICE_IMAGE_LOADED_EVENT = 'mobile-notice-image-loaded'
+```
+
+**Detection Logic ([MobileDesktopNotice.tsx](web/src/components/MobileDesktopNotice.tsx)):**
+```typescript
+import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
+
+useEffect(() => {
+  const isMobile = window.innerWidth < MOBILE_BREAKPOINT
+  const seenVersion = localStorage.getItem(NOTICE_STORAGE_KEY)
+
+  // Cleanup old localStorage key (migration)
+  localStorage.removeItem('desktop-notice-seen')
+
+  if (isMobile && seenVersion !== NOTICE_VERSION) {
+    setShowNotice(true)
+  }
+}, [])
+```
+
+**Event Dispatch - Three Trigger Points:**
+```typescript
+// 1. Image loads successfully
+onLoad={() => {
+  setImageLoaded(true)
+  window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
+}}
+
+// 2. Image fails to load
+onError={() => {
+  console.error('Preview image failed to load')
+  window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
+}}
+
+// 3. User dismisses before image loads
+const dismissNotice = () => {
+  localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
+  setShowNotice(false)
+  window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
+}
+```
+
+**Event Listener ([CourseSearch.tsx](web/src/components/CourseSearch.tsx)):**
+```typescript
+import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
+
+const isMobile = window.innerWidth < MOBILE_BREAKPOINT
+const seenVersion = localStorage.getItem(NOTICE_STORAGE_KEY)
+const shouldWaitForImage = isMobile && seenVersion !== NOTICE_VERSION
+
+if (shouldWaitForImage) {
+  const handleImageLoaded = () => loadCourseData()
+  window.addEventListener(NOTICE_IMAGE_LOADED_EVENT, handleImageLoaded, { once: true })
+
+  return () => {
+    window.removeEventListener(NOTICE_IMAGE_LOADED_EVENT, handleImageLoaded)
+  }
+} else {
+  loadCourseData()  // Desktop or returning users
+}
+```
+
+**Re-showing Notice for Promotion:**
+```typescript
+// In lib/constants.ts - change this line:
+export const NOTICE_VERSION = '2'  // All mobile users will see notice again
+```
+
+**Key Design Decisions:**
+- ✅ **Centralized constants** - Single source of truth in `lib/constants.ts` prevents sync issues
+- ✅ **String versioning** - Avoids type coercion issues with localStorage (stores '1', not 1)
+- ✅ **Window events** for cross-component coordination (components are cousins, not parent-child)
+- ✅ **`{ once: true }` flag** - Auto-removes listener after first event (handles multiple dispatch sources)
+- ✅ **Three dispatch points** - Ensures data never gets blocked (image success, failure, or early dismissal)
+- ✅ **Bidirectional comments** - Document event source/listener locations (events create hidden dependencies)
+- ✅ **Old key cleanup** - Removes legacy `desktop-notice-seen` key on mount
+
+**Use Case - Promotion Workflow:**
+1. Post on Threads/social media (mobile traffic expected)
+2. Bump `NOTICE_VERSION` from '1' to '2' in `lib/constants.ts`
+3. Deploy
+4. All mobile users (old + new) see notice again
+5. They dismiss → stores version '2'
+
+**Trade-offs:**
+- ⚠️ Event system adds complexity vs simple timeout approach
+- ⚠️ Hidden coupling via event name (mitigated by constants + comments)
+- ⚠️ Multiple event dispatches (harmless due to `once: true` but can confuse reviewers)
+- ✅ Guarantees image loads before data (vs timeout which is best-effort)
+- ✅ Version control enables strategic re-showing without annoying users
+
+**Benefits:**
+- ✅ Mobile first-time users see preview image immediately without competing requests
+- ✅ Data loads as soon as image is ready (not arbitrary timeout)
+- ✅ Proper error handling prevents blocking on image failure
+- ✅ Controlled re-display for marketing campaigns
+- ✅ Single-file version bump (maintainable)
+
+### 11. ICS Calendar Import Undo (STATUS:CANCELLED Pattern)
 
 **Problem:** Users sometimes import course schedules to the wrong calendar app (Google Calendar, Outlook, Apple Calendar). Standard ICS exports don't provide a way to undo this mistake, requiring manual deletion of each event.
 

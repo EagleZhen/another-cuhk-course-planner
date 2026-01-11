@@ -3,26 +3,30 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Monitor } from 'lucide-react'
+import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
 
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
-    // Check if user is on mobile and hasn't seen the notice
-    const isMobile = window.innerWidth < 768
-    const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
+    // Check if user is on mobile and hasn't seen this version
+    const isMobile = window.innerWidth < MOBILE_BREAKPOINT
+    const seenVersion = localStorage.getItem(NOTICE_STORAGE_KEY)
 
-    if (isMobile && !hasSeenNotice) {
+    // Cleanup old localStorage key
+    localStorage.removeItem('desktop-notice-seen')
+
+    if (isMobile && seenVersion !== NOTICE_VERSION) {
       setShowNotice(true)
     }
   }, [])
 
   const dismissNotice = () => {
-    localStorage.setItem('desktop-notice-seen', 'true')
+    localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
     setShowNotice(false)
     // Ensure event fires even if image hasn't loaded yet (prevents blocking data load)
-    window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+    window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
   }
 
   if (!showNotice) return null
@@ -71,12 +75,12 @@ export default function MobileDesktopNotice() {
                 setImageLoaded(true)
                 // Dispatch event to signal image is ready
                 // Listened by: CourseSearch.tsx (delays data loading until image loads)
-                window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+                window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
               }}
               onError={() => {
                 console.error('Preview image failed to load')
                 // Still dispatch event to prevent blocking data load
-                window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+                window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
               }}
               priority
             />
