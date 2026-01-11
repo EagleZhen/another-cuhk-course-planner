@@ -65,7 +65,10 @@ export default function MobileDesktopNotice() {
               className={`object-cover transition-opacity duration-300 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
-              onLoad={() => setImageLoaded(true)}
+              onLoad={() => {
+                setImageLoaded(true)
+                window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+              }}
               priority
             />
           </div>

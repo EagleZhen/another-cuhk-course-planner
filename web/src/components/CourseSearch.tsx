@@ -433,16 +433,23 @@ export default function CourseSearch({
       }
     }
 
-    // Check if mobile notice is showing - if so, delay to prioritize image loading
+    // Check if mobile notice is showing - if so, wait for image to load first
     const isMobile = window.innerWidth < 768
     const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
-    const shouldDelayForNotice = isMobile && !hasSeenNotice
+    const shouldWaitForImage = isMobile && !hasSeenNotice
 
-    if (shouldDelayForNotice) {
-      // Mobile notice is showing - delay 500ms to let preview image load first
-      setTimeout(() => {
+    if (shouldWaitForImage) {
+      // Mobile notice is showing - wait for image load event
+      const handleImageLoaded = () => {
         loadCourseData()
-      }, 500)
+      }
+
+      window.addEventListener('mobile-notice-image-loaded', handleImageLoaded, { once: true })
+
+      // Cleanup listener if component unmounts before event fires
+      return () => {
+        window.removeEventListener('mobile-notice-image-loaded', handleImageLoaded)
+      }
     } else {
       loadCourseData()
     }
