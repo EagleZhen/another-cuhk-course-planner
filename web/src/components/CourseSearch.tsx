@@ -433,7 +433,19 @@ export default function CourseSearch({
       }
     }
 
-    loadCourseData()
+    // Check if mobile notice is showing - if so, delay to prioritize image loading
+    const isMobile = window.innerWidth < 768
+    const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
+    const shouldDelayForNotice = isMobile && !hasSeenNotice
+
+    if (shouldDelayForNotice) {
+      // Mobile notice is showing - delay 500ms to let preview image load first
+      setTimeout(() => {
+        loadCourseData()
+      }, 500)
+    } else {
+      loadCourseData()
+    }
   }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
 
   // Async filtering function for non-blocking computation
