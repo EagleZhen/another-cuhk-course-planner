@@ -21,6 +21,8 @@ export default function MobileDesktopNotice() {
   const dismissNotice = () => {
     localStorage.setItem('desktop-notice-seen', 'true')
     setShowNotice(false)
+    // Ensure event fires even if image hasn't loaded yet (prevents blocking data load)
+    window.dispatchEvent(new Event('mobile-notice-image-loaded'))
   }
 
   if (!showNotice) return null
@@ -65,7 +67,17 @@ export default function MobileDesktopNotice() {
               className={`object-cover transition-opacity duration-300 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
-              onLoad={() => setImageLoaded(true)}
+              onLoad={() => {
+                setImageLoaded(true)
+                // Dispatch event to signal image is ready
+                // Listened by: CourseSearch.tsx (delays data loading until image loads)
+                window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+              }}
+              onError={() => {
+                console.error('Preview image failed to load')
+                // Still dispatch event to prevent blocking data load
+                window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+              }}
               priority
             />
           </div>

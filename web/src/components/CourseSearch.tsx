@@ -433,7 +433,27 @@ export default function CourseSearch({
       }
     }
 
-    loadCourseData()
+    // Check if mobile notice is showing - if so, wait for image to load first
+    const isMobile = window.innerWidth < 768
+    const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
+    const shouldWaitForImage = isMobile && !hasSeenNotice
+
+    if (shouldWaitForImage) {
+      // Mobile notice is showing - wait for image load event
+      // Event dispatched by: MobileDesktopNotice.tsx when preview image finishes loading
+      const handleImageLoaded = () => {
+        loadCourseData()
+      }
+
+      window.addEventListener('mobile-notice-image-loaded', handleImageLoaded, { once: true })
+
+      // Cleanup listener if component unmounts before event fires
+      return () => {
+        window.removeEventListener('mobile-notice-image-loaded', handleImageLoaded)
+      }
+    } else {
+      loadCourseData()
+    }
   }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
 
   // Async filtering function for non-blocking computation
