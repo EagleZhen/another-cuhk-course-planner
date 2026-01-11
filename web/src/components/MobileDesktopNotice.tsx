@@ -4,22 +4,25 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Monitor } from 'lucide-react'
 
+// Version for notice - bump this when you want to re-show to all users
+const NOTICE_VERSION = '1'
+
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
-    // Check if user is on mobile and hasn't seen the notice
+    // Check if user is on mobile and hasn't seen this version
     const isMobile = window.innerWidth < 768
-    const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
+    const seenVersion = localStorage.getItem('desktop-notice-version')
 
-    if (isMobile && !hasSeenNotice) {
+    if (isMobile && seenVersion !== NOTICE_VERSION) {
       setShowNotice(true)
     }
   }, [])
 
   const dismissNotice = () => {
-    localStorage.setItem('desktop-notice-seen', 'true')
+    localStorage.setItem('desktop-notice-version', NOTICE_VERSION)
     setShowNotice(false)
     // Ensure event fires even if image hasn't loaded yet (prevents blocking data load)
     window.dispatchEvent(new Event('mobile-notice-image-loaded'))

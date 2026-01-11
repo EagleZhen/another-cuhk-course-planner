@@ -16,6 +16,8 @@ import { getAllSubjectCodes } from '@/lib/subjects'
 
 // Using clean internal types only
 
+// Mobile notice version - MUST match MobileDesktopNotice.tsx
+const NOTICE_VERSION = '1'
 
 interface CourseSearchProps {
   onAddCourse: (course: InternalCourse, termName: string, localSelections: Map<string, string>) => void
@@ -435,8 +437,8 @@ export default function CourseSearch({
 
     // Check if mobile notice is showing - if so, wait for image to load first
     const isMobile = window.innerWidth < 768
-    const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
-    const shouldWaitForImage = isMobile && !hasSeenNotice
+    const seenVersion = localStorage.getItem('desktop-notice-version')
+    const shouldWaitForImage = isMobile && seenVersion !== NOTICE_VERSION
 
     if (shouldWaitForImage) {
       // Mobile notice is showing - wait for image load event
