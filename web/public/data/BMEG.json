@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-09T03:04:10.795579+00:00",
+    "scraped_at": "2026-01-10T17:16:52.167142+00:00",
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
     "total_courses": 59,
@@ -1850,6 +1850,26 @@
           "term_code": "2390",
           "term_name": "2025-26 Term 2",
           "schedule": [
+            {
+              "section": "-T01-TUT (9889)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Sadia SHAKIL",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
             {
               "section": "AT01-TUT (6356)",
               "meetings": [
@@ -4668,10 +4688,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "37",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4726,10 +4746,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "31",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4849,10 +4869,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "49",
+                "enrolled": "46",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
