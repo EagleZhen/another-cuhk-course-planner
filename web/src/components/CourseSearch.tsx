@@ -13,11 +13,9 @@ import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getAllSubjectCodes } from '@/lib/subjects'
+import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
 
 // Using clean internal types only
-
-// Mobile notice version - MUST match MobileDesktopNotice.tsx
-const NOTICE_VERSION = '1'
 
 interface CourseSearchProps {
   onAddCourse: (course: InternalCourse, termName: string, localSelections: Map<string, string>) => void
@@ -436,8 +434,8 @@ export default function CourseSearch({
     }
 
     // Check if mobile notice is showing - if so, wait for image to load first
-    const isMobile = window.innerWidth < 768
-    const seenVersion = localStorage.getItem('desktop-notice-version')
+    const isMobile = window.innerWidth < MOBILE_BREAKPOINT
+    const seenVersion = localStorage.getItem(NOTICE_STORAGE_KEY)
     const shouldWaitForImage = isMobile && seenVersion !== NOTICE_VERSION
 
     if (shouldWaitForImage) {
@@ -447,11 +445,11 @@ export default function CourseSearch({
         loadCourseData()
       }
 
-      window.addEventListener('mobile-notice-image-loaded', handleImageLoaded, { once: true })
+      window.addEventListener(NOTICE_IMAGE_LOADED_EVENT, handleImageLoaded, { once: true })
 
       // Cleanup listener if component unmounts before event fires
       return () => {
-        window.removeEventListener('mobile-notice-image-loaded', handleImageLoaded)
+        window.removeEventListener(NOTICE_IMAGE_LOADED_EVENT, handleImageLoaded)
       }
     } else {
       loadCourseData()
