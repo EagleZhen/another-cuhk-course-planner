@@ -67,6 +67,8 @@ export default function MobileDesktopNotice() {
               }`}
               onLoad={() => {
                 setImageLoaded(true)
+                // Dispatch event to signal image is ready
+                // Listened by: CourseSearch.tsx (delays data loading until image loads)
                 window.dispatchEvent(new Event('mobile-notice-image-loaded'))
               }}
               priority

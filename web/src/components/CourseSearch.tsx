@@ -440,6 +440,7 @@ export default function CourseSearch({
 
     if (shouldWaitForImage) {
       // Mobile notice is showing - wait for image load event
+      // Event dispatched by: MobileDesktopNotice.tsx when preview image finishes loading
       const handleImageLoaded = () => {
         loadCourseData()
       }
