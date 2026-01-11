@@ -335,7 +335,84 @@ export function formatInstructorsCompact(instructorString: string): string
 - ✅ Prevents misuse by hiding single-item helpers (internal only)
 - ✅ Simple string-based signatures work with any data structure
 
-### 10. ICS Calendar Import Undo (STATUS:CANCELLED Pattern)
+### 10. Mobile Notice Image Loading Priority
+
+**Problem:** Mobile users see a desktop preview notice with image (~100KB), but course data loading (200+ JSON files, ~50MB) starts simultaneously, causing the small image to compete for bandwidth and load slowly.
+
+**Solution:** Event-based coordination between `MobileDesktopNotice` and `CourseSearch` to delay heavy data loading until preview image is ready.
+
+**Implementation:**
+
+**Detection Logic (both components):**
+```typescript
+const isMobile = window.innerWidth < 768  // Tailwind md breakpoint
+const hasSeenNotice = localStorage.getItem('desktop-notice-seen')
+const shouldShowNotice = isMobile && !hasSeenNotice
+```
+
+**Event Dispatch ([MobileDesktopNotice.tsx](web/src/components/MobileDesktopNotice.tsx)):**
+```typescript
+// Three trigger points ensure data never gets blocked:
+
+// 1. Image loads successfully
+onLoad={() => {
+  setImageLoaded(true)
+  window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+}}
+
+// 2. Image fails to load
+onError={() => {
+  console.error('Preview image failed to load')
+  window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+}}
+
+// 3. User dismisses before image loads
+const dismissNotice = () => {
+  localStorage.setItem('desktop-notice-seen', 'true')
+  setShowNotice(false)
+  window.dispatchEvent(new Event('mobile-notice-image-loaded'))
+}
+```
+
+**Event Listener ([CourseSearch.tsx](web/src/components/CourseSearch.tsx:441-456)):**
+```typescript
+const shouldWaitForImage = isMobile && !hasSeenNotice
+
+if (shouldWaitForImage) {
+  // Event dispatched by: MobileDesktopNotice.tsx when preview image finishes loading
+  const handleImageLoaded = () => loadCourseData()
+
+  window.addEventListener('mobile-notice-image-loaded', handleImageLoaded, { once: true })
+
+  // Cleanup listener if component unmounts before event fires
+  return () => {
+    window.removeEventListener('mobile-notice-image-loaded', handleImageLoaded)
+  }
+} else {
+  // Desktop or returning mobile users - load immediately
+  loadCourseData()
+}
+```
+
+**Key Design Decisions:**
+- ✅ Window events for cross-component coordination (components are cousins in tree, not parent-child)
+- ✅ `{ once: true }` flag auto-removes listener after first event (handles multiple dispatch sources)
+- ✅ Three dispatch points ensure data never gets blocked (image success, failure, or early dismissal)
+- ✅ Bidirectional comments document event source/listener locations (events create hidden dependencies)
+- ✅ Only affects first-time mobile users (desktop + returning mobile users load immediately)
+
+**Trade-offs:**
+- ⚠️ Event system adds complexity vs simple timeout approach
+- ⚠️ Hidden coupling via magic string `'mobile-notice-image-loaded'` (documented in comments)
+- ⚠️ Multiple event dispatches (harmless due to `once: true` but can confuse reviewers)
+- ✅ Guarantees image loads before data (vs timeout which is best-effort)
+
+**Benefits:**
+- ✅ Mobile first-time users see preview image immediately without competing requests
+- ✅ Data loads as soon as image is ready (not arbitrary timeout)
+- ✅ Proper error handling prevents blocking on image failure
+
+### 11. ICS Calendar Import Undo (STATUS:CANCELLED Pattern)
 
 **Problem:** Users sometimes import course schedules to the wrong calendar app (Google Calendar, Outlook, Apple Calendar). Standard ICS exports don't provide a way to undo this mistake, requiring manual deletion of each event.
 
