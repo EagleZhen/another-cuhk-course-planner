@@ -14,6 +14,9 @@ export default function MobileDesktopNotice() {
     const isMobile = window.innerWidth < MOBILE_BREAKPOINT
     const seenVersion = localStorage.getItem(NOTICE_STORAGE_KEY)
 
+    // Cleanup old localStorage key
+    localStorage.removeItem('desktop-notice-seen')
+
     if (isMobile && seenVersion !== NOTICE_VERSION) {
       setShowNotice(true)
     }
