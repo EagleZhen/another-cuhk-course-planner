@@ -31,6 +31,7 @@ interface CourseSearchProps {
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
+  lastDataUpdate?: Date | null // Last data sync timestamp
 }
 
 export default function CourseSearch({
@@ -46,7 +47,8 @@ export default function CourseSearch({
   onSearchControlReady,
   onDataUpdate,
   selectedSubjects = new Set(),
-  onAvailableSubjectsUpdate
+  onAvailableSubjectsUpdate,
+  lastDataUpdate
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
@@ -645,6 +647,17 @@ export default function CourseSearch({
                   {Array.from(selectedSubjects).sort().join(', ')}
                 </span>
                 <span>({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})</span>
+              </>
+            )}
+            {lastDataUpdate && (
+              <>
+                <span className="hidden sm:inline">•</span>
+                <div className="flex items-center gap-1 text-[10px] sm:text-xs text-gray-400">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                  <span className="whitespace-nowrap">
+                    Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                  </span>
+                </div>
               </>
             )}
           </div>
