@@ -584,12 +584,13 @@ export default function CourseSearch({
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
         <div className="w-full space-y-2">
           <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
             <Input
               type="text"
               placeholder="Search courses (e.g., UGFH1000, In Dialogue with Nature, YU Bei)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full"
+              className="w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all"
             />
           </div>
           <div className="flex items-center gap-2 flex-wrap text-xs text-gray-600">

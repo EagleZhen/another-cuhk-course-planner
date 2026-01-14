@@ -8,6 +8,7 @@ import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Search } from 'lucide-react'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
@@ -765,13 +766,16 @@ function SubjectFilterControls({
 
         {/* Compact search input */}
         {hasSubjects && (
-          <input
-            type="text"
-            placeholder="Search subjects..."
-            value={subjectSearchTerm}
-            onChange={(e) => onSubjectSearchChange(e.target.value)}
-            className="h-6 px-2 text-xs border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 w-32"
-          />
+          <div className="relative w-32">
+            <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400 pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search subjects..."
+              value={subjectSearchTerm}
+              onChange={(e) => onSubjectSearchChange(e.target.value)}
+              className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-all"
+            />
+          </div>
         )}
       </div>
 
