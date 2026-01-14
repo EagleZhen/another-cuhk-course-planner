@@ -666,6 +666,7 @@ export default function Home() {
               onDataUpdate={handleDataUpdate}         // Data freshness callback
               selectedSubjects={selectedSubjects}     // Subject filter state
               onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
+              lastDataUpdate={lastDataUpdate}         // Last data sync timestamp
               />
             </CardContent>
           </Card>
