@@ -650,18 +650,18 @@ export default function CourseSearch({
               </>
             )}
             {lastDataUpdate && (
-              <>
-                <div className="flex items-center gap-2 w-full sm:w-auto sm:ml-auto">
+              <div className="flex items-center gap-3 md:gap-2 flex-wrap">
+                <div className="flex items-center gap-2">
                   <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
                   <span className="whitespace-nowrap">Check CUSIS for real-time availability</span>
                 </div>
-                <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <div className="w-3 h-3 sm:w-1.5 sm:h-1.5 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 ml-0.5 mr-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
                   <span className="whitespace-nowrap">
                     Last Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                   </span>
                 </div>
-              </>
+              </div>
             )}
           </div>
 
