@@ -592,7 +592,7 @@ export default function CourseSearch({
               className="w-full"
             />
           </div>
-          <div className="flex items-center gap-2 text-xs text-gray-600">
+          <div className="flex items-center gap-2 flex-wrap text-xs text-gray-600">
             <Info className="w-3 h-3" />
             <span>Showing courses available in</span>
             {availableTerms.length > 0 && onTermChange ? (
@@ -650,15 +650,12 @@ export default function CourseSearch({
               </>
             )}
             {lastDataUpdate && (
-              <>
-                <span className="hidden sm:inline">•</span>
-                <div className="flex items-center gap-1 text-[10px] sm:text-xs text-gray-400">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
-                  <span className="whitespace-nowrap">
-                    Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
-                  </span>
-                </div>
-              </>
+              <div className="flex items-center gap-2 w-full sm:w-auto sm:ml-auto">
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                <span className="whitespace-nowrap">
+                  Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                </span>
+              </div>
             )}
           </div>
 
