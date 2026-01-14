@@ -658,7 +658,7 @@ export default function CourseSearch({
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 ml-0.5 mr-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
                   <span className="whitespace-nowrap">
-                    Last Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                    Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}
                   </span>
                 </div>
               </div>
