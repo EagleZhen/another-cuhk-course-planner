@@ -1324,13 +1324,26 @@ function CourseCard({
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
-                    googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode}`)
+                    googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Outline OR 大綱`)
                   }}
-                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[80px] flex-shrink-0"
-                  title={`Search Google for "CUHK ${course.subject} ${course.courseCode}"`}
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                  title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
                 >
                   <Search className="w-3 h-3" />
-                  Google
+                  Outline
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Review OR 評價`)
+                  }}
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                  title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
+                >
+                  <Search className="w-3 h-3" />
+                  Reviews
                 </Button>
                 <Button
                   variant="ghost"
