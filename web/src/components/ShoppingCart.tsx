@@ -214,7 +214,7 @@ export default function ShoppingCart({
           </Badge>
         </div>
         {/* Data freshness indicator - shows actual scraping time */}
-        <div className="text-[10px] text-gray-400 flex items-center gap-1 mt-1">
+        <div className="text-[10px] text-gray-400 flex items-center gap-2 mt-1">
           <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
           {lastDataUpdate ? (
             <span>Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
