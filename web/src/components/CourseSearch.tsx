@@ -1320,31 +1320,31 @@ function CourseCard({
               </CardTitle>
               <div className="flex flex-wrap items-center gap-1">
                 <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
-                }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[100px] flex-shrink-0"
-                title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
-              >
-                <Search className="w-3 h-3" />
-                Course Outline
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
-                }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[100px] flex-shrink-0"
-                title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
-              >
-                <Search className="w-3 h-3" />
-                Course Reviews
-              </Button>
+                  variant="ghost"
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
+                  }}
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                  title={`Search Google for "${course.subject}${course.courseCode}" outline`}
+                >
+                  <Search className="w-3 h-3" />
+                  Outline
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
+                  }}
+                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                  title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
+                >
+                  <Search className="w-3 h-3" />
+                  Reviews
+                </Button>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -1515,26 +1515,26 @@ function CourseCard({
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR Syllabus`)
+                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[100px] flex-shrink-0"
-                title={`Search Google for "${course.subject} ${course.courseCode}" outline`}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                title={`Search Google for "${course.subject}${course.courseCode}" outline`}
               >
                 <Search className="w-3 h-3" />
-                Course Outline
+                Outline
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject} ${course.courseCode} Reviews`)
+                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[100px] flex-shrink-0"
-                title={`Search Google for "${course.subject} ${course.courseCode}" reviews`}
+                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
               >
                 <Search className="w-3 h-3" />
-                Course Reviews
+                Reviews
               </Button>
               <Button
                 variant="ghost"
