@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex } from '@/lib/courseUtils'
+import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
@@ -1398,6 +1398,33 @@ function CourseCard({
                   </Badge>
                 </a>
               )}
+              {/* Seat Availability Badge */}
+              {(() => {
+                const seatInfo = getAggregateSeatInfo(course, currentTerm)
+                if (!seatInfo) return null
+
+                const { available, total } = seatInfo
+                // Create availability object for styling function
+                const availability = {
+                  availableSeats: available,
+                  capacity: total,
+                  status: available === 0 ? 'Closed' as const : 'Open' as const,
+                  enrolled: total - available,
+                  waitlistCapacity: 0,
+                  waitlistTotal: 0
+                }
+                const style = getAvailabilityBadgeStyle(availability)
+
+                return (
+                  <Badge
+                    variant="secondary"
+                    className={`text-xs border ${style.className}`}
+                    title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
+                  >
+                    {available}/{total} Available Seats
+                  </Badge>
+                )
+              })()}
               {/* Show all instructors as filter toggle buttons */}
               {instructors.length > 0 && (
                 <InstructorFilters
@@ -1589,6 +1616,33 @@ function CourseCard({
                   </Badge>
                 </a>
               )}
+              {/* Seat Availability Badge */}
+              {(() => {
+                const seatInfo = getAggregateSeatInfo(course, currentTerm)
+                if (!seatInfo) return null
+
+                const { available, total } = seatInfo
+                // Create availability object for styling function
+                const availability = {
+                  availableSeats: available,
+                  capacity: total,
+                  status: available === 0 ? 'Closed' as const : 'Open' as const,
+                  enrolled: total - available,
+                  waitlistCapacity: 0,
+                  waitlistTotal: 0
+                }
+                const style = getAvailabilityBadgeStyle(availability)
+
+                return (
+                  <Badge
+                    variant="secondary"
+                    className={`text-xs border ${style.className}`}
+                    title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
+                  >
+                    {available}/{total} Available Seats
+                  </Badge>
+                )
+              })()}
               {/* Show instructors as filter toggle buttons on mobile */}
               {instructors.length > 0 && (
                 <InstructorFilters
