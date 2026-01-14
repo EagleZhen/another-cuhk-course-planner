@@ -198,28 +198,21 @@ Uses existing `getAvailabilityBadgeStyle()` function for consistency:
 ### Design Decisions
 
 **Why primary section type only?**
-- Primary section type (usually LEC) is the bottleneck for enrollment
-- If lecture sections have seats, tutorial/lab sections typically have seats too
-- Simplifies the display while providing accurate availability signal
-- Avoids cluttering the card with multiple section type totals
+- Primary section type (first in data, usually LEC) is the enrollment bottleneck
+- If primary sections have seats, other section types (TUT, LAB) typically have seats too
+- Simplifies display while providing accurate availability signal
 
 **Why aggregate total instead of per-section?**
-- Users want to know if the course has seats, not specific section details
-- Collapsed card should show high-level overview
-- Per-section details are available when card is expanded
-- Aggregation answers the key question: "Can I enroll in this course?"
+- Collapsed card shows high-level overview; per-section details appear when expanded
+- Answers the key question: "Can I enroll in this course?"
 
 **Why position with metadata badges?**
-- Semantically correct: seat count is course metadata like credits and grading
-- Doesn't crowd Row 1 (course code + search buttons + action buttons)
-- Natural grouping with other course properties
-- Consistent visual hierarchy
+- Seat count is course metadata (like credits and grading basis)
+- Natural semantic grouping with other course properties
 
 **Why "Available Seats" text instead of just "Available"?**
-- Course cards have more horizontal space than section cards
-- Explicit text is clearer for users ("Available Seats" vs ambiguous "Available")
-- Matches the conversational tone of the UI
-- Reduces cognitive load (no need to infer what number means)
+- Section cards use shorter "Available" due to limited space
+- Course cards have more horizontal space and can afford explicit text for clarity
 
 ### Badge Display Locations
 
