@@ -265,8 +265,9 @@ Shown in metadata row after credits and grading basis badges, before instructor 
 - Users can still view sections when expanding card
 
 **Multiple section types:**
-- Only shows data for primary type (highest priority)
-- Priority order: LEC → EXR → TUT → LAB → ... (see [calendarConfig.ts](../web/src/lib/calendarConfig.ts))
+- Only shows data for primary type (first in the raw data order)
+- Raw data is assumed to be ordered by priority (typically LEC first, then TUT, LAB, etc.)
+- Uses whichever section type appears first in the course data
 
 ---
 
