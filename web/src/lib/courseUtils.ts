@@ -1002,6 +1002,36 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
 }
 
 /**
+ * Get aggregate seat availability for primary section type
+ * Returns total available/total seats for the first section type (usually LEC)
+ * Used for showing course capacity at a glance in collapsed course cards
+ * @param course Course object
+ * @param termName Current term name
+ * @returns Object with available/total seats for primary section type, or null if no data
+ */
+export function getAggregateSeatInfo(
+  course: InternalCourse,
+  termName: string
+): { available: number; total: number; type: SectionType } | null {
+  const sectionTypes = parseSectionTypes(course, termName)
+  const termData = course.terms.find(term => term.termName === termName)
+
+  if (!termData || sectionTypes.length === 0) return null
+
+  // Get primary section type (first in priority order)
+  const primaryType = sectionTypes[0].type
+  const primarySections = sectionTypes[0].sections
+
+  // Sum up available and total seats
+  const available = primarySections.reduce((sum, section) =>
+    sum + (section.availability.availableSeats || 0), 0)
+  const total = primarySections.reduce((sum, section) =>
+    sum + (section.availability.capacity || 0), 0)
+
+  return { available, total, type: primaryType }
+}
+
+/**
  * Check if a section conflicts with current visible enrollments
  * Used for showing conflict warnings in course search
  */
