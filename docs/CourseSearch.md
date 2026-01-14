@@ -262,6 +262,15 @@ Shown in metadata row after credits and grading basis badges, before instructor 
 - Raw data is assumed to be ordered by priority (typically LEC first, then TUT, LAB, etc.)
 - Uses whichever section type appears first in the course data
 
+### Data Freshness
+
+**Important:** Seat availability data is not real-time.
+
+- Data is scraped at least once per day during add-drop period
+- Actual availability may have changed since last scrape
+- Use this as a general indicator, not an exact real-time count
+- Always verify with official CUSIS system before enrolling
+
 ---
 
 ## Filtering System
