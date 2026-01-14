@@ -653,7 +653,7 @@ export default function CourseSearch({
               <div className="flex items-center gap-3 md:gap-2 flex-wrap">
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
-                  <span className="whitespace-nowrap">Check CUSIS for real-time availability</span>
+                  <span className="whitespace-nowrap">Check CUSIS for real-time course info</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 ml-0.5 mr-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
