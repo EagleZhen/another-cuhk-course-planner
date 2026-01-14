@@ -159,6 +159,117 @@ Title can extend full width without wrapping unless truly necessary.
 
 ---
 
+## Seat Availability Badge
+
+### Feature
+
+**Display:** Aggregate seat availability for primary section type (usually LEC)
+
+**Format:** `{available}/{total} Available Seats`
+
+**Example:** `45/200 Available Seats` (45 seats available out of 200 total)
+
+### Implementation
+
+**Function:** `getAggregateSeatInfo()` in [courseUtils.ts](../web/src/lib/courseUtils.ts)
+
+```typescript
+export function getAggregateSeatInfo(
+  course: InternalCourse,
+  termName: string
+): { available: number; total: number; type: SectionType } | null
+```
+
+**Logic:**
+1. Get all section types for the course using `parseSectionTypes()`
+2. Select primary section type (first in priority order, usually LEC)
+3. Sum `availableSeats` across all sections of that type
+4. Sum `capacity` across all sections of that type
+5. Return aggregate data or null if no data available
+
+### Color Coding
+
+Uses existing `getAvailabilityBadgeStyle()` function for consistency:
+
+- **Green** (`bg-green-100 text-green-800 border-green-300`): >10 seats available
+- **Yellow** (`bg-yellow-100 text-yellow-800 border-yellow-300`): <10 seats available
+- **Red** (`bg-red-100 text-red-800 border-red-300`): 0 seats (closed)
+
+### Design Decisions
+
+**Why primary section type only?**
+- Primary section type (usually LEC) is the bottleneck for enrollment
+- If lecture sections have seats, tutorial/lab sections typically have seats too
+- Simplifies the display while providing accurate availability signal
+- Avoids cluttering the card with multiple section type totals
+
+**Why aggregate total instead of per-section?**
+- Users want to know if the course has seats, not specific section details
+- Collapsed card should show high-level overview
+- Per-section details are available when card is expanded
+- Aggregation answers the key question: "Can I enroll in this course?"
+
+**Why position with metadata badges?**
+- Semantically correct: seat count is course metadata like credits and grading
+- Doesn't crowd Row 1 (course code + search buttons + action buttons)
+- Natural grouping with other course properties
+- Consistent visual hierarchy
+
+**Why "Available Seats" text instead of just "Available"?**
+- Course cards have more horizontal space than section cards
+- Explicit text is clearer for users ("Available Seats" vs ambiguous "Available")
+- Matches the conversational tone of the UI
+- Reduces cognitive load (no need to infer what number means)
+
+### Badge Display Locations
+
+**Desktop Layout:**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ [CSCI3320] [Outline] [Reviews] [Past Papers]     [Actions] │
+│ Computer Graphics                                           │
+│ [2 credits] [Graded] [45/200 Available Seats] [Instructors]│
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Mobile Layout:**
+```
+┌───────────────────────────┐
+│ CSCI3320                  │
+│ Computer Graphics         │
+│                           │
+│ [Outline] [Reviews]       │
+│ [Past Papers]             │
+│                           │
+│ [2 credits] [Graded]      │
+│ [45/200 Available Seats]  │
+│ [Instructors...]          │
+│                           │
+│ [Add to Cart]             │
+│ [▼ Show Sections]         │
+└───────────────────────────┘
+```
+
+Shown in metadata row after credits and grading basis badges, before instructor filters.
+
+### Edge Cases
+
+**No data available:**
+- Badge not shown if no term data exists
+- Badge not shown if no sections exist for the term
+- Returns null from `getAggregateSeatInfo()`
+
+**Zero seats available:**
+- Badge still shown with red styling
+- Indicates course is closed/full
+- Users can still view sections when expanding card
+
+**Multiple section types:**
+- Only shows data for primary type (highest priority)
+- Priority order: LEC → EXR → TUT → LAB → ... (see [calendarConfig.ts](../web/src/lib/calendarConfig.ts))
+
+---
+
 ## Filtering System
 
 ### Instructor Filters
