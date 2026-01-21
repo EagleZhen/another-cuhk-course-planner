@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-19T09:04:37.817874+00:00",
+    "scraped_at": "2026-01-20T09:25:38.052492+00:00",
     "subject": "EESC",
     "subject_title": "Earth & Environmental Sci",
     "total_courses": 116,
@@ -1525,13 +1525,7 @@
                   "time": "Tu 12:30PM - 2:15PM",
                   "location": "Science Centre 331",
                   "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
-                },
-                {
-                  "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Science Centre 331",
-                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
-                  "dates": "24/2"
+                  "dates": "6/1, 13/1, 20/1, 27/1"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
@@ -1549,19 +1543,37 @@
                   "time": "We 12:30PM - 1:15PM",
                   "location": "Science Centre 331",
                   "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 12:30PM - 1:15PM",
-                  "location": "Science Centre 331",
-                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
-                  "dates": "25/2"
+                  "dates": "7/1, 14/1, 21/1, 28/1"
                 },
                 {
                   "time": "We 12:30PM - 1:15PM",
                   "location": "Science Centre 331",
                   "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
                   "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
+                  "dates": "3/2, 10/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
+                  "dates": "4/2, 11/2"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
+                  "dates": "25/2"
                 }
               ],
               "availability": {
@@ -1581,19 +1593,25 @@
                   "time": "We 1:30PM - 2:15PM",
                   "location": "Science Centre 331",
                   "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 1:30PM - 2:15PM",
-                  "location": "Science Centre 331",
-                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
-                  "dates": "25/2"
+                  "dates": "7/1, 14/1, 21/1, 28/1"
                 },
                 {
                   "time": "We 1:30PM - 2:15PM",
                   "location": "Science Centre 331",
                   "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
                   "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
+                  "dates": "4/2, 11/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 715",
+                  "instructor": "Dr. TAM Pui Yuk, \nDr. ZHANG Li, \nProfessor NG Wai Pan",
+                  "dates": "25/2"
                 }
               ],
               "availability": {
@@ -4876,10 +4894,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "27",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
