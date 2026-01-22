@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-20T11:58:08.787227+00:00",
+    "scraped_at": "2026-01-21T14:26:59.807682+00:00",
     "subject": "MGNT",
     "subject_title": "Management",
     "total_courses": 102,
@@ -347,10 +347,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "51",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -667,10 +667,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "40",
+                "enrolled": "41",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -874,10 +874,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "55",
+                "enrolled": "56",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1132,10 +1132,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "47",
+                "enrolled": "48",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3132,10 +3132,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "36",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3589,10 +3589,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "44",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5450,11 +5450,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -5470,11 +5470,11 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -6314,7 +6314,7 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "Putonghua only"
             },
             {
               "section": "SB-LEC (1018)",
@@ -6352,7 +6352,7 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "Putonghua only"
             }
           ]
         }
@@ -6901,15 +6901,21 @@
               "meetings": [
                 {
                   "time": "Sa 2:00PM - 5:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G03",
-                  "instructor": "Professor WANG Jian, \nProfessor WANG Jian",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Professor WANG Jian",
                   "dates": "14/3, 21/3, 28/3"
                 },
                 {
                   "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Professor WANG Jian",
+                  "dates": "11/4, 18/4, 25/4, 2/5"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
                   "location": "Lee Shau Kee Archi Bldg G03",
-                  "instructor": "Professor WANG Jian, \nProfessor WANG Jian",
-                  "dates": "11/4, 18/4, 25/4, 2/5, 9/5, 16/5, 23/5, 30/5"
+                  "instructor": "Professor WANG Jian",
+                  "dates": "9/5, 16/5, 23/5, 30/5"
                 }
               ],
               "availability": {

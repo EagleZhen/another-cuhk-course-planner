@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-20T09:10:59.201686+00:00",
+    "scraped_at": "2026-01-21T11:40:16.600898+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
     "total_courses": 104,
@@ -678,7 +678,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "71",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -716,11 +716,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "69",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -748,11 +748,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "69",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -856,10 +856,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "59",
+                "enrolled": "61",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1754,11 +1754,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "69",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -3382,10 +3382,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "32",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5306,7 +5306,7 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "Putonghua only"
             },
             {
               "section": "SB-LEC (1731)",
@@ -5344,7 +5344,7 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "Putonghua only"
             }
           ]
         }
@@ -5940,11 +5940,11 @@
                 }
               ],
               "availability": {
-                "capacity": "30",
+                "capacity": "50",
                 "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6619,7 +6619,19 @@
                   "time": "Sa 2:30PM - 5:15PM",
                   "location": "TBA",
                   "instructor": "Dr. WEN Wu",
-                  "dates": "7/3, 14/3, 21/3, 28/3, 4/4, 11/4, 18/4, 25/4, 2/5, 9/5, 16/5, 23/5, 30/5, 6/6, 13/6"
+                  "dates": "7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. WEN Wu",
+                  "dates": "11/4, 18/4, 25/4"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. WEN Wu",
+                  "dates": "9/5, 16/5, 23/5, 30/5, 6/6"
                 }
               ],
               "availability": {
@@ -6895,10 +6907,10 @@
               ],
               "availability": {
                 "capacity": "78",
-                "enrolled": "76",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "78",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6939,10 +6951,10 @@
               ],
               "availability": {
                 "capacity": "78",
-                "enrolled": "0",
+                "enrolled": "75",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "78",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8425,10 +8437,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-20T12:15:09.520504+00:00",
+    "scraped_at": "2026-01-21T14:43:46.870192+00:00",
     "subject": "MUSC",
     "subject_title": "Music",
     "total_courses": 230,
@@ -7137,10 +7137,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "4",
+                "enrolled": "5",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "Can, change to Eng if needed"
@@ -8091,7 +8091,7 @@
               ],
               "availability": {
                 "capacity": "1",
-                "enrolled": "1",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -8111,11 +8111,11 @@
               ],
               "availability": {
                 "capacity": "1",
-                "enrolled": "1",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -8705,19 +8705,19 @@
                 {
                   "time": "Mo 6:30PM - 9:00PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Professor CHAN Wai Kwong Victor",
+                  "instructor": "Mr. WONG Hok Yeung, \nProfessor CHAN Wing Wah",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 6:30PM - 9:00PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Professor CHAN Wai Kwong Victor",
+                  "instructor": "Mr. WONG Hok Yeung, \nProfessor CHAN Wing Wah",
                   "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 6:30PM - 9:00PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Professor CHAN Wai Kwong Victor",
+                  "instructor": "Mr. WONG Hok Yeung, \nProfessor CHAN Wing Wah",
                   "dates": "13/4"
                 }
               ],
@@ -9453,6 +9453,32 @@
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9923)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor Adam Joseph KIELMAN",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }

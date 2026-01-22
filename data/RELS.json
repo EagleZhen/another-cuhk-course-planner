@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-20T13:13:48.975710+00:00",
+    "scraped_at": "2026-01-21T15:41:38.413027+00:00",
     "subject": "RELS",
     "subject_title": "Religious Studies & Theology",
     "total_courses": 58,
@@ -757,10 +757,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -902,10 +902,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "22",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -1659,7 +1659,34 @@
       "course_code": "6122",
       "title": "Taoist Studies: Seminar II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9924)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAI Chi Tim",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "Discussion in seminar setting on selected issues related to Taoism. Readings may include Taoist Canon, Taoist ritual manuscripts, and recent scholars’ work on Taoist studies. Students are allowed to take these courses for more than once, and gain the units each time they pass the course. The specific content will be designed by the teacher who offers the courses.",
       "enrollment_requirement": "For students in MPhil-PhD Religious Studies",
       "course_attributes": "",
@@ -2065,10 +2092,16 @@
               "section": "-S01-SEM (9356)",
               "meetings": [
                 {
-                  "time": "TBA",
-                  "location": "No Room Required",
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg 305",
                   "instructor": "Professor James D FRANKEL",
-                  "dates": "05/01/2026 - 13/04/2026"
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg 305",
+                  "instructor": "Professor James D FRANKEL",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
               "availability": {
