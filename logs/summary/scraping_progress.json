@@ -1,10 +1,10 @@
 {
   "scraping_log": {
-    "started_at_hkt": "2026-01-21 17:57:33 HK",
-    "started_at_utc": "2026-01-21T09:57:33.284775+00:00",
-    "last_updated": "2026-01-21T16:42:55.409405+00:00",
-    "duration_human": "6h 45m 22s",
-    "total_subjects": 263,
+    "started_at_hkt": "2026-02-05 18:25:43 HK",
+    "started_at_utc": "2026-02-05T10:25:43.583848+00:00",
+    "last_updated": "2026-02-05T10:32:51.786001+00:00",
+    "duration_human": "7m 8s",
+    "total_subjects": 1,
     "completed": 263,
     "failed": 0,
     "subjects": {
@@ -2992,11 +2992,11 @@
       },
       "PHED": {
         "status": "completed",
-        "last_scraped": "2026-01-21T15:19:35.858990+00:00",
-        "courses_count": 80,
-        "courses_scraped": 80,
+        "last_scraped": "2026-02-05T10:32:51.785965+00:00",
+        "courses_count": 81,
+        "courses_scraped": 81,
         "output_file": "data/PHED.json",
-        "duration_minutes": 5.51,
+        "duration_minutes": 7.14,
         "config": {
           "get_details": true,
           "get_enrollment_details": true,
@@ -3688,6 +3688,16 @@
           "get_enrollment_details": true,
           "max_courses": null
         },
+        "retry_count": 0
+      },
+      "PHED1370": {
+        "status": "in_progress",
+        "started_at": "2026-02-05T10:25:39.075711+00:00",
+        "estimated_courses": 0,
+        "courses_scraped": 0,
+        "completed_courses": [],
+        "last_course_completed": "",
+        "last_progress_update": "2026-02-05T10:25:39.075717+00:00",
         "retry_count": 0
       }
     }
