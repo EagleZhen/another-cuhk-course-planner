@@ -1651,35 +1651,13 @@ class CuhkScraper:
                 self.logger.error(f"Missing 'Course Outcome' title for {course.course_code}")
                 return False
 
-            # Check 3: Subject validation - ensure outcome page belongs to the right subject
-            # Note: Some courses (e.g., future-dated ones) have incomplete outcome pages with header = " - "
-            # We accept this as valid (incomplete but not an error page)
-            course_header = soup.find("span", {"id": "uc_course_outcome_lbl_course"})
-            if not course_header:
-                self.logger.error(f"Missing course outcome header element for {course.course_code}")
-                return False
-
-            header_text = course_header.get_text().strip()
-
-            # Accept incomplete outcome pages (header is just "-" or empty)
-            if header_text in ["-", ""]:
-                self.logger.info(
-                    f"⚠️ Incomplete outcome page for {course.course_code} "
-                    f"(header is '{header_text}') - accepting as valid"
-                )
-            # Otherwise, validate subject matches
-            elif course.subject not in header_text:
-                self.logger.error(
-                    f"Subject mismatch: expected '{course.subject}' but outcome header is '{header_text}'"
-                )
-                return False
-
-            # Check 4: Content structure validation - ensure page has section headers for course outcome content
-            # Example valid: <td class="reverseHeaderStyle">Learning Outcome</td>, <td class="reverseHeaderStyle">Course Syllabus</td>
-            # Example invalid: Empty page or page with no content sections
+            # Check 3: Content structure validation - ensure page has section headers
+            # Validates page structure (not empty), regardless of course identity
+            # Example valid: <td class="reverseHeaderStyle">Learning Outcome</td>
+            # Note: Future courses may have incomplete data but still valid structure
             section_headers = soup.find_all("td", class_="reverseHeaderStyle")
             if len(section_headers) < 1:
-                self.logger.error(f"Missing section headers for {course.course_code}")
+                self.logger.error(f"Outcome page has no content sections for {course.course_code}")
                 return False
 
             self.logger.debug(
