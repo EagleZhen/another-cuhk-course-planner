@@ -1154,7 +1154,7 @@ class CuhkScraper:
             detail_page_code, detail_page_title = header_info
 
             # Log if mismatch with list page (for debugging, not failing)
-            if detail_page_code != course.course_code.strip("()"):
+            if detail_page_code != course.course_code.removeprefix("(").removesuffix(")"):
                 self.logger.info(
                     f"📝 Course code updated: '{course.course_code}' → '{detail_page_code}'"
                 )
