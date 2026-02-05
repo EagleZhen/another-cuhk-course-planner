@@ -1651,15 +1651,27 @@ class CuhkScraper:
                 self.logger.error(f"Missing 'Course Outcome' title for {course.course_code}")
                 return False
 
-            # Check 3: Course-specific validation - ensure we got the correct course's data
-            # Example valid: <span id="uc_course_outcome_lbl_course">LAWS 4330 - Advanced Constitutional Law</span>
-            # Example invalid: <span id="uc_course_outcome_lbl_course">LAWS 2331 - Contract Law</span> (wrong course)
+            # Check 3: Subject validation - ensure outcome page belongs to the right subject
+            # Note: Some courses (e.g., future-dated ones) have incomplete outcome pages with header = " - "
+            # We accept this as valid (incomplete but not an error page)
             course_header = soup.find("span", {"id": "uc_course_outcome_lbl_course"})
-            if (
-                not course_header
-                or f"{course.subject} {course.course_code}" not in course_header.get_text()
-            ):
-                self.logger.error(f"Missing or incorrect course header for {course.course_code}")
+            if not course_header:
+                self.logger.error(f"Missing course outcome header element for {course.course_code}")
+                return False
+
+            header_text = course_header.get_text().strip()
+
+            # Accept incomplete outcome pages (header is just "-" or empty)
+            if header_text in ["-", ""]:
+                self.logger.info(
+                    f"⚠️ Incomplete outcome page for {course.course_code} "
+                    f"(header is '{header_text}') - accepting as valid"
+                )
+            # Otherwise, validate subject matches
+            elif course.subject not in header_text:
+                self.logger.error(
+                    f"Subject mismatch: expected '{course.subject}' but outcome header is '{header_text}'"
+                )
                 return False
 
             # Check 4: Content structure validation - ensure page has section headers for course outcome content
