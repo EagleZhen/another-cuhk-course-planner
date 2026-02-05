@@ -1163,7 +1163,11 @@ class CuhkScraper:
             course.course_code = detail_page_code
             course.title = detail_page_title
         else:
-            self.logger.warning(f"⚠️ Could not parse course header for {course.course_code}")
+            # Cannot parse header = malformed page, should retry
+            raise ValueError(
+                f"Could not parse course header for {course.course_code} - "
+                f"detail page may be corrupted"
+            )
 
         # Credits
         units_elem = soup.find("span", {"id": "uc_course_lbl_units"})
