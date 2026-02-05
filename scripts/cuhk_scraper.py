@@ -1651,10 +1651,10 @@ class CuhkScraper:
                 self.logger.error(f"Missing 'Course Outcome' title for {course.course_code}")
                 return False
 
-            # Check 3: Content structure validation - ensure page has section headers
-            # Validates page structure (not empty), regardless of course identity
-            # Example valid: <td class="reverseHeaderStyle">Learning Outcome</td>
-            # Note: Future courses may have incomplete data but still valid structure
+            # Check 3: Content structure validation - ensure page has outcome sections
+            # Checks for section headers like "Learning Outcome", "Course Syllabus", "Assessment Type", etc.
+            # These headers have class="reverseHeaderStyle" and indicate the page has actual content
+            # Example: <td class="reverseHeaderStyle">Learning Outcome</td>
             section_headers = soup.find_all("td", class_="reverseHeaderStyle")
             if len(section_headers) < 1:
                 self.logger.error(f"Outcome page has no content sections for {course.course_code}")
