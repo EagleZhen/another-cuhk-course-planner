@@ -529,78 +529,26 @@ export function processICSForUndo(content: string): {
 - ✅ Proactive user education (export tips mention undo feature)
 - ✅ No browser security errors (proper user activation handling)
 
-## Data Scraping Architecture
+## Data Scraping
 
-**Production Scraper ([scripts/cuhk_scraper.py](scripts/cuhk_scraper.py)):**
-- OCR captcha solving with `ddddocr` library
-- Configurable scope: basic listings vs. full details + enrollment + course outcomes
-- Progress tracking with periodic saves (resilient to interruptions)
-- Per-subject JSON output (259 files in `data/`)
-- HTML to Markdown conversion for course outcomes
-- **Infinite retry mechanism** for transient errors (network issues, corrupted HTML)
-- **System error detection** for permanent failures (doesn't retry malformed CUHK data)
+**→ See [docs/scraper.md](docs/scraper.md) for detailed scraper architecture, retry mechanisms, and debugging guide.**
 
-**Key Classes:**
-```python
-@dataclass
-class ScrapingConfig:
-    max_courses_per_subject: Optional[int] = None  # Unlimited for production
-    get_details: bool = True
-    get_enrollment_details: bool = True
-    get_course_outcome: bool = True
-    output_directory: str = "data"
-
-@dataclass
-class Course:
-    subject: str
-    course_code: str
-    title: str
-    terms: List[TermInfo]  # Multiple terms supported
-    # ... enrollment, descriptions, learning outcomes
-```
+**Quick Overview:**
+- Production-ready scraper with OCR captcha solving (`ddddocr`)
+- Per-subject JSON output (259 files, ~50MB total in `data/`)
+- Progress tracking with resume capability
+- Robust retry for network issues, system error detection
 
 **Usage:**
 ```bash
-poetry run python scripts/scrape_all_subjects.py  # Scrapes all ~259 subjects
+# All subjects (production)
+poetry run python scripts/scrape_all_subjects.py
+
+# Debug specific subjects
+poetry run python scripts/scrape_all_subjects.py PHED,CSCI
 ```
 
-**Retry Mechanism (Robust Error Handling):**
-
-The scraper implements layered retry strategies to prevent data loss from transient network issues:
-
-1. **HTTP Layer** ([`_robust_request()`](scripts/cuhk_scraper.py#L329-389)):
-   - Infinite retry for network errors (ConnectionError, Timeout, 502/503/504)
-   - Exponential backoff (1s → 2s → 4s → ... → max 60s)
-   - Pre-loads response content to catch mid-transfer drops
-
-2. **Validation Layer** ([`get_course_details()`](scripts/cuhk_scraper.py#L845-873)):
-   - Infinite retry for validation failures (corrupted HTML, missing buttons)
-   - Re-fetches entire course details page on corruption
-   - Raises `ValueError` to bubble up transient errors
-
-3. **Domain Layer** ([`_scrape_course_outcome()`](scripts/cuhk_scraper.py#L1395-1435)):
-   - Detects **permanent** system errors (malformed CUHK data) → doesn't retry
-   - Detects **transient** validation errors (missing buttons, corrupted HTML) → raises `ValueError`
-   - Tracks failed outcomes for manual review
-
-**Error Classification:**
-```python
-# Transient (retry infinitely)
-- Network issues (connection drops, timeouts)
-- Corrupted HTML (missing buttons, incomplete pages)
-- Validation failures (malformed responses)
-
-# Permanent (don't retry)
-- System errors on course outcome pages (CUHK database issues)
-- These are tracked in logs/summary/failed_course_outcomes.txt
-```
-
-**Key Pattern:**
-```python
-# Helper method extracts ASP.NET hidden fields (ViewState, etc.)
-# Used 6 times across scraper - eliminates duplication
-form_data = self._extract_asp_hidden_fields(soup)
-```
+**Key Architecture Principle**: Detail page is authoritative for course identity (list page may have formatting artifacts).
 
 ## Known Issues & Limitations
 
