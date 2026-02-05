@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """
 Simple script to scrape all subjects from CUHK course catalog
+
+Usage:
+    poetry run python scripts/scrape_all_subjects.py              # All subjects
+    poetry run python scripts/scrape_all_subjects.py PHED         # Single subject
+    poetry run python scripts/scrape_all_subjects.py PHED,CSCI    # Multiple subjects
 """
 
 import logging
+import sys
 
 from cuhk_scraper import CuhkScraper
 
@@ -29,18 +35,23 @@ def main():
         # config.save_debug_files = True  # Enable debug HTML saving for investigation
         scraper = CuhkScraper(config)
 
-        # Get all subjects from live website
-        logger.info("Getting subjects from live website...")
-        subjects = scraper.get_subjects_from_live_site()
-        # subjects = ['RMSC', 'SEEM', 'THEO']
+        # Get subjects (from args or live website)
+        if len(sys.argv) > 1:
+            # Debug mode: scrape specific subjects from command line
+            subjects = sys.argv[1].split(",")
+            logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
+        else:
+            # Production mode: scrape all subjects from live website
+            logger.info("Getting subjects from live website...")
+            subjects = scraper.get_subjects_from_live_site()
 
-        if not subjects:
-            logger.error("Could not get subjects from live website")
-            return
+            if not subjects:
+                logger.error("Could not get subjects from live website")
+                return
 
-        logger.info(
-            f"Found {len(subjects)} subjects: {subjects[:10]}{'...' if len(subjects) > 10 else ''}"
-        )
+            logger.info(
+                f"Found {len(subjects)} subjects: {subjects[:10]}{'...' if len(subjects) > 10 else ''}"
+            )
 
         # Production scraping with full details
         logger.info("Starting production scraping...")
