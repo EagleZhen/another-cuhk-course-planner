@@ -190,5 +190,6 @@ ScrapingConfig()  # Defaults
 ## See Also
 
 - [CLAUDE.md](../CLAUDE.md) - Project overview
-- `scripts/cuhk_scraper.py` - Main implementation
+- `scripts/scrape_all_subjects.py` - Entry point (what you actually run)
+- `scripts/cuhk_scraper.py` - Core scraper implementation
 - `scripts/data_utils.py` - HTML utilities
