@@ -2259,7 +2259,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
       title: 'Learning Outcomes',
       content: course.learningOutcomes,
       isTable: false,
-      alwaysVisible: false,  // Hidden - formatting not production-ready
+      alwaysVisible: true,  // Visible - Useful although there are still some formatting issues, but still better than nothing
       defaultExpanded: false  // Collapsed by default
     },
     {
