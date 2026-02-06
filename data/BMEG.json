@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-21T10:35:01.508383+00:00",
+    "scraped_at": "2026-02-05T11:23:49.827400+00:00",
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
     "total_courses": 59,
@@ -711,7 +711,7 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Pass (P)/Fail (U)",
-      "component": "Lecture\nOthers\nPracticum\nSeminar",
+      "component": "Lecture\nOthers\nSeminar\nPracticum",
       "campus": "Main Campus",
       "academic_group": "Dept of Biomedical Engineering",
       "academic_org": "Dept of Biomedical Engineering",
@@ -1876,7 +1876,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor YUAN Wu",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
@@ -1886,6 +1886,66 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "49",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT01-TUT (9925)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHANG Hing Chiu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CT01-TUT (9926)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Kai Fung",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DT01-TUT (9927)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HO Ho Pui",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2594,25 +2654,25 @@
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Lady Shaw Bldg LT4",
+                  "location": "Institute of Chin Studies L1",
                   "instructor": "Professor CHANG Hing Chiu, \nProfessor CHOI Chung Hang Jonathan, \nProfessor YUAN Wu",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Lady Shaw Bldg LT4",
+                  "location": "Institute of Chin Studies L1",
                   "instructor": "Professor CHANG Hing Chiu, \nProfessor CHOI Chung Hang Jonathan, \nProfessor YUAN Wu",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Lady Shaw Bldg LT4",
+                  "location": "Institute of Chin Studies L1",
                   "instructor": "Professor CHANG Hing Chiu, \nProfessor CHOI Chung Hang Jonathan, \nProfessor YUAN Wu",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
-                  "location": "Lady Shaw Bldg LT4",
+                  "location": "Institute of Chin Studies L1",
                   "instructor": "Professor CHANG Hing Chiu, \nProfessor CHOI Chung Hang Jonathan, \nProfessor YUAN Wu",
                   "dates": "13/4"
                 }
@@ -2703,25 +2763,25 @@
               "meetings": [
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "Science Centre LG23",
+                  "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor CHAN Pui Barbara, \nProfessor LI Zhong, \nProfessor WANG Dongan",
                   "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "Science Centre LG23",
+                  "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor CHAN Pui Barbara, \nProfessor LI Zhong, \nProfessor WANG Dongan",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "Science Centre LG23",
+                  "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor CHAN Pui Barbara, \nProfessor LI Zhong, \nProfessor WANG Dongan",
                   "dates": "9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "Science Centre LG23",
+                  "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Professor CHAN Pui Barbara, \nProfessor LI Zhong, \nProfessor WANG Dongan",
                   "dates": "13/4"
                 },
@@ -2746,10 +2806,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "10",
+                "enrolled": "11",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "59",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2778,10 +2838,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "10",
+                "enrolled": "11",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "59",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4409,10 +4469,10 @@
               ],
               "availability": {
                 "capacity": "85",
-                "enrolled": "81",
+                "enrolled": "84",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4688,10 +4748,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "34",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4746,10 +4806,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "39",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4811,10 +4871,10 @@
               ],
               "availability": {
                 "capacity": "85",
-                "enrolled": "79",
+                "enrolled": "82",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4869,11 +4929,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "49",
+                "enrolled": "50",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -5049,10 +5109,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "60",
+                "enrolled": "65",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5081,10 +5141,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "60",
+                "enrolled": "65",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5145,10 +5205,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "78",
+                "enrolled": "76",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5315,10 +5375,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5367,10 +5427,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "51",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6125,10 +6185,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7000,10 +7060,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "9",
+                "enrolled": "10",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7040,10 +7100,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7060,10 +7120,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "2",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7100,10 +7160,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "4",
+                "enrolled": "5",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7120,10 +7180,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "4",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7140,10 +7200,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7340,10 +7400,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "2",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8035,10 +8095,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "7",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8075,10 +8135,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "6",
+                "enrolled": "7",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8135,10 +8195,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "2",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8155,10 +8215,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "3",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8215,10 +8275,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "1",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8355,10 +8415,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-21T16:10:52.464388+00:00",
+    "scraped_at": "2026-02-05T16:51:28.648438+00:00",
     "subject": "STAT",
     "subject_title": "Statistics",
     "total_courses": 70,
@@ -293,10 +293,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "123",
+                "enrolled": "126",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -313,10 +313,42 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "123",
+                "enrolled": "126",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DT02-TUT (9947)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LEUNG Sze Him Isaac",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LEUNG Sze Him Isaac",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LEUNG Sze Him Isaac",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "150",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -370,6 +402,44 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ET02-TUT (9948)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -550,10 +620,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "30",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "120",
+                "available_seats": "118",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -570,10 +640,48 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "30",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "120",
+                "available_seats": "118",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT02-TUT (9949)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. OUYANG Ming",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "150",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -635,7 +743,7 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "107",
+                "enrolled": "108",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -655,11 +763,49 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "107",
+                "enrolled": "108",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9950)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LIN Yingxin",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LIN Yingxin",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LIN Yingxin",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor LIN Yingxin",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -1051,6 +1197,108 @@
                 "status": "Closed"
               },
               "class_attributes": "English only"
+            },
+            {
+              "section": "DT02-TUT (9951)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DT03-TUT (9952)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Mong Man Wai Bldg 707",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DT04-TUT (9953)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -1276,6 +1524,44 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            },
+            {
+              "section": "BT02-TUT (9954)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. John Alexander WRIGHT",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "120",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -1453,10 +1739,10 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "108",
+                "enrolled": "107",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "92",
+                "available_seats": "93",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1473,10 +1759,42 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "108",
+                "enrolled": "107",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "92",
+                "available_seats": "93",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT02-TUT (9955)",
+              "meetings": [
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "200",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "200",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1529,10 +1847,10 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "140",
+                "enrolled": "141",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "59",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1549,10 +1867,48 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "140",
+                "enrolled": "141",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "59",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CT02-TUT (9956)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. LIU Kin Yat",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "200",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "200",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1826,10 +2182,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "42",
+                "enrolled": "41",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "58",
+                "available_seats": "59",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1846,10 +2202,48 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "42",
+                "enrolled": "41",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "58",
+                "available_seats": "59",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9957)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor FANG Xiao",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1935,7 +2329,7 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "121",
+                "enrolled": "120",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1955,13 +2349,83 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "121",
+                "enrolled": "120",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T02-TUT (9958)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (9959)",
+              "meetings": [
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. HO Kwok Wah",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -2329,6 +2793,38 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9960)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor WEI Yingying",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor WEI Yingying",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor WEI Yingying",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -2458,10 +2954,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "59",
+                "enrolled": "58",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2478,10 +2974,42 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "59",
+                "enrolled": "58",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "42",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT02-TUT (9961)",
+              "meetings": [
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Professor ZHANG Jiacheng",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Professor ZHANG Jiacheng",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Professor ZHANG Jiacheng",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2645,6 +3173,44 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "21",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT02-TUT (9962)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "150",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2910,10 +3476,10 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "110",
+                "enrolled": "111",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2948,7 +3514,7 @@
               ],
               "availability": {
                 "capacity": "33",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3142,6 +3708,38 @@
                 "status": "Closed"
               },
               "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9963)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LEUNG Sze Him Isaac",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LEUNG Sze Him Isaac",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Dr. LEUNG Sze Him Isaac",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "180",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "180",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -3324,7 +3922,7 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "104",
+                "enrolled": "105",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3344,11 +3942,87 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "104",
+                "enrolled": "105",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9964)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (9965)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor LIN Zhixiang",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -3508,7 +4182,7 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3528,11 +4202,43 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9966)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor YAM Sheung Chi Phillip",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -3695,7 +4401,7 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "133",
+                "enrolled": "132",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3715,11 +4421,43 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "133",
+                "enrolled": "132",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT02-TUT (9967)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. WONG Tat Wing",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. WONG Tat Wing",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. WONG Tat Wing",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "130",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "130",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -3932,6 +4670,38 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9968)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor ZHU Huichen",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor ZHU Huichen",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor ZHU Huichen",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "110",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "110",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -4014,6 +4784,76 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "44",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9969)",
+              "meetings": [
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (9970)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Kin Wai",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "100",
                 "status": "Open"
               },
               "class_attributes": "English only"

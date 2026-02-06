@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-21T14:06:55.950757+00:00",
+    "scraped_at": "2026-02-05T14:49:18.793085+00:00",
     "subject": "MBAC",
     "subject_title": "MBA Programmes",
     "total_courses": 16,
@@ -326,22 +326,62 @@
                   "dates": "02/03/2026 - 08/06/2026"
                 },
                 {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
-                  "dates": "02/03/2026 - 08/06/2026"
-                },
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Dr. LAM Full Yet Eric Campbell",
-                  "dates": "02/03/2026 - 08/06/2026"
-                },
+                  "time": "Fr 10:00AM - 1:00PM",
+                  "location": "Town Centre Diamond Room",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nDr. LAM Full Yet Eric Campbell, \nProfessor CHEW Seen Meng",
+                  "dates": "27/2"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ02-PRJ (1231)",
+              "meetings": [
                 {
                   "time": "Fr 10:00AM - 1:00PM",
                   "location": "Town Centre Diamond Room",
                   "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nDr. LAM Full Yet Eric Campbell, \nProfessor CHEW Seen Meng",
                   "dates": "27/2"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. LAM Full Yet Eric Campbell",
+                  "dates": "08/03/2026 - 14/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ03-PRJ (1232)",
+              "meetings": [
+                {
+                  "time": "Fr 10:00AM - 1:00PM",
+                  "location": "Town Centre Diamond Room",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nDr. LAM Full Yet Eric Campbell, \nProfessor CHEW Seen Meng",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
+                  "dates": "03/03/2026 - 09/06/2026"
                 }
               ],
               "availability": {
@@ -472,6 +512,12 @@
                   "location": "No Room Required",
                   "instructor": "Professor CHEW Seen Meng",
                   "dates": "9/6"
+                },
+                {
+                  "time": "Su 9:30AM - 12:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor CHEW Seen Meng",
+                  "dates": "17/5"
                 }
               ],
               "availability": {

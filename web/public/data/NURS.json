@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-01-21T14:52:59.022530+00:00",
+    "scraped_at": "2026-02-05T15:34:19.417610+00:00",
     "subject": "NURS",
     "subject_title": "Nursing",
     "total_courses": 122,
@@ -19,16 +19,29 @@
           "schedule": [
             {
               "section": "--LEC (7652)",
-              "meetings": [],
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. AHMAT Ricky",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. AHMAT Ricky",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
               "availability": {
-                "capacity": "",
-                "enrolled": "",
-                "waitlist_capacity": "",
-                "waitlist_total": "",
-                "available_seats": "",
-                "status": "Closed"
+                "capacity": "241",
+                "enrolled": "228",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "English only"
             },
             {
               "section": "-L01-LAB (7640)",
@@ -646,10 +659,10 @@
               ],
               "availability": {
                 "capacity": "235",
-                "enrolled": "227",
+                "enrolled": "224",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -934,10 +947,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -998,10 +1011,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "15",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1030,10 +1043,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1382,10 +1395,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1446,10 +1459,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "15",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1478,10 +1491,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -19971,7 +19984,7 @@
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Yuk Shim, \nMiss CHAN Yu Yan, \nMr. LEUNG Wai Hin, \nMs OR Hau Yee, \nMs. LAM Mei Yee, \nMs. TONG Lee Sha",
+                  "instructor": "Dr. WONG Yuk Shim, \nMr. LEUNG Wai Hin, \nMs OR Hau Yee, \nMs. CHAN Yu Yan, \nMs. LAM Mei Yee, \nMs. TONG Lee Sha",
                   "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10"
                 }
               ],
@@ -20097,13 +20110,13 @@
                 {
                   "time": "Th 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. SIN Po Yan, \nMiss CHAN Yu Yan, \nMiss CHAU Ka Wing Vanessa, \nMiss NG Sze Wing, \nMiss TO Pui Ling, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nProfessor NG Shek Nam",
+                  "instructor": "Dr. SIN Po Yan, \nMiss CHAU Ka Wing Vanessa, \nMiss NG Sze Wing, \nMiss TO Pui Ling, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nProfessor NG Shek Nam",
                   "dates": "20/11, 27/11, 4/12, 11/12, 18/12"
                 },
                 {
                   "time": "Th 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. SIN Po Yan, \nMiss CHAN Yu Yan, \nMiss CHAU Ka Wing Vanessa, \nMiss NG Sze Wing, \nMiss TO Pui Ling, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nProfessor NG Shek Nam",
+                  "instructor": "Dr. SIN Po Yan, \nMiss CHAU Ka Wing Vanessa, \nMiss NG Sze Wing, \nMiss TO Pui Ling, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nProfessor NG Shek Nam",
                   "dates": "15/1, 22/1"
                 }
               ],
@@ -20176,25 +20189,25 @@
                   "time": "Fr 9:30AM - 12:15PM",
                   "location": "Wu Ho Man Yuen Bldg 305",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
-                  "dates": "27/2, 6/3, 13/3, 20/3"
+                  "dates": "27/2, 6/3"
                 },
                 {
                   "time": "Fr 9:30AM - 12:15PM",
                   "location": "Wu Ho Man Yuen Bldg 305",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
-                  "dates": "10/4, 17/4, 24/4"
+                  "dates": "24/4"
                 },
                 {
                   "time": "Mo 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 302",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
-                  "dates": "27/4, 4/5"
+                  "dates": "27/4"
                 },
                 {
                   "time": "Mo 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 303",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
-                  "dates": "27/4, 4/5"
+                  "dates": "27/4"
                 },
                 {
                   "time": "Tu 8:30AM - 12:15PM",
@@ -20212,13 +20225,49 @@
                   "time": "Th 9:30AM - 12:15PM",
                   "location": "Esther Lee Bldg LT1",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
-                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4"
+                  "dates": "26/2, 5/3"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
                   "location": "Esther Lee Bldg LT1",
                   "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
                   "dates": "23/4"
+                },
+                {
+                  "time": "Th 9:30AM - 1:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
+                  "dates": "12/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
+                  "dates": "17/4"
+                },
+                {
+                  "time": "Fr 9:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
+                  "dates": "13/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
+                  "dates": "10/4"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan",
+                  "dates": "19/3, 26/3, 2/4, 9/4"
                 }
               ],
               "availability": {
@@ -20237,13 +20286,13 @@
                 {
                   "time": "Fr 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. SIN Po Yan, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan, \nMiss HO Pui Yee Rosa, \nMr. LEUNG Wai Hin, \nMr. YAU Chun Lung, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. IP Yan Yi, \nMs. LAM Yuk Ki",
+                  "instructor": "Dr. SIN Po Yan, \nDr. WONG Ho Yan, \nMiss CHAN Elaine, \nMiss NG Sze Wing, \nMr. NG Wing Ho, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs WONG So Yan Christina, \nMs. CHAN Jasmine, \nMs. IP Yan Yi, \nMs. LAM Yuk Ki",
                   "dates": "27/2, 6/3, 13/3, 20/3"
                 },
                 {
                   "time": "Fr 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. AHMAT Ricky, \nDr. KWOK Ching Man, \nDr. SIN Po Yan, \nDr. TANG Pui Yin, \nDr. WONG Ho Yan, \nDr. YEUNG Wing Yan, \nMiss HO Pui Yee Rosa, \nMr. LEUNG Wai Hin, \nMr. YAU Chun Lung, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. IP Yan Yi, \nMs. LAM Yuk Ki",
+                  "instructor": "Dr. SIN Po Yan, \nDr. WONG Ho Yan, \nMiss CHAN Elaine, \nMiss NG Sze Wing, \nMr. NG Wing Ho, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs WONG So Yan Christina, \nMs. CHAN Jasmine, \nMs. IP Yan Yi, \nMs. LAM Yuk Ki",
                   "dates": "10/4, 17/4"
                 }
               ],
@@ -20977,7 +21026,7 @@
                   "time": "Tu 2:30PM - 4:15PM",
                   "location": "Esther Lee Bldg LT2",
                   "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching",
-                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                  "dates": "24/2"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
@@ -21020,6 +21069,18 @@
                   "location": "Esther Lee Bldg 302",
                   "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching",
                   "dates": "5/5"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching",
+                  "dates": "3/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
                 }
               ],
               "availability": {
@@ -21038,19 +21099,19 @@
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching, \nDr. Mirza Muhammad Faran Ashraf BAIG, \nMs LEE Chui Wan, \nMs WONG So Yan Christina, \nMs. CHEUNG Ka Lai, \nMs. LAM Mei Yee, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. YAU Wai Yan",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. HUANG Zehao, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching, \nDr. SIN Po Yan, \nDr. YIU Tsz Ching, \nMr. CHIM Wong Kit, \nMr. LAM Yat Kuen, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs. CHAN Jasmine, \nMs. YAU Wai Yan",
                   "dates": "2/3, 9/3"
                 },
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching, \nDr. Mirza Muhammad Faran Ashraf BAIG, \nMs LEE Chui Wan, \nMs WONG So Yan Christina, \nMs. CHEUNG Ka Lai, \nMs. LAM Mei Yee, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. YAU Wai Yan",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. HUANG Zehao, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching, \nDr. SIN Po Yan, \nDr. YIU Tsz Ching, \nMr. CHIM Wong Kit, \nMr. LAM Yat Kuen, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs. CHAN Jasmine, \nMs. YAU Wai Yan",
                   "dates": "12/3"
                 },
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching, \nDr. Mirza Muhammad Faran Ashraf BAIG, \nMs LEE Chui Wan, \nMs WONG So Yan Christina, \nMs. CHEUNG Ka Lai, \nMs. LAM Mei Yee, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. YAU Wai Yan",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. HUANG Zehao, \nDr. LO Hin Man Hermione, \nDr. LO Ka Ching, \nDr. SIN Po Yan, \nDr. YIU Tsz Ching, \nMr. CHIM Wong Kit, \nMr. LAM Yat Kuen, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs. CHAN Jasmine, \nMs. YAU Wai Yan",
                   "dates": "2/4, 9/4"
                 }
               ],
@@ -21184,19 +21245,19 @@
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "4/9"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "16/10"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 402",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "6/10"
                 }
               ],
@@ -21216,19 +21277,19 @@
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "4/9"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "16/10"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 403",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "6/10"
                 }
               ],
@@ -21248,19 +21309,19 @@
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "4/9"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "16/10"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 405",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "6/10"
                 }
               ],
@@ -21280,19 +21341,19 @@
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "4/9"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "16/10"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 107B",
-                  "instructor": "Dr. WONG Ho Yan, \nMiss CHAN Yu Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
+                  "instructor": "Dr. WONG Ho Yan, \nMiss TO Pui Ling, \nMs LEE Chui Wan, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. CHEUNG Ka Lai, \nMs. LAM Yuk Ki, \nMs. LEUNG Suk Kit",
                   "dates": "6/10"
                 }
               ],
@@ -21344,50 +21405,62 @@
                 {
                   "time": "Tu 8:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
                   "dates": "17/3, 24/3"
                 },
                 {
                   "time": "Tu 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
                   "dates": "24/2, 3/3, 10/3"
                 },
                 {
                   "time": "Tu 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
-                  "dates": "31/3"
-                },
-                {
-                  "time": "Tu 9:30AM - 12:15PM",
-                  "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
                   "dates": "14/4"
                 },
                 {
                   "time": "We 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 303",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
                   "dates": "29/4"
                 },
                 {
                   "time": "We 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 302",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
                   "dates": "29/4"
                 },
                 {
                   "time": "We 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg LT3",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
-                  "dates": "25/2, 4/3, 11/3, 18/3"
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
+                  "dates": "25/2, 4/3"
                 },
                 {
                   "time": "We 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg LT3",
-                  "instructor": "Dr. CHAN Wai Ling, \nDr. LING Cheuk Chi, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nMr. YAU Chun Lung, \nMs. LAM Yuk Ki, \nProfessor TANG Wing Ki",
-                  "dates": "1/4, 8/4, 15/4"
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
+                  "dates": "8/4, 15/4"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
+                  "dates": "31/3"
+                },
+                {
+                  "time": "We 1:30PM - 4:15PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
+                  "dates": "11/3, 18/3"
+                },
+                {
+                  "time": "We 1:30PM - 4:15PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. CHAN Wai Ling, \nDr. KWOK Ching Man, \nDr. LING Cheuk Chi, \nDr. NG Ka Lai, \nDr. WONG Ho Yan, \nMr. LAM Yat Kuen, \nProfessor TANG Wing Ki",
+                  "dates": "1/4"
                 }
               ],
               "availability": {
@@ -21588,97 +21661,97 @@
                 {
                   "time": "Th 9:30AM - 11:15AM",
                   "location": "Esther Lee Bldg LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "9/4"
                 },
                 {
                   "time": "Mo 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "23/2, 2/3, 9/3, 16/3"
                 },
                 {
                   "time": "Mo 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "13/4"
                 },
                 {
                   "time": "We 1:30PM - 5:15PM",
                   "location": "Esther Lee Bldg LT1",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
                 },
                 {
                   "time": "Mo 8:30AM - 11:15AM",
                   "location": "Esther Lee Bldg 303",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "23/3"
                 },
                 {
                   "time": "Mo 8:30AM - 11:15AM",
                   "location": "Esther Lee Bldg 306",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "23/3"
                 },
                 {
                   "time": "Fr 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 206",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
                 },
                 {
                   "time": "Fr 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 206",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "10/4"
                 },
                 {
                   "time": "Th 1:30PM - 4:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "12/3"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "26/2"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "12/3, 19/3, 26/3, 2/4"
                 },
                 {
                   "time": "Mo 10:30AM - 1:15PM",
                   "location": "Esther Lee Bldg LT1",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "23/3"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
                   "location": "Esther Lee Bldg 403",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "5/3"
                 },
                 {
                   "time": "Mo 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 307",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "4/5"
                 },
                 {
                   "time": "Mo 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg LT4",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "30/3"
                 },
                 {
                   "time": "Mo 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 308",
-                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming, \nProfessor LAM Kam Ki",
+                  "instructor": "Dr. CHAN Sau Man Conny, \nDr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NG Ka Lai, \nDr. TANG Pui Yin, \nDr. WONG Yuk Shim, \nDr. YEUNG Chi Yan, \nMiss HO Pui Yee Rosa, \nMs. KWAN Siu Kuen, \nProfessor CHAN Wai Kiu, \nProfessor CHOW Ka Ming",
                   "dates": "4/5"
                 }
               ],
@@ -21698,13 +21771,13 @@
                 {
                   "time": "Th 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. TANG Pui Yin, \nDr. WONG Ho Yan, \nMiss CHAN Elaine, \nMiss CHAN Yu Yan, \nMiss FONG Hoi Yin, \nMiss HO Pui Yee Rosa, \nMiss NG Sze Wing, \nMr. CHIM Wong Kit, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs WONG So Yan Christina, \nMs. CHEUNG Ka Lai, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha",
+                  "instructor": "Dr. TANG Pui Yin, \nMiss CHAN Elaine, \nMiss FONG Hoi Yin, \nMiss HO Pui Yee Rosa, \nMiss LAM Hiu Man, \nMr. CHIM Wong Kit, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs WONG So Yan Christina, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. IP Yan Yi, \nMs. LAM Mei Yee, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. WONG Sze Ching Cynthia, \nMs. YAU Wai Yan",
                   "dates": "26/2, 5/3"
                 },
                 {
                   "time": "Th 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. TANG Pui Yin, \nDr. WONG Ho Yan, \nMiss CHAN Elaine, \nMiss CHAN Yu Yan, \nMiss FONG Hoi Yin, \nMiss HO Pui Yee Rosa, \nMiss NG Sze Wing, \nMr. CHIM Wong Kit, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs WONG So Yan Christina, \nMs. CHEUNG Ka Lai, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha",
+                  "instructor": "Dr. TANG Pui Yin, \nMiss CHAN Elaine, \nMiss FONG Hoi Yin, \nMiss HO Pui Yee Rosa, \nMiss LAM Hiu Man, \nMr. CHIM Wong Kit, \nMr. NG Wing Ho, \nMr. YAU Chun Lung, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs WONG So Yan Christina, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. IP Yan Yi, \nMs. LAM Mei Yee, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. WONG Sze Ching Cynthia, \nMs. YAU Wai Yan",
                   "dates": "19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],
@@ -21813,6 +21886,18 @@
                   "location": "Esther Lee Bldg LT2",
                   "instructor": "Dr. AHMAT Ricky, \nDr. LING Cheuk Chi, \nDr. NGAN Hau Yi, \nDr. WONG Yuk Shim, \nDr. YEUNG Wing Yan, \nMr. CHIM Wong Kit, \nProfessor CHAN YIP Carmen Wing Han, \nProfessor LAM Yuen Tung, \nProfessor LO Hoi Shan, \nProfessor TAM Hon Lon",
                   "dates": "1/6"
+                },
+                {
+                  "time": "Mo 8:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. LING Cheuk Chi, \nDr. NGAN Hau Yi, \nDr. WONG Yuk Shim, \nDr. YEUNG Wing Yan, \nMr. CHIM Wong Kit, \nProfessor CHAN YIP Carmen Wing Han, \nProfessor LAM Yuen Tung, \nProfessor LO Hoi Shan, \nProfessor TAM Hon Lon",
+                  "dates": "20/7"
+                },
+                {
+                  "time": "Mo 8:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 403",
+                  "instructor": "Dr. AHMAT Ricky, \nDr. LING Cheuk Chi, \nDr. NGAN Hau Yi, \nDr. WONG Yuk Shim, \nDr. YEUNG Wing Yan, \nMr. CHIM Wong Kit, \nProfessor CHAN YIP Carmen Wing Han, \nProfessor LAM Yuen Tung, \nProfessor LO Hoi Shan, \nProfessor TAM Hon Lon",
+                  "dates": "20/7"
                 }
               ],
               "availability": {
@@ -21831,13 +21916,13 @@
                 {
                   "time": "Th 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. YEUNG Wing Yan, \nMiss CHAN Elaine, \nMiss CHAN Yu Yan, \nMiss CHAU Ka Wing Vanessa, \nMiss FONG Hoi Yin, \nMiss HO Pui Yee Rosa, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. LAM Mei Yee, \nMs. LEUNG Suk Kit, \nMs. TAM Nga Wing, \nMs. TONG Lee Sha",
+                  "instructor": "Dr. LO Hin Man Hermione, \nDr. YEUNG Wing Yan, \nMiss CHAN Elaine, \nMiss CHAU Ka Wing Vanessa, \nMiss FONG Hoi Yin, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. LAM Mei Yee, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. YICK Ka Man",
                   "dates": "21/5"
                 },
                 {
                   "time": "Th 1:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. YEUNG Wing Yan, \nMiss CHAN Elaine, \nMiss CHAN Yu Yan, \nMiss CHAU Ka Wing Vanessa, \nMiss FONG Hoi Yin, \nMiss HO Pui Yee Rosa, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. LAM Mei Yee, \nMs. LEUNG Suk Kit, \nMs. TAM Nga Wing, \nMs. TONG Lee Sha",
+                  "instructor": "Dr. LO Hin Man Hermione, \nDr. YEUNG Wing Yan, \nMiss CHAN Elaine, \nMiss CHAU Ka Wing Vanessa, \nMiss FONG Hoi Yin, \nMr. CHIM Wong Kit, \nMr. LEUNG Wai Hin, \nMr. NG Wing Ho, \nMs LEE Chui Wan, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. CHAN Yu Yan, \nMs. LAM Mei Yee, \nMs. LEUNG Suk Kit, \nMs. TONG Lee Sha, \nMs. YICK Ka Man",
                   "dates": "11/6, 18/6, 25/6"
                 }
               ],
@@ -22222,74 +22307,56 @@
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 405",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "11/5, 18/5"
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "18/5"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 405",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "1/6, 8/6, 15/6, 22/6, 29/6, 6/7"
-                },
-                {
-                  "time": "Mo 8:30AM - 1:15PM",
-                  "location": "Esther Lee Bldg 401",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "13/7, 20/7"
-                },
-                {
-                  "time": "We 9:30AM - 1:15PM",
-                  "location": "Esther Lee Bldg 405",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
-                },
-                {
-                  "time": "We 9:30AM - 1:15PM",
-                  "location": "Esther Lee Bldg 405",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "8/7"
-                },
-                {
-                  "time": "Mo 8:30AM - 1:15PM",
-                  "location": "Esther Lee Bldg 403",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "13/7, 20/7"
-                },
-                {
-                  "time": "Tu 8:30AM - 1:15PM",
-                  "location": "Esther Lee Bldg 403",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "14/7, 21/7"
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "15/6, 22/6"
                 },
                 {
                   "time": "We 8:30AM - 11:15AM",
                   "location": "Esther Lee Bldg 403",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
                   "dates": "10/6"
                 },
                 {
                   "time": "We 8:30AM - 11:15AM",
                   "location": "Esther Lee Bldg 401",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
                   "dates": "10/6"
-                },
-                {
-                  "time": "Tu 8:30AM - 1:15PM",
-                  "location": "Esther Lee Bldg 401",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "14/7, 21/7"
                 },
                 {
                   "time": "We 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 205",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "15/7, 22/7"
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "15/7"
                 },
                 {
                   "time": "We 8:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 206",
-                  "instructor": "Professor CHENG Ho Yu, \nProfessor LAM Kam Ki, \nProfessor TANG Wing Ki",
-                  "dates": "15/7, 22/7"
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "15/7"
+                },
+                {
+                  "time": "We 9:30AM - 1:15PM",
+                  "location": "Esther Lee Bldg 405",
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Mo 2:30PM - 6:15PM",
+                  "location": "Esther Lee Bldg 405",
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "11/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg 405",
+                  "instructor": "Dr. LO Hin Man Hermione, \nProfessor CHENG Ho Yu, \nProfessor TANG Wing Ki",
+                  "dates": "1/6"
                 }
               ],
               "availability": {
@@ -22576,7 +22643,7 @@
                 {
                   "time": "We 11:30AM - 12:15PM",
                   "location": "Esther Lee Bldg 203",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NGAN Hau Yi, \nMiss CHAU Ka Wing Vanessa, \nMiss HO Pui Yee Rosa, \nMs WONG So Yan Christina",
+                  "instructor": "Dr. KWOK Ching Man, \nDr. NGAN Hau Yi, \nMiss NG Sze Wing, \nMr. CHIM Wong Kit, \nMr. YAU Chun Lung, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. LAM Yuk Ki, \nMs. YICK Ka Man",
                   "dates": "4/3"
                 }
               ],
@@ -22596,7 +22663,7 @@
                 {
                   "time": "We 11:30AM - 12:15PM",
                   "location": "Esther Lee Bldg 202",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NGAN Hau Yi, \nMiss CHAU Ka Wing Vanessa, \nMiss HO Pui Yee Rosa, \nMs WONG So Yan Christina",
+                  "instructor": "Dr. KWOK Ching Man, \nDr. NGAN Hau Yi, \nMiss NG Sze Wing, \nMr. CHIM Wong Kit, \nMr. YAU Chun Lung, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. LAM Yuk Ki, \nMs. YICK Ka Man",
                   "dates": "4/3"
                 }
               ],
@@ -22616,7 +22683,7 @@
                 {
                   "time": "We 11:30AM - 12:15PM",
                   "location": "Esther Lee Bldg 205",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NGAN Hau Yi, \nMiss CHAU Ka Wing Vanessa, \nMiss HO Pui Yee Rosa, \nMs WONG So Yan Christina",
+                  "instructor": "Dr. KWOK Ching Man, \nDr. NGAN Hau Yi, \nMiss NG Sze Wing, \nMr. CHIM Wong Kit, \nMr. YAU Chun Lung, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. LAM Yuk Ki, \nMs. YICK Ka Man",
                   "dates": "4/3"
                 }
               ],
@@ -22636,7 +22703,7 @@
                 {
                   "time": "We 11:30AM - 12:15PM",
                   "location": "Esther Lee Bldg 207",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. LO Hin Man Hermione, \nDr. NGAN Hau Yi, \nMiss CHAU Ka Wing Vanessa, \nMiss HO Pui Yee Rosa, \nMs WONG So Yan Christina",
+                  "instructor": "Dr. KWOK Ching Man, \nDr. NGAN Hau Yi, \nMiss NG Sze Wing, \nMr. CHIM Wong Kit, \nMr. YAU Chun Lung, \nMs OR Hau Yee, \nMs. CHAN Jasmine, \nMs. LAM Yuk Ki, \nMs. YICK Ka Man",
                   "dates": "4/3"
                 }
               ],
@@ -22729,12 +22796,12 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "30",
                 "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "42",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -22802,37 +22869,37 @@
                 {
                   "time": "Fr 1:30PM - 3:15PM",
                   "location": "Esther Lee Bldg 203",
-                  "instructor": "Dr. LEE Regina Lai Tong, \nDr. YEUNG Chi Yan, \nProfessor HO Long Kwan",
+                  "instructor": "Dr. LEE Regina Lai Tong, \nProfessor HO Long Kwan, \nProfessor LI Jiaying",
                   "dates": "27/2"
                 },
                 {
                   "time": "Mo 1:30PM - 3:15PM",
                   "location": "Wong Foo Yuan Bldg LT4",
-                  "instructor": "Dr. LEE Regina Lai Tong, \nDr. YEUNG Chi Yan, \nProfessor HO Long Kwan",
+                  "instructor": "Dr. LEE Regina Lai Tong, \nProfessor HO Long Kwan, \nProfessor LI Jiaying",
                   "dates": "2/3, 9/3, 16/3"
                 },
                 {
                   "time": "Mo 1:30PM - 3:15PM",
                   "location": "Wong Foo Yuan Bldg LT4",
-                  "instructor": "Dr. LEE Regina Lai Tong, \nDr. YEUNG Chi Yan, \nProfessor HO Long Kwan",
+                  "instructor": "Dr. LEE Regina Lai Tong, \nProfessor HO Long Kwan, \nProfessor LI Jiaying",
                   "dates": "30/3"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
                   "location": "Wong Foo Yuan Bldg LT4",
-                  "instructor": "Dr. LEE Regina Lai Tong, \nDr. YEUNG Chi Yan, \nProfessor HO Long Kwan",
+                  "instructor": "Dr. LEE Regina Lai Tong, \nProfessor HO Long Kwan, \nProfessor LI Jiaying",
                   "dates": "23/2"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
                   "location": "Wong Foo Yuan Bldg LT4",
-                  "instructor": "Dr. LEE Regina Lai Tong, \nDr. YEUNG Chi Yan, \nProfessor HO Long Kwan",
+                  "instructor": "Dr. LEE Regina Lai Tong, \nProfessor HO Long Kwan, \nProfessor LI Jiaying",
                   "dates": "23/3"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
                   "location": "Wong Foo Yuan Bldg LT4",
-                  "instructor": "Dr. LEE Regina Lai Tong, \nDr. YEUNG Chi Yan, \nProfessor HO Long Kwan",
+                  "instructor": "Dr. LEE Regina Lai Tong, \nProfessor HO Long Kwan, \nProfessor LI Jiaying",
                   "dates": "13/4, 20/4"
                 }
               ],
@@ -22852,25 +22919,25 @@
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 202",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "13/3, 20/3"
                 },
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 202",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "17/4, 24/4"
                 },
                 {
                   "time": "Fr 1:30PM - 3:15PM",
                   "location": "Esther Lee Bldg 204",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "6/3"
                 },
                 {
                   "time": "Fr 1:30PM - 3:00PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "10/4"
                 }
               ],
@@ -22890,25 +22957,25 @@
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 205",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "13/3, 20/3"
                 },
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 205",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "17/4, 24/4"
                 },
                 {
                   "time": "Fr 1:30PM - 3:15PM",
                   "location": "Esther Lee Bldg 205",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "6/3"
                 },
                 {
                   "time": "Fr 1:30PM - 3:00PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "10/4"
                 }
               ],
@@ -22928,25 +22995,25 @@
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 206",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "13/3, 20/3"
                 },
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 206",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "17/4, 24/4"
                 },
                 {
                   "time": "Fr 1:30PM - 3:15PM",
                   "location": "Esther Lee Bldg 304",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "6/3"
                 },
                 {
                   "time": "Fr 1:30PM - 3:00PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "10/4"
                 }
               ],
@@ -22966,25 +23033,25 @@
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 207",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "13/3, 20/3"
                 },
                 {
                   "time": "Fr 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 207",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "17/4, 24/4"
                 },
                 {
                   "time": "Fr 1:30PM - 3:15PM",
                   "location": "Esther Lee Bldg 306",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "6/3"
                 },
                 {
                   "time": "Fr 1:30PM - 3:00PM",
                   "location": "Basic Med Sci Bldg",
-                  "instructor": "Dr. YEUNG Chi Yan, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung, \nProfessor XIAO Sarah",
+                  "instructor": "Dr. CHEUNG Pui Han, \nDr. TANG Pui Yin, \nProfessor HO Long Kwan, \nProfessor LAM Yuen Tung",
                   "dates": "10/4"
                 }
               ],
@@ -24420,10 +24487,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "52",
+                "enrolled": "50",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
