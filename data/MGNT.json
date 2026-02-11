@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-07T04:54:47.389842+00:00",
+    "scraped_at": "2026-02-10T16:38:20.121604+00:00",
     "subject": "MGNT",
     "subject_title": "Management",
     "total_courses": 102,
@@ -411,10 +411,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1112,10 +1112,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "45",
+                "enrolled": "44",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5462,10 +5462,22 @@
               "section": "NBF1-FLD (1219)",
               "meetings": [
                 {
+                  "time": "Fr 11:30AM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 214",
+                  "instructor": "Dr. HO Kin Yan",
+                  "dates": "6/3"
+                },
+                {
                   "time": "TBA",
                   "location": "No Room Required",
                   "instructor": "Dr. HO Kin Yan",
                   "dates": "02/03/2026 - 08/06/2026"
+                },
+                {
+                  "time": "Th 5:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 215",
+                  "instructor": "Dr. HO Kin Yan",
+                  "dates": "23/4"
                 }
               ],
               "availability": {
@@ -6230,10 +6242,40 @@
               "section": "F-LEC (1201)",
               "meetings": [
                 {
-                  "time": "Th 2:00PM - 5:15PM",
+                  "time": "Th 2:00PM - 5:30PM",
                   "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Professor LI Shu Wing David",
-                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5"
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "9/4, 16/4, 23/4"
+                },
+                {
+                  "time": "Th 2:00PM - 5:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "7/5, 14/5"
+                },
+                {
+                  "time": "Th 9:30AM - 1:00PM",
+                  "location": "TBA",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "9/4"
+                },
+                {
+                  "time": "Th 9:30AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "16/4, 23/4"
+                },
+                {
+                  "time": "Th 9:30AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "7/5"
+                },
+                {
+                  "time": "Th 9:30AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "14/5"
                 }
               ],
               "availability": {
@@ -6417,10 +6459,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -6528,10 +6570,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "52",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"

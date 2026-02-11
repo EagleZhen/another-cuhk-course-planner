@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-07T02:10:49.464265+00:00",
+    "scraped_at": "2026-02-10T13:57:58.341989+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
     "total_courses": 104,
@@ -2184,10 +2184,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "49",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2483,10 +2483,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6617,19 +6617,25 @@
               "meetings": [
                 {
                   "time": "Sa 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Building 209B",
                   "instructor": "Dr. WEN Wu",
-                  "dates": "7/3, 14/3, 21/3, 28/3"
+                  "dates": "7/3"
                 },
                 {
                   "time": "Sa 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Dr. WEN Wu",
+                  "dates": "14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
                   "instructor": "Dr. WEN Wu",
                   "dates": "11/4, 18/4, 25/4"
                 },
                 {
                   "time": "Sa 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Esther Lee Bldg 203",
                   "instructor": "Dr. WEN Wu",
                   "dates": "9/5, 16/5, 23/5, 30/5, 6/6"
                 }
@@ -6726,6 +6732,12 @@
               "section": "IS-LEC (1090)",
               "meetings": [
                 {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "9/5"
+                },
+                {
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor KIM Keong Tae",
@@ -6735,7 +6747,13 @@
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor KIM Keong Tae",
-                  "dates": "13/4, 20/4, 27/4, 4/5, 11/5, 18/5"
+                  "dates": "13/4, 20/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "4/5, 11/5, 18/5"
                 },
                 {
                   "time": "Mo 9:30AM - 12:15PM",
@@ -7692,7 +7710,7 @@
                   "time": "We 6:45PM - 9:30PM",
                   "location": "Town Centre Sapphire Room",
                   "instructor": "Professor LI Hongfei",
-                  "dates": "7/1, 14/1, 21/1, 28/1"
+                  "dates": "7/1, 14/1, 21/1"
                 },
                 {
                   "time": "We 6:45PM - 9:30PM",
@@ -7729,6 +7747,12 @@
                   "location": "Lee Shau Kee Archi Bldg G03",
                   "instructor": "Professor LI Hongfei",
                   "dates": "28/2"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor LI Hongfei",
+                  "dates": "14/2"
                 }
               ],
               "availability": {
