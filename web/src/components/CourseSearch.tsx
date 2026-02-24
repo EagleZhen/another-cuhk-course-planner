@@ -124,6 +124,7 @@ export default function CourseSearch({
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const loadingStartTimeRef = useRef<number | null>(null)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
+  const [failedSubjectCount, setFailedSubjectCount] = useState(0)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
 
   // Removed global state - CourseCard now manages its own state
@@ -417,6 +418,11 @@ export default function CourseSearch({
 
         if (successCount === 0) {
           console.error('❌ No course data could be loaded - check that /data/ files exist')
+        }
+
+        const failed = availableSubjects.length - successCount
+        if (failed > 0) {
+          setFailedSubjectCount(failed)
         }
 
         setAllCourses(allCoursesData)
