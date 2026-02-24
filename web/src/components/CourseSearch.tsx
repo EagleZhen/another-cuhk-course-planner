@@ -797,19 +797,7 @@ export default function CourseSearch({
                     {/* Performance Metrics with Time Estimation */}
                     {performanceStats.subjectLoadTimes.length > 3 && (
                       <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="grid grid-cols-3 gap-4 text-xs">
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                            <span className="text-gray-600">Avg Speed:</span>
-                            <span className="font-mono text-gray-900">
-                              {Math.round(
-                                performanceStats.subjectLoadTimes
-                                  .filter(s => s.time > 0)
-                                  .reduce((sum, s) => sum + s.time, 0) /
-                                performanceStats.subjectLoadTimes.filter(s => s.time > 0).length
-                              )}ms
-                            </span>
-                          </div>
+                        <div className="grid grid-cols-2 gap-4 text-xs">
                           <div className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                             <span className="text-gray-600">Data Size:</span>
