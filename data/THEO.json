@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T22:58:30.802917+00:00",
+    "scraped_at": "2026-02-24T14:45:42.510363+00:00",
     "subject": "THEO",
     "subject_title": "Theology",
     "total_courses": 198,
@@ -1820,7 +1820,34 @@
       "course_code": "3236",
       "title": "Theological Studies: Special Topics II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1491)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "An examination of some basic problems or topics that arise in theological studies, such as sacramental theology, language, myth and symbol; Holy Spirit and sanctification.\n\nOfferings with different subtitles can be taken up for credit, up to a maximum of two times.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -2340,6 +2367,32 @@
               "class_attributes": "Cantonese and English"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-P01-PRA (1493)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Rev. YIU Chi Ho",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
         }
       ],
       "description": "Students will be arranged to join internship programmes offered by churches or church organizations. The overall aims are to help students gain insights into how theory be integrated with practice, learn to read living experience, learn to do theological reflection, understand how one’s self has shaped his/her ministry, examine his/her own vocational calling, acquire basic ministerial skills.",
@@ -2410,6 +2463,32 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "49",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-P01-PRA (1492)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Rev. YIU Chi Ho",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"

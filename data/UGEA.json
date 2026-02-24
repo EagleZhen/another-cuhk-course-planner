@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T23:03:28.428579+00:00",
+    "scraped_at": "2026-02-24T14:51:41.742739+00:00",
     "subject": "UGEA",
     "subject_title": "Chinese Cultural Heritage",
     "total_courses": 30,
@@ -883,11 +883,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "79",
+                "enrolled": "80",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Putonghua only"
             },
@@ -1094,6 +1094,44 @@
                 "status": "Closed"
               },
               "class_attributes": "Cantonese only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "A-LEC (1495)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT1",
+                  "instructor": "Mr. IP Tat Leung",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT1",
+                  "instructor": "Mr. IP Tat Leung",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT1",
+                  "instructor": "Mr. IP Tat Leung",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -1577,10 +1615,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "37",
+                "enrolled": "36",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "43",
+                "available_seats": "44",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -1654,6 +1692,44 @@
                 "status": "Closed"
               },
               "class_attributes": "Cantonese only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1496)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Dr. CHIU King Pong",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Dr. CHIU King Pong",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Dr. CHIU King Pong",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -2160,13 +2236,45 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "82",
+                "enrolled": "81",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "39",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "C-LEC (1443)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor SUN Jin",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor SUN Jin",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -2308,6 +2416,70 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "B-LEC (1501)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. WOO Tze Yan Jessie",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. WOO Tze Yan Jessie",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "G-LEC (1498)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building LT1",
+                  "instructor": "Dr. CHEN Wenyan",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building LT1",
+                  "instructor": "Dr. CHEN Wenyan",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building LT1",
+                  "instructor": "Dr. CHEN Wenyan",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
               },
               "class_attributes": "Cantonese only"
             }
@@ -3094,6 +3266,180 @@
               "class_attributes": "Putonghua only"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "A-LEC (1265)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. CHOI Sze Hang",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. CHOI Sze Hang",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "AT01-TUT (1266)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. CHOI Sze Hang",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. CHOI Sze Hang",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "B-LEC (1269)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Dr. HUANG Yu",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Dr. HUANG Yu",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "BT01-TUT (1287)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Dr. HUANG Yu",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Dr. HUANG Yu",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "C-LEC (1267)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. SONG Ruifeng",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. SONG Ruifeng",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. SONG Ruifeng",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CT01-TUT (1268)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. SONG Ruifeng",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. SONG Ruifeng",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 508",
+                  "instructor": "Dr. SONG Ruifeng",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course aims to provide a concise introduction to the rich and complex history of China, and how this historical heritage finds manifestation in the lives and thoughts of Chinese people today. Modelled upon and enriching UGCP1001 “Understanding China”, the course will focus on five themes: intellectual foundations, historical epochs, modernisation, economic development, and science and technology. It will explore the link between tradition and modernity for each theme, drawing on selected works on China from philosophy, history, sociology, economics, and science. Students will be introduced to major events, interpretations, and perspectives pertaining to China’s transformations in the past and present, and will be guided to reflect on contemporary developments in China through lectures, readings, and exploratory projects.",
@@ -3651,6 +3997,128 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "36",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "A-LEC (1385)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HO Hang Kei",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HO Hang Kei",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AT01-TUT (1386)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HO Hang Kei",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HO Hang Kei",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (1229)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor SUN Rui",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor SUN Rui",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 3:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor SUN Rui",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "BT01-TUT (1230)",
+              "meetings": [
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor SUN Rui",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 5:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor SUN Rui",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor SUN Rui",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T22:37:02.321011+00:00",
+    "scraped_at": "2026-02-24T14:20:16.910127+00:00",
     "subject": "SOCI",
     "subject_title": "Sociology",
     "total_courses": 93,
@@ -250,7 +250,46 @@
       "course_code": "1102",
       "title": "Sociology and Modern Society",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1182)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor WONG Suk Ying Veronica",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor WONG Suk Ying Veronica",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor WONG Suk Ying Veronica",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        }
+      ],
       "description": "(UGEC1823 is double-coded with SOCI1102.)\n\nThis course explores into the significance of sociological perspectives in understanding modern society. Attention will be given to the application of sociological concepts in the observation and analysis of social phenomena in modern society. The course is designed particularly to develop intellectual skills, as part of a student's general education, for a better understanding of the nature of modern society.",
       "enrollment_requirement": "Not for students who have taken SOCI1001 or UGEC1823.",
       "course_attributes": "",
@@ -2578,7 +2617,34 @@
       "course_code": "3245",
       "title": "Sociology Field Studies",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-O01-OTH (1413)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEE King Wa",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "The Sociology Field Studies provides students with an opportunity to apply sociological theories and methodologies in real-world contexts through experiential learning. Conducted by faculty from the Sociology Programme, this course focuses on the exploration of social issues and cultural dynamics in various environments outside of Hong Kong.\nStudents will engage with diverse communities, enhancing their understanding of social structures and cultural practices in different contexts. The course encourages students to conduct comparative studies across different societies, promoting critical thinking about sociological concepts and their application. Students will interact with local scholars/university students and/or community members, fostering cross-cultural dialogue and collaborative learning experiences. A study trip to a selected destination outside of Hong Kong will take place during term breaks, providing immersive experiences in the field. Students will be required to engage actively in all course activities, including lectures, workshops, and field studies. The assessment will include individual and group-based assignments, culminating in a reflective report that integrates their field experiences with sociological theories. By the end of the course, students will have developed practical skills in sociological research and analysis, enhancing their capacity to engage meaningfully with global social issues and contributing to their growth as informed global citizens.",
       "enrollment_requirement": "-",
       "course_attributes": "",
@@ -4721,40 +4787,7 @@
       "course_code": "6004",
       "title": "Advanced Qualitative Methods",
       "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (2011)",
-              "meetings": [
-                {
-                  "time": "We 11:30AM - 2:15PM",
-                  "location": "Sino Building 429",
-                  "instructor": "Professor SUN Jin",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 11:30AM - 2:15PM",
-                  "location": "Sino Building 429",
-                  "instructor": "Professor SUN Jin",
-                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
-                }
-              ],
-              "availability": {
-                "capacity": "15",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "15",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course examines qualitative methods used in social science research. Since qualitative research is both an ‘analytic mentality’ and a set of practical skills, the course will focus both discussions of key methodological and empirical readings as well as on practical skills, such as case and informant selection, field experiences, interview techniques, writing field notes, and analyzing and writing qualitative data. The course is in a seminar format. Lectures will be interwoven with discussions. Students are also required to conduct a small-scale pilot qualitative research project using the skills discussed in the seminar.",
       "enrollment_requirement": "For students in MPhil-PhD Sociology",
       "course_attributes": "",

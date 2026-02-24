@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T18:33:04.017741+00:00",
+    "scraped_at": "2026-02-24T09:53:45.435168+00:00",
     "subject": "DBAC",
     "subject_title": "DBA (Chinese) Programme",
     "total_courses": 26,
@@ -347,27 +347,79 @@
           "term_name": "2025-26 Term 3",
           "schedule": [
             {
+              "section": "LAW1-WKS (1233)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "25/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            },
+            {
+              "section": "LBW1-WKS (1234)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "25/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            },
+            {
               "section": "LW01-WKS (1175)",
               "meetings": [
                 {
                   "time": "Sa 8:30AM - 6:30PM",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Professor YANG Haibin",
                   "dates": "25/4"
                 },
                 {
                   "time": "Su 8:30AM - 6:30PM",
                   "location": "TBA",
-                  "instructor": "Miss ZENG Zijia",
+                  "instructor": "Miss ZENG Zijia, \nProfessor YANG Haibin",
                   "dates": "26/4"
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "15",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "PTH, change to Eng if needed"

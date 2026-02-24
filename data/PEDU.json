@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T21:46:51.018985+00:00",
+    "scraped_at": "2026-02-24T13:24:33.435218+00:00",
     "subject": "PEDU",
     "subject_title": "Education (PG)",
     "total_courses": 88,
@@ -79,7 +79,13 @@
                   "time": "Th 6:30PM - 9:00PM",
                   "location": "Chen Kou Bun Bldg LT3",
                   "instructor": "Professor DAI Yun",
-                  "dates": "5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                  "dates": "5/3, 12/3, 19/3, 26/3, 2/4"
+                },
+                {
+                  "time": "Th 6:30PM - 9:00PM",
+                  "location": "Chen Kou Bun Bldg LT3",
+                  "instructor": "Professor DAI Yun",
+                  "dates": "16/4, 23/4"
                 }
               ],
               "availability": {
@@ -226,13 +232,19 @@
                   "time": "Mo 6:30PM - 9:00PM",
                   "location": "Lee Shau Kee Building LT7",
                   "instructor": "Professor Ronnel Bornasal KING",
-                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                  "dates": "23/2, 2/3, 9/3, 16/3"
                 },
                 {
                   "time": "Mo 6:30PM - 9:00PM",
                   "location": "Lee Shau Kee Building LT7",
                   "instructor": "Professor Ronnel Bornasal KING",
                   "dates": "13/4"
+                },
+                {
+                  "time": "Mo 6:30PM - 10:00PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor Ronnel Bornasal KING",
+                  "dates": "23/3, 30/3"
                 }
               ],
               "availability": {
@@ -290,7 +302,13 @@
                   "time": "We 2:30PM - 5:00PM",
                   "location": "Ho Tim Building B6",
                   "instructor": "Professor DAI Yun",
-                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4"
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4"
+                },
+                {
+                  "time": "We 2:30PM - 5:00PM",
+                  "location": "Yasumoto Int'l Acad Park LT1",
+                  "instructor": "Professor DAI Yun",
+                  "dates": "15/4"
                 }
               ],
               "availability": {
@@ -316,7 +334,13 @@
                   "time": "We 6:30PM - 9:00PM",
                   "location": "Ho Tim Building B6",
                   "instructor": "Professor DAI Yun",
-                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4"
+                  "dates": "15/4"
+                },
+                {
+                  "time": "We 6:30PM - 9:00PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor DAI Yun",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4"
                 }
               ],
               "availability": {
@@ -1854,16 +1878,28 @@
               "section": "--LEC (4555)",
               "meetings": [
                 {
-                  "time": "Th 6:30PM - 9:30PM",
-                  "location": "Ho Tim Building M1",
-                  "instructor": "Professor OU Dongshu",
-                  "dates": "5/3, 12/3, 19/3, 26/3, 2/4"
-                },
-                {
                   "time": "Th 6:30PM - 9:00PM",
                   "location": "Ho Tim Building M1",
                   "instructor": "Professor OU Dongshu",
                   "dates": "9/4"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Ho Tim Building G6",
+                  "instructor": "Professor OU Dongshu",
+                  "dates": "16/4"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Ho Tim Building M1",
+                  "instructor": "Professor OU Dongshu",
+                  "dates": "5/3, 12/3, 19/3"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Ho Tim Building M1",
+                  "instructor": "Professor OU Dongshu",
+                  "dates": "2/4"
                 }
               ],
               "availability": {
@@ -4241,10 +4277,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "100",
+                "enrolled": "99",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "899",
+                "available_seats": "900",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"

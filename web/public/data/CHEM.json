@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T17:47:17.059586+00:00",
+    "scraped_at": "2026-02-24T09:03:44.105993+00:00",
     "subject": "CHEM",
     "subject_title": "Chemistry",
     "total_courses": 114,
@@ -1038,6 +1038,56 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1462)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. LO Chui Man",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. LO Chui Man",
+                  "dates": "1/6, 8/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. LO Chui Man",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. LO Chui Man",
+                  "dates": "15/5, 22/5, 29/5, 5/6"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Science Centre L3",
+                  "instructor": "Dr. HAU Chun Kit, \nDr. LO Chui Man",
+                  "dates": "17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
                 "status": "Open"
               },
               "class_attributes": "English only"

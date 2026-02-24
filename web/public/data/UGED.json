@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T23:13:38.201120+00:00",
+    "scraped_at": "2026-02-24T15:04:03.710416+00:00",
     "subject": "UGED",
     "subject_title": "Self and Humanity",
     "total_courses": 77,
@@ -655,6 +655,102 @@
               "class_attributes": "Cantonese and English"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "A-LEC (1226)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. KWOK Pak Nin",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. KWOK Pak Nin",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. KWOK Pak Nin",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "B-LEC (1497)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Dr. CHAN Kin Lok",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Dr. CHAN Kin Lok",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Dr. CHAN Kin Lok",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "C-LEC (1316)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Dr CHIN Chin Shing Arthur",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Dr CHIN Chin Shing Arthur",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
         }
       ],
       "description": "This course is designed to develop the student's ability to analyze and critically evaluate arguments from a logical point of view. It will provide students with a basic understanding of such concepts as reasons, implication, validity, and fallacies. Students will learn the logical principles of deductive and inductive inferences and the techniques of applying them for determining the validity of arguments. Elements of good reasoning from an informal perspective will also be covered.",
@@ -1235,7 +1331,40 @@
       "course_code": "1533",
       "title": "Mathematics in Visual Art",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1318)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Staff",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "This course aims to help students appreciate the role which mathematics plays in the development of Western visual art, discern mathematical elements in visual artworks, and reflect on the oft-held belief that there exists an impassable gulf between art and science. Topics include: the role which mathematics plays in Greco-Roman aesthetic theories, the mathematical basis of linear perspective in painting, the mathematics behind different models in color theory, planar symmetries in visual art and their connection to group theory, and mathematical methods in the analysis of artworks.",
       "enrollment_requirement": "Not for MATH; MIEG; BMED; and students in the concen. areas of Nat Sci Pro: Data Sci; or Math Sci, .  Co-requisite: UGFH1000, UGFN1000 or 1001 (only applicable to students admitted to 4-year curriculum)",
       "course_attributes": "",
@@ -2495,6 +2624,44 @@
               "class_attributes": "Cantonese and English"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1227)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. KWOK Pak Nin",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. KWOK Pak Nin",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. KWOK Pak Nin",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
         }
       ],
       "description": "The course aims to provide a basic training in critical reasoning as a methodological foundation of independent thinking. Students will learn how to extract, construct, and evaluate arguments; how to identify common fallacies and to reflect on the use of language and its bearing on clear thinking; and how to think critically about issues in both real life situation and theoretical arguments which they commonly encounter in the course of their studies.",
@@ -2748,7 +2915,34 @@
       "course_code": "1997",
       "title": "Understanding Hearing Loss",
       "credits": "1.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-X01-WBL (1425)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss TANG Hoi Man Mandy",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course examines the challenges and issues faced by Deaf and hard-of-hearing (D/HH) individuals when they attempt to adapt themselves to the teaching and learning practices and communication styles in a mainstream postsecondary educational context. This adaptation is particularly challenging when these variables could be fundamentally different from their previous learning experiences. For instance, they may encounter difficulties when they participate in lectures, tutorial or group discussions, presentations, lab work,...etc. resulting in communication barriers and social alienation.\n\nWithin UN’s SDG Framework, the course enables students to achieve a general understanding of the nature and causes of hearing loss (SDG #3: Good Health and Well-Being), and how to reduce communication barriers while dispelling misconceptions and negative attitudes towards D/HH individuals (SDG #10: Reduced Inequalities). Additionally, the course examines how the United Nations Convention on the Rights of Persons with Disabilities (CRPD) tackles issues relating to deafness, sign language, Deaf communication, and information accessibility in education and public domains. Students will analyze the economic, social, and environmental challenges faced by D/HH communities, such as limited access to healthcare, education, and employment. These challenges are explored in the context of how they perpetuate inequality and restrict opportunities for D/HH individuals (SDG #16: Peace, Justice and Strong Institutions). At a broader level, the course underlies the impact of communication barriers on the quality of life and opportunities available to D/HH individuals. It also emphasizes the circumstances within a mainstream postsecondary educational context, D/HH individuals can be afforded equal opportunities and appropriate support to achieve quality education. (SDG #4: Quality Education).\n\nThis course contains 7 themes each of which is packaged with a set of pre-recorded lectures and micromodules supplemented with multimedia resources such as YouTubes, Ted talks, DHH sharings and Deaf documentaries.",
       "enrollment_requirement": "Not for Bimodal Bilingual Studies Majors; and students who have taken BMBL1001. \nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
       "course_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #10 Reducing Inequality\nSDG-GE #16 Peace, Justice and Strong Institutions\nVirtual Teaching & Learning Course",
@@ -3132,6 +3326,44 @@
                 "status": "Closed"
               },
               "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1476)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Miss IP Wing Wun",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Miss IP Wing Wun",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Miss IP Wing Wun",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -4986,7 +5218,108 @@
       "course_code": "2316",
       "title": "Life and Arts in Pre-Modern China",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1255)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. TANG Man Leung, \nProfessor YIU Chun Chong, \nProfessor ZHOU Jin",
+                  "dates": "11/5"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. TANG Man Leung, \nProfessor YIU Chun Chong, \nProfessor ZHOU Jin",
+                  "dates": "15/5"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. TANG Man Leung, \nProfessor YIU Chun Chong, \nProfessor ZHOU Jin",
+                  "dates": "12/6"
+                },
+                {
+                  "time": "Th 1:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. TANG Man Leung, \nProfessor YIU Chun Chong, \nProfessor ZHOU Jin",
+                  "dates": "18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and Cantonese"
+            },
+            {
+              "section": "-F01-FLD (1405)",
+              "meetings": [
+                {
+                  "time": "We 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "3/6"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "5/6"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "6/6"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "7/6"
+                },
+                {
+                  "time": "Mo 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "8/6"
+                },
+                {
+                  "time": "Tu 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr HO Pik Ki, \nProfessor ZHOU Jin",
+                  "dates": "9/6"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and Cantonese"
+            }
+          ]
+        }
+      ],
       "description": "(UGED2316 is double-coded with FAAS2100.)\n\nIn the traditional discourse of Chinese painting, it was believed that an artist should “外師造化，中得心源” (outwardly learn from the Nature and inwardly trace the source of their own heart). Unfortunately, with the enormous temporal and geographical difference, both the Nature and the “heart-source” of the ancient masters, as well as their techniques in articulating the two, appear to be unapproachable to us living in the modern age. Likewise, the field’s ambiguous meta-language full of expressions like “氣韻生動” (infusing ch’i to show life movement) or “意趣” (subtle charm resulted from spontaneity) can also be a hurdle to uninitiated students.\n\nDistant it might seem, art, after all, is inspired by real life. This course seeks to explore the material basis of the Nature artistically heightened by the ancient artists directed by their “heart-source”. We would try to explore the abstract philosophical ideas and aesthetic ideals by looking at something physical and concrete: by visiting specific scenic sites, we would be able to compare the landscape with the paintings they inspired and have more idea on how the visual vocabulary and grammar of Chinese painting “translates” the real world; and by viewing the objects, or even experience some of the activities central to the artists’ cultural life, students would also have a more substantial understanding on the “heart-source” of these painters.\n\nThis course would use the Songjiang and Wu Schools of painting as case studies. A field trip will be organized and students will be walked through the areas of Shanghai, Suzhou and Hangzhou where the Ming Dynasty painters were active in. Through the well-preserved tangible heritage of the region, students could have a better feeling of the intangible ideational world of the ancient masters and their artistic pursuits. The endeavours of the local communities in preserving these invaluable treasures will also be reviewed.",
       "enrollment_requirement": "UGED2316 is double-coded with FAAS2100.\nNot for Fine Arts Majors; and students who have taken FAAS2100.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
       "course_attributes": "",
@@ -6101,6 +6434,38 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1225)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor TAO Kwok Cheung",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor TAO Kwok Cheung",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"

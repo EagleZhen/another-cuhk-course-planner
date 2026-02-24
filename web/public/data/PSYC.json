@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T22:20:46.307611+00:00",
+    "scraped_at": "2026-02-24T14:02:15.179261+00:00",
     "subject": "PSYC",
     "subject_title": "Psychology",
     "total_courses": 134,
@@ -3125,7 +3125,34 @@
       "course_code": "4903",
       "title": "Practicum in Social and Industrial-Organizational Psychology",
       "credits": "6.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-P01-PRA (1394)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor CHAN Sarah",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "This course introduces students to work settings such as business corporations, banks, governmental and non-governmental organizations in which they will have an opportunity to apply the theories and subject matter of social and industrial/organizational psychology in the \"real world\". Students will arrange a practicum placement together with the course lecturer.\n\nAdvisory: For Psychology Major Year 2 & 3 students only.",
       "enrollment_requirement": "Prerequisite: PSYC1000 or UGED2581, and permission of course teacher.",
       "course_attributes": "Capstone Course\nExperiential Learning Course\nInternship",

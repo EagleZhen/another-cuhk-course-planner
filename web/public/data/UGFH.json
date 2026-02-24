@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T23:15:26.507564+00:00",
+    "scraped_at": "2026-02-24T15:06:31.419070+00:00",
     "subject": "UGFH",
     "subject_title": "In Dialogue with Humanity",
     "total_courses": 1,
@@ -4601,7 +4601,7 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "151",
+                "enrolled": "150",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -4677,11 +4677,11 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "25",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese only"
             },
@@ -5722,6 +5722,524 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "A-LEC (1337)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 11:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 11:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "AT01-TUT (1338)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "B-LEC (1339)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "BT01-TUT (1340)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. LUI Wing Sing",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "C-LEC (1341)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "CT01-TUT (1342)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "D-LEC (1343)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "DT01-TUT (1344)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "instructor": "Dr. HO Wai Ming",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "E-LEC (1331)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 11:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 11:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ET01-TUT (1332)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "F-LEC (1305)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 4:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 4:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FT01-TUT (1306)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. MEN Bozhou",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "G-LEC (1345)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr WONG Kim Fan",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr WONG Kim Fan",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr WONG Kim Fan",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GT01-TUT (1346)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr WONG Kim Fan",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr WONG Kim Fan",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Th 1:30PM - 3:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr WONG Kim Fan",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "P-LEC (1347)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Dr KAO Sophia Yu Min",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Dr KAO Sophia Yu Min",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 4:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Dr KAO Sophia Yu Min",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "PT01-TUT (1348)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Dr KAO Sophia Yu Min",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Dr KAO Sophia Yu Min",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Dr KAO Sophia Yu Min",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
             }
           ]
         }

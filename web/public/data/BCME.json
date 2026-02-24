@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T17:31:23.090835+00:00",
+    "scraped_at": "2026-02-24T08:45:53.135158+00:00",
     "subject": "BCME",
     "subject_title": "Chinese Medicine",
     "total_courses": 132,
@@ -1141,7 +1141,64 @@
       "course_code": "2302",
       "title": "Yi-Jing and Chinese Medicine",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1464)",
+              "meetings": [
+                {
+                  "time": "We 8:30AM - 1:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Dr. FU Yan Steven, \nDr. TSOI Yan Wang, \nMr. LU Guoan, \nProfessor JIANG Yuanan, \nProfessor ZHANG Jianguo",
+                  "dates": "27/5, 3/6"
+                },
+                {
+                  "time": "Th 8:30AM - 1:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Dr. FU Yan Steven, \nDr. TSOI Yan Wang, \nMr. LU Guoan, \nProfessor JIANG Yuanan, \nProfessor ZHANG Jianguo",
+                  "dates": "28/5, 4/6"
+                },
+                {
+                  "time": "Fr 8:30AM - 1:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Dr. FU Yan Steven, \nDr. TSOI Yan Wang, \nMr. LU Guoan, \nProfessor JIANG Yuanan, \nProfessor ZHANG Jianguo",
+                  "dates": "29/5, 5/6"
+                },
+                {
+                  "time": "Mo 8:30AM - 1:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Dr. FU Yan Steven, \nDr. TSOI Yan Wang, \nMr. LU Guoan, \nProfessor JIANG Yuanan, \nProfessor ZHANG Jianguo",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 8:30AM - 1:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Dr. FU Yan Steven, \nDr. TSOI Yan Wang, \nMr. LU Guoan, \nProfessor JIANG Yuanan, \nProfessor ZHANG Jianguo",
+                  "dates": "2/6"
+                },
+                {
+                  "time": "We 8:30AM - 1:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. FU Yan Steven, \nDr. TSOI Yan Wang, \nMr. LU Guoan, \nProfessor JIANG Yuanan, \nProfessor ZHANG Jianguo",
+                  "dates": "24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "140",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and Cantonese"
+            }
+          ]
+        }
+      ],
       "description": "Chinese philosophy has a profound influence on the medical concepts. Through the study of Yi-Jing, students will learn the philosophical concepts behind many medical and medicinal theories.",
       "enrollment_requirement": "For BCM and MCM Majors only.",
       "course_attributes": "",
@@ -1190,7 +1247,76 @@
       "course_code": "2308",
       "title": "Empirical Identification of Chinese Herbal Drugs",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1463)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Mo 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "15/6"
+                },
+                {
+                  "time": "Th 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "14/5, 21/5, 28/5, 4/6"
+                },
+                {
+                  "time": "Th 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "18/6"
+                },
+                {
+                  "time": "We 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "13/5, 20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "We 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Mul-purp Tec Lab",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "17/6"
+                },
+                {
+                  "time": "Fr 1:30PM - 6:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor HO Fat Yee, \nProfessor XIAN Yanfang",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        }
+      ],
       "description": "This course teaches the identification and quality assessment of Chinese herbal drugs basing on empirical knowledge. Various types of Chinese herbal drugs will be covered, including common Chinese herbal drugs, Chinese herbal drugs which are often confused as well as expensive Chinese herbal drugs.",
       "enrollment_requirement": "For BCM and MCM Majors only.",
       "course_attributes": "",
@@ -1313,7 +1439,52 @@
       "course_code": "2313",
       "title": "Paediatric Tuina Therapy",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1465)",
+              "meetings": [
+                {
+                  "time": "Tu 8:30AM - 1:15PM",
+                  "location": "Li Wai Chun, Acup & Ortho Lab",
+                  "instructor": "Professor ZHANG Jianguo",
+                  "dates": "12/5, 19/5, 26/5"
+                },
+                {
+                  "time": "We 8:30AM - 1:15PM",
+                  "location": "Li Wai Chun, Acup & Ortho Lab",
+                  "instructor": "Professor ZHANG Jianguo",
+                  "dates": "13/5, 20/5"
+                },
+                {
+                  "time": "Fr 1:30PM - 6:15PM",
+                  "location": "Li Wai Chun, Acup & Ortho Lab",
+                  "instructor": "Professor ZHANG Jianguo",
+                  "dates": "15/5, 22/5, 29/5"
+                },
+                {
+                  "time": "Mo 8:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Professor ZHANG Jianguo",
+                  "dates": "22/6"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
       "description": "Pediatric massage therapy is a clinical treatment in traditional Chinese Medicine that is specifically designed for children. It is non-invasive and also demonstrates good therapeutic efficacy on different common pediatric diseases. Since children have their unique physiological and pathological features, many of the acupuncture points like linear points and planar points applied is specific for children. The manual manipulation of pediatric massage therapy, including operating frequency and duration, is also different from that of adult massage therapy. The operation procedures must be light, soft and steady. Specific multiple-style manipulations may be required in addition to the conventional single-style manipulation for pediatric massage therapy.\nThe objectives of the course are to appreciate the development and the features of the current clinical branches of pediatric massage therapy, and to understand the principles of the selection of acupuncture points and manual manipulation in different common pediatric diseases.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -6759,13 +6930,13 @@
                 {
                   "time": "Th 6:30PM - 9:15PM",
                   "location": "Sino Building LT2",
-                  "instructor": "Dr. CHAN Kam Leung, \nProfessor ZUO Zhong",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor LAU Chor Yue Victor, \nProfessor ZUO Zhong",
                   "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
                 },
                 {
                   "time": "Th 6:30PM - 9:15PM",
                   "location": "Sino Building LT2",
-                  "instructor": "Dr. CHAN Kam Leung, \nProfessor ZUO Zhong",
+                  "instructor": "Dr. CHAN Kam Leung, \nProfessor LAU Chor Yue Victor, \nProfessor ZUO Zhong",
                   "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
                 }
               ],

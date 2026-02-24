@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T21:13:21.193150+00:00",
+    "scraped_at": "2026-02-24T12:46:50.168961+00:00",
     "subject": "MGNT",
     "subject_title": "Management",
     "total_courses": 102,
@@ -667,10 +667,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "42",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2089,11 +2089,11 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -4341,10 +4341,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "17",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "53",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4407,10 +4407,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "34",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "33",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4473,10 +4473,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "19",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5921,10 +5921,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "57",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6293,15 +6293,45 @@
               "meetings": [
                 {
                   "time": "Sa 9:30AM - 12:45PM",
-                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "location": "Yasumoto Int'l Acad Park LT9",
                   "instructor": "Professor LI Shu Wing David",
                   "dates": "14/3, 21/3, 28/3"
                 },
                 {
                   "time": "Sa 9:30AM - 12:45PM",
-                  "location": "Wu Ho Man Yuen Bldg 306",
+                  "location": "Yasumoto Int'l Acad Park LT9",
                   "instructor": "Professor LI Shu Wing David",
-                  "dates": "11/4, 18/4, 25/4, 2/5, 9/5, 16/5, 23/5, 30/5"
+                  "dates": "11/4"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor LI Shu Wing David",
+                  "dates": "25/4, 2/5, 9/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LI Shu Wing David",
+                  "dates": "18/4"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Professor LI Shu Wing David",
+                  "dates": "16/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Professor LI Shu Wing David",
+                  "dates": "30/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor LI Shu Wing David",
+                  "dates": "23/5"
                 }
               ],
               "availability": {
@@ -6326,25 +6356,25 @@
                 {
                   "time": "Su 8:30AM - 6:15PM",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "7/6"
                 },
                 {
                   "time": "Sa 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "6/6"
                 },
                 {
                   "time": "Th 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "4/6"
                 },
                 {
                   "time": "Fr 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "5/6"
                 }
               ],
@@ -6364,25 +6394,25 @@
                 {
                   "time": "Su 8:30AM - 6:15PM",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "17/5"
                 },
                 {
                   "time": "Su 8:30AM - 6:15PM",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "31/5"
                 },
                 {
                   "time": "Sa 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "16/5"
                 },
                 {
                   "time": "Sa 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Staff",
+                  "instructor": "Professor LU Yuan",
                   "dates": "30/5"
                 }
               ],
@@ -6848,7 +6878,58 @@
       "course_code": "6242",
       "title": "Advanced Seminar in Strategic Management and International Business",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-S01-SEM (1429)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 6:30PM",
+                  "location": "Esther Lee Bldg 204",
+                  "instructor": "Professor ZHAO Yanfei",
+                  "dates": "22/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 6:30PM",
+                  "location": "Esther Lee Bldg 204",
+                  "instructor": "Professor ZHAO Yanfei",
+                  "dates": "23/6"
+                },
+                {
+                  "time": "We 9:30AM - 6:30PM",
+                  "location": "Esther Lee Bldg 204",
+                  "instructor": "Professor ZHAO Yanfei",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "Th 9:30AM - 6:30PM",
+                  "location": "Esther Lee Bldg 204",
+                  "instructor": "Professor ZHAO Yanfei",
+                  "dates": "25/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 6:30PM",
+                  "location": "Esther Lee Bldg 204",
+                  "instructor": "Professor ZHAO Yanfei",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course is designed primarily for doctoral students to further their knowledge of theory and research of strategic management (SM) and international business (IB). In addition, the course is to help the participants enhance their capabilities for empirical studies in SM and IB and to facilitate the development of their personal research interests that will be incorporated into their research proposals. The course provides the participants an opportunity to be exposed to classic readings and the latest developments of theory and research issues in areas of SM and IB. In each class session participants are required to read a set of articles that are selected around a given topic and engage in discussions on the evaluation of respective theory and research methods. The course takes a seminar style and participants are required to read the articles assigned by the instructor prior to each class session and to actively participate in class discussions.",
       "enrollment_requirement": "For students in MPhil-PhD Management",
       "course_attributes": "",
@@ -6951,13 +7032,25 @@
                   "time": "Sa 2:00PM - 5:15PM",
                   "location": "Wu Ho Man Yuen Bldg 408",
                   "instructor": "Professor WANG Jian",
+                  "dates": "23/5"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Professor WANG Jian",
                   "dates": "11/4, 18/4, 25/4, 2/5"
                 },
                 {
                   "time": "Sa 2:00PM - 5:15PM",
                   "location": "Lee Shau Kee Archi Bldg G03",
                   "instructor": "Professor WANG Jian",
-                  "dates": "9/5, 16/5, 23/5, 30/5"
+                  "dates": "9/5, 16/5"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor WANG Jian",
+                  "dates": "30/5"
                 }
               ],
               "availability": {
@@ -7010,25 +7103,25 @@
                 {
                   "time": "Fr 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor MA Xufei",
                   "dates": "10/4"
                 },
                 {
                   "time": "Th 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor MA Xufei",
                   "dates": "9/4"
                 },
                 {
                   "time": "Sa 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor MA Xufei",
                   "dates": "11/4"
                 },
                 {
                   "time": "Su 8:30AM - 6:15PM",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Professor MA Xufei",
                   "dates": "12/4"
                 }
               ],

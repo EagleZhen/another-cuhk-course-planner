@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T20:45:12.802890+00:00",
+    "scraped_at": "2026-02-24T12:15:28.173541+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
     "total_courses": 96,
@@ -247,7 +247,7 @@
               ],
               "availability": {
                 "capacity": "151",
-                "enrolled": "152",
+                "enrolled": "151",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -465,7 +465,34 @@
       "course_code": "2005",
       "title": "Summer Junior Project",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (1357)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HUI Jerome Ho Lam",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This STOT course is designed to provide Life Science majors to work with the community on local issues with a scientific mind and with concepts of global citizenship. Students are encouraged to develop their own project with innovative ideas, design their own projects and presentation style to engage the community for science education and technology promotion. Students are also encouraged to work with non-government organizations, schools and local communities on their projects with both qualitative and quantitative analyses.",
       "enrollment_requirement": "Pre-requisite: LSCI1002.",
       "course_attributes": "STOT Course",
@@ -543,7 +570,60 @@
       "course_code": "3012",
       "title": "Practical Bioinformatics for Life Sciences",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1253)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Science Centre 190",
+                  "instructor": "Professor CHAN Ting Fung Philos",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Science Centre 190",
+                  "instructor": "Professor CHAN Ting Fung Philos",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (1406)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Ting Fung Philos",
+                  "dates": "20/05/2026 - 24/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course will provide students with hands-on training on bioinformatics analysis in a project-based manner. Students will carry out independent projects in groups under supervision. During the project, students will develop sequencing-related experimental skills and explore how to address scientific questions using bioinformatics tools.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -569,7 +649,60 @@
       "course_code": "3030",
       "title": "Structural Biology",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1254)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 6:15PM",
+                  "location": "Science Centre 190",
+                  "instructor": "Professor AU Wing Ngor Shannon, \nProfessor NGO Chi Ki Jacky, \nProfessor WONG Kam Bo",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 6:15PM",
+                  "location": "Science Centre 190",
+                  "instructor": "Professor AU Wing Ngor Shannon, \nProfessor NGO Chi Ki Jacky, \nProfessor WONG Kam Bo",
+                  "dates": "26/6, 3/7"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (1407)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor AU Wing Ngor Shannon, \nProfessor NGO Chi Ki Jacky, \nProfessor WONG Kam Bo",
+                  "dates": "15/05/2026 - 03/07/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course provides a detailed overview of two principles structural biology methods used for the study of the structure-function relationship biomolecules: cryo-electron microscopy (cryo-EM) and X-ray crystallography. Cryo-EM, a powerful technique involving rapid cooling of biological specimens in vitreous ice to preserve the structure for EM analysis, has become a dominant technique in the field of structural biology. Its board applications range from high-resolution structure determination of protein complexes using single particle analysis to visualization of subcellular structures in their native environment using tomography. On the other hand, X-ray crystallography is a powerful tool in studying small proteins and protein-drug interactions. Today, cryo-EM and X-ray crystallography are indispensable and irreplaceable tools in research to reveal unprecedented architectural details of macromolecular assemblies that are invaluable to our mechanistic understanding of the biological world as well as drug discovery. This course will cover the fundamental principles and concepts with an emphasis on practical aspects of these two fundamental techniques. Basic techniques, such as specimen preparation, machine operation, data acquisition, computational image analysis and structure solving, 3D map interpretation, and model building will be covered. With an emphasis on high-resolution structure determination, this course provides the necessary hands-on experience and entry-level trainings for students to perform cryo-EM and X-ray crystallography in their future research projects.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -595,7 +728,60 @@
       "course_code": "3333",
       "title": "Introductory Live-Cell Imaging: Applications and Analyses",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1270)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Science Center 127",
+                  "instructor": "Dr. KOON Chun Alex",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Science Center 127",
+                  "instructor": "Dr. KOON Chun Alex",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (1408)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOON Chun Alex",
+                  "dates": "12/05/2026 - 23/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "Most structural and functional cellular changes can only be visualized in living cells, tissues or even intact animals. Modern fluorescent live-cell imaging techniques is therefore crucial for scientists to study such dynamic changes at the cellular and even molecular level. This undergraduate course provides entry level live-cell imaging microscopy trainings and intact specimens/animals preparations in a laboratory setting, while covering the fundamental principles via lectures. Students will have the precious opportunities to obtain hands-on experience with some of the most advanced high speed/super-resolution microscopes in the field, such as spinning disc, Two-photon and STED laser confocal microscopes. Data processing/analysis using advanced image software, such as IMARIS, will also be covered. Upon completion of the course, students will be able to incorporate these powerful microscopy and image processing/analysis techniques into their future research to study cellular dynamics.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -815,7 +1001,34 @@
       "course_code": "4911",
       "title": "Group Research in Life Sciences (I)",
       "credits": "2.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (1358)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor NGO Chi Ki Jacky",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course is a capstone course consists of group research projects to investigate the heated topics related to Life Sciences, such that students will be inspired by how different fields of life sciences have made their impacts on the globalized knowledge-based society of Hong Kong. In this course, students form a group to carry out an independent laboratory-based/non-laboratory-based research project either provided by the supervisor or jointly decided with the group. To fulfill the course requirement, students are required to discuss their progress with their supervisors regularly and submit a research proposal. In the event that one or more member(s) of the same group will not be enrolled in LSCI4912, the remaining member(s) will continue to finish the research project with the consent of\nthe supervisor.",
       "enrollment_requirement": "Not to be taken with BCHE4901, BIOL4901, CMBI4901, ENSC4901, FNSC4901 and MBTE4901 at the same term",
       "course_attributes": "",

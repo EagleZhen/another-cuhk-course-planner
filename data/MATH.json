@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T20:54:04.587381+00:00",
+    "scraped_at": "2026-02-24T12:25:15.666735+00:00",
     "subject": "MATH",
     "subject_title": "Mathematics",
     "total_courses": 114,
@@ -641,7 +641,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "65",
+                "enrolled": "64",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -673,13 +673,83 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "65",
+                "enrolled": "64",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "K-LEC (1479)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Dr. KIM Hyun Bin Shannon Won",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Dr. KIM Hyun Bin Shannon Won",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Dr. KIM Hyun Bin Shannon Won",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 1:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Dr. KIM Hyun Bin Shannon Won",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KT01-TUT (1480)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Dr. KIM Hyun Bin Shannon Won",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Dr. KIM Hyun Bin Shannon Won",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -2812,6 +2882,76 @@
               "class_attributes": "Cantonese and English"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "J-LEC (1482)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "JT01-TUT (1481)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
         }
       ],
       "description": "This course is intended for students who need to acquire the knowledge and skills of linear algebra. The course emphasizes the fundamental principles, reasoning of mathematics and also applications, but generality instead of particular usage will be the focus.\nAdvisory: MATH Majors should select not more than 5 MATH courses in a term.",
@@ -3666,10 +3806,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -3704,10 +3844,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5301,6 +5441,76 @@
               "class_attributes": "Cantonese and English"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "F-LEC (1483)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Dr. Albert Joseph WOOD",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Dr. Albert Joseph WOOD",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Dr. Albert Joseph WOOD",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Dr. Albert Joseph WOOD",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FT01-TUT (1252)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Dr. Albert Joseph WOOD",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Dr. Albert Joseph WOOD",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course is intended to introduce the basics of the calculus of functions of several variables. Topics include: vectors, geometry of Euclidean spaces, curves, limits, partial derivatives, differentiability, chain rule, first and second derivative test, maximum and minimum, Taylor polynomials, Lagrange multipliers, implicit function theorem.\nAdvisory: MATH Majors should select not more than 5 MATH courses in a term.",
@@ -5479,10 +5689,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "61",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5511,10 +5721,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5855,10 +6065,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "41",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5893,10 +6103,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6227,10 +6437,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6259,10 +6469,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7373,10 +7583,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "35",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7405,10 +7615,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "35",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -12303,10 +12513,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "8",
+                "enrolled": "7",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"

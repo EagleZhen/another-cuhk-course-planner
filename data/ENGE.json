@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T19:10:12.489561+00:00",
+    "scraped_at": "2026-02-24T10:33:29.099150+00:00",
     "subject": "ENGE",
     "subject_title": "English",
     "total_courses": 158,
@@ -2396,7 +2396,40 @@
       "course_code": "1800",
       "title": "Drama in Performance I",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1327)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Staff",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "The course will introduce students to what is involved in translating a dramatic text from the page to the stage. Students will analyse some one-act plays in English from a dramaturgical point of view, workshop them in small groups and perform them on the stage before an audience. They will be introduced to the adaptation of texts for performance, to the technical aspects of casting, acting, directing and stagecraft. Emphasis will be placed on communicative aspects of acting, including pronunciation, intonation and voice production. Drama in Performance will complement other major courses in communication, literature and language study.",
       "enrollment_requirement": "",
       "course_attributes": "",
@@ -3309,10 +3342,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3489,10 +3522,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "11",
+                "enrolled": "10",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7071,7 +7104,34 @@
       "course_code": "2960",
       "title": "The World in English: an Oxford Summer Programme",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-F01-FLD (1489)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. SUN Tongle",
+                  "dates": "08/08/2026 - 29/08/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "Students will be selected by a panel of senior staff based on achievement in relevant Department courses and willingness and likely capacity to benefit. Classes will be divided in two strands: \"Literature, Linguistics and Society\"; \"Current Affairs: Britain and the World\". Oxford tutors will conduct 4 hours' face-to-face teaching a day for 5 days a week. Students will spend some evenings and weekend days in excursions to London and Stratford for plays and other cultural sites. Fieldwork and cultural explorations will be closely supervised by College nominees and/or Department staff. Full reflective essays and diary-plus-video are required of all participants for presentation within CUHK at their own college presentation evenings, and to other English Department majors at university orientation events. Each student on return will be expected to volunteer for either a teaching role for underprivileged students or one of CUHK's ICARE service projects (Possibility of financial contribution being waived for needier candidates). Classes will take place in St Hilda's College Oxford for 3 weeks during the summer term, between second and third years.",
       "enrollment_requirement": "",
       "course_attributes": "STOT Course",

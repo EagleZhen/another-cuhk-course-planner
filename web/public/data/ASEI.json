@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T17:24:59.735939+00:00",
+    "scraped_at": "2026-02-24T08:39:06.412981+00:00",
     "subject": "ASEI",
     "subject_title": "Aero Sci and Earth Info & X",
     "total_courses": 4,
@@ -12,7 +12,34 @@
       "course_code": "1090",
       "title": "Field trip to GBA: Aerospace Sciences and Earth Informatics",
       "credits": "1.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-F01-FLD (1420)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. YIM Shing Yik",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "This course aims to provide students with site visits in the Greater Bay Area (GBA). Through the guided visits to institutions and private sector relevant to the field of aerospace science and Earth informatics, students are given opportunity to explore and understand the current practices and research frontier in the field. Students are required to participate in all activities including the tutorial discussions and group presentation, and to submit an individual report afterwards.",
       "enrollment_requirement": "",
       "course_attributes": "",

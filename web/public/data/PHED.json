@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-19T22:02:17.031561+00:00",
+    "scraped_at": "2026-02-24T13:41:58.427862+00:00",
     "subject": "PHED",
     "subject_title": "Physical Education",
     "total_courses": 81,
@@ -9809,11 +9809,11 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -12677,7 +12677,40 @@
       "course_code": "1280",
       "title": "Badminton",
       "credits": "1.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "X-LEC (1461)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "University Gymnasium",
+                  "instructor": "Mr. TAM Chi Kin",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 10:30AM - 12:15PM",
+                  "location": "University Gymnasium",
+                  "instructor": "Mr. TAM Chi Kin",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "Can, change to Eng if needed"
+            }
+          ]
+        }
+      ],
       "description": "This course is offered as one of the courses under the Elective Physical Education Programme. This course aims at developing students’ fundamental skills of badminton needed for life long participation in the sport. Contents include: services, overhand shots, underhand shots, forehand shots, backhand shots, footwork, rules and tactics of the sport, nurturing positive attitudes and values toward sports participation, etc.",
       "enrollment_requirement": "Each students can only take one elective course in a term.\nNot for students who have taken PHED1073 or PHED1074.",
       "course_attributes": "",
@@ -12831,11 +12864,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Can, change to Eng if needed"
             }
@@ -13176,7 +13209,46 @@
       "course_code": "1430",
       "title": "Modern Dance",
       "credits": "1.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "X-LEC (1426)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Table Tennis Rm, U Sport Centr",
+                  "instructor": "Miss MAN Wai Kei",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Table Tennis Rm, U Sport Centr",
+                  "instructor": "Miss MAN Wai Kei",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 1:30PM - 3:15PM",
+                  "location": "Table Tennis Rm, U Sport Centr",
+                  "instructor": "Miss MAN Wai Kei",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "22",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "22",
+                "status": "Open"
+              },
+              "class_attributes": "Can, change to Eng if needed"
+            }
+          ]
+        }
+      ],
       "description": "This course is offered as one of the courses under the Elective Physical Education Programme. It aims at developing students’ basic technique of modern dance and dance choreography. With different dance technique training exercises and dance routines, students can improve their flexibility, coordination, musicality, energy transferal, spatial awareness and performing skills. Dance choreography focuses on the process in creating and self-discovery. It encourages students to share and express their feelings and thoughts with body movement. Dance performance is required at the end of the course and students can learn the basic stage knowledge and performing skills.",
       "enrollment_requirement": "Each student can only take one elective course in a term.",
       "course_attributes": "",
