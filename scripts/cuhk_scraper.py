@@ -1615,9 +1615,8 @@ class CuhkScraper:
         if not self._validate_course_outcome_response(response.text, course):
             # Invalid outcome page = transient corruption
             # Raise ValueError to trigger retry in get_course_details()
-            self._track_failed_course_outcome(
-                course.subject, course.course_code, "validation_failed"
-            )
+            # NOTE: Do NOT track here - retry loop may succeed, so tracking before giving up
+            # would falsely report a failure even when the course eventually recovers. (#80)
             raise ValueError(f"Invalid course outcome page structure for {course.course_code}")
 
         # Parse Course Outcome page only if validation passes
