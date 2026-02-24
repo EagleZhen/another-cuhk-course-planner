@@ -807,7 +807,7 @@ export default function CourseSearch({
                           </div>
                           <div className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                            <span className="text-gray-600">Est. Time:</span>
+                            <span className="text-gray-600">Estimated Time:</span>
                             <span className="font-mono text-gray-900">
                               {(() => {
                                 const completedRequests = performanceStats.subjectLoadTimes.filter(s => s.time > 0)
