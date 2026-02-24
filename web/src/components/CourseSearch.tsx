@@ -292,7 +292,6 @@ export default function CourseSearch({
 
         const allCoursesData: InternalCourse[] = []
         const scrapingTimestamps: Date[] = []
-        let completedCount = 0
 
         console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL...`)
 
@@ -310,12 +309,11 @@ export default function CourseSearch({
               const dataSize = JSON.stringify(rawData).length
               const loadTime = subjectEndTime - subjectStartTime
 
-              // Update progress as each request completes (thread-safe)
-              completedCount++
-              setLoadingProgress(() => ({
-                loaded: completedCount,
-                total: availableSubjects.length,
-                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${completedCount}/${availableSubjects.length}`
+              // Update progress as each request completes
+              setLoadingProgress(prev => ({
+                loaded: prev.loaded + 1,
+                total: prev.total,
+                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`
               }))
 
               // Extract scraping timestamp from metadata
