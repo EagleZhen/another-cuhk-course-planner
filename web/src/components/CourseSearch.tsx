@@ -124,6 +124,7 @@ export default function CourseSearch({
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const loadingStartTimeRef = useRef<number | null>(null)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
+  const [failedSubjectCount, setFailedSubjectCount] = useState(0)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
 
   // Removed global state - CourseCard now manages its own state
@@ -419,6 +420,11 @@ export default function CourseSearch({
           console.error('❌ No course data could be loaded - check that /data/ files exist')
         }
 
+        const failed = availableSubjects.length - successCount
+        if (failed > 0) {
+          setFailedSubjectCount(failed)
+        }
+
         setAllCourses(allCoursesData)
         setHasDataLoaded(true) // Mark data as loaded for this session
         setLoading(false)
@@ -586,6 +592,19 @@ export default function CourseSearch({
     <div className="space-y-4">
       {/* Sticky Search Input with Term Filter Hint */}
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
+        {/* Partial load warning */}
+        {failedSubjectCount > 0 && (
+          <div role="alert" className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 mb-3">
+            <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+            <span>
+              {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due to a network error. Some courses may be missing.{' '}
+              <button onClick={() => window.location.reload()} className="underline font-semibold cursor-pointer hover:text-red-900">
+                Reload the page
+              </button>{' '}
+              to try again.
+            </span>
+          </div>
+        )}
         <div className="w-full space-y-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
