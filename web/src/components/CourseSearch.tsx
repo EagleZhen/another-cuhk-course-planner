@@ -789,7 +789,7 @@ export default function CourseSearch({
                               if (!loadingStartTimeRef.current) return '...'
                               const elapsed = performance.now() - loadingStartTimeRef.current
                               const completionRate = loadingProgress.loaded / loadingProgress.total
-                              const remainingMs = (elapsed / completionRate) - elapsed
+                              const remainingMs = Math.max(0, (elapsed / completionRate) - elapsed)
                               if (remainingMs < 1000) return '<1s'
                               return `~${Math.round(remainingMs / 1000)}s`
                             })()}
