@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin, HardDrive, Hourglass } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
@@ -789,30 +789,23 @@ export default function CourseSearch({
                     {/* Performance Metrics with Time Estimation */}
                     {loadingProgress.loaded > 3 && (
                       <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="grid grid-cols-2 gap-4 text-xs">
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                            <span className="text-gray-600">Data Size:</span>
-                            <span className="font-mono text-gray-900">
-                              {(loadedBytes / 1024 / 1024).toFixed(1)}MB
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                            <span className="text-gray-600">Estimated Time:</span>
-                            <span className="font-mono text-gray-900">
-                              {(() => {
-                                if (!loadingStartTimeRef.current || loadingProgress.loaded < 3) return 'Calculating...'
-
-                                const elapsed = performance.now() - loadingStartTimeRef.current
-                                const completionRate = loadingProgress.loaded / loadingProgress.total
-                                const remainingMs = (elapsed / completionRate) - elapsed
-
-                                if (remainingMs < 1000) return '<1s'
-                                return `${Math.round(remainingMs / 1000)}s`
-                              })()}
-                            </span>
-                          </div>
+                        <div className="flex items-center gap-1 text-xs text-gray-500">
+                          <HardDrive className="w-3 h-3" />
+                          <span className="font-mono text-gray-700">{(loadedBytes / 1024 / 1024).toFixed(1)}MB</span>
+                          <span>loaded</span>
+                          <span className="mx-1">·</span>
+                          <Hourglass className="w-3 h-3" />
+                          <span className="font-mono text-gray-700">
+                            {(() => {
+                              if (!loadingStartTimeRef.current) return '...'
+                              const elapsed = performance.now() - loadingStartTimeRef.current
+                              const completionRate = loadingProgress.loaded / loadingProgress.total
+                              const remainingMs = (elapsed / completionRate) - elapsed
+                              if (remainingMs < 1000) return '<1s'
+                              return `~${Math.round(remainingMs / 1000)}s`
+                            })()}
+                          </span>
+                          <span>remaining</span>
                         </div>
                       </div>
                     )}
