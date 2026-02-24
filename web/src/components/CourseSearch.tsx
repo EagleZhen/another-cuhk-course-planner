@@ -812,7 +812,7 @@ export default function CourseSearch({
                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                             <span className="text-gray-600">Data Size:</span>
                             <span className="font-mono text-gray-900">
-                              {Math.round(performanceStats.totalDataSize / 1024)}KB
+                              {(performanceStats.totalDataSize / 1024 / 1024).toFixed(1)}MB
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
