@@ -598,7 +598,7 @@ export default function CourseSearch({
             <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
             <span>
               {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due to a network error. Some courses may be missing.{' '}
-              <button onClick={() => window.location.reload()} className="underline font-medium hover:text-red-900">
+              <button onClick={() => window.location.reload()} className="underline font-semibold cursor-pointer hover:text-red-900">
                 Reload the page
               </button>{' '}
               to try again.
