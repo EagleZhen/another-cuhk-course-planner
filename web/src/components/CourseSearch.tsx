@@ -346,14 +346,17 @@ export default function CourseSearch({
                 }
               } else {
                 console.warn(`Invalid data structure in ${subject}.json`)
+                setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
                 return { subject, success: false, error: 'Invalid data structure' }
               }
             } else {
               console.warn(`Failed to load ${subject}.json: ${response.status}`)
+              setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
               return { subject, success: false, error: `HTTP ${response.status}` }
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
+            setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
             return { subject, success: false, error: String(error) }
           }
         })
