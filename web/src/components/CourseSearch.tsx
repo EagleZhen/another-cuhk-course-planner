@@ -118,7 +118,6 @@ export default function CourseSearch({
   const [loading, setLoading] = useState(false)
   const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
   const [performanceStats, setPerformanceStats] = useState<{
-    totalLoadTime?: number
     subjectLoadTimes: { subject: string, time: number, size: number }[]
     totalDataSize: number
   }>({
