@@ -30,7 +30,7 @@ export default function Home() {
   ]
 
   // Current term state
-  const [currentTerm, setCurrentTerm] = useState("2025-26 Term 2")
+  const [currentTerm, setCurrentTerm] = useState("2025-26 Summer Session")
 
   // Current data format version for localStorage migration
   const SCHEDULE_DATA_VERSION = 1
