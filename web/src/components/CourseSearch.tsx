@@ -117,17 +117,12 @@ export default function CourseSearch({
 
   const [loading, setLoading] = useState(false)
   const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
-  const [performanceStats, setPerformanceStats] = useState<{
-    subjectLoadTimes: { subject: string, time: number, size: number }[]
-    totalDataSize: number
-  }>({
-    subjectLoadTimes: [],
-    totalDataSize: 0
-  })
+  const [totalDataLoaded, setTotalDataLoaded] = useState(0) // bytes, updated incrementally during load
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
+  const loadingStartTimeRef = useRef<number | null>(null)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
 
@@ -270,6 +265,7 @@ export default function CourseSearch({
 
       // Performance tracking
       const startTime = performance.now()
+      loadingStartTimeRef.current = startTime
       const subjectLoadTimes: { subject: string, time: number, size: number }[] = []
       let totalDataSize = 0
 
@@ -314,11 +310,7 @@ export default function CourseSearch({
                 total: prev.total,
                 currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`
               }))
-              setPerformanceStats(prev => ({
-                ...prev,
-                subjectLoadTimes: [...prev.subjectLoadTimes, { subject, time: Math.round(loadTime), size: Math.round(dataSize / 1024) }],
-                totalDataSize: prev.totalDataSize + dataSize
-              }))
+              setTotalDataLoaded(prev => prev + dataSize)
 
               // Extract scraping timestamp from metadata
               let scrapedAt = null
@@ -795,14 +787,14 @@ export default function CourseSearch({
                     </div>
 
                     {/* Performance Metrics with Time Estimation */}
-                    {performanceStats.subjectLoadTimes.length > 3 && (
+                    {loadingProgress.loaded > 3 && (
                       <div className="mt-3 pt-3 border-t border-gray-100">
                         <div className="grid grid-cols-2 gap-4 text-xs">
                           <div className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                             <span className="text-gray-600">Data Size:</span>
                             <span className="font-mono text-gray-900">
-                              {(performanceStats.totalDataSize / 1024 / 1024).toFixed(1)}MB
+                              {(totalDataLoaded / 1024 / 1024).toFixed(1)}MB
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -810,16 +802,14 @@ export default function CourseSearch({
                             <span className="text-gray-600">Estimated Time:</span>
                             <span className="font-mono text-gray-900">
                               {(() => {
-                                const completedRequests = performanceStats.subjectLoadTimes.filter(s => s.time > 0)
-                                if (completedRequests.length < 3) return 'Calculating...'
+                                if (!loadingStartTimeRef.current || loadingProgress.loaded < 3) return 'Calculating...'
 
-                                const avgTime = completedRequests.reduce((sum, s) => sum + s.time, 0) / completedRequests.length
-                                const remaining = loadingProgress.total - loadingProgress.loaded
-                                const estimatedMs = remaining * avgTime
+                                const elapsed = performance.now() - loadingStartTimeRef.current
+                                const completionRate = loadingProgress.loaded / loadingProgress.total
+                                const remainingMs = (elapsed / completionRate) - elapsed
 
-                                if (estimatedMs < 1000) return '<1s'
-                                if (estimatedMs < 60000) return `${Math.round(estimatedMs / 1000)}s`
-                                return `${Math.round(estimatedMs / 60000)}m`
+                                if (remainingMs < 1000) return '<1s'
+                                return `${Math.round(remainingMs / 1000)}s`
                               })()}
                             </span>
                           </div>
