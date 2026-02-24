@@ -110,5 +110,31 @@ export const analytics = {
   // Track screenshot export → curiosity metric to understand schedule export trends
   screenshotTaken: () => {
     track('screenshot_taken')
+  },
+
+  // === PERFORMANCE ===
+
+  // Track course data loading performance → identifies real-world load times across user networks
+  // Key questions: What's the P90 load time? Are failures common? Which subjects are bottlenecks?
+  courseDataLoaded: (stats: {
+    totalLoadTimeMs: number
+    subjectCount: number
+    successCount: number
+    failedCount: number
+    totalSizeKb: number
+    slowestSubject: string
+    slowestTimeMs: number
+    avgTimeMs: number
+  }) => {
+    track('course_data_loaded', {
+      total_load_time_ms: stats.totalLoadTimeMs,
+      subject_count: stats.subjectCount,
+      success_count: stats.successCount,
+      failed_count: stats.failedCount,
+      total_size_kb: stats.totalSizeKb,
+      slowest_subject: stats.slowestSubject,
+      slowest_time_ms: stats.slowestTimeMs,
+      avg_time_ms: stats.avgTimeMs,
+    })
   }
 }
