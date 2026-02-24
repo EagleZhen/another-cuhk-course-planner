@@ -776,7 +776,7 @@ export default function CourseSearch({
                     </div>
 
                     {/* Performance Metrics with Time Estimation */}
-                    {loadingProgress.loaded > 3 && (
+                    {loadingProgress.loaded / loadingProgress.total > 0.1 && (
                       <div className="mt-3 pt-3 border-t border-gray-100">
                         <div className="flex items-center justify-end gap-1 text-xs text-gray-500">
                           <HardDrive className="w-3 h-3" />
