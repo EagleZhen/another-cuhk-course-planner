@@ -837,10 +837,6 @@ export default function CourseSearch({
                 <div className="text-sm text-slate-700 space-y-2">
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Course data is cached locally for improved performance on subsequent searches</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
                     <span>Use subject filters to focus on specific areas of study</span>
                   </div>
                   <div className="flex items-start gap-2">
