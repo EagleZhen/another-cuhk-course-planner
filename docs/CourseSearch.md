@@ -26,64 +26,33 @@ Three bilingual search buttons per course:
 
 1. **Outline Button**
    - Query: `CUHK ${subject}${courseCode} Outline OR 大綱`
-   - Example: `CUHK CSCI3320 Outline OR 大綱`
    - Opens Google search in new tab
 
 2. **Reviews Button**
    - Query: `CUHK ${subject}${courseCode} Review OR 評價`
-   - Example: `CUHK CSCI3320 Review OR 評價`
    - Opens Google search in new tab
 
 3. **Past Papers Button**
    - Query: `${subject}${courseCode}` (no space)
-   - Example: `CSCI3320`
    - Searches CUHK Library (`cuhkLibrarySearchAndOpen()`)
 
 ### Design Decisions
 
 **Why bilingual (English OR Chinese)?**
-- CUHK students discuss courses in both English and Chinese
-- Chinese forums (e.g., 連登, LIHKG) use terms like "大綱" and "評價"
-- OR operator keeps search flexible - finds results with either term
-- Not overly restrictive while still being targeted
+- CUHK students discuss courses in both English and Chinese (連登, LIHKG use "大綱", "評價")
+- OR operator finds results with either term without being overly restrictive
 
-**Why keep "CUHK" prefix?**
-- Filters out results from other universities
-- "CSCI 3320" might match courses from other schools
-- Simple one-word filter prevents irrelevant results
+**Why "CUHK" prefix?**
+- Filters out results from other universities with the same course codes
 
 **Why combine subject+code (no space)?**
-- `CSCI3320` is more specific than `CSCI 3320`
-- Common way students refer to courses
-- Reduces false matches from partial matches
+- `CSCI3320` is more specific than `CSCI 3320`; common way students refer to courses
 
-**Why separate Outline and Reviews (not just one Google button)?**
+**Why separate Outline vs Reviews?**
 - Different use cases: syllabus planning vs. experience sharing
-- Targeted results are better than generic course search
-- Still simple (just 2 Google buttons + 1 library button)
 
-**Why keep Past Papers separate?**
-- Uses different search engine (CUHK Library, not Google)
-- Library search requires different query format (no space)
-- Distinct purpose justifies separate button
-
-### Evolution History
-
-**Original design:**
-- "Course Outline", "Course Reviews", "Past Papers"
-- Query: `CUHK ${subject}${courseCode} Outline OR Syllabus`
-- With exact match quotes: `"${subject}" "${courseCode}"`
-
-**Attempted simplification (rejected):**
-- Single "Google" button with `CUHK ${subject} ${courseCode}`
-- Too generic - not targeted enough
-- Lost distinction between outline vs reviews
-
-**Final design (current):**
-- Bilingual OR queries for flexibility
-- Combined subject+code for specificity
-- CUHK prefix for relevance
-- Three buttons for distinct purposes
+**Why Past Papers is separate?**
+- Uses CUHK Library (different engine + query format) rather than Google
 
 ---
 
@@ -91,132 +60,6 @@ Three bilingual search buttons per course:
 
 ### Desktop Layout
 
-**Current Structure:**
-```
-┌─────────────────────────────────────────────────────────────┐
-│ [CSCI3320] [Outline] [Reviews] [Past Papers]     [Actions] │
-│ Computer Graphics                                           │
-│ [2 credits] [Graded] [Instructor filters...]               │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**Layout rows:**
-1. **Row 1:** Course code + Search buttons | Action buttons (right-aligned)
-2. **Row 2:** Course title (full width)
-3. **Row 3:** Metadata badges + Instructor filters
-
-### Design Decision: Why Title on Separate Row?
-
-**Problem:** Long course titles would break into multiple lines if constrained by action buttons
-
-**Example of the issue:**
-```
-[MBTE3528] [Buttons...]                    [Remove] [Scroll] [Added]
-Project in Transgenic technologies in Animals and their
-Applications
-```
-Title breaks awkwardly mid-sentence when sharing row space.
-
-**Solution:** Give title its own full-width row
-```
-[MBTE3528] [Buttons...]                    [Remove] [Scroll] [Added]
-Project in Transgenic technologies in Animals and their Applications
-```
-Title can extend full width without wrapping unless truly necessary.
-
-**Attempted alternatives (all reverted):**
-1. **Two-column grid layout** - Action buttons blocked left content from using space
-2. **Absolute positioning** - Created unnatural spacing between rows
-3. **Grid with row spanning** - Complex, didn't solve fundamental issue
-4. **Baseline alignment** - Didn't help with button padding visual weight
-
-**Conclusion:** Simple stacked layout is best
-- Row 1: Code + search buttons (can wrap if needed)
-- Row 2: Title (gets full width)
-- Row 3: Metadata (gets full width)
-- Action buttons right-aligned on Row 1
-
-### Mobile Layout
-
-**Structure:**
-```
-┌───────────────────────────┐
-│ CSCI3320                  │
-│ Computer Graphics         │
-│                           │
-│ [Outline] [Reviews]       │
-│ [Past Papers]             │
-│                           │
-│ [2 credits] [Graded]      │
-│ [Instructors...]          │
-│                           │
-│ [Add to Cart]             │
-│ [▼ Show Sections]         │
-└───────────────────────────┘
-```
-
-**Design:** Fully stacked, action buttons at bottom after metadata
-
----
-
-## Seat Availability Badge
-
-### Feature
-
-**Display:** Aggregate seat availability for primary section type (usually LEC)
-
-**Format:** `{available}/{total} Available Seats`
-
-**Example:** `45/200 Available Seats` (45 seats available out of 200 total)
-
-### Implementation
-
-**Function:** `getAggregateSeatInfo()` in [courseUtils.ts](../web/src/lib/courseUtils.ts)
-
-```typescript
-export function getAggregateSeatInfo(
-  course: InternalCourse,
-  termName: string
-): { available: number; total: number; type: SectionType } | null
-```
-
-**Logic:**
-1. Get all section types for the course using `parseSectionTypes()`
-2. Select primary section type (first in priority order, usually LEC)
-3. Sum `availableSeats` across all sections of that type
-4. Sum `capacity` across all sections of that type
-5. Return aggregate data or null if no data available
-
-### Color Coding
-
-Uses existing `getAvailabilityBadgeStyle()` function for consistency:
-
-- **Green** (`bg-green-100 text-green-800 border-green-300`): >10 seats available
-- **Yellow** (`bg-yellow-100 text-yellow-800 border-yellow-300`): <10 seats available
-- **Red** (`bg-red-100 text-red-800 border-red-300`): 0 seats (closed)
-
-### Design Decisions
-
-**Why primary section type only?**
-- Primary section type (first in data, usually LEC) is the enrollment bottleneck
-- If primary sections have seats, other section types (TUT, LAB) typically have seats too
-- Simplifies display while providing accurate availability signal
-
-**Why aggregate total instead of per-section?**
-- Collapsed card shows high-level overview; per-section details appear when expanded
-- Answers the key question: "Can I enroll in this course?"
-
-**Why position with metadata badges?**
-- Seat count is course metadata (like credits and grading basis)
-- Natural semantic grouping with other course properties
-
-**Why "Available Seats" text instead of just "Available"?**
-- Section cards use shorter "Available" due to limited space
-- Course cards have more horizontal space and can afford explicit text for clarity
-
-### Badge Display Locations
-
-**Desktop Layout:**
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ [CSCI3320] [Outline] [Reviews] [Past Papers]     [Actions] │
@@ -225,7 +68,15 @@ Uses existing `getAvailabilityBadgeStyle()` function for consistency:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Mobile Layout:**
+**Layout rows:**
+1. **Row 1:** Course code + Search buttons | Action buttons (right-aligned)
+2. **Row 2:** Course title (full width)
+3. **Row 3:** Metadata badges + Instructor filters
+
+**Why title on a separate row?** Long titles break awkwardly when sharing row space with action buttons. Giving title its own full-width row lets it extend naturally without forced wrapping.
+
+### Mobile Layout
+
 ```
 ┌───────────────────────────┐
 │ CSCI3320                  │
@@ -243,33 +94,87 @@ Uses existing `getAvailabilityBadgeStyle()` function for consistency:
 └───────────────────────────┘
 ```
 
-Shown in metadata row after credits and grading basis badges, before instructor filters.
+Fully stacked; action buttons at bottom after metadata.
 
-### Edge Cases
+---
 
-**No data available:**
-- Badge not shown if no term data exists
-- Badge not shown if no sections exist for the term
-- Returns null from `getAggregateSeatInfo()`
+## Loading Experience
 
-**Zero seats available:**
-- Badge still shown with red styling
-- Indicates course is closed/full
-- Users can still view sections when expanding card
+### State Initialization
 
-**Multiple section types:**
-- Only shows data for primary type (first in the raw data order)
-- Raw data is assumed to be ordered by priority (typically LEC first, then TUT, LAB, etc.)
-- Uses whichever section type appears first in the course data
+`loading` is initialized to `true` so the loading UI renders immediately on first paint — no separate "preparing" flash state.
 
-### Data Freshness
+`hasDataLoaded` flag prevents "No courses available" from appearing before the first load completes.
 
-**Important:** Seat availability data is not real-time.
+### Progress UI
 
-- Data is scraped at least once per day during add-drop period
-- Actual availability may have changed since last scrape
-- Use this as a general indicator, not an exact real-time count
-- Always verify with official CUSIS system before enrolling
+While loading, shows:
+- Animated spinner + current subject being loaded
+- Progress bar: `loaded / total` with percentage
+- After 3 subjects: live stats line (right-aligned):
+  `💾 12.3MB loaded · ⏳ ~4s remaining`
+
+### Live Stats Implementation
+
+```typescript
+const loadingStartTimeRef = useRef<number | null>(null)  // set when loading begins
+const [loadedBytes, setLoadedBytes] = useState(0)        // bytes accumulated in callbacks
+```
+
+**Estimated time formula (rate-based):**
+```typescript
+const elapsed = performance.now() - loadingStartTimeRef.current
+const completionRate = loadingProgress.loaded / loadingProgress.total
+const remainingMs = (elapsed / completionRate) - elapsed
+```
+This works correctly for parallel fetches — unlike a sequential average-per-file approach, it uses actual elapsed wall-clock time against real completion rate.
+
+### Progress Messages
+
+Three phase messages based on completion percentage:
+- `< 30%` — "Initializing course data loading..."
+- `30–70%` — "Processing course information..."
+- `> 70%` — "Almost done! Finalizing course catalog..."
+
+### PostHog Analytics
+
+On completion, fires `course_data_loaded` via `analytics.courseDataLoaded()`:
+
+```typescript
+analytics.courseDataLoaded({
+  totalLoadTimeMs,
+  subjectCount,
+  successCount,
+  failedCount,
+  totalSizeKb,
+  slowestSubject,
+  slowestTimeMs,
+  avgTimeMs,
+})
+```
+
+**Key question this answers:** What's the P90 load time? Are failures common? Which subjects are slowest?
+
+---
+
+## Seat Availability Badge
+
+**Display:** Aggregate seat availability for the primary section type (usually LEC)
+
+**Format:** `{available}/{total} Available Seats`
+
+**Function:** `getAggregateSeatInfo()` in [courseUtils.ts](../web/src/lib/courseUtils.ts)
+
+**Color coding** (via `getAvailabilityBadgeStyle()`):
+- Green: >10 seats available
+- Yellow: <10 seats available
+- Red: 0 seats (closed)
+
+**Why primary section type only?** It's the enrollment bottleneck. If LEC has seats, TUT/LAB typically do too.
+
+**Why aggregate?** The collapsed card is a high-level overview. Per-section details appear on expand.
+
+**Data freshness:** Scraped manually on a regular basis, not real-time. Always verify with CUSIS before enrolling.
 
 ---
 
@@ -277,38 +182,20 @@ Shown in metadata row after credits and grading basis badges, before instructor 
 
 ### Instructor Filters
 
-**Display:**
-- Badge-style toggle buttons for each instructor
-- "Clear Instructors" button when filters active
-- Shown below metadata badges
-
-**Behavior:**
-- Multiple selection allowed (Set-based state)
-- Filters sections by instructor name
-- Updates available sections dynamically
+- Badge-style toggle buttons per instructor
+- Multiple selection (Set-based)
+- "Clear Instructors" button when active
 
 ### Day Filters
 
-**Display:**
 - Only shown when card is expanded
-- Only shows days that have courses available
-- Mon, Tue, Wed, Thu, Fri buttons
-
-**Behavior:**
+- Only shows days that have available sections
 - Multiple selection allowed
-- Filters sections by meeting days
-- Updates visible sections in real-time
 
 ### Section Type Filters
 
-**Display:**
-- "Show All [Type]" links for collapsed section types
-- Automatically expands when needed
-
-**Behavior:**
-- By default shows limited sections per type
-- Click "Show All" to expand
-- State managed per section type
+- Collapsed by default per type with "Show All [Type]" link
+- Click to expand; state managed per section type
 
 ---
 
@@ -316,70 +203,60 @@ Shown in metadata row after credits and grading basis badges, before instructor 
 
 **Main Props:**
 - `courseEnrollments` - Currently enrolled courses
-- `onAddCourse` - Add course to shopping cart
-- `onRemoveCourse` - Remove course from cart
-- `onUpdateCourse` - Update section selections
+- `onAddCourse` / `onRemoveCourse` / `onUpdateCourse` - Cart operations
 - `currentTerm` - Active term filter
 - `searchResults` - Filtered course list
 - `onScrollToCart` - Scroll to course in cart
 - `onDataUpdate` - Background data sync callback
 
 **CourseCard Props:**
-- `course` - Course data object
-- `isAdded` - Whether course is in cart
-- `initialSelections` - Initial section selections
+- `course`, `isAdded`, `initialSelections`
 - All event handlers passed through
 
 ---
 
 ## Auto-Expand Behavior
 
-**Triggers:**
-- `shouldAutoExpand` prop is true
-- New search occurs (`searchSequence` changes)
-
-**Use case:**
-- When user searches for specific course
-- Auto-expands sections for easier browsing
-- Tracks with `searchSequence` to trigger on each search
+When a new search fires (`searchSequence` increments), the first result auto-expands sections. Useful when searching for a specific course code.
 
 ---
 
 ## Known Issues & Limitations
 
 **Layout:**
-- Desktop layout is simple but doesn't maximize horizontal space usage
-- Long titles still wrap if extremely long (rare)
-- Search buttons might wrap to second line on narrow windows
+- Search buttons may wrap to a second line on narrow windows
 
 **Search:**
-- Bilingual search only covers English + Traditional Chinese
-- No Simplified Chinese support (could add 大纲, 评价)
-- Google search results depend on Google's availability in user's region
+- Bilingual only covers English + Traditional Chinese (no Simplified Chinese support)
+- Google results depend on Google's availability in user's region
 
 **Filtering:**
 - Instructor filters don't support partial name matching
-- Day filters don't show time ranges (just day presence)
-- No "Clear All Filters" button for day filters
+- Day filters show day presence only, not time ranges
+- No "Clear All Filters" for day filters
+
+**Data Loading:**
+- Loads all subjects on startup (~249 files) instead of on-demand
+- No retry or warning if some subjects fail mid-load (partial load is silent)
 
 ---
 
 ## Component Size
 
-**Lines of code:** ~2000+ (includes CourseCard)
+**Lines of code:** ~2100+ (includes CourseCard)
 
 **Complexity factors:**
 - Desktop vs mobile layout differences
-- Section filtering logic
-- Instructor filtering
+- Section filtering + instructor filtering logic
 - Auto-completion logic integration
 - State synchronization with shopping cart
+- Live loading progress UI
 
 **Future considerations:**
-- May benefit from splitting CourseCard into separate file
-- Could extract filtering logic into custom hooks
-- Search button component could be modularized
+- Split CourseCard into separate file
+- Extract filtering logic into custom hooks
+- Lazy-load subjects on demand instead of all at startup
 
 ---
 
-**Last updated:** January 2026
+**Last updated:** February 2026

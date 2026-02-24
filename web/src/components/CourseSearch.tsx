@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin, HardDrive, Hourglass } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
@@ -115,20 +115,14 @@ export default function CourseSearch({
     }
   }, [onSearchControlReady])
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
-  const [performanceStats, setPerformanceStats] = useState<{
-    totalLoadTime?: number
-    subjectLoadTimes: { subject: string, time: number, size: number }[]
-    totalDataSize: number
-  }>({
-    subjectLoadTimes: [],
-    totalDataSize: 0
-  })
+  const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
+  const loadingStartTimeRef = useRef<number | null>(null)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
 
@@ -271,6 +265,7 @@ export default function CourseSearch({
 
       // Performance tracking
       const startTime = performance.now()
+      loadingStartTimeRef.current = startTime
       const subjectLoadTimes: { subject: string, time: number, size: number }[] = []
       let totalDataSize = 0
 
@@ -292,7 +287,6 @@ export default function CourseSearch({
 
         const allCoursesData: InternalCourse[] = []
         const scrapingTimestamps: Date[] = []
-        let completedCount = 0
 
         console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL...`)
 
@@ -310,13 +304,13 @@ export default function CourseSearch({
               const dataSize = JSON.stringify(rawData).length
               const loadTime = subjectEndTime - subjectStartTime
 
-              // Update progress as each request completes (thread-safe)
-              completedCount++
-              setLoadingProgress(() => ({
-                loaded: completedCount,
-                total: availableSubjects.length,
-                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${completedCount}/${availableSubjects.length}`
+              // Update progress as each request completes
+              setLoadingProgress(prev => ({
+                loaded: prev.loaded + 1,
+                total: prev.total,
+                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`
               }))
+              setLoadedBytes(prev => prev + dataSize)
 
               // Extract scraping timestamp from metadata
               let scrapedAt = null
@@ -343,14 +337,17 @@ export default function CourseSearch({
                 }
               } else {
                 console.warn(`Invalid data structure in ${subject}.json`)
+                setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
                 return { subject, success: false, error: 'Invalid data structure' }
               }
             } else {
               console.warn(`Failed to load ${subject}.json: ${response.status}`)
+              setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
               return { subject, success: false, error: `HTTP ${response.status}` }
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
+            setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
             return { subject, success: false, error: String(error) }
           }
         })
@@ -417,12 +414,6 @@ export default function CourseSearch({
           avgTimeMs: validTimes.length > 0 ? Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length) : 0,
         })
 
-        // Store performance stats for potential UI display
-        setPerformanceStats({
-          totalLoadTime: Math.round(totalLoadTime),
-          subjectLoadTimes,
-          totalDataSize: Math.round(totalDataSize / 1024) // KB
-        })
 
         if (successCount === 0) {
           console.error('❌ No course data could be loaded - check that /data/ files exist')
@@ -736,18 +727,7 @@ export default function CourseSearch({
                 </div>
               </div>
 
-              {/* Professional Context */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Loading Comprehensive Course Catalog
-                </h3>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                    <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                    <span>Loading time depends on your network connection</span>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Loading courses</h3>
 
               {/* Modern Progress Display */}
               {loadingProgress.total > 0 && (
@@ -796,46 +776,25 @@ export default function CourseSearch({
                     </div>
 
                     {/* Performance Metrics with Time Estimation */}
-                    {performanceStats.subjectLoadTimes.length > 3 && (
+                    {loadingProgress.loaded / loadingProgress.total > 0.1 && (
                       <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="grid grid-cols-3 gap-4 text-xs">
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                            <span className="text-gray-600">Avg Speed:</span>
-                            <span className="font-mono text-gray-900">
-                              {Math.round(
-                                performanceStats.subjectLoadTimes
-                                  .filter(s => s.time > 0)
-                                  .reduce((sum, s) => sum + s.time, 0) /
-                                performanceStats.subjectLoadTimes.filter(s => s.time > 0).length
-                              )}ms
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                            <span className="text-gray-600">Data Size:</span>
-                            <span className="font-mono text-gray-900">
-                              {Math.round(performanceStats.totalDataSize / 1024)}KB
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                            <span className="text-gray-600">Est. Time:</span>
-                            <span className="font-mono text-gray-900">
-                              {(() => {
-                                const completedRequests = performanceStats.subjectLoadTimes.filter(s => s.time > 0)
-                                if (completedRequests.length < 3) return 'Calculating...'
-
-                                const avgTime = completedRequests.reduce((sum, s) => sum + s.time, 0) / completedRequests.length
-                                const remaining = loadingProgress.total - loadingProgress.loaded
-                                const estimatedMs = remaining * avgTime
-
-                                if (estimatedMs < 1000) return '<1s'
-                                if (estimatedMs < 60000) return `${Math.round(estimatedMs / 1000)}s`
-                                return `${Math.round(estimatedMs / 60000)}m`
-                              })()}
-                            </span>
-                          </div>
+                        <div className="flex items-center justify-end gap-1 text-xs text-gray-500">
+                          <HardDrive className="w-3 h-3" />
+                          <span className="font-mono text-gray-700">{(loadedBytes / 1024 / 1024).toFixed(1)}MB</span>
+                          <span>loaded</span>
+                          <span className="mx-1">·</span>
+                          <Hourglass className="w-3 h-3" />
+                          <span className="font-mono text-gray-700">
+                            {(() => {
+                              if (!loadingStartTimeRef.current) return '...'
+                              const elapsed = performance.now() - loadingStartTimeRef.current
+                              const completionRate = loadingProgress.loaded / loadingProgress.total
+                              const remainingMs = Math.max(0, (elapsed / completionRate) - elapsed)
+                              if (remainingMs < 1000) return '<1s'
+                              return `~${Math.round(remainingMs / 1000)}s`
+                            })()}
+                          </span>
+                          <span>remaining</span>
                         </div>
                       </div>
                     )}
@@ -865,10 +824,6 @@ export default function CourseSearch({
                   <span>Search Tips</span>
                 </h4>
                 <div className="text-sm text-slate-700 space-y-2">
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Course data is cached locally for improved performance on subsequent searches</span>
-                  </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
                     <span>Use subject filters to focus on specific areas of study</span>
@@ -920,8 +875,8 @@ export default function CourseSearch({
                   </div>
                 </div>
               </div>
-            ) : (
-              // No data available
+            ) : hasDataLoaded ? (
+              // No data available (only show after load has completed)
               <div className="space-y-3">
                 <div className="text-gray-400">
                   <span className="text-4xl">📚</span>
@@ -931,7 +886,7 @@ export default function CourseSearch({
                   No course data is currently available for {currentTerm}.
                 </p>
               </div>
-            )}
+            ) : null}
           </div>
         ) : (
           <>
