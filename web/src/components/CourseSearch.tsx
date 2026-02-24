@@ -789,7 +789,7 @@ export default function CourseSearch({
                     {/* Performance Metrics with Time Estimation */}
                     {loadingProgress.loaded > 3 && (
                       <div className="mt-3 pt-3 border-t border-gray-100">
-                        <div className="flex items-center gap-1 text-xs text-gray-500">
+                        <div className="flex items-center justify-end gap-1 text-xs text-gray-500">
                           <HardDrive className="w-3 h-3" />
                           <span className="font-mono text-gray-700">{(loadedBytes / 1024 / 1024).toFixed(1)}MB</span>
                           <span>loaded</span>
