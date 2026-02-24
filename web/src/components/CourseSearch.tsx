@@ -115,7 +115,7 @@ export default function CourseSearch({
     }
   }, [onSearchControlReady])
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
   const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
@@ -727,18 +727,7 @@ export default function CourseSearch({
                 </div>
               </div>
 
-              {/* Professional Context */}
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Loading Comprehensive Course Catalog
-                </h3>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                    <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                    <span>Loading time depends on your network connection</span>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Loading courses</h3>
 
               {/* Modern Progress Display */}
               {loadingProgress.total > 0 && (
@@ -886,8 +875,8 @@ export default function CourseSearch({
                   </div>
                 </div>
               </div>
-            ) : (
-              // No data available
+            ) : hasDataLoaded ? (
+              // No data available (only show after load has completed)
               <div className="space-y-3">
                 <div className="text-gray-400">
                   <span className="text-4xl">📚</span>
@@ -897,7 +886,7 @@ export default function CourseSearch({
                   No course data is currently available for {currentTerm}.
                 </p>
               </div>
-            )}
+            ) : null}
           </div>
         ) : (
           <>
