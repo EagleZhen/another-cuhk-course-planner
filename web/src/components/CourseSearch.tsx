@@ -405,14 +405,15 @@ export default function CourseSearch({
         }
 
         // Send performance metrics to PostHog
+        const slowest = validTimes.length > 0 ? validTimes.reduce((max, s) => s.time > max.time ? s : max) : null
         analytics.courseDataLoaded({
           totalLoadTimeMs: Math.round(totalLoadTime),
           subjectCount: availableSubjects.length,
           successCount,
           failedCount: availableSubjects.length - successCount,
           totalSizeKb: Math.round(totalDataSize / 1024),
-          slowestSubject: validTimes.length > 0 ? validTimes.reduce((max, s) => s.time > max.time ? s : max).subject : '',
-          slowestTimeMs: validTimes.length > 0 ? validTimes.reduce((max, s) => s.time > max.time ? s : max).time : 0,
+          slowestSubject: slowest?.subject ?? '',
+          slowestTimeMs: slowest?.time ?? 0,
           avgTimeMs: validTimes.length > 0 ? Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length) : 0,
         })
 
