@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin, HardDrive, Hourglass } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin, HardDrive } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
@@ -122,7 +122,6 @@ export default function CourseSearch({
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
-  const loadingStartTimeRef = useRef<number | null>(null)
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
   const [failedSubjectCount, setFailedSubjectCount] = useState(0)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
@@ -266,7 +265,6 @@ export default function CourseSearch({
 
       // Performance tracking
       const startTime = performance.now()
-      loadingStartTimeRef.current = startTime
       const subjectLoadTimes: { subject: string, time: number, size: number }[] = []
       let totalDataSize = 0
 
@@ -801,19 +799,6 @@ export default function CourseSearch({
                           <HardDrive className="w-3 h-3" />
                           <span className="font-mono text-gray-700">{(loadedBytes / 1024 / 1024).toFixed(1)}MB</span>
                           <span>loaded</span>
-                          <span className="mx-1">·</span>
-                          <Hourglass className="w-3 h-3" />
-                          <span className="font-mono text-gray-700">
-                            {(() => {
-                              if (!loadingStartTimeRef.current) return '...'
-                              const elapsed = performance.now() - loadingStartTimeRef.current
-                              const completionRate = loadingProgress.loaded / loadingProgress.total
-                              const remainingMs = Math.max(0, (elapsed / completionRate) - elapsed)
-                              if (remainingMs < 1000) return '<1s'
-                              return `~${Math.round(remainingMs / 1000)}s`
-                            })()}
-                          </span>
-                          <span>remaining</span>
                         </div>
                       </div>
                     )}
