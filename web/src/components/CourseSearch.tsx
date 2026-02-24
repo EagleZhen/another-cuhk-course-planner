@@ -594,7 +594,7 @@ export default function CourseSearch({
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
         {/* Partial load warning */}
         {failedSubjectCount > 0 && (
-          <div className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 mb-3">
+          <div role="alert" className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 mb-3">
             <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
             <span>
               {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due to a network error. Some courses may be missing.{' '}
