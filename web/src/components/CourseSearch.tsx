@@ -117,7 +117,7 @@ export default function CourseSearch({
 
   const [loading, setLoading] = useState(false)
   const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
-  const [totalDataLoaded, setTotalDataLoaded] = useState(0) // bytes, updated incrementally during load
+  const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
@@ -310,7 +310,7 @@ export default function CourseSearch({
                 total: prev.total,
                 currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`
               }))
-              setTotalDataLoaded(prev => prev + dataSize)
+              setLoadedBytes(prev => prev + dataSize)
 
               // Extract scraping timestamp from metadata
               let scrapedAt = null
@@ -794,7 +794,7 @@ export default function CourseSearch({
                             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                             <span className="text-gray-600">Data Size:</span>
                             <span className="font-mono text-gray-900">
-                              {(totalDataLoaded / 1024 / 1024).toFixed(1)}MB
+                              {(loadedBytes / 1024 / 1024).toFixed(1)}MB
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
