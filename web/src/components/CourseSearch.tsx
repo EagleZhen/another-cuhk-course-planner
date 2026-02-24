@@ -315,6 +315,11 @@ export default function CourseSearch({
                 total: prev.total,
                 currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`
               }))
+              setPerformanceStats(prev => ({
+                ...prev,
+                subjectLoadTimes: [...prev.subjectLoadTimes, { subject, time: Math.round(loadTime), size: Math.round(dataSize / 1024) }],
+                totalDataSize: prev.totalDataSize + dataSize
+              }))
 
               // Extract scraping timestamp from metadata
               let scrapedAt = null
@@ -415,12 +420,6 @@ export default function CourseSearch({
           avgTimeMs: validTimes.length > 0 ? Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length) : 0,
         })
 
-        // Store performance stats for potential UI display
-        setPerformanceStats({
-          totalLoadTime: Math.round(totalLoadTime),
-          subjectLoadTimes,
-          totalDataSize: Math.round(totalDataSize / 1024) // KB
-        })
 
         if (successCount === 0) {
           console.error('❌ No course data could be loaded - check that /data/ files exist')
