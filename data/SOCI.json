@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-24T14:20:16.910127+00:00",
+    "scraped_at": "2026-02-27T14:46:08.090899+00:00",
     "subject": "SOCI",
     "subject_title": "Sociology",
     "total_courses": 93,
@@ -87,10 +87,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "61",
+                "enrolled": "62",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "58",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -107,10 +107,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "61",
+                "enrolled": "62",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "58",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1691,55 +1691,29 @@
           "schedule": [
             {
               "section": "--LEC (7289)",
-              "meetings": [
-                {
-                  "time": "We 9:30AM - 11:15AM",
-                  "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Professor TONG Yuying",
-                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
-                },
-                {
-                  "time": "We 9:30AM - 11:15AM",
-                  "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Professor TONG Yuying",
-                  "dates": "25/2"
-                },
-                {
-                  "time": "We 9:30AM - 11:15AM",
-                  "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Professor TONG Yuying",
-                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
-                }
-              ],
+              "meetings": [],
               "availability": {
-                "capacity": "60",
-                "enrolled": "36",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "24",
-                "status": "Open"
+                "capacity": "",
+                "enrolled": "",
+                "waitlist_capacity": "",
+                "waitlist_total": "",
+                "available_seats": "",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": ""
             },
             {
               "section": "-T01-TUT (7246)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor TONG Yuying",
-                  "dates": "05/01/2026 - 13/04/2026"
-                }
-              ],
+              "meetings": [],
               "availability": {
-                "capacity": "60",
-                "enrolled": "36",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "24",
-                "status": "Open"
+                "capacity": "",
+                "enrolled": "",
+                "waitlist_capacity": "",
+                "waitlist_total": "",
+                "available_seats": "",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": ""
             }
           ]
         }
