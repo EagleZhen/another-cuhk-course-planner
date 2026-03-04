@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-02-27T08:59:10.329729+00:00",
+    "scraped_at": "2026-03-03T00:45:16.477839+00:00",
     "subject": "ARCH",
     "subject_title": "Architectural Studies",
     "total_courses": 70,
@@ -2648,6 +2648,56 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "D-LEC (1513)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. TAM Sin Lung",
+                  "dates": "18/6"
+                },
+                {
+                  "time": "We 9:30AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. TAM Sin Lung",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 5:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Mr. TAM Sin Lung",
+                  "dates": "26/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. TAM Sin Lung",
+                  "dates": "3/7"
+                },
+                {
+                  "time": "Mo 9:30AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. TAM Sin Lung",
+                  "dates": "22/6"
+                }
+              ],
+              "availability": {
+                "capacity": "12",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This elective course is offered to investigate the design theory of architecture. Each specific elective is designed to allow students to gain in-depth knowledge and ability to discourse or execute the theory and practice of the particular field. There will be different number of electives offered with specific course description for students to choose from, designated as 4131A/B/C/D, etc Students are allowed to take these courses at most twice, provided that the course contents are different, and gain the units each time they pass the course. However, students cannot take courses with the same course code more than once in a single term.",
@@ -3023,7 +3073,34 @@
       "course_code": "4431",
       "title": "Topical Studies in Building Technology",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "A-LEC (1514)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHINOHARA Hiroyuki",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "23",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This elective course is offered to investigate the building technology of architecture. Each specific elective is designed to allow students to gain in-depth knowledge and ability to discourse or execute the theory and practice of the particular field. There will be different number of electives offered with specific course description for students to choose from, designated as 4431A/B/C/D etc. Students are allowed to take these courses at most twice, provided that the course contents are different, and gain the units each time they pass the course. However, students cannot take courses with the same course code more than once in a single term.",
       "enrollment_requirement": "",
       "course_attributes": "",
