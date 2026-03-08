@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-03T04:28:37.589076+00:00",
+    "scraped_at": "2026-03-07T18:08:11.572864+00:00",
     "subject": "MEDU",
     "subject_title": "Medicine",
     "total_courses": 56,
@@ -642,13 +642,7 @@
                   "time": "Mo 1:30PM - 4:15PM",
                   "location": "Lee Shau Kee Building LT6",
                   "instructor": "Dr. WONG Wai Kai",
-                  "dates": "23/2"
-                },
-                {
-                  "time": "Mo 1:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building LT6",
-                  "instructor": "Dr. WONG Wai Kai",
-                  "dates": "9/3, 16/3, 23/3, 30/3"
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
@@ -909,52 +903,7 @@
       "course_code": "1881",
       "title": "General Education Course in Area A",
       "credits": "2.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (8886)",
-              "meetings": [
-                {
-                  "time": "Fr 3:30PM - 5:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
-                },
-                {
-                  "time": "Fr 3:30PM - 5:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "27/2"
-                },
-                {
-                  "time": "Fr 3:30PM - 5:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "13/3, 20/3, 27/3"
-                },
-                {
-                  "time": "Fr 3:30PM - 5:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "10/4, 17/4"
-                }
-              ],
-              "availability": {
-                "capacity": "325",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "325",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
+      "terms": [],
       "description": "This course is not for student enrolment. Students would be assigned a UGEA1881 Understanding Chinese Medicine course after course registration period. This course is created to facilitate course registration.",
       "enrollment_requirement": "",
       "course_attributes": "",
