@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-07T18:22:29.875545+00:00",
+    "scraped_at": "2026-03-12T22:16:37.061426+00:00",
     "subject": "MGNT",
     "subject_title": "Management",
-    "total_courses": 102,
+    "total_courses": 105,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -3755,7 +3755,7 @@
                 {
                   "time": "Th 8:30AM - 6:30PM",
                   "location": "Cheng Yu Tung Building LT3",
-                  "instructor": "Staff",
+                  "instructor": "Mr. YUAN Jingye, \nMs. YI Rong",
                   "dates": "8/1"
                 }
               ],
@@ -4341,10 +4341,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "15",
+                "enrolled": "10",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "60",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4407,10 +4407,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "21",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "51",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4473,10 +4473,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "10",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "62",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4736,10 +4736,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "62",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5318,10 +5318,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "61",
+                "enrolled": "65",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5401,10 +5401,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "43",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5563,10 +5563,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "56",
+                "enrolled": "54",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6336,10 +6336,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "39",
+                "enrolled": "38",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6976,6 +6976,72 @@
       "feedback_evaluation": "Course and Teaching Evaluation Survey",
       "required_readings": "Research papers from major journals and other readings that explain the research methods or illustrate how the research methods are being employed in strategic management research are adopted as course readings.",
       "recommended_readings": "Econometric Analysis of Cross Section and Panel Data by Jeffrey Wooldridge"
+    },
+    {
+      "subject": "MGNT",
+      "course_code": "6262",
+      "title": "Selected Topics in Organizational Behaviour and Management Research",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to further the knowledge of research and theory relevant to the micro perspectives of management at an advanced level. It includes, but is not limited to, organizational behaviour, leadership, decision-making and human resources management. The topics of the course may vary according to the area of expertise of the instructor and the interest of the class.",
+      "enrollment_requirement": "For students in MPhil-PhD Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MGNT",
+      "course_code": "6272",
+      "title": "Selected Topics in Strategic and Organizational Management Research",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to further the knowledge of research and theory relevant to the macro perspectives of management at an advanced level. It includes, but is not limited to, strategic management, corporate governance, entrepreneurship and international business. The topics of the course may vary according to the area of expertise of the instructor and the interest of the class.",
+      "enrollment_requirement": "For students in MPhil-PhD Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MGNT",
+      "course_code": "6282",
+      "title": "Special Topics in Management Research",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to focus on the current themes and special issues in the field of management research. It includes, but is not limited to, contemporary discussions in human resource management, strategic management, organization behaviour, leadership and entrepreneurship. The topics of the course may vary according to the area of expertise of the instructor and the interest of the class.",
+      "enrollment_requirement": "For students in MPhil-PhD Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "MGNT",
