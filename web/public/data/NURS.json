@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-12T22:42:04.521903+00:00",
+    "scraped_at": "2026-03-17T17:59:51.253856+00:00",
     "subject": "NURS",
     "subject_title": "Nursing",
     "total_courses": 122,
@@ -5762,10 +5762,10 @@
               ],
               "availability": {
                 "capacity": "234",
-                "enrolled": "230",
+                "enrolled": "229",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5826,11 +5826,11 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "15",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -13993,10 +13993,10 @@
               ],
               "availability": {
                 "capacity": "263",
-                "enrolled": "257",
+                "enrolled": "256",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -14525,10 +14525,10 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "18",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -15057,10 +15057,10 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "18",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -16081,10 +16081,10 @@
               ],
               "availability": {
                 "capacity": "262",
-                "enrolled": "258",
+                "enrolled": "257",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -16613,11 +16613,11 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -17145,11 +17145,11 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -22923,12 +22923,12 @@
                 }
               ],
               "availability": {
-                "capacity": "30",
+                "capacity": "100",
                 "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "42",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -25168,6 +25168,72 @@
                   "location": "Esther Lee Bldg 403",
                   "instructor": "Professor CHAIR Sek Ying, \nProfessor LI Ho Cheung William, \nProfessor SO Kwok Wei",
                   "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "16/5"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "30/5, 6/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "20/5"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "10/6"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:30PM",
+                  "location": "Esther Lee Bldg 818",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "20/6"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:30PM",
+                  "location": "Esther Lee Bldg 820",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "20/6"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Esther Lee Bldg 818",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "20/6"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "Esther Lee Bldg 820",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "20/6"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:30PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "16/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:30PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "30/5, 6/6"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 709",
+                  "instructor": "Professor LI Ho Cheung William, \nProfessor LI Jiaying, \nProfessor SO Kwok Wei",
+                  "dates": "15/5, 22/5, 29/5"
                 }
               ],
               "availability": {

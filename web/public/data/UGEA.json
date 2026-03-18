@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-13T00:13:06.161788+00:00",
+    "scraped_at": "2026-03-17T19:34:29.862770+00:00",
     "subject": "UGEA",
     "subject_title": "Chinese Cultural Heritage",
     "total_courses": 30,
@@ -781,11 +781,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "79",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese only"
             },
@@ -883,11 +883,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "79",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Putonghua only"
             },
@@ -1132,6 +1132,70 @@
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "B-LEC (1521)",
+              "meetings": [
+                {
+                  "time": "Fr 12:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 12:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "26/6"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "C-LEC (1522)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
             }
           ]
         }
@@ -1292,6 +1356,44 @@
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1523)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Staff",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
             }
           ]
         }
@@ -2274,7 +2376,7 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "Putonghua only"
             }
           ]
         }
@@ -3073,10 +3175,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -3105,10 +3207,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"

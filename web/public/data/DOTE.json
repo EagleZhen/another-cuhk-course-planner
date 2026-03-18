@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-12T19:30:33.973528+00:00",
+    "scraped_at": "2026-03-17T14:34:26.424300+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
-    "total_courses": 104,
+    "total_courses": 114,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -3744,10 +3744,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "51",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4504,10 +4504,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "1",
+                "enrolled": "42",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -5017,6 +5017,226 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of course.",
       "required_readings": "To be assigned by course teacher",
       "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5810",
+      "title": "Aviation Economics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a comprehensive introduction to the economic principles shaping the global air transport industry, covering both airline and airport economics. Students will explore the structure and dynamics of air transport markets, including airline competition, airport management, and regulatory frameworks.\n\nKey topics include the economic analysis of airline pricing and revenue management, cost structures, demand analysis, and network economics. The course examines the impact of regulatory changes, such as liberalisation, open skies agreements, airline alliances, and mergers, on industry performance and competitiveness. The evolving role of low-cost carriers and sustainability challenges in aviation will also be discussed.\n\nThe economics of airports will cover topics including airport pricing models, revenue streams, slot allocation, capacity management, and the economic relationship between airports and airlines. The role of privatisation, public policy, and investment in airport infrastructure will be analysed, along with the economic impact of airports on regional development.\nThrough case studies and real-world applications, students will develop analytical skills to assess strategic decisions made by airlines, airports, and regulators.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5820",
+      "title": "Aviation Capstone Project",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This project-based capstone course provides students with the opportunity to apply their knowledge to real-world business challenges. In collaboration with industry practitioners, students will work on pressing issues in aviation, such as airline operations, airport management, air transport policy, sustainability, and emerging technologies. Students will engage in hands-on research and problem-solving, using empirical methods to analyse industry challenges and develop practical, evidence-based recommendations.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5830",
+      "title": "Airline Operations Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide students with an in-depth analysis in the operations and management of airlines towards enhancing passenger experience. It also enables students to evaluate airlines strategies in response to changes in global market environment.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5840",
+      "title": "Airport Operations Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide students with an in-depth analysis in airport operations and management and its importance in the global economy. It also enables students to evaluate threats, risks, and crisis towards airport business continuity and incidents management.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5850",
+      "title": "Aviation Finance",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to give students an overview of the broader field of financial management in the air transport industry. It also enables students to evaluate the essential concepts in aircraft leasing and financing.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5860",
+      "title": "Aviation Law and Regulation",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an in-depth exploration of the legal frameworks governing the global aviation industry. This course examines the interplay between national and international regulations, covering key topics such as air carrier licensing, international air service agreements, competition law, consumer protection, and airline liability. Students will gain insights into the legal challenges airlines face in areas such as pricing, distribution, environmental sustainability, safety, security, and labor relations.\n\nThrough case studies, interactive discussions, and real-world scenarios, students will develop the ability to assess legal risks, navigate regulatory requirements, and formulate compliance strategies for airline operations. The course will also cover emerging trends in aviation law, including privacy concerns, cyber security threats, and the legal implications of airline alliances and joint ventures.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5870",
+      "title": "Aviation Revenue Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a comprehensive, practice-oriented introduction to revenue management (RM) with a specific focus on the aviation industry. Through lectures, case discussions, and hands-on exercises, students learn to apply demand forecasting, assortment optimisation, dynamic pricing, seat inventory control (including overbooking), and network-level decisions to maximise profitability for airlines and airports. Emphasis is placed on data-driven decision-making, integrating RM tools with marketing and distribution channels, and understanding ethical and regulatory considerations across markets. By synthesising best practices from legacy carriers and low-cost models, students develop quantitative skills and a strategic mindset to design, evaluate, and implement RM strategies in real-world aviation settings.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5880",
+      "title": "Selected Topics of Aviation Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to investigate and to discuss selected topics of current interests in the area of aviation management.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5890",
+      "title": "Low Altitude Operations Analytics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a comprehensive exploration of modern operational analytical tools for low altitude economy, through a blend of classical theory, data-driven approaches, and emerging technologies. It broadly covers topics on inventory management, risk management, network design, logistics management, capacity management, project management, and smart city operations, emphasizing novel or potential applications arising from low altitude economy.\n\nBuilding on this, students examine how data analytics, deployed in Python, can enhance decision-making, enabling more responsive and accurate management strategies for operations in low altitude economy. Students will synthesize their learning through a group project on data-driven, intelligent-powered low altitude operations and a final exam, demonstrating their ability to apply analytical tools and strategic thinking to complex operational challenges.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5891",
+      "title": "Low Altitude Economics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a comprehensive introduction to the economic principles shaping the emerging low altitude economy (LAE), covering both urban air mobility operations and supporting infrastructure economics. Students will explore the structure and dynamics of LAE markets, including drone and eVTOL competition, vertiport management, and regulatory frameworks tailored to urban airspace.\n\nKey topics include the economic analysis of LAE pricing and revenue strategies, cost structures for autonomous fleets, demand modeling for urban applications, and network economics in dense city environments. The course examines the impact of regulatory innovations, such as sandbox testing regimes, beyond-visual-line-of-sight approvals, U-space harmonization, and public-private partnerships, on market performance and scalability. The evolving role of advanced technologies like AI-driven traffic management and sustainability challenges in urban air operations will also be discussed.\n\nThe economics of LAE infrastructure will cover topics including vertiport pricing models, revenue streams from charging and data services, slot allocation in constrained airspace, capacity management for high-density operations, and the economic relationship between operators and urban stakeholders. The role of investment incentives, public policy, and funding in LAE infrastructure development will be analyzed, along with the economic impact of LAE on regional urban development in Hong Kong and the Greater Bay Area.\n\nThrough case studies and real-world applications, students will develop analytical skills to assess strategic decisions made by LAE operators, infrastructure providers, and regulators.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "DOTE",
@@ -6367,10 +6587,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "64",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6665,10 +6885,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "45",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6743,10 +6963,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "55",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "36",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6787,10 +7007,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "46",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6916,11 +7136,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "68",
+                "enrolled": "71",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -6960,11 +7180,11 @@
               ],
               "availability": {
                 "capacity": "78",
-                "enrolled": "78",
+                "enrolled": "73",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "5",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -7090,10 +7310,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "50",
+                "enrolled": "32",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7302,10 +7522,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "7",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "63",
+                "available_seats": "70",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7334,10 +7554,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7360,10 +7580,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "23",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "53",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7386,10 +7606,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "61",
+                "enrolled": "46",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7536,10 +7756,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "46",
+                "enrolled": "42",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8256,10 +8476,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "31",
+                "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8331,10 +8551,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "34",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "47",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8407,10 +8627,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "68",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
