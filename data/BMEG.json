@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-17T13:27:36.942049+00:00",
+    "scraped_at": "2026-03-23T05:21:26.385122+00:00",
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
-    "total_courses": 59,
+    "total_courses": 61,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -2223,10 +2223,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2261,10 +2261,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "55",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4775,6 +4775,28 @@
     },
     {
       "subject": "BMEG",
+      "course_code": "5630",
+      "title": "Fundamental Gene Therapy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is designed to provide students with foundational knowledge and technology related to gene therapy and genetic engineering. As research and applications in gene therapy gain increasing prominence in medical and biomedical fields, this course aims to equip students with essential insights into these areas, focusing on both fundamental concepts and their practical applications. The emphasis will be on translating biological sciences into biomedical engineering practices. Structured to accommodate students with minimal prior knowledge, the course covers key components such as the definitions of gene therapy and genetic engineering, gene delivery methods (including both viral and non-viral vectors), therapeutic antisense technologies, basic gene editing techniques, and typical clinical applications like CAR-T cell therapy. The curriculum will highlight biomedical engineering perspectives, encompassing relevant instrumentation and methodologies for gene sequencing, medical imaging, and related fields.",
+      "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering; or\nFor students in MSc Biomedical Engineering; or\nFor students in BEng Biomedical Engineering.\nNot for students who have taken BMEG4510.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Engineering",
+      "academic_org": "Div of Biomedical Engineering",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "BMEG",
       "course_code": "5710",
       "title": "Introduction to Biomedical Engineering",
       "credits": "3.00",
@@ -5512,6 +5534,28 @@
       "feedback_evaluation": "Questionnaires\n\nMeeting\n\nClassroom interaction",
       "required_readings": "Relevant reading list will be provided by course teachers.",
       "recommended_readings": "1. The Future is Faster Than You Think ；Peter Diamandis\n2. Life Span；David Sinclair\n3. Ageless Generation； Alex Zhavoronkov\n4. Juvenescence； Jim Mellon\n5. Hallmarks of aging: An expanding universe; [Carlos López-Otín](https://pubmed.ncbi.nlm.nih.gov/?term=L%C3%B3pez-Ot%C3%ADn+C&cauthor_id=36599349) [1](https://pubmed.ncbi.nlm.nih.gov/36599349/#full-view-affiliation-1 \"Departamento de Bioquímica y Biología Molecular, Instituto Universitario de Oncología (IUOPA), Universidad de Oviedo, Oviedo, Spain; Instituto de Investigación Sanitaria del Principado de Asturias (ISPA), Oviedo, Spain; Centro de Investigación Biomédica e\"), [Maria A Blasco](https://pubmed.ncbi.nlm.nih.gov/?term=Blasco+MA&cauthor_id=36599349) [2](https://pubmed.ncbi.nlm.nih.gov/36599349/#full-view-affiliation-2 \"Telomeres and Telomerase Group, Molecular Oncology Program, Spanish National Cancer Centre (CNIO), Madrid, Spain.\"), [Linda Partridge](https://pubmed.ncbi.nlm.nih.gov/?term=Partridge+L&cauthor_id=36599349) [3](https://pubmed.ncbi.nlm.nih.gov/36599349/#full-view-affiliation-3 \"Department of Genetics, Evolution and Environment, Institute of Healthy Ageing, University College London, London, UK; Max Planck Institute for Biology of Ageing, Cologne, Germany.\"), [Manuel Serrano](https://pubmed.ncbi.nlm.nih.gov/?term=Serrano+M&cauthor_id=36599349) [4](https://pubmed.ncbi.nlm.nih.gov/36599349/#full-view-affiliation-4 \"Institute for Research in Biomedicine (IRB Barcelona), Barcelona Institute of Science and Technology (BIST), Barcelona, Spain; Catalan Institution for Research and Advanced Studies (ICREA), Barcelona, Spain; Altos Labs, Cambridge, UK.\"), [Guido Kroemer](https://pubmed.ncbi.nlm.nih.gov/?term=Kroemer+G&cauthor_id=36599349)[5](https://pubmed.ncbi.nlm.nih.gov/36599349/#full-view-affiliation-5 \"Centre de Recherche des Cordeliers, Equipe labellisée par la Ligue contre le cancer, Université de Paris, Sorbonne Université, INSERM U1138, Institut Universitaire de France, Paris, France; Metabolomics and Cell Biology Platforms, Gustave Roussy, Villejui\"); https://pubmed.ncbi.nlm.nih.gov/36599349/"
+    },
+    {
+      "subject": "BMEG",
+      "course_code": "5880",
+      "title": "Stem Cell Fundamentals",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an in-depth introduction to the fundamental knowledge and technologies related to stem cells, which have become increasingly significant in various areas of biomedical research, industrial research and development (R&D), clinical practice, and academic education. As advancements in stem cell technologies continue to transform healthcare and scientific inquiry, biomedical engineering (BME) students need to understand both the theoretical and practical aspects of this field. Designed specifically for students pursuing a degree in BME, the course emphasizes core concepts of stem cell biology while ensuring that the material remains accessible and applicable. Rather than diving deeply into complex biological mechanisms, the course focuses on essential principles that underlie stem cell science. Students will explore mainstream applications of stem cell technology, learning how to effectively translate biological sciences into innovative and practical solutions for real-world challenges. The curriculum covers a range of critical topics, including the definitions, criteria, and standards of “stemness,” which serve as foundational concepts in the study of stem cells. Additionally, the course will delve into the regulatory frameworks and ethical considerations that govern stem cell research and development, providing students with a comprehensive understanding of the responsibilities and implications associated with this research. Students will also engage with fundamental aspects of embryonic, fetal, and adult stem cell biology, allowing them to grasp the complexities of each type and its unique properties. By the end of the course, students will have a thorough understanding of the diverse roles that stem cells play across various biomedical fields.",
+      "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemical & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering.\nNot for students who have taken BMEG4530.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Engineering",
+      "academic_org": "Div of Biomedical Engineering",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "BMEG",

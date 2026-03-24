@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-17T16:26:18.025698+00:00",
+    "scraped_at": "2026-03-23T08:11:54.991498+00:00",
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
-    "total_courses": 24,
+    "total_courses": 25,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -394,10 +394,10 @@
               ],
               "availability": {
                 "capacity": "68",
-                "enrolled": "25",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "43",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1032,18 +1032,6 @@
               "section": "B-LEC (1093)",
               "meetings": [
                 {
-                  "time": "Fr 10:30AM - 1:15PM",
-                  "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Dr. YIP Kit Sang Danny",
-                  "dates": "24/4"
-                },
-                {
-                  "time": "Fr 10:30AM - 1:15PM",
-                  "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Dr. YIP Kit Sang Danny",
-                  "dates": "8/5"
-                },
-                {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "William M W Mong Eng Bldg LT",
                   "instructor": "Dr. YIP Kit Sang Danny",
@@ -1070,7 +1058,7 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "81",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1224,6 +1212,28 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "The Road to SDN: An Intellectual History of Programmable Networks, Nick Feamster, Jennifer Rexford, Ellen Zegura. ACM SIGCOMM Computer Communication Review, Volume 44, Issue 2, April 2014.",
       "recommended_readings": "Computer Networking: A Top-Down Approach, by Kurose and Ross"
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5729",
+      "title": "Wireless Optical Communication and its applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The emerging space economy and low-altitude economy necessitate integrated networks and connectivity for drones and satellites. Wireless optical communication (WOC) provides future-proof solutions with the required flexibility and bandwidth. This course provides fundamental knowledge for developing wireless optical communication systems that can be applied across different scenarios. The basic building blocks of WOC will be introduced. Techniques for analyzing transmission characteristics and performance will be studied. Various applications of WOC, including free-space laser communication, indoor visible-light communication, underwater WOC, optical camera communication, and photovoltaic communication, will be presented.",
+      "enrollment_requirement": "For students in MSc Information Engineering;Pre-requisite: IERG2310",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "IEMS",
@@ -1836,10 +1846,10 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "99",
+                "available_seats": "98",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1856,10 +1866,10 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "99",
+                "available_seats": "98",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1876,10 +1886,10 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "0",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "99",
+                "available_seats": "96",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1896,10 +1906,10 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "99",
+                "available_seats": "98",
                 "status": "Open"
               },
               "class_attributes": "English only"

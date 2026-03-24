@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-17T12:58:00.678088+00:00",
+    "scraped_at": "2026-03-23T04:53:44.236401+00:00",
     "subject": "AIST",
     "subject_title": "AI: Systems & Tech",
-    "total_courses": 16,
+    "total_courses": 18,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1632,6 +1632,50 @@
       "feedback_evaluation": "1. Result of homework and assignments.\n2. Course evaluation and questionnaire.\n3. Reflection of teachers.\n4. Question-and-answer sessions during class.\n5. Student consulation during office hours or online.",
       "required_readings": "1. Aditya Grover and Stefano Ermon, (2018), Tutorial on Deep Generative Models, IJCAI-ECAI\n2. Jun-Yan Zhu, Taesung Park, Mihaela Rosca, Phillip Isola, and Ian Goodfellow, (2018), Tutorial on GANs. CVPR\n3. Shakir Mohamed and Danilo Rezende, (2017), Tutorial on Deep Generative Models. UAI",
       "recommended_readings": "1. Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016), Deep Learning, MIT Press\n2. Jurafsky Daniel, Martin James, Norvig Peter, Russell Stuart (2014), Speech and Language Processing, Pearson\n3. Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin (2017), Attention Is All You Need, Advances in Neural Information Processing Systems\n4. Jacob Einstein (2019), Introduction to Natural Language Processing, MIT Press\n5. Long Ouyang, et al., (2022), Training language models to follow instructions with human feedback, Advances in Neural Information Processing Systems\n6. Yang Song et. al., (2021), Score-Based Generative Modeling through Stochastic Differential Equations, International Conference on Learning Representation"
+    },
+    {
+      "subject": "AIST",
+      "course_code": "5040",
+      "title": "PhysAI and GenAI for Natural Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces PhysAI and GenAI as complementary approaches to natural scientific discovery. PhysAI refers to physics-inspired AI models that embed domain knowledge, physical laws, and invariances into learning frameworks, enabling models to achieve greater robustness, accuracy, and interpretability. In contrast, GenAI leverages generative modeling to create hypotheses, design candidates, and explore novel scientific paradigms beyond the limits of existing data. Together, PhysAI and GenAI form a powerful synergy: PhysAI accelerates and strengthens established paradigms, while GenAI opens pathways to entirely new directions of research. Through this integration, PhysAI and GenAI hold the potential to transform discovery in chemistry, materials science, and biology.\n\nAdvisory: Students are expected to have taken AIST1000 or AIST 3120 or AIST 4010 or CSCI3230 or CSCI3320.",
+      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
+      "course_code": "5050",
+      "title": "Optimization for Large Language Models",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the advanced optimization principles that power modern large language model (LLM) systems across their full lifecycle. This course begins with training time adaptive optimization methods, including Adaptive Moment Estimation (Adam), Adaptive Moment Estimation with decoupled weight decay (AdamW), Adafactor, Lion, and Muon, along with learning rate schedules and gradient clipping. This course also covers parameter efficient fine tuning, specifically Low Rank Adaptation (LoRA) and Quantized Low Rank Adaptation (QLoRA), for settings with tight memory and compute budgets.\n\nNext, post training with feedback will be introduced, including Reinforcement Learning from Human Feedback (RLHF) using Proximal Policy Optimization with a Kullback Leibler divergence constraint (PPO), Direct Preference Optimization (DPO), and emerging variants such as Group Relative Policy Optimization (GRPO). Throughout, the course emphasize objective design, stability, and compute efficiency.\n\nFinally, the course frame inference time optimization as a budgeted decision problem, covering best of N selection and self consistency, Tree of Thoughts, contrastive decoding, speculative decoding, and lookahead decoding. this course also introduces in context learning and its interpretation as implicit Bayesian inference and gradient descent in context. To connect modalities, the course includes a short diffusion unit to contrast optimization and sampling strategies.\n\nThe course is hands on and research oriented. Students will learn the theoretical principles of these techniques, run small scale ablations, match floating point operations when comparing methods, and present a final project.\n\nAdvisory: Students are expected to have taken CSCI3320 or ENGG 5501 or equivalent.",
+      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     }
   ]
 }

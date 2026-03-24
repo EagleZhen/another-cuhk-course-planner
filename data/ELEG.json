@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-17T14:55:48.433711+00:00",
+    "scraped_at": "2026-03-23T06:45:21.906138+00:00",
     "subject": "ELEG",
     "subject_title": "Electronic Engineering",
-    "total_courses": 72,
+    "total_courses": 75,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -6154,10 +6154,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "9999",
                 "waitlist_total": "0",
-                "available_seats": "58",
+                "available_seats": "59",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6208,6 +6208,72 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "To be provided by the course teacher.",
       "recommended_readings": "1. Yong LIU, Power Electronic Packaging: Design, Assembly Process, Reliability and Modelling, Springer Science & Business Media, 2012. (https://link.springer.com/book/10.1007/978-1-4614-1053-9)\n2. John H. Lau, Semiconductor Advanced Packaging, Springer Singapore (Verlag), 2021 (ISBN: 978-981-16-1376-0)"
+    },
+    {
+      "subject": "ELEG",
+      "course_code": "5771",
+      "title": "Micro/Nano-Chip Manufacturing Technology",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the science and engineering of micro/nano-chip manufacturing. The manufacturing technology is the foundation to create integrated devices and systems with a feature size at the micrometer or nanometer level. The manufacturing processes are employed in multiple disciplines including microelectronics, optoelectronics, micro/nano-electromechanics, photonics, plasmonics, and microfluidics. Students will get comprehensive understanding of the manufacturing processes, environment, equipment, and applications of micro/nano-chips.",
+      "enrollment_requirement": "For students in MSc Electronic Engineering and MPhil-PhD Electronic Erg:\nNot for students who have taken ELEG5550",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Electronic Engineering",
+      "academic_org": "Div of Electronic Engineering",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "ELEG",
+      "course_code": "5772",
+      "title": "Audio Signal Processing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is an in-depth exploration of audio processing using neural networks. Starting with an introduction to audio problems, the course covers a range of topics including audio features and human labels, filtering and digital signal processing for audio processing, audio and music tagging with convolutional neural networks, audio and music transcription with recurrent neural networks, audio compression, bridging audio and language with sequence-to-sequence models, symbolic music generation, audio and music generation with pipelines, vocoder, and autoregressive models, audio and music generation with VAEs and diffusion models, controllable audio and music generation from texts and multiple modalities, and open problems and future directions in the field.",
+      "enrollment_requirement": "For ELEG PG students; Students should have knowledge of Linear Algebra, Probability, C/C++/Python, pattern recognition or machine learning;Not for students who have taken ELEG5421",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Electronic Engineering",
+      "academic_org": "Div of Electronic Engineering",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "ELEG",
+      "course_code": "5773",
+      "title": "Photonic Chip Design and Emerging Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an introduction to the principles, techniques, and cutting-edge developments in photonic chip design. The course covers fundamental concepts in waveguide theory, optical materials, devices, circuits and simulation methodologies used in photonic integrated circuit (PIC) design. Beyond the fundamentals, the course introduces a wide range of emerging applications, including ultrafast optical communication, optical computing, sensing, and quantum photonics. Students will understand the theoretical foundations and the real-world opportunities of photonic chip technologies, preparing them for advanced study or careers in integrated photonics and semiconductor technology.",
+      "enrollment_requirement": "For students in MSc Electronic Engineering and MPhil-PhD Electronic Erg;Not for students who have taken ELEG5301",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Electronic Engineering",
+      "academic_org": "Div of Electronic Engineering",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "ELEG",
@@ -6325,7 +6391,27 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor WANG Yixiu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AGJ1-PRJ (9974)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CAI Yuting",
                   "dates": "05/01/2026 - 13/04/2026"
                 }
               ],
