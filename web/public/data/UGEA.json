@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-23T11:15:05.225580+00:00",
+    "scraped_at": "2026-03-29T11:03:11.900193+00:00",
     "subject": "UGEA",
     "subject_title": "Chinese Cultural Heritage",
     "total_courses": 30,
@@ -419,7 +419,46 @@
       "course_code": "1545",
       "title": "China and Asia: Past and Present",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1534)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Chen Kou Bun Bldg 109",
+                  "instructor": "Dr. HUNG Wing Lok",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg G05",
+                  "instructor": "Dr. HUNG Wing Lok",
+                  "dates": "15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Hui Yeung Shing Bldg G05",
+                  "instructor": "Dr. HUNG Wing Lok",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course aims to introduce the history of interaction between China and its neighbouring states in Asia since the premodern time. This course adopts an interdisciplinary approach – including the perspectives of history, international relations, and Chinese culture – to understand China's subjective and objective position in the region. China had been regarding herself as the leader in East Asia until European Imperialism intervened in the 19th century which challenged the legitimacy of Sino-centric order. With the growing acceptance of China's resurgence, this course provides a systematic analytical framework for students to understand the contribution of such historical and cultural factors to China's foreign policymaking nowadays.",
       "enrollment_requirement": "Not for Global Studies (GLBS and GLSD) Majors.\nCo-requisite: UGFH1000, UGFN1000 or UGFN1001 (only applicable to students admitted to the 4-year curriculum)",
       "course_attributes": "",
@@ -883,11 +922,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "79",
+                "enrolled": "80",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Putonghua only"
             },
@@ -1124,11 +1163,11 @@
                 }
               ],
               "availability": {
-                "capacity": "90",
-                "enrolled": "0",
+                "capacity": "88",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "90",
+                "available_seats": "87",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -2544,11 +2583,11 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "98",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "100",
+                "available_seats": "98",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -3442,11 +3481,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -3468,11 +3507,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -3500,11 +3539,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3532,11 +3571,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4126,11 +4165,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4152,11 +4191,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"

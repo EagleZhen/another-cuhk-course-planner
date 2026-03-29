@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-23T06:05:11.667562+00:00",
+    "scraped_at": "2026-03-29T04:51:02.954038+00:00",
     "subject": "COMM",
     "subject_title": "Communication",
-    "total_courses": 211,
+    "total_courses": 213,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1110,11 +1110,11 @@
               ],
               "availability": {
                 "capacity": "46",
-                "enrolled": "45",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Putonghua and English"
             }
@@ -1691,7 +1691,7 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "37",
+                "enrolled": "36",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -5242,10 +5242,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "28",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5314,10 +5314,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "49",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5638,10 +5638,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "32",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6146,10 +6146,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "38",
+                "enrolled": "37",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -10638,6 +10638,28 @@
     },
     {
       "subject": "COMM",
+      "course_code": "5947",
+      "title": "Data Science and AI in New Media",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for students pursuing strategic roles in the new media industry, equipping them to apply data and AI strategies to real-world challenges. Bridging the gap between strategic vision and technical execution, it delivers essential data science concepts and practical processes for effective collaboration with data teams on projects that drive measurable business impact. Emphasizing strategic problem-solving and ethical data and AI practices, the course uses case-based learning to build multidisciplinary capabilities in strategy, analytics, data visualization, modeling, and machine learning. Students also explore the latest AI developments, preparing them to address complex challenges and leverage emerging opportunities.",
+      "enrollment_requirement": "For Students of M.Sc. in New Media & M.A. in Global Communication",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Communication",
+      "academic_org": "Div of Communication",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "COMM",
       "course_code": "5950",
       "title": "New Media Content Development",
       "credits": "3.00",
@@ -11035,6 +11057,28 @@
       "feedback_evaluation": "Course Evaluation Questionnaire",
       "required_readings": "Please refer to the course outline distributed in the first lecture.",
       "recommended_readings": "Please refer to the course outline distributed in the first lecture."
+    },
+    {
+      "subject": "COMM",
+      "course_code": "5992",
+      "title": "Critical Data Studies",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces key theoretical perspectives and social controversies related to data-driven, algorithmic, and AI technologies through the lens of Critical Data Studies. Through conceptual applications and real-world case studies, it helps students critically examine the socio-political implications of how emerging data-driven and AI technologies are designed, institutionalized, governed, and contested across different social and cultural contexts.",
+      "enrollment_requirement": "For Students of M.Sc. in New Media & M.A. in Global Communication",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Communication",
+      "academic_org": "Div of Communication",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "COMM",

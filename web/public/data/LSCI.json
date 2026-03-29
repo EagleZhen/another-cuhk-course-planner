@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-23T08:43:01.034397+00:00",
+    "scraped_at": "2026-03-29T08:18:27.124043+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
-    "total_courses": 96,
+    "total_courses": 97,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -4307,6 +4307,28 @@
     },
     {
       "subject": "LSCI",
+      "course_code": "7100",
+      "title": "Directed Research in Life Sciences",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This course allows students to perform independent literature research in a specific topic under the supervision of instructors.",
+      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Division of Life Sciences",
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "LSCI",
       "course_code": "7101",
       "title": "Seminar",
       "credits": "1.00",
@@ -4483,10 +4505,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "31",
+                "enrolled": "32",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "968",
+                "available_seats": "967",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4948,10 +4970,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "76",
+                "enrolled": "77",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "923",
+                "available_seats": "922",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-23T11:00:27.489837+00:00",
+    "scraped_at": "2026-03-29T10:47:27.600470+00:00",
     "subject": "STAT",
     "subject_title": "Statistics",
-    "total_courses": 70,
+    "total_courses": 71,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -377,11 +377,11 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "150",
+                "enrolled": "148",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -397,11 +397,11 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "150",
+                "enrolled": "148",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -1847,10 +1847,10 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "139",
+                "enrolled": "138",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "61",
+                "available_seats": "62",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1867,10 +1867,10 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "139",
+                "enrolled": "138",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "61",
+                "available_seats": "62",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2954,10 +2954,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "58",
+                "enrolled": "57",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2974,10 +2974,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "58",
+                "enrolled": "57",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6788,6 +6788,28 @@
       "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Student opinions and questions are welcome from time to time via online communication tools. Lecturers will reflect relevant information to the Department where applicable.",
       "required_readings": "1. Official Statistics\n\nCENSUS & STATISTICS DEPARTMENT (10/2020). Hong Kong Annual Digest of Statistics, 2020.\n\nCENSUS & STATISTICS DEPARTMENT (11/2020). Hong Kong Monthly Digest of Statistics, November, 2020.\n\n2. Structural Equation Modeling\n\nBeaujean, A. A. (2014). [Latent variable modeling using R: A step-by-step guide](https://www.researchgate.net/publication/261288066_Latent_Variable_Modeling_using_R_A_Step-By-Step_Guide). New York, NY: Routledge.\n\nLee, S. Y. (2007). Structural Equation Modeling: A Bayesian Approach. Chichester, UK: John Wiley & Sons.\n\nR Core Team (2017). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/\n\nSong, X. Y. and Lee, S. Y. (2012). Basic and Advanced Bayesian Structural Equation Modeling: With Applications in the Medical and Behavioral Sciences. Chichester, UK: John Wiley & Sons.\n\nRosseel, Y. (2012). lavaan: An R package for structural equation modeling. Journal of Statistical Software, 48(2), 1-36. doi: [10.18637/jss.v048.i02](http://dx.doi.org/10.18637/jss.v048.i02)\n\nRosseel, Y. (2017). The lavaan tutorial. <http://lavaan.ugent.be/tutorial/>",
       "recommended_readings": "1. Official Statistics\n\nCENSUS & STATISTICS DEPARTMENT (04/2016). 2014/15 Household Expenditure Survey and the Rebasing of the Consumer Price indices.\n\nCENSUS & STATISTICS DEPARTMENT (03/2020). Gross Domestic Product, 2019.\n\n2. Structural Equation Modeling\n\nDucan, T. E., Ducan, S. C., & Strycker, L. A. (2006). An introduction to latent variable growth curve modeling: Concepts, issues, and applications (2nd ed.). Mahwah, NJ: LEA\n\nHealey, J. F. (2013). The essentials of statistics: A tool for social research (3rd ed.). Belmont, CA: Wadsworth Cengage Learning.\n\nHeiman, G. W. (2014). Basic statistics for the behavioral sciences (7th ed.). Belmont, CA: Wadsworth Cengage Learning.\n\nMaruyama, G. M. (1997). Basics of structural equation modeling. Thousand Oaks, CA: Sage.\n\nTabachnick, B. G., & Fidell, L. S. (2013). Using multivariate statistics (6th ed.). Boston: Pearson Education."
+    },
+    {
+      "subject": "STAT",
+      "course_code": "6111",
+      "title": "Research Workshop",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course serves to provide either practical-based or theoretical-oriented research experience to the students. Students can choose one of the following two options:\n\n1. Students will be required to complete a project assigned by a company or an organization on a part-time basis.\n2. Students will be required to conduct a research project under the research supervisors at the Chinese University of Hong Kong.\n\nStudents will be required to give a final project presentation and submit a written report on which their assessment will be based.",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Statistics",
+      "academic_org": "Div of Statistics",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "STAT",

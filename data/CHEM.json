@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-23T05:30:43.187754+00:00",
+    "scraped_at": "2026-03-29T04:13:41.455027+00:00",
     "subject": "CHEM",
     "subject_title": "Chemistry",
-    "total_courses": 114,
+    "total_courses": 116,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -557,11 +557,11 @@
               ],
               "availability": {
                 "capacity": "69",
-                "enrolled": "69",
+                "enrolled": "68",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
             },
@@ -595,11 +595,11 @@
               ],
               "availability": {
                 "capacity": "69",
-                "enrolled": "69",
+                "enrolled": "68",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }
@@ -750,11 +750,11 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             },
@@ -5747,6 +5747,28 @@
     },
     {
       "subject": "CHEM",
+      "course_code": "5300",
+      "title": "Advanced Quantum Mechanics and Computational Chemistry",
+      "credits": "2.00",
+      "terms": [],
+      "description": "Brief overview of quantum chemistry, electronic structure theory and statistical mechanics and their connections to modern computational chemistry simulations. Problem sets and hands-on exercises on these theoretical topics will be given. Through the guided literature reviews and report presentation, postgraduate student will have a better understanding on the extended applications of quantum chemistry and computational simulations, including applications in quantum chemistry modelling of organic and organometallic systems.",
+      "enrollment_requirement": "For students in MPhil-PhD Chemistry\nExclusion: CHEM4300",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Chemistry",
+      "academic_org": "Div of Chemistry",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "CHEM",
       "course_code": "5301",
       "title": "Colloids and Surface Chemistry",
       "credits": "2.00",
@@ -7044,6 +7066,28 @@
       "feedback_evaluation": "- A course questionnaire answered by every student after finishing all the lectures\n- Feedback from informal conversation with students after class",
       "required_readings": "Nil",
       "recommended_readings": "1. Beer, P. D.; Gale, P. A.; Smith, D. K. Supramolecular Chemistry, Oxford University Press, New York, 1999.\n2. Cram, D. J. “The Design of Molecular Hosts, Guests and Their Complexes” Angewandte Chemie, International Edition in\nEnglish, 1988, 27, 1009-1020.\n3. Pedersen, C. J. “The Discovery of Crown Ethers” Angewandte Chemie, International Edition in English, 1988, 27, 1021-\n1027. \n4. Lehn, J.-M. “Supramolecular Chemistry – Scope and Perspectives: Molecules, Supermolecules and Molecular Devices”\nAngewandte Chemie, International Edition in English, 1988, 27, 89-112.\n5. Philp, D.; Stoddart, J. F. “Self-Assembly in Natural and Unnatural Systems” Angewandte Chemie, International Edition in\nEnglish, 1996, 35, 1154-1196.\n6. Brunsveld, L.; Folmer, B. J. B.; Meijer, E. W.; Sijbesma, R. P. “Supramolecular Polymers” Chemical Reviews, 2001, 101,\n4071-4097.\n7. Kay, E. R.; Leigh, D. A.; Zerbetto, F. “Synthetic Molecular Motors and Mechanical Machines” Angewandte Chemie,\nInternational Edition, 2007, 46, 72-191.\n8. Love, J. C.; Estroff, L. A.; Kriebel, J. K.; Nuzzo, R. G.; Whitesides, G. M. “Self-Assembled Monolayers of Thiolates on Metals\nas a Form of Nanotechnology” Chemical Reviews 2005, 105, 1103-1169."
+    },
+    {
+      "subject": "CHEM",
+      "course_code": "5650",
+      "title": "Photocatalysis and Its Application in Organic Synthesis",
+      "credits": "2.00",
+      "terms": [],
+      "description": "Starting from the beginning of 20th century, with the advances in spectroscopy and quantum chemistry, chemists have been developing rationally methods of organic molecules synthesis by employing photochemistry and photocatalysis. In photocatalysis, typically, the reactant is not excited directly by the incident photons. Instead, a material responsive to light of certain wavelength, in other words a photocatalyst, serves as a mediator to carry out a chemical reaction. This important feature allows activating reactants via reduction, oxidation or energy transfer events under milder conditions compared to non-catalytic methods, and minimize using auxiliary chemical oxidants and reductants. The course is focused on two major topics: 1) photocatalysts and 2) transformation of organic molecules mediated by the photocatalysts. Related to the first topic, the course gives an overview of available up to date photocatalysts, general principles behind selecting a photocatalyst to drive a specific reaction and rational approach in designing novel photocatalysts. Related to the second topic, the course gives an overview of redox potentials and redox reactions of organic molecules, general principles of choosing suitable reactants to synthesize target products under the photocatalytic conditions, and rational approach in designing novel photocatalytic reactions. The course discusses application of electrochemical techniques (cyclic voltammetry, linear sweep voltammetry, electrochemical impedance spectroscopy), UV-vis absorption (steady-state and time-resolved), photoluminescence (steady-state and time-resolved), nuclear magnetic resonance, electron spin resonance spectroscopies and other spectroscopies and physical methods for studying the mechanism of photocatalytic reactions.",
+      "enrollment_requirement": "For students in MPhil-PhD Chemistry",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Chemistry",
+      "academic_org": "Div of Chemistry",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "CHEM",
