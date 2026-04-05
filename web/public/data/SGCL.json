@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-29T10:24:03.215092+00:00",
+    "scraped_at": "2026-04-03T21:11:21.732487+00:00",
     "subject": "SGCL",
     "subject_title": "School Guidance & Counselling",
     "total_courses": 23,
@@ -941,7 +941,34 @@
       "course_code": "6406",
       "title": "Career Exploration and Assessment Tools",
       "credits": "1.50",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1535)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Ho Tim Building G2",
+                  "instructor": "Professor LUK Sau Ha",
+                  "dates": "1/6, 8/6, 15/6, 22/6, 29/6, 6/7, 13/7"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "999",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
       "description": "This course is designed to familiarize students with a variety of career exploration and assessment tools, including tools related to career interest, values, skills, and career decision making. Strategies and techniques in using career exploration and assessment tools to facilitate self-understanding and development in the context of career counseling and guidance are examined. Measurement principles and ethical guidelines relevant to career assessment are also introduced and discussed.",
       "enrollment_requirement": "For students in MA School Guidance & Counselling",
       "course_attributes": "",

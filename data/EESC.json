@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-03-29T06:06:26.128354+00:00",
+    "scraped_at": "2026-04-03T16:40:35.118909+00:00",
     "subject": "EESC",
     "subject_title": "Earth & Environmental Sci",
     "total_courses": 124,
@@ -595,10 +595,10 @@
               ],
               "availability": {
                 "capacity": "12",
-                "enrolled": "0",
+                "enrolled": "11",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5044,16 +5044,23 @@
           "schedule": [
             {
               "section": "--LEC (2199)",
-              "meetings": [],
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 302",
+                  "instructor": "Professor CHAN Man Nin, \nProfessor TAI Pui Kuen Amos, \nProfessor TAM Chi Yung Francis, \nProfessor ZHAI Shixian",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
               "availability": {
-                "capacity": "",
-                "enrolled": "",
-                "waitlist_capacity": "",
-                "waitlist_total": "",
-                "available_seats": "",
-                "status": "Closed"
+                "capacity": "18",
+                "enrolled": "11",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "English only"
             }
           ]
         }
