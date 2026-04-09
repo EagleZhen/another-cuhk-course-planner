@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-03T20:35:34.359410+00:00",
+    "scraped_at": "2026-04-08T14:37:47.874507+00:00",
     "subject": "PHED",
     "subject_title": "Physical Education",
-    "total_courses": 81,
+    "total_courses": 83,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -5471,10 +5471,10 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "23",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9213,7 +9213,7 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "26",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -13184,6 +13184,28 @@
     },
     {
       "subject": "PHED",
+      "course_code": "1350",
+      "title": "Martial Arts Bing Dao",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This course is offered as one of the courses under the Required Physical Education Programme. It aims to develop students’ knowledge and basic skills of martial arts bing dao, improve students’ physical fitness and motor coordination, and enhance students’ generic skills such as creative thinking, communication and team collaboration through the learning of bing dao basic movements and group practice. Contents of the course include: theory and practice of basic footwork, basic offensive techniques, basic defensive techniques, individual and two-person bing dao routines, bing dao related fitness and establishing a positive attitude towards sports participation, and so on. Bing dao performance is required as assessment at the end of the course and students can learn the basic performing knowledge and skills.",
+      "enrollment_requirement": "Not for PESH and ESHE Majors.\nNot for IASP students.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Physical Education Unit",
+      "academic_org": "Physical Education Unit",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "PHED",
       "course_code": "1370",
       "title": "Archery",
       "credits": "1.00",
@@ -13243,10 +13265,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "0",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "Can, change to Eng if needed"
@@ -13355,6 +13377,28 @@
       "feedback_evaluation": "Feedback from students to be collected via course-end evaluation.\nFeedback from students to be collected during the course informally by the lecturers.\nFeedback from students to be collected informally via e-mail and CU eLearning System.",
       "required_readings": "Lecture notes 課堂筆記",
       "recommended_readings": "1. 香港教育署 課程發展處 (1994) 中學體育科教學資料 (第二版)\n\n2. 郭永波 (2005) 籃球運動教程 北京體育大學出版社\n\n3. 張秀華 劉玉林 (2008) 籃球系統戰術 國家出版社\n\n4. Krause, J.V., Meyer, D., and Meyer, J. (2008) Basketball Skills & Drills, Human Kinetics\n\n5. Wissel, H. (2012) BASKETBALL Steps to Success. Human Kinetics\n\nhttp://www.coachesclipboard.net/\n\nhttp://www.basketball.org.hk/\n\nhttps://sportsedtv.com/sport/basketball-instructional-videos"
+    },
+    {
+      "subject": "PHED",
+      "course_code": "2051",
+      "title": "Intermediate Soccer",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This course is offered as one of the courses under the Elective Physical Education Programme. This course aims to develop and enrich students’ fundamental and intermediate skills of Soccer needed for lifelong participation in the sport. Contents include: dribbling, passing, heading, shooting, goal keeping, defensive footwork, rules and tactics of the sport, match analysis, nutrition, sport psychology for football, fitness and law of the game, nurturing positive attitudes and values toward sports participation, etc.",
+      "enrollment_requirement": "For male only.\nEach student can only take one elective course in a term.",
+      "course_attributes": "For male only",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Physical Education Unit",
+      "academic_org": "Physical Education Unit",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "PHED",
