@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-09T19:55:58.430010+00:00",
+    "scraped_at": "2026-04-13T07:17:21.633730+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
     "total_courses": 114,
@@ -1596,10 +1596,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "59",
+                "enrolled": "58",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3757,18 +3757,6 @@
               "meetings": [
                 {
                   "time": "Sa 9:30AM - 12:45PM",
-                  "location": "Wu Ho Man Yuen Bldg 406",
-                  "instructor": "Dr. YUEN Chi Lok",
-                  "dates": "9/5, 16/5"
-                },
-                {
-                  "time": "Sa 9:30AM - 12:45PM",
-                  "location": "Wu Ho Man Yuen Bldg 406",
-                  "instructor": "Dr. YUEN Chi Lok",
-                  "dates": "30/5"
-                },
-                {
-                  "time": "Sa 9:30AM - 12:45PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. YUEN Chi Lok",
                   "dates": "14/3, 21/3, 28/3"
@@ -3796,6 +3784,18 @@
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Dr. YUEN Chi Lok",
                   "dates": "18/4"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 406",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "30/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building 202",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "9/5, 16/5"
                 }
               ],
               "availability": {
@@ -5278,10 +5278,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "0",
+                "enrolled": "41",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "65",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
