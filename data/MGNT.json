@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T06:40:38.729009+00:00",
+    "scraped_at": "2026-04-21T13:07:06.374631+00:00",
     "subject": "MGNT",
     "subject_title": "Management",
     "total_courses": 105,
@@ -704,7 +704,76 @@
       "course_code": "2510",
       "title": "Introduction to International Business",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1538)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "27/7"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "7/7, 14/7, 21/7"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "8/7, 15/7, 22/7"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "25/6"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "9/7, 16/7, 23/7"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "26/6"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "10/7"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course studies the nature, form and scope of international business. Topics include foreign environment and major international business activities, such as exporting, direct investment, licensing and other contractual arrangements. Management strategies concerning production, marketing, human resource, and finance in an international context will also be discussed.",
       "enrollment_requirement": "Not for students who have taken MGNT2511 and/or 2512",
       "course_attributes": "",
@@ -2215,6 +2284,80 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1537)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "25/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "9/7, 16/7, 23/7"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "8/7, 15/7, 22/7"
+                },
+                {
+                  "time": "Th 9:30AM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "2/7"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "27/7"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "30/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "14/7, 21/7"
+                },
+                {
+                  "time": "Tu 9:30AM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "7/7"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Professor Tatiana Dobreva KOSTOVA",
+                  "dates": "24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7247,10 +7390,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "42",
+                "enrolled": "41",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"

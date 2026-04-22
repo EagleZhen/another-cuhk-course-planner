@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T08:36:33.192538+00:00",
+    "scraped_at": "2026-04-21T15:10:50.534326+00:00",
     "subject": "THEO",
     "subject_title": "Theology",
     "total_courses": 198,
@@ -1746,10 +1746,22 @@
               "section": "--LEC (1491)",
               "meetings": [
                 {
-                  "time": "TBA",
-                  "location": "TBA",
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "CC College Theology Bldg T31",
                   "instructor": "Staff",
-                  "dates": "11/05/2026 - 22/06/2026"
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "CC College Theology Bldg T31",
+                  "instructor": "Staff",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "CC College Theology Bldg T31",
+                  "instructor": "Staff",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
                 }
               ],
               "availability": {
@@ -2618,10 +2630,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "11",
+                "enrolled": "10",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "30",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7910,7 +7922,46 @@
       "course_code": "5953",
       "title": "Special Topics on Theological Studies II",
       "credits": "3.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1576)",
+              "meetings": [
+                {
+                  "time": "Mo 7:00PM - 9:30PM",
+                  "location": "CC College Theology Bldg T31",
+                  "instructor": "Staff",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 7:00PM - 9:30PM",
+                  "location": "CC College Theology Bldg T31",
+                  "instructor": "Staff",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 7:00PM - 9:30PM",
+                  "location": "CC College Theology Bldg T31",
+                  "instructor": "Staff",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "A course of study in issues and topics related to Theological Studies, such as contemporary concepts of God, Holy Spirit and the Church, Christological controversies, Trinity and society, providence and evil, humanity and salvation, eschatology, etc. Students are allowed to take these courses for more than once.",
       "enrollment_requirement": "For students in Master of Divinity or MA Christian Studies or MA Theological Studies",
       "course_attributes": "",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T06:46:02.546593+00:00",
+    "scraped_at": "2026-04-21T13:12:43.461898+00:00",
     "subject": "MKTG",
     "subject_title": "Marketing",
     "total_courses": 80,
@@ -306,6 +306,56 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1539)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. HOOI Den Huan",
+                  "dates": "27/7"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. HOOI Den Huan",
+                  "dates": "30/6, 7/7, 14/7, 21/7"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. HOOI Den Huan",
+                  "dates": "8/7, 15/7, 22/7"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. HOOI Den Huan",
+                  "dates": "2/7, 9/7, 16/7, 23/7"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. HOOI Den Huan",
+                  "dates": "10/7, 17/7"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -901,9 +951,9 @@
       "assessment_types": {
         "Attendance": "0",
         "Essay test or exam": "0",
-        "Participation": "0",
+        "Homework or assignment": "0",
         "Project": "0",
-        "Homework or assignment": "0"
+        "Participation": "0"
       },
       "feedback_evaluation": "1. Course Teaching Evaluation (CTE) will be done at the end of the course.\n\n2. Collect information and feedback from students.\n\n3. Assess the achievement of learning goals by reviewing external examiner reports.",
       "required_readings": "1. Journal Articles\n\nReading materials will be assigned in advance. Students are expected to have read and analyzed the required materials for each class prior to attending the class.",
@@ -1100,10 +1150,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "54",
+                "enrolled": "53",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1401,6 +1451,56 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1540)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Mr. LUK Ka Chick Edwin",
+                  "dates": "27/7"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Mr. LUK Ka Chick Edwin",
+                  "dates": "30/6, 7/7, 14/7, 21/7"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Mr. LUK Ka Chick Edwin",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Mr. LUK Ka Chick Edwin",
+                  "dates": "8/7, 15/7, 22/7"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Mr. LUK Ka Chick Edwin",
+                  "dates": "25/6, 2/7, 9/7, 16/7, 23/7"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T07:53:47.682628+00:00",
+    "scraped_at": "2026-04-21T14:25:54.397112+00:00",
     "subject": "PSYC",
     "subject_title": "Psychology",
     "total_courses": 143,
@@ -131,6 +131,56 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "280",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1563)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. Roy Edward DE KLEIJN",
+                  "dates": "27/7"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. Roy Edward DE KLEIJN",
+                  "dates": "30/6, 7/7, 14/7, 21/7"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. Roy Edward DE KLEIJN",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. Roy Edward DE KLEIJN",
+                  "dates": "8/7, 15/7, 22/7"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. Roy Edward DE KLEIJN",
+                  "dates": "25/6, 2/7, 9/7, 16/7, 23/7"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"

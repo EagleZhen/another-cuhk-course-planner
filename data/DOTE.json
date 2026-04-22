@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T03:45:57.340382+00:00",
+    "scraped_at": "2026-04-21T09:57:15.268425+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
     "total_courses": 114,
@@ -1500,10 +1500,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "62",
+                "enrolled": "61",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4779,10 +4779,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -7713,13 +7713,25 @@
                   "time": "Fr 10:30AM - 1:15PM",
                   "location": "Yasumoto Int'l Acad Park LT7",
                   "instructor": "Professor GONG Xiting",
-                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6, 12/6"
+                  "dates": "5/6, 12/6"
                 },
                 {
                   "time": "Tu 10:30AM - 1:15PM",
                   "location": "Esther Lee Bldg LT2",
                   "instructor": "Professor GONG Xiting",
                   "dates": "19/5"
+                },
+                {
+                  "time": "Fr 10:30AM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor GONG Xiting",
+                  "dates": "8/5, 15/5, 22/5"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Professor GONG Xiting",
+                  "dates": "28/5"
                 }
               ],
               "availability": {
@@ -8444,10 +8456,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"

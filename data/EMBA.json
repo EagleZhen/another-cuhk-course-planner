@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T04:14:49.558635+00:00",
+    "scraped_at": "2026-04-21T10:29:04.354590+00:00",
     "subject": "EMBA",
     "subject_title": "Executive MBA",
     "total_courses": 13,
@@ -520,6 +520,44 @@
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "PF01-FLD (1050)",
+              "meetings": [
+                {
+                  "time": "Th 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "5/6"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "6/6"
+                },
+                {
+                  "time": "Su 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "7/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
             }
           ]
         }
@@ -1479,10 +1517,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "1",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-16T08:59:31.343349+00:00",
+    "scraped_at": "2026-04-21T15:35:27.995523+00:00",
     "subject": "URSP",
     "subject_title": "Urban Studies",
     "total_courses": 35,
@@ -301,10 +301,10 @@
               ],
               "availability": {
                 "capacity": "2",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -800,6 +800,56 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1560)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Dr. Jerry ANTHONY",
+                  "dates": "27/7"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Dr. Jerry ANTHONY",
+                  "dates": "30/6, 7/7, 14/7, 21/7"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Dr. Jerry ANTHONY",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Dr. Jerry ANTHONY",
+                  "dates": "8/7, 15/7, 22/7"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Dr. Jerry ANTHONY",
+                  "dates": "25/6, 2/7, 9/7, 16/7, 23/7"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
