@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-26T15:53:53.982426+00:00",
+    "scraped_at": "2026-05-01T15:36:44.980477+00:00",
     "subject": "MEDU",
     "subject_title": "Medicine",
-    "total_courses": 56,
+    "total_courses": 57,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -730,7 +730,7 @@
               ],
               "availability": {
                 "capacity": "285",
-                "enrolled": "310",
+                "enrolled": "309",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -774,7 +774,7 @@
               ],
               "availability": {
                 "capacity": "143",
-                "enrolled": "154",
+                "enrolled": "153",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1581,6 +1581,28 @@
       "academic_org": "MB ChB Pgm Comm",
       "learning_outcomes": "See details for the individual courses MEDU3110, MEDU3210, MEDU3310, MEDU3320 and MEDU3330.",
       "course_syllabus": "See details for the individual courses MEDU3110, MEDU3210, MEDU3310, MEDU3320 and MEDU3330.",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MEDU",
+      "course_code": "3010",
+      "title": "Artificial Intelligence Research Internship",
+      "credits": "0.00",
+      "terms": [],
+      "description": "Students undertake the Artificial Intelligence Research Internship (AIRI), a year-long programme designed to immerse Medicine Year 1 to 3 students in AI-related research within the healthcare domain. Under the supervision of CU Medicine faculty members, and collaboration with potential members from other CU faculties and external partners, students engage in independent study and collaborative projects that span diverse AI topics, gaining practical experience in data analysis, AI tools, research methodologies, and applications of AI in medical settings.\n\nThe internship promotes critical thinking, ethical research practices, and a deeper understanding of AI’s role in clinical and research settings. Students are matched to projects based on their preferences and qualifications, and are assessed through participation, logbook documentation, written reports, and peer evaluation. The use of generative AI tools is permitted with prior approval, depending on project requirements.\n\nUpon successful completion, students are eligible for exemption from the Selected Study Modules (SSM) in Medicine Year 4. AIRI also offers recognition through academic prizes for outstanding performance.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Medical School Grades",
+      "component": "Discussion\nIndependent Study\nOthers\nProject",
+      "campus": "Main Campus",
+      "academic_group": "MB ChB Pgm Comm",
+      "academic_org": "MB ChB Pgm Comm",
+      "learning_outcomes": "",
+      "course_syllabus": "",
       "assessment_types": {},
       "feedback_evaluation": "",
       "required_readings": "",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-26T14:05:38.143430+00:00",
+    "scraped_at": "2026-05-01T13:51:15.804799+00:00",
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
     "total_courses": 132,
@@ -6250,16 +6250,15 @@
       "campus": "Main Campus",
       "academic_group": "Fac Office of Engineering",
       "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "At the completion of the course, the students should have the ability to:\n1. understand various important data analytics models and methods;\n2. apply them to financial data to extract useful information for financial decision making;\n3. implement the models and methods using Python or R.",
-      "course_syllabus": "Week 1: Review of probability and basic statistics\nWeek 2: Maximum likelihood estimation and fitting the distribution of asset returns\nWeek 3: Linear regression and nonlinear regression\nWeek 4: Model selection for regression\nWeek 5: Principal component analysis\nWeek 6: Classification models\nWeek 7: Time series models I\nWeek 8: Time series models II\nWeek 9: Time series models III\nWeek 10: Estimation of risk measures\nWeek 11: Feedforward neural networks\nWeek 12: Recurrent neural networks\nWeek 13: Course review",
+      "learning_outcomes": "At the completion of the course, the students should have the ability to:\n1. master the basic knowledge of probability and statistical modeling in financial engineering;\n2. appreciate the inherent features of financial markets and understand how to use time series models (including GARCH model) to model and to predict the market movement;\n3. use statistical analysis to analyze the market data, to support investment decision and to determine option price;\n4. use software tools to implement statistical applications for financial analysis.",
+      "course_syllabus": "According to the course teacher in the respective teaching term.",
       "assessment_types": {
-        "Examination": "50",
-        "Homework or assignment": "20",
-        "Project": "30"
+        "Essay test or exam": "40",
+        "Others": "60"
       },
       "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "Course notes provided by the instructor",
-      "recommended_readings": "G. James, D. Witten, T. Hastie, R. Tibshirani and J. Taylor, An Introduction to Statistical Learning with Applications in Python, Springer, 2023.\nD. Ruppert, D S. Matteson, Statistics and Data Analysis for Financial Engineering, 2nd Edition, Springer, 2015."
+      "required_readings": "David Ruppert, Statistics and Finance: An Introduction, Springer, New York, 2004.",
+      "recommended_readings": "According to the course teacher in the respective teaching term."
     },
     {
       "subject": "ESTR",

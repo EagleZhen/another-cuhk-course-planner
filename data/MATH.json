@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-04-26T15:47:55.830453+00:00",
+    "scraped_at": "2026-05-01T15:30:49.474453+00:00",
     "subject": "MATH",
     "subject_title": "Mathematics",
-    "total_courses": 114,
+    "total_courses": 119,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -718,7 +718,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "25",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "35",
                 "status": "Open"
@@ -744,7 +744,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "25",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "35",
                 "status": "Open"
@@ -2893,32 +2893,32 @@
                 {
                   "time": "Mo 2:30PM - 4:15PM",
                   "location": "Lee Shau Kee Building 208",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAU Chi Hin",
                   "dates": "11/5, 18/5"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
                   "location": "Lee Shau Kee Building 208",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAU Chi Hin",
                   "dates": "1/6, 8/6, 15/6, 22/6"
                 },
                 {
                   "time": "Tu 10:30AM - 12:15PM",
                   "location": "Lee Shau Kee Building 208",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAU Chi Hin",
                   "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Lee Shau Kee Building 208",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAU Chi Hin",
                   "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
                 }
               ],
               "availability": {
                 "capacity": "60",
                 "enrolled": "35",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "25",
                 "status": "Open"
@@ -2931,20 +2931,20 @@
                 {
                   "time": "Th 12:30PM - 1:15PM",
                   "location": "Lee Shau Kee Building 208",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAU Chi Hin",
                   "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
                 },
                 {
                   "time": "Tu 12:30PM - 1:15PM",
                   "location": "Lee Shau Kee Building 208",
-                  "instructor": "Staff",
+                  "instructor": "Dr. LAU Chi Hin",
                   "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
                 }
               ],
               "availability": {
                 "capacity": "60",
                 "enrolled": "35",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "25",
                 "status": "Open"
@@ -4196,6 +4196,28 @@
     },
     {
       "subject": "MATH",
+      "course_code": "1535",
+      "title": "Intermediate Mathematics for Business and Social Sciences",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is a continuation of MATH1530, with emphasis on the use of one-variable calculus and elementary linear algebra in the study of business and social sciences. Topics include: limits of sequences, continuous functions, differential and integral calculus of one real variable, first-order differential equations, basic numerical methods, vectors and matrices, determinants, systems of linear equations.",
+      "enrollment_requirement": "Not for students who have taken MATH1010/1018. Pre-requisite: MATH1530.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mathematics",
+      "academic_org": "Dept of Mathematics",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MATH",
       "course_code": "1540",
       "title": "University Mathematics for Financial Studies",
       "credits": "3.00",
@@ -4575,6 +4597,28 @@
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "None",
       "recommended_readings": "* Raymond Barnett, Michael Ziegler, Karl Bielen, Christopher Stocker: Calculus for Business, Economics, Life Sciences, and Social Sciences (any edition).\n* Laurence D. Hoffmann, Gerald L. Bradley: Applied Calculus for Business, Economics, Social Sciences and Life Sciences (any edition)."
+    },
+    {
+      "subject": "MATH",
+      "course_code": "1630",
+      "title": "Linear Algebra and Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is intended to introduce the methods and concepts in linear algebra and matrix theory which are often used in the studies of physical and biological sciences, data science and machine learning, business, accounting and finance. Topics are selected from: systems of linear equations, matrix algebra, vector spaces, linear transformation, determinants, eigenvalues and eigenvectors, inner product, special matrices and matrix factorizations.",
+      "enrollment_requirement": "Not for students who have taken MATH1030/1038. Pre-requisite: MATH1010/1018 or 1510 or 1520 or ENGG1120/ESTR1005 or (ECON1101 and ECON1111).",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mathematics",
+      "academic_org": "Dept of Mathematics",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "MATH",
@@ -5477,7 +5521,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "34",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "26",
                 "status": "Open"
@@ -5503,7 +5547,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "34",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "26",
                 "status": "Open"
@@ -6165,6 +6209,28 @@
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "None",
       "recommended_readings": "- S. Friedberg, A. Insel and L. Spence: Linear Algebra\n- P. Halmos: Finite-Dimensional Vector Spaces"
+    },
+    {
+      "subject": "MATH",
+      "course_code": "2046",
+      "title": "Advanced Linear Algebra",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a course on advanced topics in linear algebra, with emphasis on the study of vector spaces from an abstract, coordinate-free point of view, and on the proving of generalizations of results covered in an elementary linear algebra course. Topics include: abstract vector spaces, linear transformations, matrix representation, nullity and rank, properties of determinants, diagonalization, Cayley-Hamilton theorem, inner product spaces, normal and self-adjoint operators, unitary and orthogonal operators, bilinear forms, dual spaces, canonical forms, spectral theorem.",
+      "enrollment_requirement": "Not for students who have taken any one of MATH1025/1028, 1090/1098, 2040/2048.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mathematics",
+      "academic_org": "Dept of Mathematics",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "MATH",
@@ -6866,6 +6932,28 @@
     },
     {
       "subject": "MATH",
+      "course_code": "2066",
+      "title": "Introductory Real Analysis",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a course on the theory of differential and integral calculus of one or several real variables. It is based on rigorous theory and state-of-the-art methodology. Topics include: differentiability in one or higher dimensions, mean-value theorem, Taylor theorem, convexity; integrability in one or higher dimensions, fundamental theorem of calculus, improper integrals, Fubini’s theorem for double series and continuous functions; power series, radius of convergence, series for elementary functions, real analyticity; sequence and series of functions, uniform convergence.",
+      "enrollment_requirement": "Not for students who have taken any one of MATH1025/1028, 1090/1098, 2060/2068.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mathematics",
+      "academic_org": "Dept of Mathematics",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MATH",
       "course_code": "2068",
       "title": "Honours Mathematical Analysis II",
       "credits": "3.00",
@@ -7275,6 +7363,28 @@
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "None",
       "recommended_readings": "- J. Landin, An Introduction to Algebraic Structures, Dover\n- Serge Lang, Undergraduate Algebra, Springer"
+    },
+    {
+      "subject": "MATH",
+      "course_code": "2076",
+      "title": "Introduction to Algebra",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is intended as an introduction to modern abstract algebra and the way of algebraic thinking in advanced mathematics. The course focuses on basic algebraic concepts which arise in various areas of advanced mathematics, and emphasizes on the underlying algebraic structures which are common to various concrete mathematical examples.",
+      "enrollment_requirement": "Not for students who have taken any one of MATH1025/1028, 1090/1098, 2070/2078.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mathematics",
+      "academic_org": "Dept of Mathematics",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "MATH",
