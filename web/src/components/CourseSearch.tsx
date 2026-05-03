@@ -630,76 +630,82 @@ export default function CourseSearch({
               className="w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all"
             />
           </div>
-          <div className="flex items-center gap-1 flex-wrap text-xs text-gray-600">
-            <Info className="w-3 h-3" />
-            <span>Showing courses in</span>
-            {availableTerms.length > 0 && onTermChange ? (
-              <div className="relative">
-                <button
-                  onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
-                  className={`inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-xs font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50 bg-blue-50' : ''}`}
-                  title="Click to change term"
-                >
-                  <span>{currentTerm}</span>
-                  <ChevronDown className="w-3 h-3" />
-                </button>
+          <div className="flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-gray-600">
+            <div className="flex items-center gap-1">
+              <span className="w-3 flex justify-center flex-shrink-0">
+                <Info className="w-3 h-3" />
+              </span>
+              <span>Showing courses in</span>
+              {availableTerms.length > 0 && onTermChange ? (
+                <div className="relative">
+                  <button
+                    onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
+                    className={`inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-xs font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50 bg-blue-50' : ''}`}
+                    title="Click to change term"
+                  >
+                    <span>{currentTerm}</span>
+                    <ChevronDown className="w-3 h-3" />
+                  </button>
 
-                {isTermDropdownOpen && (
-                  <>
-                    {/* Backdrop */}
-                    <div
-                      className="fixed inset-0 z-40 cursor-pointer"
-                      onClick={() => setIsTermDropdownOpen(false)}
-                    />
+                  {isTermDropdownOpen && (
+                    <>
+                      {/* Backdrop */}
+                      <div
+                        className="fixed inset-0 z-40 cursor-pointer"
+                        onClick={() => setIsTermDropdownOpen(false)}
+                      />
 
-                    {/* Dropdown */}
-                    <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
-                      <div className="py-1">
-                        {availableTerms.map(term => (
-                          <button
-                            key={term}
-                            type="button"
-                            className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
-                              term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
-                            }`}
-                            onClick={() => {
-                              onTermChange?.(term)
-                              setIsTermDropdownOpen(false)
-                            }}
-                          >
-                            {term}
-                          </button>
-                        ))}
+                      {/* Dropdown */}
+                      <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
+                        <div className="py-1">
+                          {availableTerms.map(term => (
+                            <button
+                              key={term}
+                              type="button"
+                              className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
+                                term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
+                              }`}
+                              onClick={() => {
+                                onTermChange?.(term)
+                                setIsTermDropdownOpen(false)
+                              }}
+                            >
+                              {term}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            ) : (
-              <strong>{currentTerm}</strong>
-            )}
+                    </>
+                  )}
+                </div>
+              ) : (
+                <strong>{currentTerm}</strong>
+              )}
+            </div>
             {selectedSubjects.size > 0 && (
-              <>
+              <div className="flex items-center gap-1">
                 <span>filtered by</span>
                 <span className="font-semibold text-blue-600">
                   {Array.from(selectedSubjects).sort().join(', ')}
                 </span>
                 <span>({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})</span>
-              </>
+              </div>
             )}
             {lastDataUpdate && (
-              <div className="flex items-center gap-3 md:gap-2 flex-wrap">
-                <div className="flex items-center gap-2">
+              <>
+                <div className="flex items-center gap-1.5">
                   <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
                   <span className="whitespace-nowrap">Check CUSIS for real-time course info</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 ml-0.5 mr-1 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-3 flex justify-center flex-shrink-0">
+                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                  </span>
                   <span className="whitespace-nowrap">
                     Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}
                   </span>
                 </div>
-              </div>
+              </>
             )}
           </div>
 
