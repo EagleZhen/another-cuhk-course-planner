@@ -6,7 +6,7 @@ import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
 import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes } from '@/lib/courseUtils'
@@ -553,9 +553,6 @@ export default function Home() {
               <div className="space-y-2">
                 <div>
                   <CardTitle>Course Catalog</CardTitle>
-                  <CardDescription>
-                    Choose subjects below to narrow the catalog, or leave them unselected to search across all subjects.
-                  </CardDescription>
                 </div>
 
                 {/* Available Subjects - Modern Toggle Interface */}
@@ -804,6 +801,10 @@ function SubjectFilterControls({
           )}
         </div>
       )}
+
+      <div className="text-xs font-normal text-gray-500">
+        Select subjects to narrow the catalog, or leave all unselected to search everything.
+      </div>
     </div>
   )
 }
