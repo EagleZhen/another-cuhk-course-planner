@@ -395,7 +395,7 @@ export default function WeeklyCalendar({
         {/* Desktop layout: everything in one row */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <CardTitle>Weekly Schedule</CardTitle>
+            <CardTitle>Timetable</CardTitle>
             <DisplayToggleButtons
               displayConfig={localDisplayConfig}
               onToggle={toggleDisplayOption}
@@ -478,7 +478,7 @@ export default function WeeklyCalendar({
         {/* #region Mobile Layout */}
         {/* Mobile layout: title row, then controls row */}
         <div className="md:hidden">
-          <CardTitle className="mb-3">Weekly Schedule</CardTitle>
+          <CardTitle className="mb-3">Timetable</CardTitle>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
               <div className="relative flex-shrink-0">
