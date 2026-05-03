@@ -552,9 +552,9 @@ export default function Home() {
             <CardHeader>
               <div className="space-y-2">
                 <div>
-                  <CardTitle>Search & Add Courses</CardTitle>
+                  <CardTitle>Course Catalog</CardTitle>
                   <CardDescription>
-                    Search by course code, title, or instructor name. Click subjects below to filter.
+                    Choose subjects below to narrow the catalog, or leave them unselected to search across all subjects.
                   </CardDescription>
                 </div>
 
