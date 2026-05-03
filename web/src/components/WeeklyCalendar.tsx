@@ -1058,7 +1058,7 @@ function UnscheduledSectionsCard({
 
                     {displayConfig.showTime && (
                       <div className={`${TEXT_STYLES.TIME} truncate`}>
-                        {item.meeting.time === 'TBA' ? 'No Set Time' : item.meeting.time}
+                        {item.meeting.time === 'TBA' ? 'No Set Time' : formatTimeCompact(item.meeting.time)}
                       </div>
                     )}
 
