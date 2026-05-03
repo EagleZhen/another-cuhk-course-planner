@@ -630,14 +630,14 @@ export default function CourseSearch({
               className="w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all"
             />
           </div>
-          <div className="flex items-center gap-2 flex-wrap text-xs text-gray-600">
+          <div className="flex items-center gap-1 flex-wrap text-xs text-gray-600">
             <Info className="w-3 h-3" />
-            <span>Showing courses available in</span>
+            <span>Showing courses in</span>
             {availableTerms.length > 0 && onTermChange ? (
               <div className="relative">
                 <button
                   onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
-                  className={`inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50' : ''}`}
+                  className={`inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-xs font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50 bg-blue-50' : ''}`}
                   title="Click to change term"
                 >
                   <span>{currentTerm}</span>
@@ -1923,7 +1923,7 @@ function CourseCard({
                                 return updated
                               })
                             }}
-                            className="h-5 px-2 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-full"
+                            className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
                             title={showingAllForType
                               ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
                               : `Show all ${typeGroup.displayName.toLowerCase()} options`
