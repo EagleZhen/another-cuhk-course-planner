@@ -586,6 +586,22 @@ export default function CourseSearch({
     }
   }, [debouncedSearchTerm, displayResults.total])
 
+  const normalizedSearchTerm = searchTerm.trim().toUpperCase()
+  const searchedSubjectCode = normalizedSearchTerm.match(/^([A-Z]{2,4})(?=\d{3,4})/)?.[1]
+  const selectedSubjectList = Array.from(selectedSubjects).sort()
+  const selectedSubjectSummary = selectedSubjectList.length === 1
+    ? selectedSubjectList[0]
+    : selectedSubjectList.join(', ')
+  const isSearchingOutsideSelectedSubjects = Boolean(
+    searchedSubjectCode &&
+    selectedSubjects.size > 0 &&
+    !selectedSubjects.has(searchedSubjectCode)
+  )
+  const selectedDayNames = Array.from(selectedDays).map(dayIndex => {
+    const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
+    return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
+  })
+
   return (
     <div className="space-y-4">
       {/* Sticky Search Input with Term Filter Hint */}
@@ -855,28 +871,33 @@ export default function CourseSearch({
                 <div className="text-gray-400">
                   <Search className="w-12 h-12 mx-auto mb-3" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-600">No courses found</h3>
-                <p className="text-sm text-gray-500 mx-auto truncate">
-                  {searchTerm && selectedSubjects.size > 0
-                    ? `No courses match "${searchTerm}" in the selected ${selectedSubjects.size} subject${selectedSubjects.size !== 1 ? 's' : ''}.`
+                <h3 className="text-lg font-semibold text-gray-600">No matching courses</h3>
+                <p className="text-sm text-gray-500 mx-auto max-w-xl">
+                  {isSearchingOutsideSelectedSubjects && searchedSubjectCode
+                    ? `"${searchTerm}" looks like a ${searchedSubjectCode} course, but you are currently searching within ${selectedSubjectSummary}.`
+                    : searchTerm && selectedSubjects.size > 0
+                    ? `No courses match "${searchTerm}" within ${selectedSubjectSummary}.`
                     : searchTerm
                     ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
-                    : `No courses found in the ${selectedSubjects.size} selected subject${selectedSubjects.size !== 1 ? 's' : ''}.`
+                    : `No courses found within ${selectedSubjectSummary}.`
                   }
                 </p>
-                <div className="space-y-2 text-xs text-gray-400">
-                  <p>💡 Try:</p>
-                  <div className="space-y-1">
-                    {searchTerm && <p>• Clearing the search term</p>}
-                    {selectedSubjects.size > 0 && <p>• Changing or removing subject filters</p>}
-                    {selectedDays.size > 0 && <p>• Removing day filters (currently filtering by {Array.from(selectedDays).map(dayIndex => {
-                      const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
-                      return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
-                    }).join(', ')})</p>}
-                    <p>• Searching for course codes like &ldquo;CSCI3100&rdquo;</p>
-                    <p>• Searching for course titles like &ldquo;In Dialogue with Nature&rdquo;</p>
-                    <p>• Searching for instructor names</p>
-                  </div>
+                <div className="mx-auto max-w-xl text-center text-xs text-gray-400">
+                  <p className="mb-2 font-medium text-gray-500">Try this:</p>
+                  <ul className="list-disc list-inside space-y-1.5 text-center">
+                    {selectedDays.size > 0 && (
+                      <li>Clear day filters: {selectedDayNames.join(', ')}.</li>
+                    )}
+                    {isSearchingOutsideSelectedSubjects && searchedSubjectCode ? (
+                      <li>Add {searchedSubjectCode} to the subject filter, or clear subject filters.</li>
+                    ) : selectedSubjects.size > 0 ? (
+                      <li>Clear subject filters to search across all subjects.</li>
+                    ) : null}
+                    {searchTerm && (
+                      <li>Check the course code, title, or instructor spelling.</li>
+                    )}
+                    <li>Try a broader search, such as &ldquo;CSCI&rdquo;, &ldquo;nature&rdquo;, or an instructor name.</li>
+                  </ul>
                 </div>
               </div>
             ) : hasDataLoaded ? (
