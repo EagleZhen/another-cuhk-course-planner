@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-05-05T10:22:35.550588+00:00",
+    "scraped_at": "2026-05-10T15:51:13.312402+00:00",
     "subject": "AIST",
     "subject_title": "AI: Systems & Tech",
-    "total_courses": 18,
+    "total_courses": 23,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -873,6 +873,116 @@
     },
     {
       "subject": "AIST",
+      "course_code": "4020",
+      "title": "Agentic AI and LLM Serving",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces students to the principles and practice of building and serving agentic AI systems. It provides a comprehensive understanding of the entire lifecycle, from designing agents capable of reasoning, planning, and using tools, to the systems-level optimizations required for efficient, large-scale deployment.\n\nStudents will gain hands-on experience by programming multi-agent systems using the agentic framework (e.g., AutoGen) and implementing low-level optimizations for LLM inference with serving frameworks like vLLM. The curriculum balances agentic theory, application development, and systems architecture, preparing students for careers in AI engineering and system design.",
+      "enrollment_requirement": "Prerequisite: AIST3020 or CSCI3150 or ESTR3102",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4030",
+      "title": "Structured Data Modeling and Graph Neural Network",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces advanced topics in structured data modeling with a unifying perspective based on graph neural networks (GNNs). Students will study how diverse data types such as images, sequences, and general graphs can be modeled within this framework, covering core architectures including CNNs, RNNs, GNNs, Transformers, and Mamba. The course also explores a broad range of applications in physics, chemistry, materials science, biology, environmental science, as well as pretraining, multi-task learning, multimodal modeling, foundation models, and knowledge graph learning.",
+      "enrollment_requirement": "Prerequisite: AIST3120 or CSCI3230 or ESTR3108 or CSCI3320",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4040",
+      "title": "Mathematical Foundations of Deep Learning",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The purpose of this course is to provide students with a solid mathematical background for modern machine learning, deep learning, and artificial intelligence. The course contains selected topics in linear algebra, numerical analysis, optimization, applied probability and classic machine learning algorithms.",
+      "enrollment_requirement": "Prerequisite: (ENGG1120/ESTR1005 or ENGG1125/ESTR1007 or ENGG1130/ESTR1006 or ENGG2760/ESTR2018 or ENGG2780/ESTR2020) AND (AIST3030/ESTR3112)",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4050",
+      "title": "Embodied Intelligence: Algorithms and Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Embodied intelligence represents a paradigm where intelligent systems achieve cognition through physical interaction with their environment, with recent breakthroughs enabling transformative applications in autonomous systems. This course aims at providing students with fundamental knowledge and techniques in embodied intelligence, covering theoretical foundations of scene recognition, machine learning methods, multimodal interaction technologies, and policy learning algorithms including reinforcement learning and imitation learning. Application domains such as autonomous navigation, healthcare, and human-robot interaction will be covered. Through lectures, assignments, and project exercises, students will acquire theoretical understanding and practical skills in developing embodied intelligent systems and technologies.",
+      "enrollment_requirement": "Prerequisite: AIST1000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
+      "course_code": "4060",
+      "title": "AI-Native Software Engineering",
+      "credits": "2.00",
+      "terms": [],
+      "description": "The emergence of artificial intelligence has fundamentally transformed the software development lifecycle, shifting the engineer’s role from manual implementation to intent-based orchestration—a paradigm often described as vibe coding. This course elevates this practice from an intuitive art to a rigorous engineering discipline.\n\nStudents will explore the principles of AI-Native Software Engineering, focusing on how to build reliable, scalable, and secure systems using autonomous coding agents. Moving beyond simple prompt engineering, the curriculum covers the full spectrum of agentic workflows: from Context Engineering and Spec-Driven Development to AI-Augmented Architecture and Automated Validation. Through a hands-on project, students will learn to navigate the probabilistic nature of AI models, employing strict testing frameworks and CI/CD pipelines to mitigate hallucinations and ensure code quality. This course prepares students to become the architects of the next generation of software.",
+      "enrollment_requirement": "Prerequisite: AIST3020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI3180 or ESTR1100 or ESTR1102 or ESTR3106\nNot for students who have taken IERG3844",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
       "course_code": "4998",
       "title": "Final Year Project I",
       "credits": "3.00",
@@ -1137,32 +1247,6 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "9",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
-          "term_code": "2410",
-          "term_name": "2025-26 Summer Session",
-          "schedule": [
-            {
-              "section": "-J01-PRJ (1205)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "11/05/2026 - 22/06/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "5",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1482,32 +1566,6 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "9",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
-          "term_code": "2410",
-          "term_name": "2025-26 Summer Session",
-          "schedule": [
-            {
-              "section": "-J01-PRJ (1204)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Professor XU Qiang",
-                  "dates": "11/05/2026 - 22/06/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "5",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
