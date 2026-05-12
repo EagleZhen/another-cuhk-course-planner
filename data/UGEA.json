@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-05-11T00:12:57.339555+00:00",
+    "scraped_at": "2026-05-12T03:13:29.093042+00:00",
     "subject": "UGEA",
     "subject_title": "Chinese Cultural Heritage",
     "total_courses": 30,
@@ -448,10 +448,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "20",
+                "enrolled": "26",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1164,11 +1164,11 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "89",
+                "enrolled": "90",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "waitlist_total": "3",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -1196,10 +1196,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "30",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -1228,10 +1228,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "37",
+                "enrolled": "43",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "53",
+                "available_seats": "47",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -1426,10 +1426,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "16",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "64",
+                "available_seats": "60",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -1866,9 +1866,9 @@
                 "capacity": "80",
                 "enrolled": "80",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
+                "waitlist_total": "11",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -2409,10 +2409,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "31",
+                "enrolled": "38",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -2584,10 +2584,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "40",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -2616,11 +2616,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "101",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
+                "waitlist_total": "9",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             }
@@ -3430,10 +3430,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "16",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -3456,65 +3456,13 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "16",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
-            },
-            {
-              "section": "B-LEC (1269)",
-              "meetings": [
-                {
-                  "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
-                  "instructor": "Dr. HUANG Yu",
-                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
-                },
-                {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
-                  "instructor": "Dr. HUANG Yu",
-                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "5",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "45",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only"
-            },
-            {
-              "section": "BT01-TUT (1287)",
-              "meetings": [
-                {
-                  "time": "Tu 4:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
-                  "instructor": "Dr. HUANG Yu",
-                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
-                },
-                {
-                  "time": "Th 4:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
-                  "instructor": "Dr. HUANG Yu",
-                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "5",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "45",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only"
             },
             {
               "section": "C-LEC (1267)",
@@ -3540,10 +3488,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "12",
+                "enrolled": "16",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3572,10 +3520,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "12",
+                "enrolled": "16",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "38",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4166,10 +4114,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "11",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4192,10 +4140,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "11",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "English only"
