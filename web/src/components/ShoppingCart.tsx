@@ -313,7 +313,6 @@ export default function ShoppingCart({
                           </button>
                         )}
                       </div>
-                      {/* Status indicators only for course-level issues not shown in section cards */}
                       <div className="flex items-center gap-1 flex-shrink-0">
                         {isInvalid && (
                           <div title={enrollment.invalidReason || 'Course data is outdated'}>
