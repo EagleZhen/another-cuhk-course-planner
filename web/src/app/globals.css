@@ -120,3 +120,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .font-mono {
+    font-variant-ligatures: none;
+  }
+}
