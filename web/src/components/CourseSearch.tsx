@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin, HardDrive } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, HardDrive } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
@@ -14,6 +14,9 @@ import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getAllSubjectCodes } from '@/lib/subjects'
 import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
+import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
+import { GoogleIcon } from '@/components/icons/GoogleIcon'
+import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
 // Using clean internal types only
 
@@ -1098,16 +1101,16 @@ function InstructorFilters({
               {/* Only show search button for specific instructors, not "Staff" */}
               {formattedInstructor !== 'Staff' && (
                 <>
-                  <div className={`h-4 w-px mx-1 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
+                  <div className={`h-4 w-px shrink-0 ml-0.5 mr-0 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
                   <div
-                    className="h-4 w-4 p-0 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
+                    className="size-5 p-0.5 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
                     onClick={(e) => {
                       e.stopPropagation()
                       googleSearchAndOpen(`CUHK ${formattedInstructor}`)
                     }}
                     title={`Search Google for "CUHK ${formattedInstructor}"`}
                   >
-                    <Search className={`w-2.5 h-2.5 transition-opacity ${isSelected ? 'text-white opacity-90 hover:opacity-100' : 'text-gray-600 opacity-70 hover:opacity-100'}`} />
+                    <GoogleIcon className="size-full" />
                   </div>
                 </>
               )}
@@ -1345,7 +1348,7 @@ function CourseCard({
                   className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
                   title={`Search Google for "${course.subject}${course.courseCode}" outline`}
                 >
-                  <Search className="w-3 h-3" />
+                  <GoogleIcon className="w-3 h-3" />
                   Outline
                 </Button>
                 <Button
@@ -1358,7 +1361,7 @@ function CourseCard({
                   className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
                   title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
                 >
-                  <Search className="w-3 h-3" />
+                  <GoogleIcon className="w-3 h-3" />
                   Reviews
                 </Button>
                 <Button
@@ -1371,7 +1374,7 @@ function CourseCard({
                   className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
                   title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
                 >
-                  <Search className="w-3 h-3" />
+                  <CuhkLibraryImageIcon className="w-3 h-3" />
                   Past Papers
                 </Button>
               </div>
@@ -1563,7 +1566,7 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
                 title={`Search Google for "${course.subject}${course.courseCode}" outline`}
               >
-                <Search className="w-3 h-3" />
+                <GoogleIcon className="w-3 h-3" />
                 Outline
               </Button>
               <Button
@@ -1576,7 +1579,7 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
                 title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
               >
-                <Search className="w-3 h-3" />
+                <GoogleIcon className="w-3 h-3" />
                 Reviews
               </Button>
               <Button
@@ -1589,7 +1592,7 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
                 title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
               >
-                <Search className="w-3 h-3" />
+                <CuhkLibraryImageIcon className="w-3 h-3" />
                 Past Papers
               </Button>
             </div>
@@ -2152,7 +2155,7 @@ function CourseCard({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`Search Google for "CUHK ${formattedInstructor}"`}
                                       >
-                                        <Search className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                        <GoogleIcon className="w-2.5 h-2.5" />
                                       </button>
                                     )}
                                   </div>
@@ -2173,7 +2176,7 @@ function CourseCard({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`View "${location}" on Google Maps`}
                                       >
-                                        <MapPin className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                        <GoogleMapsIcon className="w-2.5 h-2.5" />
                                       </button>
                                     )}
                                   </div>

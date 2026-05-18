@@ -4,10 +4,12 @@ import { useRef, useEffect, useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, MapPin, Info } from 'lucide-react'
+import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorsCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
+import { GoogleIcon } from '@/components/icons/GoogleIcon'
+import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -313,7 +315,7 @@ export default function ShoppingCart({
                             className="p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                             title="View course details"
                           >
-                            <Info className="w-3 h-3 text-gray-400 hover:text-gray-600" />
+                            <Search className="w-3 h-3 text-gray-400 hover:text-gray-600" />
                           </button>
                         )}
                       </div>
@@ -527,7 +529,7 @@ export default function ShoppingCart({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`Search Google for "CUHK ${formattedInstructor}"`}
                                       >
-                                        <Search className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                        <GoogleIcon className="size-3" />
                                       </button>
                                     )}
                                   </div>
@@ -548,7 +550,7 @@ export default function ShoppingCart({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`View "${location}" on Google Maps`}
                                       >
-                                        <MapPin className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                        <GoogleMapsIcon className="size-3" />
                                       </button>
                                     )}
                                   </div>
