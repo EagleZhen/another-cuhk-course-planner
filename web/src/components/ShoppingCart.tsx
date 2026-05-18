@@ -203,6 +203,8 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
 
+      <div className="border-t flex-shrink-0" />
+
       <CardContent className="flex-1 overflow-hidden px-3">
         {courseEnrollments.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
