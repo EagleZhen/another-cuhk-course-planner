@@ -682,9 +682,9 @@ export default function WeeklyCalendar({
                             left: '0px',
                             right: '0px',
                             zIndex: 1,
-                            background: 'repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.6) 0px, rgba(239, 68, 68, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)'
+                            background: 'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)'
                           }}
-                          className="border-2 border-red-600 rounded-sm animate-pulse transition-all duration-300"
+                          className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
                         />
                       )
                     })}
