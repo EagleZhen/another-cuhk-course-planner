@@ -2069,7 +2069,9 @@ function CourseCard({
                       >
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                            <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">{section.sectionCode}</span>
+                            <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
+                              {section.sectionCode}
+                            </span>
                             {hasTimeConflict && (
                               <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
                                 <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
