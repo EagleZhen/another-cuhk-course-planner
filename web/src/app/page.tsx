@@ -536,7 +536,6 @@ export default function Home() {
               calendarEvents={calendarEvents}
               selectedEnrollment={selectedEnrollment}
               currentTerm={currentTerm}
-              lastDataUpdate={lastDataUpdate}
               onToggleVisibility={handleToggleVisibility}
               onRemoveCourse={handleRemoveCourse}
               onSelectEnrollment={handleSelectEnrollment}

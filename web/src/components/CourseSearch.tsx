@@ -1555,7 +1555,7 @@ function CourseCard({
             </CardDescription>
 
             {/* Search buttons below course header */}
-            <div className="flex flex-wrap items-center gap-1 mt-2">
+            <div className="flex flex-wrap items-center gap-0.5 mt-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -1563,7 +1563,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject}${course.courseCode}" outline`}
               >
                 <GoogleIcon className="w-3 h-3" />
@@ -1576,7 +1576,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
               >
                 <GoogleIcon className="w-3 h-3" />
@@ -1589,7 +1589,7 @@ function CourseCard({
                   e.stopPropagation()
                   cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
+                className="h-6 min-w-[78px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
               >
                 <CuhkLibraryImageIcon className="w-3 h-3" />
@@ -1842,6 +1842,48 @@ function CourseCard({
               )
 
               // Note: Higher priority sections can always be changed freely (implemented in logic above)
+              const showingAllForType = showAllSectionTypes.has(typeGroup.type)
+              const selectedSectionId = localSelections.get(typeGroup.type)
+
+              const passesSectionFilters = (section: InternalSection, applyCompatibilityFilter: boolean = true) => {
+                // Priority 1: Instructor filter (always applied)
+                if (selectedInstructors.size > 0) {
+                  const matchesInstructorFilter = section.meetings.some(meeting => {
+                    if (!meeting.instructors) return false
+                    const instructorNames = meeting.instructors.split(',').map(name => name.trim())
+                    return instructorNames.some(instructorName => {
+                      const formattedName = formatInstructorsCompact(instructorName)
+                      return selectedInstructors.has(formattedName)
+                    })
+                  })
+                  if (!matchesInstructorFilter) return false
+                }
+
+                // Priority 2: Day filter (always applied)
+                if (!sectionMatchesDayFilter(section)) return false
+
+                // Priority 3: Show all override (user explicitly wants to see everything)
+                if (showingAllForType) {
+                  return true
+                }
+
+                // Priority 4: Selection compatibility filter (only if requested)
+                if (applyCompatibilityFilter) {
+                  if (selectedSectionId) return section.id === selectedSectionId
+                  return !incompatible.includes(section)
+                }
+
+                return true
+              }
+
+              const totalAvailableSections = typeGroup.sections.filter(section =>
+                passesSectionFilters(section, false)
+              ).length
+              const visibleSectionsCount = typeGroup.sections.filter(section =>
+                passesSectionFilters(section, true)
+              ).length
+              const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
+              const showHiddenSectionsToggle = hiddenSectionsCount > 0 || showingAllForType
 
               return (
                 <div key={typeGroup.type}>
@@ -1857,135 +1899,43 @@ function CourseCard({
                         Filtered by {selectedInstructors.size} instructor{selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
                     )}
+                    {showHiddenSectionsToggle && (
+                      <span className="flex items-center gap-1.5 text-xs font-normal text-gray-500">
+                        <span>
+                          {showingAllForType
+                            ? `All ${visibleSectionsCount} options shown`
+                            : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`
+                          }
+                        </span>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setShowAllSectionTypes(prev => {
+                              const updated = new Set(prev)
+                              if (updated.has(typeGroup.type)) {
+                                updated.delete(typeGroup.type)
+                              } else {
+                                updated.add(typeGroup.type)
+                              }
+                              return updated
+                            })
+                          }}
+                          className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
+                          title={showingAllForType
+                            ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
+                            : `Show all ${typeGroup.displayName.toLowerCase()} options`
+                          }
+                        >
+                          {showingAllForType ? "Hide extra" : "Show all"}
+                        </Button>
+                      </span>
+                    )}
                   </h4>
-
-                  {/* Simplified show all toggle - always available for user control */}
-                  {(() => {
-                    const showingAllForType = showAllSectionTypes.has(typeGroup.type)
-                    const selectedSectionId = localSelections.get(typeGroup.type)
-
-                    // Calculate sections using the EXACT same logic as shouldShowSection
-                    const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
-                      // Priority 1: Instructor filter (always applied)
-                      if (selectedInstructors.size > 0) {
-                        const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructors) return false
-                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
-                          return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorsCompact(instructorName)
-                            return selectedInstructors.has(formattedName)
-                          })
-                        })
-                        if (!matchesInstructorFilter) return false
-                      }
-
-                      // Priority 2: Day filter (always applied)
-                      if (!sectionMatchesDayFilter(section)) return false
-
-                      // Priority 3: Show all override (user explicitly wants to see everything)
-                      if (showingAllForType) {
-                        return true
-                      }
-
-                      // Priority 4: Smart filtering (only if requested)
-                      if (applySmartFiltering) {
-                        if (selectedSectionId) return section.id === selectedSectionId
-                        return !incompatible.includes(section)
-                      }
-
-                      return true
-                    }
-
-                    // Count sections after applying all filters but WITHOUT smart filtering (base available count)
-                    const totalAvailableSections = typeGroup.sections.filter(section =>
-                      countSectionWithFilters(section, false)
-                    ).length
-
-                    // Count sections after applying all filters INCLUDING smart filtering (actually visible count)
-                    const visibleSectionsCount = typeGroup.sections.filter(section =>
-                      countSectionWithFilters(section, true)
-                    ).length
-
-                    const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
-
-                    // Only show the toggle when there are actually hidden sections
-                    if (hiddenSectionsCount > 0 || showingAllForType) {
-                      return (
-                        <div className="text-xs text-gray-500 flex items-center gap-2 mb-3">
-                          <span>
-                            {showingAllForType
-                              ? `All ${visibleSectionsCount} options shown`
-                              : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`
-                            }
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => {
-                              setShowAllSectionTypes(prev => {
-                                const updated = new Set(prev)
-                                if (updated.has(typeGroup.type)) {
-                                  updated.delete(typeGroup.type)
-                                } else {
-                                  updated.add(typeGroup.type)
-                                }
-                                return updated
-                              })
-                            }}
-                            className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
-                            title={showingAllForType
-                              ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
-                              : `Show all ${typeGroup.displayName.toLowerCase()} options`
-                            }
-                          >
-                            {showingAllForType ? "Hide extra" : "Show all"}
-                          </Button>
-                        </div>
-                      )
-                    }
-                    return null
-                  })()}
-
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {(() => {
-                    // Simplified filtering logic - single function with clear priorities
-                    const shouldShowSection = (section: InternalSection) => {
-                      // Priority 1: Instructor filter (always applied)
-                      if (selectedInstructors.size > 0) {
-                        const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructors) return false
-                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
-                          return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorsCompact(instructorName)
-                            return selectedInstructors.has(formattedName)
-                          })
-                        })
-                        if (!matchesInstructorFilter) return false
-                      }
-
-                      // Priority 2: Day filter (always applied)
-                      if (!sectionMatchesDayFilter(section)) return false
-
-                      // Priority 3: Show all override (user explicitly wants to see everything)
-                      if (showAllSectionTypes.has(typeGroup.type)) {
-                        return true
-                      }
-
-                      // Priority 4: Smart filtering
-                      const selectedSectionId = localSelections.get(typeGroup.type)
-
-                      // If section is selected, only show selected section
-                      if (selectedSectionId) {
-                        return section.id === selectedSectionId
-                      }
-
-                      // If no selection, show compatible sections only
-                      return !incompatible.includes(section)
-                    }
-
-                    return typeGroup.sections.filter(shouldShowSection)
-                  })()
+                  {typeGroup.sections
+                    .filter(section => passesSectionFilters(section, true))
                     .map(section => {
                     const isSelected = localSelections.get(typeGroup.type) === section.id
                     const isIncompatible = incompatible.includes(section)
@@ -2067,125 +2017,127 @@ function CourseCard({
                               : undefined
                         }
                       >
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                            <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
-                              {section.sectionCode}
-                            </span>
-                            {hasTimeConflict && (
-                              <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
-                                <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
-                                <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}>
-                                  {conflictInfo.conflictingSections.join(', ')}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="flex items-center gap-2 flex-shrink-0">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="w-6 h-6 p-0"
-                              title={isSelected ? "Remove selection" : "Select this section"}
-                            >
-                              {isSelected ? (
-                                <X className="w-3 h-3 text-red-500" />
-                              ) : (
-                                <Plus className="w-3 h-3 text-gray-500" />
+                        <div className="space-y-2">
+                          <div className="flex h-4 items-center justify-between">
+                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                              <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
+                                {section.sectionCode}
+                              </span>
+                              {hasTimeConflict && (
+                                <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
+                                  <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
+                                  <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}>
+                                    {conflictInfo.conflictingSections.join(', ')}
+                                  </span>
+                                </div>
                               )}
-                            </Button>
+                            </div>
+
+                            <div className="flex items-center gap-2 flex-shrink-0">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-4 w-4 p-0"
+                                title={isSelected ? "Remove selection" : "Select this section"}
+                              >
+                                {isSelected ? (
+                                  <X className="h-2.5 w-2.5 text-red-500" />
+                                ) : (
+                                  <Plus className="h-2.5 w-2.5 text-gray-500" />
+                                )}
+                              </Button>
+                            </div>
                           </div>
-                        </div>
 
-                        {/* Row 2: Enrollment Badges */}
-                        <div className="flex items-center gap-1 mb-2">
-                          {getAvailabilityBadges(section.availability).map((badge) => (
-                            <Badge
-                              key={badge.type}
-                              className={`text-[10px] px-1 py-0 ${badge.style.className}`}
-                              title={
-                                badge.type === 'status'
-                                  ? `Course status: ${badge.text}`
-                                  : badge.type === 'availability'
-                                    ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                    : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
-                              }
-                            >
-                              {badge.text}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        {/* Row 3: Teaching Language */}
-                        {section.classAttributes && (
-                          <div className="flex items-center gap-1 text-gray-500 text-[11px] mb-2">
-                            <span className="flex-shrink-0">🌐</span>
-                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                              {section.classAttributes}
-                            </span>
+                          {/* Row 2: Enrollment Badges */}
+                          <div className="flex items-center gap-1">
+                            {getAvailabilityBadges(section.availability).map((badge) => (
+                              <Badge
+                                key={badge.type}
+                                className={`text-[10px] px-1 py-0 ${badge.style.className}`}
+                                title={
+                                  badge.type === 'status'
+                                    ? `Course status: ${badge.text}`
+                                    : badge.type === 'availability'
+                                      ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                      : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                }
+                              >
+                                {badge.text}
+                              </Badge>
+                            ))}
                           </div>
-                        )}
 
-                        {/* Meetings displayed in unified 3-row emoji format */}
-                        <div className="space-y-1">
-                          {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                            const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
-                            const location = meeting?.location || 'TBA'
+                          {/* Row 3: Teaching Language */}
+                          {section.classAttributes && (
+                            <div className="flex items-center gap-1 text-gray-500 text-[11px]">
+                              <span className="flex-shrink-0">🌐</span>
+                              <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                                {section.classAttributes}
+                              </span>
+                            </div>
+                          )}
 
-                            return (
-                              <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
-                                {/* Row 1: Time */}
-                                <div className="flex items-center gap-1 text-[11px]">
-                                  <span>⏰</span>
-                                  <span className="font-mono text-gray-600">{formattedTime}</span>
-                                </div>
-                                {/* Row 2: Instructor */}
-                                <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                  <span>🧑🏻‍🏫</span>
-                                  <div className="flex items-center gap-1 min-w-0 flex-1">
-                                    <span className="truncate" title={formattedInstructor}>
-                                      {formattedInstructor}
-                                    </span>
-                                    {formattedInstructor !== 'Staff' && (
-                                      <button
-                                        onClick={(e) => {
-                                        e.stopPropagation()
-                                          googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                        }}
-                                        className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                        title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                      >
-                                        <GoogleIcon className="w-2.5 h-2.5" />
-                                      </button>
-                                    )}
+                          {/* Meetings displayed in unified 3-row emoji format */}
+                          <div className="space-y-1">
+                            {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                              const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
+                              const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
+                              const location = meeting?.location || 'TBA'
+
+                              return (
+                                <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
+                                  {/* Row 1: Time */}
+                                  <div className="flex items-center gap-1 text-[11px]">
+                                    <span>⏰</span>
+                                    <span className="font-mono text-gray-600">{formattedTime}</span>
+                                  </div>
+                                  {/* Row 2: Instructor */}
+                                  <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <span>🧑🏻‍🏫</span>
+                                    <div className="flex items-center gap-1 min-w-0 flex-1">
+                                      <span className="truncate" title={formattedInstructor}>
+                                        {formattedInstructor}
+                                      </span>
+                                      {formattedInstructor !== 'Staff' && (
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation()
+                                            googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                                          }}
+                                          className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                          title={`Search Google for "CUHK ${formattedInstructor}"`}
+                                        >
+                                          <GoogleIcon className="size-3" />
+                                        </button>
+                                      )}
+                                    </div>
+                                  </div>
+                                  {/* Row 3: Location */}
+                                  <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <span>📍</span>
+                                    <div className="flex items-center gap-1 min-w-0 flex-1">
+                                      <span className="truncate" title={location}>
+                                        {location}
+                                      </span>
+                                      {location !== 'TBA' && location !== 'No Room Required' && (
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation()
+                                            googleMapsSearchAndOpen(location)
+                                          }}
+                                          className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                          title={`View "${location}" on Google Maps`}
+                                        >
+                                          <GoogleMapsIcon className="size-3" />
+                                        </button>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                                {/* Row 3: Location */}
-                                <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                  <span>📍</span>
-                                  <div className="flex items-center gap-1 min-w-0 flex-1">
-                                    <span className="truncate" title={location}>
-                                      {location}
-                                    </span>
-                                    {location !== 'TBA' && location !== 'No Room Required' && (
-                                      <button
-                                        onClick={(e) => {
-                                          e.stopPropagation()
-                                          googleMapsSearchAndOpen(location)
-                                        }}
-                                        className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                        title={`View "${location}" on Google Maps`}
-                                      >
-                                        <GoogleMapsIcon className="w-2.5 h-2.5" />
-                                      </button>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            )
-                          })}
+                              )
+                            })}
+                          </div>
                         </div>
                       </div>
                     )

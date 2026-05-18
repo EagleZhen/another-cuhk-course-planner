@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -16,7 +16,6 @@ interface ShoppingCartProps {
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
   selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
   currentTerm: string // Current term to get available sections
-  lastDataUpdate?: Date | null // When course data was last refreshed
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -29,7 +28,6 @@ export default function ShoppingCart({
   calendarEvents,
   selectedEnrollment,
   currentTerm,
-  lastDataUpdate,
   onToggleVisibility,
   onRemoveCourse,
   onSelectEnrollment,
@@ -38,18 +36,6 @@ export default function ShoppingCart({
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
-  const [, forceUpdate] = useState({}) // For timestamp updates
-
-  // Update timestamp display every 30 seconds
-  useEffect(() => {
-    if (!lastDataUpdate) return
-
-    const interval = setInterval(() => {
-      forceUpdate({}) // Trigger re-render to update relative time
-    }, 30000) // Update every 30 seconds
-
-    return () => clearInterval(interval)
-  }, [lastDataUpdate])
 
   // Note: Removed unused helper functions - cycling now uses direct compatibility checking
 
@@ -183,8 +169,8 @@ export default function ShoppingCart({
   const statusCounts = getStatusCounts()
 
   return (
-    <Card className="h-[800px] flex flex-col gap-2 py-2 pt-6" data-shopping-cart>
-      <CardHeader className="pb-0 pt-2 flex-shrink-0">
+    <Card className="h-[800px] flex flex-col gap-1 py-2 pt-4" data-shopping-cart>
+      <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Shopping Cart</CardTitle>
           <Badge
@@ -215,16 +201,9 @@ export default function ShoppingCart({
             })()}
           </Badge>
         </div>
-        {/* Data freshness indicator - shows actual scraping time */}
-        <div className="text-xs text-gray-400 flex items-center gap-2 mt-1">
-          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-          {lastDataUpdate ? (
-            <span>Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}</span>
-          ) : (
-            <span>Loading Data...</span>
-          )}
-        </div>
       </CardHeader>
+
+      <div className="border-t flex-shrink-0" />
 
       <CardContent className="flex-1 overflow-hidden px-3">
         {courseEnrollments.length === 0 ? (
@@ -236,7 +215,7 @@ export default function ShoppingCart({
         ) : (
           <div
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 pr-2 py-2"
+            className="space-y-3 overflow-y-auto h-full p-1 pr-2 pt-1 pb-2"
           >
             {courseEnrollments.map((enrollment) => {
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
@@ -255,7 +234,7 @@ export default function ShoppingCart({
                     }
                   }}
                   className={`
-                    border rounded p-2 transition-all duration-300 relative group
+                    border rounded p-2 transition-all duration-300 relative group space-y-2
                     border-l-4 border-gray-200
                     ${isInvalid
                       ? 'bg-orange-50 opacity-75'
@@ -294,39 +273,37 @@ export default function ShoppingCart({
                   }}
                 >
                   {/* Course Header */}
-                  <div className="flex items-center justify-between mb-2">
-                    <div className={`flex items-center gap-1 flex-1 min-w-0 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-sm">
-                          {formatCourseCodeWithPrefix(enrollment.course.subject, enrollment.course.courseCode, enrollment.selectedSections[0]?.sectionCode || '')}
-                        </span>
-                        {onShowCourseDetails && (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
-                            }}
-                            className="p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                            title="View course details"
-                          >
-                            <Search className="w-3 h-3 text-gray-400 hover:text-gray-600" />
-                          </button>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-1 flex-shrink-0">
-                        {isInvalid && (
-                          <div title={enrollment.invalidReason || 'Course data is outdated'}>
-                            <AlertTriangle className="w-3 h-3 text-orange-500" />
-                          </div>
-                        )}
-                      </div>
-                      <span className="text-xs text-gray-500 font-medium">
+                  <div className="flex h-5 items-stretch justify-between gap-1">
+                    <div className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-5">
+                        {formatCourseCodeWithPrefix(enrollment.course.subject, enrollment.course.courseCode, enrollment.selectedSections[0]?.sectionCode || '')}
+                      </span>
+                      {onShowCourseDetails && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
+                          }}
+                          className="h-full aspect-square p-0 cursor-pointer"
+                          title="View course details"
+                        >
+                          <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
+                        </Button>
+                      )}
+                      {isInvalid && (
+                        <div className="flex h-full aspect-square items-center justify-center" title={enrollment.invalidReason || 'Course data is outdated'}>
+                          <AlertTriangle className="size-3.5 text-orange-500" />
+                        </div>
+                      )}
+                      <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
                         {enrollment.course.credits} credits
                       </span>
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="flex items-center gap-1 flex-shrink-0">
+                    <div className="flex shrink-0 items-stretch gap-1">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -339,13 +316,13 @@ export default function ShoppingCart({
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0 cursor-pointer"
+                        className="h-full aspect-square p-0 cursor-pointer"
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
-                          <Eye className="w-3 h-3 text-gray-600" />
+                          <Eye className="size-3.5 text-gray-600" />
                         ) : (
-                          <EyeOff className="w-3 h-3 text-gray-400" />
+                          <EyeOff className="size-3.5 text-gray-400" />
                         )}
                       </Button>
                       <Button
@@ -356,16 +333,16 @@ export default function ShoppingCart({
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        className="h-full aspect-square p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
                         title="Remove course"
                       >
-                        <Trash2 className="w-3 h-3" />
+                        <Trash2 className="size-3" />
                       </Button>
                     </div>
                   </div>
 
                   {/* Course Title */}
-                  <p className={`text-xs text-gray-600 mb-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                  <p className={`-mt-1 text-xs leading-4 text-gray-600 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                     {enrollment.course.title}
                   </p>
 

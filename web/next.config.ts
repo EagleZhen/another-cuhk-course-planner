@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
+const allowedDevOrigins = process.env.ALLOWED_DEV_ORIGINS
+  ?.split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean)
+
 const nextConfig: NextConfig = {
+  ...(process.env.NODE_ENV === 'development' && allowedDevOrigins?.length ? { allowedDevOrigins } : {}),
+
   async rewrites() {
     return [
       {
