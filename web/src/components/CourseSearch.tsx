@@ -14,8 +14,8 @@ import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getAllSubjectCodes } from '@/lib/subjects'
 import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
-import { GoogleIcon } from '@/components/GoogleIcon'
-import { GoogleMapsIcon } from '@/components/GoogleMapsIcon'
+import { GoogleIcon } from '@/components/icons/GoogleIcon'
+import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
 // Using clean internal types only
 
