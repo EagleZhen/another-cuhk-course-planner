@@ -1901,7 +1901,7 @@ function CourseCard({
                       </Badge>
                     )}
                     {showHiddenSectionsToggle && (
-                      <div className="flex items-center gap-1.5 text-xs font-normal text-gray-500">
+                      <span className="flex items-center gap-1.5 text-xs font-normal text-gray-500">
                         <span>
                           {showingAllForType
                             ? `All ${visibleSectionsCount} options shown`
@@ -1930,7 +1930,7 @@ function CourseCard({
                         >
                           {showingAllForType ? "Hide extra" : "Show all"}
                         </Button>
-                      </div>
+                      </span>
                     )}
                   </h4>
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
