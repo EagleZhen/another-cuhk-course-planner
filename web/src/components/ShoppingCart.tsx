@@ -234,7 +234,7 @@ export default function ShoppingCart({
                     }
                   }}
                   className={`
-                    border rounded p-2 transition-all duration-300 relative group
+                    border rounded p-2 transition-all duration-300 relative group space-y-2
                     border-l-4 border-gray-200
                     ${isInvalid
                       ? 'bg-orange-50 opacity-75'
@@ -273,42 +273,40 @@ export default function ShoppingCart({
                   }}
                 >
                   {/* Course Header */}
-                  <div className="flex items-center justify-between mb-2">
-                    <div className={`flex items-center gap-1 flex-1 min-w-0 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
-                      <div className="flex items-center gap-1">
-                        <span className="font-semibold text-sm">
-                          {formatCourseCodeWithPrefix(enrollment.course.subject, enrollment.course.courseCode, enrollment.selectedSections[0]?.sectionCode || '')}
-                        </span>
-                        {onShowCourseDetails && (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
-                            }}
-                            className="p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                            title="View course details"
-                          >
-                            <Search className="w-3 h-3 text-gray-400 hover:text-gray-600" />
-                          </button>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-1 flex-shrink-0">
-                        {isInvalid && (
-                          <div title={enrollment.invalidReason || 'Course data is outdated'}>
-                            <AlertTriangle className="w-3 h-3 text-orange-500" />
-                          </div>
-                        )}
-                      </div>
-                      <span className="text-xs text-gray-500 font-medium">
+                  <div className="flex h-5 items-stretch justify-between gap-1">
+                    <div className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-none">
+                        {formatCourseCodeWithPrefix(enrollment.course.subject, enrollment.course.courseCode, enrollment.selectedSections[0]?.sectionCode || '')}
+                      </span>
+                      {onShowCourseDetails && (
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
+                          }}
+                          className="h-full cursor-pointer"
+                          title="View course details"
+                        >
+                          <Search className="text-gray-400 hover:text-gray-600" />
+                        </Button>
+                      )}
+                      {isInvalid && (
+                        <div className="flex h-full aspect-square items-center justify-center" title={enrollment.invalidReason || 'Course data is outdated'}>
+                          <AlertTriangle className="size-3.5 text-orange-500" />
+                        </div>
+                      )}
+                      <span className="flex h-full shrink-0 items-center text-xs font-medium leading-none text-gray-500">
                         {enrollment.course.credits} credits
                       </span>
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="flex items-center gap-1 flex-shrink-0">
+                    <div className="flex shrink-0 items-stretch gap-1">
                       <Button
                         variant="ghost"
-                        size="sm"
+                        size="icon-sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           // If making invisible and currently selected, deselect it
@@ -318,33 +316,33 @@ export default function ShoppingCart({
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0 cursor-pointer"
+                        className="h-full cursor-pointer"
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
-                          <Eye className="w-3 h-3 text-gray-600" />
+                          <Eye className="text-gray-600" />
                         ) : (
-                          <EyeOff className="w-3 h-3 text-gray-400" />
+                          <EyeOff className="text-gray-400" />
                         )}
                       </Button>
                       <Button
                         variant="ghost"
-                        size="sm"
+                        size="icon-sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="h-5 w-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        className="h-full text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
                         title="Remove course"
                       >
-                        <Trash2 className="w-3 h-3" />
+                        <Trash2 />
                       </Button>
                     </div>
                   </div>
 
                   {/* Course Title */}
-                  <p className={`text-xs text-gray-600 mb-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                  <p className={`text-xs text-gray-600 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                     {enrollment.course.title}
                   </p>
 
