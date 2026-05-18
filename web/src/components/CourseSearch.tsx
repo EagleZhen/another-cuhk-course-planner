@@ -1842,6 +1842,49 @@ function CourseCard({
               )
 
               // Note: Higher priority sections can always be changed freely (implemented in logic above)
+              const showingAllForType = showAllSectionTypes.has(typeGroup.type)
+              const selectedSectionId = localSelections.get(typeGroup.type)
+
+              // Calculate sections using the same filter logic as the section grid below.
+              const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
+                // Priority 1: Instructor filter (always applied)
+                if (selectedInstructors.size > 0) {
+                  const matchesInstructorFilter = section.meetings.some(meeting => {
+                    if (!meeting.instructors) return false
+                    const instructorNames = meeting.instructors.split(',').map(name => name.trim())
+                    return instructorNames.some(instructorName => {
+                      const formattedName = formatInstructorsCompact(instructorName)
+                      return selectedInstructors.has(formattedName)
+                    })
+                  })
+                  if (!matchesInstructorFilter) return false
+                }
+
+                // Priority 2: Day filter (always applied)
+                if (!sectionMatchesDayFilter(section)) return false
+
+                // Priority 3: Show all override (user explicitly wants to see everything)
+                if (showingAllForType) {
+                  return true
+                }
+
+                // Priority 4: Smart filtering (only if requested)
+                if (applySmartFiltering) {
+                  if (selectedSectionId) return section.id === selectedSectionId
+                  return !incompatible.includes(section)
+                }
+
+                return true
+              }
+
+              const totalAvailableSections = typeGroup.sections.filter(section =>
+                countSectionWithFilters(section, false)
+              ).length
+              const visibleSectionsCount = typeGroup.sections.filter(section =>
+                countSectionWithFilters(section, true)
+              ).length
+              const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
+              const showHiddenSectionsToggle = hiddenSectionsCount > 0 || showingAllForType
 
               return (
                 <div key={typeGroup.type}>
@@ -1857,95 +1900,39 @@ function CourseCard({
                         Filtered by {selectedInstructors.size} instructor{selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
                     )}
+                    {showHiddenSectionsToggle && (
+                      <div className="flex items-center gap-1.5 text-xs font-normal text-gray-500">
+                        <span>
+                          {showingAllForType
+                            ? `All ${visibleSectionsCount} options shown`
+                            : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`
+                          }
+                        </span>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setShowAllSectionTypes(prev => {
+                              const updated = new Set(prev)
+                              if (updated.has(typeGroup.type)) {
+                                updated.delete(typeGroup.type)
+                              } else {
+                                updated.add(typeGroup.type)
+                              }
+                              return updated
+                            })
+                          }}
+                          className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
+                          title={showingAllForType
+                            ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
+                            : `Show all ${typeGroup.displayName.toLowerCase()} options`
+                          }
+                        >
+                          {showingAllForType ? "Hide extra" : "Show all"}
+                        </Button>
+                      </div>
+                    )}
                   </h4>
-
-                  {/* Simplified show all toggle - always available for user control */}
-                  {(() => {
-                    const showingAllForType = showAllSectionTypes.has(typeGroup.type)
-                    const selectedSectionId = localSelections.get(typeGroup.type)
-
-                    // Calculate sections using the EXACT same logic as shouldShowSection
-                    const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
-                      // Priority 1: Instructor filter (always applied)
-                      if (selectedInstructors.size > 0) {
-                        const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructors) return false
-                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
-                          return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorsCompact(instructorName)
-                            return selectedInstructors.has(formattedName)
-                          })
-                        })
-                        if (!matchesInstructorFilter) return false
-                      }
-
-                      // Priority 2: Day filter (always applied)
-                      if (!sectionMatchesDayFilter(section)) return false
-
-                      // Priority 3: Show all override (user explicitly wants to see everything)
-                      if (showingAllForType) {
-                        return true
-                      }
-
-                      // Priority 4: Smart filtering (only if requested)
-                      if (applySmartFiltering) {
-                        if (selectedSectionId) return section.id === selectedSectionId
-                        return !incompatible.includes(section)
-                      }
-
-                      return true
-                    }
-
-                    // Count sections after applying all filters but WITHOUT smart filtering (base available count)
-                    const totalAvailableSections = typeGroup.sections.filter(section =>
-                      countSectionWithFilters(section, false)
-                    ).length
-
-                    // Count sections after applying all filters INCLUDING smart filtering (actually visible count)
-                    const visibleSectionsCount = typeGroup.sections.filter(section =>
-                      countSectionWithFilters(section, true)
-                    ).length
-
-                    const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
-
-                    // Only show the toggle when there are actually hidden sections
-                    if (hiddenSectionsCount > 0 || showingAllForType) {
-                      return (
-                        <div className="text-xs text-gray-500 flex items-center gap-2 mb-3">
-                          <span>
-                            {showingAllForType
-                              ? `All ${visibleSectionsCount} options shown`
-                              : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`
-                            }
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => {
-                              setShowAllSectionTypes(prev => {
-                                const updated = new Set(prev)
-                                if (updated.has(typeGroup.type)) {
-                                  updated.delete(typeGroup.type)
-                                } else {
-                                  updated.add(typeGroup.type)
-                                }
-                                return updated
-                              })
-                            }}
-                            className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
-                            title={showingAllForType
-                              ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
-                              : `Show all ${typeGroup.displayName.toLowerCase()} options`
-                            }
-                          >
-                            {showingAllForType ? "Hide extra" : "Show all"}
-                          </Button>
-                        </div>
-                      )
-                    }
-                    return null
-                  })()}
-
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                   {(() => {
