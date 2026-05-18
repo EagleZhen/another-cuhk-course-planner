@@ -413,26 +413,21 @@ export default function ShoppingCart({
                       const conflictInfo = checkSectionConflict(section, courseEnrollments)
 
                       return (
-                        <div key={section.id} className="bg-gray-50 rounded border overflow-hidden">
-                          {conflictInfo.hasConflict && (
-                            <div
-                              className="flex items-center gap-1 bg-purple-100 px-2 py-1 text-[10px] text-purple-700"
-                              title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
-                            >
-                              <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
-                              <span className="truncate">
-                                Conflicts with {conflictInfo.conflictingSections.join(', ')}
-                              </span>
-                            </div>
-                          )}
-
-                          <div className={`px-2 pb-2 ${conflictInfo.hasConflict ? 'pt-1' : 'pt-2'}`}>
+                        <div
+                          key={section.id}
+                          className={`rounded border px-2 py-2 ${conflictInfo.hasConflict ? 'bg-purple-50 border-purple-300 ring-1 ring-purple-100' : 'bg-gray-50'}`}
+                        >
                           {/* Section header with cycling buttons */}
                           <div className="flex items-center justify-between mb-1">
                             <div className="flex items-center gap-2">
                               <div className="text-xs font-mono font-medium text-gray-800">
                                 {section.sectionCode}
                               </div>
+                              {conflictInfo.hasConflict && (
+                                <div title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}>
+                                  <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
+                                </div>
+                              )}
                             </div>
 
                             {/* Cycling controls or "only option" badge */}
@@ -561,7 +556,6 @@ export default function ShoppingCart({
                               </div>
                             )
                           })}
-                        </div>
                         </div>
                       </div>
                     )
