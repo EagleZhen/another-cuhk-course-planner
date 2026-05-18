@@ -1103,14 +1103,14 @@ function InstructorFilters({
                 <>
                   <div className={`h-4 w-px shrink-0 ml-0.5 mr-0 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
                   <div
-                    className="size-5 p-0.5 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer transition-all duration-200 hover:scale-110"
+                    className="size-5 p-0.5 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer"
                     onClick={(e) => {
                       e.stopPropagation()
                       googleSearchAndOpen(`CUHK ${formattedInstructor}`)
                     }}
                     title={`Search Google for "CUHK ${formattedInstructor}"`}
                   >
-                    <GoogleIcon className="size-full" />
+                    <GoogleIcon className="size-3.5" />
                   </div>
                 </>
               )}
