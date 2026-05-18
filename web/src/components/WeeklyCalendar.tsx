@@ -389,13 +389,13 @@ export default function WeeklyCalendar({
   }, (_, i) => calendarConfig.startHour + i)
 
   return (
-    <Card className="h-full flex flex-col gap-2">
+    <Card className="h-full flex flex-col gap-1 py-2 pt-4">
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         {/* #region Desktop Layout */}
         {/* Desktop layout: everything in one row */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <CardTitle>Timetable</CardTitle>
+            <CardTitle className="text-base">Timetable</CardTitle>
             <DisplayToggleButtons
               displayConfig={localDisplayConfig}
               onToggle={toggleDisplayOption}
