@@ -11,8 +11,6 @@ import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
-const COURSE_HEADER_ICON_BUTTON_CLASS = 'h-full aspect-square p-0 [&>svg]:size-3.5'
-
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
@@ -277,7 +275,7 @@ export default function ShoppingCart({
                   {/* Course Header */}
                   <div className="flex h-5 items-stretch justify-between gap-1">
                     <div className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
-                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-none">
+                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-5">
                         {formatCourseCodeWithPrefix(enrollment.course.subject, enrollment.course.courseCode, enrollment.selectedSections[0]?.sectionCode || '')}
                       </span>
                       {onShowCourseDetails && (
@@ -288,10 +286,10 @@ export default function ShoppingCart({
                             e.stopPropagation()
                             onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
                           }}
-                          className={`${COURSE_HEADER_ICON_BUTTON_CLASS} cursor-pointer`}
+                          className="h-full aspect-square p-0 cursor-pointer"
                           title="View course details"
                         >
-                          <Search className="text-gray-400 hover:text-gray-600" />
+                          <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
                         </Button>
                       )}
                       {isInvalid && (
@@ -299,7 +297,7 @@ export default function ShoppingCart({
                           <AlertTriangle className="size-3.5 text-orange-500" />
                         </div>
                       )}
-                      <span className="flex h-full shrink-0 items-center text-xs font-medium leading-none text-gray-500">
+                      <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
                         {enrollment.course.credits} credits
                       </span>
                     </div>
@@ -318,13 +316,13 @@ export default function ShoppingCart({
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className={`${COURSE_HEADER_ICON_BUTTON_CLASS} cursor-pointer`}
+                        className="h-full aspect-square p-0 cursor-pointer"
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
-                          <Eye className="text-gray-600" />
+                          <Eye className="size-3.5 text-gray-600" />
                         ) : (
-                          <EyeOff className="text-gray-400" />
+                          <EyeOff className="size-3.5 text-gray-400" />
                         )}
                       </Button>
                       <Button
@@ -335,10 +333,10 @@ export default function ShoppingCart({
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className={`${COURSE_HEADER_ICON_BUTTON_CLASS} text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer`}
+                        className="h-full aspect-square p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
                         title="Remove course"
                       >
-                        <Trash2 />
+                        <Trash2 className="size-3" />
                       </Button>
                     </div>
                   </div>
