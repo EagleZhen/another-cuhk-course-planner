@@ -1845,8 +1845,7 @@ function CourseCard({
               const showingAllForType = showAllSectionTypes.has(typeGroup.type)
               const selectedSectionId = localSelections.get(typeGroup.type)
 
-              // Calculate sections using the same filter logic as the section grid below.
-              const countSectionWithFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
+              const passesSectionFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
                 // Priority 1: Instructor filter (always applied)
                 if (selectedInstructors.size > 0) {
                   const matchesInstructorFilter = section.meetings.some(meeting => {
@@ -1878,10 +1877,10 @@ function CourseCard({
               }
 
               const totalAvailableSections = typeGroup.sections.filter(section =>
-                countSectionWithFilters(section, false)
+                passesSectionFilters(section, false)
               ).length
               const visibleSectionsCount = typeGroup.sections.filter(section =>
-                countSectionWithFilters(section, true)
+                passesSectionFilters(section, true)
               ).length
               const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
               const showHiddenSectionsToggle = hiddenSectionsCount > 0 || showingAllForType
@@ -1935,44 +1934,8 @@ function CourseCard({
                   </h4>
                 {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {(() => {
-                    // Simplified filtering logic - single function with clear priorities
-                    const shouldShowSection = (section: InternalSection) => {
-                      // Priority 1: Instructor filter (always applied)
-                      if (selectedInstructors.size > 0) {
-                        const matchesInstructorFilter = section.meetings.some(meeting => {
-                          if (!meeting.instructors) return false
-                          const instructorNames = meeting.instructors.split(',').map(name => name.trim())
-                          return instructorNames.some(instructorName => {
-                            const formattedName = formatInstructorsCompact(instructorName)
-                            return selectedInstructors.has(formattedName)
-                          })
-                        })
-                        if (!matchesInstructorFilter) return false
-                      }
-
-                      // Priority 2: Day filter (always applied)
-                      if (!sectionMatchesDayFilter(section)) return false
-
-                      // Priority 3: Show all override (user explicitly wants to see everything)
-                      if (showAllSectionTypes.has(typeGroup.type)) {
-                        return true
-                      }
-
-                      // Priority 4: Smart filtering
-                      const selectedSectionId = localSelections.get(typeGroup.type)
-
-                      // If section is selected, only show selected section
-                      if (selectedSectionId) {
-                        return section.id === selectedSectionId
-                      }
-
-                      // If no selection, show compatible sections only
-                      return !incompatible.includes(section)
-                    }
-
-                    return typeGroup.sections.filter(shouldShowSection)
-                  })()
+                  {typeGroup.sections
+                    .filter(section => passesSectionFilters(section, true))
                     .map(section => {
                     const isSelected = localSelections.get(typeGroup.type) === section.id
                     const isIncompatible = incompatible.includes(section)
