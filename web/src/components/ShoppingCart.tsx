@@ -11,6 +11,8 @@ import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
+const COURSE_HEADER_ICON_BUTTON_CLASS = 'h-full aspect-square p-0 [&>svg]:size-3.5'
+
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
@@ -281,12 +283,12 @@ export default function ShoppingCart({
                       {onShowCourseDetails && (
                         <Button
                           variant="ghost"
-                          size="icon-sm"
+                          size="sm"
                           onClick={(e) => {
                             e.stopPropagation()
                             onShowCourseDetails(`${enrollment.course.subject}${enrollment.course.courseCode}`)
                           }}
-                          className="h-full cursor-pointer"
+                          className={`${COURSE_HEADER_ICON_BUTTON_CLASS} cursor-pointer`}
                           title="View course details"
                         >
                           <Search className="text-gray-400 hover:text-gray-600" />
@@ -306,7 +308,7 @@ export default function ShoppingCart({
                     <div className="flex shrink-0 items-stretch gap-1">
                       <Button
                         variant="ghost"
-                        size="icon-sm"
+                        size="sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           // If making invisible and currently selected, deselect it
@@ -316,7 +318,7 @@ export default function ShoppingCart({
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className="h-full cursor-pointer"
+                        className={`${COURSE_HEADER_ICON_BUTTON_CLASS} cursor-pointer`}
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
@@ -327,13 +329,13 @@ export default function ShoppingCart({
                       </Button>
                       <Button
                         variant="ghost"
-                        size="icon-sm"
+                        size="sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="h-full text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        className={`${COURSE_HEADER_ICON_BUTTON_CLASS} text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer`}
                         title="Remove course"
                       >
                         <Trash2 />
