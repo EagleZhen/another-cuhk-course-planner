@@ -588,7 +588,7 @@ export default function ShoppingCart({
             {statusCounts.conflicts.total > 0 && (
               <div
                 className="flex items-center gap-1 text-purple-500"
-                title="Some selected class meetings overlap in time"
+                title="Selected sections have time conflicts"
               >
                 <AlertTriangle className="w-3 h-3" />
                 <span>Conflicts Detected</span>
