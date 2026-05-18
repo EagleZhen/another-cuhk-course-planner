@@ -1555,7 +1555,7 @@ function CourseCard({
             </CardDescription>
 
             {/* Search buttons below course header */}
-            <div className="flex flex-wrap items-center gap-1 mt-2">
+            <div className="flex flex-wrap items-center gap-0.5 mt-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -1563,7 +1563,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject}${course.courseCode}" outline`}
               >
                 <GoogleIcon className="w-3 h-3" />
@@ -1576,7 +1576,7 @@ function CourseCard({
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
+                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
               >
                 <GoogleIcon className="w-3 h-3" />
@@ -1589,7 +1589,7 @@ function CourseCard({
                   e.stopPropagation()
                   cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
                 }}
-                className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
+                className="h-6 min-w-[78px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
                 title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
               >
                 <CuhkLibraryImageIcon className="w-3 h-3" />
