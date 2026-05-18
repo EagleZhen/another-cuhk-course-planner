@@ -1110,7 +1110,7 @@ function InstructorFilters({
                     }}
                     title={`Search Google for "CUHK ${formattedInstructor}"`}
                   >
-                    <GoogleIcon className={`size-full transition-opacity ${isSelected ? 'opacity-90 hover:opacity-100' : 'opacity-70 hover:opacity-100'}`} />
+                    <GoogleIcon className="size-full" />
                   </div>
                 </>
               )}
@@ -2155,7 +2155,7 @@ function CourseCard({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`Search Google for "CUHK ${formattedInstructor}"`}
                                       >
-                                        <GoogleIcon className="w-2.5 h-2.5 opacity-70 hover:opacity-100" />
+                                        <GoogleIcon className="w-2.5 h-2.5" />
                                       </button>
                                     )}
                                   </div>
@@ -2176,7 +2176,7 @@ function CourseCard({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`View "${location}" on Google Maps`}
                                       >
-                                        <GoogleMapsIcon className="w-2.5 h-2.5 opacity-70 hover:opacity-100" />
+                                        <GoogleMapsIcon className="w-2.5 h-2.5" />
                                       </button>
                                     )}
                                   </div>
