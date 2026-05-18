@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, MapPin, HardDrive } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, HardDrive } from 'lucide-react'
 import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
 import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
@@ -15,6 +15,7 @@ import { analytics } from '@/lib/analytics'
 import { getAllSubjectCodes } from '@/lib/subjects'
 import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
 import { GoogleIcon } from '@/components/GoogleIcon'
+import { GoogleMapsIcon } from '@/components/GoogleMapsIcon'
 
 // Using clean internal types only
 
@@ -2174,7 +2175,7 @@ function CourseCard({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`View "${location}" on Google Maps`}
                                       >
-                                        <MapPin className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                        <GoogleMapsIcon className="w-2.5 h-2.5 opacity-70 hover:opacity-100" />
                                       </button>
                                     )}
                                   </div>
