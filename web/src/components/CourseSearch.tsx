@@ -14,6 +14,7 @@ import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getAllSubjectCodes } from '@/lib/subjects'
 import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
+import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
@@ -1373,7 +1374,7 @@ function CourseCard({
                   className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
                   title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
                 >
-                  <Search className="w-3 h-3" />
+                  <CuhkLibraryImageIcon className="w-3 h-3" />
                   Past Papers
                 </Button>
               </div>
@@ -1591,7 +1592,7 @@ function CourseCard({
                 className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
                 title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
               >
-                <Search className="w-3 h-3" />
+                <CuhkLibraryImageIcon className="w-3 h-3" />
                 Past Papers
               </Button>
             </div>
