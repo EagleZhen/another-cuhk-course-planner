@@ -574,7 +574,7 @@ export default function ShoppingCart({
       {/* Schedule Summary - Outside scrollable area */}
       {courseEnrollments.length > 0 && (
         <div className="border-t px-3 py-2 flex-shrink-0 space-y-2">
-          {/* Row 1: Credits + Conflicts (optional) */}
+          {/* Row 1: Credits + time conflicts (optional) */}
           <div className="flex justify-between text-xs text-gray-600">
             <span
               title={statusCounts.visibleCredits === statusCounts.totalCredits
@@ -590,10 +590,10 @@ export default function ShoppingCart({
             {statusCounts.conflicts.total > 0 && (
               <div
                 className="flex items-center gap-1 text-purple-500"
-                title="Some courses have scheduling conflicts"
+                title="Some selected class meetings overlap in time"
               >
                 <AlertTriangle className="w-3 h-3" />
-                <span>Conflicts</span>
+                <span>Conflicts Detected</span>
               </div>
             )}
           </div>
