@@ -416,7 +416,7 @@ export default function ShoppingCart({
                         <div key={section.id} className="bg-gray-50 rounded border overflow-hidden">
                           {conflictInfo.hasConflict && (
                             <div
-                              className="flex items-center gap-1 bg-purple-100 px-2 pt-1 pb-0 text-[10px] text-purple-700"
+                              className="flex items-center gap-1 bg-purple-100 px-2 py-1 text-[10px] text-purple-700"
                               title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
                             >
                               <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
@@ -426,7 +426,7 @@ export default function ShoppingCart({
                             </div>
                           )}
 
-                          <div className="px-2 py-2">
+                          <div className={`px-2 pb-2 ${conflictInfo.hasConflict ? 'pt-1' : 'pt-2'}`}>
                           {/* Section header with cycling buttons */}
                           <div className="flex items-center justify-between mb-1">
                             <div className="flex items-center gap-2">
