@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
-import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorsCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix } from '@/lib/courseUtils'
+import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorsCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix, checkSectionConflict } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
@@ -239,12 +239,6 @@ export default function ShoppingCart({
             className="space-y-3 overflow-y-auto h-full p-1 pr-2 py-2"
           >
             {courseEnrollments.map((enrollment) => {
-              // Find calendar events for this enrollment
-              const enrollmentEvents = calendarEvents.filter(event =>
-                event.subject === enrollment.course.subject &&
-                event.courseCode === enrollment.course.courseCode
-              )
-              const hasConflict = enrollmentEvents.some(event => event.hasConflict)
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
@@ -319,16 +313,11 @@ export default function ShoppingCart({
                           </button>
                         )}
                       </div>
-                      {/* Status indicators only for critical issues not shown in badges */}
+                      {/* Status indicators only for course-level issues not shown in section cards */}
                       <div className="flex items-center gap-1 flex-shrink-0">
                         {isInvalid && (
                           <div title={enrollment.invalidReason || 'Course data is outdated'}>
                             <AlertTriangle className="w-3 h-3 text-orange-500" />
-                          </div>
-                        )}
-                        {hasConflict && !isInvalid && (
-                          <div title="Time conflict detected">
-                            <AlertTriangle className="w-3 h-3 text-purple-500" />
                           </div>
                         )}
                       </div>
@@ -421,9 +410,23 @@ export default function ShoppingCart({
                       const canCycle = compatible.length > 1
                       const currentIndex = compatible.findIndex(s => s.id === section.id)
                       const sectionPosition = `${currentIndex + 1}/${compatible.length}`
+                      const conflictInfo = checkSectionConflict(section, courseEnrollments)
 
                       return (
-                        <div key={section.id} className="bg-gray-50 rounded px-2 py-2 border">
+                        <div key={section.id} className="bg-gray-50 rounded border overflow-hidden">
+                          {conflictInfo.hasConflict && (
+                            <div
+                              className="flex items-center gap-1 bg-purple-100 px-2 pt-1 pb-0 text-[10px] text-purple-700"
+                              title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
+                            >
+                              <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
+                              <span className="truncate">
+                                Conflicts with {conflictInfo.conflictingSections.join(', ')}
+                              </span>
+                            </div>
+                          )}
+
+                          <div className="px-2 py-2">
                           {/* Section header with cycling buttons */}
                           <div className="flex items-center justify-between mb-1">
                             <div className="flex items-center gap-2">
@@ -558,6 +561,7 @@ export default function ShoppingCart({
                               </div>
                             )
                           })}
+                        </div>
                         </div>
                       </div>
                     )
