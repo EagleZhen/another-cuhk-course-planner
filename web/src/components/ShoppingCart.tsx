@@ -342,7 +342,7 @@ export default function ShoppingCart({
                   </div>
 
                   {/* Course Title */}
-                  <p className={`text-xs text-gray-600 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                  <p className={`-mt-1 text-xs leading-4 text-gray-600 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                     {enrollment.course.title}
                   </p>
 
