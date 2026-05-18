@@ -8,6 +8,7 @@ import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search, 
 import { parseSectionTypes, getUniqueMeetings, formatTimeCompact, formatInstructorsCompact, getSectionTypePriority, categorizeCompatibleSections, getAvailabilityBadges, getComputedBorderColor, googleSearchAndOpen, googleMapsSearchAndOpen, formatCourseCodeWithPrefix } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
+import { GoogleIcon } from '@/components/GoogleIcon'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -527,7 +528,7 @@ export default function ShoppingCart({
                                         className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                         title={`Search Google for "CUHK ${formattedInstructor}"`}
                                       >
-                                        <Search className="w-2.5 h-2.5 text-gray-400 hover:text-gray-600" />
+                                        <GoogleIcon className="w-2.5 h-2.5 opacity-70 hover:opacity-100" />
                                       </button>
                                     )}
                                   </div>
