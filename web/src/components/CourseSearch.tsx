@@ -1845,7 +1845,7 @@ function CourseCard({
               const showingAllForType = showAllSectionTypes.has(typeGroup.type)
               const selectedSectionId = localSelections.get(typeGroup.type)
 
-              const passesSectionFilters = (section: InternalSection, applySmartFiltering: boolean = true) => {
+              const passesSectionFilters = (section: InternalSection, applyCompatibilityFilter: boolean = true) => {
                 // Priority 1: Instructor filter (always applied)
                 if (selectedInstructors.size > 0) {
                   const matchesInstructorFilter = section.meetings.some(meeting => {
@@ -1867,8 +1867,8 @@ function CourseCard({
                   return true
                 }
 
-                // Priority 4: Smart filtering (only if requested)
-                if (applySmartFiltering) {
+                // Priority 4: Selection compatibility filter (only if requested)
+                if (applyCompatibilityFilter) {
                   if (selectedSectionId) return section.id === selectedSectionId
                   return !incompatible.includes(section)
                 }
