@@ -2054,125 +2054,127 @@ function CourseCard({
                               : undefined
                         }
                       >
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                            <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
-                              {section.sectionCode}
-                            </span>
-                            {hasTimeConflict && (
-                              <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
-                                <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
-                                <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}>
-                                  {conflictInfo.conflictingSections.join(', ')}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="flex items-center gap-2 flex-shrink-0">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="w-6 h-6 p-0"
-                              title={isSelected ? "Remove selection" : "Select this section"}
-                            >
-                              {isSelected ? (
-                                <X className="w-3 h-3 text-red-500" />
-                              ) : (
-                                <Plus className="w-3 h-3 text-gray-500" />
+                        <div className="space-y-2">
+                          <div className="flex h-4 items-center justify-between">
+                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                              <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
+                                {section.sectionCode}
+                              </span>
+                              {hasTimeConflict && (
+                                <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
+                                  <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
+                                  <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}>
+                                    {conflictInfo.conflictingSections.join(', ')}
+                                  </span>
+                                </div>
                               )}
-                            </Button>
+                            </div>
+
+                            <div className="flex items-center gap-2 flex-shrink-0">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-4 w-4 p-0"
+                                title={isSelected ? "Remove selection" : "Select this section"}
+                              >
+                                {isSelected ? (
+                                  <X className="h-2.5 w-2.5 text-red-500" />
+                                ) : (
+                                  <Plus className="h-2.5 w-2.5 text-gray-500" />
+                                )}
+                              </Button>
+                            </div>
                           </div>
-                        </div>
 
-                        {/* Row 2: Enrollment Badges */}
-                        <div className="flex items-center gap-1 mb-2">
-                          {getAvailabilityBadges(section.availability).map((badge) => (
-                            <Badge
-                              key={badge.type}
-                              className={`text-[10px] px-1 py-0 ${badge.style.className}`}
-                              title={
-                                badge.type === 'status'
-                                  ? `Course status: ${badge.text}`
-                                  : badge.type === 'availability'
-                                    ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                    : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
-                              }
-                            >
-                              {badge.text}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        {/* Row 3: Teaching Language */}
-                        {section.classAttributes && (
-                          <div className="flex items-center gap-1 text-gray-500 text-[11px] mb-2">
-                            <span className="flex-shrink-0">🌐</span>
-                            <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                              {section.classAttributes}
-                            </span>
+                          {/* Row 2: Enrollment Badges */}
+                          <div className="flex items-center gap-1">
+                            {getAvailabilityBadges(section.availability).map((badge) => (
+                              <Badge
+                                key={badge.type}
+                                className={`text-[10px] px-1 py-0 ${badge.style.className}`}
+                                title={
+                                  badge.type === 'status'
+                                    ? `Course status: ${badge.text}`
+                                    : badge.type === 'availability'
+                                      ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                      : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                }
+                              >
+                                {badge.text}
+                              </Badge>
+                            ))}
                           </div>
-                        )}
 
-                        {/* Meetings displayed in unified 3-row emoji format */}
-                        <div className="space-y-1">
-                          {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                            const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                            const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
-                            const location = meeting?.location || 'TBA'
+                          {/* Row 3: Teaching Language */}
+                          {section.classAttributes && (
+                            <div className="flex items-center gap-1 text-gray-500 text-[11px]">
+                              <span className="flex-shrink-0">🌐</span>
+                              <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
+                                {section.classAttributes}
+                              </span>
+                            </div>
+                          )}
 
-                            return (
-                              <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
-                                {/* Row 1: Time */}
-                                <div className="flex items-center gap-1 text-[11px]">
-                                  <span>⏰</span>
-                                  <span className="font-mono text-gray-600">{formattedTime}</span>
-                                </div>
-                                {/* Row 2: Instructor */}
-                                <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                  <span>🧑🏻‍🏫</span>
-                                  <div className="flex items-center gap-1 min-w-0 flex-1">
-                                    <span className="truncate" title={formattedInstructor}>
-                                      {formattedInstructor}
-                                    </span>
-                                    {formattedInstructor !== 'Staff' && (
-                                      <button
-                                        onClick={(e) => {
-                                        e.stopPropagation()
-                                          googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                        }}
-                                        className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                        title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                      >
-                                        <GoogleIcon className="w-2.5 h-2.5" />
-                                      </button>
-                                    )}
+                          {/* Meetings displayed in unified 3-row emoji format */}
+                          <div className="space-y-1">
+                            {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                              const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
+                              const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
+                              const location = meeting?.location || 'TBA'
+
+                              return (
+                                <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
+                                  {/* Row 1: Time */}
+                                  <div className="flex items-center gap-1 text-[11px]">
+                                    <span>⏰</span>
+                                    <span className="font-mono text-gray-600">{formattedTime}</span>
+                                  </div>
+                                  {/* Row 2: Instructor */}
+                                  <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <span>🧑🏻‍🏫</span>
+                                    <div className="flex items-center gap-1 min-w-0 flex-1">
+                                      <span className="truncate" title={formattedInstructor}>
+                                        {formattedInstructor}
+                                      </span>
+                                      {formattedInstructor !== 'Staff' && (
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation()
+                                            googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                                          }}
+                                          className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                          title={`Search Google for "CUHK ${formattedInstructor}"`}
+                                        >
+                                          <GoogleIcon className="w-2.5 h-2.5" />
+                                        </button>
+                                      )}
+                                    </div>
+                                  </div>
+                                  {/* Row 3: Location */}
+                                  <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <span>📍</span>
+                                    <div className="flex items-center gap-1 min-w-0 flex-1">
+                                      <span className="truncate" title={location}>
+                                        {location}
+                                      </span>
+                                      {location !== 'TBA' && location !== 'No Room Required' && (
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation()
+                                            googleMapsSearchAndOpen(location)
+                                          }}
+                                          className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                          title={`View "${location}" on Google Maps`}
+                                        >
+                                          <GoogleMapsIcon className="w-2.5 h-2.5" />
+                                        </button>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
-                                {/* Row 3: Location */}
-                                <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                  <span>📍</span>
-                                  <div className="flex items-center gap-1 min-w-0 flex-1">
-                                    <span className="truncate" title={location}>
-                                      {location}
-                                    </span>
-                                    {location !== 'TBA' && location !== 'No Room Required' && (
-                                      <button
-                                        onClick={(e) => {
-                                          e.stopPropagation()
-                                          googleMapsSearchAndOpen(location)
-                                        }}
-                                        className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                        title={`View "${location}" on Google Maps`}
-                                      >
-                                        <GoogleMapsIcon className="w-2.5 h-2.5" />
-                                      </button>
-                                    )}
-                                  </div>
-                                </div>
-                              </div>
-                            )
-                          })}
+                              )
+                            })}
+                          </div>
                         </div>
                       </div>
                     )
