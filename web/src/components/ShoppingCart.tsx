@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -16,7 +16,6 @@ interface ShoppingCartProps {
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
   selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
   currentTerm: string // Current term to get available sections
-  lastDataUpdate?: Date | null // When course data was last refreshed
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -29,7 +28,6 @@ export default function ShoppingCart({
   calendarEvents,
   selectedEnrollment,
   currentTerm,
-  lastDataUpdate,
   onToggleVisibility,
   onRemoveCourse,
   onSelectEnrollment,
@@ -38,18 +36,6 @@ export default function ShoppingCart({
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
-  const [, forceUpdate] = useState({}) // For timestamp updates
-
-  // Update timestamp display every 30 seconds
-  useEffect(() => {
-    if (!lastDataUpdate) return
-
-    const interval = setInterval(() => {
-      forceUpdate({}) // Trigger re-render to update relative time
-    }, 30000) // Update every 30 seconds
-
-    return () => clearInterval(interval)
-  }, [lastDataUpdate])
 
   // Note: Removed unused helper functions - cycling now uses direct compatibility checking
 
@@ -183,8 +169,8 @@ export default function ShoppingCart({
   const statusCounts = getStatusCounts()
 
   return (
-    <Card className="h-[800px] flex flex-col gap-2 py-2 pt-6" data-shopping-cart>
-      <CardHeader className="pb-0 pt-2 flex-shrink-0">
+    <Card className="h-[800px] flex flex-col gap-1 py-2 pt-4" data-shopping-cart>
+      <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Shopping Cart</CardTitle>
           <Badge
@@ -215,15 +201,6 @@ export default function ShoppingCart({
             })()}
           </Badge>
         </div>
-        {/* Data freshness indicator - shows actual scraping time */}
-        <div className="text-xs text-gray-400 flex items-center gap-2 mt-1">
-          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-          {lastDataUpdate ? (
-            <span>Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}</span>
-          ) : (
-            <span>Loading Data...</span>
-          )}
-        </div>
       </CardHeader>
 
       <CardContent className="flex-1 overflow-hidden px-3">
@@ -236,7 +213,7 @@ export default function ShoppingCart({
         ) : (
           <div
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 pr-2 py-2"
+            className="space-y-3 overflow-y-auto h-full p-1 pr-2 pt-1 pb-2"
           >
             {courseEnrollments.map((enrollment) => {
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
