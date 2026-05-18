@@ -2145,7 +2145,7 @@ function CourseCard({
                                           className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                           title={`Search Google for "CUHK ${formattedInstructor}"`}
                                         >
-                                          <GoogleIcon className="w-2.5 h-2.5" />
+                                          <GoogleIcon className="size-3" />
                                         </button>
                                       )}
                                     </div>
@@ -2166,7 +2166,7 @@ function CourseCard({
                                           className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
                                           title={`View "${location}" on Google Maps`}
                                         >
-                                          <GoogleMapsIcon className="w-2.5 h-2.5" />
+                                          <GoogleMapsIcon className="size-3" />
                                         </button>
                                       )}
                                     </div>
