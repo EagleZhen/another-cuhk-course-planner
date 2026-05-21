@@ -1,57 +1,31 @@
-# another-cuhk-course-planner
+# Another CUHK Course Planner
 
 https://another-cuhk-course-planner.com/
 
 https://github.com/user-attachments/assets/1e43274b-4507-4221-a4f4-cde574fe6342
 
-I just want a course planner with the latest course data that is actually useful and convenient for the students......
-
-Why is there no one making an actually good one?
+A CUHK course planner with fast search, current scraped course data, timetable planning, and conflict detection.
 
 ---
 
 ## Features
 
--   **Fast local search** - by course code, title, or instructor
--   **Day filtering** - filter courses by specific days
--   **Visual calendar** - weekly view with automatic conflict detection
--   **Section cycling** - click `<` and `>` in the shopping cart to cycle through available sections
--   **Smart cohorts** - handles CUHK's section pairing system automatically, e.g., A-LEC can only pair with AE01-EXR (same A-cohort)
--   **Export** - download .ics for importing into Google Calendar, Outlook, etc.
--   **Screenshot** - save your schedule as a .png image
--   **Auto-save** - everything persists in your browser
+- **Fast local search** by course code, title, or instructor
+- **Day filtering** for finding courses that fit specific days
+- **Visual timetable** with automatic time-conflict detection
+- **Section cycling** in the shopping cart for compatible alternatives
+- **CUHK cohort compatibility** for section pairing, such as `A-LEC` with `AE01-EXR`
+- **Calendar export** to `.ics`
+- **Screenshot export** for saving a timetable image
+- **Auto-save** using browser storage
 
 ---
 
-## Setup
+## Development
 
-### 0. Install dependencies
+For setup, local development, scraping, publishing data, and validation checks, see [docs/development.md](docs/development.md).
 
-Install [Poetry](https://python-poetry.org/docs/#installation) for Python dependency management.
-
-Then, install Python dependencies:
-
-```bash
-poetry install --no-root
-```
-
-### 1. Scrape course data
-
-```bash
-poetry run python scripts/scrape_all_subjects.py
-```
-
-Scrapes all ~259 subjects to `data/*.json` (~50MB total). Takes about 7 to 10 hours depending on network latency.
-
-### 2. Publish data to web app
-
-```bash
-poetry run python scripts/publish_course_data.py
-```
-
-Validates and publishes course data from `data/` to `web/public/data/` for deployment.
-
-### 3. Run the web app
+Quick start for the web app:
 
 ```bash
 cd web
@@ -59,94 +33,42 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000
+Open <http://localhost:3000>.
 
 ---
 
 ## Project Structure
 
-```
+```text
 .
-├── scripts/
-│   ├── cuhk_scraper.py          Main scraper logic
-│   ├── scrape_all_subjects.py   Run this to scrape all subjects
-│   ├── publish_course_data.py   Publish data to web app with validation
-│   ├── data_utils.py            HTML/markdown utilities
-│   ├── analyze_course_data.py   Data analysis scripts
-│   └── generate_subjects.py     Generate subject list constant
-│
-├── data/                        Scraped course JSONs (one per subject)
-├── logs/                        Scraping logs & progress tracking
-│
-└── web/
-    ├── public/data/             Course data for web app (published from /data)
-    └── src/
-        ├── app/                 page.tsx = main state hub
-        ├── components/          React components
-        └── lib/                 Utilities, types, validation
+├── scripts/              Python scraper and data publishing tools
+├── data/                 Scraped course JSON files
+├── logs/                 Scraping and publishing logs
+├── docs/                 Development and scraper documentation
+└── web/                  Next.js web app
+    ├── public/data/      Published course data used by the app
+    └── src/              App, components, utilities, and types
 ```
 
 ---
 
-## Commands
+## Documentation
 
-**Scraper:**
-
-```bash
-poetry run python scripts/scrape_all_subjects.py  # Production (all subjects)
-poetry run python scripts/cuhk_scraper.py         # Test mode (3 courses/subject)
-poetry run python scripts/publish_course_data.py  # Publish data to web app
-```
-
-**Web app:**
-
-```bash
-cd web
-npm run dev      # Development
-npm run build    # Production build
-npm run lint     # ESLint
-```
-
----
-
-## Code Formatting
-
-Python code is automatically formatted on commit using **Ruff** (linting + formatting) and **isort** (import sorting).
-
-**Setup (one-time):**
-```bash
-poetry run pre-commit install
-```
-
-**Simple workflow (auto-format on commit):**
-```bash
-git add .
-git commit -m "feat: your message"
-# Formatter runs automatically, files are auto-fixed
-```
-
-**To review changes before committing:**
-```bash
-git add .
-poetry run pre-commit run   # Run formatter on staged files
-git diff                    # Review changes
-git add .
-git commit -m "feat: your message"
-```
+- [Development guide](docs/development.md) - local setup, commands, scraping, publishing, and checks
+- [Scraper notes](docs/scraper.md) - scraper behavior, edge cases, validation, and debugging
+- [Web app README](web/README.md) - frontend package notes and commands
 
 ---
 
 ## Tech Stack
 
-**Scraper:** Python + requests + BeautifulSoup + ddddocr (OCR captcha solving)
-
-**Web:** Next.js 15 + React 19 + TypeScript + Tailwind + Zod validation
-
-See [CLAUDE.md](CLAUDE.md) for architecture details.
+- **Scraper:** Python, requests, BeautifulSoup, ddddocr
+- **Web:** Next.js, React, TypeScript, Tailwind CSS, Zod
 
 ---
 
 ## Deployment
 
-https://another-cuhk-course-planner.com/
-Cloudflare Pages. Data updates manually (re-run scraperperiodically).
+The app is deployed at <https://another-cuhk-course-planner.com/>.
+
+Course data is updated manually by rerunning the scraper and publish workflow.
