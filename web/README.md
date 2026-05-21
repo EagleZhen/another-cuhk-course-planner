@@ -16,7 +16,9 @@ Run these from `web/`:
 
 ## Course Data
 
-The app reads published course data from `public/data/`. Those files are generated from scraped data by the root-level publish workflow:
+The app reads published course data from `public/data/`. Those files are generated from scraped data by the root-level publish workflow.
+
+Run this from the repository root:
 
 ```bash
 poetry run python scripts/publish_course_data.py
