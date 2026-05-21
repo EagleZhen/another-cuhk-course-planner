@@ -11,9 +11,11 @@
 
 import posthog from 'posthog-js'
 
+const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
+
 // Initialize PostHog for all environments (filter in dashboard by hostname)
-if (typeof window !== 'undefined') {
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+if (typeof window !== 'undefined' && posthogKey) {
+  posthog.init(posthogKey, {
     api_host: '/x8m2k', // Reverse proxy on Cloudflare (bypasses ad blockers)
     ui_host: 'https://us.posthog.com', // PostHog dashboard (always the same for US region)
 
