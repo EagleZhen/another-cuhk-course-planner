@@ -13,7 +13,6 @@ Run these from `web/`:
 | `npm run dev` | Start the local Next.js dev server. |
 | `npm run typecheck` | Run TypeScript checks without emitting build output. |
 | `npm run build` | Create a production build. |
-| `npm run lint` | Run the configured Next.js lint command. |
 
 ## Course Data
 

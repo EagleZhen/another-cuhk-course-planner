@@ -167,7 +167,6 @@ Run these from `web/`:
 | --- | --- |
 | `npm run typecheck` | Verify TypeScript types without emitting build output. |
 | `npm run build` | Verify the production build. |
-| `npm run lint` | Run the configured Next.js lint command. |
 
 If Git hooks were installed with `poetry run pre-commit install`, the configured hooks run automatically on commit. Current hooks cover Python formatting/linting for `scripts/*.py` and basic whitespace/end-of-file cleanup for selected source files. To run the hooks manually before committing:
 
