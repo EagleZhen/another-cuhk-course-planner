@@ -16,7 +16,7 @@ Install Python dependencies from the repository root:
 poetry install --no-root
 ```
 
-Install Git hooks for Python formatting/linting:
+Install Git hooks for Python formatting/linting and basic source-file whitespace cleanup:
 
 ```bash
 poetry run pre-commit install
@@ -140,7 +140,7 @@ npm run build
 npm run lint
 ```
 
-If Git hooks were installed with `poetry run pre-commit install`, Python formatting/linting runs automatically on commit. To run the hooks manually before committing:
+If Git hooks were installed with `poetry run pre-commit install`, the configured hooks run automatically on commit. Current hooks cover Python formatting/linting for `scripts/*.py` and basic whitespace/end-of-file cleanup for selected source files. To run the hooks manually before committing:
 
 ```bash
 poetry run pre-commit run
