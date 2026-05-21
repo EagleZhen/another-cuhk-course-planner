@@ -10,7 +10,7 @@ Run these from `web/`:
 
 ```bash
 npm run dev
-npm exec tsc -- --noEmit
+npm run typecheck
 npm run build
 npm run lint
 ```

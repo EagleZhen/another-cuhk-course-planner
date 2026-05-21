@@ -164,7 +164,7 @@ The script prints a replacement `SUBJECT_TITLES` constant generated from `data/*
 Run these from `web/`:
 
 ```bash
-npm exec tsc -- --noEmit
+npm run typecheck
 npm run build
 npm run lint
 ```
