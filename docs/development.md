@@ -2,6 +2,35 @@
 
 This guide covers the local workflow for the scraper and the web app.
 
+## Project Workflow
+
+The repository has two main parts:
+
+- `scripts/`: Python tools for collecting and publishing course data.
+- `web/`: Next.js app that reads the published course data.
+
+The CUHK course catalog is an external data source. It is not part of this project, but the scraper depends on its page structure and available content.
+
+```text
+CUHK course catalog (external)
+    ↓
+scripts/scrape_all_subjects.py
+    ↓
+data/*.json
+    ↓
+scripts/publish_course_data.py
+    ↓
+web/public/data/*.json
+    ↓
+web/ Next.js app
+```
+
+- Scraper work changes how course data is collected into `data/*.json`.
+- Publishing validates scraped data and copies it into `web/public/data/`.
+- Web app work changes how the published data is loaded, transformed, and displayed.
+
+For normal UI development, you usually only need existing published data and `npm run dev`. For scraper or data updates, run the scrape/publish workflow before verifying the web app.
+
 ## Prerequisites
 
 - Python 3.12.2 is the currently tested version. `pyproject.toml` allows Python 3.10 to 3.12, but not every allowed version is actively tested.
