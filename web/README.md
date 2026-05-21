@@ -8,12 +8,12 @@ For full local setup, data publishing, and development workflow, see [../docs/de
 
 Run these from `web/`:
 
-```bash
-npm run dev
-npm run typecheck
-npm run build
-npm run lint
-```
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local Next.js dev server. |
+| `npm run typecheck` | Run TypeScript checks without emitting build output. |
+| `npm run build` | Create a production build. |
+| `npm run lint` | Run the configured Next.js lint command. |
 
 ## Course Data
 
