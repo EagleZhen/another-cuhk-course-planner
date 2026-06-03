@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-05-24T13:40:26.907472+00:00",
+    "scraped_at": "2026-06-02T03:27:03.798102+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
     "total_courses": 97,
@@ -580,13 +580,13 @@
               "meetings": [
                 {
                   "time": "Mo 2:30PM - 5:15PM",
-                  "location": "Science Centre 190",
+                  "location": "Science Centre 188",
                   "instructor": "Professor CHAN Ting Fung Philos",
                   "dates": "1/6, 8/6, 15/6, 22/6"
                 },
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Science Centre 190",
+                  "location": "Science Centre 188",
                   "instructor": "Professor CHAN Ting Fung Philos",
                   "dates": "20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
                 }
@@ -4004,7 +4004,34 @@
       "course_code": "6108",
       "title": "Techniques in Metabolic Profiling",
       "credits": "1.00",
-      "terms": [],
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-L01-LAB (1606)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor GUO Dianjing",
+                  "dates": "03/08/2026 - 31/08/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
       "description": "This course introduces the basic concept of metabolomics, the technology/platforms used for metabolic profiling, and its application in life science.",
       "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
       "course_attributes": "",

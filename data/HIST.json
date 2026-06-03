@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-05-24T12:49:23.342104+00:00",
+    "scraped_at": "2026-06-02T02:47:28.717253+00:00",
     "subject": "HIST",
     "subject_title": "History",
     "total_courses": 213,
@@ -5389,6 +5389,26 @@
           "term_name": "2025-26 Summer Session",
           "schedule": [
             {
+              "section": "IMI1-IND (1633)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Ian Brandon MORLEY",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
               "section": "YYI1-IND (1502)",
               "meetings": [
                 {
@@ -8745,10 +8765,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "53",
+                "available_seats": "54",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
@@ -8765,10 +8785,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "53",
+                "available_seats": "54",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
