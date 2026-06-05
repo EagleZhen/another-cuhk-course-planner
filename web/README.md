@@ -4,6 +4,10 @@ Next.js frontend for Another CUHK Course Planner.
 
 For full local setup, data publishing, and development workflow, see [../docs/development.md](../docs/development.md).
 
+## Prerequisites
+
+- Node.js matching this package's `engines.node` range, and npm.
+
 ## Commands
 
 Run these from `web/`:

@@ -35,7 +35,7 @@ For normal UI development, you usually only need existing published data and `np
 
 - Python 3.12.2 is the currently tested version. `pyproject.toml` allows Python 3.10 to 3.12, but not every allowed version is actively tested.
 - [Poetry](https://python-poetry.org/docs/#installation)
-- Node.js and npm
+- Node.js matching `web/package.json`'s `engines.node` range, and npm
 
 ## Install Dependencies
 
