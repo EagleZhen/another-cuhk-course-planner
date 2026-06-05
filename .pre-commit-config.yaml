@@ -23,7 +23,7 @@ repos:
       - id: check-merge-conflict
       - id: check-yaml
       - id: trailing-whitespace
-        files: &source_text_files '\.(py|js|jsx|ts|tsx|mjs|md|json|ya?ml)$'
+        files: &source_text_files '(^\.editorconfig$|\.(py|js|jsx|ts|tsx|mjs|md|json|ya?ml)$)'
         exclude: '^(data/|web/public/data/|docs/archived/|tests/)'
       - id: end-of-file-fixer
         files: *source_text_files
