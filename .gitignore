@@ -9,6 +9,9 @@ __pycache__/
 env/
 ENV/
 
+# Node dependencies
+node_modules/
+
 # Project-specific ignores
 /tests/output/debug_html
 
