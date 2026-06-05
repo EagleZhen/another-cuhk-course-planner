@@ -4,6 +4,10 @@ Next.js frontend for Another CUHK Course Planner.
 
 For full local setup, data publishing, and development workflow, see [../docs/development.md](../docs/development.md).
 
+## Prerequisites
+
+- Node.js matching this package's `engines.node` range, and npm.
+
 ## Commands
 
 Run these from `web/`:
@@ -12,6 +16,7 @@ Run these from `web/`:
 | --- | --- |
 | `npm run dev` | Start the local Next.js dev server. |
 | `npm run typecheck` | Run TypeScript checks without emitting build output. |
+| `npm run lint` | Run ESLint on the web app source. |
 | `npm run build` | Create a production build. |
 
 ## Course Data

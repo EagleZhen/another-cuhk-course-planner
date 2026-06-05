@@ -35,7 +35,7 @@ For normal UI development, you usually only need existing published data and `np
 
 - Python 3.12.2 is the currently tested version. `pyproject.toml` allows Python 3.10 to 3.12, but not every allowed version is actively tested.
 - [Poetry](https://python-poetry.org/docs/#installation)
-- Node.js and npm
+- Node.js matching `web/package.json`'s `engines.node` range, and npm
 
 ## Install Dependencies
 
@@ -166,6 +166,7 @@ Run these from `web/`:
 | Command | Purpose |
 | --- | --- |
 | `npm run typecheck` | Verify TypeScript types without emitting build output. |
+| `npm run lint` | Run ESLint on the web app source. |
 | `npm run build` | Verify the production build. |
 
 If Git hooks were installed with `poetry run pre-commit install`, the configured hooks run automatically on commit. Current hooks cover Python formatting/linting for `scripts/*.py` and basic whitespace/end-of-file cleanup for selected source files. To run the hooks manually before committing:
