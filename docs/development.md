@@ -45,16 +45,16 @@ Install Python dependencies from the repository root:
 poetry install --no-root
 ```
 
-Install Git hooks for automatic formatting, Python linting, and basic source-file hygiene:
-
-```bash
-poetry run pre-commit install
-```
-
 Install repository-level tooling such as Prettier:
 
 ```bash
 npm install
+```
+
+Install Git hooks for automatic formatting, Python linting, and basic source-file hygiene:
+
+```bash
+poetry run pre-commit install
 ```
 
 Install web dependencies:
