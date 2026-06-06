@@ -87,7 +87,17 @@ To run hooks manually on staged files:
 poetry run pre-commit run
 ```
 
-To intentionally run Prettier across the repository:
+### Format The Whole Repository
+
+To run the full configured formatting and hygiene system across all tracked files:
+
+```bash
+poetry run pre-commit run --all-files
+```
+
+If hooks modify files, stage the changes and run the command again.
+
+To run only Prettier across the repository:
 
 ```bash
 npm run format
