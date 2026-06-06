@@ -25,13 +25,13 @@ export interface DayInfo {
  * Eliminates the need for multiple mapping functions.
  */
 export const DAYS: Record<WeekDay, DayInfo> = {
-  'Mon': { index: 0, displayName: 'Monday', isWeekend: false },
-  'Tue': { index: 1, displayName: 'Tuesday', isWeekend: false },
-  'Wed': { index: 2, displayName: 'Wednesday', isWeekend: false },
-  'Thu': { index: 3, displayName: 'Thursday', isWeekend: false },
-  'Fri': { index: 4, displayName: 'Friday', isWeekend: false },
-  'Sat': { index: 5, displayName: 'Saturday', isWeekend: true },
-  'Sun': { index: 6, displayName: 'Sunday', isWeekend: true }
+  Mon: { index: 0, displayName: 'Monday', isWeekend: false },
+  Tue: { index: 1, displayName: 'Tuesday', isWeekend: false },
+  Wed: { index: 2, displayName: 'Wednesday', isWeekend: false },
+  Thu: { index: 3, displayName: 'Thursday', isWeekend: false },
+  Fri: { index: 4, displayName: 'Friday', isWeekend: false },
+  Sat: { index: 5, displayName: 'Saturday', isWeekend: true },
+  Sun: { index: 6, displayName: 'Sunday', isWeekend: true },
 } as const
 
 /** Predefined day combinations for common calendar configurations */
@@ -41,7 +41,7 @@ export const DAY_COMBINATIONS = {
   /** Saturday and Sunday - weekend days */
   weekends: ['Sat', 'Sun'] as WeekDay[],
   /** All seven days - complete week */
-  full: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as WeekDay[]
+  full: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as WeekDay[],
 } as const
 
 /** Configuration for what information to display on course cards */
@@ -143,7 +143,7 @@ export const DEFAULT_CALENDAR_CONFIG: CalendarLayoutConfig = {
     showLocation: true,
     showInstructor: false,
   },
-  showWeekends: false
+  showWeekends: false,
 }
 
 /**
@@ -174,7 +174,7 @@ export function isWeekend(day: WeekDay): boolean {
  * Uses binary logic: if ANY weekend course exists, show full week.
  */
 export function hasWeekendCourses(events: Array<{ day: number }>): boolean {
-  return events.some(event => event.day === 5 || event.day === 6) // Saturday=5, Sunday=6
+  return events.some((event) => event.day === 5 || event.day === 6) // Saturday=5, Sunday=6
 }
 
 /**
@@ -200,6 +200,6 @@ export function getCalendarConfigWithWeekends(includeWeekends: boolean): Calenda
   return {
     ...DEFAULT_CALENDAR_CONFIG,
     activeDays: includeWeekends ? DAY_COMBINATIONS.full : DAY_COMBINATIONS.weekdays,
-    showWeekends: includeWeekends
+    showWeekends: includeWeekends,
   }
 }

@@ -8,19 +8,27 @@ export default function FeedbackButton() {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleGoogleForm = () => {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdZKaf1DMjIrnfRTBzFPGqHSHXHBBKOQarrxQCRoj_uy-ZD1g/viewform', '_blank', 'noopener,noreferrer')
+    window.open(
+      'https://docs.google.com/forms/d/e/1FAIpQLSdZKaf1DMjIrnfRTBzFPGqHSHXHBBKOQarrxQCRoj_uy-ZD1g/viewform',
+      '_blank',
+      'noopener,noreferrer'
+    )
     setIsOpen(false)
   }
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n")
+    const message = encodeURIComponent(
+      'Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n'
+    )
     window.open(`https://wa.me/64886152?text=${message}`, '_blank', 'noopener,noreferrer')
     setIsOpen(false)
   }
 
   const handleEmail = () => {
-    const subject = encodeURIComponent("Another CUHK Course Planner Feedback")
-    const body = encodeURIComponent("Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n")
+    const subject = encodeURIComponent('Another CUHK Course Planner Feedback')
+    const body = encodeURIComponent(
+      'Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n'
+    )
     window.open(`mailto:1155194751@link.cuhk.edu.hk?subject=${subject}&body=${body}`, '_self')
     setIsOpen(false)
   }
@@ -39,10 +47,7 @@ export default function FeedbackButton() {
 
       {isOpen && (
         <>
-          <div
-            className="fixed inset-0 z-[55] cursor-pointer"
-            onClick={() => setIsOpen(false)}
-          />
+          <div className="fixed inset-0 z-[55] cursor-pointer" onClick={() => setIsOpen(false)} />
 
           <div className="absolute bottom-full right-0 mb-2 z-[60] bg-white border border-gray-200 rounded-lg shadow-lg min-w-[240px]">
             <div className="p-2 border-b border-gray-100">

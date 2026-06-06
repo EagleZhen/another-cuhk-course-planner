@@ -3,7 +3,12 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Monitor } from 'lucide-react'
-import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
+import {
+  MOBILE_BREAKPOINT,
+  NOTICE_STORAGE_KEY,
+  NOTICE_VERSION,
+  NOTICE_IMAGE_LOADED_EVENT,
+} from '@/lib/constants'
 
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
@@ -49,7 +54,8 @@ export default function MobileDesktopNotice() {
             <h2 className="text-base font-bold text-gray-900">Better on Computer</h2>
           </div>
           <p className="text-gray-600 text-sm">
-            This tool works best on desktop with side-by-side layout, live preview, and clearer display of course information.
+            This tool works best on desktop with side-by-side layout, live preview, and clearer
+            display of course information.
           </p>
         </div>
 

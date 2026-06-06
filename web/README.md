@@ -12,12 +12,12 @@ For full local setup, data publishing, and development workflow, see [../docs/de
 
 Run these from `web/`:
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the local Next.js dev server. |
+| Command             | Purpose                                              |
+| ------------------- | ---------------------------------------------------- |
+| `npm run dev`       | Start the local Next.js dev server.                  |
 | `npm run typecheck` | Run TypeScript checks without emitting build output. |
-| `npm run lint` | Run ESLint on the web app source. |
-| `npm run build` | Create a production build. |
+| `npm run lint`      | Run ESLint on the web app source.                    |
+| `npm run build`     | Create a production build.                           |
 
 ## Course Data
 

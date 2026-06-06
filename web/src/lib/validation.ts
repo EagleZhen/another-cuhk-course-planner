@@ -2,7 +2,14 @@
 // Isolated boundary between external data and internal types
 
 import { z } from 'zod'
-import type { InternalCourse, InternalTerm, InternalSection, InternalMeeting, SectionAvailability, SectionType } from './types'
+import type {
+  InternalCourse,
+  InternalTerm,
+  InternalSection,
+  InternalMeeting,
+  SectionAvailability,
+  SectionType,
+} from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 
 // External data schemas (for runtime validation)
@@ -10,7 +17,7 @@ const ExternalMeetingSchema = z.object({
   time: z.string().optional().default('TBA'),
   location: z.string().optional().default('TBA'),
   instructor: z.string().optional().default('TBA'),
-  dates: z.string().optional().default('TBA')
+  dates: z.string().optional().default('TBA'),
 })
 
 const ExternalAvailabilitySchema = z.object({
@@ -19,7 +26,7 @@ const ExternalAvailabilitySchema = z.object({
   status: z.string().optional().default('Unknown'),
   available_seats: z.string().optional().default('0'),
   waitlist_capacity: z.string().optional().default('0'),
-  waitlist_total: z.string().optional().default('0')
+  waitlist_total: z.string().optional().default('0'),
 })
 
 const ExternalSectionSchema = z.object({
@@ -31,15 +38,15 @@ const ExternalSectionSchema = z.object({
     status: 'Unknown',
     available_seats: '0',
     waitlist_capacity: '0',
-    waitlist_total: '0'
+    waitlist_total: '0',
   }),
-  class_attributes: z.string().default("") // Language of instruction
+  class_attributes: z.string().default(''), // Language of instruction
 })
 
 const ExternalTermSchema = z.object({
   term_code: z.string(),
   term_name: z.string(),
-  schedule: z.array(ExternalSectionSchema).optional().default([])
+  schedule: z.array(ExternalSectionSchema).optional().default([]),
 })
 
 const ExternalCourseSchema = z.object({
@@ -58,16 +65,16 @@ const ExternalCourseSchema = z.object({
   assessment_types: z.record(z.string(), z.string()).optional(),
   feedback_evaluation: z.string().optional(),
   required_readings: z.string().optional(),
-  recommended_readings: z.string().optional()
+  recommended_readings: z.string().optional(),
 })
 
 // Course data file schema
 const ExternalCourseDataSchema = z.object({
   metadata: z.object({
     subject: z.string(),
-    total_courses: z.number()
+    total_courses: z.number(),
   }),
-  courses: z.array(ExternalCourseSchema)
+  courses: z.array(ExternalCourseSchema),
 })
 
 // Type inference from schemas
@@ -77,8 +84,9 @@ export type ExternalCourse = z.infer<typeof ExternalCourseSchema>
 // Section type parsing and validation - now configuration-driven
 function parseSectionType(sectionCode: string): SectionType {
   // Build regex patterns dynamically from configuration
-  const allAliases = Object.entries(SECTION_TYPE_CONFIG)
-    .flatMap(([type, config]) => config.aliases.map(alias => ({ alias, type })))
+  const allAliases = Object.entries(SECTION_TYPE_CONFIG).flatMap(([type, config]) =>
+    config.aliases.map((alias) => ({ alias, type }))
+  )
 
   const aliasPattern = allAliases.map(({ alias }) => alias).join('|')
 
@@ -89,7 +97,7 @@ function parseSectionType(sectionCode: string): SectionType {
     const foundAlias = dashMatch[1]
     // Find which type this alias belongs to
     const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
-    return typeEntry?.type as SectionType || 'UNK'
+    return (typeEntry?.type as SectionType) || 'UNK'
   }
 
   // Pattern 2: TYPE at start (like "LEC A", "TUT 1")
@@ -99,7 +107,7 @@ function parseSectionType(sectionCode: string): SectionType {
     const foundAlias = startMatch[1]
     // Find which type this alias belongs to
     const typeEntry = allAliases.find(({ alias }) => alias === foundAlias)
-    return typeEntry?.type as SectionType || 'UNK'
+    return (typeEntry?.type as SectionType) || 'UNK'
   }
 
   // Log unrecognized section codes for debugging and pattern improvement
@@ -108,7 +116,9 @@ function parseSectionType(sectionCode: string): SectionType {
 }
 
 // Transform external availability to internal
-function transformAvailability(external: z.infer<typeof ExternalAvailabilitySchema>): SectionAvailability {
+function transformAvailability(
+  external: z.infer<typeof ExternalAvailabilitySchema>
+): SectionAvailability {
   const capacity = parseInt(external.capacity) || 0
   const enrolled = parseInt(external.enrolled) || 0
   const availableSeats = parseInt(external.available_seats)
@@ -126,7 +136,7 @@ function transformAvailability(external: z.infer<typeof ExternalAvailabilitySche
     status,
     availableSeats,
     waitlistCapacity,
-    waitlistTotal
+    waitlistTotal,
   }
 }
 
@@ -136,12 +146,15 @@ function transformMeeting(external: z.infer<typeof ExternalMeetingSchema>): Inte
     time: external.time || 'TBA',
     location: external.location || 'TBA',
     instructors: external.instructor || 'TBA',
-    dates: external.dates || 'TBA'
+    dates: external.dates || 'TBA',
   }
 }
 
 // Transform external section to internal
-function transformSection(external: z.infer<typeof ExternalSectionSchema>, courseKey: string): InternalSection {
+function transformSection(
+  external: z.infer<typeof ExternalSectionSchema>,
+  courseKey: string
+): InternalSection {
   const sectionType = parseSectionType(external.section)
   const meetings = (external.meetings || []).map(transformMeeting)
   const availability = transformAvailability(external.availability)
@@ -152,20 +165,21 @@ function transformSection(external: z.infer<typeof ExternalSectionSchema>, cours
     sectionType,
     meetings,
     availability,
-    classAttributes: (external.class_attributes || "").trim() // Transform to camelCase, clean whitespace
+    classAttributes: (external.class_attributes || '').trim(), // Transform to camelCase, clean whitespace
   }
 }
 
 // Transform external term to internal
-function transformTerm(external: z.infer<typeof ExternalTermSchema>, courseKey: string): InternalTerm {
-  const sections = (external.schedule || []).map(section =>
-    transformSection(section, courseKey)
-  )
+function transformTerm(
+  external: z.infer<typeof ExternalTermSchema>,
+  courseKey: string
+): InternalTerm {
+  const sections = (external.schedule || []).map((section) => transformSection(section, courseKey))
 
   return {
     termCode: external.term_code,
     termName: external.term_name,
-    sections
+    sections,
   }
 }
 
@@ -177,9 +191,7 @@ export function transformExternalCourse(external: unknown): InternalCourse {
     const courseKey = `${validated.subject}${validated.course_code}`
 
     // Transform to internal types
-    const terms = (validated.terms || []).map(term =>
-      transformTerm(term, courseKey)
-    )
+    const terms = (validated.terms || []).map((term) => transformTerm(term, courseKey))
 
     // Parse and validate credits
     let credits = 0.0 // Default value
@@ -206,7 +218,7 @@ export function transformExternalCourse(external: unknown): InternalCourse {
       assessmentTypes: validated.assessment_types,
       feedbackEvaluation: validated.feedback_evaluation,
       requiredReadings: validated.required_readings,
-      recommendedReadings: validated.recommended_readings
+      recommendedReadings: validated.recommended_readings,
     }
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -230,9 +242,9 @@ export function transformExternalCourseData(external: unknown): {
     return {
       metadata: {
         subject: validated.metadata.subject,
-        totalCourses: validated.metadata.total_courses
+        totalCourses: validated.metadata.total_courses,
       },
-      courses
+      courses,
     }
   } catch (error) {
     if (error instanceof z.ZodError) {

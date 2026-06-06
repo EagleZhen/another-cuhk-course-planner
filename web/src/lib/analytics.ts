@@ -136,5 +136,5 @@ export const analytics = {
       slowest_time_ms: stats.slowestTimeMs,
       avg_time_ms: stats.avgTimeMs,
     })
-  }
+  },
 }

@@ -48,11 +48,13 @@ links      (authoritative) (optional)      (enrollment)
 ```
 
 **Detail Page** extracts:
+
 - Course code & title (authoritative)
 - Credits, description, requirements
 - Academic info, grading basis
 
 **Outcome Page** extracts (optional):
+
 - Learning outcomes, syllabus
 - Assessment types, readings
 
@@ -62,19 +64,24 @@ links      (authoritative) (optional)      (enrollment)
 
 ### 1. Future-Dated Courses
 
-Courses marked "** available as of [date]" have special formatting.
+Courses marked "\*\* available as of [date]" have special formatting.
 
 **Example**: PHED1370 (Archery)
 
 **List page**:
+
 ```html
-<a>(1370)</a>  <!-- Brackets! -->
-<a>Archery ** available as of 2026-07-01</a>  <!-- Remark! -->
+<a>(1370)</a>
+<!-- Brackets! -->
+<a>Archery ** available as of 2026-07-01</a>
+<!-- Remark! -->
 ```
 
 **Outcome page**:
+
 ```html
-<span id="uc_course_outcome_lbl_course"> - </span>  <!-- Just a dash! -->
+<span id="uc_course_outcome_lbl_course"> - </span>
+<!-- Just a dash! -->
 ```
 
 **Solution**: Extract from detail page (clean), validation accepts dash headers.
@@ -84,6 +91,7 @@ Courses marked "** available as of [date]" have special formatting.
 CUHK returns `<title>System error</title>` for ~8% of outcome requests.
 
 **Behavior**:
+
 - Don't retry (permanent database issue)
 - Track in `logs/summary/failed_course_outcomes.txt` for manual review
 
@@ -112,6 +120,7 @@ Outcome pages use **3-check validation**:
 ### Network Errors: Infinite Retry ✅
 
 `_robust_request()` retries indefinitely for:
+
 - ConnectionError, Timeout, ConnectionResetError
 - HTTP 502/503/504 (server overload)
 - Exponential backoff (1s → 2s → 4s → max 60s)
@@ -168,6 +177,7 @@ cat logs/summary/failed_course_outcomes.txt
 ## Configuration
 
 **Production** (default):
+
 ```python
 ScrapingConfig.for_production()
 # - Unlimited courses
@@ -177,6 +187,7 @@ ScrapingConfig.for_production()
 ```
 
 **Testing**:
+
 ```python
 ScrapingConfig()  # Defaults
 # - Max 3 courses per subject

@@ -34,7 +34,7 @@ export interface InternalSection {
   availability: SectionAvailability
   classAttributes: string // Language of instruction (e.g., "English only", "Putonghua and English", or "")
   // Sync status fields (for sections that may no longer exist)
-  isInvalid?: boolean     // True if this section no longer exists in fresh data
+  isInvalid?: boolean // True if this section no longer exists in fresh data
 }
 
 export interface InternalMeeting {
@@ -55,26 +55,26 @@ export interface SectionAvailability {
 
 // Centralized section type configuration - SINGLE SOURCE OF TRUTH
 export const SECTION_TYPE_CONFIG = {
-  'ASB': { displayName: 'Assembly', icon: '🦻', aliases: ['ASB'] },
-  'CLW': { displayName: 'Classwork', icon: '✍️', aliases: ['CLW'] },
-  'DIS': { displayName: 'Discussion', icon: '💬', aliases: ['DIS'] },
-  'EXR': { displayName: 'Exercise', icon: '✏️', aliases: ['EXR'] },
-  'FLD': { displayName: 'Field Study', icon: '🌍', aliases: ['FLD'] },
-  'IND': { displayName: 'Independent Study', icon: '🧑‍🎓', aliases: ['IND'] },
-  'LAB': { displayName: 'Laboratory', icon: '🧪', aliases: ['LAB'] },
-  'LEC': { displayName: 'Lecture', icon: '🧑‍🏫', aliases: ['LEC'] },
-  'OTH': { displayName: 'Other', icon: '?', aliases: ['OTH'] },
-  'PRA': { displayName: 'Practicum', icon: '💪', aliases: ['PRA'] },
-  'PRJ': { displayName: 'Project', icon: '🚀', aliases: ['PRJ'] },
-  'SEM': { displayName: 'Seminar', icon: '🗣️', aliases: ['SEM'] },
-  'STD': { displayName: 'Studio', icon: '🎨', aliases: ['STD'] },
-  'TMC': { displayName: 'Thesis Monitoring', icon: '📝', aliases: ['TMC'] },
-  'TUT': { displayName: 'Interactive Tutorial', icon: '🙌', aliases: ['TUT'] },
-  'VST': { displayName: 'Visit', icon: '👁️', aliases: ['VST'] },
-  'WBL': { displayName: 'Web-enhanced Teaching', icon: '💻', aliases: ['WBL'] },
-  'WKS': { displayName: 'Workshop', icon: '🔨', aliases: ['WKS'] },
+  ASB: { displayName: 'Assembly', icon: '🦻', aliases: ['ASB'] },
+  CLW: { displayName: 'Classwork', icon: '✍️', aliases: ['CLW'] },
+  DIS: { displayName: 'Discussion', icon: '💬', aliases: ['DIS'] },
+  EXR: { displayName: 'Exercise', icon: '✏️', aliases: ['EXR'] },
+  FLD: { displayName: 'Field Study', icon: '🌍', aliases: ['FLD'] },
+  IND: { displayName: 'Independent Study', icon: '🧑‍🎓', aliases: ['IND'] },
+  LAB: { displayName: 'Laboratory', icon: '🧪', aliases: ['LAB'] },
+  LEC: { displayName: 'Lecture', icon: '🧑‍🏫', aliases: ['LEC'] },
+  OTH: { displayName: 'Other', icon: '?', aliases: ['OTH'] },
+  PRA: { displayName: 'Practicum', icon: '💪', aliases: ['PRA'] },
+  PRJ: { displayName: 'Project', icon: '🚀', aliases: ['PRJ'] },
+  SEM: { displayName: 'Seminar', icon: '🗣️', aliases: ['SEM'] },
+  STD: { displayName: 'Studio', icon: '🎨', aliases: ['STD'] },
+  TMC: { displayName: 'Thesis Monitoring', icon: '📝', aliases: ['TMC'] },
+  TUT: { displayName: 'Interactive Tutorial', icon: '🙌', aliases: ['TUT'] },
+  VST: { displayName: 'Visit', icon: '👁️', aliases: ['VST'] },
+  WBL: { displayName: 'Web-enhanced Teaching', icon: '💻', aliases: ['WBL'] },
+  WKS: { displayName: 'Workshop', icon: '🔨', aliases: ['WKS'] },
   // Unrecognized section types
-  'UNK': { displayName: 'Unknown', icon: '❓', aliases: ['UNKNOWN'] },
+  UNK: { displayName: 'Unknown', icon: '❓', aliases: ['UNKNOWN'] },
 } as const
 
 // Derive the type from the config keys - automatically stays in sync
@@ -88,9 +88,9 @@ export interface CourseEnrollment {
   color: string
   isVisible: boolean
   // Sync status fields
-  isInvalid?: boolean           // True if course/sections no longer exist
-  invalidReason?: string        // Human-readable reason for invalidity
-  lastSynced?: Date            // When this enrollment was last synced with fresh data
+  isInvalid?: boolean // True if course/sections no longer exist
+  invalidReason?: string // Human-readable reason for invalidity
+  lastSynced?: Date // When this enrollment was last synced with fresh data
 }
 
 // Calendar event using clean internal types
@@ -154,5 +154,5 @@ export interface SectionTypeGroup {
   displayName: string
   icon: string
   sections: InternalSection[]
-  priority: number  // Lower number = higher priority (0 = highest)
+  priority: number // Lower number = higher priority (0 = highest)
 }
