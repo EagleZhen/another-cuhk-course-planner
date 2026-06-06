@@ -311,7 +311,7 @@ export default function WeeklyCalendar({
 
     // Confirm before processing
     const proceed = confirm(
-      'This will modifiy the selected .ics file, which adds "STATUS:CANCELLED" to each of the calendar events in the file.\n\n' +
+      'This will modify the selected .ics file, which adds "STATUS:CANCELLED" to each of the calendar events in the file.\n\n' +
         'When you re-import the UNDO .ics file to your calendar, all events will be automatically removed, essentially undoing the previous import.\n\n' +
         'Click OK to generate the UNDO file.'
     )
