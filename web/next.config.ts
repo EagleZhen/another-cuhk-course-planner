@@ -5,6 +5,10 @@ const allowedDevOrigins = process.env.ALLOWED_DEV_ORIGINS?.split(',')
   .filter(Boolean)
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: process.cwd(),
+  },
+
   ...(process.env.NODE_ENV === 'development' && allowedDevOrigins?.length
     ? { allowedDevOrigins }
     : {}),
