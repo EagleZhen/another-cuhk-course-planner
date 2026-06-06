@@ -74,14 +74,14 @@ def test_captcha_validation():
 
     try:
         # Test with invalid captcha response
-        with open('tests/sample-webpages/Invalid Verification Code - AENP.html', 'r', encoding='utf-8') as f:
+        with open('lab/scraper/samples/webpages/Invalid Verification Code - AENP.html', 'r', encoding='utf-8') as f:
             invalid_html = f.read()
 
         validation = scraper._validate_captcha_response(invalid_html)
         logger.info(f"Invalid captcha validation: {validation}")
 
         # Test with no records response
-        with open('tests/sample-webpages/No record found - AENP.html', 'r', encoding='utf-8') as f:
+        with open('lab/scraper/samples/webpages/No record found - AENP.html', 'r', encoding='utf-8') as f:
             no_records_html = f.read()
 
         validation = scraper._validate_captcha_response(no_records_html)

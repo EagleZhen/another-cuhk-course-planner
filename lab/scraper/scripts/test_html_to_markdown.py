@@ -11,13 +11,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def read_test_html():
     """Read the test HTML file"""
-    test_file = "tests/sample-webpages/Course Syllabus - List + Table.html"
+    test_file = "lab/scraper/samples/webpages/Course Syllabus - List + Table.html"
     with open(test_file, 'r', encoding='utf-8') as f:
         return f.read()
 
 def save_output(method_name, content):
-    """Save conversion output to /tests/output/"""
-    output_dir = "tests/output"
+    """Save conversion output to /lab/scraper/outputs/"""
+    output_dir = "lab/scraper/outputs"
     os.makedirs(output_dir, exist_ok=True)
 
     output_file = f"{output_dir}/{method_name}_output.md"

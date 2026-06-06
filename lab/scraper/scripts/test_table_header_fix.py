@@ -11,7 +11,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def read_markdownify_output():
     """Read the markdownify output file"""
-    output_file = "tests/output/markdownify_output.md"
+    output_file = "lab/scraper/outputs/markdownify_output.md"
     with open(output_file, 'r', encoding='utf-8') as f:
         return f.read()
 
@@ -82,7 +82,7 @@ def test_header_fix():
         print()
 
         # Save fixed output
-        output_dir = "tests/output"
+        output_dir = "lab/scraper/outputs"
         os.makedirs(output_dir, exist_ok=True)
 
         fixed_file = f"{output_dir}/markdownify_fixed.md"

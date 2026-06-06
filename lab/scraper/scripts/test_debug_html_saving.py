@@ -18,13 +18,13 @@ def test_debug_html_saving():
     print('This will test if sections and class details HTML files are saved')
 
     # Clear old debug files
-    debug_files_before = set(f for f in os.listdir('tests/output') if f.endswith('.html'))
+    debug_files_before = set(f for f in os.listdir('lab/scraper/outputs') if f.endswith('.html'))
 
     # Run scraping with enrollment details to trigger section clicking
     results = scraper.scrape_all_subjects(['CSCI'], get_details=True, get_enrollment_details=True, config=config)
 
     # Check what new debug files were created
-    debug_files_after = set(f for f in os.listdir('tests/output') if f.endswith('.html'))
+    debug_files_after = set(f for f in os.listdir('lab/scraper/outputs') if f.endswith('.html'))
     new_files = debug_files_after - debug_files_before
 
     print(f'\n=== Debug Files Created ===')

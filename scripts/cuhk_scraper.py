@@ -33,14 +33,14 @@ class ScrapingConfig:
     max_courses_per_subject: Optional[int] = 3  # None = unlimited
     save_debug_files: bool = True  # Save HTML files for debugging
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
-    debug_html_directory: str = "tests/output/debug_html"  # Separate from JSON results
+    debug_html_directory: str = "lab/scraper/outputs/debug_html"  # Separate from JSON results
     request_delay: float = 2.0
     max_retries: int = 5
     output_mode: str = "single_file"  # "single_file" or "per_subject"
-    output_directory: str = "tests/output"  # testing default
+    output_directory: str = "lab/scraper/outputs"  # testing default
     track_progress: bool = False  # Progress tracking for production
     # Progress log filename (use os.path.join for production)
-    progress_file: str = "tests/output/scraping_progress.json"
+    progress_file: str = "lab/scraper/outputs/scraping_progress.json"
     progress_update_interval: int = 60  # Save progress every N seconds
 
     # Scraping scope configuration
@@ -57,7 +57,7 @@ class ScrapingConfig:
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,  # No debug files in production
             save_debug_on_error=True,  # Only save HTML on parsing errors
-            debug_html_directory="tests/output/debug_html",  # Separate debug folder
+            debug_html_directory="lab/scraper/outputs/debug_html",  # Separate debug folder
             request_delay=1.0,
             max_retries=10,
             output_mode="per_subject",  # Per-subject files for production
