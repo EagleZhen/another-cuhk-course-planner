@@ -45,7 +45,7 @@ Install Python dependencies from the repository root:
 poetry install --no-root
 ```
 
-Install Git hooks for Python formatting/linting and basic source-file whitespace cleanup:
+Install Git hooks for automatic formatting, Python linting, and basic source-file hygiene:
 
 ```bash
 poetry run pre-commit install
@@ -68,9 +68,11 @@ npm install
 
 Use the configured tools instead of formatting or checking files by hand.
 
-Prettier is the repo-wide formatting standard for text and source files such as TypeScript, JavaScript, JSON, CSS, and Markdown. The exact rules live in `.prettierrc.json`, and intentionally ignored generated or vendor files live in `.prettierignore`.
+Prettier is the repo-wide formatting standard for supported text and source files such as TypeScript, JavaScript, JSON, YAML, and Markdown. The exact rules live in `.prettierrc.json`, and intentionally ignored generated or vendor files live in `.prettierignore`.
 
-Run Prettier from the repository root:
+Pre-commit runs Prettier automatically on supported staged files when you commit.
+
+To format the whole repository manually, run from the repository root:
 
 ```bash
 npm run format
@@ -82,7 +84,7 @@ To check formatting without changing files:
 npm run format:check
 ```
 
-Python files in `scripts/` are handled by the pre-commit hooks, using Ruff, Ruff format, and isort. Web app linting and type checks live in `web/package.json`.
+Python files in `scripts/` are handled by the pre-commit hooks, using Ruff, Ruff format, and isort. Web app linting and type checks live in `web/package.json` and are still run manually.
 
 Generated source files should ideally be emitted in the expected format by their generator. Avoid excluding generated files only because the generator produces slightly different style.
 
@@ -197,7 +199,7 @@ Run these from `web/`:
 | `npm run lint`      | Run ESLint on the web app source.                      |
 | `npm run build`     | Verify the production build.                           |
 
-If Git hooks were installed with `poetry run pre-commit install`, the configured hooks run automatically on commit. Current hooks cover Python formatting/linting for `scripts/*.py` and basic whitespace/end-of-file cleanup for selected source files. To run the hooks manually before committing:
+If Git hooks were installed with `poetry run pre-commit install`, the configured hooks run automatically on commit. Current hooks cover Prettier formatting for supported staged files, Python formatting/linting for `scripts/*.py`, JSON/YAML checks, merge-conflict checks, and basic whitespace/end-of-file cleanup for selected source files. To run the hooks manually before committing:
 
 ```bash
 poetry run pre-commit run
