@@ -14,6 +14,15 @@ repos:
       - id: isort
         files: '^scripts/.*\.py$'
 
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx --no-install prettier --write
+        language: system
+        files: '\.(js|jsx|ts|tsx|mjs|md|json|ya?ml|css)$'
+        exclude: '^(data/|web/public/data/|docs/archived/|tests/)'
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -23,7 +32,7 @@ repos:
       - id: check-merge-conflict
       - id: check-yaml
       - id: trailing-whitespace
-        files: &source_text_files '(^\.editorconfig$|\.(py|js|jsx|ts|tsx|mjs|md|json|ya?ml)$)'
+        files: &source_text_files '(^\.editorconfig$|\.(py|js|jsx|ts|tsx|mjs|md|json|ya?ml|css)$)'
         exclude: '^(data/|web/public/data/|docs/archived/|tests/)'
       - id: end-of-file-fixer
         files: *source_text_files
