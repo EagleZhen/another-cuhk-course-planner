@@ -11,7 +11,7 @@ import type {
   InternalMeeting,
   SectionAvailability,
   SectionType,
-  SectionTypeGroup
+  SectionTypeGroup,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { createEvents } from 'ics'
@@ -23,15 +23,15 @@ import moment from 'moment-timezone'
  */
 function extractSectionType(sectionCode: string): string {
   const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
-  const foundType = sectionTypes.find(type =>
-    sectionCode.includes(type) ||
-    SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some(alias =>
-      sectionCode.includes(alias)
-    )
+  const foundType = sectionTypes.find(
+    (type) =>
+      sectionCode.includes(type) ||
+      SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some((alias) =>
+        sectionCode.includes(alias)
+      )
   )
   return foundType || '?'
 }
-
 
 /**
  * Parse time string like "Mo 14:30 - 15:15" or "Sa 2:00PM - 5:15PM" into structured time range
@@ -67,7 +67,7 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
       startHour,
       startMinute,
       endHour,
-      endMinute
+      endMinute,
     }
   }
 
@@ -89,7 +89,7 @@ export function parseTimeRange(timeStr: string): TimeRange | null {
       startHour,
       startMinute,
       endHour,
-      endMinute
+      endMinute,
     }
   }
 
@@ -114,9 +114,9 @@ export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
  * Detect conflicts among calendar events and return events with hasConflict flag
  */
 export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
-  const visibleEvents = events.filter(event => event.isVisible)
+  const visibleEvents = events.filter((event) => event.isVisible)
 
-  return events.map(event => {
+  return events.map((event) => {
     if (!event.isVisible) {
       return { ...event, hasConflict: false }
     }
@@ -126,7 +126,7 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
       return { ...event, hasConflict: false }
     }
 
-    const hasConflict = visibleEvents.some(other => {
+    const hasConflict = visibleEvents.some((other) => {
       if (other.id === event.id) return false
 
       const otherTime = parseTimeRange(other.time)
@@ -146,10 +146,10 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
   const events: CalendarEvent[] = []
 
   enrollments
-    .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
-    .forEach(enrollment => {
-      enrollment.selectedSections.forEach(section => {
-        section.meetings.forEach(meeting => {
+    .filter((enrollment) => enrollment.isVisible && !enrollment.isInvalid)
+    .forEach((enrollment) => {
+      enrollment.selectedSections.forEach((section) => {
+        section.meetings.forEach((meeting) => {
           const timeRange = parseTimeRange(meeting.time)
           const dayIndex = getDayIndex(meeting.time)
 
@@ -177,7 +177,7 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
             startHour: timeRange?.startHour || 9,
             endHour: timeRange?.endHour || 10,
             startMinute: timeRange?.startMinute || 0,
-            endMinute: timeRange?.endMinute || 0
+            endMinute: timeRange?.endMinute || 0,
           })
         })
       })
@@ -201,10 +201,10 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
   }> = []
 
   enrollments
-    .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
-    .forEach(enrollment => {
-      enrollment.selectedSections.forEach(section => {
-        section.meetings.forEach(meeting => {
+    .filter((enrollment) => enrollment.isVisible && !enrollment.isInvalid)
+    .forEach((enrollment) => {
+      enrollment.selectedSections.forEach((section) => {
+        section.meetings.forEach((meeting) => {
           const timeRange = parseTimeRange(meeting.time)
           const dayIndex = getDayIndex(meeting.time)
 
@@ -213,7 +213,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
             unscheduledSections.push({
               enrollment,
               section,
-              meeting
+              meeting,
             })
           }
         })
@@ -233,8 +233,8 @@ export function getDayIndex(timeStr: string): number {
   if (timeStr.includes('We')) return 2
   if (timeStr.includes('Th')) return 3
   if (timeStr.includes('Fr')) return 4
-  if (timeStr.includes('Sa')) return 5  // Saturday support
-  if (timeStr.includes('Su')) return 6  // Sunday support
+  if (timeStr.includes('Sa')) return 5 // Saturday support
+  if (timeStr.includes('Su')) return 6 // Sunday support
   return -1 // Return -1 for times without valid day info (TBA, etc.)
 }
 
@@ -288,17 +288,17 @@ export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
   const zones: ConflictZone[] = []
   const eventGroups = groupOverlappingEvents(events)
 
-  eventGroups.forEach(group => {
+  eventGroups.forEach((group) => {
     if (group.length > 1) {
       // Find the time range that covers all conflicting events
-      const minStart = Math.min(...group.map(e => e.startHour * 60 + e.startMinute))
-      const maxEnd = Math.max(...group.map(e => e.endHour * 60 + e.endMinute))
+      const minStart = Math.min(...group.map((e) => e.startHour * 60 + e.startMinute))
+      const maxEnd = Math.max(...group.map((e) => e.endHour * 60 + e.endMinute))
 
       zones.push({
         startHour: Math.floor(minStart / 60),
         startMinute: minStart % 60,
         endHour: Math.floor(maxEnd / 60),
-        endMinute: maxEnd % 60
+        endMinute: maxEnd % 60,
       })
     }
   })
@@ -311,7 +311,7 @@ export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
  * Uses data-driven ordering based on scraped JSON order (reflects official catalog)
  */
 export function parseSectionTypes(course: InternalCourse, termName: string): SectionTypeGroup[] {
-  const term = course.terms.find(t => t.termName === termName)
+  const term = course.terms.find((t) => t.termName === termName)
   if (!term?.sections) return []
 
   // Track first occurrence index for natural ordering + group sections by type
@@ -340,7 +340,7 @@ export function parseSectionTypes(course: InternalCourse, termName: string): Sec
       displayName: getSectionTypeName(type),
       icon: getSectionTypeIcon(type),
       sections,
-      priority: index  // First in data order = highest priority (0)
+      priority: index, // First in data order = highest priority (0)
     }))
 }
 
@@ -376,9 +376,9 @@ export function isCourseEnrollmentComplete(
   // Get currently selected sections (actual InternalSection objects)
   const currentlySelected: InternalSection[] = []
   for (const [sectionType, sectionId] of localSelections) {
-    const typeGroup = sectionTypes.find(t => t.type === sectionType)
+    const typeGroup = sectionTypes.find((t) => t.type === sectionType)
     if (typeGroup) {
-      const section = typeGroup.sections.find(s => s.id === sectionId)
+      const section = typeGroup.sections.find((s) => s.id === sectionId)
       if (section) {
         currentlySelected.push(section)
       }
@@ -388,14 +388,14 @@ export function isCourseEnrollmentComplete(
   // For each section type, check if:
   // 1. User has selected it, OR
   // 2. No compatible sections exist for this type given current selections
-  return sectionTypes.every(typeGroup => {
+  return sectionTypes.every((typeGroup) => {
     const hasSelection = localSelections.has(typeGroup.type)
 
     if (hasSelection) return true // User selected this type
 
     // Check if there are any compatible sections for this type
     // Only consider HIGHER priority selections as constraints (hierarchical)
-    const higherPrioritySelections = currentlySelected.filter(s => {
+    const higherPrioritySelections = currentlySelected.filter((s) => {
       const sPriority = getSectionTypePriority(s.sectionType as SectionType, sectionTypes)
       return sPriority < typeGroup.priority
     })
@@ -422,12 +422,12 @@ export function getSelectedSectionsForCourse(
   const courseKey = `${course.subject}${course.courseCode}`
   const result: InternalSection[] = []
 
-  sectionTypes.forEach(typeGroup => {
+  sectionTypes.forEach((typeGroup) => {
     const selectionKey = `${courseKey}_${typeGroup.type}`
     const selectedSectionId = selectedSections.get(selectionKey)
 
     if (selectedSectionId) {
-      const section = typeGroup.sections.find(s => s.id === selectedSectionId)
+      const section = typeGroup.sections.find((s) => s.id === selectedSectionId)
       if (section) {
         result.push(section)
       }
@@ -441,41 +441,95 @@ export function getSelectedSectionsForCourse(
 // Hardcoded to ensure all classes are included in Tailwind build
 const DETERMINISTIC_COLORS = [
   // Blue family
-  'bg-blue-500', 'bg-blue-600', 'bg-blue-700', 'bg-blue-800',
+  'bg-blue-500',
+  'bg-blue-600',
+  'bg-blue-700',
+  'bg-blue-800',
   // Sky family
-  'bg-sky-500', 'bg-sky-600', 'bg-sky-700', 'bg-sky-800',
+  'bg-sky-500',
+  'bg-sky-600',
+  'bg-sky-700',
+  'bg-sky-800',
   // Cyan family
-  'bg-cyan-500', 'bg-cyan-600', 'bg-cyan-700', 'bg-cyan-800',
+  'bg-cyan-500',
+  'bg-cyan-600',
+  'bg-cyan-700',
+  'bg-cyan-800',
   // Teal family
-  'bg-teal-500', 'bg-teal-600', 'bg-teal-700', 'bg-teal-800',
+  'bg-teal-500',
+  'bg-teal-600',
+  'bg-teal-700',
+  'bg-teal-800',
   // Emerald family
-  'bg-emerald-500', 'bg-emerald-600', 'bg-emerald-700', 'bg-emerald-800',
+  'bg-emerald-500',
+  'bg-emerald-600',
+  'bg-emerald-700',
+  'bg-emerald-800',
   // Green family
-  'bg-green-500', 'bg-green-600', 'bg-green-700', 'bg-green-800',
+  'bg-green-500',
+  'bg-green-600',
+  'bg-green-700',
+  'bg-green-800',
   // Amber family
-  'bg-amber-500', 'bg-amber-600', 'bg-amber-700', 'bg-amber-800',
+  'bg-amber-500',
+  'bg-amber-600',
+  'bg-amber-700',
+  'bg-amber-800',
   // Orange family
-  'bg-orange-500', 'bg-orange-600', 'bg-orange-700', 'bg-orange-800',
+  'bg-orange-500',
+  'bg-orange-600',
+  'bg-orange-700',
+  'bg-orange-800',
   // Pink family
-  'bg-pink-500', 'bg-pink-600', 'bg-pink-700', 'bg-pink-800',
+  'bg-pink-500',
+  'bg-pink-600',
+  'bg-pink-700',
+  'bg-pink-800',
   // Rose family
-  'bg-rose-500', 'bg-rose-600', 'bg-rose-700', 'bg-rose-800',
+  'bg-rose-500',
+  'bg-rose-600',
+  'bg-rose-700',
+  'bg-rose-800',
   // Fuchsia family
-  'bg-fuchsia-500', 'bg-fuchsia-600', 'bg-fuchsia-700', 'bg-fuchsia-800',
+  'bg-fuchsia-500',
+  'bg-fuchsia-600',
+  'bg-fuchsia-700',
+  'bg-fuchsia-800',
   // Purple family
-  'bg-purple-500', 'bg-purple-600', 'bg-purple-700', 'bg-purple-800',
+  'bg-purple-500',
+  'bg-purple-600',
+  'bg-purple-700',
+  'bg-purple-800',
   // Violet family
-  'bg-violet-500', 'bg-violet-600', 'bg-violet-700', 'bg-violet-800',
+  'bg-violet-500',
+  'bg-violet-600',
+  'bg-violet-700',
+  'bg-violet-800',
   // Indigo family
-  'bg-indigo-500', 'bg-indigo-600', 'bg-indigo-700', 'bg-indigo-800',
+  'bg-indigo-500',
+  'bg-indigo-600',
+  'bg-indigo-700',
+  'bg-indigo-800',
   // Slate family
-  'bg-slate-500', 'bg-slate-600', 'bg-slate-700', 'bg-slate-800',
+  'bg-slate-500',
+  'bg-slate-600',
+  'bg-slate-700',
+  'bg-slate-800',
   // Gray family
-  'bg-gray-500', 'bg-gray-600', 'bg-gray-700', 'bg-gray-800',
+  'bg-gray-500',
+  'bg-gray-600',
+  'bg-gray-700',
+  'bg-gray-800',
   // Zinc family
-  'bg-zinc-500', 'bg-zinc-600', 'bg-zinc-700', 'bg-zinc-800',
+  'bg-zinc-500',
+  'bg-zinc-600',
+  'bg-zinc-700',
+  'bg-zinc-800',
   // Stone family
-  'bg-stone-500', 'bg-stone-600', 'bg-stone-700', 'bg-stone-800'
+  'bg-stone-500',
+  'bg-stone-600',
+  'bg-stone-700',
+  'bg-stone-800',
 ] as const
 
 /**
@@ -483,24 +537,78 @@ const DETERMINISTIC_COLORS = [
  */
 export function getComputedBorderColor(bgColor: string): string {
   const colorMap: Record<string, string> = {
-    'bg-blue-500': '#3b82f6', 'bg-blue-600': '#2563eb', 'bg-blue-700': '#1d4ed8', 'bg-blue-800': '#1e40af',
-    'bg-sky-500': '#0ea5e9', 'bg-sky-600': '#0284c7', 'bg-sky-700': '#0369a1', 'bg-sky-800': '#075985',
-    'bg-cyan-500': '#06b6d4', 'bg-cyan-600': '#0891b2', 'bg-cyan-700': '#0e7490', 'bg-cyan-800': '#155e75',
-    'bg-teal-500': '#14b8a6', 'bg-teal-600': '#0d9488', 'bg-teal-700': '#0f766e', 'bg-teal-800': '#115e59',
-    'bg-emerald-500': '#10b981', 'bg-emerald-600': '#059669', 'bg-emerald-700': '#047857', 'bg-emerald-800': '#065f46',
-    'bg-green-500': '#22c55e', 'bg-green-600': '#16a34a', 'bg-green-700': '#15803d', 'bg-green-800': '#166534',
-    'bg-amber-500': '#f59e0b', 'bg-amber-600': '#d97706', 'bg-amber-700': '#b45309', 'bg-amber-800': '#92400e',
-    'bg-orange-500': '#f97316', 'bg-orange-600': '#ea580c', 'bg-orange-700': '#c2410c', 'bg-orange-800': '#9a3412',
-    'bg-pink-500': '#ec4899', 'bg-pink-600': '#db2777', 'bg-pink-700': '#be185d', 'bg-pink-800': '#9d174d',
-    'bg-rose-500': '#f43f5e', 'bg-rose-600': '#e11d48', 'bg-rose-700': '#be123c', 'bg-rose-800': '#9f1239',
-    'bg-fuchsia-500': '#d946ef', 'bg-fuchsia-600': '#c026d3', 'bg-fuchsia-700': '#a21caf', 'bg-fuchsia-800': '#86198f',
-    'bg-purple-500': '#a855f7', 'bg-purple-600': '#9333ea', 'bg-purple-700': '#7c3aed', 'bg-purple-800': '#6b21a8',
-    'bg-violet-500': '#8b5cf6', 'bg-violet-600': '#7c3aed', 'bg-violet-700': '#6d28d9', 'bg-violet-800': '#5b21b6',
-    'bg-indigo-500': '#6366f1', 'bg-indigo-600': '#4f46e5', 'bg-indigo-700': '#4338ca', 'bg-indigo-800': '#3730a3',
-    'bg-slate-500': '#64748b', 'bg-slate-600': '#475569', 'bg-slate-700': '#334155', 'bg-slate-800': '#1e293b',
-    'bg-gray-500': '#6b7280', 'bg-gray-600': '#4b5563', 'bg-gray-700': '#374151', 'bg-gray-800': '#1f2937',
-    'bg-zinc-500': '#71717a', 'bg-zinc-600': '#52525b', 'bg-zinc-700': '#3f3f46', 'bg-zinc-800': '#27272a',
-    'bg-stone-500': '#78716c', 'bg-stone-600': '#57534e', 'bg-stone-700': '#44403c', 'bg-stone-800': '#292524'
+    'bg-blue-500': '#3b82f6',
+    'bg-blue-600': '#2563eb',
+    'bg-blue-700': '#1d4ed8',
+    'bg-blue-800': '#1e40af',
+    'bg-sky-500': '#0ea5e9',
+    'bg-sky-600': '#0284c7',
+    'bg-sky-700': '#0369a1',
+    'bg-sky-800': '#075985',
+    'bg-cyan-500': '#06b6d4',
+    'bg-cyan-600': '#0891b2',
+    'bg-cyan-700': '#0e7490',
+    'bg-cyan-800': '#155e75',
+    'bg-teal-500': '#14b8a6',
+    'bg-teal-600': '#0d9488',
+    'bg-teal-700': '#0f766e',
+    'bg-teal-800': '#115e59',
+    'bg-emerald-500': '#10b981',
+    'bg-emerald-600': '#059669',
+    'bg-emerald-700': '#047857',
+    'bg-emerald-800': '#065f46',
+    'bg-green-500': '#22c55e',
+    'bg-green-600': '#16a34a',
+    'bg-green-700': '#15803d',
+    'bg-green-800': '#166534',
+    'bg-amber-500': '#f59e0b',
+    'bg-amber-600': '#d97706',
+    'bg-amber-700': '#b45309',
+    'bg-amber-800': '#92400e',
+    'bg-orange-500': '#f97316',
+    'bg-orange-600': '#ea580c',
+    'bg-orange-700': '#c2410c',
+    'bg-orange-800': '#9a3412',
+    'bg-pink-500': '#ec4899',
+    'bg-pink-600': '#db2777',
+    'bg-pink-700': '#be185d',
+    'bg-pink-800': '#9d174d',
+    'bg-rose-500': '#f43f5e',
+    'bg-rose-600': '#e11d48',
+    'bg-rose-700': '#be123c',
+    'bg-rose-800': '#9f1239',
+    'bg-fuchsia-500': '#d946ef',
+    'bg-fuchsia-600': '#c026d3',
+    'bg-fuchsia-700': '#a21caf',
+    'bg-fuchsia-800': '#86198f',
+    'bg-purple-500': '#a855f7',
+    'bg-purple-600': '#9333ea',
+    'bg-purple-700': '#7c3aed',
+    'bg-purple-800': '#6b21a8',
+    'bg-violet-500': '#8b5cf6',
+    'bg-violet-600': '#7c3aed',
+    'bg-violet-700': '#6d28d9',
+    'bg-violet-800': '#5b21b6',
+    'bg-indigo-500': '#6366f1',
+    'bg-indigo-600': '#4f46e5',
+    'bg-indigo-700': '#4338ca',
+    'bg-indigo-800': '#3730a3',
+    'bg-slate-500': '#64748b',
+    'bg-slate-600': '#475569',
+    'bg-slate-700': '#334155',
+    'bg-slate-800': '#1e293b',
+    'bg-gray-500': '#6b7280',
+    'bg-gray-600': '#4b5563',
+    'bg-gray-700': '#374151',
+    'bg-gray-800': '#1f2937',
+    'bg-zinc-500': '#71717a',
+    'bg-zinc-600': '#52525b',
+    'bg-zinc-700': '#3f3f46',
+    'bg-zinc-800': '#27272a',
+    'bg-stone-500': '#78716c',
+    'bg-stone-600': '#57534e',
+    'bg-stone-700': '#44403c',
+    'bg-stone-800': '#292524',
   }
   return colorMap[bgColor] || '#6366f1' // fallback to indigo-500
 }
@@ -522,9 +630,9 @@ export function getDeterministicColor(courseCode: string): string {
 
   // MurmurHash3-style finalizer for better distribution
   hash = hash ^ (hash >>> 16)
-  hash = (hash * 0x85ebca6b) >>> 0  // Multiply by well-researched constant
+  hash = (hash * 0x85ebca6b) >>> 0 // Multiply by well-researched constant
   hash = hash ^ (hash >>> 13)
-  hash = (hash * 0xc2b2ae35) >>> 0  // Second mixing constant
+  hash = (hash * 0xc2b2ae35) >>> 0 // Second mixing constant
   hash = hash ^ (hash >>> 16)
 
   return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
@@ -546,7 +654,7 @@ export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[
   })
 
   // Return first meeting from each group (they're identical for display purposes)
-  return Array.from(meetingGroups.values()).map(group => group[0])
+  return Array.from(meetingGroups.values()).map((group) => group[0])
 }
 
 /**
@@ -587,9 +695,12 @@ function formatInstructorCompact(instructor: string): string {
 export function formatInstructorsCompact(instructorString: string): string {
   if (!instructorString) return 'TBA'
 
-  const instructors = instructorString.split(',').map(i => i.trim()).filter(i => i && i !== 'TBA')
+  const instructors = instructorString
+    .split(',')
+    .map((i) => i.trim())
+    .filter((i) => i && i !== 'TBA')
   return instructors.length > 0
-    ? instructors.map(instructor => formatInstructorCompact(instructor)).join(', ')
+    ? instructors.map((instructor) => formatInstructorCompact(instructor)).join(', ')
     : 'TBA'
 }
 
@@ -618,7 +729,11 @@ export function getSectionPrefix(sectionCode: string): string | null {
  *   ("CSCI", "3320", "A-LEC") → "CSCI3320A"
  *   ("CSCI", "3320", "--LEC") → "CSCI3320"
  */
-export function formatCourseCodeWithPrefix(subject: string, courseCode: string, sectionCode: string): string {
+export function formatCourseCodeWithPrefix(
+  subject: string,
+  courseCode: string,
+  sectionCode: string
+): string {
   const prefix = getSectionPrefix(sectionCode) ?? ''
   return `${subject}${courseCode}${prefix}`
 }
@@ -629,7 +744,11 @@ export function formatCourseCodeWithPrefix(subject: string, courseCode: string, 
  *   ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
  *   ("CSCI", "3320", "--LEC") → "CSCI3320 LEC"
  */
-export function formatCourseCodeWithSection(subject: string, courseCode: string, sectionCode: string): string {
+export function formatCourseCodeWithSection(
+  subject: string,
+  courseCode: string,
+  sectionCode: string
+): string {
   const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, sectionCode)
   const sectionType = extractSectionType(sectionCode)
   return `${formattedCode} ${sectionType}`
@@ -643,7 +762,10 @@ export function formatCourseCodeWithSection(subject: string, courseCode: string,
  * - Universal sections can pair with any specific cohort
  * - Specific cohorts can only pair with same cohort or universal sections
  */
-export function areSectionsCompatible(section1: InternalSection, section2: InternalSection): boolean {
+export function areSectionsCompatible(
+  section1: InternalSection,
+  section2: InternalSection
+): boolean {
   const prefix1 = getSectionPrefix(section1.sectionCode)
   const prefix2 = getSectionPrefix(section2.sectionCode)
 
@@ -671,23 +793,23 @@ export function categorizeCompatibleSections(
     return {
       compatible: availableSections,
       incompatible: [],
-      hasNoCompatible: false
+      hasNoCompatible: false,
     }
   }
 
   // Check compatibility with all currently selected sections
-  const compatible = availableSections.filter(candidate =>
-    selectedSections.every(selected => areSectionsCompatible(candidate, selected))
+  const compatible = availableSections.filter((candidate) =>
+    selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
   )
 
-  const incompatible = availableSections.filter(candidate =>
-    !selectedSections.every(selected => areSectionsCompatible(candidate, selected))
+  const incompatible = availableSections.filter(
+    (candidate) => !selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
   )
 
   return {
-    compatible,           // Shorthand property: equivalent to compatible: compatible
-    incompatible,         // Shorthand property: equivalent to incompatible: incompatible
-    hasNoCompatible: compatible.length === 0  // Computed property with boolean expression
+    compatible, // Shorthand property: equivalent to compatible: compatible
+    incompatible, // Shorthand property: equivalent to incompatible: incompatible
+    hasNoCompatible: compatible.length === 0, // Computed property with boolean expression
   }
 }
 
@@ -700,21 +822,21 @@ export function getCompatibleAlternatives(
   enrollment: CourseEnrollment,
   termName: string
 ): InternalSection[] {
-  const currentTerm = enrollment.course.terms.find(t => t.termName === termName)
+  const currentTerm = enrollment.course.terms.find((t) => t.termName === termName)
   if (!currentTerm) return []
 
   // Get sections of same type (LEC → LEC alternatives only)
-  const sameTypeSections = currentTerm.sections.filter(s =>
-    s.sectionType === selectedSection.sectionType &&
-    s.id !== selectedSection.id
+  const sameTypeSections = currentTerm.sections.filter(
+    (s) => s.sectionType === selectedSection.sectionType && s.id !== selectedSection.id
   )
 
   // Filter by compatibility with OTHER selected sections (different types)
-  const otherSelectedSections = enrollment.selectedSections
-    .filter(s => s.sectionType !== selectedSection.sectionType)
+  const otherSelectedSections = enrollment.selectedSections.filter(
+    (s) => s.sectionType !== selectedSection.sectionType
+  )
 
-  return sameTypeSections.filter(candidateSection =>
-    otherSelectedSections.every(otherSection =>
+  return sameTypeSections.filter((candidateSection) =>
+    otherSelectedSections.every((otherSection) =>
       areSectionsCompatible(candidateSection, otherSection)
     )
   )
@@ -727,7 +849,7 @@ export function getSectionTypePriority(
   sectionType: SectionType,
   sectionTypes: SectionTypeGroup[]
 ): number {
-  const typeGroup = sectionTypes.find(group => group.type === sectionType)
+  const typeGroup = sectionTypes.find((group) => group.type === sectionType)
   return typeGroup?.priority ?? 999 // High number = low priority if not found
 }
 
@@ -748,26 +870,30 @@ export function clearIncompatibleLowerSelections(
   const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
 
   // Get the new section object
-  const termData = course.terms.find(t => t.termName === termName)
-  const newSection = termData?.sections.find(s => s.id === newSectionId)
+  const termData = course.terms.find((t) => t.termName === termName)
+  const newSection = termData?.sections.find((s) => s.id === newSectionId)
   if (!newSection) return newMap
 
   // Check all lower-priority section types
   sectionTypes
-    .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
-    .forEach(lowerTypeGroup => {
+    .filter((typeGroup) => typeGroup.priority > changedPriority) // Lower priority (higher number)
+    .forEach((lowerTypeGroup) => {
       const lowerSelectionKey = `${courseKey}_${lowerTypeGroup.type}`
       const currentLowerSelectionId = newMap.get(lowerSelectionKey)
 
       if (currentLowerSelectionId) {
         // Find the currently selected lower section
-        const currentLowerSection = lowerTypeGroup.sections.find(s => s.id === currentLowerSelectionId)
+        const currentLowerSection = lowerTypeGroup.sections.find(
+          (s) => s.id === currentLowerSelectionId
+        )
 
         // Check if it's still compatible with the new higher-priority selection
         if (currentLowerSection && !areSectionsCompatible(newSection, currentLowerSection)) {
           // Clear the incompatible selection
           newMap.delete(lowerSelectionKey)
-          console.log(`🔄 Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`)
+          console.log(
+            `🔄 Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`
+          )
         }
       }
     })
@@ -829,22 +955,22 @@ export function autoCompleteEnrollmentSections(
   const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
 
   // Get the new section object
-  const termData = course.terms.find(t => t.termName === termName)
-  const newSection = termData?.sections.find(s => s.id === newSectionId)
+  const termData = course.terms.find((t) => t.termName === termName)
+  const newSection = termData?.sections.find((s) => s.id === newSectionId)
   if (!newSection) return enrollment.selectedSections
 
   // Start with current sections, replacing the changed one
-  let updatedSections = enrollment.selectedSections.map(section =>
+  let updatedSections = enrollment.selectedSections.map((section) =>
     section.sectionType === changedSectionType ? newSection : section
   )
 
   // If we didn't have this section type before, add it
-  if (!enrollment.selectedSections.some(s => s.sectionType === changedSectionType)) {
+  if (!enrollment.selectedSections.some((s) => s.sectionType === changedSectionType)) {
     updatedSections.push(newSection)
   }
 
   // Clear incompatible lower-priority sections
-  updatedSections = updatedSections.filter(section => {
+  updatedSections = updatedSections.filter((section) => {
     if (section.sectionType === changedSectionType) return true // Keep the new section
 
     const sectionPriority = getSectionTypePriority(section.sectionType, sectionTypes)
@@ -853,28 +979,35 @@ export function autoCompleteEnrollmentSections(
     // Check if this lower-priority section is still compatible with the new section
     const isCompatible = areSectionsCompatible(newSection, section)
     if (!isCompatible) {
-      console.log(`🔄 Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`)
+      console.log(
+        `🔄 Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`
+      )
     }
     return isCompatible
   })
 
   // Auto-add compatible sections for missing lower-priority types
   sectionTypes
-    .filter(typeGroup => typeGroup.priority > changedPriority) // Lower priority (higher number)
-    .forEach(lowerTypeGroup => {
+    .filter((typeGroup) => typeGroup.priority > changedPriority) // Lower priority (higher number)
+    .forEach((lowerTypeGroup) => {
       // Check if we already have a section of this type
-      const hasTypeSelected = updatedSections.some(s => s.sectionType === lowerTypeGroup.type)
+      const hasTypeSelected = updatedSections.some((s) => s.sectionType === lowerTypeGroup.type)
 
       if (!hasTypeSelected) {
         // Get currently selected sections to check compatibility
         const currentlySelected = updatedSections
-        const { compatible } = categorizeCompatibleSections(lowerTypeGroup.sections, currentlySelected)
+        const { compatible } = categorizeCompatibleSections(
+          lowerTypeGroup.sections,
+          currentlySelected
+        )
 
         // Auto-add the first compatible section if available
         if (compatible.length > 0) {
           const firstCompatible = compatible[0]
           updatedSections.push(firstCompatible)
-          console.log(`🔄 Auto-adding compatible ${lowerTypeGroup.type}: ${firstCompatible.sectionCode} (compatible with ${newSection.sectionCode})`)
+          console.log(
+            `🔄 Auto-adding compatible ${lowerTypeGroup.type}: ${firstCompatible.sectionCode} (compatible with ${newSection.sectionCode})`
+          )
         }
       }
     })
@@ -894,7 +1027,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   badges.push({
     type: 'status' as const,
     text: status,
-    style: getCourseStatusStyle(status)
+    style: getCourseStatusStyle(status),
   })
 
   // 2. Availability Badge (show available/total seats when capacity > 0)
@@ -902,7 +1035,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
     badges.push({
       type: 'availability' as const,
       text: `${availableSeats}/${capacity} Available`,
-      style: getAvailabilityBadgeStyle(availability)
+      style: getAvailabilityBadgeStyle(availability),
     })
   }
 
@@ -911,7 +1044,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal} on Waitlist`,
-      style: getWaitlistBadgeStyle(waitlistTotal)
+      style: getWaitlistBadgeStyle(waitlistTotal),
     })
   }
 
@@ -925,20 +1058,20 @@ function getCourseStatusStyle(status: string) {
   switch (status) {
     case 'Open':
       return {
-        className: 'bg-green-700 text-white border-green-600 font-medium'
+        className: 'bg-green-700 text-white border-green-600 font-medium',
       }
     case 'Waitlisted':
       return {
-        className: 'bg-yellow-600 text-white border-yellow-500 font-medium'
+        className: 'bg-yellow-600 text-white border-yellow-500 font-medium',
       }
     case 'Closed':
       return {
-        className: 'bg-red-700 text-white border-red-600 font-medium'
+        className: 'bg-red-700 text-white border-red-600 font-medium',
       }
     default:
       // Unknown status - gray
       return {
-        className: 'bg-gray-700 text-white border-gray-600 font-medium'
+        className: 'bg-gray-700 text-white border-gray-600 font-medium',
       }
   }
 }
@@ -951,20 +1084,20 @@ export function getWaitlistBadgeStyle(waitlistTotal: number) {
   // Risky: >5 people waiting
   if (waitlistTotal > 5 && waitlistTotal <= 10) {
     return {
-      className: 'bg-yellow-100 text-yellow-800 border-yellow-300'
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-300',
     }
   }
 
   // Dangerous: >10 people waiting
   if (waitlistTotal > 10) {
     return {
-      className: 'bg-red-100 text-red-800 border-red-300'
+      className: 'bg-red-100 text-red-800 border-red-300',
     }
   }
 
   // Moderate: 1-5 people waiting
   return {
-    className: 'bg-green-100 text-green-700 border-green-300'
+    className: 'bg-green-100 text-green-700 border-green-300',
   }
 }
 
@@ -978,26 +1111,26 @@ export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
   // Closed/Full status takes precedence
   if (status === 'Closed' || availableSeats === 0) {
     return {
-      className: 'bg-red-100 text-red-800 border-red-300'
+      className: 'bg-red-100 text-red-800 border-red-300',
     }
   }
 
   if (status === 'Waitlisted') {
     return {
-      className: 'bg-orange-100 text-orange-800 border-orange-300'
+      className: 'bg-orange-100 text-orange-800 border-orange-300',
     }
   }
 
   // Low availability (≤10 seats)
   if (availableSeats <= 10) {
     return {
-      className: 'bg-yellow-100 text-yellow-800 border-yellow-300'
+      className: 'bg-yellow-100 text-yellow-800 border-yellow-300',
     }
   }
 
   // Good availability
   return {
-    className: 'bg-green-100 text-green-800 border-green-300'
+    className: 'bg-green-100 text-green-800 border-green-300',
   }
 }
 
@@ -1014,7 +1147,7 @@ export function getAggregateSeatInfo(
   termName: string
 ): { available: number; total: number; type: SectionType } | null {
   const sectionTypes = parseSectionTypes(course, termName)
-  const termData = course.terms.find(term => term.termName === termName)
+  const termData = course.terms.find((term) => term.termName === termName)
 
   if (!termData || sectionTypes.length === 0) return null
 
@@ -1023,10 +1156,14 @@ export function getAggregateSeatInfo(
   const primarySections = sectionTypes[0].sections
 
   // Sum up available and total seats
-  const available = primarySections.reduce((sum, section) =>
-    sum + (section.availability.availableSeats || 0), 0)
-  const total = primarySections.reduce((sum, section) =>
-    sum + (section.availability.capacity || 0), 0)
+  const available = primarySections.reduce(
+    (sum, section) => sum + (section.availability.availableSeats || 0),
+    0
+  )
+  const total = primarySections.reduce(
+    (sum, section) => sum + (section.availability.capacity || 0),
+    0
+  )
 
   return { available, total, type: primaryType }
 }
@@ -1073,7 +1210,7 @@ export function checkSectionConflict(
 
   return {
     hasConflict: conflictingSections.length > 0,
-    conflictingSections: conflictingSections
+    conflictingSections: conflictingSections,
   }
 }
 
@@ -1109,7 +1246,7 @@ export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
     tab: 'default_tab',
     search_scope: 'All',
     vid: '852JULAC_CUHK:CUHK',
-    offset: '0'
+    offset: '0',
   })
   const url = `https://julac-cuhk.primo.exlibrisgroup.com/discovery/search?${params.toString()}`
   window.open(url, '_blank', 'noopener,noreferrer')
@@ -1150,20 +1287,23 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
 
   const { firstYear, secondYear } = getAcademicYear(termName)
 
-  return dates.split(',').map(dateStr => {
-    const trimmedDate = dateStr.trim()
-    const [day, month] = trimmedDate.split('/').map(Number)
+  return dates
+    .split(',')
+    .map((dateStr) => {
+      const trimmedDate = dateStr.trim()
+      const [day, month] = trimmedDate.split('/').map(Number)
 
-    if (isNaN(day) || isNaN(month) || month < 1 || month > 12) {
-      console.warn(`Invalid date format: "${trimmedDate}" in dates: "${dates}"`)
-      return null
-    }
+      if (isNaN(day) || isNaN(month) || month < 1 || month > 12) {
+        console.warn(`Invalid date format: "${trimmedDate}" in dates: "${dates}"`)
+        return null
+      }
 
-    // Academic year logic: Sep-Dec = first year, Jan-Aug = second year
-    const year = (month >= 9 && month <= 12) ? firstYear : secondYear
+      // Academic year logic: Sep-Dec = first year, Jan-Aug = second year
+      const year = month >= 9 && month <= 12 ? firstYear : secondYear
 
-    return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
-  }).filter(date => date !== null) as Date[]
+      return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
+    })
+    .filter((date) => date !== null) as Date[]
 }
 
 /**
@@ -1237,11 +1377,11 @@ export function createICSEventsForMeeting(
     '',
     '─'.repeat(20),
     'Generated from Another CUHK Course Planner',
-    'https://another-cuhk-course-planner.com/'
+    'https://another-cuhk-course-planner.com/',
   ].join('\n')
 
   // Create one event for each date
-  return meetingDates.map(date => {
+  return meetingDates.map((date) => {
     // Generate deterministic UID for consistent event identification
     // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
@@ -1261,7 +1401,7 @@ export function createICSEventsForMeeting(
       startUTC.get('month') + 1, // moment months are 0-indexed, ICS needs 1-indexed
       startUTC.get('date'),
       startUTC.get('hour'),
-      startUTC.get('minute')
+      startUTC.get('minute'),
     ] as [number, number, number, number, number]
 
     const end = [
@@ -1269,7 +1409,7 @@ export function createICSEventsForMeeting(
       endUTC.get('month') + 1, // moment months are 0-indexed, ICS needs 1-indexed
       endUTC.get('date'),
       endUTC.get('hour'),
-      endUTC.get('minute')
+      endUTC.get('minute'),
     ] as [number, number, number, number, number]
 
     return {
@@ -1283,7 +1423,7 @@ export function createICSEventsForMeeting(
       startOutputType: 'utc' as const,
       endInputType: 'utc' as const,
       endOutputType: 'utc' as const,
-      productId: 'Another CUHK Course Planner'
+      productId: 'Another CUHK Course Planner',
     }
   })
 }
@@ -1294,7 +1434,10 @@ export function createICSEventsForMeeting(
  * @param termName Current term name
  * @returns Object with ICS content and filename, or error
  */
-export function generateICSCalendar(enrollments: CourseEnrollment[], termName: string): {
+export function generateICSCalendar(
+  enrollments: CourseEnrollment[],
+  termName: string
+): {
   icsContent?: string
   filename?: string
   error?: string
@@ -1305,10 +1448,10 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
     // Process each enrollment - only include visible and valid courses
     // Invisible courses (toggled off) should not be exported to calendar
     enrollments
-      .filter(enrollment => enrollment.isVisible && !enrollment.isInvalid)
-      .forEach(enrollment => {
-        enrollment.selectedSections.forEach(section => {
-          section.meetings.forEach(meeting => {
+      .filter((enrollment) => enrollment.isVisible && !enrollment.isInvalid)
+      .forEach((enrollment) => {
+        enrollment.selectedSections.forEach((section) => {
+          section.meetings.forEach((meeting) => {
             const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)
             allEvents.push(...events)
           })
@@ -1316,7 +1459,10 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
       })
 
     if (allEvents.length === 0) {
-      return { error: 'No scheduled events found. Courses with valid meeting times are required for exporting to a .ics file.' }
+      return {
+        error:
+          'No scheduled events found. Courses with valid meeting times are required for exporting to a .ics file.',
+      }
     }
 
     // Generate ICS content using the ics library
@@ -1335,7 +1481,7 @@ export function generateICSCalendar(enrollments: CourseEnrollment[], termName: s
 
     return {
       icsContent: value,
-      filename
+      filename,
     }
   } catch (error) {
     console.error('Unexpected error during ICS generation:', error)
@@ -1371,14 +1517,11 @@ export function processICSForUndo(content: string): {
   const eol = content.includes('\r\n') ? '\r\n' : '\n'
 
   // Add STATUS:CANCELLED after each BEGIN:VEVENT
-  const modifiedContent = content.replace(
-    /BEGIN:VEVENT/g,
-    `BEGIN:VEVENT${eol}STATUS:CANCELLED`
-  )
+  const modifiedContent = content.replace(/BEGIN:VEVENT/g, `BEGIN:VEVENT${eol}STATUS:CANCELLED`)
 
   return {
     success: true,
     modifiedContent,
-    needsWarning: !isFromOurApp
+    needsWarning: !isFromOurApp,
   }
 }

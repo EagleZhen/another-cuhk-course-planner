@@ -21,8 +21,8 @@ if (typeof window !== 'undefined' && posthogKey) {
 
     // Privacy-first settings for student users
     person_profiles: 'never', // Don't create user profiles
-    capture_pageview: true,   // Automatic page view tracking (replaces Vercel Analytics)
-    capture_pageleave: true,  // Session duration tracking
+    capture_pageview: true, // Automatic page view tracking (replaces Vercel Analytics)
+    capture_pageleave: true, // Session duration tracking
 
     // Disable potentially intrusive features
     disable_session_recording: true, // No session recordings
@@ -34,6 +34,6 @@ if (typeof window !== 'undefined' && posthogKey) {
         properties.$current_url = properties.$current_url.split('?')[0]
       }
       return properties
-    }
+    },
   })
 }

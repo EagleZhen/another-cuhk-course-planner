@@ -9,7 +9,14 @@ import ShoppingCart from '@/components/ShoppingCart'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
-import { detectConflicts, enrollmentsToCalendarEvents, getDeterministicColor, autoCompleteEnrollmentSections, getUnscheduledSections, parseSectionTypes } from '@/lib/courseUtils'
+import {
+  detectConflicts,
+  enrollmentsToCalendarEvents,
+  getDeterministicColor,
+  autoCompleteEnrollmentSections,
+  getUnscheduledSections,
+  parseSectionTypes,
+} from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjects'
@@ -18,19 +25,21 @@ import { getSubjectTitle } from '@/lib/subjects'
 
 export default function Home() {
   // Reference to CourseSearch's setSearchTerm function
-  const setSearchTermRef = useRef<((term: string, fromCourseDetails?: boolean) => void) | null>(null)
+  const setSearchTermRef = useRef<((term: string, fromCourseDetails?: boolean) => void) | null>(
+    null
+  )
   // Available terms
   const availableTerms = [
-    "2025-26 Term 1",
-    "2025-26 Term 2",
-    "2025-26 Term 3",
-    "2025-26 Term 4",
-    "2025-26 Summer Session",
-    "2025-26 Acad Year (Medicine)"
+    '2025-26 Term 1',
+    '2025-26 Term 2',
+    '2025-26 Term 3',
+    '2025-26 Term 4',
+    '2025-26 Summer Session',
+    '2025-26 Acad Year (Medicine)',
   ]
 
   // Current term state
-  const [currentTerm, setCurrentTerm] = useState("2025-26 Summer Session")
+  const [currentTerm, setCurrentTerm] = useState('2025-26 Summer Session')
 
   // Current data format version for localStorage migration
   const SCHEDULE_DATA_VERSION = 1
@@ -50,12 +59,13 @@ export default function Home() {
   const [lastResolutionMethod, setLastResolutionMethod] = useState<string | null>(null)
 
   // Term-specific subject filter persistence (session state only)
-  const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(new Map())
+  const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(
+    new Map()
+  )
 
   // Track hydration status and session start
   useEffect(() => {
     setIsHydrated(true)
-
   }, [])
 
   // Auto-restore schedule from localStorage when term changes (client-side only)
@@ -88,29 +98,35 @@ export default function Home() {
         }
 
         // Validate and migrate enrollment data
-        const migratedSchedule = parsedSchedule.map((enrollment) => {
-          const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+        const migratedSchedule = parsedSchedule
+          .map((enrollment) => {
+            const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
 
-          // Migrate courseId if it's in old format (contains underscore + timestamp)
-          let migratedCourseId = enrollment.courseId
-          if (enrollment.courseId && enrollment.courseId.includes('_') && enrollment.courseId !== courseKey) {
-            console.log(`🔄 Migrating courseId: ${enrollment.courseId} → ${courseKey}`)
-            migratedCourseId = courseKey
-          }
+            // Migrate courseId if it's in old format (contains underscore + timestamp)
+            let migratedCourseId = enrollment.courseId
+            if (
+              enrollment.courseId &&
+              enrollment.courseId.includes('_') &&
+              enrollment.courseId !== courseKey
+            ) {
+              console.log(`🔄 Migrating courseId: ${enrollment.courseId} → ${courseKey}`)
+              migratedCourseId = courseKey
+            }
 
-          // Validate required fields
-          if (!enrollment.course?.subject || !enrollment.course?.courseCode) {
-            console.warn('⚠️ Invalid enrollment data, skipping:', enrollment)
-            return null
-          }
+            // Validate required fields
+            if (!enrollment.course?.subject || !enrollment.course?.courseCode) {
+              console.warn('⚠️ Invalid enrollment data, skipping:', enrollment)
+              return null
+            }
 
-          return {
-            ...enrollment,
-            courseId: migratedCourseId, // Use migrated courseId
-            color: getDeterministicColor(courseKey), // Regenerate color for consistency
-            isVisible: enrollment.isVisible ?? true // Default to visible if undefined
-          }
-        }).filter(Boolean) // Remove invalid enrollments
+            return {
+              ...enrollment,
+              courseId: migratedCourseId, // Use migrated courseId
+              color: getDeterministicColor(courseKey), // Regenerate color for consistency
+              isVisible: enrollment.isVisible ?? true, // Default to visible if undefined
+            }
+          })
+          .filter(Boolean) // Remove invalid enrollments
 
         setCourseEnrollments(migratedSchedule as CourseEnrollment[])
         console.log(`✅ Restored ${migratedSchedule.length} enrollments for ${currentTerm}`)
@@ -124,7 +140,6 @@ export default function Home() {
       // Restore subject filters from session state (term-specific)
       const termFilters = subjectFiltersByTerm.get(currentTerm) || new Set()
       setSelectedSubjects(termFilters)
-
     } catch (error) {
       console.error('Failed to restore schedule:', error)
       // Clear corrupted localStorage data
@@ -132,12 +147,12 @@ export default function Home() {
       setCourseEnrollments([])
       setSelectedSubjects(new Set())
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
   }, [currentTerm, SCHEDULE_DATA_VERSION, isHydrated])
 
   // Save subject filters to session state whenever they change
   useEffect(() => {
-    setSubjectFiltersByTerm(prev => {
+    setSubjectFiltersByTerm((prev) => {
       const updated = new Map(prev)
       updated.set(currentTerm, selectedSubjects)
       return updated
@@ -147,14 +162,16 @@ export default function Home() {
   // Separate effect to migrate selectedEnrollment after enrollments are loaded
   useEffect(() => {
     if (selectedEnrollment && selectedEnrollment.includes('_') && courseEnrollments.length > 0) {
-      const migratedEnrollment = courseEnrollments.find(enrollment => {
+      const migratedEnrollment = courseEnrollments.find((enrollment) => {
         const oldCourseId = selectedEnrollment
         const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
         return oldCourseId.startsWith(courseKey + '_')
       })
 
       if (migratedEnrollment) {
-        console.log(`🔄 Migrating selectedEnrollment: ${selectedEnrollment} → ${migratedEnrollment.courseId}`)
+        console.log(
+          `🔄 Migrating selectedEnrollment: ${selectedEnrollment} → ${migratedEnrollment.courseId}`
+        )
         setSelectedEnrollment(migratedEnrollment.courseId)
       } else {
         // Clear invalid selection
@@ -174,7 +191,7 @@ export default function Home() {
         const scheduleData = {
           version: SCHEDULE_DATA_VERSION,
           enrollments: courseEnrollments,
-          savedAt: new Date().toISOString()
+          savedAt: new Date().toISOString(),
         }
         localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
         console.log(`💾 Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
@@ -199,7 +216,7 @@ export default function Home() {
 
   // Track conflict resolution when conflicts are resolved after user actions
   useEffect(() => {
-    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    const hasConflicts = calendarEvents.some((event) => event.hasConflict)
 
     // If we had a recent resolution method tracked and no conflicts remain, track successful resolution
     if (lastResolutionMethod && !hasConflicts) {
@@ -219,8 +236,8 @@ export default function Home() {
 
   const handleToggleVisibility = (enrollmentId: string) => {
     // Check if there are conflicts and we're hiding a course (for conflict resolution tracking)
-    const hasConflicts = calendarEvents.some(event => event.hasConflict)
-    const targetEnrollment = courseEnrollments.find(e => e.courseId === enrollmentId)
+    const hasConflicts = calendarEvents.some((event) => event.hasConflict)
+    const targetEnrollment = courseEnrollments.find((e) => e.courseId === enrollmentId)
 
     if (hasConflicts && targetEnrollment?.isVisible) {
       // Only track when hiding a visible course during conflicts
@@ -234,8 +251,8 @@ export default function Home() {
       analytics.courseVisibilityToggled(courseKey, action)
     }
 
-    setCourseEnrollments(prev =>
-      prev.map(enrollment =>
+    setCourseEnrollments((prev) =>
+      prev.map((enrollment) =>
         enrollment.courseId === enrollmentId
           ? { ...enrollment, isVisible: !enrollment.isVisible }
           : enrollment
@@ -259,7 +276,7 @@ export default function Home() {
       if (shoppingCartElement) {
         shoppingCartElement.scrollIntoView({
           behavior: 'smooth',
-          block: 'center'
+          block: 'center',
         })
       }
     }, 100)
@@ -273,7 +290,9 @@ export default function Home() {
 
     // Scroll to first course card with a slight delay to allow results to load
     setTimeout(() => {
-      const firstCourseCard = document.querySelector('[data-course-search] .space-y-3 > div:first-child')
+      const firstCourseCard = document.querySelector(
+        '[data-course-search] .space-y-3 > div:first-child'
+      )
       if (firstCourseCard) {
         // Get the sticky header height to offset scroll position
         const stickyHeader = document.querySelector('[data-course-search] .sticky')
@@ -286,7 +305,7 @@ export default function Home() {
 
         window.scrollTo({
           top: targetY,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       } else {
         // Fallback to course search section if no results found yet
@@ -294,42 +313,41 @@ export default function Home() {
         if (courseSearchElement) {
           courseSearchElement.scrollIntoView({
             behavior: 'smooth',
-            block: 'start'
+            block: 'start',
           })
         }
       }
     }, 300) // Slightly longer delay to allow search debouncing and result rendering
   }
 
-
   const handleRemoveCourse = (enrollmentId: string) => {
     // Check if there are conflicts before removal (for conflict resolution tracking)
-    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    const hasConflicts = calendarEvents.some((event) => event.hasConflict)
     if (hasConflicts) {
       setLastResolutionMethod('course_removal')
     }
 
     // Track general course removal behavior (regardless of conflicts)
-    const targetEnrollment = courseEnrollments.find(e => e.courseId === enrollmentId)
+    const targetEnrollment = courseEnrollments.find((e) => e.courseId === enrollmentId)
     if (targetEnrollment) {
       const courseKey = `${targetEnrollment.course.subject}${targetEnrollment.course.courseCode}`
       analytics.courseRemoved(courseKey, targetEnrollment.course.subject)
     }
 
-    setCourseEnrollments(prev =>
-      prev.filter(enrollment => enrollment.courseId !== enrollmentId)
+    setCourseEnrollments((prev) =>
+      prev.filter((enrollment) => enrollment.courseId !== enrollmentId)
     )
   }
 
   const handleSectionChange = (enrollmentId: string, sectionType: string, newSectionId: string) => {
     // Check if there are conflicts before section change (for conflict resolution tracking)
-    const hasConflicts = calendarEvents.some(event => event.hasConflict)
+    const hasConflicts = calendarEvents.some((event) => event.hasConflict)
     if (hasConflicts) {
       setLastResolutionMethod('section_cycling')
     }
 
-    setCourseEnrollments(prev =>
-      prev.map(enrollment => {
+    setCourseEnrollments((prev) =>
+      prev.map((enrollment) => {
         if (enrollment.courseId !== enrollmentId) return enrollment
 
         // Use smart auto-completion to handle section changes with hierarchical logic
@@ -343,13 +361,17 @@ export default function Home() {
 
         return {
           ...enrollment,
-          selectedSections: updatedSections
+          selectedSections: updatedSections,
         }
       })
     )
   }
 
-  const handleAddCourse = (course: InternalCourse, termName: string, localSelections: Map<string, string>) => {
+  const handleAddCourse = (
+    course: InternalCourse,
+    termName: string,
+    localSelections: Map<string, string>
+  ) => {
     const courseKey = `${course.subject}${course.courseCode}`
 
     // Convert local selections to actual section objects directly
@@ -357,9 +379,9 @@ export default function Home() {
     const selectedSectionsForCourse: InternalSection[] = []
 
     for (const [sectionType, sectionId] of localSelections) {
-      const typeGroup = sectionTypes.find(tg => tg.type === sectionType)
+      const typeGroup = sectionTypes.find((tg) => tg.type === sectionType)
       if (typeGroup) {
-        const section = typeGroup.sections.find(s => s.id === sectionId)
+        const section = typeGroup.sections.find((s) => s.id === sectionId)
         if (section) {
           selectedSectionsForCourse.push(section)
         }
@@ -371,14 +393,15 @@ export default function Home() {
     }
 
     // Check if course is already enrolled
-    const existingEnrollmentIndex = courseEnrollments.findIndex(enrollment =>
-      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    const existingEnrollmentIndex = courseEnrollments.findIndex(
+      (enrollment) =>
+        enrollment.course.subject === course.subject &&
+        enrollment.course.courseCode === course.courseCode
     )
-
 
     if (existingEnrollmentIndex >= 0) {
       // Update existing enrollment with new sections
-      setCourseEnrollments(prev =>
+      setCourseEnrollments((prev) =>
         prev.map((enrollment, index) =>
           index === existingEnrollmentIndex
             ? { ...enrollment, selectedSections: selectedSectionsForCourse }
@@ -394,10 +417,10 @@ export default function Home() {
         course,
         selectedSections: selectedSectionsForCourse,
         color: assignedColor,
-        isVisible: true
+        isVisible: true,
       }
 
-      setCourseEnrollments(prev => [...prev, newEnrollment])
+      setCourseEnrollments((prev) => [...prev, newEnrollment])
     }
 
     // Track course enrollment for product analytics
@@ -405,7 +428,7 @@ export default function Home() {
 
     // Clear global section selections for this course after adding/updating
     const newSectionsMap = new Map(selectedSections)
-    Array.from(selectedSections.keys()).forEach(key => {
+    Array.from(selectedSections.keys()).forEach((key) => {
       if (key.startsWith(`${courseKey}_`)) {
         newSectionsMap.delete(key)
       }
@@ -414,102 +437,107 @@ export default function Home() {
   }
 
   // Handle data updates from CourseSearch - update timestamp and sync enrollments
-  const handleDataUpdate = useCallback((timestamp: Date, allFreshCourses?: InternalCourse[]) => {
-    setLastDataUpdate(timestamp)
-    console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
+  const handleDataUpdate = useCallback(
+    (timestamp: Date, allFreshCourses?: InternalCourse[]) => {
+      setLastDataUpdate(timestamp)
+      console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
 
-    // Background sync: Update existing enrollments with fresh data
-    // Use callback form to avoid dependency on courseEnrollments
-    setCourseEnrollments(currentEnrollments => {
-      if (!allFreshCourses || currentEnrollments.length === 0) {
-        return currentEnrollments // No changes needed
-      }
-
-      // Prevent duplicate syncs for same timestamp
-      if (lastSyncTimestamp && Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000) {
-        console.log('🔄 Skipping duplicate sync (< 1 second apart)')
-        return currentEnrollments
-      }
-
-      console.log('🔄 Background syncing shopping cart with fresh course data...')
-
-      const syncedEnrollments = currentEnrollments.map(enrollment => {
-        const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
-
-        // Find fresh course data
-        const freshCourse = allFreshCourses.find(course =>
-          `${course.subject}${course.courseCode}` === courseKey
-        )
-
-        if (!freshCourse) {
-          console.warn(`⚠️ Course ${courseKey} no longer exists in fresh data`)
-          // Mark as invalid but preserve for user to see
-          return {
-            ...enrollment,
-            isInvalid: true,
-            invalidReason: 'Course no longer available'
-          }
+      // Background sync: Update existing enrollments with fresh data
+      // Use callback form to avoid dependency on courseEnrollments
+      setCourseEnrollments((currentEnrollments) => {
+        if (!allFreshCourses || currentEnrollments.length === 0) {
+          return currentEnrollments // No changes needed
         }
 
-        // Find fresh sections for current term
-        const termData = freshCourse.terms.find(t => t.termName === currentTerm)
-        if (!termData) {
-          return {
-            ...enrollment,
-            isInvalid: true,
-            invalidReason: 'Course no longer available'
-          }
+        // Prevent duplicate syncs for same timestamp
+        if (
+          lastSyncTimestamp &&
+          Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000
+        ) {
+          console.log('🔄 Skipping duplicate sync (< 1 second apart)')
+          return currentEnrollments
         }
 
-        // Update sections with fresh data
-        const syncedSections = enrollment.selectedSections.map(oldSection => {
-          const freshSection = termData.sections.find(s => s.id === oldSection.id)
+        console.log('🔄 Background syncing shopping cart with fresh course data...')
 
-          if (!freshSection) {
-            console.warn(`⚠️ Section ${oldSection.sectionCode} no longer exists for ${courseKey}`)
-            // Keep old section but mark as invalid
-            return { ...oldSection, isInvalid: true }
+        const syncedEnrollments = currentEnrollments.map((enrollment) => {
+          const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+
+          // Find fresh course data
+          const freshCourse = allFreshCourses.find(
+            (course) => `${course.subject}${course.courseCode}` === courseKey
+          )
+
+          if (!freshCourse) {
+            console.warn(`⚠️ Course ${courseKey} no longer exists in fresh data`)
+            // Mark as invalid but preserve for user to see
+            return {
+              ...enrollment,
+              isInvalid: true,
+              invalidReason: 'Course no longer available',
+            }
           }
 
-          // Merge fresh data with preserved user choices
+          // Find fresh sections for current term
+          const termData = freshCourse.terms.find((t) => t.termName === currentTerm)
+          if (!termData) {
+            return {
+              ...enrollment,
+              isInvalid: true,
+              invalidReason: 'Course no longer available',
+            }
+          }
+
+          // Update sections with fresh data
+          const syncedSections = enrollment.selectedSections.map((oldSection) => {
+            const freshSection = termData.sections.find((s) => s.id === oldSection.id)
+
+            if (!freshSection) {
+              console.warn(`⚠️ Section ${oldSection.sectionCode} no longer exists for ${courseKey}`)
+              // Keep old section but mark as invalid
+              return { ...oldSection, isInvalid: true }
+            }
+
+            // Merge fresh data with preserved user choices
+            return {
+              ...freshSection, // Fresh section data (classAttributes, availability, etc.)
+              // Preserve any user-specific state if needed in future
+            }
+          })
+
+          // Check if any sections are invalid
+          const hasInvalidSections = syncedSections.some((s) => s.isInvalid)
+
           return {
-            ...freshSection, // Fresh section data (classAttributes, availability, etc.)
-            // Preserve any user-specific state if needed in future
+            ...enrollment,
+            course: freshCourse, // Always use fresh course data
+            selectedSections: syncedSections,
+            isInvalid: hasInvalidSections,
+            invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
+            lastSynced: timestamp, // Track when we last synced this enrollment
           }
         })
 
-        // Check if any sections are invalid
-        const hasInvalidSections = syncedSections.some(s => s.isInvalid)
-
-        return {
-          ...enrollment,
-          course: freshCourse,           // Always use fresh course data
-          selectedSections: syncedSections,
-          isInvalid: hasInvalidSections,
-          invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
-          lastSynced: timestamp,         // Track when we last synced this enrollment
+        // Log sync results
+        const invalidCount = syncedEnrollments.filter((e) => e.isInvalid).length
+        if (invalidCount > 0) {
+          console.warn(`⚠️ ${invalidCount} enrollments have invalid data`)
+        } else {
+          console.log(`✅ Successfully synced ${syncedEnrollments.length} enrollments`)
         }
+
+        // Update sync timestamp after successful sync
+        setLastSyncTimestamp(timestamp)
+
+        return syncedEnrollments
       })
-
-      // Log sync results
-      const invalidCount = syncedEnrollments.filter(e => e.isInvalid).length
-      if (invalidCount > 0) {
-        console.warn(`⚠️ ${invalidCount} enrollments have invalid data`)
-      } else {
-        console.log(`✅ Successfully synced ${syncedEnrollments.length} enrollments`)
-      }
-
-      // Update sync timestamp after successful sync
-      setLastSyncTimestamp(timestamp)
-
-      return syncedEnrollments
-    })
-  }, [currentTerm, lastSyncTimestamp]) // Add lastSyncTimestamp to dependencies
+    },
+    [currentTerm, lastSyncTimestamp]
+  ) // Add lastSyncTimestamp to dependencies
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-2">
-
         {/* Top Section - Calendar + Shopping Cart */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
@@ -595,27 +623,31 @@ export default function Home() {
 
                         // Apply search filter first
                         if (subjectSearchTerm.trim()) {
-                          subjectsToShow = subjectsToShow.filter(subject =>
+                          subjectsToShow = subjectsToShow.filter((subject) =>
                             subject.toLowerCase().includes(subjectSearchTerm.toLowerCase().trim())
                           )
                         }
 
                         // Then apply selection filter if needed
                         if (showSelectedOnly) {
-                          subjectsToShow = subjectsToShow.filter(subject => selectedSubjects.has(subject))
+                          subjectsToShow = subjectsToShow.filter((subject) =>
+                            selectedSubjects.has(subject)
+                          )
                         }
 
                         if (subjectsToShow.length === 0) {
                           if (showSelectedOnly) {
                             return (
                               <div className="text-xs text-gray-500">
-                                No subjects selected. Select some subjects or click &ldquo;Show All&rdquo; to see available options.
+                                No subjects selected. Select some subjects or click &ldquo;Show
+                                All&rdquo; to see available options.
                               </div>
                             )
                           } else if (subjectSearchTerm.trim()) {
                             return (
                               <div className="text-xs text-gray-500">
-                                No subjects found matching &ldquo;{subjectSearchTerm}&rdquo;. Try a different search term.
+                                No subjects found matching &ldquo;{subjectSearchTerm}&rdquo;. Try a
+                                different search term.
                               </div>
                             )
                           }
@@ -650,20 +682,22 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <CourseSearch
-              onAddCourse={handleAddCourse}           // Event handler prop
-              onRemoveCourse={handleRemoveCourse}     // Event handler prop
-              courseEnrollments={courseEnrollments}   // Data prop / State prop
-              currentTerm={currentTerm}               // Data prop / State prop
-              availableTerms={availableTerms}         // Data prop
-              onTermChange={handleTermChange}         // Event handler prop
-              selectedSections={selectedSections}     // Data prop / State prop
-              onSelectedSectionsChange={setSelectedSections}  // Callback prop / State setter prop
-              onScrollToCart={handleScrollToCart}             // Scroll to cart handler prop (selection + scroll)
-              onSearchControlReady={(setSearchTerm) => { setSearchTermRef.current = setSearchTerm }}      // Callback to get search control
-              onDataUpdate={handleDataUpdate}         // Data freshness callback
-              selectedSubjects={selectedSubjects}     // Subject filter state
-              onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
-              lastDataUpdate={lastDataUpdate}         // Last data sync timestamp
+                onAddCourse={handleAddCourse} // Event handler prop
+                onRemoveCourse={handleRemoveCourse} // Event handler prop
+                courseEnrollments={courseEnrollments} // Data prop / State prop
+                currentTerm={currentTerm} // Data prop / State prop
+                availableTerms={availableTerms} // Data prop
+                onTermChange={handleTermChange} // Event handler prop
+                selectedSections={selectedSections} // Data prop / State prop
+                onSelectedSectionsChange={setSelectedSections} // Callback prop / State setter prop
+                onScrollToCart={handleScrollToCart} // Scroll to cart handler prop (selection + scroll)
+                onSearchControlReady={(setSearchTerm) => {
+                  setSearchTermRef.current = setSearchTerm
+                }} // Callback to get search control
+                onDataUpdate={handleDataUpdate} // Data freshness callback
+                selectedSubjects={selectedSubjects} // Subject filter state
+                onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
+                lastDataUpdate={lastDataUpdate} // Last data sync timestamp
               />
             </CardContent>
           </Card>
@@ -704,7 +738,7 @@ export default function Home() {
 function SubjectToggle({
   subject,
   isSelected,
-  onSubjectToggle
+  onSubjectToggle,
 }: {
   subject: string
   isSelected: boolean
@@ -717,7 +751,7 @@ function SubjectToggle({
 
   return (
     <Button
-      variant={isSelected ? "default" : "outline"}
+      variant={isSelected ? 'default' : 'outline'}
       size="sm"
       onClick={() => onSubjectToggle(subject)}
       className="h-6 px-2 text-xs font-mono font-normal border-1"
@@ -738,7 +772,7 @@ function SubjectFilterControls({
   onToggleShowSelected,
   onClearAll,
   onSubjectSearchChange,
-  className
+  className,
 }: {
   layout?: 'horizontal' | 'vertical'
   availableSubjects: string[]
@@ -754,10 +788,14 @@ function SubjectFilterControls({
   const hasSubjects = selectedSubjects.size > 0 || availableSubjects.length > 0
 
   return (
-    <div className={`${isVertical ? 'space-y-2' : 'text-sm font-medium text-gray-700 items-center gap-3'} ${className || ''}`}>
+    <div
+      className={`${isVertical ? 'space-y-2' : 'text-sm font-medium text-gray-700 items-center gap-3'} ${className || ''}`}
+    >
       <div className={`flex items-center gap-3 ${isVertical ? 'flex-col items-start' : ''}`}>
         <div className={isVertical ? 'text-sm font-medium text-gray-700' : ''}>
-          Available Subjects {availableSubjects.length > 0 && `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
+          Available Subjects{' '}
+          {availableSubjects.length > 0 &&
+            `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
         </div>
 
         {/* Compact search input */}
@@ -783,9 +821,9 @@ function SubjectFilterControls({
             size="sm"
             onClick={onToggleShowSelected}
             className="h-5 rounded px-1.5 text-xs font-normal text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200 cursor-pointer"
-            title={showSelectedOnly ? "Show all subjects" : "Show selected subjects only"}
+            title={showSelectedOnly ? 'Show all subjects' : 'Show selected subjects only'}
           >
-            {showSelectedOnly ? "Show All" : "Show Selected Only"}
+            {showSelectedOnly ? 'Show All' : 'Show Selected Only'}
           </Button>
           {selectedSubjects.size > 0 && (
             <Button

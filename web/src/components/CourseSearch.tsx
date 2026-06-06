@@ -5,15 +5,54 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChevronDown, ChevronUp, Plus, X, Info, Trash2, Search, ShoppingCart, AlertTriangle, HardDrive } from 'lucide-react'
-import { parseSectionTypes, isCourseEnrollmentComplete, getUniqueMeetings, getSectionPrefix, categorizeCompatibleSections, getSectionTypePriority, formatTimeCompact, formatInstructorsCompact, getAvailabilityBadges, getAvailabilityBadgeStyle, checkSectionConflict, googleSearchAndOpen, googleMapsSearchAndOpen, cuhkLibrarySearchAndOpen, getDayIndex, getAggregateSeatInfo } from '@/lib/courseUtils'
-import type { InternalCourse, InternalSection, CourseEnrollment, SectionType, SearchResults } from '@/lib/types'
+import {
+  ChevronDown,
+  ChevronUp,
+  Plus,
+  X,
+  Info,
+  Trash2,
+  Search,
+  ShoppingCart,
+  AlertTriangle,
+  HardDrive,
+} from 'lucide-react'
+import {
+  parseSectionTypes,
+  isCourseEnrollmentComplete,
+  getUniqueMeetings,
+  getSectionPrefix,
+  categorizeCompatibleSections,
+  getSectionTypePriority,
+  formatTimeCompact,
+  formatInstructorsCompact,
+  getAvailabilityBadges,
+  getAvailabilityBadgeStyle,
+  checkSectionConflict,
+  googleSearchAndOpen,
+  googleMapsSearchAndOpen,
+  cuhkLibrarySearchAndOpen,
+  getDayIndex,
+  getAggregateSeatInfo,
+} from '@/lib/courseUtils'
+import type {
+  InternalCourse,
+  InternalSection,
+  CourseEnrollment,
+  SectionType,
+  SearchResults,
+} from '@/lib/types'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getAllSubjectCodes } from '@/lib/subjects'
-import { MOBILE_BREAKPOINT, NOTICE_STORAGE_KEY, NOTICE_VERSION, NOTICE_IMAGE_LOADED_EVENT } from '@/lib/constants'
+import {
+  MOBILE_BREAKPOINT,
+  NOTICE_STORAGE_KEY,
+  NOTICE_VERSION,
+  NOTICE_IMAGE_LOADED_EVENT,
+} from '@/lib/constants'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
@@ -21,7 +60,11 @@ import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 // Using clean internal types only
 
 interface CourseSearchProps {
-  onAddCourse: (course: InternalCourse, termName: string, localSelections: Map<string, string>) => void
+  onAddCourse: (
+    course: InternalCourse,
+    termName: string,
+    localSelections: Map<string, string>
+  ) => void
   onRemoveCourse: (courseKey: string) => void
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
@@ -30,7 +73,9 @@ interface CourseSearchProps {
   selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onScrollToCart?: (enrollmentId: string) => void // Explicit scroll to shopping cart
-  onSearchControlReady?: (setSearchTerm: (term: string, fromCourseDetails?: boolean) => void) => void
+  onSearchControlReady?: (
+    setSearchTerm: (term: string, fromCourseDetails?: boolean) => void
+  ) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   selectedSubjects?: Set<string> // Subject filter
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
@@ -51,7 +96,7 @@ export default function CourseSearch({
   onDataUpdate,
   selectedSubjects = new Set(),
   onAvailableSubjectsUpdate,
-  lastDataUpdate
+  lastDataUpdate,
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
@@ -61,14 +106,14 @@ export default function CourseSearch({
     courses: [],
     total: 0,
     isLimited: false,
-    isShuffled: false
+    isShuffled: false,
   })
   const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
   const [isFromCourseDetails, setIsFromCourseDetails] = useState(false) // Track if search is from course details
 
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
-    setSelectedDays(prev => {
+    setSelectedDays((prev) => {
       const newSet = new Set(prev)
       if (newSet.has(dayIndex)) {
         newSet.delete(dayIndex)
@@ -113,13 +158,17 @@ export default function CourseSearch({
         setSearchTerm(term)
         setIsFromCourseDetails(fromCourseDetails)
         // Increment search sequence to trigger auto-expansion of first result
-        setSearchSequence(prev => prev + 1)
+        setSearchSequence((prev) => prev + 1)
       })
     }
   }, [onSearchControlReady])
 
   const [loading, setLoading] = useState(true)
-  const [loadingProgress, setLoadingProgress] = useState({ loaded: 0, total: 0, currentSubject: '' })
+  const [loadingProgress, setLoadingProgress] = useState({
+    loaded: 0,
+    total: 0,
+    currentSubject: '',
+  })
   const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
@@ -138,14 +187,14 @@ export default function CourseSearch({
     }
 
     const subjectsInTerm = new Set<string>()
-    allCourses.forEach(course => {
-      if (course.terms.some(term => term.termName === currentTerm)) {
+    allCourses.forEach((course) => {
+      if (course.terms.some((term) => term.termName === currentTerm)) {
         subjectsInTerm.add(course.subject)
       }
     })
 
     // Filter available subjects to only include those with courses in current term
-    return availableSubjects.filter(subject => subjectsInTerm.has(subject))
+    return availableSubjects.filter((subject) => subjectsInTerm.has(subject))
   }, [availableSubjects, allCourses, currentTerm])
 
   // Calculate days available from courses filtered by non-day criteria (avoids self-loop)
@@ -154,9 +203,9 @@ export default function CourseSearch({
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
     // Filter courses by everything EXCEPT day filters to avoid self-loop
-    const coursesFilteredByNonDayFilters = allCourses.filter(course => {
+    const coursesFilteredByNonDayFilters = allCourses.filter((course) => {
       // Apply term filter
-      const termData = course.terms.find(term => term.termName === currentTerm)
+      const termData = course.terms.find((term) => term.termName === currentTerm)
       if (!termData) return false
 
       // Apply subject filter (if any)
@@ -170,13 +219,14 @@ export default function CourseSearch({
         const description = course.description?.toLowerCase() || ''
 
         // Check if search term matches course code, title, or description
-        if (!courseCode.includes(searchLower) &&
-            !title.includes(searchLower) &&
-            !description.includes(searchLower)) {
-
+        if (
+          !courseCode.includes(searchLower) &&
+          !title.includes(searchLower) &&
+          !description.includes(searchLower)
+        ) {
           // Also check instructor names in current term
-          const hasMatchingInstructor = termData.sections.some(section =>
-            section.meetings.some(meeting =>
+          const hasMatchingInstructor = termData.sections.some((section) =>
+            section.meetings.some((meeting) =>
               meeting.instructors.toLowerCase().includes(searchLower)
             )
           )
@@ -191,11 +241,11 @@ export default function CourseSearch({
 
     // Calculate available days from the filtered courses
     const daysWithCourses = new Set<number>()
-    coursesFilteredByNonDayFilters.forEach(course => {
-      const termData = course.terms.find(term => term.termName === currentTerm)
+    coursesFilteredByNonDayFilters.forEach((course) => {
+      const termData = course.terms.find((term) => term.termName === currentTerm)
       if (termData) {
-        termData.sections.forEach(section => {
-          section.meetings.forEach(meeting => {
+        termData.sections.forEach((section) => {
+          section.meetings.forEach((meeting) => {
             const dayIndex = getDayIndex(meeting.time)
             if (dayIndex !== -1) daysWithCourses.add(dayIndex)
           })
@@ -204,7 +254,7 @@ export default function CourseSearch({
     })
 
     // Return day keys that have courses in the filtered set
-    return DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
+    return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
   }, [allCourses, currentTerm, selectedSubjects, debouncedSearchTerm]) // ✅ No selectedDays dependency!
 
   // Notify parent when available subjects are discovered
@@ -216,16 +266,22 @@ export default function CourseSearch({
 
   // Helper function to check if course is already enrolled
   const isCourseAdded = (course: InternalCourse) => {
-    return courseEnrollments.some(enrollment =>
-      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+    return courseEnrollments.some(
+      (enrollment) =>
+        enrollment.course.subject === course.subject &&
+        enrollment.course.courseCode === course.courseCode
     )
   }
 
   // Helper function to get enrolled course for comparison
   const getEnrolledCourse = (course: InternalCourse): CourseEnrollment | null => {
-    return courseEnrollments.find(enrollment =>
-      enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
-    ) || null
+    return (
+      courseEnrollments.find(
+        (enrollment) =>
+          enrollment.course.subject === course.subject &&
+          enrollment.course.courseCode === course.courseCode
+      ) || null
+    )
   }
 
   // Helper function to check if current selections differ from enrolled selections
@@ -250,8 +306,9 @@ export default function CourseSearch({
     if (currentLocalSelections.size !== enrolled.selectedSections.length) return true
 
     // Check if any selected sections differ from enrolled sections
-    return enrolled.selectedSections.some(enrolledSection =>
-      currentLocalSelections.get(enrolledSection.sectionType) !== enrolledSection.id
+    return enrolled.selectedSections.some(
+      (enrolledSection) =>
+        currentLocalSelections.get(enrolledSection.sectionType) !== enrolledSection.id
     )
   }
 
@@ -268,24 +325,34 @@ export default function CourseSearch({
 
       // Performance tracking
       const startTime = performance.now()
-      const subjectLoadTimes: { subject: string, time: number, size: number }[] = []
+      const subjectLoadTimes: { subject: string; time: number; size: number }[] = []
       let totalDataSize = 0
 
       try {
         // 🚀 Load ALL subjects - using single source of truth from lib/subjects.ts
         // Automatically excludes exemption codes (EX_*, X*)
         console.log(`📂 Loading ALL subjects for complete coverage...`)
-        setLoadingProgress({ loaded: 0, total: 1, currentSubject: 'Preparing complete subject list...' })
+        setLoadingProgress({
+          loaded: 0,
+          total: 1,
+          currentSubject: 'Preparing complete subject list...',
+        })
 
         const ALL_SUBJECTS = getAllSubjectCodes()
 
-        console.log(`📂 Complete subject list: ${ALL_SUBJECTS.length} subjects (excludes exemption codes)`)
+        console.log(
+          `📂 Complete subject list: ${ALL_SUBJECTS.length} subjects (excludes exemption codes)`
+        )
 
         // Store all subjects for parent component (they'll filter by current term)
         setAvailableSubjects(ALL_SUBJECTS)
         const availableSubjects: string[] = [...ALL_SUBJECTS]
 
-        setLoadingProgress({ loaded: 0, total: availableSubjects.length, currentSubject: 'Starting parallel load...' })
+        setLoadingProgress({
+          loaded: 0,
+          total: availableSubjects.length,
+          currentSubject: 'Starting parallel load...',
+        })
 
         const allCoursesData: InternalCourse[] = []
         const scrapingTimestamps: Date[] = []
@@ -307,12 +374,12 @@ export default function CourseSearch({
               const loadTime = subjectEndTime - subjectStartTime
 
               // Update progress as each request completes
-              setLoadingProgress(prev => ({
+              setLoadingProgress((prev) => ({
                 loaded: prev.loaded + 1,
                 total: prev.total,
-                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`
+                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`,
               }))
-              setLoadedBytes(prev => prev + dataSize)
+              setLoadedBytes((prev) => prev + dataSize)
 
               // Extract scraping timestamp from metadata
               let scrapedAt = null
@@ -320,14 +387,23 @@ export default function CourseSearch({
                 try {
                   scrapedAt = new Date(rawData.metadata.scraped_at)
                 } catch {
-                  console.warn(`Invalid scraped_at timestamp in ${subject}.json:`, rawData.metadata.scraped_at)
+                  console.warn(
+                    `Invalid scraped_at timestamp in ${subject}.json:`,
+                    rawData.metadata.scraped_at
+                  )
                 }
               }
 
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
-                console.log(`✅ ${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(dataSize / 1024).toString().padStart(5)}KB, ${Math.round(loadTime).toString().padStart(5)}ms`)
+                console.log(
+                  `✅ ${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(
+                    dataSize / 1024
+                  )
+                    .toString()
+                    .padStart(5)}KB, ${Math.round(loadTime).toString().padStart(5)}ms`
+                )
 
                 return {
                   subject,
@@ -335,31 +411,33 @@ export default function CourseSearch({
                   loadTime: Math.round(loadTime),
                   dataSize: Math.round(dataSize / 1024),
                   scrapedAt,
-                  success: true
+                  success: true,
                 }
               } else {
                 console.warn(`Invalid data structure in ${subject}.json`)
-                setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
+                setLoadingProgress((prev) => ({ ...prev, loaded: prev.loaded + 1 }))
                 return { subject, success: false, error: 'Invalid data structure' }
               }
             } else {
               console.warn(`Failed to load ${subject}.json: ${response.status}`)
-              setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
+              setLoadingProgress((prev) => ({ ...prev, loaded: prev.loaded + 1 }))
               return { subject, success: false, error: `HTTP ${response.status}` }
             }
           } catch (error) {
             console.warn(`Failed to load ${subject} data:`, error)
-            setLoadingProgress(prev => ({ ...prev, loaded: prev.loaded + 1 }))
+            setLoadingProgress((prev) => ({ ...prev, loaded: prev.loaded + 1 }))
             return { subject, success: false, error: String(error) }
           }
         })
 
         // Wait for ALL requests to complete
-        console.log(`⏳ Waiting for all ${availableSubjects.length} parallel requests to complete...`)
+        console.log(
+          `⏳ Waiting for all ${availableSubjects.length} parallel requests to complete...`
+        )
         const results = await Promise.all(allPromises)
 
         // Process successful results
-        results.forEach(result => {
+        results.forEach((result) => {
           if (result.success && result.courses) {
             allCoursesData.push(...result.courses)
             if (result.scrapedAt) {
@@ -368,43 +446,56 @@ export default function CourseSearch({
             subjectLoadTimes.push({
               subject: result.subject,
               time: result.loadTime || 0,
-              size: result.dataSize || 0
+              size: result.dataSize || 0,
             })
           } else {
             subjectLoadTimes.push({
               subject: result.subject,
               time: 0,
-              size: 0
+              size: 0,
             })
           }
         })
 
-        const successCount = results.filter(r => r.success).length
-        totalDataSize = subjectLoadTimes.reduce((sum, s) => sum + (s.size * 1024), 0)
+        const successCount = results.filter((r) => r.success).length
+        totalDataSize = subjectLoadTimes.reduce((sum, s) => sum + s.size * 1024, 0)
 
         // Calculate total load time and log performance summary
         const totalLoadTime = performance.now() - startTime
 
         console.log(`🎉 PARALLEL LOADING COMPLETE!`)
-        console.log(`📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`)
+        console.log(
+          `📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`
+        )
         console.log(`⚡ Parallel Performance Summary:`)
-        console.log(`   🚀 Total parallel load time: ${Math.round(totalLoadTime)}ms (${(totalLoadTime/1000).toFixed(1)}s)`)
-        console.log(`   📦 Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`)
+        console.log(
+          `   🚀 Total parallel load time: ${Math.round(totalLoadTime)}ms (${(totalLoadTime / 1000).toFixed(1)}s)`
+        )
+        console.log(
+          `   📦 Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`
+        )
         console.log(`   ⚡ Speedup: ALL subjects loaded simultaneously instead of sequentially!`)
-        console.log(`   🏆 Previous sequential time would have been: ~${Math.round(subjectLoadTimes.reduce((sum, s) => sum + s.time, 0))}ms`)
+        console.log(
+          `   🏆 Previous sequential time would have been: ~${Math.round(subjectLoadTimes.reduce((sum, s) => sum + s.time, 0))}ms`
+        )
 
         // Log fastest and slowest requests for insight
-        const validTimes = subjectLoadTimes.filter(s => s.time > 0)
+        const validTimes = subjectLoadTimes.filter((s) => s.time > 0)
         if (validTimes.length > 0) {
-          const fastest = validTimes.reduce((min, s) => s.time < min.time ? s : min)
-          const slowest = validTimes.reduce((max, s) => s.time > max.time ? s : max)
+          const fastest = validTimes.reduce((min, s) => (s.time < min.time ? s : min))
+          const slowest = validTimes.reduce((max, s) => (s.time > max.time ? s : max))
           console.log(`   🏃 Fastest: ${fastest.subject} (${fastest.time}ms, ${fastest.size}KB)`)
           console.log(`   🐌 Slowest: ${slowest.subject} (${slowest.time}ms, ${slowest.size}KB)`)
-          console.log(`   📊 Average per request: ${Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)}ms`)
+          console.log(
+            `   📊 Average per request: ${Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)}ms`
+          )
         }
 
         // Send performance metrics to PostHog
-        const slowest = validTimes.length > 0 ? validTimes.reduce((max, s) => s.time > max.time ? s : max) : null
+        const slowest =
+          validTimes.length > 0
+            ? validTimes.reduce((max, s) => (s.time > max.time ? s : max))
+            : null
         analytics.courseDataLoaded({
           totalLoadTimeMs: Math.round(totalLoadTime),
           subjectCount: availableSubjects.length,
@@ -413,9 +504,11 @@ export default function CourseSearch({
           totalSizeKb: Math.round(totalDataSize / 1024),
           slowestSubject: slowest?.subject ?? '',
           slowestTimeMs: slowest?.time ?? 0,
-          avgTimeMs: validTimes.length > 0 ? Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length) : 0,
+          avgTimeMs:
+            validTimes.length > 0
+              ? Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)
+              : 0,
         })
-
 
         if (successCount === 0) {
           console.error('❌ No course data could be loaded - check that /data/ files exist')
@@ -430,14 +523,14 @@ export default function CourseSearch({
         setHasDataLoaded(true) // Mark data as loaded for this session
         setLoading(false)
 
-
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
-          const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map(d => d.getTime())))
-          console.log(`🕒 Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`)
+          const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map((d) => d.getTime())))
+          console.log(
+            `🕒 Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`
+          )
           onDataUpdate(oldestTimestamp, allCoursesData) // Pass both timestamp and fresh course data for sync
         }
-
       } catch (error) {
         console.error('Failed to load course data:', error)
         setLoading(false)
@@ -470,96 +563,97 @@ export default function CourseSearch({
   }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
 
   // Async filtering function for non-blocking computation
-  const performFiltering = useCallback(async (
-    courses: InternalCourse[],
-    term: string,
-    searchTerm: string,
-    subjects: Set<string>,
-    days: Set<number>,
-    shuffle: number
-  ): Promise<SearchResults> => {
-    return new Promise<SearchResults>((resolve) => {
-      // Use setTimeout to defer computation to next frame, preventing UI blocking
-      setTimeout(() => {
-        // First filter by term - only show courses available in current term
-        let filteredCourses = courses.filter(course =>
-          course.terms.some(termData => termData.termName === term)
-        )
-
-        // Apply subject filter if any subjects are selected
-        if (subjects.size > 0) {
-          filteredCourses = filteredCourses.filter(course =>
-            subjects.has(course.subject)
+  const performFiltering = useCallback(
+    async (
+      courses: InternalCourse[],
+      term: string,
+      searchTerm: string,
+      subjects: Set<string>,
+      days: Set<number>,
+      shuffle: number
+    ): Promise<SearchResults> => {
+      return new Promise<SearchResults>((resolve) => {
+        // Use setTimeout to defer computation to next frame, preventing UI blocking
+        setTimeout(() => {
+          // First filter by term - only show courses available in current term
+          let filteredCourses = courses.filter((course) =>
+            course.terms.some((termData) => termData.termName === term)
           )
-        }
 
-        // Apply day filter if any days are selected
-        if (days.size > 0) {
-          filteredCourses = filteredCourses.filter(course => {
-            const currentTermData = course.terms.find(termData => termData.termName === term)
-            if (!currentTermData) return false
+          // Apply subject filter if any subjects are selected
+          if (subjects.size > 0) {
+            filteredCourses = filteredCourses.filter((course) => subjects.has(course.subject))
+          }
 
-            // Check if course has any sections on selected days
-            return currentTermData.sections.some(section =>
-              section.meetings.some(meeting => {
-                const dayIndex = getDayIndex(meeting.time)
-                return dayIndex !== null && days.has(dayIndex)
-              })
-            )
-          })
-        }
+          // Apply day filter if any days are selected
+          if (days.size > 0) {
+            filteredCourses = filteredCourses.filter((course) => {
+              const currentTermData = course.terms.find((termData) => termData.termName === term)
+              if (!currentTermData) return false
 
-        // Determine if user has applied any filters or search
-        const hasFiltersOrSearch = searchTerm.trim() || subjects.size > 0 || days.size > 0
+              // Check if course has any sections on selected days
+              return currentTermData.sections.some((section) =>
+                section.meetings.some((meeting) => {
+                  const dayIndex = getDayIndex(meeting.time)
+                  return dayIndex !== null && days.has(dayIndex)
+                })
+              )
+            })
+          }
 
-        // Apply search term filter if provided
-        let finalCourses = filteredCourses
-        if (searchTerm.trim()) {
-          const searchLower = searchTerm.toLowerCase()
-          finalCourses = filteredCourses.filter(course => {
-            // Create full course code without space for searching
-            const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
+          // Determine if user has applied any filters or search
+          const hasFiltersOrSearch = searchTerm.trim() || subjects.size > 0 || days.size > 0
 
-            // Get current term data for instructor search
-            const currentTermData = course.terms.find(termData => termData.termName === term)
-            if (!currentTermData) return false // Safety check
+          // Apply search term filter if provided
+          let finalCourses = filteredCourses
+          if (searchTerm.trim()) {
+            const searchLower = searchTerm.toLowerCase()
+            finalCourses = filteredCourses.filter((course) => {
+              // Create full course code without space for searching
+              const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
 
-            return (
-              fullCourseCode.includes(searchLower) ||
-              course.courseCode.toLowerCase().includes(searchLower) ||
-              course.title.toLowerCase().includes(searchLower) ||
-              // FIXED: Only search instructors in current term
-              currentTermData.sections.some(section =>
-                section.meetings.some(meeting =>
-                  meeting.instructors.toLowerCase().includes(searchLower)
+              // Get current term data for instructor search
+              const currentTermData = course.terms.find((termData) => termData.termName === term)
+              if (!currentTermData) return false // Safety check
+
+              return (
+                fullCourseCode.includes(searchLower) ||
+                course.courseCode.toLowerCase().includes(searchLower) ||
+                course.title.toLowerCase().includes(searchLower) ||
+                // FIXED: Only search instructors in current term
+                currentTermData.sections.some((section) =>
+                  section.meetings.some((meeting) =>
+                    meeting.instructors.toLowerCase().includes(searchLower)
+                  )
                 )
               )
-            )
-          })
-        }
-
-        // Apply shuffle if triggered (one-off action based on shuffleTrigger counter)
-        if (shuffle > 0) {
-          // Create a copy and shuffle using Fisher-Yates algorithm
-          finalCourses = [...finalCourses]
-          for (let i = finalCourses.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [finalCourses[i], finalCourses[j]] = [finalCourses[j], finalCourses[i]]
+            })
           }
-        }
 
-        // Simple limiting logic based on user intent
-        const limit = hasFiltersOrSearch ? 100 : 10
+          // Apply shuffle if triggered (one-off action based on shuffleTrigger counter)
+          if (shuffle > 0) {
+            // Create a copy and shuffle using Fisher-Yates algorithm
+            finalCourses = [...finalCourses]
+            for (let i = finalCourses.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1))
+              ;[finalCourses[i], finalCourses[j]] = [finalCourses[j], finalCourses[i]]
+            }
+          }
 
-        resolve({
-          courses: finalCourses.slice(0, limit),
-          total: finalCourses.length,
-          isLimited: finalCourses.length > limit,
-          isShuffled: shuffle > 0
-        })
-      }, 0)
-    })
-  }, [])
+          // Simple limiting logic based on user intent
+          const limit = hasFiltersOrSearch ? 100 : 10
+
+          resolve({
+            courses: finalCourses.slice(0, limit),
+            total: finalCourses.length,
+            isLimited: finalCourses.length > limit,
+            isShuffled: shuffle > 0,
+          })
+        }, 0)
+      })
+    },
+    []
+  )
 
   // Non-blocking filter update effect
   useEffect(() => {
@@ -580,7 +674,15 @@ export default function CourseSearch({
       setDisplayResults(results)
       setIsFiltering(false)
     })
-  }, [allCourses, currentTerm, debouncedSearchTerm, selectedSubjects, selectedDays, shuffleTrigger, performFiltering])
+  }, [
+    allCourses,
+    currentTerm,
+    debouncedSearchTerm,
+    selectedSubjects,
+    selectedDays,
+    shuffleTrigger,
+    performFiltering,
+  ])
 
   // Track search analytics - only when search is used
   useEffect(() => {
@@ -592,15 +694,12 @@ export default function CourseSearch({
   const normalizedSearchTerm = searchTerm.trim().toUpperCase()
   const searchedSubjectCode = normalizedSearchTerm.match(/^([A-Z]{2,4})(?=\d{3,4})/)?.[1]
   const selectedSubjectList = Array.from(selectedSubjects).sort()
-  const selectedSubjectSummary = selectedSubjectList.length === 1
-    ? selectedSubjectList[0]
-    : selectedSubjectList.join(', ')
+  const selectedSubjectSummary =
+    selectedSubjectList.length === 1 ? selectedSubjectList[0] : selectedSubjectList.join(', ')
   const isSearchingOutsideSelectedSubjects = Boolean(
-    searchedSubjectCode &&
-    selectedSubjects.size > 0 &&
-    !selectedSubjects.has(searchedSubjectCode)
+    searchedSubjectCode && selectedSubjects.size > 0 && !selectedSubjects.has(searchedSubjectCode)
   )
-  const selectedDayNames = Array.from(selectedDays).map(dayIndex => {
+  const selectedDayNames = Array.from(selectedDays).map((dayIndex) => {
     const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
     return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
   })
@@ -611,11 +710,18 @@ export default function CourseSearch({
       <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
         {/* Partial load warning */}
         {failedSubjectCount > 0 && (
-          <div role="alert" className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 mb-3">
+          <div
+            role="alert"
+            className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800 mb-3"
+          >
             <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
             <span>
-              {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due to a network error. Some courses may be missing.{' '}
-              <button onClick={() => window.location.reload()} className="underline font-semibold cursor-pointer hover:text-red-900">
+              {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due
+              to a network error. Some courses may be missing.{' '}
+              <button
+                onClick={() => window.location.reload()}
+                className="underline font-semibold cursor-pointer hover:text-red-900"
+              >
                 Reload the page
               </button>{' '}
               to try again.
@@ -661,7 +767,7 @@ export default function CourseSearch({
                       {/* Dropdown */}
                       <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
                         <div className="py-1">
-                          {availableTerms.map(term => (
+                          {availableTerms.map((term) => (
                             <button
                               key={term}
                               type="button"
@@ -691,7 +797,9 @@ export default function CourseSearch({
                 <span className="font-semibold text-blue-600">
                   {Array.from(selectedSubjects).sort().join(', ')}
                 </span>
-                <span>({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})</span>
+                <span>
+                  ({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})
+                </span>
               </div>
             )}
             {lastDataUpdate && (
@@ -705,7 +813,17 @@ export default function CourseSearch({
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                   </span>
                   <span className="whitespace-nowrap">
-                    Last Data Sync: {lastDataUpdate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} {lastDataUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false})}
+                    Last Data Sync:{' '}
+                    {lastDataUpdate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}{' '}
+                    {lastDataUpdate.toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                      hour12: false,
+                    })}
                   </span>
                 </div>
               </>
@@ -717,25 +835,33 @@ export default function CourseSearch({
             <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
 
             {/* Day filter buttons - only show days with courses in current results */}
-            {availableDays.length > 0 ? availableDays.map((dayKey: WeekDay) => {
-              const dayInfo = DAYS[dayKey]
-              const isSelected = selectedDays.has(dayInfo.index)
-              const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
+            {availableDays.length > 0 ? (
+              availableDays.map((dayKey: WeekDay) => {
+                const dayInfo = DAYS[dayKey]
+                const isSelected = selectedDays.has(dayInfo.index)
+                const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
 
-              return (
-                <Button
-                  key={dayKey}
-                  variant={isSelected ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => toggleDayFilter(dayInfo.index)}
-                  className="h-6 px-2 text-xs font-normal border-1"
-                  title={isSelected ? `Remove ${dayInfo.displayName} filter` : `Show only courses with classes on ${dayInfo.displayName}`}
-                >
-                  {shortName}
-                </Button>
-              )
-            }) : (
-              <span className="text-xs text-gray-400 italic">No courses available for day filtering</span>
+                return (
+                  <Button
+                    key={dayKey}
+                    variant={isSelected ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => toggleDayFilter(dayInfo.index)}
+                    className="h-6 px-2 text-xs font-normal border-1"
+                    title={
+                      isSelected
+                        ? `Remove ${dayInfo.displayName} filter`
+                        : `Show only courses with classes on ${dayInfo.displayName}`
+                    }
+                  >
+                    {shortName}
+                  </Button>
+                )
+              })
+            ) : (
+              <span className="text-xs text-gray-400 italic">
+                No courses available for day filtering
+              </span>
             )}
 
             {/* Clear day filters button */}
@@ -785,8 +911,14 @@ export default function CourseSearch({
                       <div className="flex items-center justify-center gap-3">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.1s'}}></div>
-                          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                          <div
+                            className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"
+                            style={{ animationDelay: '0.1s' }}
+                          ></div>
+                          <div
+                            className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"
+                            style={{ animationDelay: '0.2s' }}
+                          ></div>
                         </div>
                         <span>Initializing course catalog...</span>
                       </div>
@@ -811,7 +943,7 @@ export default function CourseSearch({
                         <div
                           className="h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500 ease-out"
                           style={{
-                            width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%`
+                            width: `${loadingProgress.total > 0 ? (loadingProgress.loaded / loadingProgress.total) * 100 : 0}%`,
                           }}
                         ></div>
                       </div>
@@ -822,7 +954,9 @@ export default function CourseSearch({
                       <div className="mt-3 pt-3 border-t border-gray-100">
                         <div className="flex items-center justify-end gap-1 text-xs text-gray-500">
                           <HardDrive className="w-3 h-3" />
-                          <span className="font-mono text-gray-700">{(loadedBytes / 1024 / 1024).toFixed(1)}MB</span>
+                          <span className="font-mono text-gray-700">
+                            {(loadedBytes / 1024 / 1024).toFixed(1)}MB
+                          </span>
                           <span>loaded</span>
                         </div>
                       </div>
@@ -832,13 +966,11 @@ export default function CourseSearch({
                   {/* Status Message */}
                   <div className="text-center">
                     <div className="text-sm text-gray-600">
-                      {loadingProgress.loaded < loadingProgress.total * 0.3 ? (
-                        "Initializing course data loading..."
-                      ) : loadingProgress.loaded < loadingProgress.total * 0.7 ? (
-                        "Processing course information..."
-                      ) : (
-                        "Finalizing course catalog..."
-                      )}
+                      {loadingProgress.loaded < loadingProgress.total * 0.3
+                        ? 'Initializing course data loading...'
+                        : loadingProgress.loaded < loadingProgress.total * 0.7
+                          ? 'Processing course information...'
+                          : 'Finalizing course catalog...'}
                     </div>
                   </div>
                 </div>
@@ -859,7 +991,9 @@ export default function CourseSearch({
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Search by course code, course title, or instructor name for precise results</span>
+                    <span>
+                      Search by course code, course title, or instructor name for precise results
+                    </span>
                   </div>
                 </div>
               </div>
@@ -885,11 +1019,10 @@ export default function CourseSearch({
                   {isSearchingOutsideSelectedSubjects && searchedSubjectCode
                     ? `"${searchTerm}" looks like a ${searchedSubjectCode} course, but you are currently searching within ${selectedSubjectSummary}.`
                     : searchTerm && selectedSubjects.size > 0
-                    ? `No courses match "${searchTerm}" within ${selectedSubjectSummary}.`
-                    : searchTerm
-                    ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
-                    : `No courses found within ${selectedSubjectSummary}.`
-                  }
+                      ? `No courses match "${searchTerm}" within ${selectedSubjectSummary}.`
+                      : searchTerm
+                        ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
+                        : `No courses found within ${selectedSubjectSummary}.`}
                 </p>
                 <div className="mx-auto max-w-xl text-center text-xs text-gray-400">
                   <p className="mb-2 font-medium text-gray-500">Try this:</p>
@@ -898,14 +1031,17 @@ export default function CourseSearch({
                       <li>Clear day filters: {selectedDayNames.join(', ')}.</li>
                     )}
                     {isSearchingOutsideSelectedSubjects && searchedSubjectCode ? (
-                      <li>Add {searchedSubjectCode} to the subject filter, or clear subject filters.</li>
+                      <li>
+                        Add {searchedSubjectCode} to the subject filter, or clear subject filters.
+                      </li>
                     ) : selectedSubjects.size > 0 ? (
                       <li>Clear subject filters to search across all subjects.</li>
                     ) : null}
-                    {searchTerm && (
-                      <li>Check the course code, title, or instructor spelling.</li>
-                    )}
-                    <li>Try a broader search, such as &ldquo;CSCI&rdquo;, &ldquo;nature&rdquo;, or an instructor name.</li>
+                    {searchTerm && <li>Check the course code, title, or instructor spelling.</li>}
+                    <li>
+                      Try a broader search, such as &ldquo;CSCI&rdquo;, &ldquo;nature&rdquo;, or an
+                      instructor name.
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -928,7 +1064,8 @@ export default function CourseSearch({
               <div className="text-sm text-gray-600 flex items-center gap-2">
                 <>
                   {/* Always show current status */}
-                  Showing {displayResults.courses.length} course{displayResults.courses.length !== 1 ? 's' : ''}
+                  Showing {displayResults.courses.length} course
+                  {displayResults.courses.length !== 1 ? 's' : ''}
                   {displayResults.total > displayResults.courses.length && (
                     <span className="font-medium"> of {displayResults.total} total</span>
                   )}
@@ -938,15 +1075,22 @@ export default function CourseSearch({
                     <>
                       <span> filtered by </span>
                       <span className="font-semibold text-blue-600">
-                        {Array.from(selectedDays).sort().map(dayIndex => {
-                          const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
-                          return dayKey || `Day${dayIndex}`
-                        }).join(', ')}
+                        {Array.from(selectedDays)
+                          .sort()
+                          .map((dayIndex) => {
+                            const dayKey = Object.entries(DAYS).find(
+                              ([_, info]) => info.index === dayIndex
+                            )?.[0] as WeekDay
+                            return dayKey || `Day${dayIndex}`
+                          })
+                          .join(', ')}
                       </span>
-                      <span> ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})</span>
+                      <span>
+                        {' '}
+                        ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})
+                      </span>
                     </>
                   )}
-
                   {/* Add loading indicator as pill badge */}
                   {isFiltering && (
                     <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
@@ -982,7 +1126,7 @@ export default function CourseSearch({
                   onClick={() => {
                     // Track shuffle usage for discovery behavior analysis
                     analytics.shuffleUsed(displayResults.total)
-                    setShuffleTrigger(prev => prev + 1)
+                    setShuffleTrigger((prev) => prev + 1)
                   }}
                   className="h-6 px-2 text-xs"
                   title="Shuffle courses for discovery"
@@ -1000,14 +1144,17 @@ export default function CourseSearch({
                   <div>
                     <strong>Too many results to display.</strong>
                     <br />
-                    <span className="text-amber-600">Try searching for specific course codes or adding more subject filters to narrow results.</span>
+                    <span className="text-amber-600">
+                      Try searching for specific course codes or adding more subject filters to
+                      narrow results.
+                    </span>
                   </div>
                 </div>
               </div>
             )}
 
             <div className="space-y-3">
-                {displayResults.courses.map((course, index) => (
+              {displayResults.courses.map((course, index) => (
                 <div
                   key={`${course.subject}-${course.courseCode}-${index}`}
                   ref={index === 0 ? firstCourseCardRef : null}
@@ -1018,44 +1165,48 @@ export default function CourseSearch({
                     searchSequence={searchSequence}
                     isFirstResult={index === 0}
                     isFromCourseDetails={isFromCourseDetails}
-                    shouldAutoExpand={index === 0 && displayResults.courses.length === 1 && isFromCourseDetails}
+                    shouldAutoExpand={
+                      index === 0 && displayResults.courses.length === 1 && isFromCourseDetails
+                    }
                     initialSelections={(() => {
-                    const courseKey = `${course.subject}${course.courseCode}`
-                    const courseSelections = new Map<string, string>()
-                    for (const [key, sectionId] of selectedSections) {
-                      if (key.startsWith(courseKey + '_')) {
-                        const sectionType = key.substring(courseKey.length + 1)
-                        courseSelections.set(sectionType, sectionId)
+                      const courseKey = `${course.subject}${course.courseCode}`
+                      const courseSelections = new Map<string, string>()
+                      for (const [key, sectionId] of selectedSections) {
+                        if (key.startsWith(courseKey + '_')) {
+                          const sectionType = key.substring(courseKey.length + 1)
+                          courseSelections.set(sectionType, sectionId)
+                        }
                       }
-                    }
-                    return courseSelections
-                  })()}
-                  onSectionsChange={(course, newSelections) => {
-                    // Convert back to global format and update
-                    const courseKey = `${course.subject}${course.courseCode}`
-                    const newMap = new Map(selectedSections)
+                      return courseSelections
+                    })()}
+                    onSectionsChange={(course, newSelections) => {
+                      // Convert back to global format and update
+                      const courseKey = `${course.subject}${course.courseCode}`
+                      const newMap = new Map(selectedSections)
 
-                    // Remove old selections for this course
-                    for (const key of newMap.keys()) {
-                      if (key.startsWith(courseKey + '_')) {
-                        newMap.delete(key)
+                      // Remove old selections for this course
+                      for (const key of newMap.keys()) {
+                        if (key.startsWith(courseKey + '_')) {
+                          newMap.delete(key)
+                        }
                       }
-                    }
 
-                    // Add new selections
-                    for (const [sectionType, sectionId] of newSelections) {
-                      newMap.set(`${courseKey}_${sectionType}`, sectionId)
-                    }
+                      // Add new selections
+                      for (const [sectionType, sectionId] of newSelections) {
+                        newMap.set(`${courseKey}_${sectionType}`, sectionId)
+                      }
 
-                    onSelectedSectionsChange(newMap)
-                  }}
-                  onAddCourse={(course, localSelections) => onAddCourse(course, currentTerm, localSelections)}
-                  onRemoveCourse={onRemoveCourse}
-                  isAdded={isCourseAdded(course)}
-                  hasSelectionsChanged={hasSelectionsChanged(course)}
-                  onScrollToCart={onScrollToCart}
-                  courseEnrollments={courseEnrollments}
-                />
+                      onSelectedSectionsChange(newMap)
+                    }}
+                    onAddCourse={(course, localSelections) =>
+                      onAddCourse(course, currentTerm, localSelections)
+                    }
+                    onRemoveCourse={onRemoveCourse}
+                    isAdded={isCourseAdded(course)}
+                    hasSelectionsChanged={hasSelectionsChanged(course)}
+                    onScrollToCart={onScrollToCart}
+                    courseEnrollments={courseEnrollments}
+                  />
                 </div>
               ))}
             </div>
@@ -1072,7 +1223,7 @@ function InstructorFilters({
   selectedInstructors,
   onToggleInstructor,
   onClearAll,
-  isMobile = false
+  isMobile = false,
 }: {
   instructors: string[]
   selectedInstructors: Set<string>
@@ -1082,26 +1233,33 @@ function InstructorFilters({
 }) {
   return (
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
-      {instructors.map(instructor => {
+      {instructors.map((instructor) => {
         const formattedInstructor = formatInstructorsCompact(instructor)
         const isSelected = selectedInstructors.has(formattedInstructor)
         return (
           <div key={formattedInstructor} className="flex items-center">
             <Button
-              variant={isSelected ? "default" : "outline"}
+              variant={isSelected ? 'default' : 'outline'}
               size="sm"
               className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group ${formattedInstructor !== 'Staff' ? 'pr-1' : 'pr-2'}`}
               onClick={(e) => {
                 e.stopPropagation()
                 onToggleInstructor(formattedInstructor)
               }}
-              title={isSelected ? `Remove ${formattedInstructor} filter` : `Filter by ${formattedInstructor}`}
+              title={
+                isSelected
+                  ? `Remove ${formattedInstructor} filter`
+                  : `Filter by ${formattedInstructor}`
+              }
             >
               {formattedInstructor}
               {/* Only show search button for specific instructors, not "Staff" */}
               {formattedInstructor !== 'Staff' && (
                 <>
-                  <div className={`h-4 w-px shrink-0 ml-0.5 mr-0 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`} /> {/* Visual separator */}
+                  <div
+                    className={`h-4 w-px shrink-0 ml-0.5 mr-0 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`}
+                  />{' '}
+                  {/* Visual separator */}
                   <div
                     className="size-5 p-0.5 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer"
                     onClick={(e) => {
@@ -1150,7 +1308,7 @@ function CourseCard({
   isFirstResult = false,
   searchSequence = 0,
   isFromCourseDetails = false,
-  shouldAutoExpand = false
+  shouldAutoExpand = false,
 }: {
   course: InternalCourse
   currentTerm: string
@@ -1181,11 +1339,11 @@ function CourseCard({
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {
     const daysWithCourses = new Set<number>()
-    const termData = course.terms.find(term => term.termName === currentTerm)
+    const termData = course.terms.find((term) => term.termName === currentTerm)
 
     if (termData) {
-      termData.sections.forEach(section => {
-        section.meetings.forEach(meeting => {
+      termData.sections.forEach((section) => {
+        section.meetings.forEach((meeting) => {
           const dayIndex = getDayIndex(meeting.time)
           if (dayIndex !== -1) daysWithCourses.add(dayIndex)
         })
@@ -1193,7 +1351,7 @@ function CourseCard({
     }
 
     // Return day keys that have courses in this specific course
-    return DAY_COMBINATIONS.full.filter(dayKey => daysWithCourses.has(DAYS[dayKey].index))
+    return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
   }, [course, currentTerm])
 
   // Fully decoupled: CourseCard manages its own state
@@ -1212,8 +1370,10 @@ function CourseCard({
   }
 
   // Get enrolled course for this course
-  const enrolledCourse = courseEnrollments.find(enrollment =>
-    enrollment.course.subject === course.subject && enrollment.course.courseCode === course.courseCode
+  const enrolledCourse = courseEnrollments.find(
+    (enrollment) =>
+      enrollment.course.subject === course.subject &&
+      enrollment.course.courseCode === course.courseCode
   )
 
   // Use local format directly - much simpler!
@@ -1241,15 +1401,15 @@ function CourseCard({
 
       // Check each current selection to see if it matches the instructor filter
       for (const [sectionType, sectionId] of localSelections) {
-        const typeGroup = sectionTypes.find(tg => tg.type === sectionType)
+        const typeGroup = sectionTypes.find((tg) => tg.type === sectionType)
         if (typeGroup) {
-          const section = typeGroup.sections.find(s => s.id === sectionId)
+          const section = typeGroup.sections.find((s) => s.id === sectionId)
           if (section) {
             // Check if this section has instructors matching the new filter
-            const sectionMatchesFilter = section.meetings.some(meeting => {
+            const sectionMatchesFilter = section.meetings.some((meeting) => {
               if (!meeting.instructors) return false
-              const instructorNames = meeting.instructors.split(',').map(name => name.trim())
-              return instructorNames.some(instructorName => {
+              const instructorNames = meeting.instructors.split(',').map((name) => name.trim())
+              return instructorNames.some((instructorName) => {
                 const formattedName = formatInstructorsCompact(instructorName)
                 return newSelected.has(formattedName)
               })
@@ -1259,15 +1419,21 @@ function CourseCard({
             if (sectionMatchesFilter) {
               updatedSelections.set(sectionType, sectionId)
             } else {
-              console.log(`🔄 Cleared ${sectionType} selection: ${section.sectionCode} (instructor doesn't match filter)`)
+              console.log(
+                `🔄 Cleared ${sectionType} selection: ${section.sectionCode} (instructor doesn't match filter)`
+              )
             }
           }
         }
       }
 
       // Update local state and notify parent if selections changed
-      if (updatedSelections.size !== localSelections.size ||
-          Array.from(updatedSelections.entries()).some(([type, id]) => localSelections.get(type) !== id)) {
+      if (
+        updatedSelections.size !== localSelections.size ||
+        Array.from(updatedSelections.entries()).some(
+          ([type, id]) => localSelections.get(type) !== id
+        )
+      ) {
         setLocalSelections(updatedSelections)
         onSectionsChange(course, updatedSelections)
       }
@@ -1291,7 +1457,7 @@ function CourseCard({
   const sectionMatchesDayFilter = (section: InternalSection): boolean => {
     if (selectedDays.size === 0) return true // No day filter applied
 
-    return section.meetings.some(meeting => {
+    return section.meetings.some((meeting) => {
       const dayIndex = getDayIndex(meeting.time)
       return dayIndex !== -1 && selectedDays.has(dayIndex)
     })
@@ -1304,28 +1470,33 @@ function CourseCard({
   }
 
   // Get unique instructors from current term, sorted alphabetically
-  const currentTermData = course.terms.find(term => term.termName === currentTerm)
-  const instructors = Array.from(new Set(
-    currentTermData?.sections.flatMap(section =>
-      section.meetings.flatMap(meeting => {
-        // Split instructor names by comma if multiple instructors are listed together
-        const instructorString = meeting.instructors || ''
-        return instructorString.split(',').map(name => name.trim()).filter(Boolean)
-      })
-    ) || []
-  )).filter(Boolean).sort((a, b) => {
-    // Sort alphabetically by the name part (without title)
-    const nameA = removeInstructorTitle(a)
-    const nameB = removeInstructorTitle(b)
-    return nameA.localeCompare(nameB)
-  })
+  const currentTermData = course.terms.find((term) => term.termName === currentTerm)
+  const instructors = Array.from(
+    new Set(
+      currentTermData?.sections.flatMap((section) =>
+        section.meetings.flatMap((meeting) => {
+          // Split instructor names by comma if multiple instructors are listed together
+          const instructorString = meeting.instructors || ''
+          return instructorString
+            .split(',')
+            .map((name) => name.trim())
+            .filter(Boolean)
+        })
+      ) || []
+    )
+  )
+    .filter(Boolean)
+    .sort((a, b) => {
+      // Sort alphabetically by the name part (without title)
+      const nameA = removeInstructorTitle(a)
+      const nameB = removeInstructorTitle(b)
+      return nameA.localeCompare(nameB)
+    })
 
   return (
     <Card
       className={`py-5 gap-0 transition-all duration-200 ${
-        !expanded
-          ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer'
-          : 'shadow-md'
+        !expanded ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' : 'shadow-md'
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
     >
@@ -1335,7 +1506,8 @@ function CourseCard({
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <CardTitle className="text-lg">
-                {course.subject}{course.courseCode}
+                {course.subject}
+                {course.courseCode}
               </CardTitle>
               <div className="flex flex-wrap items-center gap-1">
                 <Button
@@ -1343,7 +1515,9 @@ function CourseCard({
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
-                    googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
+                    googleSearchAndOpen(
+                      `CUHK ${course.subject}${course.courseCode} Outline OR 大綱`
+                    )
                   }}
                   className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
                   title={`Search Google for "${course.subject}${course.courseCode}" outline`}
@@ -1427,10 +1601,10 @@ function CourseCard({
                 const availability = {
                   availableSeats: available,
                   capacity: total,
-                  status: available === 0 ? 'Closed' as const : 'Open' as const,
+                  status: available === 0 ? ('Closed' as const) : ('Open' as const),
                   enrolled: total - available,
                   waitlistCapacity: 0,
-                  waitlistTotal: 0
+                  waitlistTotal: 0,
                 }
                 const style = getAvailabilityBadgeStyle(availability)
 
@@ -1493,7 +1667,7 @@ function CourseCard({
 
                 {/* Replace/Added status button - for courses already in cart */}
                 <Button
-                  variant={hasSelectionsChanged && isEnrollmentComplete ? "default" : "secondary"}
+                  variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
@@ -1503,17 +1677,19 @@ function CourseCard({
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="min-w-[80px]"
-                  title={hasSelectionsChanged && isEnrollmentComplete
-                    ? "Replace course with new section selections"
-                    : "Course already added to cart"}
+                  title={
+                    hasSelectionsChanged && isEnrollmentComplete
+                      ? 'Replace course with new section selections'
+                      : 'Course already added to cart'
+                  }
                 >
-                  {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
+                  {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
                 </Button>
               </>
             ) : (
               /* Add button for non-enrolled courses */
               <Button
-                variant={isEnrollmentComplete ? "default" : "secondary"}
+                variant={isEnrollmentComplete ? 'default' : 'secondary'}
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
@@ -1523,9 +1699,13 @@ function CourseCard({
                 }}
                 disabled={!isEnrollmentComplete}
                 className="min-w-[80px]"
-                title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
+                title={
+                  !isEnrollmentComplete
+                    ? 'Select required sections to add course (some types may not have compatible options)'
+                    : 'Add course to cart'
+                }
               >
-                {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
+                {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
               </Button>
             )}
             <Button
@@ -1536,7 +1716,7 @@ function CourseCard({
                 handleToggle()
               }}
               className="w-8 h-8 p-0"
-              title={expanded ? "Hide sections" : "Show sections"}
+              title={expanded ? 'Hide sections' : 'Show sections'}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </Button>
@@ -1548,7 +1728,8 @@ function CourseCard({
           {/* Course header */}
           <div>
             <CardTitle className="text-lg">
-              {course.subject}{course.courseCode}
+              {course.subject}
+              {course.courseCode}
             </CardTitle>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
@@ -1645,10 +1826,10 @@ function CourseCard({
                 const availability = {
                   availableSeats: available,
                   capacity: total,
-                  status: available === 0 ? 'Closed' as const : 'Open' as const,
+                  status: available === 0 ? ('Closed' as const) : ('Open' as const),
                   enrolled: total - available,
                   waitlistCapacity: 0,
-                  waitlistTotal: 0
+                  waitlistTotal: 0,
                 }
                 const style = getAvailabilityBadgeStyle(availability)
 
@@ -1681,7 +1862,7 @@ function CourseCard({
               <>
                 {/* Primary action: Replace/Added status - full width */}
                 <Button
-                  variant={hasSelectionsChanged && isEnrollmentComplete ? "default" : "secondary"}
+                  variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
@@ -1691,11 +1872,13 @@ function CourseCard({
                   }}
                   disabled={!hasSelectionsChanged || !isEnrollmentComplete}
                   className="w-full"
-                  title={hasSelectionsChanged && isEnrollmentComplete
-                    ? "Replace course with new section selections"
-                    : "Course already added to cart"}
+                  title={
+                    hasSelectionsChanged && isEnrollmentComplete
+                      ? 'Replace course with new section selections'
+                      : 'Course already added to cart'
+                  }
                 >
-                  {hasSelectionsChanged && isEnrollmentComplete ? "Replace Cart" : "Added ✓"}
+                  {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
                 </Button>
 
                 {/* Secondary actions: Scroll to Cart + Remove - side by side */}
@@ -1734,7 +1917,7 @@ function CourseCard({
             ) : (
               /* Add button for non-enrolled courses - full width */
               <Button
-                variant={isEnrollmentComplete ? "default" : "secondary"}
+                variant={isEnrollmentComplete ? 'default' : 'secondary'}
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
@@ -1744,10 +1927,14 @@ function CourseCard({
                 }}
                 disabled={!isEnrollmentComplete}
                 className="w-full"
-                title={!isEnrollmentComplete ? "Select required sections to add course (some types may not have compatible options)" : "Add course to cart"}
+                title={
+                  !isEnrollmentComplete
+                    ? 'Select required sections to add course (some types may not have compatible options)'
+                    : 'Add course to cart'
+                }
               >
                 <Plus className="w-3 h-3 mr-1" />
-                {isEnrollmentComplete ? "Add to Cart" : "Select Sections"}
+                {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
               </Button>
             )}
 
@@ -1760,10 +1947,10 @@ function CourseCard({
                 handleToggle()
               }}
               className="w-full cursor-pointer"
-              title={expanded ? "Hide sections" : "Show sections"}
+              title={expanded ? 'Hide sections' : 'Show sections'}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              <span className="ml-2">{expanded ? "Hide Sections" : "Show Sections"}</span>
+              <span className="ml-2">{expanded ? 'Hide Sections' : 'Show Sections'}</span>
             </Button>
           </div>
         </div>
@@ -1777,25 +1964,33 @@ function CourseCard({
               <span className="text-sm font-medium text-gray-700">Filters:</span>
 
               {/* Day filter buttons - only show days with courses in current results */}
-              {availableDays.length > 0 ? availableDays.map((dayKey: WeekDay) => {
-                const dayInfo = DAYS[dayKey]
-                const isSelected = selectedDays.has(dayInfo.index)
-                const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
+              {availableDays.length > 0 ? (
+                availableDays.map((dayKey: WeekDay) => {
+                  const dayInfo = DAYS[dayKey]
+                  const isSelected = selectedDays.has(dayInfo.index)
+                  const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
 
-                return (
-                  <Button
-                    key={dayKey}
-                    variant={isSelected ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => toggleDayFilter(dayInfo.index)}
-                    className="h-6 px-2 text-xs font-normal border-1"
-                    title={isSelected ? `Remove ${dayInfo.displayName} filter` : `Filter by ${dayInfo.displayName}`}
-                  >
-                    {shortName}
-                  </Button>
-                )
-              }) : (
-                <span className="text-xs text-gray-400 italic">No days available for filtering</span>
+                  return (
+                    <Button
+                      key={dayKey}
+                      variant={isSelected ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => toggleDayFilter(dayInfo.index)}
+                      className="h-6 px-2 text-xs font-normal border-1"
+                      title={
+                        isSelected
+                          ? `Remove ${dayInfo.displayName} filter`
+                          : `Filter by ${dayInfo.displayName}`
+                      }
+                    >
+                      {shortName}
+                    </Button>
+                  )
+                })
+              ) : (
+                <span className="text-xs text-gray-400 italic">
+                  No days available for filtering
+                </span>
               )}
 
               {/* Clear day filters button */}
@@ -1815,14 +2010,14 @@ function CourseCard({
             </div>
 
             {/* Section Selection */}
-            {sectionTypes.map(typeGroup => {
+            {sectionTypes.map((typeGroup) => {
               // Get currently selected sections for this course to check compatibility
               // Get currently selected sections from local selections
               const currentlySelectedSections: InternalSection[] = []
               for (const [sectionType, sectionId] of localSelections) {
-                const typeGroup = sectionTypes.find(t => t.type === sectionType)
+                const typeGroup = sectionTypes.find((t) => t.type === sectionType)
                 if (typeGroup) {
-                  const section = typeGroup.sections.find(s => s.id === sectionId)
+                  const section = typeGroup.sections.find((s) => s.id === sectionId)
                   if (section) {
                     currentlySelectedSections.push(section)
                   }
@@ -1830,9 +2025,9 @@ function CourseCard({
               }
 
               // Only constrain by HIGHER priority selections (hierarchical flow)
-              const higherPrioritySelections = currentlySelectedSections.filter(s => {
+              const higherPrioritySelections = currentlySelectedSections.filter((s) => {
                 const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
-                return sPriority < typeGroup.priority  // Lower number = higher priority
+                return sPriority < typeGroup.priority // Lower number = higher priority
               })
 
               // Categorize sections as compatible/incompatible based on higher priority selections only
@@ -1845,13 +2040,18 @@ function CourseCard({
               const showingAllForType = showAllSectionTypes.has(typeGroup.type)
               const selectedSectionId = localSelections.get(typeGroup.type)
 
-              const passesSectionFilters = (section: InternalSection, applyCompatibilityFilter: boolean = true) => {
+              const passesSectionFilters = (
+                section: InternalSection,
+                applyCompatibilityFilter: boolean = true
+              ) => {
                 // Priority 1: Instructor filter (always applied)
                 if (selectedInstructors.size > 0) {
-                  const matchesInstructorFilter = section.meetings.some(meeting => {
+                  const matchesInstructorFilter = section.meetings.some((meeting) => {
                     if (!meeting.instructors) return false
-                    const instructorNames = meeting.instructors.split(',').map(name => name.trim())
-                    return instructorNames.some(instructorName => {
+                    const instructorNames = meeting.instructors
+                      .split(',')
+                      .map((name) => name.trim())
+                    return instructorNames.some((instructorName) => {
                       const formattedName = formatInstructorsCompact(instructorName)
                       return selectedInstructors.has(formattedName)
                     })
@@ -1876,10 +2076,10 @@ function CourseCard({
                 return true
               }
 
-              const totalAvailableSections = typeGroup.sections.filter(section =>
+              const totalAvailableSections = typeGroup.sections.filter((section) =>
                 passesSectionFilters(section, false)
               ).length
-              const visibleSectionsCount = typeGroup.sections.filter(section =>
+              const visibleSectionsCount = typeGroup.sections.filter((section) =>
                 passesSectionFilters(section, true)
               ).length
               const hiddenSectionsCount = totalAvailableSections - visibleSectionsCount
@@ -1895,8 +2095,12 @@ function CourseCard({
                     </Badge>
                     {/* Show instructor filter status */}
                     {selectedInstructors.size > 0 && (
-                      <Badge variant="outline" className="text-xs text-purple-700 border-purple-300 bg-purple-50">
-                        Filtered by {selectedInstructors.size} instructor{selectedInstructors.size > 1 ? 's' : ''}
+                      <Badge
+                        variant="outline"
+                        className="text-xs text-purple-700 border-purple-300 bg-purple-50"
+                      >
+                        Filtered by {selectedInstructors.size} instructor
+                        {selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
                     )}
                     {showHiddenSectionsToggle && (
@@ -1904,14 +2108,13 @@ function CourseCard({
                         <span>
                           {showingAllForType
                             ? `All ${visibleSectionsCount} options shown`
-                            : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`
-                          }
+                            : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`}
                         </span>
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() => {
-                            setShowAllSectionTypes(prev => {
+                            setShowAllSectionTypes((prev) => {
                               const updated = new Set(prev)
                               if (updated.has(typeGroup.type)) {
                                 updated.delete(typeGroup.type)
@@ -1922,228 +2125,253 @@ function CourseCard({
                             })
                           }}
                           className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
-                          title={showingAllForType
-                            ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
-                            : `Show all ${typeGroup.displayName.toLowerCase()} options`
+                          title={
+                            showingAllForType
+                              ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
+                              : `Show all ${typeGroup.displayName.toLowerCase()} options`
                           }
                         >
-                          {showingAllForType ? "Hide extra" : "Show all"}
+                          {showingAllForType ? 'Hide extra' : 'Show all'}
                         </Button>
                       </span>
                     )}
                   </h4>
-                {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                  {typeGroup.sections
-                    .filter(section => passesSectionFilters(section, true))
-                    .map(section => {
-                    const isSelected = localSelections.get(typeGroup.type) === section.id
-                    const isIncompatible = incompatible.includes(section)
-                    const sectionPrefix = getSectionPrefix(section.sectionCode)
+                  {/* Display sections horizontally for easy comparison - 4 columns on large screens */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    {typeGroup.sections
+                      .filter((section) => passesSectionFilters(section, true))
+                      .map((section) => {
+                        const isSelected = localSelections.get(typeGroup.type) === section.id
+                        const isIncompatible = incompatible.includes(section)
+                        const sectionPrefix = getSectionPrefix(section.sectionCode)
 
-                    // Check for time conflicts with current schedule
-                    const conflictInfo = checkSectionConflict(section, courseEnrollments)
-                    const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
+                        // Check for time conflicts with current schedule
+                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
 
-                    return (
-                      <div
-                        key={section.id}
-                        className={`p-2 rounded transition-all ${
-                          isSelected
-                            ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer'
-                            : isIncompatible
-                              ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
-                              : section.availability.status === 'Open'
-                                  ? 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
-                                  : section.availability.status === 'Waitlisted'
-                                    ? 'border border-yellow-500 hover:bg-yellow-50 cursor-pointer shadow-sm'
-                                    : 'border border-red-500 hover:bg-red-50 cursor-pointer shadow-sm'
-                        }`}
-                        onClick={() => {
-                          if (!isIncompatible) {
-                            const newSelections = new Map(localSelections)
-                            if (newSelections.get(typeGroup.type) === section.id) {
-                              // Remove selection
-                              newSelections.delete(typeGroup.type)
-                              // Note: Keep "show all" state - let user control it explicitly
-                            } else {
-                              // Set new selection
-                              newSelections.set(typeGroup.type, section.id)
+                        return (
+                          <div
+                            key={section.id}
+                            className={`p-2 rounded transition-all ${
+                              isSelected
+                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer'
+                                : isIncompatible
+                                  ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
+                                  : section.availability.status === 'Open'
+                                    ? 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
+                                    : section.availability.status === 'Waitlisted'
+                                      ? 'border border-yellow-500 hover:bg-yellow-50 cursor-pointer shadow-sm'
+                                      : 'border border-red-500 hover:bg-red-50 cursor-pointer shadow-sm'
+                            }`}
+                            onClick={() => {
+                              if (!isIncompatible) {
+                                const newSelections = new Map(localSelections)
+                                if (newSelections.get(typeGroup.type) === section.id) {
+                                  // Remove selection
+                                  newSelections.delete(typeGroup.type)
+                                  // Note: Keep "show all" state - let user control it explicitly
+                                } else {
+                                  // Set new selection
+                                  newSelections.set(typeGroup.type, section.id)
 
-                              // Cascade clearing: if this is a higher-priority selection,
-                              // clear incompatible lower-priority selections
-                              const newSectionPriority = getSectionTypePriority(typeGroup.type as SectionType, sectionTypes)
+                                  // Cascade clearing: if this is a higher-priority selection,
+                                  // clear incompatible lower-priority selections
+                                  const newSectionPriority = getSectionTypePriority(
+                                    typeGroup.type as SectionType,
+                                    sectionTypes
+                                  )
 
-                              // Find lower-priority selections to potentially clear
-                              const selectionsToCheck = Array.from(newSelections.entries())
-                              for (const [otherType, otherSectionId] of selectionsToCheck) {
-                                if (otherType === typeGroup.type) continue // Skip self
+                                  // Find lower-priority selections to potentially clear
+                                  const selectionsToCheck = Array.from(newSelections.entries())
+                                  for (const [otherType, otherSectionId] of selectionsToCheck) {
+                                    if (otherType === typeGroup.type) continue // Skip self
 
-                                const otherPriority = getSectionTypePriority(otherType as SectionType, sectionTypes)
+                                    const otherPriority = getSectionTypePriority(
+                                      otherType as SectionType,
+                                      sectionTypes
+                                    )
 
-                                // Only clear LOWER priority selections (higher number = lower priority)
-                                if (otherPriority > newSectionPriority) {
-                                  // Check if the new selection makes the other selection incompatible
-                                  const otherTypeGroup = sectionTypes.find(tg => tg.type === otherType)
-                                  if (otherTypeGroup) {
-                                    const otherSection = otherTypeGroup.sections.find(s => s.id === otherSectionId)
-
-                                    // Check compatibility using the new selection as constraint
-                                    if (otherSection) {
-                                      const { incompatible } = categorizeCompatibleSections(
-                                        otherTypeGroup.sections,
-                                        [section] // New higher-priority selection as constraint
+                                    // Only clear LOWER priority selections (higher number = lower priority)
+                                    if (otherPriority > newSectionPriority) {
+                                      // Check if the new selection makes the other selection incompatible
+                                      const otherTypeGroup = sectionTypes.find(
+                                        (tg) => tg.type === otherType
                                       )
+                                      if (otherTypeGroup) {
+                                        const otherSection = otherTypeGroup.sections.find(
+                                          (s) => s.id === otherSectionId
+                                        )
 
-                                      // If the other section is now incompatible, clear it
-                                      if (incompatible.includes(otherSection)) {
-                                        newSelections.delete(otherType)
+                                        // Check compatibility using the new selection as constraint
+                                        if (otherSection) {
+                                          const { incompatible } = categorizeCompatibleSections(
+                                            otherTypeGroup.sections,
+                                            [section] // New higher-priority selection as constraint
+                                          )
+
+                                          // If the other section is now incompatible, clear it
+                                          if (incompatible.includes(otherSection)) {
+                                            newSelections.delete(otherType)
+                                          }
+                                        }
                                       }
                                     }
                                   }
                                 }
+                                setLocalSelections(newSelections)
+                                onSectionsChange(course, newSelections)
+                                // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
                               }
+                            }}
+                            title={
+                              isIncompatible
+                                ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
+                                : hasTimeConflict
+                                  ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
+                                  : undefined
                             }
-                            setLocalSelections(newSelections)
-                            onSectionsChange(course, newSelections)
-                            // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
-                          }
-                        }}
-                        title={
-                          isIncompatible
-                            ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
-                            : hasTimeConflict
-                              ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
-                              : undefined
-                        }
-                      >
-                        <div className="space-y-2">
-                          <div className="flex h-4 items-center justify-between">
-                            <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                              <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
-                                {section.sectionCode}
-                              </span>
-                              {hasTimeConflict && (
-                                <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
-                                  <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
-                                  <span className="truncate" title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}>
-                                    {conflictInfo.conflictingSections.join(', ')}
+                          >
+                            <div className="space-y-2">
+                              <div className="flex h-4 items-center justify-between">
+                                <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                  <span className="font-mono text-xs font-medium flex-shrink-0 text-gray-600">
+                                    {section.sectionCode}
+                                  </span>
+                                  {hasTimeConflict && (
+                                    <div className="flex items-center gap-0.5 text-purple-600 text-xs min-w-0 flex-1">
+                                      <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
+                                      <span
+                                        className="truncate"
+                                        title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}
+                                      >
+                                        {conflictInfo.conflictingSections.join(', ')}
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
+
+                                <div className="flex items-center gap-2 flex-shrink-0">
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="h-4 w-4 p-0"
+                                    title={isSelected ? 'Remove selection' : 'Select this section'}
+                                  >
+                                    {isSelected ? (
+                                      <X className="h-2.5 w-2.5 text-red-500" />
+                                    ) : (
+                                      <Plus className="h-2.5 w-2.5 text-gray-500" />
+                                    )}
+                                  </Button>
+                                </div>
+                              </div>
+
+                              {/* Row 2: Enrollment Badges */}
+                              <div className="flex items-center gap-1">
+                                {getAvailabilityBadges(section.availability).map((badge) => (
+                                  <Badge
+                                    key={badge.type}
+                                    className={`text-[10px] px-1 py-0 ${badge.style.className}`}
+                                    title={
+                                      badge.type === 'status'
+                                        ? `Course status: ${badge.text}`
+                                        : badge.type === 'availability'
+                                          ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                          : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                    }
+                                  >
+                                    {badge.text}
+                                  </Badge>
+                                ))}
+                              </div>
+
+                              {/* Row 3: Teaching Language */}
+                              {section.classAttributes && (
+                                <div className="flex items-center gap-1 text-gray-500 text-[11px]">
+                                  <span className="flex-shrink-0">🌐</span>
+                                  <span
+                                    className="truncate"
+                                    title={`Language of instruction: ${section.classAttributes}`}
+                                  >
+                                    {section.classAttributes}
                                   </span>
                                 </div>
                               )}
-                            </div>
 
-                            <div className="flex items-center gap-2 flex-shrink-0">
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                className="h-4 w-4 p-0"
-                                title={isSelected ? "Remove selection" : "Select this section"}
-                              >
-                                {isSelected ? (
-                                  <X className="h-2.5 w-2.5 text-red-500" />
-                                ) : (
-                                  <Plus className="h-2.5 w-2.5 text-gray-500" />
-                                )}
-                              </Button>
-                            </div>
-                          </div>
+                              {/* Meetings displayed in unified 3-row emoji format */}
+                              <div className="space-y-1">
+                                {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                                  const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
+                                  const formattedInstructor = formatInstructorsCompact(
+                                    meeting?.instructors || 'TBA'
+                                  )
+                                  const location = meeting?.location || 'TBA'
 
-                          {/* Row 2: Enrollment Badges */}
-                          <div className="flex items-center gap-1">
-                            {getAvailabilityBadges(section.availability).map((badge) => (
-                              <Badge
-                                key={badge.type}
-                                className={`text-[10px] px-1 py-0 ${badge.style.className}`}
-                                title={
-                                  badge.type === 'status'
-                                    ? `Course status: ${badge.text}`
-                                    : badge.type === 'availability'
-                                      ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                      : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
-                                }
-                              >
-                                {badge.text}
-                              </Badge>
-                            ))}
-                          </div>
-
-                          {/* Row 3: Teaching Language */}
-                          {section.classAttributes && (
-                            <div className="flex items-center gap-1 text-gray-500 text-[11px]">
-                              <span className="flex-shrink-0">🌐</span>
-                              <span className="truncate" title={`Language of instruction: ${section.classAttributes}`}>
-                                {section.classAttributes}
-                              </span>
-                            </div>
-                          )}
-
-                          {/* Meetings displayed in unified 3-row emoji format */}
-                          <div className="space-y-1">
-                            {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                              const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                              const formattedInstructor = formatInstructorsCompact(meeting?.instructors || 'TBA')
-                              const location = meeting?.location || 'TBA'
-
-                              return (
-                                <div key={index} className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm">
-                                  {/* Row 1: Time */}
-                                  <div className="flex items-center gap-1 text-[11px]">
-                                    <span>⏰</span>
-                                    <span className="font-mono text-gray-600">{formattedTime}</span>
-                                  </div>
-                                  {/* Row 2: Instructor */}
-                                  <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                    <span>🧑🏻‍🏫</span>
-                                    <div className="flex items-center gap-1 min-w-0 flex-1">
-                                      <span className="truncate" title={formattedInstructor}>
-                                        {formattedInstructor}
-                                      </span>
-                                      {formattedInstructor !== 'Staff' && (
-                                        <button
-                                          onClick={(e) => {
-                                            e.stopPropagation()
-                                            googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                          }}
-                                          className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                          title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                        >
-                                          <GoogleIcon className="size-3" />
-                                        </button>
-                                      )}
+                                  return (
+                                    <div
+                                      key={index}
+                                      className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm"
+                                    >
+                                      {/* Row 1: Time */}
+                                      <div className="flex items-center gap-1 text-[11px]">
+                                        <span>⏰</span>
+                                        <span className="font-mono text-gray-600">
+                                          {formattedTime}
+                                        </span>
+                                      </div>
+                                      {/* Row 2: Instructor */}
+                                      <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                        <span>🧑🏻‍🏫</span>
+                                        <div className="flex items-center gap-1 min-w-0 flex-1">
+                                          <span className="truncate" title={formattedInstructor}>
+                                            {formattedInstructor}
+                                          </span>
+                                          {formattedInstructor !== 'Staff' && (
+                                            <button
+                                              onClick={(e) => {
+                                                e.stopPropagation()
+                                                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                                              }}
+                                              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                              title={`Search Google for "CUHK ${formattedInstructor}"`}
+                                            >
+                                              <GoogleIcon className="size-3" />
+                                            </button>
+                                          )}
+                                        </div>
+                                      </div>
+                                      {/* Row 3: Location */}
+                                      <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                        <span>📍</span>
+                                        <div className="flex items-center gap-1 min-w-0 flex-1">
+                                          <span className="truncate" title={location}>
+                                            {location}
+                                          </span>
+                                          {location !== 'TBA' &&
+                                            location !== 'No Room Required' && (
+                                              <button
+                                                onClick={(e) => {
+                                                  e.stopPropagation()
+                                                  googleMapsSearchAndOpen(location)
+                                                }}
+                                                className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                                title={`View "${location}" on Google Maps`}
+                                              >
+                                                <GoogleMapsIcon className="size-3" />
+                                              </button>
+                                            )}
+                                        </div>
+                                      </div>
                                     </div>
-                                  </div>
-                                  {/* Row 3: Location */}
-                                  <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                    <span>📍</span>
-                                    <div className="flex items-center gap-1 min-w-0 flex-1">
-                                      <span className="truncate" title={location}>
-                                        {location}
-                                      </span>
-                                      {location !== 'TBA' && location !== 'No Room Required' && (
-                                        <button
-                                          onClick={(e) => {
-                                            e.stopPropagation()
-                                            googleMapsSearchAndOpen(location)
-                                          }}
-                                          className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                          title={`View "${location}" on Google Maps`}
-                                        >
-                                          <GoogleMapsIcon className="size-3" />
-                                        </button>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                              )
-                            })}
+                                  )
+                                })}
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    )
-                  })}
+                        )
+                      })}
+                  </div>
                 </div>
-              </div>
               )
             })}
 
@@ -2152,8 +2380,12 @@ function CourseCard({
               {/* Enrollment Requirement - Show first for student decision making */}
               {course.enrollmentRequirement && (
                 <div>
-                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Enrollment Requirement</h4>
-                  <p className="text-sm text-gray-600 whitespace-pre-line">{course.enrollmentRequirement}</p>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">
+                    Enrollment Requirement
+                  </h4>
+                  <p className="text-sm text-gray-600 whitespace-pre-line">
+                    {course.enrollmentRequirement}
+                  </p>
                 </div>
               )}
 
@@ -2161,7 +2393,9 @@ function CourseCard({
               {course.courseAttributes && (
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">Course Attributes</h4>
-                  <p className="text-sm text-gray-600 whitespace-pre-line">{course.courseAttributes}</p>
+                  <p className="text-sm text-gray-600 whitespace-pre-line">
+                    {course.courseAttributes}
+                  </p>
                 </div>
               )}
 
@@ -2195,9 +2429,11 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     const normalizedDescription = normalizeText(course.description)
 
     // Consider it duplicate if they're identical or if content is contained in description
-    return normalizedContent === normalizedDescription ||
-           normalizedDescription.includes(normalizedContent) ||
-           normalizedContent.includes(normalizedDescription)
+    return (
+      normalizedContent === normalizedDescription ||
+      normalizedDescription.includes(normalizedContent) ||
+      normalizedContent.includes(normalizedDescription)
+    )
   }
 
   // Section configuration with visibility and collapsible settings
@@ -2207,50 +2443,55 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
       title: 'Assessment Types',
       content: course.assessmentTypes,
       isTable: true,
-      alwaysVisible: true,  // Critical info - always shown
-      defaultExpanded: true  // Always expanded (not collapsible)
+      alwaysVisible: true, // Critical info - always shown
+      defaultExpanded: true, // Always expanded (not collapsible)
     },
     {
       key: 'learningOutcomes',
       title: 'Learning Outcomes',
       content: course.learningOutcomes,
       isTable: false,
-      alwaysVisible: true,  // Visible - Useful although there are still some formatting issues, but still better than nothing
-      defaultExpanded: false  // Collapsed by default
+      alwaysVisible: true, // Visible - Useful although there are still some formatting issues, but still better than nothing
+      defaultExpanded: false, // Collapsed by default
     },
     {
       key: 'requiredReadings',
       title: 'Required Readings',
       content: course.requiredReadings,
       isTable: false,
-      alwaysVisible: false,  // Hidden - formatting not production-ready
-      defaultExpanded: false  // Collapsed by default
+      alwaysVisible: false, // Hidden - formatting not production-ready
+      defaultExpanded: false, // Collapsed by default
     },
     {
       key: 'recommendedReadings',
       title: 'Recommended Readings',
       content: course.recommendedReadings,
       isTable: false,
-      alwaysVisible: false,  // Hidden - formatting not production-ready
-      defaultExpanded: false  // Collapsed by default
+      alwaysVisible: false, // Hidden - formatting not production-ready
+      defaultExpanded: false, // Collapsed by default
     },
     {
       key: 'feedbackEvaluation',
       title: 'Feedback for Evaluation',
       content: course.feedbackEvaluation,
       isTable: false,
-      alwaysVisible: false,  // Hidden - formatting not production-ready
-      defaultExpanded: false  // Collapsed by default
-    }
+      alwaysVisible: false, // Hidden - formatting not production-ready
+      defaultExpanded: false, // Collapsed by default
+    },
   ]
 
   // Filter sections: check content availability and quality
-  const availableSections = sectionConfigs.filter(section => {
+  const availableSections = sectionConfigs.filter((section) => {
     // Rule 1: Skip if empty
     if (!section.content) return false
 
     // Rule 2: Skip if same as description (except for assessment types which are structured differently)
-    if (!section.isTable && typeof section.content === 'string' && isDuplicateOfDescription(section.content)) return false
+    if (
+      !section.isTable &&
+      typeof section.content === 'string' &&
+      isDuplicateOfDescription(section.content)
+    )
+      return false
 
     // Rule 3: For assessment types, check if it's an empty object
     if (section.isTable && typeof section.content === 'object') {
@@ -2261,14 +2502,14 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
   })
 
   // Filter by visibility (for future hiding of poor-quality content)
-  const visibleSections = availableSections.filter(section => section.alwaysVisible)
+  const visibleSections = availableSections.filter((section) => section.alwaysVisible)
 
   // Don't render anything if no sections to show
   if (visibleSections.length === 0) return null
 
   return (
     <div className="space-y-3">
-      {visibleSections.map(section => (
+      {visibleSections.map((section) => (
         <CollapsibleCourseOutcomeSection
           key={section.key}
           title={section.title}
@@ -2285,7 +2526,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
 function CourseOutcomeSection({
   title,
   content,
-  isTable
+  isTable,
 }: {
   title: string
   content: string | Record<string, string> | undefined
@@ -2339,74 +2580,61 @@ function CourseOutcomeSection({
                 </th>
               ),
               td: ({ children }) => (
-                <td className="border border-gray-200 px-3 py-2 text-gray-600">
-                  {children}
-                </td>
+                <td className="border border-gray-200 px-3 py-2 text-gray-600">{children}</td>
               ),
               // Typography using app's Geist Sans font
               h1: ({ children }) => (
-                <h1 className="text-base font-semibold text-gray-800 mb-2 font-sans">
-                  {children}
-                </h1>
+                <h1 className="text-base font-semibold text-gray-800 mb-2 font-sans">{children}</h1>
               ),
               h2: ({ children }) => (
-                <h2 className="text-sm font-medium text-gray-700 mb-2 font-sans">
-                  {children}
-                </h2>
+                <h2 className="text-sm font-medium text-gray-700 mb-2 font-sans">{children}</h2>
               ),
               h3: ({ children }) => (
-                <h3 className="text-sm font-medium text-gray-700 mb-1 font-sans">
-                  {children}
-                </h3>
+                <h3 className="text-sm font-medium text-gray-700 mb-1 font-sans">{children}</h3>
               ),
               // Lists with app styling and proper spacing
               ul: ({ children }) => (
-                <ul className="list-disc list-inside space-y-0.5 mb-2 text-gray-600">
-                  {children}
-                </ul>
+                <ul className="list-disc list-inside space-y-0.5 mb-2 text-gray-600">{children}</ul>
               ),
               ol: ({ children }) => (
                 <ol className="list-decimal list-inside space-y-0.5 mb-2 text-gray-600">
                   {children}
                 </ol>
               ),
-              li: ({ children }) => (
-                <li className="text-gray-600 font-sans">
-                  {children}
-                </li>
-              ),
+              li: ({ children }) => <li className="text-gray-600 font-sans">{children}</li>,
               // Paragraphs with consistent spacing - fix list item wrapping
               p: ({ children, node }) => {
                 // If paragraph is direct child of list item, render inline without wrapper
-                if (node && typeof node === 'object' && 'parent' in node &&
-                    node.parent && typeof node.parent === 'object' && 'tagName' in node.parent &&
-                    node.parent.tagName === 'li') {
-                  return <>{children}</>;
+                if (
+                  node &&
+                  typeof node === 'object' &&
+                  'parent' in node &&
+                  node.parent &&
+                  typeof node.parent === 'object' &&
+                  'tagName' in node.parent &&
+                  node.parent.tagName === 'li'
+                ) {
+                  return <>{children}</>
                 }
                 return (
                   <p className="text-gray-600 mb-2 last:mb-0 font-sans leading-relaxed">
                     {children}
                   </p>
-                );
+                )
               },
               // Strong/bold text matching app style
               strong: ({ children }) => (
-                <strong className="font-medium text-gray-700">
-                  {children}
-                </strong>
+                <strong className="font-medium text-gray-700">{children}</strong>
               ),
               // Emphasis/italic text
-              em: ({ children }) => (
-                <em className="italic text-gray-600">
-                  {children}
-                </em>
-              ),
+              em: ({ children }) => <em className="italic text-gray-600">{children}</em>,
             }}
           >
             {/* Preprocess content to fix list formatting */}
-            {content
-              .replace(/(\d+\..*?)\n\n(?=\d+\.)/g, '$1\n')  // Fix numbered lists: remove double newlines
-              .replace(/([-*].*?)\n\n(?=[-*])/g, '$1\n')    // Fix bullet lists: remove double newlines
+            {
+              content
+                .replace(/(\d+\..*?)\n\n(?=\d+\.)/g, '$1\n') // Fix numbered lists: remove double newlines
+                .replace(/([-*].*?)\n\n(?=[-*])/g, '$1\n') // Fix bullet lists: remove double newlines
             }
           </ReactMarkdown>
         </div>
@@ -2422,7 +2650,7 @@ function CollapsibleCourseOutcomeSection({
   title,
   content,
   isTable,
-  defaultExpanded
+  defaultExpanded,
 }: {
   title: string
   content: string | Record<string, string> | undefined
