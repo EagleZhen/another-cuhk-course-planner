@@ -14,7 +14,7 @@ def test_validation_on_system_error():
     scraper = CuhkScraper(ScrapingConfig())
 
     # Read the actual system error HTML that caused LAWS4330 data loss
-    system_error_file = Path("tests/output/debug_html/course_outcome_LAWS_4330.html")
+    system_error_file = Path("lab/scraper/outputs/debug_html/course_outcome_LAWS_4330.html")
 
     if not system_error_file.exists():
         print(f"❌ Test file not found: {system_error_file}")
@@ -67,7 +67,7 @@ def test_validation_on_good_response():
     scraper = CuhkScraper(ScrapingConfig())
 
     # Check if we have a good response file
-    good_response_file = Path("tests/sample-webpages/Course Outcome - LAWS 2331 - Intellectual Property Law for Entrepreneurs .html")
+    good_response_file = Path("lab/scraper/samples/webpages/Course Outcome - LAWS 2331 - Intellectual Property Law for Entrepreneurs .html")
 
     if not good_response_file.exists():
         print(f"⚠️  Good response test file not found: {good_response_file}")

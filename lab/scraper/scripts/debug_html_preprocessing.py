@@ -102,7 +102,7 @@ def test_robust_html_processing():
     """Test the robust HTML pre-processing approach"""
 
     # Path to the sample HTML file
-    html_file = "tests/sample-webpages/Course Outcome - Recommended Reading - List.html"
+    html_file = "lab/scraper/samples/webpages/Course Outcome - Recommended Reading - List.html"
 
     if not os.path.exists(html_file):
         print(f"ERROR: File not found: {html_file}")
@@ -174,7 +174,7 @@ def test_robust_html_processing():
 
     # Step 4: Write clean output files for preview
     print("=== STEP 4: Write Files for Preview ===")
-    output_dir = "tests/output/debug_html_preprocessing"
+    output_dir = "lab/scraper/outputs/debug_html_preprocessing"
     os.makedirs(output_dir, exist_ok=True)
 
     # Pure HTML files (no analysis text - for direct browser preview)

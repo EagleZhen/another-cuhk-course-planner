@@ -12,7 +12,7 @@ def test_html_conversion():
     """Simulate the exact process that happens in the scraper"""
 
     # Path to the sample HTML file
-    html_file = "tests/sample-webpages/Course Outcome - Recommended Reading - List.html"
+    html_file = "lab/scraper/samples/webpages/Course Outcome - Recommended Reading - List.html"
 
     if not os.path.exists(html_file):
         print(f"ERROR: File not found: {html_file}")
@@ -81,7 +81,7 @@ def test_html_conversion():
         print("=== STEP 5: Detailed Output Files ===")
 
         # Write step-by-step output for analysis
-        output_dir = "tests/output/debug_html_conversion"
+        output_dir = "lab/scraper/outputs/debug_html_conversion"
         os.makedirs(output_dir, exist_ok=True)
 
         # Step 1: Original HTML (first 2000 chars for analysis)
