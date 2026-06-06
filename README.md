@@ -45,6 +45,7 @@ Repository-level tooling such as formatting is installed from the repository roo
 .
 ├── scripts/              Python scraper and data publishing tools
 ├── data/                 Scraped course JSON files
+├── lab/                  Exploratory scripts, outputs, and analysis records
 ├── logs/                 Scraping and publishing logs
 ├── docs/                 Development and scraper documentation
 └── web/                  Next.js web app
