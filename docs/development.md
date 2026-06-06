@@ -68,7 +68,7 @@ npm install
 
 Use the configured tools instead of formatting or checking files by hand.
 
-Prettier is the repo-wide formatting standard for supported text and source files such as TypeScript, JavaScript, JSON, YAML, and Markdown. The exact rules live in `.prettierrc.json`, and intentionally ignored generated or vendor files live in `.prettierignore`.
+Prettier is the repo-wide formatting standard for supported text and source files such as TypeScript, JavaScript, JSON, YAML, CSS, and Markdown. The exact rules live in `.prettierrc.json`, and intentionally ignored generated or vendor files live in `.prettierignore`.
 
 Pre-commit runs Prettier automatically on supported staged files when you commit.
 
