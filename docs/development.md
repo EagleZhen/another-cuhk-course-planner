@@ -57,6 +57,8 @@ Install Git hooks for automatic formatting, Python linting, and basic source-fil
 poetry run pre-commit install
 ```
 
+`poetry install --no-root` installs the `pre-commit` command, but `poetry run pre-commit install` is what connects it to `git commit`. If the hook is not installed, manual commands such as `poetry run pre-commit run --all-files` still work, but `git commit` will not run the hooks automatically.
+
 Install web dependencies:
 
 ```bash
