@@ -146,7 +146,7 @@ config.save_debug_files = True
 scraper = CuhkScraper(config)
 ```
 
-**Saved to**: `tests/output/debug_html/`
+**Saved to**: `lab/scraper/outputs/debug_html/`
 
 ### Check Progress
 
@@ -193,7 +193,7 @@ ScrapingConfig()  # Defaults
 # - Max 3 courses per subject
 # - Basic details only
 # - Debug HTML enabled
-# - Output: tests/output/
+# - Output: lab/scraper/outputs/
 ```
 
 ---
