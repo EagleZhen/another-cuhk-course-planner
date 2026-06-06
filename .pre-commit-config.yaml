@@ -17,7 +17,14 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
+      - id: check-json
+        files: '\.json$'
+        exclude: '^(data/|web/public/data/|tests/)'
+      - id: check-merge-conflict
+      - id: check-yaml
       - id: trailing-whitespace
-        files: '^(scripts|web/src|tests)/.*\.(py|js|ts|tsx|jsx)$'
+        files: &source_text_files '(^\.editorconfig$|\.(py|js|jsx|ts|tsx|mjs|md|json|ya?ml)$)'
+        exclude: '^(data/|web/public/data/|docs/archived/|tests/)'
       - id: end-of-file-fixer
-        files: '^(scripts|web/src|tests)/.*\.(py|js|ts|tsx|jsx)$'
+        files: *source_text_files
+        exclude: '^(data/|web/public/data/|docs/archived/|tests/)'

@@ -35,6 +35,8 @@ npm run dev
 
 Open <http://localhost:3000>.
 
+Repository-level tooling such as formatting is installed from the repository root; see [docs/development.md](docs/development.md).
+
 ---
 
 ## Project Structure

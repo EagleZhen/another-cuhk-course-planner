@@ -18,6 +18,15 @@ PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 
 
+def format_ts_string(value: str) -> str:
+    # Match Prettier's TS output so regenerated subjects.ts does not create churn.
+    escaped = value.replace("\\", "\\\\")
+    if "'" in escaped and '"' not in escaped:
+        return f'"{escaped}"'
+    escaped = escaped.replace("'", "\\'")
+    return f"'{escaped}'"
+
+
 def main():
     # Exemption codes - administrative placeholders, not real subjects
     EXCLUDED_SUBJECTS = {
@@ -50,8 +59,7 @@ def main():
     # Generate TypeScript constant
     print("const SUBJECT_TITLES: Record<string, string> = {")
     for subject in sorted(subject_titles.keys()):
-        title = subject_titles[subject].replace("'", "\\'")
-        print(f"    '{subject}': '{title}',")
+        print(f"  {subject}: {format_ts_string(subject_titles[subject])},")
     print("} as const")
 
 

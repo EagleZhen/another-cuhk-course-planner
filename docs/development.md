@@ -51,12 +51,40 @@ Install Git hooks for Python formatting/linting and basic source-file whitespace
 poetry run pre-commit install
 ```
 
+Install repository-level tooling such as Prettier:
+
+```bash
+npm install
+```
+
 Install web dependencies:
 
 ```bash
 cd web
 npm install
 ```
+
+## Formatting And Checks
+
+Use the configured tools instead of formatting or checking files by hand.
+
+Prettier is the repo-wide formatting standard for text and source files such as TypeScript, JavaScript, JSON, CSS, and Markdown. The exact rules live in `.prettierrc.json`, and intentionally ignored generated or vendor files live in `.prettierignore`.
+
+Run Prettier from the repository root:
+
+```bash
+npm run format
+```
+
+To check formatting without changing files:
+
+```bash
+npm run format:check
+```
+
+Python files in `scripts/` are handled by the pre-commit hooks, using Ruff, Ruff format, and isort. Web app linting and type checks live in `web/package.json`.
+
+Generated source files should ideally be emitted in the expected format by their generator. Avoid excluding generated files only because the generator produces slightly different style.
 
 ## Run The Web App
 
@@ -163,11 +191,11 @@ The script prints a replacement `SUBJECT_TITLES` constant generated from `data/*
 
 Run these from `web/`:
 
-| Command | Purpose |
-| --- | --- |
+| Command             | Purpose                                                |
+| ------------------- | ------------------------------------------------------ |
 | `npm run typecheck` | Verify TypeScript types without emitting build output. |
-| `npm run lint` | Run ESLint on the web app source. |
-| `npm run build` | Verify the production build. |
+| `npm run lint`      | Run ESLint on the web app source.                      |
+| `npm run build`     | Verify the production build.                           |
 
 If Git hooks were installed with `poetry run pre-commit install`, the configured hooks run automatically on commit. Current hooks cover Python formatting/linting for `scripts/*.py` and basic whitespace/end-of-file cleanup for selected source files. To run the hooks manually before committing:
 
