@@ -223,10 +223,10 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print()
             return False
 
-        # Parse the object keys
+        # Parse canonical generated object keys, e.g. `ACCT: 'Accountancy',`.
+        # Regex: line start, optional whitespace, 4-letter subject code, optional whitespace, colon.
         object_content = match.group(1)
-        # Extract subject codes (keys from 'CODE': 'Title' pairs)
-        registered_subjects = re.findall(r"'([A-Z]{4})':", object_content)
+        registered_subjects = re.findall(r"^\s*([A-Z]{4})\s*:", object_content, re.MULTILINE)
 
         # Compare lists
         found_set = set(found_subjects)
