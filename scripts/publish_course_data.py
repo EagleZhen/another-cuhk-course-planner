@@ -23,17 +23,20 @@ from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 EMPTY_COURSES_ISSUE = "No courses found in file"
+LOGS_DIR = "logs"
+PUBLISH_LOG_DIR = os.path.join(LOGS_DIR, "publish")
+SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
+LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
 
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
-    progress_file = "logs/scraping_progress.json"
-    if not os.path.exists(progress_file):
+    if not os.path.exists(SCRAPING_PROGRESS_FILE):
         print("⚠️ No scraping_progress.json found - validation will be limited")
         return None
 
     try:
-        with open(progress_file, "r", encoding="utf-8") as f:
+        with open(SCRAPING_PROGRESS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
         print(f"❌ Error reading scraping_progress.json: {e}")
@@ -374,16 +377,15 @@ def main():
     # Generate log filename with timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    # Create logs directory structure
-    log_dir = "logs/publish"
-    os.makedirs(log_dir, exist_ok=True)
+    # Create verbose publish log directory
+    os.makedirs(PUBLISH_LOG_DIR, exist_ok=True)
 
     # Create timestamped log file
-    timestamped_log = os.path.join(log_dir, f"publish_{timestamp}.log")
-    latest_log = os.path.join("logs", "latest_publish.log")
+    timestamped_publish_log = os.path.join(PUBLISH_LOG_DIR, f"publish_{timestamp}.log")
+    latest_publish_log = LATEST_PUBLISH_LOG
 
     # Set up console logging (write to timestamped file)
-    logger = ConsoleLogger(timestamped_log)
+    logger = ConsoleLogger(timestamped_publish_log)
     sys.stdout = logger
 
     try:
@@ -536,8 +538,8 @@ def main():
 
         print()
         print("Logs saved to:")
-        print(f"   {timestamped_log}")
-        print(f"   {latest_log}")
+        print(f"   {timestamped_publish_log}")
+        print(f"   {latest_publish_log}")
 
     finally:
         # Restore original stdout and close log file
@@ -546,7 +548,7 @@ def main():
 
         # Copy timestamped log to latest log for quick reference
         try:
-            shutil.copy2(timestamped_log, latest_log)
+            shutil.copy2(timestamped_publish_log, latest_publish_log)
         except Exception as e:
             print(f"⚠️ Warning: Could not create latest log: {e}")
 
