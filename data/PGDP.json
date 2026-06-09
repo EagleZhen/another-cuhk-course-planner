@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-02T04:39:10.788717+00:00",
+    "scraped_at": "2026-06-08T09:37:44.732514+00:00",
     "subject": "PGDP",
     "subject_title": "PgD Education (Primary)",
     "total_courses": 69,
@@ -2146,6 +2146,56 @@
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": ""
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "U-LEC (1635)",
+              "meetings": [
+                {
+                  "time": "Mo 11:00AM - 12:45PM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "20/7, 27/7"
+                },
+                {
+                  "time": "Tu 11:00AM - 12:45PM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "21/7, 28/7"
+                },
+                {
+                  "time": "We 11:00AM - 12:45PM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "22/7, 29/7"
+                },
+                {
+                  "time": "Th 11:00AM - 12:45PM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "16/7, 23/7"
+                },
+                {
+                  "time": "Fr 11:00AM - 12:45PM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "17/7, 24/7"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
                 "status": "Open"
               },
               "class_attributes": ""
