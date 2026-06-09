@@ -369,15 +369,6 @@ class ConsoleLogger:
     def close(self):
         self.log_file.close()
 
-    def get_user_input(self, prompt: str) -> str:
-        """Get user input while temporarily restoring terminal output"""
-        sys.stdout = self.terminal
-        try:
-            answer = input(prompt).strip().lower()
-        finally:
-            sys.stdout = self
-        return answer
-
 
 def main():
     # Generate log filename with timestamp
@@ -514,14 +505,10 @@ def main():
             print("❌ No files to publish")
             return
 
-        if not dry_run:
-            proceed = logger.get_user_input(
-                f"\nProceed with publishing {len(files_to_copy)} files? [Y/n]: "
-            )
-
-            if proceed in ["n", "no"]:
-                print("❌ Operation cancelled by user")
-                return
+        if dry_run:
+            print(f"Dry run: would publish {len(files_to_copy)} files")
+        else:
+            print(f"Publishing {len(files_to_copy)} files")
 
         # Copy files
         print()
@@ -540,10 +527,11 @@ def main():
 
         # Publishing summary
         print("Publishing Summary:")
-        print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
         if not dry_run:
+            print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
             print(f"   Destination: {dest_dir}")
         else:
+            print(f"   Would publish: {copied_count}/{len(course_files)} files")
             print("   DRY RUN - No files actually copied")
 
         print()
