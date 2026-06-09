@@ -22,6 +22,8 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
+EMPTY_COURSES_ISSUE = "No courses found in file"
+
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
@@ -78,7 +80,7 @@ def validate_course_file(
         )
 
     if actual_count == 0:
-        issues.append("No courses found in file")
+        issues.append(EMPTY_COURSES_ISSUE)
 
     # Validate against progress data if available
     if (
@@ -456,7 +458,7 @@ def main():
             else:
                 problematic_files.append((file_path, issues))
                 # Check if this subject has no courses
-                if any("No courses found" in issue for issue in issues):
+                if EMPTY_COURSES_ISSUE in issues:
                     empty_subjects.append(subject_code)
 
         # Report subjects with no courses (compact single-line format)
@@ -467,11 +469,14 @@ def main():
         else:
             print("All subjects have courses")
 
-        # Report other problematic files (not empty)
+        # Report other problematic files (everything except known-empty subjects)
         non_empty_problematic = [
-            (file_path, issues)
+            (
+                file_path,
+                [issue for issue in issues if issue != EMPTY_COURSES_ISSUE],
+            )
             for file_path, issues in problematic_files
-            if not any("No courses found" in issue for issue in issues)
+            if any(issue != EMPTY_COURSES_ISSUE for issue in issues)
         ]
 
         if non_empty_problematic:
@@ -481,25 +486,23 @@ def main():
                 subject_code = os.path.splitext(filename)[0]
                 print(f"   - {subject_code}: {', '.join(issues)}")
 
-        # Determine files to copy (all valid files by default)
-        files_to_copy = valid_files.copy()
-
-        # Ask if user wants to include problematic files (single confirmation)
-        if problematic_files:
+        if non_empty_problematic:
             print("Summary:")
             print(f"   Valid files ready to copy: {len(valid_files)}")
-            print(f"   ⚠️ Problematic files: {len(problematic_files)}")
+            print(f"   ❌ Files with validation issues: {len(non_empty_problematic)}")
+            if empty_subjects:
+                print(f"   Subjects with no courses: {len(empty_subjects)}")
             print()
+            print("❌ Publishing aborted due to validation issues.")
+            print("   Please double-check the scraped data before publishing.")
+            print("   Re-run the scraper or fix the source JSON files, then run this script again.")
+            sys.exit(1)
 
-            include_problematic = logger.get_user_input(
-                "Include problematic files in migration? [y/N]: "
-            )
+        # Determine files to copy (valid files only; empty subjects remain skipped)
+        files_to_copy = valid_files.copy()
 
-            if include_problematic in ["y", "yes"]:
-                files_to_copy.extend([file_path for file_path, _ in problematic_files])
-                print("Including all problematic files in copy operation")
-            else:
-                print("Skipping problematic files")
+        if empty_subjects:
+            print(f"Skipping {len(empty_subjects)} subjects with no courses")
 
         if not files_to_copy:
             print("❌ No files to publish")
