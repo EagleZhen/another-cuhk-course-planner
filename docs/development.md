@@ -162,8 +162,8 @@ Scraped JSON files are written to `data/`.
 The scraper is stable in normal use, but it is fragile by nature because it depends on CUHK website structure, response behavior, and captcha handling. After a scrape, review:
 
 ```bash
-logs/summary/scraping_progress.json
-logs/summary/failed_course_outcomes.txt
+logs/scraping_progress.json
+logs/failed_course_outcomes.txt
 ```
 
 Look for failed subjects, unusual course counts, repeated validation failures, or unexpectedly missing courses.
@@ -189,7 +189,7 @@ Published files are written to `web/public/data/`.
 Review the latest publish log after publishing:
 
 ```bash
-logs/publish/latest_publish.log
+logs/latest_publish.log
 ```
 
 Pay attention to:

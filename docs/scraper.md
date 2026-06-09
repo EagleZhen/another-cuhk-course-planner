@@ -93,7 +93,7 @@ CUHK returns `<title>System error</title>` for ~8% of outcome requests.
 **Behavior**:
 
 - Don't retry (permanent database issue)
-- Track in `logs/summary/failed_course_outcomes.txt` for manual review
+- Track in `logs/failed_course_outcomes.txt` for manual review
 
 ### 3. Incomplete Outcome Data
 
@@ -151,13 +151,13 @@ scraper = CuhkScraper(config)
 ### Check Progress
 
 ```bash
-cat logs/summary/scraping_progress.json | jq '.scraping_log.subjects.PHED'
+cat logs/scraping_progress.json | jq '.scraping_log.subjects.PHED'
 ```
 
 ### Review Failed Courses
 
 ```bash
-cat logs/summary/failed_course_outcomes.txt
+cat logs/failed_course_outcomes.txt
 ```
 
 ---

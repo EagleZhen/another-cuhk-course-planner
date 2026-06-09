@@ -22,18 +22,31 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
+# Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
+
+# Log inputs and outputs
+LOGS_DIR = "logs"
+PUBLISH_LOG_DIR = os.path.join(LOGS_DIR, "publish")
+SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
+LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
+
+# Course data inputs and publish targets
+SOURCE_DATA_DIR = "data"
+PUBLISHED_DATA_DIR = os.path.join("web", "public", "data")
+
+# Frontend source files used for validation
+SUBJECTS_FILE = os.path.join("web", "src", "lib", "subjects.ts")
 
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
-    progress_file = "logs/summary/scraping_progress.json"
-    if not os.path.exists(progress_file):
+    if not os.path.exists(SCRAPING_PROGRESS_FILE):
         print("⚠️ No scraping_progress.json found - validation will be limited")
         return None
 
     try:
-        with open(progress_file, "r", encoding="utf-8") as f:
+        with open(SCRAPING_PROGRESS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
         print(f"❌ Error reading scraping_progress.json: {e}")
@@ -151,12 +164,11 @@ def find_course_files() -> List[str]:
         "XWAS",
     }
 
-    data_dir = "data"
-    if not os.path.exists(data_dir):
+    if not os.path.exists(SOURCE_DATA_DIR):
         return []
 
     # Find JSON files
-    pattern = os.path.join(data_dir, "*.json")
+    pattern = os.path.join(SOURCE_DATA_DIR, "*.json")
     all_files = glob.glob(pattern)
 
     course_files = []
@@ -203,17 +215,14 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
     Validate found subjects against SUBJECT_TITLES in lib/subjects.ts (single source of truth)
     Returns True if validation passes, False if there are discrepancies (blocks publishing)
     """
-    # Path to subjects.ts - single source of truth for subject list
-    subjects_path = "web/src/lib/subjects.ts"
-
-    if not os.path.exists(subjects_path):
+    if not os.path.exists(SUBJECTS_FILE):
         print("❌ Could not find lib/subjects.ts - publishing blocked")
         print()
         return False
 
     try:
         # Read subjects.ts and extract SUBJECT_TITLES keys
-        with open(subjects_path, "r", encoding="utf-8") as f:
+        with open(SUBJECTS_FILE, "r", encoding="utf-8") as f:
             content = f.read()
 
         # Find SUBJECT_TITLES object using regex
@@ -374,16 +383,15 @@ def main():
     # Generate log filename with timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    # Create logs directory structure
-    log_dir = "logs/publish"
-    os.makedirs(log_dir, exist_ok=True)
+    # Create verbose publish log directory
+    os.makedirs(PUBLISH_LOG_DIR, exist_ok=True)
 
     # Create timestamped log file
-    timestamped_log = os.path.join(log_dir, f"publish_{timestamp}.log")
-    latest_log = os.path.join(log_dir, "latest_publish.log")
+    timestamped_publish_log = os.path.join(PUBLISH_LOG_DIR, f"publish_{timestamp}.log")
+    latest_publish_log = LATEST_PUBLISH_LOG
 
     # Set up console logging (write to timestamped file)
-    logger = ConsoleLogger(timestamped_log)
+    logger = ConsoleLogger(timestamped_publish_log)
     sys.stdout = logger
 
     try:
@@ -429,10 +437,10 @@ def main():
             print("❌ Publishing aborted due to subject list mismatch")
             sys.exit(1)
 
-        # Create destination directory
-        dest_dir = "web/public/data"
+        # Create published data directory
+        published_data_dir = PUBLISHED_DATA_DIR
         if not dry_run:
-            os.makedirs(dest_dir, exist_ok=True)
+            os.makedirs(published_data_dir, exist_ok=True)
 
         # Validate and categorize files
         valid_files: List[str] = []
@@ -516,7 +524,7 @@ def main():
 
         for file_path in files_to_copy:
             filename = os.path.basename(file_path)
-            dest_path = os.path.join(dest_dir, filename)
+            dest_path = os.path.join(published_data_dir, filename)
 
             try:
                 if not dry_run:
@@ -529,15 +537,15 @@ def main():
         print("Publishing Summary:")
         if not dry_run:
             print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
-            print(f"   Destination: {dest_dir}")
+            print(f"   Destination: {published_data_dir}")
         else:
             print(f"   Would publish: {copied_count}/{len(course_files)} files")
             print("   DRY RUN - No files actually copied")
 
         print()
         print("Logs saved to:")
-        print(f"   {timestamped_log}")
-        print(f"   {latest_log}")
+        print(f"   {timestamped_publish_log}")
+        print(f"   {latest_publish_log}")
 
     finally:
         # Restore original stdout and close log file
@@ -546,7 +554,7 @@ def main():
 
         # Copy timestamped log to latest log for quick reference
         try:
-            shutil.copy2(timestamped_log, latest_log)
+            shutil.copy2(timestamped_publish_log, latest_publish_log)
         except Exception as e:
             print(f"⚠️ Warning: Could not create latest log: {e}")
 
