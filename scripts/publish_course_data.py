@@ -27,7 +27,7 @@ EMPTY_COURSES_ISSUE = "No courses found in file"
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
-    progress_file = "logs/summary/scraping_progress.json"
+    progress_file = "logs/scraping_progress.json"
     if not os.path.exists(progress_file):
         print("⚠️ No scraping_progress.json found - validation will be limited")
         return None
@@ -380,7 +380,7 @@ def main():
 
     # Create timestamped log file
     timestamped_log = os.path.join(log_dir, f"publish_{timestamp}.log")
-    latest_log = os.path.join(log_dir, "latest_publish.log")
+    latest_log = os.path.join("logs", "latest_publish.log")
 
     # Set up console logging (write to timestamped file)
     logger = ConsoleLogger(timestamped_log)
