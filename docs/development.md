@@ -176,7 +176,7 @@ After scraping, validate and publish the data for the web app:
 poetry run python scripts/publish_course_data.py
 ```
 
-The publish script validates JSON structure, subject-list consistency, course counts, and scraping progress metadata before copying files. It blocks publishing when the subject list no longer matches `web/src/lib/subjects.ts`, reports problematic files, and asks for confirmation before copying.
+The publish script validates JSON structure, subject-list consistency, course counts, and scraping progress metadata before copying files. It blocks publishing when the subject list no longer matches `web/src/lib/subjects.ts` or when real validation issues are found. Empty subject files are reported but still published so refreshed scrape metadata is preserved.
 
 To inspect validation output without copying files, use:
 

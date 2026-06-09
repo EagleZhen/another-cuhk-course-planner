@@ -22,6 +22,8 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
+EMPTY_COURSES_ISSUE = "No courses found in file"
+
 
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
@@ -78,7 +80,7 @@ def validate_course_file(
         )
 
     if actual_count == 0:
-        issues.append("No courses found in file")
+        issues.append(EMPTY_COURSES_ISSUE)
 
     # Validate against progress data if available
     if (
@@ -182,7 +184,7 @@ def find_course_files() -> List[str]:
     # Report excluded files
     if excluded_files:
         print(
-            f"🚫 Excluded {len(excluded_files)} exemption codes: {', '.join(sorted(excluded_files))}"
+            f"Excluded {len(excluded_files)} exemption codes: {', '.join(sorted(excluded_files))}"
         )
         print()
 
@@ -223,10 +225,22 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print()
             return False
 
-        # Parse the object keys
+        # Parse canonical generated object keys, e.g. `ACCT: 'Accountancy',`.
+        # Regex: line start, optional whitespace, 4-letter subject code, optional whitespace, colon.
         object_content = match.group(1)
-        # Extract subject codes (keys from 'CODE': 'Title' pairs)
-        registered_subjects = re.findall(r"'([A-Z]{4})':", object_content)
+        registered_subjects = re.findall(r"^\s*([A-Z]{4})\s*:", object_content, re.MULTILINE)
+
+        if not registered_subjects:
+            print("❌ Could not parse subject codes from SUBJECT_TITLES - publishing blocked")
+            print()
+            print("   This may be a formatting mismatch between:")
+            print("      - scripts/generate_subjects.py")
+            print("      - scripts/publish_course_data.py")
+            print()
+            print("   Expected entries like:")
+            print("      ACCT: 'Accountancy',")
+            print()
+            return False
 
         # Compare lists
         found_set = set(found_subjects)
@@ -239,13 +253,13 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print("❌ SUBJECT LIST MISMATCH - PUBLISHING BLOCKED")
             print()
             if added:
-                print(f"   ➕ New subjects in data ({len(added)}): {', '.join(sorted(added))}")
+                print(f"   New subjects in data ({len(added)}): {', '.join(sorted(added))}")
             if removed:
                 print(
-                    f"   ➖ Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}"
+                    f"   Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}"
                 )
             print()
-            print("   📝 To fix:")
+            print("   To fix:")
             print("      1. Run: poetry run python scripts/generate_subjects.py")
             print(
                 "      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)"
@@ -254,7 +268,7 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print()
             return False
         else:
-            print(f"✅ Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
+            print(f"Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
             print()
             return True
 
@@ -355,15 +369,6 @@ class ConsoleLogger:
     def close(self):
         self.log_file.close()
 
-    def get_user_input(self, prompt: str) -> str:
-        """Get user input while temporarily restoring terminal output"""
-        sys.stdout = self.terminal
-        try:
-            answer = input(prompt).strip().lower()
-        finally:
-            sys.stdout = self
-        return answer
-
 
 def main():
     # Generate log filename with timestamp
@@ -385,7 +390,7 @@ def main():
         # Check for dry-run flag
         dry_run = "--dry-run" in sys.argv
         if dry_run:
-            print("🔍 DRY RUN MODE - No files will be copied")
+            print("DRY RUN MODE - No files will be copied")
             print()
 
         # Load progress data (one-line summary)
@@ -396,21 +401,21 @@ def main():
             if stats:
                 # Convert UTC timestamp to HK timezone
                 started_at_str = log_data.get("started_at")
-                if started_at_str:
+                if isinstance(started_at_str, str) and started_at_str:
                     utc_time = datetime.fromisoformat(started_at_str)
                     hk_time = utc_time.astimezone(ZoneInfo("Asia/Hong_Kong"))
                     time_str = hk_time.strftime("%Y-%m-%d %H:%M HKT")
                     print(
-                        f"📊 Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+                        f"Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
                     )
                 else:
                     print(
-                        f"📊 Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+                        f"Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
                     )
 
         # Find course files
         course_files = find_course_files()
-        print(f"📁 Found {len(course_files)} course JSON files")
+        print(f"Found {len(course_files)} course JSON files")
 
         if not course_files:
             print("❌ No course files found to copy")
@@ -430,9 +435,10 @@ def main():
             os.makedirs(dest_dir, exist_ok=True)
 
         # Validate and categorize files
-        valid_files = []
-        problematic_files = []
-        empty_subjects = []
+        valid_files: List[str] = []
+        problematic_files: List[Tuple[str, List[str]]] = []
+        publishable_empty_subject_files: List[str] = []
+        empty_subject_codes_for_report: List[str] = []
         for file_path in course_files:
             filename = os.path.basename(file_path)
             subject_code = os.path.splitext(filename)[0]  # Remove extension
@@ -444,63 +450,65 @@ def main():
             else:
                 problematic_files.append((file_path, issues))
                 # Check if this subject has no courses
-                if any("No courses found" in issue for issue in issues):
-                    empty_subjects.append(subject_code)
+                if EMPTY_COURSES_ISSUE in issues:
+                    empty_subject_codes_for_report.append(subject_code)
+                if issues == [EMPTY_COURSES_ISSUE]:
+                    publishable_empty_subject_files.append(file_path)
 
         # Report subjects with no courses (compact single-line format)
-        if empty_subjects:
+        if empty_subject_codes_for_report:
             print(
-                f"📭 Subjects with no courses ({len(empty_subjects)}): {', '.join(sorted(empty_subjects))}"
+                f"Subjects with no courses ({len(empty_subject_codes_for_report)}): "
+                f"{', '.join(sorted(empty_subject_codes_for_report))}"
             )
         else:
-            print("✅ All subjects have courses")
+            print("All subjects have courses")
 
-        # Report other problematic files (not empty)
-        non_empty_problematic = [
-            (file_path, issues)
+        # Report blocking validation failures (everything except known-empty subjects)
+        blocking_validation_failures = [
+            (
+                file_path,
+                [issue for issue in issues if issue != EMPTY_COURSES_ISSUE],
+            )
             for file_path, issues in problematic_files
-            if not any("No courses found" in issue for issue in issues)
+            if any(issue != EMPTY_COURSES_ISSUE for issue in issues)
         ]
 
-        if non_empty_problematic:
-            print(f"⚠️ Files with other issues ({len(non_empty_problematic)}):")
-            for file_path, issues in non_empty_problematic:
+        if blocking_validation_failures:
+            print(f"⚠️ Files with other issues ({len(blocking_validation_failures)}):")
+            for file_path, issues in blocking_validation_failures:
                 filename = os.path.basename(file_path)
                 subject_code = os.path.splitext(filename)[0]
                 print(f"   - {subject_code}: {', '.join(issues)}")
 
-        # Determine files to copy (all valid files by default)
-        files_to_copy = valid_files.copy()
-
-        # Ask if user wants to include problematic files (single confirmation)
-        if problematic_files:
-            print("📊 Summary:")
-            print(f"   ✅ Valid files ready to copy: {len(valid_files)}")
-            print(f"   ⚠️ Problematic files: {len(problematic_files)}")
-            print()
-
-            include_problematic = logger.get_user_input(
-                "Include problematic files in migration? [y/N]: "
+        if blocking_validation_failures:
+            print("Summary:")
+            print(
+                f"   Files ready to copy: {len(valid_files) + len(publishable_empty_subject_files)}"
             )
+            print(f"   ❌ Files with validation issues: {len(blocking_validation_failures)}")
+            if empty_subject_codes_for_report:
+                print(f"   Subjects with no courses: {len(empty_subject_codes_for_report)}")
+            print()
+            print("❌ Publishing aborted due to validation issues.")
+            print("   Please double-check the scraped data before publishing.")
+            print("   Re-run the scraper or fix the source JSON files, then run this script again.")
+            sys.exit(1)
 
-            if include_problematic in ["y", "yes"]:
-                files_to_copy.extend([file_path for file_path, _ in problematic_files])
-                print("➡️ Including all problematic files in copy operation")
-            else:
-                print("⏭️ Skipping problematic files")
+        # Determine files to copy (valid files plus known-empty subjects)
+        files_to_copy = valid_files + publishable_empty_subject_files
+
+        if empty_subject_codes_for_report:
+            print(f"Including {len(publishable_empty_subject_files)} subjects with no courses")
 
         if not files_to_copy:
             print("❌ No files to publish")
             return
 
-        if not dry_run:
-            proceed = logger.get_user_input(
-                f"\nProceed with publishing {len(files_to_copy)} files? [Y/n]: "
-            )
-
-            if proceed in ["n", "no"]:
-                print("❌ Operation cancelled by user")
-                return
+        if dry_run:
+            print(f"Dry run: would publish {len(files_to_copy)} files")
+        else:
+            print(f"Publishing {len(files_to_copy)} files")
 
         # Copy files
         print()
@@ -518,17 +526,18 @@ def main():
                 print(f"❌ Failed to copy {filename}: {e}")
 
         # Publishing summary
-        print("📋 Publishing Summary:")
-        print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
+        print("Publishing Summary:")
         if not dry_run:
-            print(f"   📂 Destination: {dest_dir}")
+            print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
+            print(f"   Destination: {dest_dir}")
         else:
-            print("   🔍 DRY RUN - No files actually copied")
+            print(f"   Would publish: {copied_count}/{len(course_files)} files")
+            print("   DRY RUN - No files actually copied")
 
         print()
-        print("📝 Logs saved to:")
-        print(f"   📄 {timestamped_log}")
-        print(f"   🔄 {latest_log}")
+        print("Logs saved to:")
+        print(f"   {timestamped_log}")
+        print(f"   {latest_log}")
 
     finally:
         # Restore original stdout and close log file
