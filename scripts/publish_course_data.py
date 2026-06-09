@@ -410,7 +410,7 @@ def main():
             if stats:
                 # Convert UTC timestamp to HK timezone
                 started_at_str = log_data.get("started_at")
-                if started_at_str:
+                if isinstance(started_at_str, str) and started_at_str:
                     utc_time = datetime.fromisoformat(started_at_str)
                     hk_time = utc_time.astimezone(ZoneInfo("Asia/Hong_Kong"))
                     time_str = hk_time.strftime("%Y-%m-%d %H:%M HKT")
@@ -444,9 +444,10 @@ def main():
             os.makedirs(dest_dir, exist_ok=True)
 
         # Validate and categorize files
-        valid_files = []
-        problematic_files = []
-        empty_subjects = []
+        valid_files: List[str] = []
+        problematic_files: List[Tuple[str, List[str]]] = []
+        publishable_empty_subject_files: List[str] = []
+        empty_subject_codes_for_report: List[str] = []
         for file_path in course_files:
             filename = os.path.basename(file_path)
             subject_code = os.path.splitext(filename)[0]  # Remove extension
@@ -459,18 +460,21 @@ def main():
                 problematic_files.append((file_path, issues))
                 # Check if this subject has no courses
                 if EMPTY_COURSES_ISSUE in issues:
-                    empty_subjects.append(subject_code)
+                    empty_subject_codes_for_report.append(subject_code)
+                if issues == [EMPTY_COURSES_ISSUE]:
+                    publishable_empty_subject_files.append(file_path)
 
         # Report subjects with no courses (compact single-line format)
-        if empty_subjects:
+        if empty_subject_codes_for_report:
             print(
-                f"Subjects with no courses ({len(empty_subjects)}): {', '.join(sorted(empty_subjects))}"
+                f"Subjects with no courses ({len(empty_subject_codes_for_report)}): "
+                f"{', '.join(sorted(empty_subject_codes_for_report))}"
             )
         else:
             print("All subjects have courses")
 
-        # Report other problematic files (everything except known-empty subjects)
-        non_empty_problematic = [
+        # Report blocking validation failures (everything except known-empty subjects)
+        blocking_validation_failures = [
             (
                 file_path,
                 [issue for issue in issues if issue != EMPTY_COURSES_ISSUE],
@@ -479,30 +483,32 @@ def main():
             if any(issue != EMPTY_COURSES_ISSUE for issue in issues)
         ]
 
-        if non_empty_problematic:
-            print(f"⚠️ Files with other issues ({len(non_empty_problematic)}):")
-            for file_path, issues in non_empty_problematic:
+        if blocking_validation_failures:
+            print(f"⚠️ Files with other issues ({len(blocking_validation_failures)}):")
+            for file_path, issues in blocking_validation_failures:
                 filename = os.path.basename(file_path)
                 subject_code = os.path.splitext(filename)[0]
                 print(f"   - {subject_code}: {', '.join(issues)}")
 
-        if non_empty_problematic:
+        if blocking_validation_failures:
             print("Summary:")
-            print(f"   Valid files ready to copy: {len(valid_files)}")
-            print(f"   ❌ Files with validation issues: {len(non_empty_problematic)}")
-            if empty_subjects:
-                print(f"   Subjects with no courses: {len(empty_subjects)}")
+            print(
+                f"   Files ready to copy: {len(valid_files) + len(publishable_empty_subject_files)}"
+            )
+            print(f"   ❌ Files with validation issues: {len(blocking_validation_failures)}")
+            if empty_subject_codes_for_report:
+                print(f"   Subjects with no courses: {len(empty_subject_codes_for_report)}")
             print()
             print("❌ Publishing aborted due to validation issues.")
             print("   Please double-check the scraped data before publishing.")
             print("   Re-run the scraper or fix the source JSON files, then run this script again.")
             sys.exit(1)
 
-        # Determine files to copy (valid files only; empty subjects remain skipped)
-        files_to_copy = valid_files.copy()
+        # Determine files to copy (valid files plus known-empty subjects)
+        files_to_copy = valid_files + publishable_empty_subject_files
 
-        if empty_subjects:
-            print(f"Skipping {len(empty_subjects)} subjects with no courses")
+        if empty_subject_codes_for_report:
+            print(f"Including {len(publishable_empty_subject_files)} subjects with no courses")
 
         if not files_to_copy:
             print("❌ No files to publish")
