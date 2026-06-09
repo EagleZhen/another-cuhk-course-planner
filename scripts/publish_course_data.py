@@ -182,7 +182,7 @@ def find_course_files() -> List[str]:
     # Report excluded files
     if excluded_files:
         print(
-            f"🚫 Excluded {len(excluded_files)} exemption codes: {', '.join(sorted(excluded_files))}"
+            f"Excluded {len(excluded_files)} exemption codes: {', '.join(sorted(excluded_files))}"
         )
         print()
 
@@ -251,13 +251,13 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print("❌ SUBJECT LIST MISMATCH - PUBLISHING BLOCKED")
             print()
             if added:
-                print(f"   ➕ New subjects in data ({len(added)}): {', '.join(sorted(added))}")
+                print(f"   New subjects in data ({len(added)}): {', '.join(sorted(added))}")
             if removed:
                 print(
-                    f"   ➖ Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}"
+                    f"   Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}"
                 )
             print()
-            print("   📝 To fix:")
+            print("   To fix:")
             print("      1. Run: poetry run python scripts/generate_subjects.py")
             print(
                 "      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)"
@@ -266,7 +266,7 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print()
             return False
         else:
-            print(f"✅ Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
+            print(f"Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
             print()
             return True
 
@@ -397,7 +397,7 @@ def main():
         # Check for dry-run flag
         dry_run = "--dry-run" in sys.argv
         if dry_run:
-            print("🔍 DRY RUN MODE - No files will be copied")
+            print("DRY RUN MODE - No files will be copied")
             print()
 
         # Load progress data (one-line summary)
@@ -413,16 +413,16 @@ def main():
                     hk_time = utc_time.astimezone(ZoneInfo("Asia/Hong_Kong"))
                     time_str = hk_time.strftime("%Y-%m-%d %H:%M HKT")
                     print(
-                        f"📊 Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+                        f"Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
                     )
                 else:
                     print(
-                        f"📊 Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+                        f"Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
                     )
 
         # Find course files
         course_files = find_course_files()
-        print(f"📁 Found {len(course_files)} course JSON files")
+        print(f"Found {len(course_files)} course JSON files")
 
         if not course_files:
             print("❌ No course files found to copy")
@@ -462,10 +462,10 @@ def main():
         # Report subjects with no courses (compact single-line format)
         if empty_subjects:
             print(
-                f"📭 Subjects with no courses ({len(empty_subjects)}): {', '.join(sorted(empty_subjects))}"
+                f"Subjects with no courses ({len(empty_subjects)}): {', '.join(sorted(empty_subjects))}"
             )
         else:
-            print("✅ All subjects have courses")
+            print("All subjects have courses")
 
         # Report other problematic files (not empty)
         non_empty_problematic = [
@@ -486,8 +486,8 @@ def main():
 
         # Ask if user wants to include problematic files (single confirmation)
         if problematic_files:
-            print("📊 Summary:")
-            print(f"   ✅ Valid files ready to copy: {len(valid_files)}")
+            print("Summary:")
+            print(f"   Valid files ready to copy: {len(valid_files)}")
             print(f"   ⚠️ Problematic files: {len(problematic_files)}")
             print()
 
@@ -497,9 +497,9 @@ def main():
 
             if include_problematic in ["y", "yes"]:
                 files_to_copy.extend([file_path for file_path, _ in problematic_files])
-                print("➡️ Including all problematic files in copy operation")
+                print("Including all problematic files in copy operation")
             else:
-                print("⏭️ Skipping problematic files")
+                print("Skipping problematic files")
 
         if not files_to_copy:
             print("❌ No files to publish")
@@ -530,17 +530,17 @@ def main():
                 print(f"❌ Failed to copy {filename}: {e}")
 
         # Publishing summary
-        print("📋 Publishing Summary:")
+        print("Publishing Summary:")
         print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
         if not dry_run:
-            print(f"   📂 Destination: {dest_dir}")
+            print(f"   Destination: {dest_dir}")
         else:
-            print("   🔍 DRY RUN - No files actually copied")
+            print("   DRY RUN - No files actually copied")
 
         print()
-        print("📝 Logs saved to:")
-        print(f"   📄 {timestamped_log}")
-        print(f"   🔄 {latest_log}")
+        print("Logs saved to:")
+        print(f"   {timestamped_log}")
+        print(f"   {latest_log}")
 
     finally:
         # Restore original stdout and close log file
