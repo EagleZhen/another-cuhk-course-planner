@@ -24,6 +24,20 @@ from data_utils import (
 )
 from requests.exceptions import ConnectionError, HTTPError, Timeout
 
+# Lab/debug outputs
+SCRAPER_OUTPUTS_DIR = os.path.join("lab", "scraper", "outputs")
+DEBUG_HTML_DIR = os.path.join(SCRAPER_OUTPUTS_DIR, "debug_html")
+TEST_PROGRESS_FILE = os.path.join(SCRAPER_OUTPUTS_DIR, "scraping_progress.json")
+
+# Course data outputs
+SOURCE_DATA_DIR = "data"
+
+# Operational logs and summaries
+LOGS_DIR = "logs"
+SCRAPE_LOG_DIR = os.path.join(LOGS_DIR, "scrape")
+SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
+FAILED_COURSE_OUTCOMES_FILE = os.path.join(LOGS_DIR, "failed_course_outcomes.txt")
+
 
 @dataclass
 class ScrapingConfig:
@@ -33,14 +47,14 @@ class ScrapingConfig:
     max_courses_per_subject: Optional[int] = 3  # None = unlimited
     save_debug_files: bool = True  # Save HTML files for debugging
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
-    debug_html_directory: str = "lab/scraper/outputs/debug_html"  # Separate from JSON results
+    debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
     request_delay: float = 2.0
     max_retries: int = 5
     output_mode: str = "single_file"  # "single_file" or "per_subject"
-    output_directory: str = "lab/scraper/outputs"  # testing default
+    output_directory: str = SCRAPER_OUTPUTS_DIR  # testing default
     track_progress: bool = False  # Progress tracking for production
     # Progress log filename (use os.path.join for production)
-    progress_file: str = "lab/scraper/outputs/scraping_progress.json"
+    progress_file: str = TEST_PROGRESS_FILE
     progress_update_interval: int = 60  # Save progress every N seconds
 
     # Scraping scope configuration
@@ -57,13 +71,13 @@ class ScrapingConfig:
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,  # No debug files in production
             save_debug_on_error=True,  # Only save HTML on parsing errors
-            debug_html_directory="lab/scraper/outputs/debug_html",  # Separate debug folder
+            debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=1.0,
             max_retries=10,
             output_mode="per_subject",  # Per-subject files for production
-            output_directory="data",  # Production data directory
+            output_directory=SOURCE_DATA_DIR,  # Production data directory
             track_progress=True,  # Enable progress tracking
-            progress_file=os.path.join("logs", "scraping_progress.json"),
+            progress_file=SCRAPING_PROGRESS_FILE,
             progress_update_interval=60,  # 1-minute periodic saves
             # Full scraping scope for production
             get_details=True,
@@ -443,7 +457,7 @@ class CuhkScraper:
 
     def _setup_file_logging(
         self,
-        logs_directory: str = os.path.join("logs", "scrape"),
+        logs_directory: str = SCRAPE_LOG_DIR,
         log_level: int = logging.INFO,
     ) -> str:
         """
@@ -1714,7 +1728,7 @@ class CuhkScraper:
         self.logger.info("   • These courses currently have empty course outcome data")
 
         # Save failure details to file for easy retry
-        failure_file = os.path.join("logs", "failed_course_outcomes.txt")
+        failure_file = FAILED_COURSE_OUTCOMES_FILE
         os.makedirs(os.path.dirname(failure_file), exist_ok=True)
         with open(failure_file, "w") as f:
             f.write("# Failed Course Outcomes - Manual Retry Needed\n")
