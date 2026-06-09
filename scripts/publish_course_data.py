@@ -228,6 +228,18 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
         object_content = match.group(1)
         registered_subjects = re.findall(r"^\s*([A-Z]{4})\s*:", object_content, re.MULTILINE)
 
+        if not registered_subjects:
+            print("❌ Could not parse subject codes from SUBJECT_TITLES - publishing blocked")
+            print()
+            print("   This may be a formatting mismatch between:")
+            print("      - scripts/generate_subjects.py")
+            print("      - scripts/publish_course_data.py")
+            print()
+            print("   Expected entries like:")
+            print("      ACCT: 'Accountancy',")
+            print()
+            return False
+
         # Compare lists
         found_set = set(found_subjects)
         registered_set = set(registered_subjects)
