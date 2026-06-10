@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-08T07:25:00.326049+00:00",
+    "scraped_at": "2026-06-09T19:29:06.038655+00:00",
     "subject": "GRMD",
     "subject_title": "Geography & Resource Mgt",
-    "total_courses": 84,
+    "total_courses": 85,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -2558,6 +2558,28 @@
       "feedback_evaluation": "• Students’ reaction during the lecture\n• Students’ feedback and suggestion from Blackboard forum\n• Informal interaction with students and tutors\n• Student performance in the class and examination\n• Previous course evaluation results",
       "required_readings": "[1] Slocum, T., McMaster, R.B., Kessler, F.C., and Howard, H.H., 2009. Thematic Cartography and Geographic Visualization, 3rd edition. Upper Saddle River, NJ: Prentice Hall, 561p.",
       "recommended_readings": "[2] Monmonier, M. 1998. How to Lie with Maps, 2nd edition. Chicago: University of Chicago Press, 207p.\n[3] Dykes, J., MacEachren, A.M., and Kraak, M.-J., 2005. Exploring Geovisualization, 1st edition. Amsterdam: Elsevier, 710p.\n[4] Brewer, C.A. 2005. Designing Better Maps: A Guide for GIS Users, Redlands, CA: Esri Press, 203p.\n[5] Dent, B.D. 2009. Cartography: Thematic Map Design, 6th edition. Boston: The McGraw-Hill Higher Education, 336p.\n[6] Dodge M., McDerby, M. and Turner, M. 2008. Geographic Visualization: Concepts, Tools and Applications. Hoboken, NJ: Wiley, 325p. [Electronic resource available in CU Library]\n[7] Ward, M. Grinstein G., and Keim D. 2010. Interactive data visualization: foundations, techniques, and applications. Natick, Mass.: A K Peters, 496p.\n[8] Robinson, A.H., Morrison, J.L., Muehrcke, P.C., Kimerling, A.J., and Guptill, S.C., 1995. Elements of Cartography, 6th edition. New York: John Wiley and Sons, 674p.\n[9] Kimerling, A.J., Buckley, A.R., Muehrcke, P.C., and Muehrcke, J.O. 2012. Map Use: Reading and Analysis, 7th edition. Redlands, CA: Esri Press, 493p.\n[10] Monmonier, M., 1993. Mapping It Out: Expository Cartography for the Humanities and Social Sciences. Chicago: The University of Chicago Press, 301p.\n[11] Fisher, P. and Unwin, D. 2002. Virtual Reality in Geography. London: New York: Taylor & Francis, 404p. [Electronic resource available in CU Library]\n[12] Jain, L.C., Wu, X.-D., Zudilova-Seinstra, E., Adraansen, T. Liere, R. 2009. Trends in Interactive Visualization: State-of-the-Art Survey. London: Springer London, 370p. [Electronic resource available in CU Library]\n[13] Haklay, M. 2010. Interacting with geospatial technologies. Hoboken, NJ: John Wiley, 296p. [Electronic resource available in CU Library]"
+    },
+    {
+      "subject": "GRMD",
+      "course_code": "3109",
+      "title": "Geospatial Programming and Data Mining",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide hands-on experiences on programming languages related to geospatial data, programming techniques, as well as spatial data mining and analysis technologies. Specifically, the course primarily covers programming languages such as MATLAB and Python, along with spatial data analysis tools including ArcPy, Google Earth Engine, GeoPandas, and Scikit-learn. By comprehensively utilizing the programming languages and analytical tools, the course aims to achieve objectives such as raster remote sensing image processing, vector data analysis, machine learning, and spatial data mining and visualization.",
+      "enrollment_requirement": "Pre-requisite(s): GRMD2105",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Geo & Resource Mgt",
+      "academic_org": "Dept of Geo & Resource Mgt",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "GRMD",

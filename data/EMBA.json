@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-08T06:20:32.322507+00:00",
+    "scraped_at": "2026-06-09T18:23:34.334418+00:00",
     "subject": "EMBA",
     "subject_title": "Executive MBA",
     "total_courses": 13,
@@ -247,6 +247,44 @@
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
+            },
+            {
+              "section": "PAS1-SEM (1051)",
+              "meetings": [
+                {
+                  "time": "Th 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "5/6"
+                },
+                {
+                  "time": "Su 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "7/6"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Jing, \nProfessor YAN Xuan",
+                  "dates": "6/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
             }
           ]
         }
@@ -551,10 +589,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English"
