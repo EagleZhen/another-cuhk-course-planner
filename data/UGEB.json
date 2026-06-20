@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-13T13:39:36.987199+00:00",
+    "scraped_at": "2026-06-19T20:13:03.660160+00:00",
     "subject": "UGEB",
     "subject_title": "Nature, Science and Technology",
-    "total_courses": 58,
+    "total_courses": 59,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -2455,6 +2455,28 @@
     },
     {
       "subject": "UGEB",
+      "course_code": "2383",
+      "title": "AI Meets Chemistry: Exploring the Future of Science",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This 13-week general education course reveals how artificial intelligence and chemistry converge to transform medicine, sustainability, and everyday life. The course demystifies both fields through accessible explanations requiring no advanced mathematics.\n\nCore Focus and Key Topics\n\nThe course centers on three interconnected themes demonstrating AI's revolutionary impact on chemistry:\n\nAI-Powered Drug Discovery: Students explore breakthrough technologies like AlphaFold, which solved protein-folding problems and accelerates development of treatments for cancer, Alzheimer's, and infectious diseases—potentially reducing drug development from 10-15 years to months while improving global health equity.\n\nSustainable Materials Innovation: The course examines how AI designs eco-friendly materials, clean energy catalysts, and biodegradable plastics. Students discover how neural networks screen millions of compounds virtually, minimizing waste while addressing climate change and enabling the transition to sustainable economies.\n\nChemistry in Everyday Products: Students analyze molecular chemistry behind cosmetics, food, and consumer goods they use daily, understanding how AI optimizes formulations for safety and personalization—empowering informed consumer choices.\n\nRelevance and Impact\nThese topics matter because AI-chemistry integration is transforming healthcare accessibility, climate crisis response, and economic development today. Students gain critical thinking skills to evaluate scientific claims and engage thoughtfully with ethical dimensions including algorithmic bias, equitable access to innovations, and technology governance. Through interactive demonstrations, dataset analysis, and collaborative projects, students develop scientific literacy to understand technological change and contribute to conversations about building a more sustainable, healthy, and equitable future—regardless of their major.",
+      "enrollment_requirement": "Not for majors in Fac. of Engineering; IDA+X Double Maj Prog; ASEI+X Double Maj Prog; MASE+X Double Maj Prog; Chemistry; Natural Sci. with concentration: Chemical&Testing Sci. or Environ.Studies.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Office of University GE",
+      "academic_org": "Dept of Chemistry",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "UGEB",
       "course_code": "2401",
       "title": "Astronomy",
       "credits": "3.00",
@@ -3961,10 +3983,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "3",
+                "enrolled": "55",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "57",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"

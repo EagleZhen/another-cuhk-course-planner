@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-13T11:12:31.925511+00:00",
+    "scraped_at": "2026-06-19T17:44:34.558250+00:00",
     "subject": "MEDU",
     "subject_title": "Medicine",
-    "total_courses": 57,
+    "total_courses": 58,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -918,6 +918,28 @@
       "assessment_types": {},
       "feedback_evaluation": "Not applicable",
       "required_readings": "Not applicable",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MEDU",
+      "course_code": "2000",
+      "title": "Medicine Plus: Exploring Contemporary Medicine",
+      "credits": "0.00",
+      "terms": [],
+      "description": "This course is the first stage of the CU Medicine Plus Course framework, which includes three stages:\n- Foundation level at MED1 and MED2 (MedExplore)\n- Intermediate level at MED3 and MED4 (MedExceed)\n- Advanced level at MED5 and MED6 (MedExcel)\n\nThe CU Medicine Plus course aims to nurture physicians to embody four core professional identities: scholars, innovators, leaders, and humanitarians by encouraging structured opportunities for earlier exposure to clinical practice, research innovation, and humanitarian services, thereby equipping graduates to become future leaders in medicine.\n\nThis foundational level of the CU Medicine Plus course provides students with opportunities to engage in four different pathways designed to broaden perspectives and enhance professional development as future physicians. These activities are scheduled during the first and second years of the MBChB curriculum, including the two summer periods.\n\nFour pathways:\n1. Scholar pathway: Acquiring cross-disciplinary knowledge through minor programmes in engineering, statistics and data science, computer science, public health, biomedical engineering, health informatics, or other approved disciplines to broaden academic perspectives and enhance interdisciplinary understanding.\n2. Innovator pathway: Participating in structured work placements or practicum experiences in medical technologies, healthcare innovation projects, digital health initiatives, or biomedical research laboratories.\n3. Leader pathway: Engaging in leadership activities, service-oriented administrative experiences, social and healthcare policy projects, or management training programmes.\n4. Humanitarian pathway: Participating in structured community service, global health initiatives, humanitarian medical missions, or public health intervention programmes, both locally and internationally.\n\nStudents are required to participate in activities within the four pathways in a self-determined proportion to fulfil the overall requirement of the course. A relatively prolonged engagement (2-6 weeks) in the structured activities is expected during the summer holiday.",
+      "enrollment_requirement": "For Medical Study Year 2 (MYR2)",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Medical School Grades",
+      "component": "Lecture\nOthers",
+      "campus": "Main Campus",
+      "academic_group": "MB ChB Pgm Comm",
+      "academic_org": "MB ChB Pgm Comm",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
       "recommended_readings": ""
     },
     {
@@ -3711,10 +3733,10 @@
               ],
               "availability": {
                 "capacity": "332",
-                "enrolled": "323",
+                "enrolled": "320",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
