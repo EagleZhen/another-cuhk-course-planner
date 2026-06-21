@@ -25,6 +25,11 @@ Thumbs.db
 *.swp
 *.swo
 
+# Local agent tooling
+.agents/
+.claude/
+skills-lock.json
+
 # Verbose generated logs. Keep root-level summary files in logs/ tracked.
 /logs/publish/
 /logs/scrape/
