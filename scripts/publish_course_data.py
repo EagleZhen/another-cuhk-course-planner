@@ -143,7 +143,7 @@ def validate_course_file(
     return len(issues) == 0, issues
 
 
-def find_course_files() -> List[str]:
+def find_course_files() -> Tuple[List[str], List[str], List[str], int]:
     """
     Find all course JSON files in /data directory,
     excluding exemption codes (administrative placeholders with no real courses)
@@ -165,7 +165,7 @@ def find_course_files() -> List[str]:
     }
 
     if not os.path.exists(SOURCE_DATA_DIR):
-        return []
+        return [], [], [], 0
 
     # Find JSON files
     pattern = os.path.join(SOURCE_DATA_DIR, "*.json")
@@ -193,21 +193,7 @@ def find_course_files() -> List[str]:
             # Unexpected file format - report but don't include
             unexpected_files.append(filename)
 
-    # Report excluded files
-    if excluded_files:
-        print(
-            f"Excluded {len(excluded_files)} exemption codes: {', '.join(sorted(excluded_files))}"
-        )
-        print()
-
-    # Warn about unexpected files
-    if unexpected_files:
-        print(f"⚠️  Found {len(unexpected_files)} unexpected files in /data:")
-        for f in sorted(unexpected_files):
-            print(f"   - {f}")
-        print()
-
-    return sorted(course_files)
+    return sorted(course_files), sorted(excluded_files), sorted(unexpected_files), len(all_files)
 
 
 def validate_subject_list(found_subjects: List[str]) -> bool:
@@ -422,8 +408,20 @@ def main():
                     )
 
         # Find course files
-        course_files = find_course_files()
-        print(f"Found {len(course_files)} course JSON files")
+        course_files, excluded_files, unexpected_files, total_json_files = find_course_files()
+        print("Course JSON files:")
+        print(f"   Source files in data/: {total_json_files}")
+        if excluded_files:
+            print(
+                f"   Excluded exemption/admin codes: {len(excluded_files)} "
+                f"({', '.join(excluded_files)})"
+            )
+        if unexpected_files:
+            print(f"   Skipped unexpected filenames: {len(unexpected_files)}")
+            for filename in unexpected_files:
+                print(f"      - {filename}")
+        print(f"   Selected for publishing: {len(course_files)}")
+        print()
 
         if not course_files:
             print("❌ No course files found to copy")
@@ -516,7 +514,7 @@ def main():
         if dry_run:
             print(f"Dry run: would publish {len(files_to_copy)} files")
         else:
-            print(f"Publishing {len(files_to_copy)} files")
+            print(f"Publishing {len(files_to_copy)} files to {published_data_dir}")
 
         # Copy files
         print()
@@ -536,10 +534,10 @@ def main():
         # Publishing summary
         print("Publishing Summary:")
         if not dry_run:
-            print(f"   ✅ Published: {copied_count}/{len(course_files)} files")
+            print(f"   ✅ Published: {copied_count}/{len(files_to_copy)} files")
             print(f"   Destination: {published_data_dir}")
         else:
-            print(f"   Would publish: {copied_count}/{len(course_files)} files")
+            print(f"   Would publish: {copied_count}/{len(files_to_copy)} files")
             print("   DRY RUN - No files actually copied")
 
         print()
