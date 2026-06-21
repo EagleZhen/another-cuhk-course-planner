@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-**Frontend (React 19 + Next.js 15):**
+**Frontend (React 19 + Next.js):**
 
 ```bash
 cd web
@@ -16,11 +16,11 @@ npm run build        # Production build (must pass with zero errors/warnings)
 npm run lint         # ESLint quality check
 ```
 
-**Data Scraping (Python 3.8+, Poetry):**
+**Data Scraping (Poetry):**
 
 ```bash
 poetry install --no-root                      # Install dependencies (scripts-only project)
-poetry run python scripts/scrape_all_subjects.py   # Production scraping (~50MB, 259 files)
+poetry run python scripts/scrape_all_subjects.py   # Production scraping
 ```
 
 ## Architecture Overview
@@ -587,12 +587,12 @@ export function processICSForUndo(content: string): {
 
 ## Data Scraping
 
-**→ See [docs/scraper.md](docs/scraper.md) for detailed scraper architecture, retry mechanisms, and debugging guide.**
+**→ See [docs/data-pipeline.md](docs/data-pipeline.md) for scraping, publishing, validation, and data files.**
 
 **Quick Overview:**
 
 - Production-ready scraper with OCR captcha solving (`ddddocr`)
-- Per-subject JSON output (259 files, ~50MB total in `data/`)
+- Per-subject JSON output in `data/`
 - Progress tracking with resume capability
 - Robust retry for network issues, system error detection
 
@@ -603,7 +603,7 @@ export function processICSForUndo(content: string): {
 poetry run python scripts/scrape_all_subjects.py
 
 # Debug specific subjects
-poetry run python scripts/scrape_all_subjects.py PHED,CSCI
+poetry run python scripts/scrape_all_subjects.py CSCI,MATH
 ```
 
 **Key Architecture Principle**: Detail page is authoritative for course identity (list page may have formatting artifacts).

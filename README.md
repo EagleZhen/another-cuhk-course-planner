@@ -47,7 +47,7 @@ Repository-level tooling such as formatting is installed from the repository roo
 ├── data/                 Scraped course JSON files
 ├── lab/                  Exploratory scripts, outputs, and analysis records
 ├── logs/                 Scraping and publishing logs
-├── docs/                 Development and scraper documentation
+├── docs/                 Development and project documentation
 └── web/                  Next.js web app
     ├── public/data/      Published course data used by the app
     └── src/              App, components, utilities, and types
@@ -59,7 +59,7 @@ Repository-level tooling such as formatting is installed from the repository roo
 
 - [Development guide](docs/development.md) - local setup, commands, scraping, publishing, and checks
 - [Deployment notes](docs/deployment.md) - hosting, analytics, and production checks
-- [Scraper notes](docs/scraper.md) - scraper behavior, edge cases, validation, and debugging
+- [Data pipeline](docs/data-pipeline.md) - scraping, publishing, validation, and data files
 - [Web app README](web/README.md) - frontend package notes and commands
 
 ---

@@ -144,6 +144,8 @@ NEXT_PUBLIC_POSTHOG_HOST=
 
 ## Scrape Course Data
 
+For the full scrape and publish workflow, see [data-pipeline.md](data-pipeline.md).
+
 Run the production scraper from the repository root:
 
 ```bash
@@ -153,8 +155,8 @@ poetry run python scripts/scrape_all_subjects.py
 Scrape specific subjects while debugging:
 
 ```bash
-poetry run python scripts/scrape_all_subjects.py PHED
-poetry run python scripts/scrape_all_subjects.py PHED,CSCI
+poetry run python scripts/scrape_all_subjects.py CSCI
+poetry run python scripts/scrape_all_subjects.py CSCI,MATH
 ```
 
 Scraped JSON files are written to `data/`.
