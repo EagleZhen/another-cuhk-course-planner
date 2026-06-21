@@ -36,10 +36,10 @@ Production scraping uses `ScrapingConfig.for_production()`:
 
 - reads the subject list from the live CUHK site when no subject argument is
   passed
-- writes one JSON file per scraped subject to `data/`
+- writes one JSON file per scraped subject to [data/](../data/)
 - collects course details, enrollment data, and course outcome data
-- tracks progress in `logs/scraping_progress.json`
-- writes verbose logs to `logs/scrape/scrape_<timestamp>.log`
+- tracks progress in [logs/scraping_progress.json](../logs/scraping_progress.json)
+- writes verbose logs to [logs/scrape/](../logs/scrape/)
 
 The scrape log timestamp uses the local machine timezone, normally HKT/UTC+8 for
 this project environment.
@@ -47,25 +47,22 @@ this project environment.
 ## Publish
 
 Publishing validates scraped data and copies publishable files to
-`web/public/data/`.
+[web/public/data/](../web/public/data/).
 
 The publish script checks:
 
 - JSON structure and per-course subject consistency
-- scraped subjects against `web/src/lib/subjects.ts`
+- scraped subjects against [web/src/lib/subjects.ts](../web/src/lib/subjects.ts)
 - scraping progress metadata
 - zero-course subjects and structural issues
 
-Publish logs are written to:
+Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log)
+and timestamped files in [logs/publish/](../logs/publish/).
 
-```text
-logs/latest_publish.log
-logs/publish/publish_<timestamp>.log
-```
-
-Use `logs/latest_publish.log` for exact current counts. The number of source
-JSON files in `data/` can be higher than the number of published JSON files,
-because publish excludes exemption/admin placeholder codes:
+Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current
+counts. The number of source JSON files in [data/](../data/) can be higher than
+the number of published JSON files, because publish excludes exemption/admin
+placeholder codes:
 
 ```text
 EX_PGDE, EX_RPG, EX_TPG, EX_UG, XCBS, XCCS, XFUD, XUNC, XUSC, XWAS
@@ -73,14 +70,15 @@ EX_PGDE, EX_RPG, EX_TPG, EX_UG, XCBS, XCCS, XFUD, XUNC, XUSC, XWAS
 
 Read the publish count summary as:
 
-- source JSON files found in `data/`
+- source JSON files found in [data/](../data/)
 - excluded placeholder files
 - files selected and copied for publishing
 
 ## Subject List Changes
 
-`web/src/lib/subjects.ts` is the web app's subject list. If CUHK adds or removes
-subjects, publishing blocks until this list is updated.
+[web/src/lib/subjects.ts](../web/src/lib/subjects.ts) is the web app's subject
+list. If CUHK adds or removes subjects, publishing blocks until this list is
+updated.
 
 Regenerate the `SUBJECT_TITLES` constant:
 
@@ -88,7 +86,8 @@ Regenerate the `SUBJECT_TITLES` constant:
 poetry run python scripts/generate_subjects.py
 ```
 
-Copy the printed constant into `web/src/lib/subjects.ts`, then run the publish
+Copy the printed constant into
+[web/src/lib/subjects.ts](../web/src/lib/subjects.ts), then run the publish
 script again.
 
 ## Scraper Model
@@ -128,10 +127,11 @@ title.
 
 CUHK sometimes returns a system-error page for course outcomes:
 
-- [System error sample](../lab/scraper/samples/webpages/System%20error.html)
+- [System error sample](<../lab/scraper/samples/webpages/System error.html>)
 
 These are treated as permanent outcome failures and recorded in
-`logs/failed_course_outcomes.txt` for review.
+[logs/failed_course_outcomes.txt](../logs/failed_course_outcomes.txt) for
+review.
 
 ### Incomplete Or Alternate Pages
 
@@ -169,7 +169,7 @@ ls -t logs/scrape/scrape_*.log | head -1
 cat logs/scraping_progress.json | jq '.scraping_log.subjects.CSCI'
 ```
 
-Review failed course outcomes:
+Review [failed course outcomes](../logs/failed_course_outcomes.txt):
 
 ```bash
 cat logs/failed_course_outcomes.txt
@@ -183,12 +183,17 @@ config.save_debug_files = True
 scraper = CuhkScraper(config)
 ```
 
-Debug HTML is saved to `lab/scraper/outputs/debug_html/`.
+Debug HTML is saved to
+[lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/).
 
 ## See Also
 
-- `scripts/scrape_all_subjects.py` - production scrape entry point
-- `scripts/cuhk_scraper.py` - core scraper implementation
-- `scripts/publish_course_data.py` - validation and publishing
-- `scripts/generate_subjects.py` - subject list generation
-- `scripts/data_utils.py` - HTML utilities
+- [scripts/scrape_all_subjects.py](../scripts/scrape_all_subjects.py) -
+  production scrape entry point
+- [scripts/cuhk_scraper.py](../scripts/cuhk_scraper.py) - core scraper
+  implementation
+- [scripts/publish_course_data.py](../scripts/publish_course_data.py) -
+  validation and publishing
+- [scripts/generate_subjects.py](../scripts/generate_subjects.py) - subject
+  list generation
+- [scripts/data_utils.py](../scripts/data_utils.py) - HTML utilities
