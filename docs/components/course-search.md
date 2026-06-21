@@ -1,6 +1,6 @@
 # CourseSearch Component
 
-**File:** [web/src/components/CourseSearch.tsx](../web/src/components/CourseSearch.tsx)
+**File:** [web/src/components/CourseSearch.tsx](../../web/src/components/CourseSearch.tsx)
 
 Main search and filtering interface. Displays course cards with search buttons, filtering capabilities, and section selection.
 
