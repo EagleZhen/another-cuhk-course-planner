@@ -162,6 +162,7 @@ Scraped JSON files are written to `data/`.
 The scraper is stable in normal use, but it is fragile by nature because it depends on CUHK website structure, response behavior, and captcha handling. After a scrape, review:
 
 ```bash
+logs/scrape/scrape_<timestamp>.log
 logs/scraping_progress.json
 logs/failed_course_outcomes.txt
 ```
