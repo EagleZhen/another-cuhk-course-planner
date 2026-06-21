@@ -476,7 +476,7 @@ class CuhkScraper:
 
         # Create timestamped log filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        log_filename = os.path.join(logs_directory, f"scraper_{timestamp}.log")
+        log_filename = os.path.join(logs_directory, f"scrape_{timestamp}.log")
 
         # Add file handler to the existing logger
         file_handler = logging.FileHandler(log_filename, encoding="utf-8")
