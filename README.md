@@ -58,6 +58,7 @@ Repository-level tooling such as formatting is installed from the repository roo
 ## Documentation
 
 - [Development guide](docs/development.md) - local setup, commands, scraping, publishing, and checks
+- [Deployment notes](docs/deployment.md) - hosting, analytics, and production checks
 - [Scraper notes](docs/scraper.md) - scraper behavior, edge cases, validation, and debugging
 - [Web app README](web/README.md) - frontend package notes and commands
 
