@@ -1,211 +1,194 @@
-# CUHK Course Scraper
+# Data Pipeline
 
-Production scraper that extracts course data from CUHK's course catalog. Generates per-subject JSON files (259 files, ~50MB) with course details, schedules, enrollment data, and learning outcomes.
+The data pipeline turns CUHK course catalog pages into JSON files used by the
+web app.
+
+```text
+CUHK course catalog
+    -> scripts/scrape_all_subjects.py
+    -> data/*.json
+    -> scripts/publish_course_data.py
+    -> web/public/data/*.json
+```
 
 ## Quick Start
 
+Run these from the repository root.
+
 ```bash
-# All subjects (production, ~1 hour)
+# Scrape all subjects from the live catalog
 poetry run python scripts/scrape_all_subjects.py
 
-# Debug specific subjects
-poetry run python scripts/scrape_all_subjects.py PHED,CSCI
+# Scrape selected subjects while debugging
+poetry run python scripts/scrape_all_subjects.py CSCI
+poetry run python scripts/scrape_all_subjects.py CSCI,UGFN
+
+# Validate and copy publishable data into the web app
+poetry run python scripts/publish_course_data.py
+
+# Inspect publish validation without copying files
+poetry run python scripts/publish_course_data.py --dry-run
 ```
 
-**Output**: `data/PHED.json`, `data/CSCI.json`, etc.
+## Scrape
 
-**Verbose logs**: `logs/scrape/scrape_<timestamp>.log`
+Production scraping uses `ScrapingConfig.for_production()`:
 
-The log filename timestamp uses the local machine timezone, normally HKT/UTC+8.
+- reads the subject list from the live CUHK site when no subject argument is
+  passed
+- writes one JSON file per scraped subject to `data/`
+- collects course details, enrollment data, and course outcome data
+- tracks progress in `logs/scraping_progress.json`
+- writes verbose logs to `logs/scrape/scrape_<timestamp>.log`
 
----
+The scrape log timestamp uses the local machine timezone, normally HKT/UTC+8 for
+this project environment.
 
-## Key Architecture Principle
+## Publish
 
-**Detail page is the authoritative source for course identity.**
+Publishing validates scraped data and copies publishable files to
+`web/public/data/`.
 
-List pages may have formatting artifacts (brackets, remarks), but detail pages are clean and consistent.
+The publish script checks:
 
-```python
-# List page (unreliable format)
-course_code = "(1370)"  # Brackets for future courses ⚠️
-title = "Archery\n** available as of 2026-07-01"  # With remarks ⚠️
+- JSON structure and per-course subject consistency
+- scraped subjects against `web/src/lib/subjects.ts`
+- scraping progress metadata
+- zero-course subjects and structural issues
 
-# Detail page (authoritative, clean)
-_extract_course_details() extracts:
-  course_code = "1370"  # ✅ Clean
-  title = "Archery"     # ✅ Clean
+Publish logs are written to:
+
+```text
+logs/latest_publish.log
+logs/publish/publish_<timestamp>.log
 ```
 
-**Why this matters**: Validation can trust detail page data, don't need to re-validate on outcome pages.
+Use `logs/latest_publish.log` for exact current counts. The number of source
+JSON files in `data/` can be higher than the number of published JSON files,
+because publish excludes exemption/admin placeholder codes:
 
----
-
-## Page Navigation Flow
-
-```
-List Page → Detail Page → Outcome Page → Term/Section Pages
-   ↓            ↓              ↓              ↓
-Parse      Extract ALL    Extract         Extract
-course     details        outcomes        schedules
-links      (authoritative) (optional)      (enrollment)
+```text
+EX_PGDE, EX_RPG, EX_TPG, EX_UG, XCBS, XCCS, XFUD, XUNC, XUSC, XWAS
 ```
 
-**Detail Page** extracts:
+Read the publish count summary as:
 
-- Course code & title (authoritative)
-- Credits, description, requirements
-- Academic info, grading basis
+- source JSON files found in `data/`
+- excluded placeholder files
+- files selected and copied for publishing
 
-**Outcome Page** extracts (optional):
+## Subject List Changes
 
-- Learning outcomes, syllabus
-- Assessment types, readings
+`web/src/lib/subjects.ts` is the web app's subject list. If CUHK adds or removes
+subjects, publishing blocks until this list is updated.
 
----
+Regenerate the `SUBJECT_TITLES` constant:
 
-## Edge Cases (Important!)
-
-### 1. Future-Dated Courses
-
-Courses marked "\*\* available as of [date]" have special formatting.
-
-**Example**: PHED1370 (Archery)
-
-**List page**:
-
-```html
-<a>(1370)</a>
-<!-- Brackets! -->
-<a>Archery ** available as of 2026-07-01</a>
-<!-- Remark! -->
+```bash
+poetry run python scripts/generate_subjects.py
 ```
 
-**Outcome page**:
+Copy the printed constant into `web/src/lib/subjects.ts`, then run the publish
+script again.
 
-```html
-<span id="uc_course_outcome_lbl_course"> - </span>
-<!-- Just a dash! -->
+## Scraper Model
+
+Course detail pages are the authoritative source for course identity. List pages
+and outcome pages can contain formatting artifacts, so validation should not
+depend on them for clean course code/title data.
+
+```text
+List page -> detail page -> outcome page -> term/section pages
 ```
 
-**Solution**: Extract from detail page (clean), validation accepts dash headers.
+- List page: finds course links.
+- Detail page: extracts course code, title, credits, description,
+  requirements, and academic info.
+- Outcome page: extracts learning outcomes, syllabus, assessment types, and
+  readings when available.
+- Term/section pages: extract schedules and enrollment data.
 
-### 2. System Error Pages
+## Edge Cases
 
-CUHK returns `<title>System error</title>` for ~8% of outcome requests.
+### Future-Dated Courses
 
-**Behavior**:
+Courses marked as available from a future date can use different formatting on
+different pages. PHED1370 is the canonical sample:
 
-- Don't retry (permanent database issue)
-- Track in `logs/failed_course_outcomes.txt` for manual review
+- [Course list sample](<../lab/scraper/samples/webpages/Course List - PHED.html>)
+- [Detail page sample](<../lab/scraper/samples/webpages/Class Detail - PHED 1370 - Archery.html>)
+- [Outcome page sample](<../lab/scraper/samples/webpages/Course Outcome - PHED 1370 - Archery .html>)
 
-### 3. Incomplete Outcome Data
+On the list page, the course code may be wrapped in brackets and the title may
+include an availability remark. On the outcome page, the course header may be a
+dash. The scraper therefore trusts the detail page for the clean course code and
+title.
 
-Some courses have outcome pages with minimal data (just dash in header, but valid structure).
+### System Error Pages
 
-**Validation accepts**: Structural validity (has sections), not content completeness.
+CUHK sometimes returns a system-error page for course outcomes:
 
----
+- [System error sample](../lab/scraper/samples/webpages/System%20error.html)
 
-## Validation Strategy
+These are treated as permanent outcome failures and recorded in
+`logs/failed_course_outcomes.txt` for review.
 
-Outcome pages use **3-check validation**:
+### Incomplete Or Alternate Pages
 
-1. **Not a system error page** → Permanent failure, don't retry
-2. **Has "Course Outcome" title** → Correct page type
-3. **Has section headers** → Not empty (Learning Outcome, Course Syllabus, Assessment Type, etc.)
+Some pages are valid but sparse or represent non-course-result states:
 
-**What we DON'T validate**: Course code/title (detail page is authoritative, no need to re-check).
+- [No record found sample](<../lab/scraper/samples/webpages/No record found - AENP.html>)
+- [Invalid verification code sample](<../lab/scraper/samples/webpages/Invalid Verification Code - AENP.html>)
+- [Outcome table sample](<../lab/scraper/samples/webpages/Course Syllabus - List + Table.html>)
 
----
+Outcome validation checks structure, not content completeness. A sparse outcome
+page can still be accepted if it has the expected sections.
 
-## Retry Mechanisms
+## Validation And Retry
 
-### Network Errors: Infinite Retry ✅
+Outcome pages pass validation when they:
 
-`_robust_request()` retries indefinitely for:
+1. are not system-error pages
+2. have the expected Course Outcome page title
+3. contain outcome section headers
 
-- ConnectionError, Timeout, ConnectionResetError
-- HTTP 502/503/504 (server overload)
-- Exponential backoff (1s → 2s → 4s → max 60s)
+Course code/title validation is intentionally not repeated on outcome pages,
+because the detail page is authoritative.
 
-### Validation Errors: Infinite Retry ⚠️
-
-**Known Issue**: Currently retries infinitely on validation failures.
-
-**Problem**: Can't distinguish transient corruption from permanent format issues.
-
-**Future Fix**: Add retry limits (max 3-5 attempts) for validation failures.
-
----
+Network errors and HTTP 502/503/504 responses retry with exponential backoff.
+Course-detail validation failures also retry, because malformed HTML can be
+transient. This can loop for a long time if the upstream format changes in a
+permanent way.
 
 ## Debugging
 
-### Enable Debug HTML Saving
-
-```python
-# In scrape_all_subjects.py
-config = ScrapingConfig.for_production()
-config.save_debug_files = True
-scraper = CuhkScraper(config)
-```
-
-**Saved to**: `lab/scraper/outputs/debug_html/`
-
-### Check Progress
+Check the latest scrape log and progress metadata:
 
 ```bash
 ls -t logs/scrape/scrape_*.log | head -1
-cat logs/scraping_progress.json | jq '.scraping_log.subjects.PHED'
+cat logs/scraping_progress.json | jq '.scraping_log.subjects.CSCI'
 ```
 
-### Review Failed Courses
+Review failed course outcomes:
 
 ```bash
 cat logs/failed_course_outcomes.txt
 ```
 
----
-
-## Known Issues
-
-1. **Infinite Retry on Validation Failures**
-   - Can loop forever (e.g., attempt 277+)
-   - Need retry limits for non-network errors
-
-2. **Memory Usage**
-   - Large subjects can use significant memory
-   - Mitigated by garbage collection after each subject
-
----
-
-## Configuration
-
-**Production** (default):
+Enable debug HTML saving while investigating parser behavior:
 
 ```python
-ScrapingConfig.for_production()
-# - Unlimited courses
-# - Full details + enrollment + outcomes
-# - Progress tracking enabled
-# - Output: data/
+config = ScrapingConfig.for_production()
+config.save_debug_files = True
+scraper = CuhkScraper(config)
 ```
 
-**Testing**:
-
-```python
-ScrapingConfig()  # Defaults
-# - Max 3 courses per subject
-# - Basic details only
-# - Debug HTML enabled
-# - Output: lab/scraper/outputs/
-```
-
----
+Debug HTML is saved to `lab/scraper/outputs/debug_html/`.
 
 ## See Also
 
-- [CLAUDE.md](../CLAUDE.md) - Project overview
-- `scripts/scrape_all_subjects.py` - Entry point (what you actually run)
-- `scripts/cuhk_scraper.py` - Core scraper implementation
+- `scripts/scrape_all_subjects.py` - production scrape entry point
+- `scripts/cuhk_scraper.py` - core scraper implementation
+- `scripts/publish_course_data.py` - validation and publishing
+- `scripts/generate_subjects.py` - subject list generation
 - `scripts/data_utils.py` - HTML utilities
