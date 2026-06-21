@@ -14,6 +14,10 @@ poetry run python scripts/scrape_all_subjects.py PHED,CSCI
 
 **Output**: `data/PHED.json`, `data/CSCI.json`, etc.
 
+**Verbose logs**: `logs/scrape/scrape_<timestamp>.log`
+
+The log filename timestamp uses the local machine timezone, normally HKT/UTC+8.
+
 ---
 
 ## Key Architecture Principle
@@ -151,6 +155,7 @@ scraper = CuhkScraper(config)
 ### Check Progress
 
 ```bash
+ls -t logs/scrape/scrape_*.log | head -1
 cat logs/scraping_progress.json | jq '.scraping_log.subjects.PHED'
 ```
 

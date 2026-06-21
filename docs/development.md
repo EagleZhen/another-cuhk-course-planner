@@ -162,9 +162,12 @@ Scraped JSON files are written to `data/`.
 The scraper is stable in normal use, but it is fragile by nature because it depends on CUHK website structure, response behavior, and captcha handling. After a scrape, review:
 
 ```bash
+logs/scrape/scrape_<timestamp>.log
 logs/scraping_progress.json
 logs/failed_course_outcomes.txt
 ```
+
+The `scrape_<timestamp>.log` timestamp uses the local machine timezone, which is normally HKT/UTC+8 for this project environment.
 
 Look for failed subjects, unusual course counts, repeated validation failures, or unexpectedly missing courses.
 
