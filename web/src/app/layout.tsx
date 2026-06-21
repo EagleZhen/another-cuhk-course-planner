@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-// Removed Vercel Analytics - using PostHog instead
 import FeedbackButton from '@/components/FeedbackButton'
 import MobileDesktopNotice from '@/components/MobileDesktopNotice'
 
@@ -112,7 +111,6 @@ export default function RootLayout({
         {children}
         <MobileDesktopNotice />
         <FeedbackButton />
-        {/* Analytics now handled by PostHog in _app.tsx */}
       </body>
     </html>
   )

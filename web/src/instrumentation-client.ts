@@ -21,7 +21,7 @@ if (typeof window !== 'undefined' && posthogKey) {
 
     // Privacy-first settings for student users
     person_profiles: 'never', // Don't create user profiles
-    capture_pageview: true, // Automatic page view tracking (replaces Vercel Analytics)
+    capture_pageview: true, // Automatic page view tracking
     capture_pageleave: true, // Session duration tracking
 
     // Disable potentially intrusive features
