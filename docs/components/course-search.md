@@ -2,282 +2,115 @@
 
 **File:** [web/src/components/CourseSearch.tsx](../../web/src/components/CourseSearch.tsx)
 
-Main search and filtering interface. Displays course cards with search buttons, filtering capabilities, and section selection.
+`CourseSearch` is the main course discovery surface. It loads published course data, applies search and filters, renders course cards, and passes selected sections back to the planner.
 
-## Component Structure
+## Responsibilities
 
-**Main Component:** `CourseSearch`
+`CourseSearch` owns:
 
-- Manages search state, selected term, course data loading
-- Renders list of `CourseCard` components
-- Handles course enrollment operations
+- loading course JSON from [web/public/data/](../../web/public/data/)
+- transforming external JSON through [validation.ts](../../web/src/lib/validation.ts)
+- search, subject, and day filtering
+- loading/progress UI and partial-load warnings
+- rendering `CourseCard` rows
+- sending search/loading/course-view analytics through [analytics.ts](../../web/src/lib/analytics.ts)
 
-**Child Component:** `CourseCard`
+`CourseCard` still lives in the same file. It owns per-course display, instructor/day/section filtering inside an expanded card, local section selections, and add/remove/update actions.
 
-- Individual course display with search buttons, metadata, and sections
-- Supports both desktop and mobile layouts
-- Manages local section selections before adding to cart
+## Data Loading
 
----
+The component loads all publishable subjects from `getAllSubjectCodes()` in [subjects.ts](../../web/src/lib/subjects.ts), then fetches `/data/${subject}.json` for each subject in parallel.
 
-## Search Buttons Design
+Loading records:
 
-### Current Implementation (Jan 2026)
+- per-subject success/failure
+- approximate data size
+- per-subject load time
+- oldest `scraped_at` timestamp across loaded files
 
-Three bilingual search buttons per course:
+When loading finishes, `course_data_loaded` is sent to PostHog with total load time, success/failure counts, total size, and slowest subject. This answers whether startup loading is slow or unreliable for real users.
 
-1. **Outline Button**
-   - Query: `CUHK ${subject}${courseCode} Outline OR 大綱`
-   - Opens Google search in new tab
+If some subject files fail to load, the page shows a partial-load warning with a reload action. If no subject files load, the component logs an error.
 
-2. **Reviews Button**
-   - Query: `CUHK ${subject}${courseCode} Review OR 評價`
-   - Opens Google search in new tab
+## Loading UI
 
-3. **Past Papers Button**
-   - Query: `${subject}${courseCode}` (no space)
-   - Searches CUHK Library (`cuhkLibrarySearchAndOpen()`)
+Initial `loading` state is `true`, so the loading UI renders immediately on first paint. `hasDataLoaded` prevents an empty-state message from appearing before the first load completes.
 
-### Design Decisions
+The loading UI shows:
 
-**Why bilingual (English OR Chinese)?**
+- current subject/progress
+- loaded/total subject count and percentage
+- progress bar
+- loaded data size after progress has started
+- phase message based on completion percentage
 
-- CUHK students discuss courses in both English and Chinese (連登, LIHKG use "大綱", "評價")
-- OR operator finds results with either term without being overly restrictive
+The remaining-time estimate was removed; the current UI avoids pretending it can predict parallel request timing precisely.
 
-**Why "CUHK" prefix?**
+## Search And Filters
 
-- Filters out results from other universities with the same course codes
+Search runs on the already-loaded course list. Filtering is scheduled asynchronously so the UI can show a processing state instead of blocking the page.
 
-**Why combine subject+code (no space)?**
+Filter layers:
 
-- `CSCI3320` is more specific than `CSCI 3320`; common way students refer to courses
+- term filter
+- parent-level subject filter
+- day filter
+- text search across course code/title/instructors
+- per-card instructor filter
+- per-card section day/type filters
 
-**Why separate Outline vs Reviews?**
+Day-filter availability is calculated from courses filtered by non-day criteria first. This avoids a self-loop where selecting a day would hide the controls needed to change the day filter.
 
-- Different use cases: syllabus planning vs. experience sharing
+When an instructor filter is applied inside a card, section selections that no longer match the filter are cleared. Clearing the instructor filter keeps existing selections.
 
-**Why Past Papers is separate?**
+## Course Cards
 
-- Uses CUHK Library (different engine + query format) rather than Google
+Cards have separate desktop and mobile layouts. Desktop keeps code/search/actions dense while giving the course title its own row. Mobile stacks metadata and actions for readability.
 
----
+The title gets its own row because long CUHK titles wrap awkwardly when sharing horizontal space with action buttons.
 
-## CourseCard Layout Design
+When a new search sequence targets a specific single result, the first card can auto-expand so the user lands directly on sections.
 
-### Desktop Layout
+## External Search Buttons
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│ [CSCI3320] [Outline] [Reviews] [Past Papers]     [Actions] │
-│ Computer Graphics                                           │
-│ [2 credits] [Graded] [45/200 Available Seats] [Instructors]│
-└─────────────────────────────────────────────────────────────┘
-```
+Each course card has three external search actions:
 
-**Layout rows:**
+- Outline: Google query for `CUHK ${subject}${courseCode} Outline OR 大綱`
+- Reviews: Google query for `CUHK ${subject}${courseCode} Review OR 評價`
+- Past Papers: CUHK Library query for `${subject}${courseCode}`
 
-1. **Row 1:** Course code + Search buttons | Action buttons (right-aligned)
-2. **Row 2:** Course title (full width)
-3. **Row 3:** Metadata badges + Instructor filters
+The Google queries include both English and Traditional Chinese because CUHK course discussion happens in both languages. `CUHK` narrows results away from other universities, and the no-space course code matches how students commonly search for courses.
 
-**Why title on a separate row?** Long titles break awkwardly when sharing row space with action buttons. Giving title its own full-width row lets it extend naturally without forced wrapping.
-
-### Mobile Layout
-
-```
-┌───────────────────────────┐
-│ CSCI3320                  │
-│ Computer Graphics         │
-│                           │
-│ [Outline] [Reviews]       │
-│ [Past Papers]             │
-│                           │
-│ [2 credits] [Graded]      │
-│ [45/200 Available Seats]  │
-│ [Instructors...]          │
-│                           │
-│ [Add to Cart]             │
-│ [▼ Show Sections]         │
-└───────────────────────────┘
-```
-
-Fully stacked; action buttons at bottom after metadata.
-
----
-
-## Loading Experience
-
-### State Initialization
-
-`loading` is initialized to `true` so the loading UI renders immediately on first paint — no separate "preparing" flash state.
-
-`hasDataLoaded` flag prevents "No courses available" from appearing before the first load completes.
-
-### Progress UI
-
-While loading, shows:
-
-- Animated spinner + current subject being loaded
-- Progress bar: `loaded / total` with percentage
-- After 3 subjects: live stats line (right-aligned):
-  `💾 12.3MB loaded · ⏳ ~4s remaining`
-
-### Live Stats Implementation
-
-```typescript
-const loadingStartTimeRef = useRef<number | null>(null) // set when loading begins
-const [loadedBytes, setLoadedBytes] = useState(0) // bytes accumulated in callbacks
-```
-
-**Estimated time formula (rate-based):**
-
-```typescript
-const elapsed = performance.now() - loadingStartTimeRef.current
-const completionRate = loadingProgress.loaded / loadingProgress.total
-const remainingMs = elapsed / completionRate - elapsed
-```
-
-This works correctly for parallel fetches — unlike a sequential average-per-file approach, it uses actual elapsed wall-clock time against real completion rate.
-
-### Progress Messages
-
-Three phase messages based on completion percentage:
-
-- `< 30%` — "Initializing course data loading..."
-- `30–70%` — "Processing course information..."
-- `> 70%` — "Almost done! Finalizing course catalog..."
-
-### PostHog Analytics
-
-On completion, fires `course_data_loaded` via `analytics.courseDataLoaded()`:
-
-```typescript
-analytics.courseDataLoaded({
-  totalLoadTimeMs,
-  subjectCount,
-  successCount,
-  failedCount,
-  totalSizeKb,
-  slowestSubject,
-  slowestTimeMs,
-  avgTimeMs,
-})
-```
-
-**Key question this answers:** What's the P90 load time? Are failures common? Which subjects are slowest?
-
----
+Past Papers uses the CUHK Library search helper instead of Google because it targets a different source with a simpler course-code query.
 
 ## Seat Availability Badge
 
-**Display:** Aggregate seat availability for the primary section type (usually LEC)
+Collapsed cards show aggregate availability for the primary section type, usually `LEC`, using `getAggregateSeatInfo()` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
-**Format:** `{available}/{total} Available Seats`
+The badge is an overview only:
 
-**Function:** `getAggregateSeatInfo()` in [courseUtils.ts](../web/src/lib/courseUtils.ts)
+- primary section type is treated as the enrollment bottleneck
+- per-section seats remain visible after expanding the card
+- data is scraped manually, not real-time
+- students should still verify availability in CUSIS before enrolling
 
-**Color coding** (via `getAvailabilityBadgeStyle()`):
+Badge color comes from `getAvailabilityBadgeStyle()`:
 
-- Green: >10 seats available
-- Yellow: <10 seats available
-- Red: 0 seats (closed)
+- red: closed or 0 seats
+- orange: waitlisted
+- yellow: 10 or fewer seats
+- green: more than 10 seats
 
-**Why primary section type only?** It's the enrollment bottleneck. If LEC has seats, TUT/LAB typically do too.
+## Known Limitations
 
-**Why aggregate?** The collapsed card is a high-level overview. Per-section details appear on expand.
+- All subjects load at startup instead of on demand.
+- `CourseSearch.tsx` is large because `CourseCard` and several subviews still live in the same file.
+- Google search buttons depend on Google availability in the user's region.
+- Bilingual search covers English and Traditional Chinese, not Simplified Chinese.
+- Instructor filters do not support partial name matching.
+- Day filters show day presence, not time ranges.
 
-**Data freshness:** Scraped manually on a regular basis, not real-time. Always verify with CUSIS before enrolling.
+## Related Docs
 
----
-
-## Filtering System
-
-### Instructor Filters
-
-- Badge-style toggle buttons per instructor
-- Multiple selection (Set-based)
-- "Clear Instructors" button when active
-
-### Day Filters
-
-- Only shown when card is expanded
-- Only shows days that have available sections
-- Multiple selection allowed
-
-### Section Type Filters
-
-- Collapsed by default per type with "Show All [Type]" link
-- Click to expand; state managed per section type
-
----
-
-## Props and Event Handlers
-
-**Main Props:**
-
-- `courseEnrollments` - Currently enrolled courses
-- `onAddCourse` / `onRemoveCourse` / `onUpdateCourse` - Cart operations
-- `currentTerm` - Active term filter
-- `searchResults` - Filtered course list
-- `onScrollToCart` - Scroll to course in cart
-- `onDataUpdate` - Background data sync callback
-
-**CourseCard Props:**
-
-- `course`, `isAdded`, `initialSelections`
-- All event handlers passed through
-
----
-
-## Auto-Expand Behavior
-
-When a new search fires (`searchSequence` increments), the first result auto-expands sections. Useful when searching for a specific course code.
-
----
-
-## Known Issues & Limitations
-
-**Layout:**
-
-- Search buttons may wrap to a second line on narrow windows
-
-**Search:**
-
-- Bilingual only covers English + Traditional Chinese (no Simplified Chinese support)
-- Google results depend on Google's availability in user's region
-
-**Filtering:**
-
-- Instructor filters don't support partial name matching
-- Day filters show day presence only, not time ranges
-- No "Clear All Filters" for day filters
-
-**Data Loading:**
-
-- Loads all subjects on startup (~249 files) instead of on-demand
-- No retry or warning if some subjects fail mid-load (partial load is silent)
-
----
-
-## Component Size
-
-**Lines of code:** ~2100+ (includes CourseCard)
-
-**Complexity factors:**
-
-- Desktop vs mobile layout differences
-- Section filtering + instructor filtering logic
-- Auto-completion logic integration
-- State synchronization with shopping cart
-- Live loading progress UI
-
-**Future considerations:**
-
-- Split CourseCard into separate file
-- Extract filtering logic into custom hooks
-- Lazy-load subjects on demand instead of all at startup
-
----
-
-**Last updated:** February 2026
+- [Data pipeline](../data-pipeline.md) - where `/data/*.json` files come from
+- [Deployment](../deployment.md) - static hosting and analytics context
