@@ -4,37 +4,35 @@
 
 `CourseSearch` is the main course discovery surface. It loads published course data, applies search and filters, renders course cards, and passes selected sections back to the planner.
 
-## Responsibilities
+## What It Owns
 
 `CourseSearch` owns:
 
-- loading course JSON from [web/public/data/](../../web/public/data/)
-- transforming external JSON through [validation.ts](../../web/src/lib/validation.ts)
-- search, subject, and day filtering
+- course-data loading from [web/public/data/](../../web/public/data/)
+- external JSON validation and transformation through [validation.ts](../../web/src/lib/validation.ts)
+- term, subject, day, and text-search filtering
 - loading/progress UI and partial-load warnings
-- rendering `CourseCard` rows
-- sending search/loading/course-view analytics through [analytics.ts](../../web/src/lib/analytics.ts)
+- `CourseCard` rendering
+- search, loading, and course-view analytics through [analytics.ts](../../web/src/lib/analytics.ts)
 
-`CourseCard` still lives in the same file. It owns per-course display, instructor/day/section filtering inside an expanded card, local section selections, and add/remove/update actions.
+`CourseCard` currently lives in the same file. It owns per-course display, expanded-section filtering, local section selections, and add/update/remove actions.
 
-## Data Loading
+## Data Loading Flow
 
-The component loads all publishable subjects from `getAllSubjectCodes()` in [subjects.ts](../../web/src/lib/subjects.ts), then fetches `/data/${subject}.json` for each subject in parallel.
+1. Read publishable subject codes from `getAllSubjectCodes()` in [subjects.ts](../../web/src/lib/subjects.ts).
+2. Fetch `/data/${subject}.json` for every subject in parallel.
+3. Validate and transform each successful response.
+4. Track per-subject success/failure, load time, approximate size, and `scraped_at`.
+5. Store loaded courses and notify the parent with the oldest scrape timestamp.
+6. Send `course_data_loaded` analytics with load time, success/failure counts, total size, and slowest subject.
 
-Loading records:
+All publishable subject files load at startup so search and filtering stay local and responsive after the initial load.
 
-- per-subject success/failure
-- approximate data size
-- per-subject load time
-- oldest `scraped_at` timestamp across loaded files
-
-When loading finishes, `course_data_loaded` is sent to PostHog with total load time, success/failure counts, total size, and slowest subject. This answers whether startup loading is slow or unreliable for real users.
-
-If some subject files fail to load, the page shows a partial-load warning with a reload action. If no subject files load, the component logs an error.
+If some subject files fail, the page shows a partial-load warning with a reload action. If no subject files load, the component logs an error.
 
 ## Loading UI
 
-Initial `loading` state is `true`, so the loading UI renders immediately on first paint. `hasDataLoaded` prevents an empty-state message from appearing before the first load completes.
+Initial `loading` is `true`, so the loading UI appears on first paint. `hasDataLoaded` prevents the empty state from showing before the first load completes.
 
 The loading UI shows:
 
@@ -44,66 +42,64 @@ The loading UI shows:
 - loaded data size after progress has started
 - phase message based on completion percentage
 
-The remaining-time estimate was removed; the current UI avoids pretending it can predict parallel request timing precisely.
+The loading UI does not show a remaining-time estimate because parallel request timing is too noisy to predict accurately.
 
-## Search And Filters
+## Search And Filtering Flow
 
-Search runs on the already-loaded course list. Filtering is scheduled asynchronously so the UI can show a processing state instead of blocking the page.
+Search and filtering run on the loaded course list. Filtering is scheduled asynchronously so the page can show a processing state instead of blocking.
 
-Filter layers:
+Broad filters are applied before card-local filters:
 
-- term filter
-- parent-level subject filter
-- day filter
-- text search across course code/title/instructors
-- per-card instructor filter
-- per-card section day/type filters
+1. term
+2. subject
+3. day
+4. text search across course code/title/instructors
+5. per-card instructor filter
+6. per-card section day/type filters
 
-Day-filter availability is calculated from courses filtered by non-day criteria first. This avoids a self-loop where selecting a day would hide the controls needed to change the day filter.
+Important invariants:
 
-When an instructor filter is applied inside a card, section selections that no longer match the filter are cleared. Clearing the instructor filter keeps existing selections.
+- Day-filter availability is calculated from courses filtered by non-day criteria first, avoiding a self-loop where selecting a day hides the controls needed to change the day filter.
+- Applying an instructor filter inside a card clears section selections that no longer match the filter.
+- Clearing the instructor filter keeps existing selections.
 
-## Course Cards
+## Course Card Behavior
 
-Cards have separate desktop and mobile layouts. Desktop keeps code/search/actions dense while giving the course title its own row. Mobile stacks metadata and actions for readability.
+Collapsed cards show course identity, search actions, metadata, instructors, and aggregate seat availability.
 
-The title gets its own row because long CUHK titles wrap awkwardly when sharing horizontal space with action buttons.
+Expanded cards show section choices and card-local filters. Local selections remain inside the card until the user adds or updates the course in the planner.
 
-When a new search sequence targets a specific single result, the first card can auto-expand so the user lands directly on sections.
+Desktop and mobile layouts are intentionally different:
 
-## External Search Buttons
+- Desktop keeps course code, search actions, and planner actions dense. Course titles get their own row because long CUHK titles wrap awkwardly beside action buttons.
+- Mobile stacks search actions, metadata, filters, and planner actions for readability.
 
-Each course card has three external search actions:
+When a new search sequence targets one specific result, the first card can auto-expand so the user lands directly on section choices.
 
-- Outline: Google query for `CUHK ${subject}${courseCode} Outline OR 大綱`
-- Reviews: Google query for `CUHK ${subject}${courseCode} Review OR 評價`
-- Past Papers: CUHK Library query for `${subject}${courseCode}`
+## UI Signals
 
-The Google queries include both English and Traditional Chinese because CUHK course discussion happens in both languages. `CUHK` narrows results away from other universities, and the no-space course code matches how students commonly search for courses.
+External search actions:
 
-Past Papers uses the CUHK Library search helper instead of Google because it targets a different source with a simpler course-code query.
+- Outline opens a Google query for `CUHK ${subject}${courseCode} Outline OR 大綱`.
+- Reviews opens a Google query for `CUHK ${subject}${courseCode} Review OR 評價`.
+- Past Papers opens a CUHK Library query for `${subject}${courseCode}`.
 
-## Seat Availability Badge
+Google queries include English and Traditional Chinese because CUHK course discussion happens in both languages. `CUHK` narrows results away from other universities, and the no-space course code matches common student search behavior.
 
-Collapsed cards show aggregate availability for the primary section type, usually `LEC`, using `getAggregateSeatInfo()` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+Past Papers uses CUHK Library search because it targets a different source from outline/review searches.
 
-The badge is an overview only:
+Seat availability:
 
-- primary section type is treated as the enrollment bottleneck
+- collapsed cards show aggregate availability for the primary section type, usually `LEC`
 - per-section seats remain visible after expanding the card
-- data is scraped manually, not real-time
-- students should still verify availability in CUSIS before enrolling
+- badge styling comes from `getAvailabilityBadgeStyle()` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)
+- availability is scraped manually, not real-time; students should verify in CUSIS before enrolling
 
-Badge color comes from `getAvailabilityBadgeStyle()`:
-
-- red: closed or 0 seats
-- orange: waitlisted
-- yellow: 10 or fewer seats
-- green: more than 10 seats
+The primary section type is used as a compact overview because it is usually the enrollment bottleneck.
 
 ## Known Limitations
 
-- All subjects load at startup instead of on demand.
+- Startup loading fetches all subjects instead of loading on demand.
 - `CourseSearch.tsx` is large because `CourseCard` and several subviews still live in the same file.
 - Google search buttons depend on Google availability in the user's region.
 - Bilingual search covers English and Traditional Chinese, not Simplified Chinese.
