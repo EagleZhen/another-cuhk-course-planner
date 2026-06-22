@@ -6,7 +6,9 @@ The web app is deployed at <https://another-cuhk-course-planner.com/>.
 
 The app is hosted on Cloudflare Pages.
 
-This project moved away from Vercel because the free quota was consumed too quickly by Edge requests. The app is mostly static after build, so Cloudflare Pages is a better fit: static asset requests and bandwidth are generous enough for this workload, while the deployment remains simple.
+The app is mostly static after build, so Cloudflare Pages fits the workload well.
+See [decisions.md](decisions.md#host-on-cloudflare-pages) for the hosting
+rationale.
 
 The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
@@ -14,9 +16,12 @@ The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
 Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.
 
-PostHog is preferred over Vercel Analytics because the free plan is more useful for this project: it offers more flexible date ranges, breakdowns, and event analysis for understanding how students use planner features.
+The app sends PostHog events through the `/x8m2k` rewrite configured in
+`web/next.config.ts`. Local development works without analytics when
+`NEXT_PUBLIC_POSTHOG_KEY` is unset.
 
-The app sends PostHog events through the `/x8m2k` rewrite configured in `web/next.config.ts`. Local development works without analytics when `NEXT_PUBLIC_POSTHOG_KEY` is unset.
+See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics
+provider rationale.
 
 ## Checks
 
