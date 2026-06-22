@@ -9,6 +9,7 @@ For Next.js work, read the relevant version-matched docs in
 
 - `README.md`: overview and repo map
 - `docs/development.md`: setup, commands, checks, env vars
+- `docs/architecture.md`: system shape and key invariants
 - `docs/data-pipeline.md`: scraping and publishing
 - `docs/deployment.md`: hosting and analytics
 
