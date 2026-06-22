@@ -35,8 +35,6 @@ npm run dev
 
 Open <http://localhost:3000>.
 
-Repository-level tooling such as formatting is installed from the repository root; see [docs/development.md](docs/development.md).
-
 ---
 
 ## Project Structure
@@ -57,11 +55,7 @@ Repository-level tooling such as formatting is installed from the repository roo
 
 ## Documentation
 
-- [Development guide](docs/development.md) - local setup, commands, scraping, publishing, and checks
-- [Deployment notes](docs/deployment.md) - hosting, analytics, and production checks
-- [Data pipeline](docs/data-pipeline.md) - scraping, publishing, validation, and data files
-- [CourseSearch component notes](docs/components/course-search.md) - loading, search, filtering, and course card behavior
-- [Web app README](web/README.md) - frontend package notes and commands
+See [docs/README.md](docs/README.md) for the documentation map.
 
 ---
 
