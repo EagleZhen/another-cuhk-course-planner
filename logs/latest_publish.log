@@ -1,17 +1,19 @@
-Scraped data: 263 subjects, 9,060 courses, 0 failed
-Excluded 10 exemption codes: EX_PGDE, EX_RPG, EX_TPG, EX_UG, XCBS, XCCS, XFUD, XUNC, XUSC, XWAS
+Scraped data: 263 subjects, 9,067 courses, 0 failed
+Course JSON files:
+   Source files in data/: 263
+   Excluded exemption/admin codes: 10 (EX_PGDE, EX_RPG, EX_TPG, EX_UG, XCBS, XCCS, XFUD, XUNC, XUSC, XWAS)
+   Selected for publishing: 253
 
-Found 253 course JSON files
 Subject list matches lib/subjects.ts (253 subjects)
 
 Subjects with no courses (38): AENP, AEPT, ANAT, APEP, BCHM, BMJC, CCNU, CHCU, CLGY, CODS, DSME, ECTM, EIHP, EMBF, EXSC, GEOR, GLOF, GNED, HSGS, INDA, LSCM, MAPE, MAVE, MCLS, MITE, MPTE, MSAE, MSMR, MTCI, NSSC, OMBA, PHMA, PHUG, PHYY, POPN, REES, SENV, SPSY
 Including 38 subjects with no courses
-Publishing 253 files
+Publishing 253 files to web\public\data
 
 Publishing Summary:
    ✅ Published: 253/253 files
    Destination: web\public\data
 
 Logs saved to:
-   logs\publish\publish_20260620_120532.log
+   logs\publish\publish_20260628_133134.log
    logs\latest_publish.log

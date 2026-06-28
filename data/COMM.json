@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-19T14:30:40.055659+00:00",
+    "scraped_at": "2026-06-27T09:09:48.253596+00:00",
     "subject": "COMM",
     "subject_title": "Communication",
     "total_courses": 220,
@@ -1998,10 +1998,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "24",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3848,10 +3848,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11061,23 +11061,16 @@
           "schedule": [
             {
               "section": "AS01-SEM (1807)",
-              "meetings": [
-                {
-                  "time": "Sa 2:00PM - 4:45PM",
-                  "location": "Wu Ho Man Yuen Bldg 404",
-                  "instructor": "Mr. Pushkar Vijay SANE",
-                  "dates": "6/9, 13/9, 20/9, 27/9, 4/10, 11/10, 18/10, 25/10, 1/11, 8/11, 15/11, 22/11, 29/11, 6/12"
-                }
-              ],
+              "meetings": [],
               "availability": {
-                "capacity": "30",
-                "enrolled": "25",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "capacity": "",
+                "enrolled": "",
+                "waitlist_capacity": "",
+                "waitlist_total": "",
+                "available_seats": "",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": ""
             }
           ]
         },
@@ -11087,29 +11080,16 @@
           "schedule": [
             {
               "section": "BS01-SEM (4477)",
-              "meetings": [
-                {
-                  "time": "Th 6:30PM - 9:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 403",
-                  "instructor": "Miss NGAI Yuet Ling",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
-                },
-                {
-                  "time": "Th 6:30PM - 9:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 403",
-                  "instructor": "Miss NGAI Yuet Ling",
-                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4, 23/4"
-                }
-              ],
+              "meetings": [],
               "availability": {
-                "capacity": "40",
-                "enrolled": "25",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "15",
-                "status": "Open"
+                "capacity": "",
+                "enrolled": "",
+                "waitlist_capacity": "",
+                "waitlist_total": "",
+                "available_seats": "",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": ""
             }
           ]
         }
@@ -11123,12 +11103,12 @@
       "campus": "Main Campus",
       "academic_group": "Div of Communication",
       "academic_org": "Div of Communication",
-      "learning_outcomes": "To be designed by the instructor. Please refer to the course outline distributed in the first lecture.",
-      "course_syllabus": "Please refer to the course outline distributed in the first lecture.",
+      "learning_outcomes": "",
+      "course_syllabus": "",
       "assessment_types": {},
-      "feedback_evaluation": "Course Evaluation Questionnaire",
-      "required_readings": "Please refer to the course outline distributed in the first lecture.",
-      "recommended_readings": "Please refer to the course outline distributed in the first lecture."
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     },
     {
       "subject": "COMM",

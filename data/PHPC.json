@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-19T19:06:51.709807+00:00",
+    "scraped_at": "2026-06-27T13:58:38.925965+00:00",
     "subject": "PHPC",
     "subject_title": "Public Health",
-    "total_courses": 47,
+    "total_courses": 50,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1823,6 +1823,28 @@
     },
     {
       "subject": "PHPC",
+      "course_code": "4000",
+      "title": "Professionalism and Ethics",
+      "credits": "0.00",
+      "terms": [],
+      "description": "In this course, students will have an opportunity to critically examine the concept of professionalism in public health. Students will also reflect on core professional values expected of public health practitioners, including competence, integrity, accountability, respect for persons, and cultural sensitivity in public health practice.",
+      "enrollment_requirement": "",
+      "course_attributes": "Experiential Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Independent Study\nLecture\nOthers",
+      "campus": "Main Campus",
+      "academic_group": "JC Sch of Pub Health Prim Care",
+      "academic_org": "JC Sch of Pub Health Prim Care",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "PHPC",
       "course_code": "4025",
       "title": "Introduction to Data Science in Health and Medicine",
       "credits": "3.00",
@@ -2588,6 +2610,50 @@
       "feedback_evaluation": "Course evaluation will be conducted at the end of the term in form of close-end and open-end questions.\nContinuous feedback will be collected via discussion forum on course websites.",
       "required_readings": "To be advised by the course teacher",
       "recommended_readings": "To be advised by the course teacher"
+    },
+    {
+      "subject": "PHPC",
+      "course_code": "4931",
+      "title": "Public Health Practicum I",
+      "credits": "0.00",
+      "terms": [],
+      "description": "Students will be assigned to one of the collaborating public health service providers, including (but not limited to) government departments, non-governmental organizations and the private sectors, based on their declared preference. Prior to the engagement of practicum, each student must discuss his or her potential role and responsibilities with the site supervisor. All fieldwork can only be initiated after the prior approval of the course coordinator and site supervisor. Students are required to complete a minimum of 100 hours of fieldwork under the supervision of site supervisor by the end of PHPC4932 Public Health Practicum II. This course provides students with the preparations needed before starting their public health practicum.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course\nExperiential Learning Course\nInternship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "JC Sch of Pub Health Prim Care",
+      "academic_org": "JC Sch of Pub Health Prim Care",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "PHPC",
+      "course_code": "4932",
+      "title": "Public Health Practicum II",
+      "credits": "2.00",
+      "terms": [],
+      "description": "Students will be assigned to one of the collaborating public health service providers, including (but not limited to) government departments, non-governmental organizations and the private sectors, based on their declared preference. Prior to the engagement of practicum, each student must discuss his or her potential role and responsibilities with the site supervisor. All fieldwork can only be initiated after the prior approval of the course coordinator and site supervisor. Students are required to complete a minimum of 100 hours of fieldwork under the supervision of site supervisor.",
+      "enrollment_requirement": "Pre-requisite: PHPC4931\nCo-requisite: PHPC4000",
+      "course_attributes": "Capstone Course\nExperiential Learning Course\nInternship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "JC Sch of Pub Health Prim Care",
+      "academic_org": "JC Sch of Pub Health Prim Care",
+      "learning_outcomes": "",
+      "course_syllabus": "",
+      "assessment_types": {},
+      "feedback_evaluation": "",
+      "required_readings": "",
+      "recommended_readings": ""
     }
   ]
 }
