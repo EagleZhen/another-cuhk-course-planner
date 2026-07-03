@@ -11,10 +11,12 @@ This directory keeps project notes for maintainers and agents. The goal is clear
 - [decisions.md](decisions.md): optional rationale for project choices
 - [improvements.md](improvements.md): cross-cutting known issues and architecture debt
 - [components/course-search.md](components/course-search.md): CourseSearch behavior and important local rationale
+- [components/weekly-calendar.md](components/weekly-calendar.md): WeeklyCalendar invariants and ICS export/undo rationale
 - [../web/README.md](../web/README.md): web package commands
 
 ## Principles
 
+- Document why and what-breaks, not what the code visibly does.
 - Keep docs concise and aligned with the current code.
 - Put operational details near the workflow that uses them.
 - Keep local rationale beside the behavior it explains.
