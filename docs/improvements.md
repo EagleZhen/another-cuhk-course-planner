@@ -10,12 +10,6 @@ The pipeline and app assume a single academic year: data files carry only the 20
 
 Main upcoming data-model change. Touches scraper output, publish validation, data loading, term selection, and `schedule_${term}` localStorage keys.
 
-## Partial Load Triggers False Invalidations
-
-When some subject files fail to load, [CourseSearch.tsx](../web/src/components/CourseSearch.tsx) still passes the partial course list to `onDataUpdate` with no failure signal, so the background sync in [page.tsx](../web/src/app/page.tsx) falsely marks enrollments from failed subjects as "Course no longer available".
-
-Nothing is deleted and the next successful load re-validates, but the false warning undermines trust. Fix direction: skip sync (or scope it to loaded subjects) when the load was partial.
-
 ## Architecture Debt
 
 - [page.tsx](../web/src/app/page.tsx) (~850 lines): single state hub, keeps growing. Fine while the state surface is stable.
