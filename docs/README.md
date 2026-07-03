@@ -12,6 +12,7 @@ This directory keeps project notes for maintainers and agents. The goal is clear
 - [improvements.md](improvements.md): cross-cutting known issues and architecture debt
 - [components/course-search.md](components/course-search.md): CourseSearch invariants and search/filtering rationale
 - [components/weekly-calendar.md](components/weekly-calendar.md): WeeklyCalendar invariants and ICS export/undo rationale
+- [components/shopping-cart.md](components/shopping-cart.md): ShoppingCart cycling constraints and summary semantics
 - [../web/README.md](../web/README.md): web package commands
 
 ## Principles
