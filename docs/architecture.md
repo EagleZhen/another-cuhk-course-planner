@@ -33,6 +33,7 @@ After that boundary, components and utilities should use the internal types from
 Important invariants:
 
 - external data shape belongs in validation schemas, not UI components
+- no `any` types anywhere; boundary functions take `unknown` and let Zod parsing narrow it
 - app logic should prefer `InternalCourse`, `InternalSection`, and related internal types
 - `SECTION_TYPE_CONFIG` in [types.ts](../web/src/lib/types.ts) is the source of truth for recognized section types and display metadata
 
@@ -77,7 +78,7 @@ Conflict detection is a two-step model:
 The main UI surfaces are:
 
 - [CourseSearch](components/course-search.md): data loading, search/filtering, course cards, and section selection before adding to the planner
-- [WeeklyCalendar.tsx](../web/src/components/WeeklyCalendar.tsx): visual timetable, conflict display, screenshots, ICS export, and ICS undo
-- [ShoppingCart.tsx](../web/src/components/ShoppingCart.tsx): enrolled courses, section cycling, visibility toggles, and remove/update actions
+- [WeeklyCalendar](components/weekly-calendar.md): visual timetable, conflict display, screenshots, ICS export, and ICS undo
+- [ShoppingCart](components/shopping-cart.md): enrolled courses, section cycling, visibility toggles, and remove/update actions
 
 Component-specific rationale should stay in focused component docs when it helps editing that component. Broad tradeoff rationale belongs in [decisions.md](decisions.md).
