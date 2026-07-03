@@ -18,6 +18,10 @@ The app sends PostHog events through the `/x8m2k` rewrite configured in `web/nex
 
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
+## Re-Showing the Mobile Notice
+
+To show the mobile desktop-preview notice again to all users (e.g., for a promotion), bump `NOTICE_VERSION` in [web/src/lib/constants.ts](../web/src/lib/constants.ts) and deploy. Users store the version they dismissed, so a new version re-triggers the notice once per user.
+
 ## Checks
 
 Before deploying web changes, run these from `web/`:
