@@ -11,6 +11,8 @@ ownership, not exhaustive documentation.
   and data files
 - [deployment.md](deployment.md): hosting, analytics, and deployment checks
 - [decisions.md](decisions.md): optional rationale for project choices
+- [improvements.md](improvements.md): cross-cutting known issues and
+  architecture debt
 - [components/course-search.md](components/course-search.md): CourseSearch
   behavior and important local rationale
 - [../web/README.md](../web/README.md): web package commands
