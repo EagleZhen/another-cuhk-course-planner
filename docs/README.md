@@ -18,7 +18,7 @@ This directory keeps project notes for maintainers and agents. The goal is clear
 ## Principles
 
 - Document why and what-breaks, not what the code visibly does.
-- Keep docs concise and aligned with the current code.
+- Keep docs concise; verify every claim against the implementation, not against other docs or memory.
 - Put operational details near the workflow that uses them.
 - Keep local rationale beside the behavior it explains.
 - Use [decisions.md](decisions.md) as an optional appendix when rationale would distract from an operational doc.

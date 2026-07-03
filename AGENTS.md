@@ -17,6 +17,8 @@ Challenge assumptions when there is a clear technical reason, and explain the tr
 
 For generated or tool-managed files, prefer commands over manual edits.
 
-Keep docs concise and aligned with the current code.
+When writing or editing docs, verify each claim against the current implementation — not against other docs, CLAUDE.md history, or memory. A wrong claim is worse than a missing one.
+
+When changing code, check whether a doc in `docs/` describes the affected behavior and update it in the same change.
 
 Run checks proportional to the change. Avoid full scrapes or full builds unless they are relevant, requested, or needed.
