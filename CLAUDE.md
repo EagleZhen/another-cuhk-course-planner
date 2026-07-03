@@ -124,8 +124,7 @@ export function areSectionsCompatible(section1, section2): boolean {
 }
 ```
 
-**Auto-Completion with Hierarchical Cascade:**
-When user changes a lecture section, incompatible lower-priority sections are auto-removed and compatible ones are auto-added. Priority: LEC → EXR → TUT → LAB.
+**Auto-Completion with Hierarchical Cascade:** When user changes a lecture section, incompatible lower-priority sections are auto-removed and compatible ones are auto-added. Priority: LEC → EXR → TUT → LAB.
 
 See `autoCompleteEnrollmentSections()` in [courseUtils.ts](web/src/lib/courseUtils.ts:800-900) for full logic.
 
@@ -321,8 +320,7 @@ poetry run python scripts/publish_course_data.py
 - ✅ Guaranteed consistency - publishing blocked if subjects.ts is stale
 - ✅ Zero runtime overhead (static lookup)
 
-**Exclusion List Consistency:**
-All three places use identical exclusion logic:
+**Exclusion List Consistency:** All three places use identical exclusion logic:
 
 - `scripts/generate_subjects.py` - Line 18
 - `scripts/publish_course_data.py` - Line 118
@@ -534,8 +532,7 @@ const proceed = confirm(
 4. User confirms → Validation checks `PRODID` → Warns if file wasn't from our app (allows proceed)
 5. Auto-download `(UNDO) filename.ics` with modified events
 
-**Key Implementation Detail - Browser User Activation:**
-File picker must open immediately on click to maintain "user activation" chain. Confirmation dialog happens AFTER file selection to avoid browser security errors ("File chooser dialog can only be shown with a user activation").
+**Key Implementation Detail - Browser User Activation:** File picker must open immediately on click to maintain "user activation" chain. Confirmation dialog happens AFTER file selection to avoid browser security errors ("File chooser dialog can only be shown with a user activation").
 
 **Processing Logic in [courseUtils.ts](web/src/lib/courseUtils.ts:1322):**
 

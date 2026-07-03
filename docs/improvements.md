@@ -1,47 +1,28 @@
 # Improvements
 
-Cross-cutting known issues, upcoming needs, and architecture debt. Component-local
-limitations stay in the component docs (see
-[course-search.md](components/course-search.md#known-limitations)).
+Cross-cutting known issues, upcoming needs, and architecture debt. Component-local limitations stay in the component docs (see [course-search.md](components/course-search.md#known-limitations)).
 
-Working list, not a commitment. Describe the problem and why it matters;
-solutions belong in the change that fixes them.
+Working list, not a commitment. Describe the problem and why it matters; solutions belong in the change that fixes them.
 
 ## Year-Scoped Course Data
 
-The pipeline and app assume a single academic year: data files carry only the
-2025-26 terms, and nothing in scraping, publish validation, or loading
-distinguishes years. When next year's catalog arrives, old terms become useless
-payload with no way to drop or partition them.
+The pipeline and app assume a single academic year: data files carry only the 2025-26 terms, and nothing in scraping, publish validation, or loading distinguishes years. When next year's catalog arrives, old terms become useless payload with no way to drop or partition them.
 
-Main upcoming data-model change. Touches scraper output, publish validation,
-data loading, term selection, and `schedule_${term}` localStorage keys.
+Main upcoming data-model change. Touches scraper output, publish validation, data loading, term selection, and `schedule_${term}` localStorage keys.
 
 ## Partial Load Triggers False Invalidations
 
-When some subject files fail to load,
-[CourseSearch.tsx](../web/src/components/CourseSearch.tsx) still passes the
-partial course list to `onDataUpdate` with no failure signal, so the background
-sync in [page.tsx](../web/src/app/page.tsx) falsely marks enrollments from
-failed subjects as "Course no longer available".
+When some subject files fail to load, [CourseSearch.tsx](../web/src/components/CourseSearch.tsx) still passes the partial course list to `onDataUpdate` with no failure signal, so the background sync in [page.tsx](../web/src/app/page.tsx) falsely marks enrollments from failed subjects as "Course no longer available".
 
-Nothing is deleted and the next successful load re-validates, but the false
-warning undermines trust. Fix direction: skip sync (or scope it to loaded
-subjects) when the load was partial.
+Nothing is deleted and the next successful load re-validates, but the false warning undermines trust. Fix direction: skip sync (or scope it to loaded subjects) when the load was partial.
 
 ## Architecture Debt
 
-- [page.tsx](../web/src/app/page.tsx) (~850 lines): single state hub, keeps
-  growing. Fine while the state surface is stable.
-- [courseUtils.ts](../web/src/lib/courseUtils.ts) (~1,500 lines): mixes calendar
-  math, formatting, compatibility, and ICS. Splitting by category would help
-  navigation; functions are already pure and decoupled.
-- [CourseSearch.tsx](../web/src/components/CourseSearch.tsx) (~2,700 lines):
-  `CourseCard` and several subviews live in one file.
+- [page.tsx](../web/src/app/page.tsx) (~850 lines): single state hub, keeps growing. Fine while the state surface is stable.
+- [courseUtils.ts](../web/src/lib/courseUtils.ts) (~1,500 lines): mixes calendar math, formatting, compatibility, and ICS. Splitting by category would help navigation; functions are already pure and decoupled.
+- [CourseSearch.tsx](../web/src/components/CourseSearch.tsx) (~2,700 lines): `CourseCard` and several subviews live in one file.
 
 ## Non-Goals For Now
 
-- **On-demand subject loading**: parallel startup load is fast enough; splitting
-  it would be premature optimization.
-- **Live enrollment updates**: availability is scraped, not real-time, by design.
-  See [decisions.md](decisions.md#frontend-only-static-app).
+- **On-demand subject loading**: parallel startup load is fast enough; splitting it would be premature optimization.
+- **Live enrollment updates**: availability is scraped, not real-time, by design. See [decisions.md](decisions.md#frontend-only-static-app).
