@@ -7,7 +7,7 @@ The web app is deployed at <https://another-cuhk-course-planner.com/>.
 The app is hosted on Cloudflare Pages.
 
 The app is mostly static after build, so Cloudflare Pages fits the workload well.
-See [decisions.md](decisions.md#host-on-cloudflare-pages) for the hosting
+See [decisions.md](decisions.md#cloudflare-pages-over-vercel) for the hosting
 rationale.
 
 The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
