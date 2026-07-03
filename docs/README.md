@@ -10,7 +10,7 @@ This directory keeps project notes for maintainers and agents. The goal is clear
 - [deployment.md](deployment.md): hosting, analytics, and deployment checks
 - [decisions.md](decisions.md): optional rationale for project choices
 - [improvements.md](improvements.md): cross-cutting known issues and architecture debt
-- [components/course-search.md](components/course-search.md): CourseSearch behavior and important local rationale
+- [components/course-search.md](components/course-search.md): CourseSearch invariants and search/filtering rationale
 - [components/weekly-calendar.md](components/weekly-calendar.md): WeeklyCalendar invariants and ICS export/undo rationale
 - [../web/README.md](../web/README.md): web package commands
 
