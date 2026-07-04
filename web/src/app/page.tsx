@@ -405,7 +405,7 @@ export default function Home() {
       setCourseEnrollments((prev) =>
         prev.map((enrollment, index) =>
           index === existingEnrollmentIndex
-            ? updateExistingEnrollment(enrollment, selectedSectionsForCourse)
+            ? updateExistingEnrollment(enrollment, course, selectedSectionsForCourse)
             : enrollment
         )
       )
