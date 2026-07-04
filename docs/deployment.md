@@ -24,10 +24,4 @@ To show the mobile desktop-preview notice again to all users (e.g., for a promot
 
 ## Checks
 
-Before deploying web changes, run these from `web/`:
-
-```bash
-npm run lint
-npm run typecheck
-npm run build
-```
+Before deploying web changes, run `npm run build` from `web/` — see [development.md](development.md#common-checks) for the full command set and when each applies.
