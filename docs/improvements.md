@@ -10,6 +10,10 @@ The pipeline and app assume a single academic year: data files carry only the 20
 
 Main upcoming data-model change. Touches scraper output, publish validation, data loading, term selection, and `schedule_${term}` localStorage keys.
 
+## Debug Logging Cleanup
+
+`web/src` still has frequent `console.log`/emoji debug output left over from earlier development. The Python publish script already shows the target style: emoji reserved for genuinely attention-worthy points, not every log line. Web logging should be reduced to match.
+
 ## Architecture Debt
 
 - [page.tsx](../web/src/app/page.tsx) (~850 lines): single state hub, keeps growing. Fine while the state surface is stable.
