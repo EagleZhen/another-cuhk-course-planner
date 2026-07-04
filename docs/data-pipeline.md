@@ -16,17 +16,17 @@ Run these from the repository root.
 
 ```bash
 # Scrape all subjects from the live catalog
-poetry run python scripts/scrape_all_subjects.py
+uv run python scripts/scrape_all_subjects.py
 
 # Scrape selected subjects while debugging
-poetry run python scripts/scrape_all_subjects.py CSCI
-poetry run python scripts/scrape_all_subjects.py CSCI,UGFN
+uv run python scripts/scrape_all_subjects.py CSCI
+uv run python scripts/scrape_all_subjects.py CSCI,UGFN
 
 # Validate and copy publishable data into the web app
-poetry run python scripts/publish_course_data.py
+uv run python scripts/publish_course_data.py
 
 # Inspect publish validation without copying files
-poetry run python scripts/publish_course_data.py --dry-run
+uv run python scripts/publish_course_data.py --dry-run
 ```
 
 ## Scrape
@@ -75,7 +75,7 @@ Read the publish count summary as:
 Regenerate the `SUBJECT_TITLES` constant:
 
 ```bash
-poetry run python scripts/generate_subjects.py
+uv run python scripts/generate_subjects.py
 ```
 
 Copy the printed constant into [web/src/lib/subjects.ts](../web/src/lib/subjects.ts), then run the publish script again.

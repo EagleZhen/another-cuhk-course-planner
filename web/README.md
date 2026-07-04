@@ -26,7 +26,7 @@ The app reads published course data from `public/data/`. Those files are generat
 Run this from the repository root:
 
 ```bash
-poetry run python scripts/publish_course_data.py
+uv run python scripts/publish_course_data.py
 ```
 
 See [../docs/development.md](../docs/development.md) for the scraper and publishing workflow.

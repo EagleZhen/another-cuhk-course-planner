@@ -255,7 +255,7 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
                 )
             print()
             print("   To fix:")
-            print("      1. Run: poetry run python scripts/generate_subjects.py")
+            print("      1. Run: uv run python scripts/generate_subjects.py")
             print(
                 "      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)"
             )
