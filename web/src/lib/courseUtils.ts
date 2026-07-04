@@ -411,6 +411,16 @@ export function isCourseEnrollmentComplete(
 }
 
 /**
+ * Build the updated enrollment when a user re-adds an already-enrolled course from search.
+ */
+export function updateExistingEnrollment(
+  existing: CourseEnrollment,
+  selectedSections: InternalSection[]
+): CourseEnrollment {
+  return { ...existing, selectedSections }
+}
+
+/**
  * Get selected sections for a course enrollment
  */
 export function getSelectedSectionsForCourse(

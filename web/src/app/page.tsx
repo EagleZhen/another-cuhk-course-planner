@@ -16,6 +16,7 @@ import {
   autoCompleteEnrollmentSections,
   getUnscheduledSections,
   parseSectionTypes,
+  updateExistingEnrollment,
 } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
@@ -404,7 +405,7 @@ export default function Home() {
       setCourseEnrollments((prev) =>
         prev.map((enrollment, index) =>
           index === existingEnrollmentIndex
-            ? { ...enrollment, selectedSections: selectedSectionsForCourse }
+            ? updateExistingEnrollment(enrollment, selectedSectionsForCourse)
             : enrollment
         )
       )
