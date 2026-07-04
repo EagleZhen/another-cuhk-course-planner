@@ -34,7 +34,7 @@ For normal UI development, you usually only need existing published data and `np
 ## Prerequisites
 
 - Python 3.12.2 is the currently tested version. `pyproject.toml` allows Python 3.10 to 3.12, but not every allowed version is actively tested.
-- [Poetry](https://python-poetry.org/docs/#installation)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - Node.js matching `web/package.json`'s `engines.node` range, and npm
 
 ## Install Dependencies
@@ -42,7 +42,7 @@ For normal UI development, you usually only need existing published data and `np
 Install Python dependencies from the repository root:
 
 ```bash
-poetry install --no-root
+uv sync
 ```
 
 Install repository-level tooling such as Prettier:
@@ -54,10 +54,10 @@ npm install
 Install Git hooks for automatic formatting, Python linting, and basic source-file hygiene:
 
 ```bash
-poetry run pre-commit install
+uv run pre-commit install
 ```
 
-`poetry install --no-root` installs the `pre-commit` command, but `poetry run pre-commit install` is what connects it to `git commit`. If the hook is not installed, manual commands such as `poetry run pre-commit run --all-files` still work, but `git commit` will not run the hooks automatically.
+`uv sync` installs the `pre-commit` command, but `uv run pre-commit install` is what connects it to `git commit`. If the hook is not installed, manual commands such as `uv run pre-commit run --all-files` still work, but `git commit` will not run the hooks automatically.
 
 Install web dependencies:
 
@@ -70,7 +70,7 @@ npm install
 
 Use the configured tools instead of formatting files by hand.
 
-Pre-commit is the normal formatting entry point. After installing hooks with `poetry run pre-commit install`, each commit follows this flow:
+Pre-commit is the normal formatting entry point. After installing hooks with `uv run pre-commit install`, each commit follows this flow:
 
 ```text
 git commit
@@ -86,7 +86,7 @@ Prettier rules live in `.prettierrc.json`; ignored generated/vendor paths live i
 To run hooks manually on staged files:
 
 ```bash
-poetry run pre-commit run
+uv run pre-commit run
 ```
 
 ### Format The Whole Repository
@@ -94,7 +94,7 @@ poetry run pre-commit run
 To run the full configured formatting and hygiene system across all tracked files:
 
 ```bash
-poetry run pre-commit run --all-files
+uv run pre-commit run --all-files
 ```
 
 If hooks modify files, stage the changes and run the command again.
