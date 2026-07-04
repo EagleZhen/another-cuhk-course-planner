@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { updateExistingEnrollment } from './courseUtils'
-import type { CourseEnrollment, InternalSection } from './types'
+import type { CourseEnrollment, InternalCourse, InternalSection } from './types'
 
 describe('updateExistingEnrollment', () => {
   it('clears invalid state when a course is re-added from search', () => {
@@ -48,10 +48,17 @@ describe('updateExistingEnrollment', () => {
       },
     }
 
-    const result = updateExistingEnrollment(existing, [freshSection])
+    const freshCourse: InternalCourse = {
+      ...existing.course,
+      title: 'Software Engineering (Updated)',
+    }
+
+    const result = updateExistingEnrollment(existing, freshCourse, [freshSection])
 
     expect(result.isInvalid).toBeFalsy()
     expect(result.invalidReason).toBeUndefined()
+    expect(result.lastSynced).toBeUndefined()
+    expect(result.course).toEqual(freshCourse)
     expect(result.selectedSections).toEqual([freshSection])
   })
 })
