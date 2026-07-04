@@ -411,6 +411,26 @@ export function isCourseEnrollmentComplete(
 }
 
 /**
+ * Build the updated enrollment when a user re-adds an already-enrolled course from search.
+ * Refreshes the course data and clears any invalid state, since the user just confirmed
+ * the course is available by re-adding it.
+ */
+export function updateExistingEnrollment(
+  existing: CourseEnrollment,
+  freshCourse: InternalCourse,
+  selectedSections: InternalSection[]
+): CourseEnrollment {
+  return {
+    ...existing,
+    course: freshCourse,
+    selectedSections,
+    isInvalid: false,
+    invalidReason: undefined,
+    lastSynced: new Date(),
+  }
+}
+
+/**
  * Get selected sections for a course enrollment
  */
 export function getSelectedSectionsForCourse(
