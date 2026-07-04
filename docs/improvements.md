@@ -14,6 +14,10 @@ Main upcoming data-model change. Touches scraper output, publish validation, dat
 
 `web/src` still has frequent `console.log`/emoji debug output left over from earlier development. The Python publish script already shows the target style: emoji reserved for genuinely attention-worthy points, not every log line. Web logging should be reduced to match.
 
+## Prop Ordering Convention
+
+Component prop interfaces should order data props first, handlers second, callbacks last — it reads as inputs-then-outputs and gives new props a slot to land in instead of just appending wherever's convenient. `WeeklyCalendarProps` and `ShoppingCartProps` follow this; `CourseSearchProps` doesn't (`onAddCourse`/`onRemoveCourse` precede the data props). Worth reordering `CourseSearchProps` opportunistically, not as its own change.
+
 ## Architecture Debt
 
 - [page.tsx](../web/src/app/page.tsx) (~850 lines): single state hub, keeps growing. Fine while the state surface is stable.
