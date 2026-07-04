@@ -1,6 +1,6 @@
 # Development
 
-This guide covers the local workflow for the scraper and the web app.
+This guide covers local setup, common commands, and day-to-day checks.
 
 ## Project Workflow
 
@@ -29,7 +29,7 @@ web/ Next.js app
 - Publishing validates scraped data and copies it into `web/public/data/`.
 - Web app work changes how the published data is loaded, transformed, and displayed.
 
-For normal UI development, you usually only need existing published data and `npm run dev`. For scraper or data updates, run the scrape/publish workflow before verifying the web app.
+For normal UI development, you usually only need existing published data and `npm run dev`. For scraper behavior, publish validation, file counts, and edge cases, see [data-pipeline.md](data-pipeline.md).
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ npm run dev
 
 Open <http://localhost:3000>.
 
-The web app reads published course data from `web/public/data/`. If that directory is missing or stale, run the scraper/publish workflow below.
+The web app reads published course data from `web/public/data/`. If that directory is missing or stale, run the data pipeline commands below.
 
 ## Test On Another Device
 
@@ -142,74 +142,36 @@ NEXT_PUBLIC_POSTHOG_HOST=
 - `NEXT_PUBLIC_POSTHOG_KEY`: optional PostHog project key. Local development works without it.
 - `NEXT_PUBLIC_POSTHOG_HOST`: optional PostHog ingest host; defaults to `https://us.i.posthog.com`.
 
-## Scrape Course Data
+## Data Pipeline
 
-Run the production scraper from the repository root:
+For scraper behavior, publish validation, file counts, edge cases, and debugging notes, see [data-pipeline.md](data-pipeline.md).
+
+Scrape all subjects:
 
 ```bash
 poetry run python scripts/scrape_all_subjects.py
 ```
 
-Scrape specific subjects while debugging:
+Scrape selected subjects while debugging:
 
 ```bash
-poetry run python scripts/scrape_all_subjects.py PHED
-poetry run python scripts/scrape_all_subjects.py PHED,CSCI
+poetry run python scripts/scrape_all_subjects.py CSCI
+poetry run python scripts/scrape_all_subjects.py CSCI,UGFN
 ```
 
-Scraped JSON files are written to `data/`.
-
-The scraper is stable in normal use, but it is fragile by nature because it depends on CUHK website structure, response behavior, and captcha handling. After a scrape, review:
-
-```bash
-logs/scrape/scrape_<timestamp>.log
-logs/scraping_progress.json
-logs/failed_course_outcomes.txt
-```
-
-The `scrape_<timestamp>.log` timestamp uses the local machine timezone, which is normally HKT/UTC+8 for this project environment.
-
-Look for failed subjects, unusual course counts, repeated validation failures, or unexpectedly missing courses.
-
-## Publish Course Data
-
-After scraping, validate and publish the data for the web app:
+Validate and copy publishable data into the web app:
 
 ```bash
 poetry run python scripts/publish_course_data.py
 ```
 
-The publish script validates JSON structure, subject-list consistency, course counts, and scraping progress metadata before copying files. It blocks publishing when the subject list no longer matches `web/src/lib/subjects.ts` or when real validation issues are found. Empty subject files are reported but still published so refreshed scrape metadata is preserved.
-
-To inspect validation output without copying files, use:
+Inspect publish validation without copying files:
 
 ```bash
 poetry run python scripts/publish_course_data.py --dry-run
 ```
 
-Published files are written to `web/public/data/`.
-
-Review the latest publish log after publishing:
-
-```bash
-logs/latest_publish.log
-```
-
-Pay attention to:
-
-- failed subjects in the scraping summary
-- subject-list mismatch errors
-- files with structural issues
-- subjects with unexpectedly zero courses
-- a published file count that differs from the expected course JSON count
-
-If scraped subjects are added or removed, regenerate the `SUBJECT_TITLES` mapping used by `web/src/lib/subjects.ts`:
-
-```bash
-poetry run python scripts/generate_subjects.py
-```
-
-The script prints a replacement `SUBJECT_TITLES` constant generated from `data/*.json`, excluding administrative placeholder subjects. Copy the output into `web/src/lib/subjects.ts`.
+If CUHK adds or removes subjects, regenerate the subject list with `poetry run python scripts/generate_subjects.py`; see [data-pipeline.md](data-pipeline.md#subject-list-changes).
 
 ## Common Checks
 
@@ -220,3 +182,5 @@ Run these from `web/`:
 | `npm run typecheck` | Verify TypeScript types without emitting build output. |
 | `npm run lint`      | Run ESLint on the web app source.                      |
 | `npm run build`     | Verify the production build.                           |
+
+For routine web changes, `npm run typecheck` and `npm run lint` are usually the lightweight checks. Run `npm run build` before deployment or when changing Next.js config, routing, static generation, metadata, or other build-sensitive behavior.
