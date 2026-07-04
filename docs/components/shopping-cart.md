@@ -19,6 +19,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 ## Invalid Enrollments
 
 - Invalid courses (marked by background sync) are rendered in orange with the reason and last-synced time, not deleted — the user decides whether to remove them. See [architecture.md](../architecture.md#browser-state).
+- Re-adding an invalid course from search clears `isInvalid`/`invalidReason`/`lastSynced` and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Summary Semantics
 
@@ -28,4 +29,3 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 ## Known Limitations
 
 - Section rows appear in the order the user clicked them, then jump to priority order after a cycling cascade rebuilds the array (`handleAddCourse` keeps click order; `autoCompleteEnrollmentSections` appends re-added sections). Tracked in [issue #58](https://github.com/EagleZhen/another-cuhk-course-planner/issues/58).
-- Re-adding a course from search does not clear its invalid state — the update path replaces `selectedSections` but spreads the old enrollment, keeping `isInvalid` and the stale `course` object. Tracked in [issue #51](https://github.com/EagleZhen/another-cuhk-course-planner/issues/51).
