@@ -426,7 +426,7 @@ export function updateExistingEnrollment(
     selectedSections,
     isInvalid: false,
     invalidReason: undefined,
-    lastSynced: undefined,
+    lastSynced: new Date(),
   }
 }
 
