@@ -3,9 +3,9 @@
 Simple script to scrape all subjects from CUHK course catalog
 
 Usage:
-    poetry run python scripts/scrape_all_subjects.py              # All subjects
-    poetry run python scripts/scrape_all_subjects.py PHED         # Single subject
-    poetry run python scripts/scrape_all_subjects.py PHED,CSCI    # Multiple subjects
+    uv run python scripts/scrape_all_subjects.py              # All subjects
+    uv run python scripts/scrape_all_subjects.py PHED         # Single subject
+    uv run python scripts/scrape_all_subjects.py PHED,CSCI    # Multiple subjects
 """
 
 import logging

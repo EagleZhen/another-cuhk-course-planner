@@ -6,7 +6,7 @@ This script creates the SUBJECT_TITLES constant for web/src/lib/subjects.ts,
 which serves as the single source of truth for all subject-related data.
 
 Usage:
-    poetry run python scripts/generate_subjects.py
+    uv run python scripts/generate_subjects.py
 
 After running, copy the output to web/src/lib/subjects.ts (replace the SUBJECT_TITLES constant)
 """
