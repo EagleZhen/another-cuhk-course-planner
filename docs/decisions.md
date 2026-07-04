@@ -48,3 +48,21 @@ Where:
 
 - analytics initializes in [web/src/instrumentation-client.ts](../web/src/instrumentation-client.ts)
 - event helpers live in [web/src/lib/analytics.ts](../web/src/lib/analytics.ts)
+
+## Regression-First Testing With Vitest
+
+No tests existed before; features shipped on manual testing alone. Writing a full test suite retroactively is a large, low-motivation task that tends to stall before it starts.
+
+Decision: adopt regression-first testing — write a test alongside each bug fix (reproduce, then fix), rather than attempting upfront full coverage. Use [Vitest](https://vitest.dev/) for unit tests of pure logic in [courseUtils.ts](../web/src/lib/courseUtils.ts) and extracted `page.tsx` handlers, matching [Next.js's own Vitest guide](../web/node_modules/next/dist/docs/01-app/02-guides/testing/vitest.md) (Vitest + React Testing Library, `jsdom` environment, `vite-tsconfig-paths` for `@/` import aliases).
+
+Why it fits:
+
+- a test written for a bug you just fixed requires no new "what should this do" design work — the correct and incorrect behavior are both already known
+- most of the planner's interesting logic (section compatibility, auto-completion, conflict detection) is pure functions, so unit tests don't require rendering components
+- protects the [architecture debt](improvements.md#architecture-debt) refactors already planned for `courseUtils.ts`/`page.tsx` from silently reintroducing fixed bugs
+
+Deferred, not rejected:
+
+- component-level interaction tests (Vitest + React Testing Library with `userEvent`) once UI logic complexity, not pure logic, is what's breaking
+- full end-to-end tests (Playwright, already available via this environment's `webapp-testing` skill) reserved for the highest-value multi-step journeys (ICS export/import roundtrip, calendar screenshot), since E2E tests are the most expensive to write and maintain
+- Vitest does not support async Server Components (only sync Server/Client Components); this app is client-heavy by the [Frontend-Only Static App](#frontend-only-static-app) decision, so this gap likely doesn't bite yet, but matters if server components are introduced later
