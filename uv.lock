@@ -5,7 +5,7 @@ requires-python = ">=3.10, <3.13"
 [[package]]
 name = "another-cuhk-course-planner"
 version = "0.1.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "ddddocr" },
