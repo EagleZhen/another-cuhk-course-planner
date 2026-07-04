@@ -48,3 +48,14 @@ Where:
 
 - analytics initializes in [web/src/instrumentation-client.ts](../web/src/instrumentation-client.ts)
 - event helpers live in [web/src/lib/analytics.ts](../web/src/lib/analytics.ts)
+
+## Regression-First Testing
+
+No tests exist yet; shipping has relied on manual testing. Retroactive full coverage is a stalling task; a test per bug fix is not.
+
+Decision: write a test alongside each bug fix (reproduce, then fix) instead of attempting upfront coverage. Start with [Vitest](https://vitest.dev/) unit tests on pure logic in [courseUtils.ts](../web/src/lib/courseUtils.ts) — a bug's correct and incorrect behavior are already known, so there's no test-design work, and this also guards the planned [courseUtils.ts split](improvements.md#architecture-debt) against reintroducing fixed bugs.
+
+Deferred:
+
+- component interaction tests (Vitest + React Testing Library) once UI logic, not pure logic, is what breaks
+- full end-to-end tests (Playwright) for only the highest-value flows (ICS roundtrip, screenshot export) — most expensive to maintain
