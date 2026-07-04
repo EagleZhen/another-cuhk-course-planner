@@ -57,7 +57,8 @@ describe('updateExistingEnrollment', () => {
 
     expect(result.isInvalid).toBeFalsy()
     expect(result.invalidReason).toBeUndefined()
-    expect(result.lastSynced).toBeUndefined()
+    expect(result.lastSynced).toBeInstanceOf(Date)
+    expect(result.lastSynced).not.toEqual(existing.lastSynced)
     expect(result.course).toEqual(freshCourse)
     expect(result.selectedSections).toEqual([freshSection])
   })
