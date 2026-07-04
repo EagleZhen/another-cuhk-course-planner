@@ -41,6 +41,8 @@ Production scraping uses `ScrapingConfig.for_production()`:
 
 The scrape log timestamp uses the local machine timezone, normally HKT/UTC+8 for this project environment.
 
+Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs.
+
 ## Publish
 
 Publishing validates scraped data and copies publishable files to [web/public/data/](../web/public/data/).
@@ -164,4 +166,4 @@ Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/
 - [scripts/cuhk_scraper.py](../scripts/cuhk_scraper.py) - core scraper implementation
 - [scripts/publish_course_data.py](../scripts/publish_course_data.py) - validation and publishing
 - [scripts/generate_subjects.py](../scripts/generate_subjects.py) - subject list generation
-- [scripts/data_utils.py](../scripts/data_utils.py) - HTML utilities
+- [scripts/data_utils.py](../scripts/data_utils.py) - HTML utilities and JSON output helpers

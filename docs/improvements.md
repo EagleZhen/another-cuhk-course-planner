@@ -4,11 +4,22 @@ Cross-cutting known issues, upcoming needs, and architecture debt. Component-loc
 
 Working list, not a commitment. Describe the problem and why it matters; solutions belong in the change that fixes them.
 
+A discrete, closeable fix belongs in the issue tracker, not here. Keep this doc for durable properties of the system that don't close via a single fix: standing constraints, recurring debt, and deliberate non-goals.
+
 ## Year-Scoped Course Data
 
 The pipeline and app assume a single academic year: data files carry only the 2025-26 terms, and nothing in scraping, publish validation, or loading distinguishes years. When next year's catalog arrives, old terms become useless payload with no way to drop or partition them.
 
 Main upcoming data-model change. Touches scraper output, publish validation, data loading, term selection, and `schedule_${term}` localStorage keys.
+
+## Terminology Consistency
+
+Core domain types (`InternalCourse`, `InternalSection`, `InternalMeeting`, `CourseEnrollment`, `InternalTerm`) are used consistently across code and docs. Two things worth a closer look before writing anything permanent:
+
+- `WeeklyCalendar`/"timetable" and `ShoppingCart`/"cart" are code-name vs. prose-shorthand pairs, applied consistently so far, but nothing states they're intentional synonyms.
+- "Catalog" already has an established meaning (CUHK's external system, e.g. "CUHK catalog"). It's easy to accidentally reuse it for the CourseSearch component instead (caught this happening in a PR description during this refactor) — a real conflation risk, not just a naming preference.
+
+Worth a proper investigation pass (how consistently the code itself uses these terms, not just the docs) before deciding whether a small glossary is warranted. Not attempting in this PR.
 
 ## Architecture Debt
 

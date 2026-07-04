@@ -144,34 +144,7 @@ NEXT_PUBLIC_POSTHOG_HOST=
 
 ## Data Pipeline
 
-For scraper behavior, publish validation, file counts, edge cases, and debugging notes, see [data-pipeline.md](data-pipeline.md).
-
-Scrape all subjects:
-
-```bash
-poetry run python scripts/scrape_all_subjects.py
-```
-
-Scrape selected subjects while debugging:
-
-```bash
-poetry run python scripts/scrape_all_subjects.py CSCI
-poetry run python scripts/scrape_all_subjects.py CSCI,UGFN
-```
-
-Validate and copy publishable data into the web app:
-
-```bash
-poetry run python scripts/publish_course_data.py
-```
-
-Inspect publish validation without copying files:
-
-```bash
-poetry run python scripts/publish_course_data.py --dry-run
-```
-
-If CUHK adds or removes subjects, regenerate the subject list with `poetry run python scripts/generate_subjects.py`; see [data-pipeline.md](data-pipeline.md#subject-list-changes).
+For scraping, publishing, validation, file counts, edge cases, and debugging notes, see [data-pipeline.md](data-pipeline.md).
 
 ## Common Checks
 
