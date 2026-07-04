@@ -10,6 +10,8 @@ The app is mostly static after build, so Cloudflare Pages fits the workload well
 
 The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
+Cloudflare Pages builds with the Node.js version pinned in [web/.nvmrc](../web/.nvmrc) — it does not read `package.json`'s `engines` field. See [decisions.md](decisions.md#pin-the-node-version-via-nvmrc) for why this is pinned explicitly.
+
 ## Analytics
 
 Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.

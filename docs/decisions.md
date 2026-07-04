@@ -59,3 +59,14 @@ Deferred:
 
 - component interaction tests (Vitest + React Testing Library) once UI logic, not pure logic, is what breaks
 - full end-to-end tests (Playwright) for only the highest-value flows (ICS roundtrip, screenshot export) — most expensive to maintain
+
+## Pin The Node Version Via .nvmrc
+
+A lockfile that satisfied one local npm install still failed on Cloudflare's — nothing pinned which Node/npm version is authoritative, so installing cleanly locally wasn't proof the lockfile was actually complete. Cloudflare's build system also ignores `engines`/`packageManager` entirely; it only reads `NODE_VERSION` (env var, or `.nvmrc`), with npm bundled to whichever Node version is chosen.
+
+Decision: pin Node exactly via [web/.nvmrc](../web/.nvmrc), rather than relying on Cloudflare's current default or a contributor's local version.
+
+Why it fits:
+
+- the only lever Cloudflare's build system respects for this
+- pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
