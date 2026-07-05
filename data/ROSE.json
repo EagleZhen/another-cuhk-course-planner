@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T14:16:33.736161+00:00",
+    "scraped_at": "2026-07-04T19:15:07.181322+00:00",
     "subject": "ROSE",
     "subject_title": "Robotics",
     "total_courses": 12,
@@ -53,7 +53,7 @@
         }
       ],
       "description": "\"Fundamental Robotics and Systems\" is a foundational course in our Master's program, designed to provide students with an in-depth understanding of essential robotics principles and systems. This course is indispensable for students keen on advanced studies or careers in robotics.\n\nThe course will concentrate on fundamental technical concepts of robotics, including robotic kinematics, dynamics, sensors, actuators, robotic programming, and basic applications of AI and machine learning in robotics.",
-      "enrollment_requirement": "For students in MSc Robotics",
+      "enrollment_requirement": "For students in MSc Robotics\nNot for students who have taken MAEG5755 or ENGG5402",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -117,12 +117,12 @@
           ]
         }
       ],
-      "description": "The primary objective of this course is to equip students with the foundational and practical knowledge necessary for executing real-world robotic systems. It aims to help students understand the needs and requirements of robotic experiments and applications, teaching them about various hardware components, software architectures, and development tools.\n\nThe course covers the following main topics: foundations of robotic systems, robot electronics, sensors and actuators in robotics, robot networking and data communication, introduction to robot operating system (ROS), advanced ROS programming, interfacing with sensors and actuators, robot sensing and control, measurement devices for robot performance, robot experiment setup, operations in robot experiments.",
+      "description": "The primary objective of this course is to equip students with the foundational and practical knowledge necessary for executing real-world robotic systems. It aims to help students understand the needs and requirements of robotic experiments and applications, teaching them about various hardware components, software architectures, and development tools.\n\nStudents will design and build a small-scale robot prototype in a laboratory setting, gaining hands-on experience with the essential components and principles that underpin robotic systems. The course covers the following main topics: foundations of robotic systems, robot electronics, sensors and actuators in robotics, robot networking and data communication, introduction to robot operating system (ROS), advanced ROS programming, interfacing with sensors and actuators, robot sensing and control, measurement devices for robot performance, robot experiment setup, operations in robot experiments.",
       "enrollment_requirement": "For students in MSc Robotics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Lecture",
+      "component": "Workshop",
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
@@ -298,7 +298,7 @@
           ]
         }
       ],
-      "description": "This course aims to systematically introduce the fundamental knowledge of emerging and interdisciplinary research fields—micro-/nanorobotics and soft robotics. Through a combination of theoretical learning and practical operations, students will gain a comprehensive understanding of the historical development and state-of-the-art of this field, as well as acquire skills related to designing and manufacturing micro-nano and soft robots. The main topics covered in this course are as follows: historical development and basic principles of micro-nano and soft robots; structural design, material selection, actuation methods, and motion control of micro-nano and soft robots; applications of micro-nano and soft robots in fields such as biomedicine and engineering. Throughout the course, students will not only grasp the fundamental concepts of small-scale robotics and soft robotics, but also learn how to design and construct these robots firsthand. The comprehensive learning experience provided by this course can foster students’ scientific and technological innovation thinking, as well as enhance their practical skills, providing a solid foundation for their future research and/or work in related fields.",
+      "description": "This course aims to systematically introduce the fundamental knowledge of emerging and interdisciplinary research fields—micro-/nanorobotics and soft robotics. Through a combination of theoretical learning and practical operations, students will gain a comprehensive understanding of the historical development and state-of-the-art of this field, as well as acquire skills related to designing and manufacturing micro-nano and soft robots. The main topics covered in this course are as follows: historical development and basic principles of micro-nano and soft robots; structural design, material selection and manufacturing, actuation methods, and motion control of micro-nano and soft robots; applications of micro-nano and soft robots in fields such as biomedicine and engineering. Throughout the course, students will not only grasp the fundamental concepts of small-scale robotics and soft robotics, but also learn how to design and construct these robots with physical/mechanical/embodied intelligence. The comprehensive learning experience provided by this course can foster students' scientific and technological innovation thinking, as well as enhance their practical skills, providing a solid foundation for their future research and/or work in related fields.",
       "enrollment_requirement": "For students in MSc Robotics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -308,15 +308,15 @@
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
       "learning_outcomes": "By successfully completing this course, students will achieve the following learning outcomes:1. Gain a comprehensive and thorough understanding of micro-nano and soft robots, including their historical development, basic definitions, working mechanisms, and design principles.2. Learn the characteristics of different types of micro-nano and soft robots, including aspects like fabrication methods, substrate materials, structural design, and actuation strategies3. Understand the applications of micro-nano and soft robots in biomedicine and engineering, as well as the opportunities and challenges that the field faces in the future.4. Acquire key technologies in the design and fabrication of micro-nano and soft robots, such as modeling and simulation, 3D printing, material synthesis, and microelectronic techniques, and gain relevant experience through practical operation.5. Develop the ability to engage in scientific research, technological development, and product design related to the field of small-scale robotics.",
-      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| **Weeks** | **Course Topics** |\n| --- | --- |\n| 1 | Introduction to micro-nanorobotics: brief history and definition. |\n| 2 | Fundamentals of micro-nanorobotics: scaling law, force analysis, design, and fabrication. |\n| 3 | Actuation of micro-nanorobotic: wireless control, self-propulsion, and field-driven. |\n| 4 | Micro-nanorobotic swarms: generation, locomotion, and pattern transformation. |\n| 5 | Biomedical applications of micro-nanorobotics: targeted delivery, medical imaging, accelerated thrombolysis, biofilm removal, assisted embolization. |\n| 6 | Introduction to soft robotics: history, definition, characteristics, and working principle. |\n| 7 | Design and fabrication of soft robotics: molding, 3D printing techniques, Semiconductor and microelectronic techniques, modular assembly. |\n| 8 | Actuation of soft robotics: magnetic, acoustic, light, thermal, chemical, and biohybrid. |\n| 9 | Various types of soft robotics: silicone elastomers-based, carbon-based, hydrogels-based, liquid crystal network and elastomer-based, and flexible ferrofluid-based. |\n| 10 | Applications of soft robotics: biomedical applications, intelligent electronics, micromanipulation, and sensing. |\n| 11 | Selected topics discussion |\n| 12 | Project presentation and summary |",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Week | Course Topic |\n| --- | --- |\n| 1 | Introduction on small-scale robotics and scaling law |\n| 2 | Introduction on soft robotics (i.e., smart materials and structures) |\n| 3 | Manufacturing at small-scales 2D, 3D, and assembly |\n| 4 | Fluid-Driven Soft Robotics and Applications |\n| 5 | Materials selection, actuation methods and sensing principles |\n| 6 | Mechanical Metamaterials and Mechanical Computing |\n| 7 | Bio-inspired locomotion: swimming, crawling, and jumping |\n| 8 | Stretchable Electronics for Sensing |\n| 9 | Robot swarm and collectives at small-scales |\n| 10 | Navigation of micro-/nano and soft robots, and applications |\n| 11 | Selected topics discussion |\n| 12 | Project presentation and summary |",
       "assessment_types": {
         "Examination": "60",
-        "Homework or assignment": "20",
-        "Presentation": "20"
+        "Homework or assignment": "25",
+        "Presentation": "15"
       },
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
-      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
-      "recommended_readings": "1. Li Zhang, Shihao Yang, Qianqian Wang, Dongdong Jin. Magnetic Micro and Nanorobot Swarms: From Fundamentals to Applications, Singapore, Springer Singapore, ISBN: 978-981-99-3035-7, 2023.2. Li Zhang, Jiachen Zhang, Neng Xia, Yue Dong. Untethered Miniature Soft Robots: Materials, Fabrications, and Applications, John Wiley & Sons, ISBN: 978-352-73-5177-0, 2023.3. Sitti Metin. Mobile microrobotics. MIT Press, ISBN:978-026-20-3643-6, 2017."
+      "required_readings": "Relevant reading lists will be provided by course teachers.",
+      "recommended_readings": "1. 1. Li Zhang, Shihao Yang, Qianqian Wang, Dongdong Jin. Magnetic Micro and Nanorobot Swarms: From Fundamentals to Applications, Singapore, Springer Singapore, ISBN: 978-981-99-3035-7, 2023.\n2. Li Zhang, Jiachen Zhang, Neng Xia, Yue Dong. Untethered Miniature Soft Robots: Materials, Fabrications, and Applications, John Wiley & Sons, ISBN: 978-352-73-5177-0, 2023.\n3. Sitti Metin. Mobile microrobotics. MIT Press, ISBN:978-026-20-3643-6, 2017.\n4. Fundamental of Microfabrication and Nanotechnology, 3rd edition, MJ Madou, CRC PRESS\n5. Rus, Daniela, and Michael T. Tolley. \"Design, fabrication and control of soft robots.\" *Nature* 521.7553 (2015): 467-475.\n6. Yasuda, H., Buskohl, P. R., Gillman, A., Murphey, T. D., Stepney, S., Vaia, R. A., & Raney, J. R. (2021). Mechanical computing. *Nature*, *598*(7879), 39-48.\n7. Zheng, X., Jiang, Y., Mete, M., Li, J., Watanabe, I., Yamada, T., & Paik, J. (2025). Metamaterial robotics. *Science Robotics*, *10*(108), eadx1519.\n8. Rogers, J. A., Someya, T., & Huang, Y. (2010). Materials and mechanics for stretchable electronics. *science*, *327*(5973), 1603-1607."
     },
     {
       "subject": "ROSE",
@@ -543,9 +543,8 @@
       "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the fundamentals of entrepreneurship specifically tailored to a specific sector, including identifying market opportunities, and commercializing a product.2. Acquire knowledge on the legal and regulatory landscape impacting robotics, including patents and intellectual property.3. Gain practical skills related to starting and running a start-up, such as team building, fundraising, and pitching to investors.4. Master techniques for developing business and financial plans, marketing and sales strategies, and customer relations and support for a robotics start-up.5. Develop insights on scaling a robotics start-up and understanding emerging trends and future opportunities in robotics and entrepreneurship.",
       "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Weeks | Course Topics |\n| --- | --- |\n| 1 | Introduction to advanced technologies: Definition, Scope, Trends, Entrepreneurship |\n| 2 | Identifying Market Opportunities: Robotics Market, Needs, Applications, Case Studies |\n| 3 | Commercializing a Product: Prototype, Challenges, Guest Speaker |\n| 4 | Company Setup: Startup Formation, Legal Aspects, Regulations |\n| 5 | Team Formation: Team Importance, Balanced Team, Conflict Management |\n| 6 | Product Identification: Viable Product, Development Lifecycle, MVP Concept |\n| 7 | Project Management: Basics, Agile Methodologies, Risk Management |\n| 8 | Business Model: Understanding, Monetization, Case Studies |\n| 9 | Sales and Marketing: Sales Strategies, Marketing Channels, B2B, B2C |\n| 10 | Accounting and Finance: Basics, Financial Management, Cash Flow |\n| 11 | Budgeting and Funding: Budgeting, Funding Sources, Investment Rounds |\n| 12 | Business Plan and Investment Deck: Business Plan, Investment Deck, Pitching |",
       "assessment_types": {
-        "Discussion": "20",
-        "Project": "70",
-        "Participation": "10"
+        "Presentation": "40",
+        "Project": "60"
       },
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
@@ -566,12 +565,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies / Upon successful completion of this course, students should be able to:\n\n1. Understand and implement state-of-the-art robotics and embodied-AI methodologies within advanced robotic systems such as humanoids;\n\n2. Deploy sophisticated robotic platforms to tackle complex, practical problems including competitive robotics events and real-world application scenarios;\n\n3. Demonstrate competencies in system integration, advanced programming, problem-solving under constraints, and collaborative teamwork;\n\n4. Apply practical knowledge drawn from research papers and industrial best practices to real-world robotic challenges;\n\n5. Execute rapid prototyping, performance optimization, and strategic planning in robotics projects; and\n\n6. Deliver robust solutions in time-critical environments through competition-based projects and practical applications.",
+      "course_syllabus": "The details will be provided by the course instructor.\n\n| Week | Course Topic |\n| --- | --- |\n| 1 | Course introduction, competition overview, and advanced robotic system architecture fundamentals |\n| 2 | Hardware-software integration, sensor-actuator interfacing, and system architecture design |\n| 3 | Advanced ROS programming techniques and multi-robot coordination strategies |\n| 4 | Embodied AI methodologies from research papers and their implementation in legged robotic (such as humanoid) systems |\n| 5 | Rapid prototyping workflows, agile development methods, and competition project initiation |\n| 6 | Real-time system optimization and problem-solving under resource constraints |\n| 7 | Industrial best practices, deployment case studies, and robustness design principles |\n| 8 | Competition task analysis, strategic planning, and decision-making in time-critical environments |\n| 9 | Cross-disciplinary team collaboration, project management, and progress tracking |\n| 10 | Academic paper structure, experimental design, and data analysis for robotics research |\n| 11 | System testing, debugging procedures, and contingency planning for competition deployment |\n| 12 | Real-world competition participation, on-site system deployment, and live troubleshooting |",
+      "assessment_types": {
+        "Presentation": "40",
+        "Report": "60"
+      },
+      "feedback_evaluation": "1. Email feedback\n2. Review meeting",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "## Readings will be recommended by the Professor-in-charge."
     },
     {
       "subject": "ROSE",
@@ -873,7 +875,7 @@
         }
       ],
       "description": "In this course, each student will conduct research project on a topic within the robotics areas of study. Faculty members from the department will supervise the project. Upon completion, students must submit a written report and deliver an oral presentation for performance evaluation.",
-      "enrollment_requirement": "For students in MSc Robotics",
+      "enrollment_requirement": "For students in MSc Robotics\nNot for students who have taken ROSE5810",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -887,7 +889,7 @@
         "Essays": "70",
         "Presentation": "30"
       },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "feedback_evaluation": "* 1. Email feedback\n2. Review meeting*",
       "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
       "recommended_readings": "Reading materials will be provided by each supervisor according to research topics."
     },
@@ -906,12 +908,12 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "At the end of the course of studies, a student should be able to\n\n1. Have a good understanding and appreciate the characteristics of a robotics work environment, including employer expectation, management structure of a team, industrial standards and practices, trends and common issues in robotics, etc.;\n2. Carry out basic duties in a robotics work environment;\n3. Exhibit good etiquette in the workplace;\n4. Work independently as well as in a team environment; and\n5. Communicate effectively and efficiently with peers, supervisors and possibly also clients.",
+      "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "1. Email feedback\n2. Review meeting",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "Readings will be recommended by the Professor-in-charge."
     }
   ]
 }

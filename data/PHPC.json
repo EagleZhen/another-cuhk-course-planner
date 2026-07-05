@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T13:58:38.925965+00:00",
+    "scraped_at": "2026-07-04T18:56:57.048900+00:00",
     "subject": "PHPC",
     "subject_title": "Public Health",
     "total_courses": 50,
@@ -382,7 +382,7 @@
     {
       "subject": "PHPC",
       "course_code": "1022",
-      "title": "Lifestyle and Health",
+      "title": "Lifestyle, Behaviours and Health",
       "credits": "2.00",
       "terms": [
         {
@@ -524,7 +524,7 @@
         }
       ],
       "description": "This course provides the foundation background of nutritional science and its application to the primary prevention of diet-related illness and to maximize physical exercise outcome. It will look into the importance of nutrition throughout the lifespan and in different population sub-groups. The wide variety of nutritional issues in both developed and developing countries will be discussed. It explores the relationship of diet to athletic performance. Nutrition support for exercise and the appropriate use of sports supplementation will also be covered.",
-      "enrollment_requirement": "Pre-requisites: MEDF1021or MEDF1120 or PHPC1001 or PHPC1012 or UGEC1920 or UGEC2930.",
+      "enrollment_requirement": "Pre-requisites: MEDF1021or MEDF1120 or (MEDF1041 and MEDF1042) PHPC1001 or PHPC1012 or UGEC1920 or UGEC2930.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -705,7 +705,7 @@
         }
       ],
       "description": "This course will introduce how public health principles may be applied to understand and examine health issues and initiatives in global settings.\n\nStudents will build up a knowledge base in global public health issues and will identify global health problems and devise possible solutions to these problems. Public health issues in specific countries will be identified and students will work in teams, develop critical thinking skills and expand their knowledge base in public health and provide possible solutions of global health issues. They will communicate their findings to each other and to the whole class in presentations. The contexts from which these public health issues arise in these countries would be compared\nand contrasted.\n\nThe course would provide opportunities for development of relevant attributes by the use of issue-based teaching approaches e.g. students will be engaged in learning tasks which require them to analyze in depth of a global health issue of specified countries, appreciate the complex nature of dynamics which shape global health issues and agenda, understand various perspectives of the stakeholders (nations, governments, non-government body, civil society etc.) and demonstrate the values of global citizenship, and come up with possible solutions which include\ndefining goals, formulation of strategies/action plans, gathering and identification of resources needs and the skills to communicate with stakeholders.",
-      "enrollment_requirement": "Pre-requisite:PHPC1001 or MEDF1021 or UGEC1920 or UGEC2930",
+      "enrollment_requirement": "Pre-requisite:PHPC1001 or MEDF1021 or (MEDF1041 and MEDF1042) or UGEC1920 or UGEC2930",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -769,7 +769,7 @@
         }
       ],
       "description": "This course will introduce the basic biostatistics concepts and their applications in health data analysis. Emphasis will be placed on conceptual understanding of statistical approaches to medical data rather than on theory and equations. Students will learn the importance of the correct use of statistical methods in addressing questions of public health importance. The course will enable students to develop the statistical literacy necessary to interpret the vast amounts of information they must process for decision making. The biostatistics concepts will be taught together with a user-friendly software SPSS for performing basic statistical analyses.",
-      "enrollment_requirement": "Not for students who have taken -COMM3110, DSME2010,2020,2011,2021, ECON2121, GRMD2102, PHPC1015, PSYC2010, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006.",
+      "enrollment_requirement": "Not for students who have taken -COMM3110, DSME2010,2020,DOTE 2011,2021, ECON2121, GRMD2102, PHPC1015, 2005, PSYC2010, SBMS2101, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -822,7 +822,7 @@
         }
       ],
       "description": "The course lays the foundation for socio-medical behavioural sciences in public health. Contents of the course include the definitions of health and health as a socially constructed concept, some important theories that have been widely used in health promotion, interdisciplinary health concepts, as well as key concepts about health promotion.",
-      "enrollment_requirement": "Pre-requisite: PHPC1022 or PHPC2008.\nNot for students who have taken CHPR3002, 3008, 4008 or PHPC1016",
+      "enrollment_requirement": "Pre-requisite: PHPC1001 or PHPC1022 or PHPC2008.\nNot for students who have taken CHPR3002, 3008, 4008 or PHPC1016",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -874,7 +874,7 @@
         }
       ],
       "description": "This course aims to introduce the fundamental concepts and principles of epidemiological methods and their applicability to the field of healthcare research. Students will grasp the knowledge about the rationale, advantages and shortcomings of different types of epidemiological studies and the basic skills needed to conduct and critically interpret the results of such studies.",
-      "enrollment_requirement": "Not for students who have taken PHPC1014.",
+      "enrollment_requirement": "Not for students who have taken PHPC1014 or SBMS2101",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1013,8 +1013,11 @@
       "academic_group": "JC Sch of Pub Health Prim Care",
       "academic_org": "JC Sch of Pub Health Prim Care",
       "learning_outcomes": "By the end of this course, student should be able to:\n1. Identify appropriate data source and search for trustworthy information of public health issues\n2. Form an answerable research question\n3. Understand the key elements in critically appraising epidemiological studies",
-      "course_syllabus": "1. Introduction of Literature Search and Overview of Academic Search Database / Engines\n2. Introduction of Searching Techniques & Practical Experience on Literature Search (1)\n3. Introduction of Searching Techniques & Practical Experience on Literature Search (2)\n4. Literature Review & Application of reference management software (EndNote)",
-      "assessment_types": {},
+      "course_syllabus": "1. Introduction of literature search and overview of traditional academic databases alongside AI-assisted search engines and discovery tools.\n2. Introduction of search strategies and hands-on practice, covering core techniques such as keyword development, Boolean operators and structured querying, alongside appropriate and ethical use of AI-assisted query support.\n3. Introduction of advanced search refinement and evaluation of search results, with guidance on critically assessing AI-assisted outputs and improving retrieval through iterative searching.\n4. Conducting literature reviews using structured synthesis approaches, introduction to AI-assisted research support tools, application of reference management software (EndNote), and discussion of ethical and responsible use of AI in academic research.",
+      "assessment_types": {
+        "Essays": "90",
+        "Participation": "10"
+      },
       "feedback_evaluation": "Course evaluation will be conducted at the end of the term in form of close-end and open-end questions.\nContinuous feedback will be collected via discussion forum on course websites.",
       "required_readings": "Textbook:\n\n1. Ridley, D. (2012). The literature review: A step-by-step guide for students (2nd ed.). London: Sage (UK).\n\n2. Machi, L. A., & McEvoy, B. T. (2021). The literature review: Six steps to success. Fourth Edition. Thousand Oaks: Corwin Press.\n\n3. Aveyard, H. (2023). Doing a Literature Review in Health and Social Care: A Practical Guide. 5th Edition. Open University Press.",
       "recommended_readings": "1. CUHK Libguides: https://libguides.lib.cuhk.edu.hk/?b=t\n\n2. Temple University Libraries. Evidence Synthesis & Systematic Review: https://guides.temple.edu/c.php?g=78618&p=9741148\n\n3. University of Waterloo Library. Public Health and Kinesiology Research: Systematic reviews and more: https://subjectguides.uwaterloo.ca/c.php?g=695410&p=4932740\n\n4. YouTube Channel - Welch Medical Library. By Johns Hopkins University: https://www.youtube.com/user/welchlibrary\n\n5. Higgins J, Thomas J. “Cochrane Handbook for Systematic Reviews of Interventions. (Version 6)” 2019. https://training.cochrane.org/handbook\n\n6. Equator Network. Enhancing the QUAlity and Transparency Of health Research: https://www.equator-network.org/\n\n7. Brownson, R. C., Fielding, J. E., & Maylahn, C. M. (2009). Evidence-based public health: a fundamental concept for public health practice. Annual review of public health, 30, 175-201. https://www.annualreviews.org/doi/full/10.1146/annurev.publhealth.031308.100134"
@@ -1230,7 +1233,7 @@
         }
       ],
       "description": "This course will introduce students to the basic concepts of ethics and law and explore their relevance to professional and clinical public health practices. It will introduce students to the role of ethics and law in promoting and protecting public health. Case studies will be used to highlight contemporary ethical and legal issues in public health in Hong Kong.",
-      "enrollment_requirement": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or UGEC2930.",
+      "enrollment_requirement": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or (MEDF1041 and MEDF1042) or UGEC2930.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1687,7 +1690,7 @@
         }
       ],
       "description": "Qualitative research in public health has become more important and is rapidly expanding. By adopting qualitative research approaches, in-depth social-cultural ideas in public health issues, which cannot be explained by quantitative methods alone, can be explained and explored. Obtaining the knowledge and skills of qualitative research methods enables students to better examine contemporary health problems in context.",
-      "enrollment_requirement": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021or MEDF1120 or UGEC2930",
+      "enrollment_requirement": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021or MEDF1120 or (MEDF1041 and medf1042) or UGEC2930",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1698,9 +1701,9 @@
       "learning_outcomes": "Upon completion of the course, the students will be expected to:\n\n• Understand basic theories, concepts, and ethics of qualitative research\n\n• Understand the difference between qualitative and quantitative research methods\n\n• Understand the practical dimension of qualitative research: study design, conducting observation, in-depth interview, and focus group\n\n• Understand and apply the skills of data coding and interpretation in the analytical process\n\n• Obtain skills of writing qualitative research reports",
       "course_syllabus": "| 1. Introduction to qualitative research & Conceptual issues 2. Qualitative research design & Sampling 3. Method 1 – Observation methods 4. Method 2 – In-depth interviews 5. Method 3 - Focus Group 6. Practice – Mock interview & Mock focus group discussions 7. Qualitative Data Analysis 8. Applying Qualitative Methods to Studies on Public Health 9. Interpretation and Presentation of Findings |\n| --- |",
       "assessment_types": {
-        "Classwork": "30",
+        "Classwork": "35",
         "Examination": "30",
-        "Project": "40"
+        "Project": "35"
       },
       "feedback_evaluation": "Course evaluation will be conducted at the end of the term in the form of close-end and open-end\nquestions.\nContinuous feedback will be collected via discussion forum on course websites.",
       "required_readings": "Textbook:\n\nJudith Green & Nicki Thorogood, 2018, Qualitative Methods for Health Research (4th edition), SAGE Publication",
@@ -1836,17 +1839,20 @@
       "campus": "Main Campus",
       "academic_group": "JC Sch of Pub Health Prim Care",
       "academic_org": "JC Sch of Pub Health Prim Care",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "* Plan their academic journey to develop professional capabilities with the help from their academic advisor.\n* Recognise and avoid situations with potential ethical concerns at both personal and community levels.\n* Examine their working practices to ensure probity.",
+      "course_syllabus": "Academic honesty training\nProfessional and ethical practice training\nConsultation sessions",
+      "assessment_types": {
+        "Participation": "20",
+        "Selected response test or exam": "80"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted at the end of the term in form of close-end and open-end questions.\nContinuous feedback will be collected via discussion forum on course websites",
+      "required_readings": "To be advised by the course teacher",
+      "recommended_readings": "To be advised by the course teacher"
     },
     {
       "subject": "PHPC",
       "course_code": "4025",
-      "title": "Introduction to Data Science in Health and Medicine",
+      "title": "Introduction to Data Science in Environmental Health and Medicine",
       "credits": "3.00",
       "terms": [
         {
@@ -1882,8 +1888,8 @@
           ]
         }
       ],
-      "description": "Have you read in the news about certain environmental exposures that could be risk factors for our health and wondered how these large studies were conducted and analyzed? Have you come across a presentation with professional scientific figures and wondered how they were created? Data science, together with biostatistics and epidemiology, comprises the core competencies to answer these questions. This course is designed for public health and biomedical students to understand the concepts and practices of data science, as well as to develop skills in querying epidemiological data to make informed decisions for health and biomedical studies. It will discuss various aspects of data processing, analysis, and visualization techniques in the R computing environment and the use of modern coding approach to streamline the progress from mining data to presenting findings. Students will be introduced to modern data-driven techniques to identify important non-genetic factors. The course will also cover advanced topics, including omics and precision medicine, artificial intelligence (AI)/ machine learning (ML) in biomedical decision-making, and investigations with real-world data. Students will conduct a guided project analyzing health survey data.",
-      "enrollment_requirement": "Pre-requisite: PHPC2015",
+      "description": "Have you read in the news about certain environmental exposures that could be risk factors for our health and wondered how these large studies were conducted and analyzed? Have you come across a presentation with professional scientific figures and wondered how they were created? Data science, together with biostatistics and epidemiology, comprises the core competencies to answer these questions. This course is designed for students in environmental health, public health, and biomedical sciences to understand the concepts and practices of data science, as well as to develop skills in querying observational data to make informed decisions for environmental health and biomedical studies. It will discuss various aspects of data processing, analysis, and visualization techniques in the R computing environment and the use of modern coding approach to streamline the progress from mining data to presenting findings. Students will conduct a guided assignment analyzing environmental / health data. Introduction to advanced topics, such as the exposome and exposome-wide association study (ExWAS), AI/machine learning in biomedical decision-making, omics and precision medicine, and real world data in healthcare, would be covered depending on the progress of learning.",
+      "enrollment_requirement": "",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1892,14 +1898,14 @@
       "academic_group": "JC Sch of Pub Health Prim Care",
       "academic_org": "JC Sch of Pub Health Prim Care",
       "learning_outcomes": "After completing this course, students should be able to:\n\n1. Understand basic coding in R computing environment\n2. Apply modern coding concepts and practices through the tidyverse packages\n3. Process raw data to prepare it for statistical analysis\n4. Present and discuss results using the most suitable visualization and interactive methods\n5. Apply the coding skills learned in the course to their own projects\n6. Have the capability to independently learn and apply R packages not covered in the course",
-      "course_syllabus": "1. Data science & R\n2. Working with RStudio\n3. Hypothesis testing in R\n4. Linear modeling in R\n5. Acting with tidyverse\n6. Big data and complex health survey\n7. Multiomics and data-driven analysis\n8. Special topic: artificial intelligence (AI)/ machine learning (ML) and biomedical decision making\n9. Special topic: epidemiologic investigation with real-world data",
+      "course_syllabus": "1. Introduction to R and RStudio\n2. Reproducibility and inputting data to R\n3. Subsetting data\n4. Summarizing data and introduction to data class\n5. Data cleaning\n6. Manipulating data and introduction to Esquisse\n7. Data Visualization and introduction to factors\n8. Introduction to biostatistics in R\n9. Functions in R\n10. Bring it all together",
       "assessment_types": {
         "Classwork": "30",
         "Homework or assignment": "70"
       },
       "feedback_evaluation": "Course evaluation will be conducted at the end of the term in form of close-end and open-end questions.\nContinuous feedback will be collected via discussion forum on course websites.",
       "required_readings": "To be advised by the course teacher",
-      "recommended_readings": "1. R for Data Science (2e). https://r4ds.hadley.nz\n2. Statistical Inference via Data Science. https://moderndive.com/index.html\n3. Decoding the exposome: data science methodologies and implications in exposome-wide association studies (ExWASs) https://academic.oup.com/exposome/article/4/1/osae001/7574628"
+      "recommended_readings": "1. R for Data Science (2e). https://r4ds.hadley.nz\n\n2. Statistical Inference via Data Science. https://moderndive.com/index.html\n\n3. Data Science for Environmental Health. <https://daseh.org/materials_schedule.html>\n\n4. Introduction to Data Science. http://rafalab.dfci.harvard.edu/dsbook/\n\n5. Decoding the exposome: data science methodologies and implications in exposome-wide association studies (ExWASs) https://academic.oup.com/exposome/article/4/1/osae001/7574628"
     },
     {
       "subject": "PHPC",
@@ -2302,7 +2308,7 @@
         }
       ],
       "description": "Students will conduct a supervised primary research project in a chosen field of public health using quantitative or qualitative research method. In this module, students are expected to provide a research protocol and prepare for data collection.",
-      "enrollment_requirement": "Pre-requisites: PHPC2015 and 2017\nCo-requisite: PHPC3027 or 3028",
+      "enrollment_requirement": "Pre-requisites: PHPC2015 and 2017 and PHPC3027 and 3028",
       "course_attributes": "Capstone Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2481,7 +2487,7 @@
         }
       ],
       "description": "Students will conduct a supervised research project in a chosen field of public health using systematic review or secondary data analysis. In this module, students are expected to provide a research protocol.",
-      "enrollment_requirement": "Pre-requisites: PHPC2015 & 2017. \nCo-requisites: PHPC3014 & 3028.",
+      "enrollment_requirement": "Pre-requisites: PHPC2015 & 2017 & 3027 & 3028 \nCo-requisite: PHPC3014",
       "course_attributes": "Capstone Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2593,7 +2599,7 @@
         }
       ],
       "description": "Students will be assigned to one of the collaborating public health service providers, including (but not limited to) government departments, non-governmental organizations and the private sectors, based on their declared preference. Prior to the engagement of practicum, each student must discuss his or her potential role and responsibilities with the site supervisor. All fieldwork can only be initiated after the prior approval of the course coordinator and site supervisor. Students are required to complete a minimum of 100 hours of fieldwork under the supervision of site supervisor.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Co-requisite: PHPC4000",
       "course_attributes": "Capstone Course\nExperiential Learning Course\nInternship",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2626,12 +2632,12 @@
       "campus": "Main Campus",
       "academic_group": "JC Sch of Pub Health Prim Care",
       "academic_org": "JC Sch of Pub Health Prim Care",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "After completing this course, students should be able to:\n\n1. Understand the whole process and timeline of various steps associated with the public health practicum.\n2. Acquire the life skill and keep knowledge relevant to their practicum work.",
+      "course_syllabus": "1. Introductory briefing\n2. Skill training",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Course evaluation will be conducted at the end of the term in form of close-end and open-end questions.\nContinuous feedback will be collected via discussion forum on course websites.",
+      "required_readings": "To be advised by the course teacher",
+      "recommended_readings": "To be advised by the course teacher"
     },
     {
       "subject": "PHPC",
@@ -2648,12 +2654,15 @@
       "campus": "Main Campus",
       "academic_group": "JC Sch of Pub Health Prim Care",
       "academic_org": "JC Sch of Pub Health Prim Care",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "After completing this course, students should be able to:\n1. Apply academic theories and acquired skills to community-based programme or service or evaluation in a real-life setting\n2. Understand the vision, missions, values, and the populations served by the designated organization\n3. Communicate public health concepts clearly in verbal and written forms and familiarize with multi-disciplinary public health practice\n4. Expand their networks with key stakeholders of public health",
+      "course_syllabus": "1. Practicum plan presentation\n2. Fieldwork practicum in a designated organization (at least 100 hours)\n3. Poster presentation",
+      "assessment_types": {
+        "Internship or practicum": "40",
+        "Presentation": "60"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted at the end of the term in form of close-end and open-end questions.\nContinuous feedback will be collected via discussion forum on course websites.",
+      "required_readings": "To be advised by the course teacher",
+      "recommended_readings": "To be advised by the course teacher"
     }
   ]
 }

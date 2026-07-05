@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T10:51:19.928320+00:00",
+    "scraped_at": "2026-07-04T15:38:39.221500+00:00",
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 49,
+    "total_courses": 42,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -4661,32 +4661,6 @@
     },
     {
       "subject": "ENGG",
-      "course_code": "1100",
-      "title": "Introduction to Engineering Design",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This is a hands-on project-based course which introduces the basic engineering concepts, experimental skills and design methodology needed for the design and construction of a hardware based system. Students will work in small groups on a practical project in which they will apply the design methodology introduced to them in lectures in a design project. The project work will involve defining milestones, identifying the constraints and requirements, defining the requirement specifications of the design, making and evaluating different possible designs by carrying out experiments to obtain data for refining the design, prototyping of the final design and testing of the system built in the project.",
-      "enrollment_requirement": "Not for students who have taken ESTR1000.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture\nProject\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Upon completing this course students will:\n\n1. Be able to apply a systematic approach to solving engineering problems and engineering design\n\n2. Understand the importance of defining specifications in engineering designs\n\n3. Have improved capability to work and communicate with peers in a team and working towards milestones\n\n4. Appreciate the importance of modelling and obtaining data by experiment\n\nGain basic engineering skills on use of instrumentation, hardware construction and testing",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Lab reports": "0",
-        "Others": "0",
-        "Presentation": "0"
-      },
-      "feedback_evaluation": "Feedback will be collected via:\n\n1. Moodle course website and student forums on the course\n\n2. Email to the instructors/tutors\n\n3. Questionnaires issued at regular intervals in the course\n\n4. Final course evaluation at the end of the course\n\nSurvey to gather suggestions from course instructors/teaching assistants and project mentors",
-      "required_readings": "",
-      "recommended_readings": "1. Engineering Design: A Project-Based Introduction by Clive L. Dym, Patrick Little (Wiley 2008)\n\n2. The Lean Six Sigma Pocket Toolbook: A Quick Reference Guide to 100 Tools for Improving Quality and Speed by Michael L. George, John Maxey, David T. Rowlands, Michael George, David Rowlands, Mark Price (McGraw-Hill 2004)."
-    },
-    {
-      "subject": "ENGG",
       "course_code": "1110",
       "title": "Problem Solving By Programming",
       "credits": "3.00",
@@ -7321,32 +7295,6 @@
     },
     {
       "subject": "ENGG",
-      "course_code": "1410",
-      "title": "Linear Algebra and Vector Calculus for Engineers",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Linear algebra: matrices, matrix addition, matrix multiplication, inverses, special matrices; vector spaces, basis and dimension, linear independence, rank, determinants; linear transformations, projection, orthogonality, systems of linear equations, Gaussian elimination; eigenvalues and eigenvectors. Vector calculus: 3-D vector space and algebra; vector differential calculus, gradient, divergence, curl; vector integral calculus, Green's theorem, Gauss's theorem, Stoke's theorem.",
-      "enrollment_requirement": "Not for students who have taken ESTR1004.\nPre-requisite: MATH1510.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "1. Competent in understanding the roles and connections between matrices and vectors, linear equation solving, linear algebra and vector calculus\n\n2. Able to formulate solutions to practical applications in engineering and economics using mathematical skills\n\n3. Able to use special matrices such as triangular, diagonal, and orthogonal matrices\n\n4. Able to understand Gauss elimination and Gauss-Jordan method and their relationship with elementary matrices for different types of matrix factorization and decomposition\n\n5. Competent in using vectors and vector space for interpreting matrix rank and the different solutions to linear equations\n\n6. Able to apply methods of vector calculus, including Jacobian, divergence, Green’s and Stokes’ theorems",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essays": "0",
-        "Essay test or exam": "0",
-        "Short answer test or exam": "0"
-      },
-      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
-      "required_readings": "",
-      "recommended_readings": "Textbook:\n\nKolman, B. and Hill, D.R. “Elementary Linear Algebra with Applications”, Ninth Edition,\n\nPearson Education, 2008\n\nOther references:\n\nE. Kreyszig, \"Advanced Engineering Mathematics\", Wiley, 1988 or later editions\n\nJohnson, Riess, and Arnold, \"Introduction to Linear Algebra\", Addison Wesley, 2002 or\n\nlater editions\n\nFarlow, Hall, McDill, and West, “Differential Equations & Linear Algebra”, Pearson\n\nInternational, 2007\n\nMichael D. Greenberg. “Advanced Engineering Mathematics”. Prentice Hall, 1988 or\n\nlater editions"
-    },
-    {
-      "subject": "ENGG",
       "course_code": "1820",
       "title": "Engineering Internship",
       "credits": "1.00",
@@ -7712,10 +7660,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "34",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8461,56 +8409,6 @@
     },
     {
       "subject": "ENGG",
-      "course_code": "2420",
-      "title": "Complex Analysis and Differential Equations for Engineers",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Complex analysis: analytic functions and Cauchy Riemann; complex integration, Cauchy principal value; elementary complex valued functions: exponential functions, Euler’s formula, trigonometric and hyperbolic functions, logarithm and general powers; power series, Taylor series and convergence tests.\nODE: classification of differential equations; 1st order ordinary differential equations; 2nd order ordinary differential equations. Partial differential equations.",
-      "enrollment_requirement": "Not for students who have taken ENGG2460 or ESTR2000 or ESTR2010.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. demonstrate knowledge and understanding of the basic elements of complex analysis\n\n2. obtain competence to solve mathematical problems relevant to engineering with the 1st and 2nd order ordinary differential equations and partial differential equations\n\n3. model engineering problems",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "0",
-        "Others": "0"
-      },
-      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
-      "required_readings": "",
-      "recommended_readings": "1. M. D. Greenberg, Advanced Engineering Mathematics, 2nd edition, Prentice Hall, 1998.\n\n2. E. Kreyszig, Advanced Engineering Mathematics, 9th edition, John Wiley, 2006."
-    },
-    {
-      "subject": "ENGG",
-      "course_code": "2430",
-      "title": "Probability and Statistics for Engineers",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Fundamental probability concepts: probability and events; expectation, variance, moments, moment generating functions; single variate distributions. Multivariate probability: conditional probability, joint probability; Bayes’ Theorem; conditional expectation, covariance; multivariate distributions, functions of random variables. Central limit theorems, law of large number. Statistics: estimation, sample size and applications.",
-      "enrollment_requirement": "Not for students who have taken ENGG2450 or ESTR2002 or ESTR2005 or ESTR2362 or MIEG2440.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial\nWeb-enhanced Teaching",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Upon successful completion of this course, students should be able to\n1. understand the basic concepts of probability, random variables, and statistics.\n2. acquire problem-solving skills to deal with various problems involving randomness and statistics. Such problems arise naturally in many Engineering fields.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "50"
-      },
-      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
-      "required_readings": "\"Introduction to Probability\", 2nd Edition, Dimitiri P. Bertsekas, John N. Tsitikis, Athena Scientific or the latest edition",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "ENGG",
       "course_code": "2440",
       "title": "Discrete Mathematics for Engineers",
       "credits": "3.00",
@@ -8750,56 +8648,6 @@
       "feedback_evaluation": "Feedback for Evaluation\n1. Results of assignments and examination\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
       "required_readings": "To be provided by course instructor.",
       "recommended_readings": "Recommended Reading List:\n\n1. Discrete Mathematics with Applications, by Susanna S. Epp.\n2. Course notes of \"mathematics for computer science\" in MIT."
-    },
-    {
-      "subject": "ENGG",
-      "course_code": "2450",
-      "title": "Probability and Statistics for Engineers",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Probability theory: population, sample spaces and events, counting, axioms of probability, conditional probability, Bayes' Theorem, discrete distributions, continuous distributions, joint distributions, expectation and decision making, random processes. Statistical inference: sampling distributions, point estimation, confidence interval, hypothesis testing, chi-square goodness-of-fit test. Introduction to regression analysis: linear regression.",
-      "enrollment_requirement": "Not for students who have taken ENGG2430 or ESTR2002 or ESTR2005 or ESTR2362 or MIEG2440.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial\nWeb-enhanced Teaching",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "• Understand the theory of probability and statistics.\n• Able to apply the concepts to solve problems dealing with many engineering and data-oriented applications.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "80",
-        "Others": "20"
-      },
-      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
-      "required_readings": "To be provided by course instructor.",
-      "recommended_readings": "“Miller and Freund’s Probability and Statistics for Engineers”, by R. Johnson, I. Miller, and J. Freund, 8th Edition (or the latest edition), Pearson."
-    },
-    {
-      "subject": "ENGG",
-      "course_code": "2470",
-      "title": "Probability for Engineers",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course will cover the following topics:\nSets, relations, proof methods, combinatorics, probability and events: expectation, variance, moments, moment generating functions, single variate distributions. Multivariate probability: conditional probability, joint probability, Bayes’ Theorem, conditional expectation, covariance, multivariate distributions. Functions of random variables. Central limit theorem, law of large numbers.",
-      "enrollment_requirement": "Not for students who have taken ENGG2430, ENGG2440, ENGG2450, ENGG2460, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2012, ESTR2362, MIEG2440.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Ability to understand different proof techniques\n2. Ability to use combinatorial and probabilistic ideas to solve problems",
-      "course_syllabus": "The course will cover the following topics:\nSets, relations, proof methods, combinatorics, probability and events: expectation, variance, moments, moment generating functions, single variate distributions. Multivariate probability: conditional probability, joint probability, Bayes’ Theorem, conditional expectation, covariance, multivariate distributions. Functions of random variables. Central limit theorem, law of large numbers.\n\nThe course syllabus may be updated from year to year.",
-      "assessment_types": {
-        "Essays": "75",
-        "Others": "25"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
-      "required_readings": "Lecture notes or slides presented in class.",
-      "recommended_readings": "Introduction to Probability, 2nd Edition by Dimitri P. Bertsekas and John N. Tsitsiklis, Athens Scientific\nRoss, First Course in Probability, A, 9th Edition - Pearson"
     },
     {
       "subject": "ENGG",
@@ -9987,12 +9835,18 @@
       "campus": "Main Campus",
       "academic_group": "Div of Electronic Engineering",
       "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Understand the fundamental concepts, theories and algorithms of deep learning.\n2. Understand why deep learning outperforms other machine learning methods when the training data is in large scale\n3. Understand the principles of designing different deep models for various applications\n4. Implement and train deep neural networks with deep learning toolboxes\n5. Obtain empirical experience of designing and training deep models in practical applications.",
+      "course_syllabus": "The core content/syllabus should be covered by all sections of the same course and selected topics may be added by individual course teacher. Core content should comprise not less than 50% of the course\nThis course provides an introduction to deep learning. Students taking this course will learn the theories, models, algorithms, implementation and recent progress of deep learning, and obtain empirical experience on training deep neural networks. The course starts with machine learning basics and some classical deep models (including convolutional neural network, deep belief net, and auto-encoder), followed by optimization techniques for training deep neural networks, implementation of large-scale deep learning, multi-task deep learning, transferred deep learning, recurrent neural networks, applications of deep learning to computer vision and speech recognition, and understanding why deep learning works. The students taking are expected to have some basic background knowledge on calculus, linear algebra, probability, statistics and random process as a prerequisite.",
+      "assessment_types": {
+        "Essays": "15",
+        "Essay test or exam": "30",
+        "Others": "20",
+        "Presentation": "20",
+        "Selected response test or exam": "15"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by the course instructor",
+      "recommended_readings": "1. Y. Bengio, I. Goodfellow, and A. Courville, “Deep Learning,” Book in preparation for MIT press.\n2. Y. Bengio, “Learning Deep Architectures for AI,” Foundations and Trends in Machine Learning, 2009.\n3. Yoshua Bengio and Aaron Courville, “Pascal Vincent, Representation Learning: A Review and New Perspectives”, Arxiv, 2012.\n4. G. E. Hinton et al., “A Fast Learning Algorithm for Deep Belief Nets,” Trends in Cognitive Sciences, Vol. 11, No. 10, 2007.\n5. G. E. Hinton, “Learning Multiple Layers of Representation,” Trends in Cognitive Sciences, Vo;. 11, No. 10, 2007.\n6. Richard, O. Duda, Peter E. Hart, and David G. Stork, “Pattern Classification,” second edition, New York, NY: Wiley-Interscience, 2000.\n7. Christopher M. Bishop, “Pattern Recognition and Machine Learning,” Springer 2006.\n8. More papers to be distributed in class"
     },
     {
       "subject": "ENGG",
@@ -10355,7 +10209,7 @@
         }
       ],
       "description": "This course provides a comprehensive overview of robotics for postgraduate level study. The course covers the fundamental concepts and methods to analyze, model, and control of robotic mechanisms. Specific topics include kinematics, inverse kinematics, dynamics, trajectory generation, individual and multivariable control, interaction force control, and sensors. Students will also involve in hands-on programming project to reinforce the basic principles developed in lectures as well as develop robot algorithm implementation skillsets. The course will also expose students to the latest and advanced developments in robotics such as medical robotics, dynamic parameter identification.",
-      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering or MPhil-PhD programmes under Faculty of Engineering; or\nFor undergraduate students in Mechanical and Automation Engineering",
+      "enrollment_requirement": "For students in MPhil-PhD programmes under Faculty of Engineering; or\nFor undergraduate students in Mechanical and Automation Engineering\nNot for students in MSc MAE and MSc Robotics\nNot for students who have taken MAEG5755 or ROSE5710",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -10669,32 +10523,6 @@
       "feedback_evaluation": "All standard evaluations at the midterm and the end term, as well as informal feedbacks collected through interactions between instructor and students, tutors and tutees, etc. will be carefully reviewed for the purpose of continued improvements.",
       "required_readings": "Relevant reading list will be provided by course teachers.",
       "recommended_readings": "• Biomechanics: Concepts and Computation. C Oomens, M Brekelmans, F Baaijens. Cambridge University Press. 2010.\n\n• Orthopaedic Biomechanics: Mechanics and Design in Musculoskeletal Systems. DL Bartel, DT Davy, TM Keaveny. Pearson Prentice Hall. 2006.\n\n• Biomaterials: an Introduction. Joon Park, R.S. Lakes. Park, Joon.\n\n• Biomaterials science: an introduction to materials in medicine / edited by Buddy D. Ratner, et al."
-    },
-    {
-      "subject": "ENGG",
-      "course_code": "5700",
-      "title": "Engineering Entrepreneurship",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The aim of this course is to turn innovative, creative, and inquisitive engineering and applied science students into entrepreneurs through multi-disciplinary, fully-immersive, hands-on, and project-based learning. The course covers topics in engineering, law, leadership, marketing and finance, etc. in order to equip participants to become entrepreneurs. During the course, it is expected for the participants to:\n•Learn the basic knowledge on patents, intellectual property, contracts, copyright, and trademarks\n•Acquire refined communication, organizational, and leadership skills for entrepreneurs\n•Conduct case-study research on how engineering entrepreneurship plays an important role in the development of the high-tech industry\n•Participate in a field-trip to visit organizations in the Bay Area on various high-tech and bio-tech industries for a close-up on the operation of these organizations\n•Take part in a class group project on the research finding and the learning outcome from the field trip on engineering entrepreneurship",
-      "enrollment_requirement": "For Year 3 and Year 4 undergraduate students, MPhil or PhD students. Priority will be given to ELITE students and engineering students.",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Field Studies/Field-trip\nLecture\nProject",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of ERG (PG)",
-      "academic_org": "Fac Office of ERG (PG)",
-      "learning_outcomes": "By completing this course, students are expected to\n- Have a basic grasp of knowledge on patents, intellectual property, contracts, copyright, and trademarks;\n- Have a good understanding of how high-tech industries are being created, managed, and operated;\n- Have the ability to present and develop innovative ideas from their inception to potential ventures.",
-      "course_syllabus": "The aim of this course is to turn innovative, creative and inquisitive engineering and applied science students into entrepreneurs through multi-disciplinary, fully-immersive, hands-on, and project-based learning. The course covers topics in engineering, law, leadership, marketing and finance, etc. in order to equip participants to become entrepreneurs. During the course, students are expected to learn the basic knowledge on patents, intellectual property, contracts, copyright, and trademarks; acquire refined communication, organizational, and leadership skills for entrepreneurs; conduct case-study research on how engineering entrepreneurship plays an important role in the development of the high-tech industry; participate in a field-trip to visit organizations in high-tech and bio-tech industries for a close-up on the operation of these organizations; take part in a class group project on the research finding and the learning outcome from the field trip on engineering entrepreneurship.\n\nDetails will be provided by the course instructor.",
-      "assessment_types": {
-        "Lab reports": "30",
-        "Others": "50",
-        "Presentation": "20"
-      },
-      "feedback_evaluation": "Students’ comments and feedback concerning the teaching and learning in the course are most welcome.\n1. Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.\n2. Midterm feedback questionnaire: Students are asked to provide feedback on the course teaching as well as tutorials around the middle of the term in order to assist the course lecturer and tutor to improve on the teaching method to suit the class or some group of students.\n3. Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
-      "required_readings": "Course notes will be provided by the instructor.",
-      "recommended_readings": "Course notes will be provided by the instructor."
     },
     {
       "subject": "ENGG",

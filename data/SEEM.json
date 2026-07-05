@@ -1,37 +1,12 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T14:21:51.169684+00:00",
+    "scraped_at": "2026-07-04T19:21:03.324277+00:00",
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engg Mgt",
-    "total_courses": 77,
+    "total_courses": 69,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
-    {
-      "subject": "SEEM",
-      "course_code": "1000",
-      "title": "Engineering Startups",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Overall ecosystem in engineering startups, including ideation, realization and growth stages. Ideation: Factors that drive continuous creative product innovation. Realization: Introduce the concept of business model and use business canvas for development of a model. Growth: Introduce the concept of business plan especially focus on fund raising.",
-      "enrollment_requirement": "Not for students who have taken SEEM3450",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1. Understand the ecosystem of engineering startups.\n2. Able to develop ideas for new products.\n3. Able to develop a business model iteratively.\n4. Able to write a business plan for funding support.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "50"
-      },
-      "feedback_evaluation": "CTE exercise, class representatives, etc",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "RD Hisrich, MP Peters and DA Shepherd, Entrepreneurship, 10th Edition , 2016, McGraw-Hill\n\nSteve Blank. The lean launchpad business model canvas, http://steveblank.com/category/lean-launchpad/"
-    },
     {
       "subject": "SEEM",
       "course_code": "2420",
@@ -121,7 +96,7 @@
           ]
         }
       ],
-      "description": "Review of linear algebra. Linear programming: simplex methods, duality and sensitivity analysis. Network flows: transportation and assignment problems, shortest paths, minimum spanning trees, network simplex method and multicommodity flows. Modelling issues in linear programming and network flows applications.",
+      "description": "This course provides an introduction to operations research as a quantitative approach to decision-making. Students learn how to formulate real-world problems as mathematical optimization models, with a primary focus on linear and integer programming. The course also covers classic network and logistics models, including transportation, transshipment, assignment, shortest path, traveling salesman, vehicle routing, and multi-commodity flow problems, as well as an introduction to large-scale solution techniques such as column generation and constraint generation. Throughout the course, students use Excel and Python-based solvers to implement models and interpret results, connecting mathematical solutions with managerial or engineering insights.",
       "enrollment_requirement": "Not for students who have taken ESTR2520 or FTEC2101.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -130,15 +105,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
       "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "Having fundamental knowledge of the art of modeling with linear programming\n\n• Skilled at solving linear programming problems by mathematical methods",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
+      "learning_outcomes": "At the completion of the course, the students should have the ability to:\n1. Formulate real-world decision problems as linear and integer programming models with clear decision variables, objectives, and constraints;\n\n2. Solve and analyze linear programs using graphical methods, Excel/Python Solver, simplex, and sensitivity analysis, and interpret results in context;\n\n3. Model and solve integer and network optimization problems (e.g., transportation, assignment, shortest path, basic routing) using appropriate methods such as branch-and-bound and linearization;\n\n4. Explain and apply the basic ideas of large-scale solution approaches (e.g., column and constraint generation); and\n\n5. Communicate modeling assumptions, methods, and conclusions clearly.",
+      "course_syllabus": "Week 1: Introduction to Operations Research.\n\nWeek 2: Linear Programming: Modelling examples.\n\nWeek 3: Linear Programming: Modelling examples and graphical solutions.\n\nWeek 4: Linear Programming: Excel implementation and sensitivity analysis.\n\nWeek 5: Linear Programming: Simplex method and Python implementation.\n\nWeek 6: Advanced Modelling using LP: Linear fractional problems, linearization techniques.\n\nWeek 7: Integer Programming: Modelling examples.\n\nWeek 8: Integer Programming: Branch-and-Bounds and Heuristics.\n\nWeek 9: Network Flows: Transportation, transhipment and assignment problem.\n\nWeek 10: Shortest Path Problem, Travelling Salesman, Vehicle Routing Problem.\n\nWeek 11: Multi-commodity Network Flows.\n\nWeek 12: Large-scale solution methods (column generation, constraint generation)\n\nWeek 13: Course review",
       "assessment_types": {
-        "Examination": "60",
-        "Homework or assignment": "40"
+        "Examination": "50",
+        "Homework or assignment": "25",
+        "Project": "25"
       },
       "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "According to the course teacher in the respective teaching term."
+      "required_readings": "Lecture notes and slides distributed by the course instructors.",
+      "recommended_readings": "1. Bernard Taylor III, Introduction to Management Science, 13th Edition, Pearson 2019.\n\n2. F.S. Hillier and G.J. Lieberman, Introduction to Operations Research, 9th Edition, McGraw-Hill, 2010."
     },
     {
       "subject": "SEEM",
@@ -482,7 +458,7 @@
     {
       "subject": "SEEM",
       "course_code": "3410",
-      "title": "System Simulation",
+      "title": "System Modeling and Simulation",
       "credits": "3.00",
       "terms": [
         {
@@ -544,7 +520,7 @@
           ]
         }
       ],
-      "description": "System concept and mathematical models. Model building: parameter estimation and data analysis. Elementary queuing theory and applications: M/M/S models. Introduction to simulation and simulation language. Principles of discrete event simulation. Random number generators and output analysis. Optimization via simulation. Applications to production and manufacturing systems.",
+      "description": "Systems such as hospitals, call centers, airports, and urban logistics networks face inherent uncertainty in demand and resource availability. This course introduces modeling and simulation techniques for analyzing and improving such systems. Students will learn the relationships among systems, models, and simulations, and study canonical queueing models. The course emphasizes the use of discrete-event simulation in Python to evaluate and optimize system performance under stochastic variability. Topics include system modeling, analytical performance measures, simulation fundamentals, model calibration, design of experiments for system improvement, domain-specific case studies, and an introduction to how simulation interacts with artificial intelligence (AI).",
       "enrollment_requirement": "Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) or with the approval of the course instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -553,15 +529,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
       "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1. Able to obtain the general theory, methodology and technical skills of all the important aspects of a simulation study, including input analysis, modeling, random number generating, modeling validation, output data analysis, and simulation programming\n\n2. Able to describe the behavior of systems\n\n3. Able to construct theories or hypothesis that account for the observed behavior\n\n4. Able to use the model to predict future behavior, i.e., the effects produced by changes in the system or in its method of operation.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
+      "learning_outcomes": "By the end of the class, students will be able to:\n\n1. Explain the relationships among *system*, *model*, and *simulation*, and identify modeling assumptions in service systems.\n2. Understand canonical queueing models for service systems (M/M/1, M/M/c, M/M/c/c, M/M/1+M, G/G/1) and their performance measures.\n3. Implement discrete-event simulations in Python to evaluate service systems, including steady‑state detection and uncertainty quantification.\n4. Understand foundational simulation theory, including random number generator, variance reduction, and rare-event simulation.\n5. Calibrate models using historical data, and validate simulated results against empirical or analytical benchmarks.\n6. Apply simulation-based experiment (factorial design and scenario analysis) to guide system improvement.\n7. Model and analyze real-world service systems such as hospitals, call centers, and airports operations.\n8. Explain the interplay between simulation and AI.\n9. Communicate operational recommendations to stakeholders with clear visual analytics and risk narratives.",
+      "course_syllabus": "* *W1 – Concepts of system v.s. model v.s. simulation, and basic queueing models**: flows, entities, and processes; Kendall notation; KPIs (queue length, waiting time, throughput, utilization); Little's law\n\n* *W2 – Analytical and simulated queue behavior**: study and compare analytical Erlang formulas (queue lengths, waiting time, and utilization) with simulated results; interpret differences\n\n* *W3 – Discrete-event simulation fundamentals (Part 1: Application)**: Event-based simulation principle (time advance, states, events, clock management), Python implementation, steady‑state detection (Welch method), confidence interval construction (replications or batch means)\n\n* *W4 – Discrete-event simulation fundamentals (Part 2: Theory)**: Random number generator (linear congruential generators, transform methods), variance reduction (antithetic variates, control variates), rare-event simulation (importance sampling)\n\n* *W5 – Model calibration from empirical data**: fit input distributions from empirical data using Python (Goodness-of-fit tests, moment matching, parametric distributions and MLE estimation); discuss failure of Erlang formulas for general queues\n\n* *W6– Design of experiments for system improvement**: factorial/screening designs; response surfaces; metamodels; common random numbers.\n\n* *W7 – Hospital operations (Case 1)**: ED patient flow; bed management; triage priority;\n\n* *W8 – Call center staffing & scheduling (Case 2)**: shift design; skill‑based routing; resource pooling.\n\n* *W9 – Airport design (Case 3)**: check‑in, priority line, security, immigration, boarding\n\n* *W10 – Simulation and AI (An Int****roduction****)**: simulation for AI (provide training data, test AI safety, provide tools for AI agents); AI for simulation (synthetic data generation, simulation acceleration via metamodel learning, behavior modeling in agent-based simulation)\n\n* *W11 – Case study clinics**: peer review and stress‑testing of projects.\n\n* *W12 – Project presentations & policy briefs**.",
       "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "50"
+        "Examination": "30",
+        "Homework or assignment": "20",
+        "Project": "50"
       },
       "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "According to the course teacher in the respective teaching term."
+      "required_readings": "Course notes provided by the instructor.",
+      "recommended_readings": "[1] N. S. Matloff, Introduction to Discrete-Event Simulation and the SimPy Language, SimPy Notes, 2008.\n\n[2] J. Banks, J. S. Carson, B. L. Nelson, and D.M. Nicol. Discrete-Event System Simulation, 4th Edition, Pearson, 2005."
     },
     {
       "subject": "SEEM",
@@ -706,7 +683,7 @@
           ]
         }
       ],
-      "description": "Non-linear programming: convex sets and functions; local and global optima; Lagrange multipliers; optimality conditions for unconstrained problems; descent methods; constrained optimization; Karush-Kuhn-Tucker conditions; solution methods. Non-differentiable optimization: integer programming models; formulations; cutting-plane methods; branch-and-bound. Dynamic programming: models and formulation; Bellman's equations; solution methods.",
+      "description": "Non-linear programming: convex sets and functions; local and global optima; Lagrange multipliers; optimality conditions for unconstrained problems; descent methods; constrained optimization; Karush-Kuhn-Tucker conditions; solution methods; stochastic optimization. Dynamic programming: models and formulation; Bellman's equations; solution methods. Reinforcement learning: tabular MDP; policy evaluation/improvement; connection to DP.",
       "enrollment_requirement": "Not for students who have taken ESTR2520 or ESTR3500 or FTEC2101.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -715,16 +692,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Sys Engg & Engg Mgt",
       "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1. Ability to make logical statements using 0/1 variables.\n\n2. Ability to solve, using standard software, simple non-linear and integer programs.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
+      "learning_outcomes": "At the completion of the course, the students should have the ability to:\n1. Model unconstrained and constrained nonlinear programs;\n\n2. Apply first‑order methods and KKT conditions; recognize convexity and use convex modeling tools when available.\n3. Build dynamic programming models (finite‑horizon, inventory, knapsack variants) and understand curse‑of‑dimensionality trade‑offs.\n\n4. Implement reinforcement learning (tabular MDPs; policy evaluation; Q‑learning) and formulate stochastic optimization problems.",
+      "course_syllabus": "Week 1: Nonlinear Optimization Theory: Convex Set, Gradients.\n\nWeek 2: Nonlinear Optimization Theory: Constraint Qualification, KKT Conditions.\n\nWeek 3: Algorithms for Unconstrained Nonlinear Optimization: Gradient Method, Newton Method, Quasi-Newton Method.\n\nWeek 4: Algorithms for Constrained Nonlinear Optimization: Projected Method, ADMM Method, Primal-dual Method.\n\nWeek 5: Modelling and Formulation of Convex Problems: Solving Quadratic Program.\n\nWeek 6: Modelling and Formulation of Convex Problems: SDP Relaxation for Non-convex Optimization.\n\nWeek 7: Stochastic Programming: Risk, Regret, Two-stage Optimization with Recourse, Sample Average Approximation.\n\nWeek 8: Stochastic Programming: Stochastic Gradient Method, Stochastic Algorithms.\n\nWeek 9: Dynamic Programming 1: State/Actions, Bellman Equation, Knapsack DP.\n\nWeek 10: Dynamic Programming 2: Approximate DP, Value Function Approximation.\n\nWeek 11: Reinforcement Learning: Policy Evaluation/Improvement, Q-Learning.\n\nWeek 12: Integrated Case Study.",
       "assessment_types": {
-        "Essay test or exam": "55",
-        "Others": "20",
-        "Short answer test or exam": "25"
+        "Examination": "50",
+        "Homework or assignment": "20",
+        "Project": "30"
       },
       "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "1. F.S. Hillier and G.J. Lieberman, Introduction to Operations Research, 9th Edition, McGraw-Hill, 2010.\n\n2. H.A. Taha, Operations Research: An Introduction, 8th Edition, Prentice Hall, 2007 or"
+      "required_readings": "Lecture notes distributed by the course teacher.",
+      "recommended_readings": "1. F.S. Hillier and G.J. Lieberman, Introduction to Operations Research, 9th Edition, McGraw-Hill, 2010.\n2. D.G. Luenberger and Y.Y. Ye, Linear and Nonlinear Programming, 3rd Edition, Springer, 2008.\n\n3. S. Boyd and L. Vandenberghe, Convex Optimization, Cambridge University Press, 2004.\n\n4. D.P. Bertsekas, Dynamic Programming and Optimal Control, Athena Scientific, 2017."
     },
     {
       "subject": "SEEM",
@@ -854,10 +831,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1319,32 +1296,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "3530",
-      "title": "Engineering and Technology Management",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Managerial functions: planning, organizing, influencing and control. Strategic formulation and decision making. Strategic and operational considerations of technology. Management of research, engineering design and production functions. Project screening and selection. Project structuring, scheduling and budgeting. Project control.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "By the end of the course, the student should have:\n\n1. a good understanding of the key issues and proficiency in analytical tools for project management, and",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Examination": "50",
-        "Homework or assignment": "25",
-        "Project": "25"
-      },
-      "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "According to the course teacher in the respective teaching term."
-    },
-    {
-      "subject": "SEEM",
       "course_code": "3550",
       "title": "Fundamentals in Information Systems",
       "credits": "3.00",
@@ -1450,32 +1401,6 @@
       "feedback_evaluation": "CTE exercise, class representatives, etc.",
       "required_readings": "According to the course teacher in the respective teaching term.",
       "recommended_readings": "Database System Concepts (sixth edition), by Avi Silberschatz, Henry F. Korth, and S. Sudarshan, McGraw-Hill, 2010."
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "3570",
-      "title": "Stochastic Models",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Review of basic probability. Probabilistic dynamic programming. Stochastic processes and Markov chains. Birth-and-death processes and queuing models. Stochastic inventory models: single and multiple periods. Forecasting and time series. Markov decision processes.",
-      "enrollment_requirement": "Not for students who have taken ESTR3508. Pre-requisite: SEEM2430 or ENGG2430 ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) with the approval of the course instructor.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "At the conclusion of this course, students are expected to\n\n- understand the strength and limitations of various econometric models,",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essays": "30",
-        "Essay test or exam": "40",
-        "Short answer test or exam": "30"
-      },
-      "feedback_evaluation": "CTE exercise, class representative, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "1. Richard A. Johnson, Probability and Statistics for Engineers (8th Edition), Pearson Education, Inc., 2010\n\n2. Frederick S. Hillier, Gerald J. Lieberman, Introduction to Operations Research (9th Edition), McGraw-Hill, Inc., 2010."
     },
     {
       "subject": "SEEM",
@@ -2049,31 +1974,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "4480",
-      "title": "Decision Methodology and Applications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Review of basic decision analysis concepts and methodologies. Single- and multiattribute utility theory under both certainty and uncertainty. Assessment methodologies; strength of preference; risk attitude; trade-off judgements. Prior information; subjective probability; Bayesian analysis; sequential analysis. Multiobjective optimization; methods for generating Pareto optimum solutions; methods with prior assessment of preferences; method with progressive assessment of preferences. Risk sharing and group decisions. Cooperative and non-cooperative game methods. Applications to risk analysis and management.",
-      "enrollment_requirement": "1. Prerequisites: \n(a)SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020);and \n(b)SEEM3440 or ESTR3500\nor with the approval of the course instructor\n2. Not for students who have taken ESTR3516 or SEEM3650",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1. Able to describe and identify the essential characteristics of decision-making problems\n\n2. Able to access the subjective judgment about uncertainty and quantify subjective preference of consequences",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      },
-      "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "According to the course teacher in the respective teaching term."
-    },
-    {
-      "subject": "SEEM",
       "course_code": "4540",
       "title": "Open Systems for E-Commerce",
       "credits": "3.00",
@@ -2292,57 +2192,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "4600",
-      "title": "Logistics Management",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The integrated logistics management concept. Customer service. Channels of distribution. Transportation; vehicle routing and scheduling; freight consolidation. Facility location and network planning. Storage and material handling systems. Information systems for order processing and inventory tracking. Purchasing and supply scheduling. Business process re-engineering.Third-party logistics. Global logistics.",
-      "enrollment_requirement": "Not for students who have taken ESTR3514 or ESTR4500 or ESTR4510 or SEEM3620 or SEEM4750.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1. Understanding of the characteristics of logistics industry in Hong Kong.\n\n2. Familiar with the major decision issues in air, sea and land transport.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essays": "20",
-        "Essay test or exam": "60",
-        "Short answer test or exam": "20"
-      },
-      "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "Ghiani, G., G. Laporte and R. Musmanno, Introduction to Logistics Systems Management, 2013, Wiley.",
-      "recommended_readings": "1. Goetschalckx, M., Supply Chain Engineering, 2011, Springer.\n\n2. Christopher, M., Logistics and Supply Chain Management (4th edition), 2011, Financial Times/Prentice-Hall."
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "4610",
-      "title": "Supply Chain Management",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Management of moving raw materials, in-process inventory and finished-goods; transferring information and payment. Topics include: distribution; inventory management; purchasing and supplier management; the value of information and information technology; supply chain integration and strategic partnering; product design for supply chain management.",
-      "enrollment_requirement": "Not for students who have taken ESTR3514 or ESTR4502 or ESTR4510 or SEEM3620 or SEEM4750.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1. Able to generate new ideas and apply relevant techniques to improve the performance of a supply chain.\n\n2. Able to identify engineering problems degrading the supply chain efficiency and propose solutions for better management of inventory, demand, transportation, and distribution.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "95",
-        "Others": "5"
-      },
-      "feedback_evaluation": "CTE exercise, class representatives, etc.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "1. Nahmias, Production and Operations Analysis (6th Edition), 2008, Irwin/McGraw-Hill.\n\n2. Cachon and Terwiesch. Matching Supply with Demand: An Introduction to Operations Management, 3rd Edition, 2012, McGraw-Hill."
-    },
-    {
-      "subject": "SEEM",
       "course_code": "4630",
       "title": "E-Commerce Data Mining",
       "credits": "3.00",
@@ -2449,32 +2298,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "4680",
-      "title": "Technology, Consulting and Analytics in Practice",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims to equip students with an overview of the latest technologies, e.g. cloud computing, social media, mobile applications, etc. that are impacting the business world every day. It also enable students to learn how some of the latest technology solutions are applied to the business world to solve real-life problems.\nStudents will be given ample opportunity to apply what they have learned in class through participations in facilitated class discussions and sharing, and possibly with pilot technological implementations. The SEEM department will invite participation by industry leaders and practitioners to share their insights in this course.",
-      "enrollment_requirement": "Not for students who have taken ESTR3512, ESTR4504 or SEEM3680.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "Upon completion of this course, students would be able to:\n\n- Acquire sound understanding of the latest technologies that are impacting the business world every day;\n- Understand the challenges faced by the business world in coping with changing business environments, higher customer sophistication and technological innovation;\n- Gain practical experience in planning and delivering a group project on latest technologies;\n- Acquire and practice planning, communication, facilitation, team work and logical thinking skills through active class participation, individual research paper and hands-on work on the final group project and presentation.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essays": "30",
-        "Others": "10",
-        "Presentation": "60"
-      },
-      "feedback_evaluation": "CTE exercise, class representatives, etc",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "1. Wells, S. (2009) Choosing the future: The power of strategic thinking, Boston: Butterworth-Heinemann\n\n2. Greiner, L. & Poulflet, F. (Eds.) (2009) Management Consulting Today and Tomorrow, New York: Routledge\n\n3. Biggs, D.M. (2010) Management Consulting: A guide for students, London: Cengage Learning\n\n4. Kipping, M. & Clark T. (2012) The Oxford handbook of management consulting, London: Oxford University Press\n\n5. Parthasarthy, S (2007) Enterprise Resource Planning (ERP)-A managerial and technical perspective, New Delhi: New Age International\n\n6. Cameron, E. & Green. M. (2012) Making sense of change management, London: Kogan Page Limited\n\n7. Fader, P. (2011) Customer Centricity, Philadelphia: Wharton Digital Press\n\n8. Burkholder, N.C. (2006) Outsourcing-The definitive view, applications and implications, New Jersey: John Wiley & Sons, Inc.\n\n9. Reiss, G. (2007) Project Management Demystified, Oxon: Taylor & Francis"
-    },
-    {
-      "subject": "SEEM",
       "course_code": "4720",
       "title": "Computational Finance",
       "credits": "3.00",
@@ -2562,8 +2385,8 @@
           ]
         }
       ],
-      "description": "In depth examination of numerical methods and their implementation for finance and risk management problems: Linear and Nonlinear Equation solutions, Unconstrained and constrained optimization, Monte Carlo Simulation, Finite difference for PDEs. Other related financial applications.",
-      "enrollment_requirement": "Not for students who have taken ESTR4506. Prerequisite: SEEM2520 or SEEM3570 or SEEM3590 or ESTR3508 or ESTR3509.",
+      "description": "In depth examination of numerical methods and their implementation for financial problems: lattice models, Monte Carlo and quasi-Monte Carlo simulations, finite difference methods, and optimization-based approaches for option pricing, risk measurement, interest rate modeling, and other applications.",
+      "enrollment_requirement": "Not for students who have taken ESTR4506.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -3977,32 +3800,6 @@
       "feedback_evaluation": "• Mid-term and end-of-term course evaluation\n• Individual meetings with students on course, especially on choice of term project topic",
       "required_readings": "As recommended by course teacher.",
       "recommended_readings": "• S. Boyd and L. Vandenberghe, Convex Optimization, Cambridge University Press, 2004\n• D. Bertsekas, Nonlinear Programming, Athena Scientific, 1999\n• J. Nocedal and S.J. Wright, Numerical Optimization, Springer, 2006\n• Y. Nesterov, Introductory Lectures on Convex Optimization: A Basic Course, Kluwer, 2003"
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5360",
-      "title": "Term Structure Modeling of Interest Rates",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course is a systematic introduction to the development, analysis and implementation of interest rate models for pricing and hedging of fixed income derivatives. The materials will span the following aspects: linear interest rate product and yield curve construction; vanilla interest rate options and single rate models; interest rate exotics and the modeling of rates term structure. If time permits, we will also discuss typical trading strategies in the fixed income space, as well as hedging and management of interest rate exposures for fixed income portfolios, cash\nor derivative.",
-      "enrollment_requirement": "For students in SEEM MPhil/PhD programme and RPg programmes under Faculty of Engineering",
-      "course_attributes": "English only",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "Students will develop an understanding of interest rate theory, short rate models, term structure models, yield curve construction, volatility modeling as well as the pricing of various fixed income products. In particular, students will master the approach of using financial engineering techniques to solve relevant pricing and risk management problems related to interest rate space.",
-      "course_syllabus": "The course is a systematic introduction to global of fixed income markets, and the development, analysis and implementation of interest rate models for pricing and hedging of related securities, cash and derivatives. The core materials will span the following aspects: linear interest rate product and yield curve construction; vanilla interest rate options and single rate models; interest rate exotics and the modeling of interest rate term structure. If time permits, we will also discuss institutional trading strategies in the fixed income space, as well as hedging and management of interest rate exposures for fixed income portfolios. Occasionally, we will also have guest lectures with industrial experience on relevant subjects.",
-      "assessment_types": {
-        "Essays": "30",
-        "Presentation": "30",
-        "Selected response test or exam": "40"
-      },
-      "feedback_evaluation": "Student feedback, CTE.",
-      "required_readings": "As recommended by course teacher.",
-      "recommended_readings": "On interest rate modeling:\nInterest Rate Models - Theory and Practice: With Smile, Inflation and Credit by Damiano Brigo and Fabio Mercurio, 2006, Springer Finance\nModern Pricing of Interest-Rate Derivatives: The LIBOR Market Model and Beyond by Riccardo Rebonato, 2002, Princeton University Press\nThe Volatility Surface: A Practitioner's Guide by Jim Gatheral and Nassim Nicholas Taleb, 2006, Wiley Finance\nInterest Rate Modeling. Vol 1-Vol 3 by Leif B. G. Andersen and Vladimir V. Piterbarg, 2010, Atlantic Financial Press\nEfficient Methods for Valuing Interest Rate Derivatives by Antoon Pelsser, 2000, Springer Finance\n\nOn valuation methods:\nMonte Carlo Methods in Financial Engineering (Stochastic Modelling and Applied Probability, v.53) by Paul Glasserman, 2003, Springer\nNumerical Solution of Stochastic Dierential Equations (Stochastic Modelling and Applied Probability, v.23) by Peter E. Kloeden and Eckhard Platen, 2010, Springer\n\nOn fixed income markets:\nFixed Income Securities: Tools for Today's Markets by Bruce Tuckman, 2002, 2nd Edition, JohnWiley & Sons, New York\nFixed-Income Securities: Valuation, Risk Management and Portfolio Strategies by Lionel Martellini, Philippe Priaulet and Ste'phane Priaulet, 2003, Wiley Finance\nInterest Rate Swaps and Other Derivatives by Howard Corb, 2012, Columbia Business School Publishing\nInterest Rate Swaps and Their Derivatives: A Practitioner's Guide by Amir Sadr, 2009, Wiley Finance\nInterest Rate Markets, A Practical Approach of Fixed Income by Siddhartha Jha, 2011, Wiley Trading\nThe Treasury Bond Basis: An in-Depth Analysis for Hedgers, Speculators, and Arbitrageurs by Galen Burghardt and Terry Belton, 2005, McGraw-Hill Library of Investment and Finance\nThe Eurodollar Futures and Options Handbook by Galen Burghardt, 2003, McGraw-Hill Library of Investment and Finance"
     },
     {
       "subject": "SEEM",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T07:40:52.584608+00:00",
+    "scraped_at": "2026-07-04T13:23:13.780608+00:00",
     "subject": "AIMS",
     "subject_title": "Artificial Intelligence",
     "total_courses": 15,
@@ -128,7 +128,7 @@
       "subject": "AIMS",
       "course_code": "5703",
       "title": "Emerging Technologies in Artificial Intelligence",
-      "credits": "3.00",
+      "credits": "1.00",
       "terms": [
         {
           "term_code": "2380",
@@ -170,10 +170,10 @@
         }
       ],
       "description": "This course introduces emerging and enabling technologies in artificial intelligence to solve real-world problems in a various daily and industrial application. The course will offer a number of research or topical seminars, given by research or industry experts, to let the students keep abreast of the trends of the development in artificial intelligence technologies. Moreover, the course will further discuss the advantages and limitations of the new technologies as well as the ethical issues induced from AI applications.",
-      "enrollment_requirement": "For students in MSc Artificial Intelligence;Pre-requisites: AIMS5701 and AIMS5702",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
+      "grading_basis": "Pass/Not Pass",
       "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
@@ -204,12 +204,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
       "academic_org": "Div of Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Understand the standard theoretical ideas that form the foundation of modern machine learning and AI;\n2. Apply probability, statistics, and optimization tools to analyze how learning algorithms generalize and converge;\n3. Use theoretical frameworks of kernel methods, online learning, and bandits to address machine learning tasks;\n4. Relate theoretical principles to modern generative AI and diffusion models.",
+      "course_syllabus": "Week Topic\nW1: Probability and Linear Algebra in ML: Basic Definitions and Tools\nW2: Statistics in ML: Maximum Likelihood, Exponential Family models\nW3: Generalization in ML (Part 1): Empirical vs. Population Risk, Uniform Convergence Analysis\nW4: Generalization in ML (Part 2): VC Dimension, Generalization Bounds\nW5: Optimization in ML (Part 1): Gradient Descent, Convergence Analysis\nW6: Optimization in ML (Part 2): Stochastic Gradient Descent, Adaptive Optimization Methods (AdaGrad/Adam)\nW7: Kernel Methods in ML (Part 1): Representer Theorem, Kernel Learning\nW8: Kernel Methods in ML (Part 2): Neural Tangent Kernels, Generalization and Optimization in Deep Learning\nW9: Online Learning in ML (Part 1): Regret Formulation, Prediction with Expert Advice\nW10: Online Learning in ML (Part 2): Exploration–Exploitation Tradeoff, Greedy vs. ε-Greedy Algorithms\nW11: Online Learning in ML (Part 3):, UCB Algorithm, Thompson Sampling\nW12: Diffusion Models in ML (Part 1): Score function, Score-based Generative Modeling\nW13: Diffusion Models in ML (Part 2): Langevin dynamics, Diffusion-based Sampling as Iterative Denoising",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Q&A sessions during class\n4. Consultation hours",
+      "required_readings": "Lecture Notes to be provided by course instructor.",
+      "recommended_readings": "1. Shai Shalev-Shwartz and Shai Ben-David, *Understanding Machine Learning: From Theory to Algorithms*, Cambridge University Press, 2014.\n2. Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar, *Foundations of Machine Learning*, 2nd Edition, MIT Press, 2018.\n3. Stephen Boyd and Lieven Vandenberghe, *Convex Optimization*, Cambridge University Press, 2004.\n4. Joe Suzuki, *Kernel Methods for Machine Learning with Math and Python*, Springer Singapore, 2022\n5. Tor Lattimore and Csaba Szepesvári, *Bandit Algorithms*, Cambridge University Press, 2020."
     },
     {
       "subject": "AIMS",
@@ -516,7 +520,7 @@
         }
       ],
       "description": "Artificial Intelligence has brought significant impact on all facets of human activities, including personal, industrial, and societal. This course aims at challenging the students to unleash their innovative power to create new AI applications and services that may lead to the formation of new startups in the Great Bay Area. The course will introduce a market-oriented model of thinking to complement the technology-oriented model, thus enabling the students to develop an all-rounded thinking pattern and get prepared to join the commercial world.\n\nThe course adopts the Lean Start-Up Approach to Entrepreneurship to guide the students to go through a rigorous business development process, consisting of the following steps.\n1. Define their business idea.\n2. Design their products or services.\n3. Develop their Minimal Viable Products (MVP) to illustrate their designs.\n4. Devise their business strategies to reach their target markets.\n5. Develop the business plan to explain their ideas clearly.\nThis is a highly interactive and hands-on to help project teams to refine their business plans. The students should have the knowledge in machine learning and deep learning.",
-      "enrollment_requirement": "For students in MSc Artificial Intelligence; or\nFor all MSc Programmes in Faculty of Engineering;Pre-requisites: AIMS5701 and AIMS5702;Exclusion: CMSC5730 or ENGG3802/3803/5700 or ESTR3502 or FTEC5570 or IEMS5712 or SEEM3450 or IERG5340 or ROSE5790",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; or\nFor all MSc Programmes in Faculty of Engineering;Exclusion: CMSC5730 or ENGG3802/3803/5700 or ESTR3502 or FTEC5570 or IEMS5712 or SEEM3450 or IERG5340 or ROSE5790",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -658,12 +662,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
       "academic_org": "Div of Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon successful completion of this course, students will be able to understand the advanced topics along the latest development of Artificial Intelligence.",
+      "course_syllabus": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "To be provided by course instructor."
     },
     {
       "subject": "AIMS",
@@ -680,18 +688,22 @@
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
       "academic_org": "Div of Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon successful completion of this course, students will be able to understand the advanced topics along the latest development of Artificial Intelligence.",
+      "course_syllabus": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "To be provided by course instructor."
     },
     {
       "subject": "AIMS",
       "course_code": "5780",
       "title": "Artificial Intelligence Internship",
-      "credits": "3.00",
+      "credits": "1.00",
       "terms": [
         {
           "term_code": "2410",

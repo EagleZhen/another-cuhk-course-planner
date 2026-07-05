@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T09:59:41.200656+00:00",
+    "scraped_at": "2026-07-04T15:21:00.034143+00:00",
     "subject": "ELEG",
     "subject_title": "Electronic Engineering",
-    "total_courses": 75,
+    "total_courses": 71,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -692,7 +692,7 @@
         }
       ],
       "description": "This course aims to provide electronic engineering students with an understanding about the significance and contribution of engineering and technology to the society and the professional role of engineers in the society. The topics to be covered include, but not limited to, Engineering, Innovation, Social and Economic Development; Role of Engineering in Society; Engineering Problems, Challenges and Opportunities; Project Management, Environment, Energy, Standards and Regulatory Issues; Engineering Ethics, Good Engineers and Engineer Leaders; Entrepreneurship, Business, IP and Enterprise Management; and Economic Development in China. The primary objective of this course is to imbue engineering students with a sense of social responsibility and pride in practicing engineering profession to the betterment of mankind.",
-      "enrollment_requirement": "Not for students who have taken ENGG2601.",
+      "enrollment_requirement": "Not for students who have taken ENGG2601 or MASE2601.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -700,14 +700,14 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Electronic Engineering",
       "academic_org": "Dept of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of the course, students will be able to:\n\n1. examine the impact of technology on the society and the environment.\n\n2. recognize the contributions of engineers to the society\n\n3. appreciate the design and innovation aspects of engineering profession\n\n4. acquire the skills and tools to manage engineering projects\n\n5. learn the skills for working in a team\n\n6. understand and state the value of being an ethical engineer and a responsible citizen",
+      "learning_outcomes": "Upon successful completion of the course, students will be able to:\n1. examine the impact of technology on the society and the environment.\n2. recognize the contributions of engineers to the society\n3. appreciate the design and innovation aspects of engineering profession\n4. acquire the skills and tools to manage engineering projects\n5. learn the skills for working in a team\n6. understand and state the value of being an ethical engineer and a responsible citizen",
       "course_syllabus": "Engineering, Innovation, Social and Economic Development; Role of Engineering in Society; Engineering Problems, Challenges and Opportunities; Project Management, Environment, Energy, Standards and Regulatory Issues; Engineering Ethics, Good Engineers and Engineer Leaders; Entrepreneurship, Business, IP and Enterprise Management; and Economic Development in China.",
       "assessment_types": {
         "Discussion": "40",
         "Essays": "20",
         "Presentation": "40"
       },
-      "feedback_evaluation": "1. Student course evaluation\n\n2. Student/teacher meetings",
+      "feedback_evaluation": "1. Student course evaluation\n2. Student/teacher meetings",
       "required_readings": "NA",
       "recommended_readings": "NA"
     },
@@ -1011,7 +1011,7 @@
         }
       ],
       "description": "This course is an introduction to robotics, perception, and artificial intelligence, with concentration on robotic systems empowered with perception and intelligence for real-world applications. We start with the fundamentals of robotics and artificial intelligence. The technical topics include electronic and mechanical components of robots, sensors and robotic vision, sensor data fusion and evaluation, signal and image processing. The knowledge areas cover robotics, machine learning and artificial intelligence, robot motion and task planning, robotic programming, and human-robot interaction. It aims to help students establish a wide-spectrum understanding about the principles and the fundamental knowledge of robotics, perception and intelligence in a real-world context.",
-      "enrollment_requirement": "Not for students who have taken MAEG3060 or ESTR3408 or ESTR3216; Prerequisite: ENGG2030 or with the consent of the instructor.",
+      "enrollment_requirement": "Not for students who have taken MAEG3060 or ESTR3408 or ESTR3216; Prerequisite: ENGG2030 or ESTR2206 or with the consent of the instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1795,7 +1795,7 @@
         }
       ],
       "description": "This course is designed for electronic engineering students to learn how to design basic antennas for wireless terminals and to understand the wireless systems from radio propagation perspectives. It starts with the review of Maxwell’s equations and their solutions for far fields. The course discusses the basic concepts for various electrical small and resonant type antennas, antenna array and teaches how to design practical antennas for wireless terminals. The basic characteristics of radio propagation are studied for a better understanding of modern wireless communication systems, for examples, satellite communications and mobile technology. This course includes mandatory laboratory modules.",
-      "enrollment_requirement": "Co-requisite: ELEG3213 or consent of the instructor.",
+      "enrollment_requirement": "Co-requisite: ELEG3213 or ESTR3214 or consent of the instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2622,7 +2622,7 @@
         }
       ],
       "description": "Students will conduct research study of a topic in Electronic Engineering under the supervision of a teaching staff.",
-      "enrollment_requirement": "Not for students who have taken ENGG3920",
+      "enrollment_requirement": "",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -3261,7 +3261,7 @@
         }
       ],
       "description": "The emergence of integrated photonics represents a paradigm shift in integrated circuit (IC) technology, moving beyond the limitations of Moore's Law and introducing the era of \"More than Moore.\" This course provides a comprehensive exploration of integrated photonic components and circuit design through a hands-on, experiential learning approach. Students will gain both theoretical knowledge and practical skills in designing and prototyping photonic integrated circuits. Key topics include the fundamentals and applications of integrated photonic components and circuits, design and layout using open-source, script-driven software, hands-on practice with open-source lab instrumentation and automation tools, and the integration of a rapid prototyping silicon photonic foundry process design kit. This course equips students with the tools and techniques necessary to navigate the rapidly advancing field of integrated photonics by completing a full “design-fabricate-test cycle” training process.\n\nStudents are expected to have some basic knowledge in photonics.",
-      "enrollment_requirement": "Pre-requisite: ELEG3213 or consent of the instructor.",
+      "enrollment_requirement": "",
       "course_attributes": "Experiential Learning Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -4955,7 +4955,7 @@
         }
       ],
       "description": "This course covers the theory of optical waveguides and design techniques for optical waveguides. Numerical methods (FDTD, BPM, etc.) for optical waveguide simulations and their limitations are introduced. The use of commercial simulation and CAD layout tools in designing optical waveguide devices such as directional couplers and splitters is taught. Other course content includes coupling techniques and losses in optical waveguides, nonlinear effects and their applications, optical modulators and optical interconnects, technology trends and recent applications.",
-      "enrollment_requirement": "For ELEG RPG & TPG students, ELEG undergraduate major and minor students as elective course",
+      "enrollment_requirement": "For ELEG RPG & TPG students, ELEG undergraduate major and minor students as elective course;Not for students who have taken ELEG5773",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -5146,7 +5146,7 @@
         }
       ],
       "description": "This course covers principles and practice of state-of-the-art micro- and nanofabrication technology. These fabrication techniques are the foundation to build integrated devices and circuits with micro- and nano-sized features, and thus are widely employed in various areas such as nanoelectronics, nanophotonics, nanomechanics, and microfluidics. Students will learn to use the fabrication and characterization equipment available in the public cleanroom of the faculty of engineering. The top-down nanofabrication processes, such as lithography, etching, and thin-film deposition, etc. will be addressed.",
-      "enrollment_requirement": "For ELEG RPG students, ELEG undergraduate major and minor students as elective course",
+      "enrollment_requirement": "For ELEG RPG students, ELEG undergraduate major and minor students as elective course;Not for students who have taken ELEG5771",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -5311,32 +5311,6 @@
     },
     {
       "subject": "ELEG",
-      "course_code": "5726",
-      "title": "Power Management IC Design",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers design, simulation and measurement methods of power management integrated circuits. The course content includes bandgap voltage references, linear regulators, low-dropout regulators and switching-mode regulators. The course also introduces circuit layout design and floor planning.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Erg and MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "By the end of the course, students should be able to\n\nBy the end of the course, students should be able to\n\n- Have an overall picture of the history, progress, and importance of power-management circuits.\n\n- Understand the principle of operation of typical voltage regulators\n\n- Perform circuit designs of voltage reference, linear regulator and switching-mode power converter.\n\n- Understand the design tradeoffs of the specifications.",
-      "course_syllabus": "1. Introduction: Overviews of Applications of Power-Management ICs, Reasons on Separated Power and Voltage Regulation, Voltage Reference, Linear Regulator, Switched-Mode Regulator and Charge Pump.\n2. Voltage reference: Requirements of a Voltage Reference, Bandgap Voltage Reference – Basics, Bandgap Voltage Reference – Theory, Design Considerations – BJT Ratio, Base Resistance, Base Current and Resistor, Error-Amplifier-Based Bandgap, Power-Supply Rejection Ratio, Line Transient Response, Load Transient Response, Startup and Stability, Measurement.\n3. Linear regulator: Concept of Linear Regulator, Structure of Low-Dropout Regulator (LDO), Working Principle and Power Efficiency, Dropout Voltage and Power-Transistor Sizing, Load Regulation, Line Regulation, Temperature Coefficient, Load Transient Response, Output Noise, Power-Supply Rejection Ratio, Stability and Compensation, LDO Design Dependence & Output Accuracy, Circuit Implementation, Floor planning and Measurement.\n4. Switched-Mode Regulator: Trade-offs between different types of regulators, Operation Principle of Switched-Mode Regulator, Asynchronous vs Synchronous Regulator, Switched-Inductor Regulator with Ideal Components, CCM vs DCM Operation, Available Inductors, Available Capacitors, Output Ripple with non-ideal component, Efficiency of Switched-mode Regulator, Important Waveforms of a Buck Regulator, Other Switched-Inductor Regulators, Efficiency as a function of MOS Switch Resistance, Dead-time Control, Turn-on and –off Transition, Dead-time Circuit, Buffer Design to Drive Large Capacitive Load, Feedback Control, Simple Voltage-Mode Feedback Control, Hysteretic Voltage-Mode Control, Hysteretic Comparator, Voltage Comparator Design, PWM (Pulse-Width-Modulation) Control, PWM Generator, Clock & Ramp Generator, Set-Dominant RS Flip-Flop, Error Amplifier and Compensator, Dominant Pole Compensation, Layout Floor Planning and Power Transistor Connection.\n5. Charge pump: Concept of Charge Pump, Voltage Doubler, Voltage Divider, Voltage Inverter, Voltage Tripler, 1.5 Charge Pump, Output Voltage and Efficiency of a Voltage Doubler, Switches and Gate Drives of a Voltage Doubler and Applying the Deadtime Circuit to Voltage Doubler.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "35",
-        "Short answer test or exam": "15"
-      },
-      "feedback_evaluation": "We welcome students' comments and feedback on the course\n\nWe welcome students' comments and feedback on the course. There are four main channels for collecting students' feedback.\n\n1. Mid-term course evaluation: An informal evaluation questionnaire conducted on the 4th week after the course started. The questionnaire covers the following areas:\n\n1. 1 Course organization and objectives\n\n1. 2 Understanding fundamental content\n\n1. 3 Pace of teaching\n\n1. 4 Method of lecture delivery\n\n1. 5 Overall satisfaction\n\n2. Informal online contact: Students can write their comments via email or newsgroup. Course instructor will follow up with the comments.\n\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students' needs.\n\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
-      "required_readings": "- \n\n- P. Gray, P.J. Hurst, S.H. Lewis and R.G. Meyer, Analysis and Design of Analog Integrated Circuits, 4th ed., Wiley, 2001.\n\n- B. Razavi, Design of Analog CMOS Integrated Circuits, McGraw Hill, 2001.\n\n- P.E. Allen and D.R. Holberg, CMOS Analog Circuit Design, 2nd ed., Oxford, 2002.\n\n- D. Johns and K. Martin, Analog Integrated Circuit Design, Wiley, 1997.\n\n- A. Hastings, The Art of Analog Layout, New Jersey: Prentice Hall, 2001.",
-      "recommended_readings": "N/A\n\nN/A"
-    },
-    {
-      "subject": "ELEG",
       "course_code": "5731",
       "title": "Radio Frequency and Wireless Systems",
       "credits": "3.00",
@@ -5392,86 +5366,6 @@
       "feedback_evaluation": "We welcome students’ comments and feedback on the course. There are four main channels for collecting students’ feedback.\n\n1. Mid-term course evaluation: An informal evaluation questionnaire conducted on the 4th week after the course started. The questionnaire covers the following areas:\n1. 1 Course organization and objectives\n1. 2 Understanding fundamental content\n1. 3 Pace of teaching\n1. 4 Method of lecture delivery\n1. 5 Overall satisfaction\n\n2. Informal online contact: Students can write their comments via email or newsgroup. Course instructor will follow up with the comments.\n\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students’ needs.\n\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
       "required_readings": "Text book: “Antennas and Propagation for Wireless Communication Systems”, by Simon R. Saunders",
       "recommended_readings": ""
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5732",
-      "title": "RF Circuits and Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces modern RF technologies. The course content includes RF circuit design methodologies, microwave CAD tools, measurement techniques, RF power amplifier design, RF transceiver architecture, noise & linearity study of RF systems and modern wireless technologies.",
-      "enrollment_requirement": "For ELEG RPG and TPG students as elective course",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "By the end of the course, students will be able to\n\nBy the end of the course, students will be able to\n\n- Have a basic understanding of some modern wireless communication systems and technologies.\n\n- Understand the basic operating principles of RF circuits.\n\n- Design, simulate, construct and conduct measurement of RF circuits.\n\n- Perform the design of various RF amplifiers for different applications.\n\n- Understand the design and implementation of various RF transceiver architectures.\n\n- Understand the noise and linearity issues relating to RF systems & applications.",
-      "course_syllabus": "Introduction to RF technologies; RF circuit design methodologies; Microwave CAD tools; Measurement techniques; RF power amplifier design; RF transceiver architecture; Noise & Linearity study of RF systems; Modern wireless technologies.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "30",
-        "Short answer test or exam": "20"
-      },
-      "feedback_evaluation": "By the end of the course, students should be able to\n\nWe welcome students’ comments and feedback on the course. There are three main channels for collecting students’ feedback.\n\n1. Course evaluation: A formal evaluation questionnaire conducted near the end of the course. The questionnaire covers the following areas:\n\n1. 1 Course organization and objectives\n\n1. 2 Understanding fundamental content\n\n1. 3 Pace of teaching\n\n1. 4 Method of lecture delivery\n\n1. 5 Overall satisfaction\n\n2. Lecture: Students can pass their feedback and problem about the course to the instructor from time to time.\n\n3. Informal online contact\n\nStudents can write their comments via email or newsgroup. Teaching assistants will follow up with the comments or pass the information to the course instructor if necessary.\n\n4. Individual consulting\n\nStudents are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students’ needs.",
-      "required_readings": "To be provided by the course teacher.",
-      "recommended_readings": "By the end of the course, students should be able to\n\n* *Text:**\n\nL. Bretchko, “RF Circuit Design Theory and Applications”, Prentice Hall, 2000.\n\n* *Reference book:**\n\n1. D. M. Pozar, “Microwave and RF Design of Wireless Systems”, John Wiley, 2005.\n\n2. M. M. Radmanesh, “Radio Frequency & Microwave Electronics illustrated”, Prentice Hall, 2001.\n\n3. B. Razavi, “RF Microelectronics”, Prentice Hall, 1998."
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5741",
-      "title": "Digital Processing of Speech Signals",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course starts with a review of digital signal processing fundamentals and a general introduction to speech communication. The course content includes speech production model, articulatory and acoustic properties of speech sounds, short-time speech analysis in time and frequency domains, linear predictive analysis of speech, spoken language systems, automatic speech recognition, text-to-speech.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Erg and MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "By the end of this course, students will be able to\n- explain the principles of human speech production\n- list the major categories of sounds in human speech and state their distinctive properties\n- identify periodicity in a time-domain speech waveform and its autocorrelation function\n- identify formants and pitch harmonics on a short-time power spectrum\n- state the process of computing short-time spectrum and explain the trade-off of time-frequency resolution\n- develop algorithms to compute short-time energy, zero-crossing rate and autocorrelation function\n- explain the principles of linear predictive analysis\n- explain the significance of LP filter system and excitation signal\n- explain the frequency spectrum derived from LP analysis\n- describe the architecture of a speech recognition system and explain the functions of its key components\n- describe the steps of feature extraction for speech recognition\n- state the differences between template-matching and probabilistic approaches to speech recognition\n- describe the operations of dynamic time warping and Viterbi algorithm\n- describe a hidden Markov model (HMM) and explain its usage in speech recognition\n- state the design criteria of an HMM based speech recognition system\n- describe the architecture of a text-to-speech system and explain the functions of its key components\n- state the major approaches to acoustic speech synthesis and discuss their advantages and disadvantages",
-      "course_syllabus": "Reviews of digital signal processing concepts. Fundamentals of speech science: acoustics, phonemics and phonetics. Discrete-time modelling of speech production. Speech analysis: short-term Fourier analysis, linear prediction and cepstral analysis. Speech coding techniques: waveform coders and vocoders. Speech recognition: dynamic time warping and Hidden Markov Models (HMM).",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "30",
-        "Short answer test or exam": "20"
-      },
-      "feedback_evaluation": "We welcome students’ comments and feedback on the course. There are four main channels for collecting students’ feedback.\n\n1. Mid-term course evaluation: An informal evaluation questionnaire conducted on the 4th week after the course started. The questionnaire covers the following areas:\n1. 1 Course organization and objectives\n1. 2 Understanding fundamental content\n1. 3 Pace of teaching\n1. 4 Method of lecture delivery\n1. 5 Overall satisfaction\n\n2. Informal online contact: Students can write their comments via email or newsgroup. Course instructor will follow up with the comments.\n\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students’ needs.\n\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
-      "required_readings": "Textbooks:\nL. Rabiner and R. Schafer, Digital Processing of Speech Signals, Prentice-Hall, Inc.\n\nReference books:\nX. Huang, A. Acero and H.-W. Hon, Spoken Language Processing: A Guide to Theory, Algorithm and System Development, Prentice-Hall.\nD. O’Shaughnessy, Speech Communications: Human and Machine, IEEE Press.",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5743",
-      "title": "Advanced Signal Processing for Communications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course starts with a background review before introducing the latest signal processing techniques in modern communications. The course content includes transmission of digital baseband signals, PCM, delta modulation, ISI, pulse shaping, partial response; least square optimal and adaptive filtering, LMS and RLS algorithms, adaptive equalizer and echo canceller; bandpass data transmission, binary and M-ary ASK, FSK, PSK and DPSK. The course also covers statistical detection theory, matched filter, multiplexing and multiple access, and wireless and personal communication systems.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon completion of the course, students are expected to have a good understanding of the basic principles and concepts for baseband and bandpass transmission of digital data. They should be able to comprehend the technical aspects of different signal formatting methods and digital modulation schemes. Through studying the bit error rate (BER) performance, students should be able to investigate how channel fading affects the performance of a digital transmission system. They should learn the effect of different multiplexing and multiple access techniques in terms of channel capacity performance and practical implementation details. Students should also be familiarized with the technologies and standards of the many wireless communication systems in use.",
-      "course_syllabus": "Background review. Transmission of digital baseband signals, PCM, ▲M, ▲PCM, ISI, pulse shaping, partial response. Least square optimal and adaptive filtering, LMS and RLS algorithms, adaptive equalizer and echo canceller. Bandpass data transmission, binary and M-ary ASK, FSK, PSK, DPSK. Statistical detection theory, the matched filter. Multiplexing and multiple access. Wireless and Personal Communication Systems.",
-      "assessment_types": {
-        "Essays": "15",
-        "Essay test or exam": "35",
-        "Others": "10",
-        "Presentation": "20",
-        "Short answer test or exam": "20"
-      },
-      "feedback_evaluation": "We welcome students’ comments and feedback on the course. There are four main channels for collecting students’ feedback.\n\n1. Mid-term course evaluation: An informal evaluation questionnaire conducted on the 4th week after the course started. The questionnaire covers the following areas:\n1. 1 Course organization and objectives\n1. 2 Understanding fundamental content\n1. 3 Pace of teaching\n1. 4 Method of lecture delivery\n1. 5 Overall satisfaction\n\n2. Informal online contact: Students can write their comments via email or newsgroup. Course instructor will follow up with the comments.\n\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students’ needs.\n\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
-      "required_readings": "To be provided by the course teacher.",
-      "recommended_readings": "1. Wireless Communications in the 21st Century, edited by Shafi, Ogose and Hattori, Wiley Interscience\n2. Introduction to Digital Communication, by Michael Pursley, Pearson-Prentice Hall\n3. Digital Signal Processin, by Sanjit Mitra, 3/e, McGraw-Hill\n4. Digital Signal Processing in Communication Systems, by Marvin Frerking, Springer Science\n5. Detection, Estimation, and Modulation Theory (Part I & II), by Harry L. Van Tress, Wiley Inter-Science\n6. Multiuser Detection, by Sergio Verdu, Cambridge University Press\n7. Adaptive Signal Processing Algorithms, by Victor Solo, Xuan Kong, Prentice Hall"
     },
     {
       "subject": "ELEG",
@@ -6224,12 +6118,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Electronic Engineering",
       "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Understand the fundamental principles of micro/nano-chip manufacturing.\n2. Understand the safety issues and precaution measures of micro/nano-chip manufacturing.\n3. Understand how to design the manufacturing processes according to the targeted applications.\n4. Understand how to evaluate the manufacturing quality.",
+      "course_syllabus": "General introduction\nCleanroom\nPhotolithography\nElectron-beam lithography\nSoft lithography\nDry etching\nWet etching\nThin-film deposition\nSample inspection",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "30",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "We welcome students’ comments and feedback on the course. There are four main channels for collecting students’ feedback.\n1. Mid-term course evaluation: An informal evaluation questionnaire conducted at the mid-term of this course covers the following areas:\na) Course organization and objectives;\nb) Understanding fundamental contents;\nc) Pace of teaching;\nd) Method of lecture delivery;\ne) Overall satisfaction.\n2. Informal online contact: Students can send their comments via email to the course instructor, and the course instructor will follow up.\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students’ needs.\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
+      "required_readings": "Michael Quirk and Julian Serda, Semiconductor Manufacturing Technology, Pearson, 2000.",
+      "recommended_readings": "• Gary S. May and Simon M. Sze, Fundamentals of Semiconductor Fabrication, Wiley, 2003.\n• Gary S. May and Costas J. Spanos, Fundamentals of Semiconductor Manufacturing and Process Control, John Wiley & Sons, 2006.\n• Stephen A. Campbell, The Science and Engineering of Microelectronic Fabrication, 2nd edition, Oxford University Press, 2001.\n• Stephen A. Campbell, Fabrication Engineering at the Micro- and Nanoscale, 4th edition, Oxford University Press, 2012."
     },
     {
       "subject": "ELEG",
@@ -6246,12 +6144,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Electronic Engineering",
       "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Through a combination of lectures, assignments, and projects, students will gain hands-on experience working with state-of-the-art tools and techniques for audio and music processing. By the end of the course, students will have a solid foundation in the latest techniques for audio and music processing using neural networks, and will be able to apply these techniques to real-world problems in the field.",
+      "course_syllabus": "1. Introduction: Audio and music problems.\n2. Audio features and human labels.\n3. Filtering, digital signal processing for audio processing (Assignment 1)\n4. Audio and music tagging with convolutional neural networks.\n5. Audio and music transcription with recurrent neural networks.\n6. Audio compression.\n7. Bridging audio and language: audio and music caption with sequence-to-sequence models (Assignment 2).\n8. Symbolic music generation.\n9. Audio and music generation: pipelines, vocoder, and autoregressive models.\n10. Audio and music generation with probabilistic models, such as diffusion models.\n11. Controllable audio and music generation from texts and multiple modalities (Assignment 3).\n12. Open problems and future.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Homework or assignment": "40"
+      },
+      "feedback_evaluation": "Tutorial: Tutorial sessions will be held several times in the term, in which students can pass their feedback and concerns about the course to the instructor or teaching assistant.\n\nInformal online contact: Students can write their comments via email, newsgroup, or Moodle e-learning platform. Instructor or teaching assistant will follow up with the comments.\n\nIndividual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students' needs.\n\nFaculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
+      "required_readings": "[1] John G. Proakis, Dimitris G. Manolakis, *Digital Signal Processing: Principles, Algorithms and Applications, Fourth Edition, Pearson, 2006*\n\n[2] Christopher Bishop, *Pattern Recognition and Machine Learning, Springer, 2006*\n\n[3] Charu C. Aggarwal, *Neural Networks and Deep Learning: A Textbook, Springer, 2023*",
+      "recommended_readings": "Publications about:\n\nDigital Signal Processing.\n\nPattern Recognition and Machine Learning."
     },
     {
       "subject": "ELEG",
@@ -6268,12 +6169,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Electronic Engineering",
       "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Understand fundamental physics of waveguides, optical materials, and photonic device structures used in photonic integrated circuits (PICs).\n\n2. Design basic photonic components and circuits using industry-standard simulation tools and evaluate their performance.\n\n3. Understand the fundamental principles of photonic chip manufacturing\n\n4. Understand the principle and assessment of emerging applications of photonic chips, including ultrafast optical communication, optical computing, sensing, and quantum photonics.",
+      "course_syllabus": "Introduction to photonic integrated circuits\n\nFundamentals of waveguides\n\nPassive optical devices\n\nActive optical devices\n\nSimulation and design tools\n\nManufacturing technology\n\nPhotonic circuits & system-level design\n\nApplications of photonic integrated circuits\n\nEmerging trends and future technologies",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "20",
+        "Presentation": "10",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "We welcome students’ comments and feedback on the course. There are four main channels for collecting students’ feedback.\n\n1. Mid-term course evaluation: An informal evaluation questionnaire conducted at the mid-term of this course covers the following areas:\n\n1. Course organization and objectives;\n2. Understanding fundamental contents;\n3. Pace of teaching;\n4. Method of lecture delivery;\n5. Overall satisfaction.\n\n2. Informal online contact: Students can send their comments via email to the course instructor, and the course instructor will follow up.\n\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students’ needs.\n\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
+      "required_readings": "* *Silicon Photonics Design**, Lukas Chrostowski and Michael Hochberg, Cambridge University Press 2015.",
+      "recommended_readings": "* *Silicon Photonics : An Introduction**, Reed, Graham T, and Andrew P Knights. Chichester: Wiley, 2004. Web.\n\n* *Fundamentals of Photonics**, Bahaa E. Saleh and Malvin C. Teich 3rd Edition, Wiley, 2019."
     },
     {
       "subject": "ELEG",

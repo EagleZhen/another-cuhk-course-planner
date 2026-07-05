@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T14:43:34.042291+00:00",
+    "scraped_at": "2026-07-04T19:46:30.358014+00:00",
     "subject": "STAT",
     "subject_title": "Statistics",
     "total_courses": 71,
@@ -5155,7 +5155,7 @@
         }
       ],
       "description": "The course serves to provide a bridge between the classroom and the real industrial world. Students will be required to complete a project assigned by a company or an organization on a part-time basis. The student will undertake a project under the joint supervision of an instructor and a member of the company or organization. Students will be required to give a final project presentation and submit a written report, on which their assessment will be based. Advisory: For majors only.",
-      "enrollment_requirement": "Prerequisite:STAT3011 or consent of instructor",
+      "enrollment_requirement": "",
       "course_attributes": "Capstone Course\nExperiential Learning Course\nInternship",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -5166,8 +5166,9 @@
       "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand and get a taste of the real industrial business;\n\n(2) learn communication skills among collaborators;\n\n(3) learn practical quantitative skills for statistics and data science;\n\n(4) conduct research on statistics and data science problems; and\n\n(5) learn presentation skills.",
       "course_syllabus": "The course serves to provide a bridge between the classroom and the real industrial world. Students will be required to complete a project assigned by a company or an organization on a part-time basis. The student will undertake a project under the joint supervision of an instructor and a member of the company or organization. Students will be required to give a final project presentation and submit a written report, on which their assessment will be based.",
       "assessment_types": {
+        "Homework or assignment": "25",
         "Internship or practicum": "50",
-        "Project": "50"
+        "Presentation": "25"
       },
       "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation;\n2. Student-staff consultative committee meeting(s).",
       "required_readings": "No reading requirement.",
@@ -5867,7 +5868,7 @@
         }
       ],
       "description": "Beginning with an introduction to the basic knowledge in multivariate and high-dimensional data analysis, including multinormal distribution, descriptive statistics, and graphical displays, this course focuses on the dimensionality reduction methods, which are commonly used in high-dimensional data analysis. Selected topics include principal component analysis, factor analysis and canonical correlation analysis.",
-      "enrollment_requirement": "For students in MSc in Data Science and Business Statistics; or MSc Risk Management Science and MSc in Risk Management Science and Data Analytics; or MSc in Advanced Studies in Statistics and Data Science",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics; or MSc Risk Management Science and Data Analytics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -5931,7 +5932,7 @@
         }
       ],
       "description": "Data Mining is a relatively new subject focusing on data collection, storing and automatic algorithms for finding patterns and relations in data. Because of the cheap computing power, the applications of data mining techniques are getting surprisingly board, including policymaking, business decision-making, marketing and stock trading. In this course we introduce the basic ideas and techniques of data mining. The students shall have hands on experience with interesting data sets and learn how to use some of the publicly available software to do data mining with their own data sets.",
-      "enrollment_requirement": "For students in MSc Data Science and Business Statistics\nPrerequisite: STAT5101 and STAT5106",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -5996,7 +5997,7 @@
         }
       ],
       "description": "This course deals with the analysis of time-to-event (survival or failure-time) data, which are commonly encountered in scientific investigations and risk management. It is being extensively used in clinical trials, biological and epidemiological studies, engineering, finance and social sciences. This course provides an opportunity for students to learn statistical lifetime probability distributions that are useful for modeling time-to-event data. The primary focus of the course is on the statistical methods designed for extraction of information from time-to-event data. This course introduces statistical theory and methodology for the analysis of time-to-event data from complete and censored samples with emphasizes on statistical lifetime distributions, types of censoring, graphical techniques, nonparametric/ parametric estimation, lifetime regression models and related topics.",
-      "enrollment_requirement": "For students in MSc Data Science and Business Statistics or MSc Risk Management Science\nPrerequisite: STAT5102 and STAT5106",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics or MSc Risk Management Science",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -6107,7 +6108,7 @@
         }
       ],
       "description": "This course provides a practically oriented treatment of modern methods for the analysis of categorical data. Topics include analysis of two-way contingency tables, logistic regression, log-linear model, generalized linear model, classification and regression tree method.",
-      "enrollment_requirement": "For students in MSc Data Science and Business Statistics or MSc Advanced Studies in Statistics and Data Science",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -6604,7 +6605,7 @@
         }
       ],
       "description": "This course deals with the methodology and applications of business and financial time series. Topics include statistical tools useful in analysing time series, models for stationary and non-stationary time series, seasonality, forecasting techniques, heteroskedasticity, ARCH and GARCH models, and multivariate time series.",
-      "enrollment_requirement": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics\nPrerequisite: STAT5101 and STAT5102",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics and MSc Risk Management Science and Data Analytics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -6771,7 +6772,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "The course introduces the basic principles, concepts and methodologies of official statistics and business statistics. The course is divided into two parts, “Official Statistics” and “Structural Equation Modelling”.",
-      "enrollment_requirement": "For students in MSc in Data Science and Business Statistics; or MSc in Risk Management Science and Data Analytics; or MSc in Advanced Studies in Statistics and Data Science",
+      "enrollment_requirement": "For students in MSc Data Science and Business Statistics; or MSc Risk Management Science and Data Analytics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -6804,11 +6805,11 @@
       "campus": "Main Campus",
       "academic_group": "Div of Statistics",
       "academic_org": "Div of Statistics",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students should be able to,\n\n(1) Understand how to conduct research on statistics or data science;\n\n(2) Understand how to handle the problems using the methodologies in statistics or data science;\n\n(3) Conduct research on statistics or data science problems; and\n\n(4) Learn presentation skills.",
+      "course_syllabus": "Please refer to the course outline.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
+      "feedback_evaluation": "1. Term-end course and teaching evaluation\n\n2. Staff-student Consultative Meeting",
+      "required_readings": "Please refer to the course outline.",
       "recommended_readings": ""
     },
     {

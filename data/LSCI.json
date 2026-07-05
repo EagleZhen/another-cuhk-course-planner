@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T12:31:05.938910+00:00",
+    "scraped_at": "2026-07-04T17:21:35.509522+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
     "total_courses": 97,
@@ -551,7 +551,7 @@
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Project",
+      "component": "Laboratory\nLecture",
       "campus": "Main Campus",
       "academic_group": "School of Life Sciences",
       "academic_org": "School of Life Sciences",
@@ -2205,7 +2205,7 @@
       "title": "Global Change Biology",
       "credits": "3.00",
       "terms": [],
-      "description": "This course will discuss the impact of global environmental changes on biological systems and their ecosystem services. We will focus on how global warming, and associated changes such as altered rainfall, sea level rise, and ocean acidification, have changed the biological communities of the Earth’s various ecosystems, from forests to coral reefs. The impact at biological levels from molecules to cells, organisms, populations, and communities will be explored. Models for projecting future changes in Earth systems, biological communities and ecosystem services under climate change will be introduced. While the major focus is on climate change, other aspects of global environmental change, such as habitat deterioration, will also be considered. Students are required to present case studies of global change biology based on latest research findings.",
+      "description": "The aim of this course is to introduce students to the ways in which environmental change affects biodiversity from organisms to ecosystems. Using this foundation, we will explore core responses of species and build up to the more complex responses of communities and ecosystems. This course will further students’ understanding of experimental research with a focus on how researchers evaluate current anthropogenic stressors and predict future ecological trajectories. Topics may include, but are not limited to, the contributions that human population growth and globalization have made to increases in greenhouse gases and associated climate change, biological invasions, land degradation, disease, and, ultimately, impacts on biological systems.",
       "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4230",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
@@ -2214,15 +2214,16 @@
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
       "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Knowledge\n• An understanding of fundamental topics in global change biology, including: the Earth system; changes in the physiology of organisms under altered environmental conditions; community and ecosystem responses; the human aspect; multiple stressors\n• A recognition of the links between impacts on different levels of biological organization; from molecules to cells, organisms, populations, and communities\n\nSkill\n• Development of generic skills necessary in Life Science fields including the ability to research a topic independently, find and synthesize information from literature, ask critical questions\n• An introduction to approaches used to project future climates and organism/ecosystem responses\n\nValue\n• An appreciation of current environmental changes that are unique relative to other periods in Earth history, and how these changes may impact ecosystem services that humans rely upon\n• Recognition that local human actions may mitigate largely-unmanageable effects of global change",
-      "course_syllabus": "I. Introduction – understanding the Earth system\n1. The Earth system and natural/historical drivers and patterns of change (both in terms of climate, and biological responses)\n2. Major features of present/future climate, including human-driven change (scenarios, models, validation, projections)\n3. Approaches to monitor current and anticipate future biological change\n\nII. Changes in organism physiology under altered conditions\n1. Photosynthesis\n2. Nutrient- and water-use efficiencies\n3. Growth and reproduction\n4. Phenology\n5. Plant/algal quality and defenses\n\nIII. Community and ecosystem impacts of human-driven change\n1. Population responses – e.g. range shifts\n2. Community responses – e.g. alteration of species interactions; composition and diversity; parasites and pathogens\n3. Ecosystem change – e.g. regime shifts; changes in net primary productivity, respiration, net ecosystem productivity, and nutrient cycling\n\nIV. The human aspect\n1. Anticipated impacts on humans – ecosystem services\n2. Implications for conservation (adaptation of strategies, connectivity and landscape management, species management)\n3. International policy (international climate policy, mitigation, carbon sinks and sources, assessing risks and designing solutions)\n\nV. Additional considerations – multiple stressors\n1. Non-climate change – e.g. habitat deterioration, pollution, over-fishing, species introductions, development\n2. Interactive effects and feedbacks\n3. Implications for management (rehabilitation and recovery)",
+      "learning_outcomes": "Upon successful completion of the course students should:\n\n- Have a basic understanding of large-scale environmental changes on earth; be able to compare and contrast causes of historical and contemporary changes in climate.\n\n- Be able to synthesize factors that influence core species responses and describe how contemporary human impacts are altering species distributions, abundance, and evolution.\n\nBe able to evaluate how global change can disrupt species interactions and to summarize the factors that contribute to ecosystem collapse and ecosystem resilience.",
+      "course_syllabus": "I. Introduction – understanding the Earth system\n1. The Earth system and natural/historical drivers and patterns of change (both in terms of climate, and biological responses)\n2. Major features of present/future climate, including human-driven change (scenarios, models, validation, projections)\n3. Approaches to monitor current and anticipate future biological change\n\nII. The core responses of organisms to altered conditions\n1. Range shifts and the global redistribution of species\n2. Phenotypic plasticity and mechanisms of acclimation\n3. Adaptive responses to environmental stressors\n4. Assessments of species vulnerability and extinction risk\n\nIII. The complex responses of ecosystems to human-driven change\n1. Community responses – e.g. alteration of species interactions; composition and diversity; parasites and pathogens\n2. Ecosystem change – e.g. regime shifts; changes in net primary productivity, respiration, net ecosystem productivity, and nutrient cycling\n\nIV. The human aspect\n1. Biodiversity and Society - understanding ecosystem services and valuations\n2. Implications for conservation (adaptation of strategies, connectivity and landscape management, species management)\n3. International policy (international climate policy, mitigation, carbon sinks and sources, assessing risks and designing solutions)",
       "assessment_types": {
-        "Essays": "60",
-        "Short answer test or exam": "40"
+        "Classwork": "30",
+        "Examination": "40",
+        "Project": "30"
       },
       "feedback_evaluation": "1. Feedback from course evaluation\n2. Discussion with students\n3. Self reflection of teacher(s)\n4. Feedback from Visiting Committee & regular program reviews",
       "required_readings": "Nil.",
-      "recommended_readings": "Hannah L. 2015. Climate Change Biology, 2nd edition, Academic Press, London UK, San Diego USA, Waltham USA, Oxford, UK\nNewman J.A., Anand M., Henry H.A.L., Hunt S., Gedalof Z. 2011. Climate Change Biology, CABI, Oxfordshire UK and Cambridge, USA"
+      "recommended_readings": "There is no textbook required, however the course draws heavily from:\n\n* Global Change Biology; Erica Bree Rosenblum; Oxford University Press.* Examples from the primary research literature are also used throughout the course with full citations included."
     },
     {
       "subject": "LSCI",
@@ -4347,11 +4348,15 @@
       "campus": "Main Campus",
       "academic_group": "Division of Life Sciences",
       "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
+      "learning_outcomes": "By the end of the course, students will be able to:\n\n- acquire core and in-depth knowledge in a particular field of life sciences\n\n- acquire skills in data analysis and scientific writing\n\n- strengthen skills in critical thinking, creativity, and scientific communication.",
+      "course_syllabus": "The specific content of this course varies depending on the students and instructors come up with. In general, it will involve meetings, progress reports and writing up a final research proposal/paper.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Essays": "60",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Course evaluation\n\nDiscussion with students",
+      "required_readings": "Relevant journal articles and other reading materials to be distributed by instructors.",
       "recommended_readings": ""
     },
     {
@@ -4922,10 +4927,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "35",
+                "enrolled": "36",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "964",
+                "available_seats": "963",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4948,10 +4953,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "28",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "971",
+                "available_seats": "970",
                 "status": "Open"
               },
               "class_attributes": "English only"

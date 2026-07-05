@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T09:54:35.859371+00:00",
+    "scraped_at": "2026-07-04T15:15:35.529287+00:00",
     "subject": "EESC",
     "subject_title": "Earth & Environmental Sci",
     "total_courses": 129,
@@ -141,12 +141,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. **Introduction to Environmental Monitoring with Handheld Computers:**\n\n* Understand the fundamentals of sensor technology and data acquisition.\n* Gain proficiency in programming small handheld computers, such as Raspberry Pi, for environmental applications.\n* Integrate hardware components (e.g., sensors) to create functional monitoring devices.\n\n2. **Air Quality Monitoring:**\n\n* Identify and measure key air pollutants (e.g., particulate matter, CO2, NOx) using handheld sensors.\n* Analyze air quality data to evaluate its implications on human and ecosystem health.\n* Assess the effectiveness of air quality policies and propose improvements using collected data.\n\n3. **Water Quality Monitoring:**\n\n* Measure water quality indicators such as pH, turbidity, temperature, and dissolved oxygen.\n* Design and conduct experiments to evaluate local water sources.\n* Propose evidence-based solutions to address water quality issues.\n\n4. **Data Analysis and Environmental Applications:**\n\n* Visualize and interpret environmental data using programming tools (e.g., Python)\n* Apply environmental data to real-world scenarios, such as urban pollution management and sustainable development.",
+      "course_syllabus": "1. Introduction to Raspberry Pi and Environmental Sensors:\n\n* Overview of Raspberry Pi hardware and software.\n* Basics of sensor integration and calibration.\n\n2. Air Quality Monitoring:\n\n* Principles of air quality measurement.\n* Hands-on project: Building a portable air quality monitoring device.\n\n3. Water Quality Monitoring:\n\n* Key indicators of water quality and their measurement.\n* Hands-on project: Building a portable water quality monitoring device.\n\n4. Data Analysis and Visualization:\n\n* Using Python for data visualization and interpretation.\n* Case studies on environmental data applications.\n\n5. Field Studies:\n\n* Deploying monitoring devices in real-world environments.\n* Analyzing collected data and presenting findings.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Fieldwork or field study": "50",
+        "Lab reports": "30",
+        "Project": "10"
+      },
+      "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: view and suggestions will be gathered from students.\n* Reflection of teacher",
+      "required_readings": "· Monk, S. (2021). *Programming the Raspberry Pi: Getting Started with Python*. McGraw-Hill Education. ISBN: 9781264257355.",
+      "recommended_readings": "· Brezonik, P. L., & Arnold, W. A. (2022). *Water Chemistry: The Chemical Processes and Composition of Natural and Engineered Aquatic Systems*. Oxford University Press. ISBN: 9780197604700.\n\n· Environmental Protection Agency (EPA). [*National Ambient Air Quality Standards*](https://www.epa.gov/criteria-air-pollutants/naaqs-table).\n\n· Monk, S. (2021). *Raspberry Pi Cookbook: Software and Hardware Problems and Solutions*. (4th Edition). ISBN-13: 978-1098130923\n\n· Cunningham, W. P. & Cunningham, M. A. (2021). *Environmental Science: A Global Concern*. 15th edition. McGraw-Hill Education. ISBN: 9781260590569."
     },
     {
       "subject": "EESC",
@@ -811,25 +816,25 @@
           ]
         }
       ],
-      "description": "EESC2160 is designed to provide students with a comprehensive understanding of minerals as fundamental building blocks of the Earth, their chemistry, occurrence, physical and chemical features, crystallography, as well as the formation and uses of naturally formed minerals, oil, and gas. The course also covers mining processes and management, exploring the interaction between natural resources and the environment, and their impact on the biological system. The course teaches students chemistry in the Solid Earth, occurrence, exploration and usage of natural resources like minerals, gas and oil. The course trains students with skills of identifying physical properties and chemical properties of natural forming minerals. Teachers will introduce techniques and technology in mining and extracting natural resources. Areas of interaction between natural resources and the environment, as well as the management of natural resources, will be elaborated in student’s problem-based learning sessions. Students are expected to equip knowledge and skills in understanding the real-world scenarios of the natural resources, and problem-solving skills in resource management practices and decision-making processes.",
-      "enrollment_requirement": "Pre-requisite: EESC2010 or ESSC2010",
+      "description": "EESC2160 is designed to provide students with a comprehensive understanding of minerals as fundamental building blocks of the Earth, their chemistry, occurrence, physical and chemical features, crystallography, as well as the formation and uses of naturally formed minerals, oil, and gas. The course also covers mining processes and management, exploring the interaction between natural resources and the environment, and their impact on the biological system. The course teaches students chemistry in the Solid Earth, occurrence, exploration and usage of natural resources like minerals, gas and oil. The course trains students with skills of identifying physical properties and chemical properties of natural forming minerals. Teachers will introduce techniques and technology in mining and extracting natural resources. Areas of interaction between natural resources and the environment, as well as the management of natural resources, will be elaborated in student’s problem-based learning sessions. Students are expected to equip knowledge and skills in understanding the real-world scenarios of the natural resources, and problem-solving skills in resource management practices and decision-making processes. These objectives align strongly with the understanding and pursuit of the United Nations Sustainable Development Goals, especially SDG#7 Affordable and Clean Energy, SDG#11 Raise the public awareness in urgent actions to combat climate change, and SDG#12 Promote responsibility in global environmental changes.",
+      "enrollment_requirement": "",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
+      "component": "Field Studies/Field-trip\nLecture\nInteractive Tutorial",
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "Upon completing this course, students will be able to:\n\n* Describe the rock-forming minerals in terms of their chemistry, structural characteristics, and physical properties.\n* Discuss the relationship between the chemical composition, structural features, and physical properties of minerals.\n* Describe the mineral assemblages commonly found in igneous, sedimentary, and metamorphic rocks.\n* Understand the formation processes and practical applications of natural resources, including minerals, oil, and gas.\n* Gain knowledge of mining processes and management techniques, including environmental considerations.\n* Analyze the interaction between natural resources and the environment, as well as their impact on biological systems.\n* Develop problem-solving skills through the application of natural resource management principles.",
-      "course_syllabus": "Course Content:\n\n1. Chemistry in the Solid Earth\n\n2. Minerals Formation and Exploration\n\n3. Physical and Mineral Properties of Naturally Formed Minerals\n\n4. Uses of Naturally Occurring Minerals\n\n5. Oil and Gas Formation and Exploration\n\n6. Interaction between Natural Resources and the Environment\n\n7. Interaction between Natural Resources and Biological Systems\n\n8. Problem-Based Learning of Natural Resources and Management",
+      "learning_outcomes": "Upon completing this course, students will be able to:\n\n* Describe the rock-forming minerals in terms of their chemistry, structural characteristics, and physical properties.\n* Discuss the relationship between the chemical composition, structural features, and physical properties of minerals.\n* Describe the mineral assemblages commonly found in igneous, sedimentary, and metamorphic rocks.\n* Understand the formation processes and practical applications of natural resources, including minerals, oil, and gas.\n* Gain knowledge of mining processes and management techniques, including environmental considerations.\n* Analyze the interaction between natural resources and the environment, as well as their impact on biological systems.\n* Develop problem-solving skills through the application of natural resource management principles.\n* Recognize the complexity and linkages among the natural resource exploration, associated impacts and environmental management.\n* Evaluate the needs of the present-day society and sustainable development challenges, contributing to the understanding and pursuit SDG#7 Affordable and Clean Energy, SDG#11 Raise the public awareness in urgent actions to combat climate change, and SDG#12 Promote responsibility in global environmental changes.",
+      "course_syllabus": "Course Content:\n\n1. Chemistry in the Solid Earth\n\n2. Minerals Formation and Exploration\n\n3. Physical and Mineral Properties of Naturally Formed Minerals\n\n4. Uses of Naturally Occurring Minerals\n\n5. Oil and Gas Formation and Exploration\n\n6. Interaction between Natural Resources and the Environment\n\n7. Interaction between Natural Resources and Biological Systems\n\n8. Problem-Based Learning of Natural Resources and Management\n\nCourse Activities:\n\nClassroom teaching: introduce the key topics\n\nLaboratory practical sessions: provide hands-on practice to study the prominent features of common minerals, ore minerals and gemstones\n\nField study: physically visit a mining site as a case study to understand the science and operation of extracting valuable natural resources and the challenges\n\nProblem-based learning: students are conducting research, discussion and presentation to a given issue of natural resources\n\nFinal Exam: Students take final exam to assess their understanding of the course contents",
       "assessment_types": {
-        "Discussion": "20",
         "Examination": "20",
+        "Fieldwork or field study": "20",
         "Lab reports": "40",
         "Presentation": "20"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: view and suggestions will be gathered from students.\n* Reflection of teacher",
-      "required_readings": "* Cornelis Klein, Barbara Dutrow (2007). **Manual of Mineral Science**, 23rd edition. John Wiley & Sons. ISBN: 0471721573/ 9780471721574\n\n* William D. Nesse, (2013). **Introduction to Optical Mineralogy**, 4th edition. Oxford University Press. ISBN: 0199846278/ 9780199846276.",
+      "required_readings": "* Frederick K. Lutgens, Edward J. Tarbuck (2015). **Essentials of Geology**, 12th edition. Pearson Education. ISBN: 9780321947734\n\n* Brian J. Skinner & Barbara W. Murck (2011). **The Blue Planet: An Introduction to Earth System Science**, 3rd edition. Wiley. ISBN: 9780471236436\n\n* Cornelis Klein, Barbara Dutrow (2007). **Manual of Mineral Science**, 23rd edition. John Wiley & Sons. ISBN: 0471721573/ 9780471721574\n\n* William D. Nesse, (2013). **Introduction to Optical Mineralogy**, 4th edition. Oxford University Press. ISBN: 0199846278/ 9780199846276.",
       "recommended_readings": "M. Darby Dyar & Mickey E. Gunter (2019). **Mineralogy and Optical Mineralogy**. Mineralogical Society of America. ISBN 9781946850027."
     },
     {
@@ -1704,7 +1709,7 @@
         }
       ],
       "description": "EESC3140 is designed to introduce students to the global distribution of elements and the chemistry of natural Earth's materials. The course focuses on understanding the chemical processes operating within the solid Earth and other planets, spanning from the past to the present. Emphasis is placed on developing quantitative and analytical skills in geochemistry. The course covers a wide range of topics, including fundamental principles of geochemical processes, thermal dynamics, phase transitions and the relationship between pressure, temperature, and composition in different geological materials, major elements, trace elements, rare Earth elements, element mobility and mineral stability, and the roles of different elements in Earth’s evolution. The course also introduces the role of minerals and rocks in supporting and influencing life and, how biological processes affect the chemical composition of Earth’s atmosphere, hydrosphere, and lithosphere. Students will be trained to acquire a comprehensive understanding of the formation and interaction of materials within the Earth. Students will learn about the geochemical processes involved and their implications for potential tectonic settings and surficial processes. By studying geochemical data and engaging in practical sessions, students will develop the skills to analyze and interpret the geochemical data, allowing them to discuss paleo-environments with possible tectonic models such as seafloor spreading, subduction and mountain building regimes.",
-      "enrollment_requirement": "Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100)",
+      "enrollment_requirement": "Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100) or permission of instructor",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1713,16 +1718,16 @@
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
       "learning_outcomes": "Students are expected to gain the following abilities:\n\n1. Understanding the chemical processes operating within the solid Earth.\n2. Applying geochemical concepts and techniques to real-world scenarios\n3. Discussing and interpreting paleo environments using possible tectonic models, fostering critical thinking and problem-solving skills\n4. Summarizing information in a clear, concise and logical manner in the assignments and exams to understand geologic processes, paleo-environments and present geomorphology\n5. Working independently and self-study\n6. Working in a team and discuss with teammates.",
-      "course_syllabus": "Topics cover:\n\n* Introduction to geochemistry (global distribution of elements) (1)\n* Thermal dynamics (2)\n* Phase rules + phase diagrams (8)\n* Major elements\n* Trace elements\n* Rare Earth Elements (2)\n* Oxidation and reduction (2)\n* Stable isotopes (2)\n* Radioactive isotopes (Geochronology) (2)\n* Geobiochemistry (1)\n* Environmental geochemistry (1)",
+      "course_syllabus": "Topics cover:\n\n* Introduction to geochemistry (1.5)\n* State of matters (2.5)\n* Major and minor elements (2)\n* Trace elements (2)\n* Isotope geochemistry (1)\n* Modelling of Earth processes (1)\n* Phase equilibrium studies and processes of crystallisation, melting, and metamorphic reactions (4)\n* Interactions among the lithosphere, hydrosphere, biosphere, and atmosphere (2)\n* Water-rock interaction & carbonate geochemistry (2)\n* Weathering and mineral reactions (2)\n* Biogeochemical cycles (1)\n* Biosphere (1)",
       "assessment_types": {
-        "Classwork": "20",
+        "Essays": "30",
         "Examination": "30",
         "Homework or assignment": "30",
-        "Project": "20"
+        "Participation": "10"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: view and suggestions will be gathered from students.\n* Reflection of teacher",
-      "required_readings": "* Gill, R. (2015). Chemical Fundamentals of Geology and Environmental Geoscience. United Kingdom: Wiley.\n\n* Rollinson, H. R., Rollinson, H., Pease, V. (2021). Using Geochemical Data: To Understand Geological Processes. Singapore: Cambridge University Press.\n\n* White, W. M. (2020). Geochemistry. United Kingdom: Wiley. Sahai, N., Kaddour, H., & Dalai, P. (2016). The transition from geochemistry to biogeochemistry. *Elements*, *12*(6), 389-394.\n\n* Shock, E. L., & Boyd, E. S. (2015). Principles of geobiochemistry. *Elements*, *11*(6), 395-401.",
-      "recommended_readings": "Stephen Edwards, Karen Hudson-Edwards, Joe Cann, John Malpas, Costas Xenophontos, (2010). **Cyprus (Classic Geology in Europe): Volume 7**, 2010. Terra Publishing."
+      "required_readings": "* Gill, R. (2015). Chemical Fundamentals of Geology and Environmental Geoscience. United Kingdom: Wiley.\n\n* Rollinson, H., Pease, V. (2021). Using Geochemical Data: To Understand Geological Processes. Singapore: Cambridge University Press.\n\n* McSween, Jr., H. Y., Richardson, S. M., Uhle, M. E. (2003). Geochemistry: Pathways and Processes. United States: Columbia University Press.\n\n* Sahai, N., Kaddour, H., & Dalai, P. (2016). The transition from geochemistry to biogeochemistry. Elements, *12*(6), 389-394.\n\n* Shock, E. L., & Boyd, E. S. (2015). Principles of geobiochemistry. Elements, *11*(6), 395-401.",
+      "recommended_readings": "* Rollinson, H., Pease, V. (2021). Using Geochemical Data: To Understand Geological Processes. Singapore: Cambridge University Press.\n* Sahai, N., Kaddour, H., & Dalai, P. (2016). The transition from geochemistry to biogeochemistry. Elements, *12*(6), 389-394."
     },
     {
       "subject": "EESC",
@@ -1789,7 +1794,7 @@
           ]
         }
       ],
-      "description": "This course introduces observations of and physical principles governing the circulation of the Earth’s atmosphere in relation to weather and climate. The topics covered include atmospheric composition and structure, convection, fundamentals of atmospheric motions, and the basic principles for weather and climate modeling. Physical principles covered include basic conservation laws, balanced flows, atmospheric thermodynamics, circulation and vorticity, atmospheric waves, and theories for various weather systems.",
+      "description": "This course explores the fundamental dynamical processes that govern atmospheric motion, with a focus on the physical mechanisms driving weather systems and large-scale circulation. Building on foundational fluid dynamics, students will develop a deeper understanding of the equations of motion and their applications to atmospheric phenomena.",
       "enrollment_requirement": "1) Pre-requisite: (EESC2020 or ESSC2020) or (MATH2550 or EESC2520 or PHYS2051) or permission of instructor.\n2) Not for students who have taken ESSC3200.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -1798,18 +1803,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "At the completion of this course, the students will be able to\n\n1) Gain fundamental concepts of atmospheric thermodynamics;\n\n2) Understand fundamental motions in the atmosphere;\n\n3) Develop the ability to analyze and explain observed atmospheric phenomena.\n\n(Course outcomes as related to Programme Learning Outcomes) -- The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principle, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students also can acquire a responsible attitude in study and work, and have motivation for life-long learning.",
-      "course_syllabus": "* Basic conservation laws\n+ Fundamental forces, rotating frame, spherical coordinate, continuity equation, thermodynamic equation\n* Elementary applications of basics equations\n+ Scale analysis, hydrostatic approximation, isobaric coordinates\n* Thermodynamics,\n+ Gas laws, 1st and 2nd laws of thermodynamics, convection\n* Circulation and vorticity\n+ Kevin circulation theorem, vorticity, Ertel potential vorticity\n* Atmospheric waves\n+ Perturbation method, gravity waves, Rossby waves\n* Introduction to qusai-geostrophic theory\n+ Qusai-geostrophic approximation, baroclinic disturbances\n* Weather systems\n+ Extratropical cyclones",
+      "learning_outcomes": "At the completion of this course, the students will be able to\n\n* Recall and explain the fundamental equations and physical principles governing atmospheric motion.\n* Apply key dynamical models, such as the shallow water and quasi-geostrophic equations, to analyze atmospheric flows.\n* Analyze wave phenomena and instabilities, including Rossby waves, gravity waves, and baroclinic instability.\n* Evaluate the interactions between waves and mean flows, and assess their role in shaping atmospheric circulation.\n* Interpret and communicate insights from weather-in-a-tank experiments to illustrate complex atmospheric dynamics.",
+      "course_syllabus": "1. Fundamentals Refresher – Review of basic fluid dynamics equations, Cartesian approximation on a tangent plane, and the Boussinesq approximation for small density variations.\n2. Shallow Water Equations – Derivation and applications in modeling large-scale atmospheric flows.\n3. Quasi-Geostrophic Motion – Balance approximations and their role in midlatitude dynamics.\n4. Rossby Waves – Planetary wave dynamics and their implications for weather patterns.\n5. Gravity Waves – Generation and propagation.\n6. Barotropic and Baroclinic Instability – Mechanisms of atmospheric instability and storm development.\n7. Wave-Mean-Flow Interactions – Feedbacks between waves and background flow.\n8. Vorticity Dynamics – Absolute, relative, and potential vorticity in atmospheric motion.\n9. Tropical Circulation – Dynamics of the Hadley cell and its thermodynamic and hydrodynamic constraints.\n10. Extratropical Circulation – Dynamics of Ferrel cell and jet streams.\n11. Wave Diagnostics – Analyzing wave source, waveguide, and wave propagation.\n12. Wave Activity and Blocking – Understanding persistent weather pattern dynamics using wave activity.",
       "assessment_types": {
-        "Essay test or exam": "30",
-        "Homework or assignment": "15",
-        "Project": "20",
-        "Participation": "5",
-        "Short answer test or exam": "30"
+        "Examination": "25",
+        "Homework or assignment": "25",
+        "Lab reports": "25",
+        "Short answer test or exam": "25"
       },
       "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
-      "required_readings": "1. J. R. Holton and G. J. Hakim, 2012: An Introduction to Dynamic Meteorology. Fifth Edition, Academic Press.",
-      "recommended_readings": "1. Wallace, J. M., and P. V. Hobbs, 2006: Atmospheric Science: An Introductory Survey. Second Edition, Academic Press.\n2. J. Marshall and A. Plumb, 2008: Atmosphere, Ocean and Climate Dynamics, An Introductory Text, First Edition, Academic Press."
+      "required_readings": "* Geoffrey K Vallis, 2019: Essentials of Atmospheric and Oceanic Dynamics (1st edition)",
+      "recommended_readings": "* J. Marshall and A. Plumb, 2008: Atmosphere, Ocean and Climate Dynamics, An Introductory Text, First Edition, Academic Press."
     },
     {
       "subject": "EESC",
@@ -2378,7 +2382,7 @@
     {
       "subject": "EESC",
       "course_code": "3520",
-      "title": "Ecotoxicology and Environmental Management",
+      "title": "Quantitative Methods in Environmental Management",
       "credits": "3.00",
       "terms": [
         {
@@ -2414,8 +2418,8 @@
           ]
         }
       ],
-      "description": "The course introduces various types of chemical contaminants and their adverse effects on animals, humans and ecosystems, and environmental management strategies. It provides an overview of ecotoxicology principles, sources, chemical nature, fate of contaminants, and their interaction and impacts with the ecosystem, and the living organisms in the environment. It also relates ecotoxicology to risk assessment including assessment, monitoring, management and protection of the environment from toxicants.\n\nStudents will gain insights into the impacts of pollutants on aquatic and terrestrial ecosystems. They will also delve into sustainable environmental management strategies, including pollution prevention, remediation, and ecological risk assessments.",
-      "enrollment_requirement": "Not for students who have taken ENSC3520. Pre-requisite: EESC2515 and LSCI1002, or permission of the instructor.",
+      "description": "This course provides a comprehensive exploration of environmental management strategies aimed at mitigating the impact of environmental hazards on ecosystems and human health. Emphasizing quantitative methods, the curriculum covers environmental regulations, ethical considerations, monitoring techniques, ecological risk assessment, climate change impacts, sustainable resource management, and the application of quantitative tools such as decision support systems, ecometrics, and stochastic empirical loading models. Through case studies and practical applications, students will develop the skills necessary to design and implement effective environmental management plans that promote sustainability and protect natural resources.",
+      "enrollment_requirement": "Not for students who have taken ENSC3520. Pre-requisite: EESC2270 or permission of the instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2423,17 +2427,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "1. Explain the major concepts in ecotoxicology study, including hazard identification, exposure assessment, dose-response assessment.\n2. Discuss the attributes, characteristics, and fate of major classes of toxicants.\n3. Interpret the mechanisms of interaction and impacts of toxicants at multiple levels of the ecosystem.\n4. Analyze environmental toxicants in ecotoxicology research.\n5. Assess and evaluate environmental risks associated with toxicants.",
-      "course_syllabus": "Part I: Approaches and Methods\n\n1. General Principle of Ecotoxicology 1,5,6,7\n2. Contaminant Uptake and Bioaccumulation1,6,7\n3. Detection Methods: Analytical and Bioassay 1,3,7\n4. Ecotoxicological Studies Models 2,3\n\nPart II: Toxicity of individual substances\n\n5. Heavy Metals 1,5,7\n6. Organic Compounds 1.7\n7. Pesticides 1,4,5,6\n8. Ionizing Radiation1,4,7\n9. Natural Toxins 1\n\nPart III: Environmental Management\n\n10. Environmental Epidemiology 1\n11. Regulatory Ecological Risk Assessment 1,6,7,8\n12. Recovery of Contaminated Sites 7",
+      "learning_outcomes": "1. **Assess the Impact of Environmental Hazards**: Evaluate the effects of environmental hazards on human health, wildlife, and ecosystems, considering factors such as toxicity, exposure pathways, and cumulative impacts.\n2. **Apply Quantitative Decision Tools:** Utilize quantitative decision-making tools to analyze complex environmental issues, evaluate alternative solutions, and make informed, data-driven decisions that promote sustainable environmental management practices.\n3. **Develop and Implement Environmental Management Strategies**: Design and apply effective approaches for pollution prevention, remediation, and sustainable resource management to mitigate environmental contamination.\n4. **Conduct Environmental Risk Assessments**: Identify potential environmental hazards, assess associated risks, and prioritize actions to protect environmental and public health.\n5. **Understand Regulatory Frameworks and Compliance**: Interpret and apply environmental laws, regulations, and standards to ensure compliance and promote environmental stewardship.\n6. **Communicate Environmental Information Effectively**: Present complex environmental data and management plans clearly to diverse audiences, facilitating informed decision-making and stakeholder engagement.",
+      "course_syllabus": "1. Introduction to Environmental Management and Chemical Contaminants\n2. Environmental Regulations and Policies\n3. Environmental Ethics and Social Responsibility\n4. Environmental Monitoring and Data Analysis\n5. Ecological Risk Assessment\n6. Climate Change and Environmental Management\n7. Sustainable Resource Management\n8. Application of Quantitative Tools in Environmental Management\n9. Environmental Communication and Advocacy\n10. Case Studies in Environmental Management\n11. Future Directions in Environmental Management",
       "assessment_types": {
         "Classwork": "20",
         "Examination": "40",
-        "Project": "30",
+        "Presentation": "30",
         "Test or quiz": "10"
       },
-      "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Suggestions from alumni who took the course\n4. Reflection of teacher",
-      "required_readings": "1. Cockerham, L. G., and Barbara S. Shane. Basic Environmental Toxicology. Boca Raton: Routledge, 2018.\n2. Gruiz, Katalin, T. (Tamas) Meggyes, and Eva Fenyvesi, eds. Environmental Toxicology. London: Taylor & Francis Group, 2015.\n3. Abal, Paula et al. Environmental Toxicology. Ed. Luis M. Botana. Berlin: De Gruyter, 2018.\n4. Jindal, Tanu., ed. New Frontiers in Environmental Toxicology. 1st ed. Cham: Springer International Publishing, 2022.\n5. Rose, John. Environmental Toxicology: Current Developments. Amsterdam: Gordon and Breach Science Pub., 1998.\n6. Yu, M.-H., Tsunoda, H., & Tsunoda, M.. Environmental Toxicology: Biological and Health Effects of Pollutants, Third Edition (3rd ed.). 2012. <https://doi.org/10.1201/b11677>\n7. Campbell, Peter G. C. et al. Ecotoxicology. Cambridge: Cambridge University Press, 2022.",
-      "recommended_readings": "1. Levin, Simon A. et al., eds. Ecotoxicology: Problems and Approaches. 1st ed. 1989. New York, NY: Springer New York, 1989.\n2. Lu, Yonglong, Pei Wang, and Jingjing Yuan. Ecological Risks of Emerging Pollutants in Urbanizing Regions. Singapore: Springer Singapore Pte. Limited, 2023."
+      "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: views and suggestions will be gathered from students\n3. Reflection of teacher",
+      "required_readings": "1. Theodore, M. K., & Theodore, L. (2021). *Introduction to environmental management* (2nd ed.). CRC Press.\n2. Lame, M., & Marcantonio, R. (2022). *Environmental Management: Concepts and Practical Skills*. Cambridge: Cambridge University Press.",
+      "recommended_readings": "1. Cameletti, M., & Finazzi, F. (Eds.). (2018). *Quantitative methods in environmental and climate research*. Springer Nature Switzerland AG. <https://doi.org/10.1007/978-3-030-01584-8>\n2. Anderson, C. W., Barnett, V., Chatwin, P. C., & El-Shaarawi, A. H. (Eds.). (2002). *Quantitative methods for current environmental issues*. Springer-Verlag London Limited. <https://doi.org/10.1007/978-1-4471-0657-9>"
     },
     {
       "subject": "EESC",
@@ -2652,7 +2656,7 @@
     {
       "subject": "EESC",
       "course_code": "3600",
-      "title": "Ecosystems and Climate",
+      "title": "Ecological Climatology",
       "credits": "3.00",
       "terms": [
         {
@@ -2786,7 +2790,7 @@
     {
       "subject": "EESC",
       "course_code": "3601",
-      "title": "Principles of Ecosystems and Climate",
+      "title": "Principles of Ecological Climatology",
       "credits": "2.00",
       "terms": [
         {
@@ -2974,7 +2978,7 @@
           ]
         }
       ],
-      "description": "This course includes the science behind the global warming issue, how the public views the issue and the critical thinking needed to analyze the evidence seen in the media/articles from the point of view of scientists. The world energy use, which is considered to be the cause of global warming, and the impacts are discussed in the course. In this course, students will learn about the radiation budgets/balance in the atmosphere, possible climate forcings that can upset the energy balance, how the earth’s global average temperature is measured, why global warming is described as “the biggest hoax” in human history, observations from the ocean and cryosphere and popular environmental issues/arguments discussed in the mainstream media. Newest observations from the Intergovernmental Panel on Climate Change (IPCC) report are included throughout the course.\n\nThis course actively incorporates elements of innovation, design, global citizenship and social enterprisingness by asking the students to think innovatively but critically about possible solutions to adapt to and combat climate change and the global energy/health crisis. Different options including their pros and cons are actively discussed in class. Students are encouraged to think creatively about the problem from different angles, e.g., by standing in the shoes of climate skeptics – evaluating their “data”, how they present them, the arguments put forth by them – in order to develop a strategic approach to best communicate the issues to a variety of stakeholders. Project assignments will allow students to focus on one particular environmental issue in other part of the world, attempting to address the issue in the very different geographical, cultural, economic and political contexts from that of the students. Example projects can be “How to use geoengineering to combat climate change?”, “How can Sub-Saharan Africa secure its future food supply under the threat of climate change?”, etc. In the course, students will define and understand the problem. They shall form groups and discuss their own point of views and search information on the evidence of the corresponding arguments. They will present their ideas in class and write a self-reflection report. Each of the group will have to make an “infographic”- a layout of science knowledge learnt in the project that is easy enough for the public to understand but at the same time informative. Good infographics will be used in our OpenDay.",
+      "description": "This course includes the science behind the global warming issue, how the public views the issue and the critical thinking needed to analyze the evidence seen in the media/articles from the point of view of scientists. The world energy use, which is considered to be the cause of global warming, and the impacts are discussed in the course. In this course, students will learn about the radiation budgets/balance in the atmosphere, possible climate forcings that can upset the energy balance, how the earth’s global average temperature is measured, why global warming is described as “the biggest hoax” in human history, observations from the ocean and cryosphere and popular environmental issues/arguments discussed in the mainstream media. Newest observations from the Intergovernmental Panel on Climate Change (IPCC) report are included throughout the course.\n\nThis course actively incorporates elements of innovation, design, global citizenship and social enterprisingness by asking the students to think innovatively but critically about possible solutions to adapt to and combat climate change and the global energy/health crisis. Different options including their pros and cons are actively discussed in class. Students are encouraged to think creatively about the problem from different angles, e.g., by standing in the shoes of climate skeptics – evaluating their “data”, how they present them, the arguments put forth by them – in order to develop a strategic approach to best communicate the issues to a variety of stakeholders. Project assignments will allow students to focus on one particular environmental issue in other part of the world, attempting to address the issue in the very different geographical, cultural, economic and political contexts from that of the students. Example projects can be “How to use geoengineering to combat climate change?”, “How can Sub-Saharan Africa secure its future food supply under the threat of climate change?”, etc. In the course, students will define and understand the problem. They shall form groups and discuss their own point of views and search information on the evidence of the corresponding arguments.",
       "enrollment_requirement": "Not for students who have taken ESSC3800.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -2984,14 +2988,15 @@
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
       "learning_outcomes": "At the completion of this course, the students will be able to\n\n1. gain understanding of basic climate science behind the global warming issue, including how Earth’s global temperature has been measured by scientists and how the global average temperature is calculated\n2. study observations from different components of Earth besides the atmosphere, such as ocean and cryosphere observations, and how these components are affected by the human activities\n3. study how the scientific problem is presented and perceived in the society and learn how to use one’s scientific knowledge to identify possible solutions\n\nThe active incorporation of elements of innovation and design in the course is critical in allowing the students to develop a keen scientific mindset and logic flow to understand the complexity of the climate change and energy issues (Learning Outcome #1), and to dissect the reasons behind contradictory arguments in a society (Learning Outcome #3). Critical evaluation of the arguments from both sides (climate alarmists vs. skeptics) will ultimately allow them to develop their own stance in the issue, and think critically about the ways to move the world forward towards sustainability (Learning Outcome #3).\n\nThe incorporation of global citizenship and social enterprisingness is also crucial for students to develop a keen awareness of how environmental issues affect people in a huge variety of geographical and cultural contexts (Learning Outcome #2), and think critically about what kinds of solutions best fit a certain region (Learning Outcome #3).",
-      "course_syllabus": "* L01 Changing Planet (2 lecture-hours)\n* L02 Basic Climate Science (2 lecture-hours)\n* L03 Energy and Heat (2 lecture-hours)\n* L04 Fossil Energy: Coal, Oil, and Natural Gases (2 lecture-hours)\n* L05 Impacts of Fossil Fuels (2 lecture-hours)\n* L06 Nuclear Energy: an Optimistic Beginning, a Clouded Future (2 lecture-hours)\n* Documentary Quiz: Pandora Promise (1.5 hour of video quiz)\n* L07 Energy from the Wind and the Sun (2 lecture-hours)\n* L08 Air Pollution and Climate Change (2 lecture-hours)\n* Documentary: Minimalism (1.5 hour of video)\n* L09 Reactive Nitrogen and Climate Change (2 lecture-hours)\n* L10 Heatwaves and Climate Change (2 lecture-hours)\n* Documentary Quiz: Merchants of Doubt (1.5 hour of video quiz)\n* L11 Open Fires and Climate Change (2 lecture-hours)\n* L12 Droughts and Climate Change (2 lecture-hours)\n* Documentary: Mission Blue (1.5 hour of video)\n* L13 Cryosphere and Climate Change (2 lecture-hours)\n* Documentary: Chasing Ice (1.5 hour of video)\n* L14 Ocean and Climate Change (2 lecture-hours)\n* L15 Vision for a low-carbon-energy future (2 lecture-hours)",
+      "course_syllabus": "* Ch1 Changing Planet - global warming and basic climate science\n+ Introduction - what is happening and basic climate science\n+ Human-induced climate change - why you should take it seriously\n+ Human-induced climate change - arguments offered by those who dissent\n+ Air quality and its relation to climate change\n+ Introductory and Guided Tour of MoCC + Eco-Tour (Sep 8, 2025)\n* Ch2 Energy and Greenhouse Gases\n+ Energy basics\n+ The contemporary US energy system overview, including a comparison with China\n+ Coal (abundant but problematic)\n+ Oil (a vilatile past, an uncertain future)\n+ Natural gas (the least polluting of the fossil fuels)\n+ Nuclear power (an optimistic beginning, a clouded future)\n+ Power from wind (opportunities and challenges)\n+ Power from the sun (abundant but expensive)\n+ Hydro: power from running water\n+ Earth heat and lunar gravity geothermal and tidal energy\n+ Plant biomass as a substitute for oil in transportation\n* Ch3 Environment and Climate Policies\n+ Limiting US and Chinese Emissions: the Beijing Agreement\n+ Vision for a low-carbon-energy future\n+ Clean air actions\n* Ch4 An AI digital world and its role in global environmental change\n+ What is AI, and how does it affect different aspects of our lives?\n+ The role of AI in *Global Environmental Change*\n+ AI ethics in assisting research",
       "assessment_types": {
-        "Classwork": "30",
-        "Homework or assignment": "30",
-        "Presentation": "40"
+        "Attendance": "10",
+        "Classwork": "40",
+        "Homework or assignment": "20",
+        "Presentation": "30"
       },
       "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
-      "required_readings": "1. Michael B McElroy, Energy and Climate: Vision for the Future, 2016.\n2. Eli Tziperman, Global Warming Science: A Quantitative Introduction to Climate Change and Its Consequences, 2022.\n3. A collection of recent publications related to climate change on high-impact journals including Science, Nature, PNAS, etc.",
+      "required_readings": "1. Michael B McElroy, Energy and Climate: Vision for the Future, 2016.\n2. Eli Tziperman, Global Warming Science: A Quantitative Introduction to Climate Change and Its Consequences, 2022.",
       "recommended_readings": "1. Wolfson, Richard, and B. F. Wissler. *Energy, environment, and climate (Second Edition)*. WW Norton & Company, Inc., 2011.\n2. David Archer, The Long Thaw: How Humans Are Changing the Next 100,000 Years of Eaerth’s Climate, 2016."
     },
     {
@@ -3265,8 +3270,8 @@
       "title": "Engineering Geology",
       "credits": "3.00",
       "terms": [],
-      "description": "To introduce ground investigation application and practice for urban development as well as field skill performed by the practicing engineering geologists. A review of selected case histories will be provided to illustrate the use of these concepts and skills.\nTopics include the factors controlling site selection for a development, desk study and walkover survey, the use of aerial photographic interpretation, ground investigation technology and awareness of site safety, brief introduction of common field and laboratory test methods for soil and rock, introduction of soil and rock description and classification, borehole logging techniques of soil samples and rock types. The content of the course also touches on the basic knowledge of design, management practice of GI works and different roles and responsibilities of GI project personnel.",
-      "enrollment_requirement": "Not for students who have taken ESSC4030. Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110) or (EESC4020 or ESSC4020)] and EESC4040, or permission of instructor.",
+      "description": "This course introduces the role of engineering geologists and the application of engineering geological principles to various civil engineering works. The course covers the key concepts and skills in site investigation, soil and rock description, engineering geological assessments and reporting. Topics include ground investigation, slope engineering, foundation engineering, tunneling and cavern development, and marine works. Case histories from Hong Kong will be provided to illustrate the use of these concepts and skills.",
+      "enrollment_requirement": "Not for students who have taken ESSC4030. Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110)] and EESC4040, or permission of instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -3274,16 +3279,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "1. An understanding of the related concepts in engineering geology.\n2. Capable to provide description and classification of rock and soil for engineering purposes and hence compile ground investigation report.\n3. Understanding basic knowledge of ground investigation works together with some government requirements that are required to follow.\n4. Cases studies of engineering geology of selected projects applied to geotechnical problems; critical review of the site investigation, field information etc. will be introduced. Students will be able to carry out independent design of GI works, i.e. feasibility study and selection of site for development, and design of GI stages.\n5. Brief understanding to contract management for GI works.\n6. Able to work independently as engineering geologists / geologists with minimal subsequent training in the engineering field.",
-      "course_syllabus": "* *A**) General Practice of Ground Investigation Works in Hong Kong\n\n1. Purpose of ground investigation.\n\n2. Soil & rock sampling methods and common drilling equipment.\n\n3. Safety and supervision w.r.t. concurrent requirements of the Government.\n\n4. Attention to supervision in drilling.\n\n5. Common field & laboratory tests.\n\n6. Site safety and potential site accidents related to GI works.\n\n* *B) Design for GI Works and Geological Model Construction**\n\n1. Design for GI works (selection of suitable sites for development; siting for GI works for different stages and problem solving of unidentified circumstances in sites with difficult ground conditions during drilling works; no. of drill rigs required; general depth of drilling at particular sites; duration of drilling works for each operation; termination criteria of boreholes for rock types with different geology etc.).\n2. Description of rocks and soils (borehole logging)",
+      "learning_outcomes": "Upon completion of the course, students should be able to:\n\n* understand the principles of engineering geology and appreciate the role of engineering geologists;\n* understand the methods of desk study, ground investigation and engineering geological assessment;\n* conduct soil and rock description and classification for engineering purposes, as well as rock joint surveys; and\n* appreciate the application of engineering geology principles in various civil engineering works through selected case histories from Hong Kong.",
+      "course_syllabus": "Part 1\n\n* Introduction to engineering geology\n* Desk study, site investigation and engineering geological assessment\n* Soil and rock description, and rock joint survey\n* Ground investigation techniques\n\nPart 2\n\n* Engineering geological application in slope engineering\n* Engineering geological application in foundation engineering\n* Engineering geological application in tunneling and cavern development\n* Engineering geological application in marine works",
       "assessment_types": {
-        "Homework or assignment": "50",
+        "Examination": "30",
+        "Homework or assignment": "30",
         "Presentation": "10",
-        "Project": "40"
+        "Project": "30"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students – views and suggestions will be gathered at least two times during the term.\n* Reflection of teacher.",
-      "required_readings": "1. Fletcher C. J. N., 2010. Geology of Site Investigation Boreholes from Hong Kong, 2nd Edition. Association of Geotechnical and Geoenvironmental Specialists.\n2. Geotechnical Engineering Office, 2017. Guide to Site Investigation (Geoguide 2). Geotechnical Engineering Office, Civil Engineering and Development Department, HKSAR Government, 349 p.”\n3. Geotechnical Engineering Office, 2017. Guide to Rock and Soil Descriptions (Geoguide 3). Geotechnical Engineering Office, Civil Engineering and Development Department, HKSAR Government, 171 p.”\n4. YUEN, K.M.D, 2009. **General Practice of Ground Investigation Works in Hong Kong SAR**, Geological Society of HK, P123-137. Guangzhou-Hong Kong (Shenzhen) Geological Science and Engineering Conference, Sep 2009.\n5. Clayton, C.R.I., M.C. Matthews and N.E. Simons, **Site Investigation, 2nd edition**, Wiley-Blackwell, 592 pp, 1995. Available for download from: www.geotechnique.info",
-      "recommended_readings": "Refer to the course syllabus distributed in the class"
+      "required_readings": "1. Fletcher C. J. N., 2010. **Geology of Site Investigation Boreholes from Hong Kong, 2nd Edition**. Association of Geotechnical and Geoenvironmental Specialists.\n\n2. Geotechnical Engineering Office, 2017. **Guide to Site Investigation (Geoguide 2)**. Geotechnical Engineering Office, Civil Engineering and Development Department, HKSAR Government, 349 p.”\n\n3. Geotechnical Engineering Office, 2017. **Guide to Rock and Soil Descriptions (Geoguide 3)**. Geotechnical Engineering Office, Civil Engineering and Development Department, HKSAR Government, 171 p.”",
+      "recommended_readings": "* Clayton, C.R.I., M.C. Matthews and N.E. Simons, Site Investigation, 2nd edition, Wiley-Blackwell, 592 pp, 1995. Available for download from: www.geotechnique.info"
     },
     {
       "subject": "EESC",
@@ -4258,12 +4264,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "After completing this course, students are expected to:\n\n1. Understand the chemical composition and properties of organic matter in aquatic and terrestrial environments.\n2. Describe the sources, transformation, and fate of organic matter in natural systems.\n3. Analyse the impact of human activities on organic matter cycling in ecosystems.\n4. Apply analytical techniques to study organic matter in environmental samples.\n5. Evaluate the role of organic matter in ecosystem functioning and environmental quality.\n6. Discuss the implications of organic matter chemistry for carbon cycling and nutrient dynamics in natural systems.",
+      "course_syllabus": "Week 1: Introduction to Organic Matter Chemistry\n\n* Definition and characteristics of organic matter\n* Sources of organic matter in aquatic and terrestrial environments\n\nWeek 2: Structure and Function of Organic Molecules\n\n* Molecular composition and properties of organic matter\n* Functional groups and reactivity of organic molecules\n\nWeek 3: Biogeochemical Processes Involving Organic Matter\n\n* Decomposition and mineralization of organic matter\n* Microbial transformations and nutrient cycling\n\nWeek 4: Analytical Techniques for Studying Organic Matter\n\n* Spectroscopic methods (FTIR, NMR, UV-Vis)\n* Chromatographic techniques (GC-MS, HPLC)\n\nWeek 5: Human Impacts on Organic Matter Cycling\n\n* Pollution and contamination of organic matter\n* Effects of land use change and climate change on organic matter dynamics\n\nWeek 6: Role of Organic Matter in Ecosystem Functioning\n\n* Carbon sequestration and storage\n* Nutrient retention and cycling in ecosystems\n\nWeek 7: Environmental Quality and Organic Matter Chemistry\n\n* Organic matter as a source of contaminants\n* Implications for water quality and ecosystem health\n\nWeek 8: Biogeochemical Cycling of Organic Matter in Aquatic Systems\n\n* Organic matter dynamics in lakes, rivers, and oceans\n* Impact of water chemistry on organic matter transformations\n\nWeek 9: Biogeochemical Cycling of Organic Matter in Terrestrial Systems\n\n* Organic matter cycling in soils and terrestrial ecosystems\n* Influence of vegetation and climate on organic matter dynamics\n\nWeek 10: Organic Matter and Climate Change\n\n* Role of organic matter in carbon sequestration and greenhouse gas emissions\n* Feedback mechanisms between organic matter cycling and climate\n\nWeek 11: Case Studies in Organic Matter Chemistry\n\n* Application of organic matter chemistry principles to real-world environmental issues\n* Case studies on organic matter in pollution remediation and ecosystem restoration\n\nWeek 12: Research Methods in Organic Matter Chemistry\n\n* Designing and conducting experiments related to organic matter analysis\n* Data interpretation and presentation of research findings\n\nWeek 13: Future Directions in Organic Matter Research\n\n* Emerging trends and challenges in the study of organic matter\n* Opportunities for further research and applications in organic matter chemistry",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "40",
+        "Homework or assignment": "25",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: views and suggestions will be gathered from students.\n* Reflection of teacher",
+      "required_readings": "* Organic Geochemistry of Natural Waters. E.M. Thurman. Martinus Nijhoff/Dr. W. Junk Publishers\n* Biogeochemistry of Marine Dissolved Organic Matter. Edited by Dennis A. Hansell and Craig A. Carlson. Academic Press.\n* Aquatic Humic Substances – Ecology and Biogeochemistry. D.O. Hessen and L.J. Tranvik. Springer\n* Humus Chemistry – Genesis, Composition, Reactions. F. J. Stevenson. Wiley",
+      "recommended_readings": "* Aquatic Chemistry – Chemical Equilibrium and Rates in Natural and Waters, Stumm and Mogan, Wiley.\n* Thermodynamics of Natural Systems -Theory and Applications in Geochemistry and Environmental Sciences, Anderson, Cambridge University Press"
     },
     {
       "subject": "EESC",
@@ -4547,7 +4558,7 @@
     {
       "subject": "EESC",
       "course_code": "4350",
-      "title": "Environmental Health",
+      "title": "Environmental Health: A Systems Thinking Approach",
       "credits": "3.00",
       "terms": [
         {
@@ -4577,8 +4588,8 @@
           ]
         }
       ],
-      "description": "This course introduces the contemporary problems and issues in environmentally dependent aspects of health. Broad coverage of health effects of foodborne, airborne and waterborne pollutants, pesticides, and consumer product are considered.",
-      "enrollment_requirement": "Not for students who have taken ENSC4250. Pre-requisite: EESC3520 or ENSC3520.",
+      "description": "This advanced course examines environmental health challenges through systems thinking frameworks, emphasizing the interconnected nature of environmental, social, and health systems. Students will develop skills in analyzing complex environmental problems, identifying feedback mechanisms, and communicating evidence-based solutions to diverse stakeholders.",
+      "enrollment_requirement": "Not for students who have taken ENSC4250. Pre-requisite: EESC3520 or permission of instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -4586,16 +4597,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "This course is designed to give students an overview of the sources, modes of action, and health effects of the global and local important pollutants including pesticides, food additives, transgenes in genetically modified foods, environmental tobacco smoke, indoor air pollutants, water pollutants, peroxisome proliferators, environmental estrogens, and benzene. After the study, the student should be able to:\n\n1. Describe the sources of the pollutants\n2. Understand the modes of action of the pollutants\n3. Familiar with the symptoms and human health effects resulting from exposure to the pollutants\n4. Discuss ways to reduce our exposure to the pollutants",
-      "course_syllabus": "* Pesticides\n* Food additives\n* Genetic modified foods\n* Environmental tobacco smoke\n* Indoor air pollutants\n* Drinking water quality and health\n* Peroxisome proliferators\n* Environmental estrogens\n* Occupational chemical hazards",
+      "learning_outcomes": "Describe major environmental health issues (e.g., pollution, climate changes, pandemics)\n\nIllustrate complex environmental problem using system thinking approaches\n\nDistinguish the reinforcing and stabilizing feedback loops in complex systems\n\nFormulate potential solutions",
+      "course_syllabus": "This course will be composed of four overarching modules: Foundations of Environmental Health Systems; Systems Analyses Tools and Methods; Feedback Mechanisms in Environmental Systems and Solution Design and Implementation. This course is a communication intensive course where students participate in their learning through various activities as Town Hall discussion, flipped classroom, group activities/discussion and student-as-partner lectures. The course may include guest lectures from industry professionals depending on their availability.",
       "assessment_types": {
-        "Homework or assignment": "15",
-        "Short answer test or exam": "45",
-        "Selected response test or exam": "40"
+        "Classwork": "50",
+        "Examination": "30",
+        "Project": "20"
       },
       "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
-      "required_readings": "Refer to the course syllabus distributed in the class.",
-      "recommended_readings": "Pesticides:\n\n1. F. P. Kaloyanova and M. A. El Batawi (eds.). Human Toxicology of Pesticides. CRC Press. 1991. (WA240K2781991)\n2. K. A. Hassall (ed.). The Biochemistry & Uses of Pesticides. 2nd ed. Macmillan Press. 1990. (SB951H2771990)\n3. M. A. Kamrin (ed.). Pesticides Profiles: Toxicity, Environmental Impact, and Fate. CRC Press. 1997. (SB951P3761997)\n4. S. R. Baker and C. F. Wilkinson (eds.). The Effect of Pesticides on Human Health. Vol XVIII. Princeton Scientific Publishing Co., Inc. 1990. (WA670A38v.18c.2)\n\nFood additives and contaminants:\n\n1. J. M. Concon. Food Toxicology: Part B. Contaminants and Additives. Marcel Dekker Inc., New York. 1988. (WA712.066.ptB)\n2. L. M. Crawford and D. A. Franco (eds.). Animal Drugs and Human Health. Technomic Publishing Co. Inc., Lancaster. 1994. (WA707.A55.1994)\n3. C. S. Creaser and R. Purchase (eds.). Food Contaminants: Sources and Surveillance. The Royal Society of Chemistry, Cambridge. 1991. (TX531.F56.1991)\n4. J. A. Maga and A. T. Tu (eds.). Food Additive Toxicology. Marcel Dekker Inc., New York. 1995. (TX553.A3F563.1995)\n\nGenetically modified foods:\n\n1. K. Roseboro (ed.). Genetically Altered Foods and Your Health. Basic health Publications, North Bergen, New Jersey. 2004. (WA695.R67.2004)\n2. F. E. Ahmed (ed.). Testing of Genetically Modified Organisms in Foods. Food Products Press, New York. 2004. (WA701.T45.2004)\n\nEnvironmental tobacco smoke:\n\n1. E. L. Wynder and J. Garland (eds.). The Biologic Effects of Tobacco. Little Brown and Company. Boston. 1995. (QP981.T6W9)\n2. N. L. Benowitz (ed). Nicotine Safety and Toxicity. Oxford University Press, New York.1998. (QV137N551998)\n3. W. R. Martin, G. R. Van Loon, E. T. Iwamoto and L. Davis (eds.) Tobacco Smoking and Nicotine: A Neurobiological Approach. Plenum Press, New York and London. 1987. (QV137T62)\n\nIndoor air pollutants:\n\n1. D. J. Hansen (ed.). The Work Environment. Vol. 3. Indoor Health Hazards. Ch. 3.Lewis Publishers, BoCa Ration. 1994. (WA400W671994).\n2. J. E. Craig. Indoor Air Quality and Pollution. Ch. 3. In Pathology of Environmental and Occupational Diseases. Mosby, St. Louis. 1995. (WA30C761995).\n3. H. Koren (ed.). Handbook of Environmental Health and Safety. Principles and Practices. Vol. II. 2nd ed. Lewis Publishers. National Environmental Health Association. 1991. (WA30K671991v.2).\n4. A. M. Pope and D. P. Rall (eds.). Environmental Medicine: Integrating a Missing Element into Medical Education. National Academy Press. Washington, DC. 1995. (WA. 510.I567.1995)\n\nDrinking water quality and health:\n\n1. W. Viessman, Jr. and M. J. Hammer (eds.). Water Supply and Pollution Control. 6th ed. Addison-Wesley Longman, Inc. California. 1998. (TD353V541998)\n2. G. A. McFeters (ed.). Drinking Water Microbiology. Springer-Verlag. New York.1990. (TD384D75)\n3. J. E. Craighead. Pathology of Environmental and Occupational Disease. Mosby, St. Louis. 1995. (WA30C761995)\n4. Guidelines for Drinking-Water Quality. 2nd ed. Vol. 2. World Health Organization. Geneva. 1996. (TD215W671993.v.2)\n\nPeroxisome proliferators:\n\n1. S. S. T. Lee, T. Pineau, J. Drago, E. J. Lee, Jennie W. Owens, D. L. Kroetz, P. M. Fernandez-Salguero, H. Westphal and F. J. Gonzalez. Targeted Disruption of the Alpha Isoform of the Peroxisome Proliferator-Activated Receptor Gene in Mice Results in Abolishment of the Pleiotropic Effects of Peroxisome Proliferators. Molec. Cell. Biol.15:3012-3022, 1995.\n2. H. Keller, A. Mahfoudi, C. Dreyer, A. K. Hihi, J. Medin, K. Ozato and W. Wahli. Peroxisome Proliferator-Activated Receptors and Lipid Metabolism. Annals New York Academy of Sciences. 304:157-173, 1990.\n3. J. K. Reddy, T. Suga, G. P. Mannaerts, P. B. Lazarow and S. Subramani (eds.). Peroxisomes: Biology and Role in Toxicology and Disease. Annals of the New York Academy of Sciences. New York. Volume 804. 1996.\n4. J. M. Peters, R. C. Cattley and F. J. Gonzalez. Role of PPAR in the Mechanism of Action of the Nongenotoxic Carcinogen and Peroxisome Proliferator Wy 14,643. Carcinogenesis 18:2029-2033, 1997.\n\nEnvironmental estrogens:\n\n1. J. A. McLachlan. Estrogens in the Environment. Elsevier/North-Holland. New York. 1979. (QV600.D48.v.5)\n2. D. L. Davis, H. L. Bradlow, M. Wolff, T. Woodruff, D. G. Hoel and H. Anton-Culver.\n3. Medical hypothesis: Xenoestrogens as Preventable Causes of Breast Cancer. Environ.\n4. Health Perspect. 101:323-377, 1993.\n5. S. H. Safe. Environmental and Dietary Estrogens and Human Health: Is Tthere a Problem? Environ. Health Perspect. 103:346-351, 1995.\n6. J. A. McLachlan and S. F. Arnold. Environmental estrogens. American Scientist 84:452 461, 1996. (LJ.SB502. cc)\n\nOccupational chemical hazards - benzene:\n\n1. M. Lippmann (ed.). Environmental Toxicants: Human Exposures and their Health Effects. Van Nostrand Reinhold, Mew York. 1992. (WA671E615)\n2. A. Hricko. Rings of Controversy Around Benzene. Environmental Health Perspectives. 102:276-281, 1994.\n3. J. E. Craighead. Pathology of Environmental and Occupational Disease. Mosby, St. Louis. 1995. (MDWA30C761995)\n4. B. S. Levy and D. H. Wegman. Occupational Health: Recognizing and Preventing Work-Related Disease. 3rd ed. Little, Brown and Company, New York. 1995. (WA4400221995)"
+      "required_readings": "Parts of:\n\n* Essential of Environmental Health, 3rd Edition, Robert H. Friis, Jones and Barlett Learning\n* Environmental health: from local to global, 3rd Edition, Howard Frumkin, Jossey-Bass\n\n+ extra reading given in class",
+      "recommended_readings": "* Essential of Environmental Health, 3rd Edition, Robert H. Friis, Jones and Barlett Learning.\n* Environmental health: from local to global, 3rd Edition, Howard Frumkin, Jossey-Bass.\n* Beaubien, R. and Leizrowice, R. (2020) *The great mental models volume 3: Systems and mathematics*. Farnham: Latticework Publishing.\n* Ford, A. (2010) *Modeling the environment*. 2nd edn. Washington, D.C.: Island Press.\n* Richmond, B. (1994) *An introduction to systems thinking*. Hanover, NH: isee systems.\n* Stroh, D.P. (2015) *Systems thinking for social change: A practical guide to solving complex problems, avoiding unintended consequences, and achieving lasting results*. White River Junction, VT: Chelsea Green Publishing."
     },
     {
       "subject": "EESC",
@@ -4613,14 +4624,14 @@
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
       "learning_outcomes": "Students will become knowledgeable about the acquisition, pre-processing and analysis of geophysical and environmental data, including remote sensing, in situ observation and model data. Students will acquire knowledge on techniques for data processing, including visualization methods and statistical analysis, and on the applications of these data and tools to geophysical and environmental problems. The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principles, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students can also acquire a responsible attitude in study and work, and have motivation for life-long learning.",
-      "course_syllabus": "* Exploratory Data Analysis\n* Correlation Analysis\n* Parametric Probability Distribution : Discrete\n* Parametric Probability Distribution : Continuous\n* Hypothesis Testing\n* Frequentist Statistical Inference: Resampling Methods\n* Statistical Forecasting: Simple Linear Regression\n* Statistical Forecasting: Multiple Linear Regression, Non-Linear Regression\n* Statistical Forecasting: Predictor Selection, Ensemble Forecasting\n* Linear algebra and matrix inverse\n* Quantifying preconceptions: Bayesian inference\n* Quantifying preconceptions: Prior information\n* Detecting periodicities: Sinusoidal functions and Fourier series\n* Detecting periodicities: Complex Fourier series and Fourier transform\n* The past influences the present: Convolution\n* The past influences the present: Filters\n* Cross-correlation\n* Bandpass filters and windowing\n* Filling in missing data\n* Approximation\n* Principal Component Analysis I\n* Time Series Analysis\n* Forecast Verification",
+      "course_syllabus": "* Introduction; Exploratory Data Analysis; Correlation Analysis\n* Parametric Probability Distribution : Discrete\n* Parametric Probability Distribution : Continuous\n* Hypothesis Testing (Parametric Distributions)\n* Nonparametric Tests and Resampling Methods\n* Statistical Forecasting: Regression\n* Predictor Selection & Principal Component Analysis\n* Time Series Analysis\n* Fourier Transform\n* Cluster Analysis\n* Machine Learning",
       "assessment_types": {
         "Homework or assignment": "60",
         "Project": "40"
       },
       "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
-      "required_readings": "Refer to the course syllabus distributed in the class.",
-      "recommended_readings": "* Wilks, D.S., Statistical Methods in the Atmospheric Sciences, 3rd edition, AP, 2011.\n* Menke, W., Environmental Data Analysis with Matlab, 2nd edition, AP, 2016"
+      "required_readings": "* Wilks, D.S., *Statistical Methods in the Atmospheric Sciences*, 4th edition, AP, 2019.",
+      "recommended_readings": "* Menke, W., Environmental Data Analysis with Matlab, 2nd edition, AP, 2016\n* Environmental and Ecological Statistics with R, 2nd edition, CRC Press"
     },
     {
       "subject": "EESC",
@@ -4822,7 +4833,7 @@
           ]
         }
       ],
-      "description": "This course introduces the basic principles of atmospheric modeling and provides hands-on practice to perform numerical simulations on University computing cluster. It begins with the concept of model and reviewing of physical and chemical processes in the atmosphere. After that, this course will cover introduction and hands-on practice of the three basic processes in atmospheric simulation: pre-processing data, modeling, and post-processing data. The pre-processing process refers to the preparation of data from various sources by different techniques such as the generation of emission inventories for atmospheric chemistry modeling. It then introduces numerical modeling basics such as “model equations and numerical approaches”. For post-processing, this course offers different skills in visualization of the model output and evaluation of model output against real-world observations. This course also introduces advanced knowledge in “model coupling” and “inverse modeling”. Finally, this course provides hands-on practice on simple model development experiments. During the course, we will cover basic Linux environment commands to perform the main tasks mentioned above. Overall, students can anticipate grasping basic modeling concepts and skills from this course, which are of great value to their future careers in both academia and industry.",
+      "description": "This course introduces the basic approach in working with LINUX and fundamental principles of atmospheric modeling and provides hands-on practice to perform numerical simulations on University computing cluster. It begins with the concept of model and reviewing of physical and chemical processes in the atmosphere. After that, this course will cover introduction and hands-on practice of the three basic processes in atmospheric simulation: pre-processing data, modeling, and post-processing data. The pre-processing process refers to the preparation of data from various sources by different techniques such as the generation of emission inventories for atmospheric chemistry modeling. It then introduces numerical modeling basics such as “model equations and numerical approaches”. For post-processing, this course offers different skills in visualization of the model output and evaluation of model output against real-world observations. This course also introduces advanced knowledge in “model coupling” and “inverse modeling”. Finally, this course provides hands-on practice on simple model development experiments. During the course, we will cover basic Linux environment commands to perform the main tasks mentioned above. Overall, students can anticipate grasping basic modeling concepts and skills from this course, which are of great value to their future careers in both academia and industry.",
       "enrollment_requirement": "Pre-requisite: (EESC2020 or ESSC2020) and (MATH2550 or EESC2520 or PHYS2051) and (PHYS1001 or 1002 or 1111 or 1113), or permission of instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -4831,16 +4842,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "1. Remember and explain the major chemical and physical processes that affect spatiotemporal variations of major atmospheric composition.\n2. Explain the basic framework of atmospheric chemistry models including their input and output.\n3. Understand what an emission inventory is and be able to pre-process emission inventory for atmospheric chemistry models.\n4. Able to compile and run an atmospheric chemistry model.\n5. Capable of visualizing model outputs and evaluating model outputs against observations.\n6. Have the skills to sort out model structure by reading model codes and then revise model codes according to research needs.",
+      "learning_outcomes": "1. Able to explain the major chemical and physical processes that affect the spatiotemporal variations of major atmospheric composition.\n2. Explain the basic framework of atmospheric chemistry models including their input and output.\n3. Understand what an emission inventory is and be able to pre-process emission inventory for atmospheric chemistry models.\n4. Able to compile and run an atmospheric chemistry model.\n5. Capable of visualizing model outputs and evaluating model outputs against observations.\n6. Have the skills to sort out model structure by reading model codes and then revise model codes according to research needs.",
       "course_syllabus": "* The concept of model\n* Processes in the atmosphere I - physical processes\n* Processes in the atmosphere II - chemical processes\n* Surface fluxes I - emission\n* Surface fluxes II - deposition\n* Model equations and numerical approaches\n* Formulations of radiative, chemical, and aerosol rates\n* Parameterization of subgrid-scale processes\n* Post-processing model output data\n* Model evaluation\n* Model coupling\n* Inverse modeling\n* Model development experiments",
       "assessment_types": {
-        "Homework or assignment": "30",
-        "Presentation": "40",
-        "Report": "30"
+        "Attendance": "10",
+        "Homework or assignment": "40",
+        "Presentation": "50"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students – views and suggestions will be gathered at least two times during the term.\n* Reflection of teacher.",
-      "required_readings": "* Guy P. Grasseur and Daniel J. Jacob: Modeling of Atmospheric Chemistry, Cambridge University Press, 2017.\n\nPlease choose either “documents of the GEOS-Chem model” or “documents of the WRF model” as detailed below -\n\n* Documents of the GEOS-Chem model\n+ <https://geoschem.github.io/>\n+ https://geos-chem.readthedocs.io/en/latest/\n\n* Documents of the Weather Research & Forecasting Model (WRF) model.\n+ https://www.mmm.ucar.edu/models/wrf\n+ https://www2.mmm.ucar.edu/wrf/users/docs/user\\_guide\\_v4/v4.4/contents.html",
-      "recommended_readings": "* Scientific publications using the GEOS-Chem or WRF model.\n* John H. Seinfeld and Spyros N. Pandis: Atmospheric Chemistry and Physics: From Air Pollution to Climate Change, John Wiley & Sons, 2016.\n* Daniel J. Jacob: Introduction to Atmospheric Chemistry, Princeton University press, 1999."
+      "required_readings": "* Guy P. Grasseur and Daniel J. Jacob: Modeling of Atmospheric Chemistry, Cambridge University Press, 2017.\n* GEOS-Chem Classic Manual: <https://geos-chem.readthedocs.io/en/stable/>\n* WRF-GC Mannual: <https://wrfgc.readthedocs.io/en/latest/getting-started.html>",
+      "recommended_readings": "* John H. Seinfeld and Spyros N. Pandis: Atmospheric Chemistry and Physics: From Air Pollution to Climate Change, John Wiley & Sons, 2016.\n* Daniel J. Jacob: Introduction to Atmospheric Chemistry, Princeton University Press, 1999.\n* Related scientific publications using the GEOS-Chem and/or WRF-GC model."
     },
     {
       "subject": "EESC",
@@ -4960,12 +4971,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students should be able to:\n\n1. Understand how core scientific principles provide the basis for assessing environmental and social risks and opportunities\n2. Understand the body of scientific evidence underpinning the UN SDGs to recognize their role as an essential framework for mitigating systemic global risks\n3. Explain how global megatrends and ESG value drivers influence investment risk, return, and the broader industry landscape\n4. Learn to integrate ESG considerations into investment analysis, portfolio management, and valuation models\n5. Analyze how ESG factors impact corporate financial performance, business strategy, and long-term value creation\n6. Differentiate between key ESG investment strategies (e.g., screening, integration, impact) and their application across diverse asset classes\n7. Demonstrate an understanding of key ESG reporting frameworks, including the sources, uses, and limitations of the data",
+      "course_syllabus": "* *Scientific Foundations of Environmental & Social Analysis**\n\n* Examine the foundational principles from climate, ecological and sustainability sciences that enable the assessment of environmental and social impacts of human activities\n\n* *The Scientific Imperative of Planetary Boundaries and SDGs**\n\n* Analyze evidence from the environmental and health sciences to establish the critical urgency of the UN SDG framework for securing long-term human prosperity in the context of planetary boundaries\n\n* *Foundations of Sustainable Investment**\n\n* The evolving landscape of sustainable investment, core principles and definitions, ESG value drivers and market demand shaping global investment trends\n\n* *Global and Regional ESG Regulatory Frameworks**\n\n* An overview of the evolving global ESG regulatory landscape, with a deep dive into key frameworks in the European Union and Asia-Pacific region\n\n* *Introduction to ESG Reporting and Materiality**\n\n* Understanding of voluntary vs. mandatory regimes and the convergence of major ESG reporting frameworks and the concept of double materiality\n\n* *ESG Data: Availability, Quality and Usage**\n\n* Evaluation of primary ESG information sources, addressing challenges in raw data availability and quality, and the effective use of indicators\n\n* *Recent Development of Global ESG investing**\n\n* Market drivers and barriers to ESG integration and empirical evidence on ESG's effect on financial performance\n\n* *Sustainable Investing and Financing Across Asset Classes**\n\n* Introduction to the distinctive features of various sustainable investment strategies\n* Application of responsible investing principles and tailored ESG strategies across different asset classes\n\n* *ESG Integration in Fundamental Research & Valuation**\n\n* Identifying material ESG factors for corporations and sovereigns through qualitative analysis of governance and sector-specific E&S factors, and translating these findings into quantitative valuation models through adjustments to financial forecasts\n\n* *ESG Integration in Investment Process**\n\n* Understanding the investment process chain and how ESG considerations influence its key stages, from setting investment guidelines and objectives to macro research, asset allocation, and informing the final investment decision\n\n* *ESG Integration in Portfolio Management & Active Ownership**\n\n* Application in portfolio construction, monitoring and management, active ownership strategies (proxy voting and engagement), and developing a robust framework for ESG-integrated due diligence",
+      "assessment_types": {
+        "Examination": "30",
+        "Project": "30",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: view and suggestions will be gathered from students.\n* Reflection of teacher",
+      "required_readings": "* Schoenmaker, D. and Schramade, W., Principles of Sustainable Finance (2018). Principles of Sustainable Finance, Oxford University Press.",
+      "recommended_readings": "* Friede G, Busch T, Bassen A. (2015) “ESG and Financial Performance: Aggregated Evidence from more than 2000 Empirical Studies” Available at: <https://www.tandfonline.com/doi/full/10.1080/20430795.2015.1118917>\n\n* GSIA (2023) “Global Sustainable Investment Review 2022” Available at: <https://www.gsi-alliance.org/wp-content/uploads/2023/12/GSIA-Report-2022.pdf>\n\n* Busch et al. (2022) “Classification Scheme for Sustainable Investments - Accelerating the Just and Sustainable Transition of the Real Economy” Available at: <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4217864>\n\n* ESMA (2024) “Impact investing – Do SDG funds fulfil their promises?” Available at: <https://www.esma.europa.eu/sites/default/files/2024-02/ESMA50-524821-3098_TRV_article_-_Impact_investing_-_Do_SDG_funds_fulfil_their_promises.pdf>"
     },
     {
       "subject": "EESC",
@@ -4982,12 +4998,17 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Earth & Environ Sci",
       "academic_org": "Dept of Earth & Environ Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students should be able to:\n\n1. Understand the science behind climate change and its financial impacts\n2. Learn global climate regulations and their effects on financial institutions\n3. Identify and model climate-related risks, including asset vulnerability and exposure\n4. Quantify the financial impacts of climate-related risks on portfolios and businesses\n5. Explore opportunities in sustainable investments and renewable energy\n6. Understand climate adaptation plans and how they incorporate 'Net Zero' goals and financial strategies\n7. Gain insights into green finance and the growth of sustainable markets",
+      "course_syllabus": "* *The Science of Climate Change**\n\n* Delve into the science basis of climate change, its global impacts, and the foundational concepts of mitigation and adaptation, drawing from key IPCC findings\n\n* *Climate Policy, Regulation, and Reporting Standards**\n\n* Examine the formation of global climate policy under the UNFCCC and Paris Agreement, and analyze its subsequent implementation through regional/national legislation (e.g., EU Green Deal) and emerging corporate disclosure standards\n\n* *Identifying and Modeling Climate Risk**\n\n* Covering climate scenarios as well as the key techniques for identifying, modeling, and analyzing the impacts of physical and transition risks\n\n* *Quantifying the Financial Impact of Climate Risk**\n\n* Translate identified climate risks into financial terms by quantifying their impact, and understand the methods for reporting these risks and associated uncertainties in corporate financial statements\n\n* *Climate-Related Opportunities**\n\n* Explore the financial opportunities arising from the climate transition, from new technologies and business models to the value created by organizations that successfully seize climate-related initiatives\n\n* *Corporate Climate Strategy: Net Zero and Adaptation**\n\n* Analyze the components of effective corporate climate strategies, including the development of credible Net Zero roadmaps, carbon accounting, and robust plans for climate adaptation and risk transfer\n\n* *Economic Effects Financial Stability**\n\n* Assess the broader economic consequences of climate change, including its potential effects on economic indicators, and its implications for systemic risk and overall financial stability\n\n* *Instruments of Sustainable and Climate Finance**\n\n* Explore sustainable finance, including green, social, and sustainability-linked finance. Emphasize the importance and impact of sustainable financial practices in supporting climate mitigation and adaptation\n\n* *Climate Risk Across Asset Classes**\n\n* Apply climate risk analysis to specific asset classes, including equity, debt, private equity, and real estate, and learn techniques for portfolio decarbonization and measuring financed GHG emissions",
+      "assessment_types": {
+        "Examination": "40",
+        "Project": "30",
+        "Participation": "10",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: views and suggestions will be gathered from students.\n* Reflection of teacher",
+      "required_readings": "* World Meteorological Organization (WMO). (2024) “State of the Global Climate 2023” Available at: <https://wmo.int/publication-series/state-of-the-global-climate-2023>\n\n* Task Force on Climate-related Financial Disclosures (TCFD). (2017) “Recommendations of the Task Force on Climate-related Financial Disclosures” Available at: <https://assets.bbhub.io/company/sites/60/2021/10/FINAL-2017-TCFD-Report.pdf>\n\n* Transition Plan Taskforce (TPT). (2023) “The TPT Disclosure Framework” Available at: <https://transitiontaskforce.net/disclosure-framework/>\n\n* Smithers, R.J., Gardner, A. & Dworak, T. (2023) “Assessing climate change risks and vulnerabilities (climate risk assessment). A DIY Manual” European Environment Agency. Available at: <https://www.eea.europa.eu/publications/assessing-climate-change-risks-and>",
+      "recommended_readings": "* United Nations Framework Convention on Climate Change (UNFCCC). (2015) “The Paris Agreement” Available at: <https://unfccc.int/sites/default/files/english_paris_agreement.pdf>\n\n* United Nations Environment Programme (UNEP). (2023) “Emissions Gap Report 2023: Broken Record – Temperatures hit new highs, yet world fails to cut emissions (again)” Available at: <https://www.unep.org/resources/emissions-gap-report-2023>\n\n* International Renewable Energy Agency (IRENA). (2023) “World Energy Transitions Outlook 2023: 1.5°C Pathway” Available at: <https://www.irena.org/Publications/2023/Jun/World-Energy-Transitions-Outlook-2023>"
     },
     {
       "subject": "EESC",
@@ -5273,7 +5294,7 @@
         }
       ],
       "description": "This course presents the fundamentals of continuum mechanics illustrated with earth system science applications. Background materials on matrices, vectors and differential operators are first reviewed. The following topics will be covered: tensors and their properties; stress and strain; constitutive equations for Hookean elastic solid and Newtonian viscous fluid; mechanical properties and rheology of geomaterials; Eulerian and Lagrangian kinematics; momentum equations; vorticity and divergence; applications in geomechanics, seismology, atmospheric dynamics, and oceanography.",
-      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion(s): ESSC3010, ESSC4010, EASC5010.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion(s): ESSC3010, ESSC4010, EESC4010, EASC5010.",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6063,7 +6084,7 @@
     {
       "subject": "EESC",
       "course_code": "5310",
-      "title": "Chemistry of Aquatic and Terrestrial Organic Matter",
+      "title": "Biogeochemistry of Aquatic and Terrestrial Organic Matter",
       "credits": "3.00",
       "terms": [
         {
@@ -6093,8 +6114,8 @@
           ]
         }
       ],
-      "description": "The course \"Chemistry of Aquatic and Terrestrial Organic Matter\" covers the study of the chemical composition, properties, and reactivity of organic matter in aquatic and terrestrial environments. Students will learn about the sources, transformation, and fate of organic matter in natural systems, as well as the impact of human activities on organic matter cycling. Topics may include the structure and function of organic molecules, biogeochemical processes involving organic matter, analytical techniques for studying organic matter, and the role of organic matter in ecosystem functioning. This course may also explore the implications of organic matter chemistry for environmental quality, carbon cycling, and nutrient dynamics in natural systems.\n\nAdvisory: 2 years college course works in Chemistry, Physics, and Mathematics is recommended.",
-      "enrollment_requirement": "",
+      "description": "The course \"Biogeochemistry of Aquatic and Terrestrial Organic Matter\" covers the study of the chemical composition, properties, and reactivity of organic matter in aquatic and terrestrial environments. Students will learn about the sources, transformation, and fate of organic matter in natural systems, as well as the impact of human activities on organic matter cycling. Topics may include the structure and function of organic molecules, biogeochemical processes involving organic matter, analytical techniques for studying organic matter, and the role of organic matter in ecosystem functioning. This course may also explore the implications of organic matter biogeochemistry for environmental quality, carbon cycling, and nutrient dynamics in natural systems.\n\nAdvisory: 2 years college course works in Chemistry, Physics, and Mathematics is recommended.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences or MPhil-PhD Earth and Environmental Sciences or MSc in Earth and Environmental Analytics for Sustainability\nExclusion(s): EESC4310",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6105,9 +6126,9 @@
       "learning_outcomes": "After completing this course, students are expected to:\n\n1. Understand the chemical composition and properties of organic matter in aquatic and terrestrial environments.\n2. Describe the sources, transformation, and fate of organic matter in natural systems.\n3. Analyse the impact of human activities on organic matter cycling in ecosystems.\n4. Apply analytical techniques to study organic matter in environmental samples.\n5. Evaluate the role of organic matter in ecosystem functioning and environmental quality.\n6. Discuss the implications of organic matter chemistry for carbon cycling and nutrient dynamics in natural systems.",
       "course_syllabus": "Week 1: Introduction to Organic Matter Chemistry\n\n* Definition and characteristics of organic matter\n* Sources of organic matter in aquatic and terrestrial environments\n\nWeek 2: Structure and Function of Organic Molecules\n\n* Molecular composition and properties of organic matter\n* Functional groups and reactivity of organic molecules\n\nWeek 3: Biogeochemical Processes Involving Organic Matter\n\n* Decomposition and mineralization of organic matter\n* Microbial transformations and nutrient cycling\n\nWeek 4: Analytical Techniques for Studying Organic Matter\n\n* Spectroscopic methods (FTIR, NMR, UV-Vis)\n* Chromatographic techniques (GC-MS, HPLC)\n\nWeek 5: Human Impacts on Organic Matter Cycling\n\n* Pollution and contamination of organic matter\n* Effects of land use change and climate change on organic matter dynamics\n\nWeek 6: Role of Organic Matter in Ecosystem Functioning\n\n* Carbon sequestration and storage\n* Nutrient retention and cycling in ecosystems\n\nWeek 7: Environmental Quality and Organic Matter Chemistry\n\n* Organic matter as a source of contaminants\n* Implications for water quality and ecosystem health\n\nWeek 8: Biogeochemical Cycling of Organic Matter in Aquatic Systems\n\n* Organic matter dynamics in lakes, rivers, and oceans\n* Impact of water chemistry on organic matter transformations\n\nWeek 9: Biogeochemical Cycling of Organic Matter in Terrestrial Systems\n\n* Organic matter cycling in soils and terrestrial ecosystems\n* Influence of vegetation and climate on organic matter dynamics\n\nWeek 10: Organic Matter and Climate Change\n\n* Role of organic matter in carbon sequestration and greenhouse gas emissions\n* Feedback mechanisms between organic matter cycling and climate\n\nWeek 11: Case Studies in Organic Matter Chemistry\n\n* Application of organic matter chemistry principles to real-world environmental issues\n* Case studies on organic matter in pollution remediation and ecosystem restoration\n\nWeek 12: Research Methods in Organic Matter Chemistry\n\n* Designing and conducting experiments related to organic matter analysis\n* Data interpretation and presentation of research findings\n\nWeek 13: Future Directions in Organic Matter Research\n\n* Emerging trends and challenges in the study of organic matter\n* Opportunities for further research and applications in organic matter chemistry",
       "assessment_types": {
-        "Discussion": "25",
         "Examination": "25",
         "Homework or assignment": "25",
+        "Presentation": "25",
         "Test or quiz": "25"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: view and suggestions will be gathered from students.\n* Reflection of teacher",
@@ -6183,7 +6204,7 @@
     {
       "subject": "EESC",
       "course_code": "5350",
-      "title": "Environmental Health",
+      "title": "Environmental Health: A Systems Thinking Approach",
       "credits": "3.00",
       "terms": [
         {
@@ -6214,7 +6235,7 @@
         }
       ],
       "description": "This graduate-level course explores the interdisciplinary field of environmental health through the lens of systems thinking. Students will examine how ecological, social, and technological systems interact to influence public health. Emphasis is placed on understanding complex interconnections and developing holistic solutions to environmental health challenges.",
-      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences or MPhil-PhD Earth and Environmental Sciences.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EESC4350, LSCI5750",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6223,14 +6244,15 @@
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
       "learning_outcomes": "* Apply systems thinking to analyze environmental health issues.\n* Design and evaluate interventions that address complex health challenges.\n* Communicate effectively with diverse stakeholders.\n* Develop strategic plans for sustainable health improvements.",
-      "course_syllabus": "* Environmental Hazard and human health\n* System Thinking in environmental health\n* Water pollution\n* Plastic Pollution\n* Air pollution\n* Environmental health risk assessment\n* Climate and health\n+ Endocrine disruptors\n+ Environmental Health and Finance",
+      "course_syllabus": "This course will be composed of four overarching modules: Foundations of Environmental Health Systems; Systems Analyses Tools and Methods; Feedback Mechanisms in Environmental Systems and Solution Design and Implementation. This course is a communication intensive course where students participate in their learning through various activities as Town Hall discussion, flipped classroom, group activities/discussion and student-as-partner lectures.",
       "assessment_types": {
-        "Discussion": "50",
-        "Presentation": "50"
+        "Classwork": "50",
+        "Homework or assignment": "25",
+        "Presentation": "25"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students: view and suggestions will be gathered from students.\n* Reflection of teacher",
-      "required_readings": "* Essential of Environmental Health, 3rd Edition, Robert H. Friis, Jones and Barlett Learning\n* Environmental health: from local to global, 3rd Edition, Howard Frumkin, Jossey-Bass",
-      "recommended_readings": "Modeling the Environment, Second Edition, by Andrew Ford (Author), Island Press"
+      "required_readings": "Parts of:\n\n* Essential of Environmental Health, 3rd Edition, Robert H. Friis, Jones and Barlett Learning\n* Environmental health: from local to global, 3rd Edition, Howard Frumkin, Jossey-Bass\n\n+ extra reading given in class",
+      "recommended_readings": "* Beaubien, R. and Leizrowice, R. (2020) *The great mental models volume 3: Systems and mathematics*. Farnham: Latticework Publishing.\n* Ford, A. (2010) *Modeling the environment*. 2nd edn. Washington, D.C.: Island Press.\n* Richmond, B. (1994) *An introduction to system thinking*. Hanover, NH: isee systems.\n* Stroh, D.P. (2015) *Systems thinking for social change: A practical guide to solving complex problems, avoiding unintended consequences, and achieving lasting results*. White River Junction, VT: Chelsea Green Publishing."
     },
     {
       "subject": "EESC",
@@ -6239,7 +6261,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course covers the theoretical basis and practical applications of data analysis relevant for earth system science. This course aims to introduce students to Earth and environmental data manipulation, from sampling, reading and writing, to statistical analysis and parameter estimation, to time series analysis, to plotting and visualization. Topics include: digital signal processing, sampling techniques; probability distributions; hypothesis testing; correlation analysis; linear and nonlinear regression; statistical forecasting, harmonic analysis and spectral analysis; principle component analysis; and geostatistics. Tutorials will be based on real geophysical examples including remote sensing and in situ observations, as well as model data.\n\nPrevious elementary coding experience in Python 3 is recommended.",
-      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5510",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences or MSc Earth and Environmental Analytics for Sustainability\nExclusion: EASC5510",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6248,14 +6270,14 @@
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
       "learning_outcomes": "Students will become knowledgeable about the acquisition, pre-processing and analysis of geophysical and environmental data, including remote sensing, in situ observation and model data. Students will acquire knowledge on techniques for data processing, including visualization methods and statistical analysis, and on the applications of these data and tools to geophysical and environmental problems. The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principles, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students can also acquire a responsible attitude in study and work, and have motivation for life-long learning.",
-      "course_syllabus": "* Exploratory Data Analysis\n* Correlation Analysis\n* Parametric Probability Distribution : Discrete\n* Parametric Probability Distribution : Continuous\n* Hypothesis Testing\n* Frequentist Statistical Inference: Resampling Methods\n* Statistical Forecasting: Simple Linear Regression\n* Statistical Forecasting: Multiple Linear Regression, Non-Linear Regression\n* Statistical Forecasting: Predictor Selection, Ensemble Forecasting\n* Linear algebra and matrix inverse\n* Quantifying preconceptions: Bayesian inference\n* Quantifying preconceptions: Prior information\n* Detecting periodicities: Sinusoidal functions and Fourier series\n* Detecting periodicities: Complex Fourier series and Fourier transform\n* The past influences the present: Convolution\n* The past influences the present: Filters\n* Cross-correlation\n* Bandpass filters and windowing\n* Filling in missing data\n* Approximation\n* Principal Component Analysis I\n* Time Series Analysis\n* Forecast Verification",
+      "course_syllabus": "* Introduction; Exploratory Data Analysis; Correlation Analysis\n* Parametric Probability Distribution : Discrete\n* Parametric Probability Distribution : Continuous\n* Hypothesis Testing (Parametric Distributions)\n* Nonparametric Tests and Resampling Methods\n* Statistical Forecasting: Regression\n* Predictor Selection & Principal Component Analysis\n* Time Series Analysis\n* Fourier Transform\n* Cluster Analysis\n* Machine Learning",
       "assessment_types": {
         "Homework or assignment": "60",
         "Project": "40"
       },
       "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
-      "required_readings": "Refer to the course syllabus distributed in the class.",
-      "recommended_readings": "* Wilks, D.S., *Statistical Methods in the Atmospheric Sciences*, 3rd edition, AP, 2011.\n* Menke, W., Environmental Data Analysis with Matlab, 2nd edition, AP, 2016"
+      "required_readings": "* Wilks, D.S., *Statistical Methods in the Atmospheric Sciences*, 4th edition, AP, 2019.",
+      "recommended_readings": "* Menke, W., Environmental Data Analysis with Matlab, 2nd edition, AP, 2016\n* Environmental and Ecological Statistics with R, 2nd edition, CRC Press"
     },
     {
       "subject": "EESC",
@@ -6335,7 +6357,7 @@
         }
       ],
       "description": "This course covers the principles of numerical methods and modeling relevant for earth and environmental sciences applications. Topics include: optimization; interpolation; finite differencing; numerical solutions to ordinary and partial differential equations; programming numerical models; filtered models; boundary conditions; subgrid-scale processes; data assimilation; applications in earthquake, climate, air quality, weather forecast and groundwater models. Python will be used in this course.",
-      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5520",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences or MSc Earth and Environmental Analytics for Sustainability; Exclusion: EASC5520",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6406,7 +6428,7 @@
         }
       ],
       "description": "Remote sensing observations are critical for monitoring regional and global changes, determining spatial and temporal variability of the Earth System, and addressing fundamental global issues. This course introduces the basic physical principles of remote sensing, including electromagnetic waves and radiation, optical, microwave, and non-imaging remote sensing. It also presents key concepts and examples on remote sensing applications in Earth system science, such as the (atmosphere, lithosphere, hydrosphere, cryosphere), and global changes. This course also provides computer-based lab exercises that facilitate the understanding of remote sensing principles and the processing of remote sensing data.",
-      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5540.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences or MSc Earth and Environmental Analytics for Sustainability;Exclusion: EASC5540.",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6464,8 +6486,8 @@
           ]
         }
       ],
-      "description": "This course introduces the basic principles of atmospheric modeling and provides hands-on practice to perform numerical simulations on University computing cluster. It begins with the concept of model and reviewing of physical and chemical processes in the atmosphere. After that, this course will cover introduction and hands-on practice of the three basic processes in atmospheric simulation: pre-processing data, modeling, and post-processing data. The pre-processing process refers to the preparation of data from various sources by different techniques such as the generation of emission inventories for atmospheric chemistry modeling. It then introduces numerical modeling basics such as “model equations and numerical approaches”. For post-processing, this course offers different skills in visualization of the model output and evaluation of model output against real-world observations. This course also introduces advanced knowledge in “model coupling” and “inverse modeling”. Finally, this course provides hands-on practice on simple model development experiments. During the course, we will cover basic Linux environment commands to perform the main tasks mentioned above. Overall, students can anticipate grasping basic modeling concepts and skills from this course, which are of great value to their future careers in both academia and industry.",
-      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5550.",
+      "description": "This course introduces the basic approach in working with LINUX and fundamental principles of atmospheric modeling and provides hands-on practice to perform numerical simulations on University computing cluster. It begins with the concept of model and reviewing of physical and chemical processes in the atmosphere. After that, this course will cover introduction and hands-on practice of the three basic processes in atmospheric simulation: pre-processing data, modeling, and post-processing data. The pre-processing process refers to the preparation of data from various sources by different techniques such as the generation of emission inventories for atmospheric chemistry modeling. It then introduces numerical modeling basics such as “model equations and numerical approaches”. For post-processing, this course offers different skills in visualization of the model output and evaluation of model output against real-world observations. This course also introduces advanced knowledge in “model coupling” and “inverse modeling”. Finally, this course provides hands-on practice on simple model development experiments. During the course, we will cover basic Linux environment commands to perform the main tasks mentioned above. Overall, students can anticipate grasping basic modeling concepts and skills from this course, which are of great value to their future careers in both academia and industry.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5550 OR EESC4550",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6473,16 +6495,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "1. Remember and explain the major chemical and physical processes that affect spatiotemporal variations of major atmospheric composition.\n2. Explain the basic framework of atmospheric chemistry models including their input and output.\n3. Understand what an emission inventory is and be able to pre-process emission inventory for atmospheric chemistry models.\n4. Able to compile and run an atmospheric chemistry model.\n5. Capable of visualizing model outputs and evaluating model outputs against observations.\n6. Have the skills to sort out model structure by reading model codes and then revise model codes according to research needs.",
+      "learning_outcomes": "1. Able to explain the major chemical and physical processes that affect spatiotemporal variations of major atmospheric composition.\n2. Explain the basic framework of atmospheric chemistry models including their input and output.\n3. Understand what an emission inventory is and be able to pre-process emission inventory for atmospheric chemistry models.\n4. Able to compile and run an atmospheric chemistry model.\n5. Capable of visualizing model outputs and evaluating model outputs against observations.\n6. Have the skills to sort out model structure by reading model codes and then revise model codes according to research needs.",
       "course_syllabus": "* The concept of model\n* Processes in the atmosphere I - physical processes\n* Processes in the atmosphere II - chemical processes\n* Surface fluxes I - emission\n* Surface fluxes II - deposition\n* Model equations and numerical approaches\n* Formulations of radiative, chemical, and aerosol rates\n* Parameterization of subgrid-scale processes\n* Post-processing model output data\n* Model evaluation\n* Model coupling\n* Inverse modeling\n* Model development experiments",
       "assessment_types": {
-        "Homework or assignment": "30",
-        "Presentation": "30",
-        "Report": "40"
+        "Attendance": "10",
+        "Homework or assignment": "40",
+        "Presentation": "50"
       },
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Discussion with students – views and suggestions will be gathered at least two times during the term.\n* Reflection of teacher.",
-      "required_readings": "* Guy P. Grasseur and Daniel J. Jacob: Modeling of Atmospheric Chemistry, Cambridge University Press, 2017.\n\nPlease choose either “documents of the GEOS-Chem model” or “documents of the WRF model” as detailed below -\n\n* Documents of the GEOS-Chem model\n+ <https://geoschem.github.io/>\n+ https://geos-chem.readthedocs.io/en/latest/\n\n* Documents of the Weather Research & Forecasting Model (WRF) model.\n+ https://www.mmm.ucar.edu/models/wrf\n+ https://www2.mmm.ucar.edu/wrf/users/docs/user\\_guide\\_v4/v4.4/contents.html",
-      "recommended_readings": "* Scientific publications using the GEOS-Chem or WRF model.\n* John H. Seinfeld and Spyros N. Pandis: Atmospheric Chemistry and Physics: From Air Pollution to Climate Change, John Wiley & Sons, 2016.\n* Daniel J. Jacob: Introduction to Atmospheric Chemistry, Princeton University press, 1999."
+      "required_readings": "* Guy P. Grasseur and Daniel J. Jacob: Modeling of Atmospheric Chemistry, Cambridge University Press, 2017.\n* GEOS-Chem Classic Manual: <https://geos-chem.readthedocs.io/en/stable/>\n* WRF-GC Mannual: <https://wrfgc.readthedocs.io/en/latest/getting-started.html>",
+      "recommended_readings": "* John H. Seinfeld and Spyros N. Pandis: Atmospheric Chemistry and Physics: From Air Pollution to Climate Change, John Wiley & Sons, 2016.\n* Daniel J. Jacob: Introduction to Atmospheric Chemistry, Princeton University Press, 1999.\n* Related scientific publications using the GEOS-Chem and/or WRF-GC model."
     },
     {
       "subject": "EESC",
@@ -6578,12 +6600,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principle, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students also can acquire a responsible attitude in study and work, and have motivation for life-long learning.",
+      "course_syllabus": "Week 1 Introduction to Solid Earth Systems & Global Environmental Challenges\nWeek 2 Plate Tectonics: Theory, Evidence, and Modern Perspectives\nWeek 3 Seismology: Earthquake Mechanics and Wave Propagation\nWeek 4 Geophysical Monitoring Techniques (Seismic, Gravimetric, Magnetic)\nWeek 5 Remote Sensing and Earth Observation Technologies\nWeek 6 Natural Hazards: Earthquakes, Volcanoes, Landslides, typhoon\nWeek 7 Data Analytics in Earth Sciences: Machine Learning & Modeling\nWeek 8 Case Studies: Earthquake Forecasting and Hazard Mitigation\nWeek 9 Resource Geoscience: Exploration and Sustainability\nWeek 10 Earth System Interactions Across Scales\nWeek 11 Student Presentations / Project Workshops\nWeek 12 Final Project Presentations",
+      "assessment_types": {
+        "Attendance": "10",
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Report": "20"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "T*he Solid Earth, An Introduction to Global Geophysics*, second edition, C. M. R. Fowler",
+      "recommended_readings": "* Fundamentals of Geophysics 3rd Edition*. W. Lowrie and A. Fichtner. Cambridge University Press"
     },
     {
       "subject": "EESC",
@@ -6600,12 +6627,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "• Understand the underlying processes driving environmental pollution and climate change.\n• Acquire the basic concepts regarding the effectiveness of environmental monitoring programs and various environmental technologies.\n• Understand the co-benefits of climate and clean air policies.\n• Understand how we study the atmospheric environment by integrating observations and modeling.\n• Understand the scientific knowledge and current research related to the sources and formation of ambient air pollutants, including particulate matters (PM) and ozone.\n• Learn how to evaluate and design effective air pollution control policies aimed at mitigating air quality issues.",
+      "course_syllabus": "Week 1 - Course introduction; natural ecosystems and their problems\nWeek 2 - Environmental pollutants and the health risk\nWeek 3 - Environmental monitoring and remediation technology\nWeek 4 - Atmospheric and ocean general circulation\nWeek 5 - Basics of climate change science\nWeek 6 - Fossil Fuel and Renewable Energy\nWeek 7 - Midterm exam\nWeek 8 - Climate and clean air policies\nWeek 9 - Modeling and multi-platform observation integrated air quality study\nWeek 10 - Atmospheric chemistry\nWeek 11 - Ozone pollution\nWeek 12 - Particulate Matter (PM2.5) pollution\nWeek 13 - Air Pollution: Present and Future Issues\nFinal exam",
+      "assessment_types": {
+        "Examination": "70",
+        "Homework or assignment": "30"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "Lecture handout for each of the topics will be uploaded to the accompanied Blackboard site. Extra reading materials are expected to change every year to reflect the latest development in the research field of Climatic and Environmental Sciences. Additional reading materials such as journal articles will be provided by individual instructors.",
+      "recommended_readings": "• Michael C. Newman. 2019. Fundamentals of Ecotoxicology: The Science of Pollution. 5th Edition. CRC Press. (ISBN: 978-0815354024)\n• McElroy, Michael B, Energy and Climate: Vision for the Future (New York, 2016; online edn, Oxford Academic, 12 Nov. 2020), https://doi.org/10.1093/oso/9780190490331.001.0001, accessed 6 Nov. 2025.\n• Seinfeld J.H.and Pandis, S.N.: Atmospheric Chemistry and Physics, From Air Pollution to Climate Change, 3rd edition (March 2016)"
     },
     {
       "subject": "EESC",
@@ -6622,12 +6652,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "· Understand the fundamental principles of machine learning, especially in the context of Earth and Environmental Sciences.\n· Learn how to apply commonly used machine learning algorithms and techniques such as regression, clustering, support vector machines, random forests, and neural networks.\n· Learn how to implement machine learning algorithms using Python to analyze structured, time series, and imagery data relevant to Earth and Environmental Sciences.\n· Learn how to prepare appropriate training datasets to address specific questions and problems in Earth and Environmental Sciences, ensuring relevance and data integrity.\n· Learn how to evaluate and refine machine learning models by interpreting outputs, assessing accuracy, and improving performance through iterative analysis.",
+      "course_syllabus": "· Week 1: Overview and Introduction to Machine Learning and Big Data in Earth and Environmental Sciences\n\nModule 1: Machine Learning Methods\n· Week 2: Regression Methods\n· Week 3: Unsupervised Learning and Clustering Methods\n· Week 4: Random Forests\n· Week 5: Support Vector Machines\n· Week 6: Neural Networks\n\nModule 2: Machine Learning Applications\n· Week 7: Machine Learning Applications in Geology and Geophysics\n· Week 8: Machine Learning Applications in Atmospheric Sciences\n· Week 9: Image Classification for Earth Sciences\n· Week 10: Segment Anything Model for Cryospheric Studies\n· Week 11: AI Foundation Models for Vegetation and Hydrological Studies\n· Week 12: Machine Learning Applications in Environmental Sciences\n· Week 13: Student Presentations",
+      "assessment_types": {
+        "Homework or assignment": "60",
+        "Project": "30",
+        "Test or quiz": "10"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: views and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "• Petrelli, M. (2023). Machine Learning for Earth Sciences: Using Python to Solve Geological Problems, Springer.\nGitHub repository: https://github.com/petrelli-m/machine\\_learning\\_earth\\_sciences",
+      "recommended_readings": "• Sun, Z., Cristea, N., & Rivas, P. (Eds.). (2023). Artificial Intelligence in Earth Science, Elsevier.\nGitHub repository: https://github.com/earth-artificial-intelligence/earth\\_ai\\_book\\_materials"
     },
     {
       "subject": "EESC",
@@ -6644,12 +6678,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "• Explain the fundamental principles of systems thinking and articulate how physical, biological, and human components interact within environmental systems, using appropriate scientific terminology and concepts.\n• Analyze complex environmental challenges by decomposing them into interconnected components, identifying feedback loops, and evaluating cross-scale interactions using systematic diagnostic frameworks.\n• Design comprehensive system maps for real-world environmental problems, evaluate the effectiveness of different diagnostic approaches, and develop evidence-based recommendations that account for cascade effects across spatial and temporal scales.",
+      "course_syllabus": "Foundations of Systems Thinking\n• Introduction to systems theory\n• Key concepts: emergence, feedback loops, nonlinearity\n• Environmental systems as coupled human-natural systems\nSystems Analysis Tools\n• Causal loop diagrams\n• Stock and flow models\n• System archetypes in environmental contexts\n• Introduction to system mapping software\nDiagnostic Frameworks\n• Problem structuring methods\n• Root cause analysis\n• Participatory system analysis\n• Applying diagnostic frameworks to case studies\nFeedback Mechanisms and Tipping Points\n• Positive and negative feedback loops\n• System stability and regime shifts\n• Early warning signals\n• Mid-term project\nHuman-Environment Interactions\n• Social-ecological systems\n• Urban sustainability challenges\nUncertainty and Complexity\n• Types of uncertainty\n• Uncertainty analysis methods\nApplied Systems Analysis\n• Problem-solving workshops\n• Real-world case studies\n• Group project work\nIntegration and Synthesis\n• Final project presentations\n• Systems thinking in practice\n• Future challenges and opportunities",
+      "assessment_types": {
+        "Classwork": "40",
+        "Examination": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "Ford, A. (2010) *Modeling the environment*. 2nd edn. Washington, D.C.: Island Press.\n\nStroh, D.P. (2015) *Systems thinking for social change: A practical guide to solving complex problems, avoiding unintended consequences, and achieving lasting results*. White River Junction, VT: Chelsea Green Publishing.",
+      "recommended_readings": "Beaubien, R. and Leizrowice, R. (2020) *The great mental models volume 3: Systems and mathematics*. Farnham: Latticework Publishing."
     },
     {
       "subject": "EESC",
@@ -6666,12 +6704,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "• Critically analyze and evaluate scientific literature in a specialized area of earth and environmental data analytics, identifying key methodological approaches, current debates, and knowledge gaps in the field.\n• Synthesize complex information from multiple academic sources to construct a coherent and comprehensive review of current knowledge in the chosen specialized topic, integrating diverse perspectives and methodological approaches.\n• Develop and present evidence-based arguments about the state of research in the chosen topic, critically assess the strengths and limitations of current methodologies, and propose directions for future research based on identified knowledge gaps.\n• Present a well-structured, scholarly oral presentation that critically evaluates current research, effectively uses visual aids, and engages in academic discourse about the implications and future directions of the chosen topic, demonstrating mastery of both content and professional communication skills.",
+      "course_syllabus": "Research Topic Development\nLiterature Review Framework\nDeep Reading and Analysis\nSynthesis and Integration\nCritical Analysis Development\nPresentation Development\nFinal Presentations",
+      "assessment_types": {
+        "Presentation": "50",
+        "Report": "50"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "* Elsbach, K.D. and van Knippenberg, D. (2020), Creating High-Impact Literature Reviews: An Argument for ‘Integrative Reviews’. J. Manage. Stud., 57: 1277-1289. <https://doi.org/10.1111/joms.12581>",
+      "recommended_readings": "* Systematic Approaches to a Successful Literature Review / Booth, Andrew; Martyn-St James, Marrissa; Clowes, Mark; Sutton, Anthea - London : SAGE Publications Ltd, 2021 - 100 p. - ISBN: 9781529759648"
     },
     {
       "subject": "EESC",
@@ -6688,12 +6729,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students should be able to:\n1. Evaluate how core scientific principles provide the basis for assessing environmental and social risks and opportunities.\n2. Assess the body of scientific evidence underpinning the UN SDGs to defend their role as an essential framework for mitigating systemic global risks and ensuring human prosperity.\n3. Explain how global megatrends and ESG value drivers influence investment risk, return, and the broader industry landscape\n4. Integrate ESG considerations into investment analysis, portfolio management, and valuation models\n5. Analyze how ESG factors impact corporate financial performance, business strategy, and long-term value creation\n6. Differentiate between key ESG investment strategies (e.g., screening, integration, impact) and their application across diverse asset classes\n7. Demonstrate an understanding of key ESG reporting frameworks, including the sources, uses, and limitations of the data",
+      "course_syllabus": "Scientific Foundations of Environmental & Social Analysis\n• Examine the foundational principles from climate, ecological and sustainability sciences that enable the assessment of environmental and social impacts of human activities.\n\nThe Scientific Imperative of Planetary Boundaries and SDGs\n• Analyze evidence from the environmental and health sciences to establish the critical urgency of the UN SDG framework for securing long-term human prosperity in the context of planetary boundaries.\n\nFoundations of Sustainable Investment\n• The evolving landscape of sustainable investment, core principles and definitions, ESG value drivers and market demand shaping global investment trends\n\nGlobal and Regional ESG Regulatory Frameworks\n• An overview of the evolving global ESG regulatory landscape, with a deep dive into key frameworks in the European Union and Asia-Pacific region.\n\nIntroduction to ESG Reporting and Materiality\n• Understanding of voluntary vs. mandatory regimes and the convergence of major ESG reporting frameworks and the concept of double materiality\n\nESG Data: Availability, Quality and Usage\n• Evaluation of primary ESG information sources, addressing challenges in raw data availability and quality, and the effective use of indicators\n\nRecent Development of Global ESG investing\n• Market drivers and barriers to ESG integration and empirical evidence on ESG's effect on financial performance\n\n• Sustainable Investing and Financing Across Asset Classes\n\nIntroduction to the distinctive features of various sustainable investment strategies\n• Application of responsible investing principles and tailored ESG strategies across different asset classes\n\nESG Integration in Fundamental Research & Valuation\n• Identifying material ESG factors for corporations and sovereigns through qualitative analysis of governance and sector-specific E&S factors, and translating these findings into quantitative valuation models through adjustments to financial forecasts\n\nESG Integration in Investment Process\n• Understanding the investment process chain and how ESG considerations influence its key stages, from setting investment guidelines and objectives to macro research, asset allocation, and informing the final investment decision\n\nESG Integration in Portfolio Management & Active Ownership\n• Application in portfolio construction, monitoring and management, active ownership strategies (proxy voting and engagement), and developing a robust framework for ESG-integrated due diligence",
+      "assessment_types": {
+        "Project": "30",
+        "Participation": "10",
+        "Short answer test or exam": "30",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "Schoenmaker, D. and Schramade, W., Principles of Sustainable Finance (2018). Principles of Sustainable Finance, Oxford University Press.",
+      "recommended_readings": "• Friede G, Busch T, Bassen A. (2015) “ESG and Financial Performance: Aggregated Evidence from more than 2000 Empirical Studies” Available at: https://www.tandfonline.com/doi/full/10.1080/20430795.2015.1118917\n\n• GSIA (2023) “Global Sustainable Investment Review 2022” Available at: https://www.gsi-alliance.org/wp-content/uploads/2023/12/GSIA-Report-2022.pdf\n\n• Busch et al. (2022) “Classification Scheme for Sustainable Investments - Accelerating the Just and Sustainable Transition of the Real Economy” Available at: https://papers.ssrn.com/sol3/papers.cfm?abstract\\_id=4217864\n\n• ESMA (2024) “Impact investing – Do SDG funds fulfil their promises?” Available at: https://www.esma.europa.eu/sites/default/files/2024-02/ESMA50-524821-3098\\_TRV\\_article\\_-\\_Impact\\_investing\\_-\\_Do\\_SDG\\_funds\\_fulfil\\_their\\_promises.pdf"
     },
     {
       "subject": "EESC",
@@ -6710,12 +6756,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "• Transform theoretical knowledge into empirical research by designing a methodologically sound study, formulating testable hypotheses, and selecting appropriate analytical approaches, demonstrating ability to bridge theoretical understanding with practical research implementation.\n• Apply advanced data analysis techniques and tools to conduct original research, showing mastery in handling environmental data, implementing appropriate statistical methods, and producing reliable analytical results.\n• Integrate research findings with existing literature to produce a publication-quality manuscript and deliver a professional research presentation, demonstrating comprehensive scientific writing skills and ability to effectively communicate complex research findings to diverse audiences.",
+      "course_syllabus": "Research Design Development\nMethodology Refinement\nData Collection/Preparation\nAnalysis Implementation\nResults Development\nSynthesis and Discussion\nManuscript Writing\nInitial Draft Completion\nPeer Review and Feedback\nManuscript Revision\nFinal Manuscript Development\nPresentation Development\nFinal Presentation and Submission",
+      "assessment_types": {
+        "Lab performance": "20",
+        "Presentation": "50",
+        "Report": "30"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "Patric Brandt, Anna Ernst, Fabienne Gralla, Christopher Luederitz, Daniel J. Lang, Jens Newig, Florian Reinert, David J. Abson, Henrik von Wehrden,\n\nA review of transdisciplinary research in sustainability science, Ecological Economics, Volume 92, 2013, Pages 1-15, ISSN 0921-8009,\n\n<https://doi.org/10.1016/j.ecolecon.2013.04.008.>",
+      "recommended_readings": "Walliman, Nicholas. *Your Research Project : Designing, Planning, and Getting Started*. Fourth edition. London ; SAGE Publications, 2020. Print."
     },
     {
       "subject": "EESC",
@@ -6732,12 +6782,18 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students should be able to:\n1. Understand the science behind climate change and its financial impacts\n2. Learn global climate regulations and their effects on financial institutions\n3. Identify and model climate-related risks, including asset vulnerability and exposure\n4. Quantify the financial impacts of climate-related risks on portfolios and businesses\n5. Explore opportunities in sustainable investments and renewable energy\n6. Understand climate adaptation plans and how they incorporate 'Net Zero' goals and financial strategies\n7. Gain insights into green finance and the growth of sustainable markets",
+      "course_syllabus": "The Science of Climate Change\n- Delve into the science basis of climate change, its global impacts, and the foundational concepts of mitigation and adaptation, drawing from key IPCC findings\n\nClimate Policy, Regulation, and Reporting Standards\n- Examine the formation of global climate policy under the UNFCCC and Paris Agreement, and analyze its subsequent implementation through regional/national legislation (e.g., EU Green Deal) and emerging corporate disclosure standards\n\nIdentifying and Modeling Climate Risk\n- Covering climate scenarios as well as the key techniques for identifying, modeling, and analyzing the impacts of physical and transition risks\n\nQuantifying the Financial Impact of Climate Risk\n- Translate identified climate risks into financial terms by quantifying their impact, and understand the methods for reporting these risks and associated uncertainties in corporate financial statements\n\nClimate-Related Opportunities\n- Explore the financial opportunities arising from the climate transition, from new technologies and business models to the value created by organizations that successfully seize climate-related initiatives\n\nCorporate Climate Strategy: Net Zero and Adaptation\n- Analyze the components of effective corporate climate strategies, including the development of credible Net Zero roadmaps, carbon accounting, and robust plans for climate adaptation and risk transfer\n\nEconomic Effects Financial Stability\n- Assess the broader economic consequences of climate change, including its potential effects on economic indicators, and its implications for systemic risk and overall financial stability\n\nInstruments of Sustainable and Climate Finance\n Explore sustainable finance, including green, social, and sustainability-linked finance. Emphasize the importance and impact of sustainable financial practices in supporting climate mitigation and adaptation\n\nClimate Risk Across Asset Classes\n- Apply climate risk analysis to specific asset classes, including equity, debt, private equity, and real estate, and learn techniques for portfolio decarbonization and measuring financed GHG emissions",
+      "assessment_types": {
+        "Examination": "30",
+        "Homework or assignment": "15",
+        "Project": "30",
+        "Participation": "10",
+        "Test or quiz": "15"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "* World Meteorological Organization (WMO). (2024) “State of the Global Climate 2023” Available at: <https://wmo.int/publication-series/state-of-the-global-climate-2023>\n\n* Task Force on Climate-related Financial Disclosures (TCFD). (2017) “Recommendations of the Task Force on Climate-related Financial Disclosures” Available at: <https://assets.bbhub.io/company/sites/60/2021/10/FINAL-2017-TCFD-Report.pdf>\n\n* Transition Plan Taskforce (TPT). (2023) “The TPT Disclosure Framework” Available at: <https://transitiontaskforce.net/disclosure-framework/>\n\n* Smithers, R.J., Gardner, A. & Dworak, T. (2023) “Assessing climate change risks and vulnerabilities (climate risk assessment). A DIY Manual” European Environment Agency. Available at: <https://www.eea.europa.eu/publications/assessing-climate-change-risks-and>",
+      "recommended_readings": "* United Nations Framework Convention on Climate Change (UNFCCC). (2015) “The Paris Agreement” Available at: <https://unfccc.int/sites/default/files/english_paris_agreement.pdf>\n\n* United Nations Environment Programme (UNEP). (2023) “Emissions Gap Report 2023: Broken Record – Temperatures hit new highs, yet world fails to cut emissions (again)” Available at: <https://www.unep.org/resources/emissions-gap-report-2023>\n\n* International Renewable Energy Agency (IRENA). (2023) “World Energy Transitions Outlook 2023: 1.5°C Pathway” Available at: <https://www.irena.org/Publications/2023/Jun/World-Energy-Transitions-Outlook-2023>"
     },
     {
       "subject": "EESC",
@@ -6754,12 +6810,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Earth & Env Sci",
       "academic_org": "Div of Earth & Env Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "• Expand and deepen original research through advanced analytical approaches, additional data integration, or methodological refinements, demonstrating ability to elevate research quality beyond initial project scope.\n• Develop and implement sophisticated research components such as validation procedures, sensitivity analyses, or comparative methodologies, showing mastery in advanced environmental data analytics and research methodologies.\n• Produce publication-quality research outputs including detailed supplementary materials, documented analytical procedures, and comprehensive data management protocols, demonstrating readiness for professional research dissemination or doctoral-level work.",
+      "course_syllabus": "Project Enhancement Plan\nAdvanced Methodology Implementation\nExtended Analysis Phase\nComprehensive Results Development\nEnhanced Manuscript Development\nFinal Research Package",
+      "assessment_types": {
+        "Lab performance": "20",
+        "Presentation": "30",
+        "Report": "50"
+      },
+      "feedback_evaluation": "• Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n• Discussion with students: view and suggestions will be gathered from students.\n• Reflection of teacher",
+      "required_readings": "Walliman, Nicholas. *Your Research Project : Designing, Planning, and Getting Started*. Fourth edition. London ; SAGE Publications, 2020. Print",
+      "recommended_readings": "Urban, Jennifer Brown, and Brad Van Eeden-Moorefield. *Designing and Proposing Your Research Project*. First edition. Washington, DC: American Psychological Association, 2018. Print."
     },
     {
       "subject": "EESC",

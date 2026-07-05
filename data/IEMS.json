@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T11:58:48.363336+00:00",
+    "scraped_at": "2026-07-04T16:48:25.697756+00:00",
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
-    "total_courses": 25,
+    "total_courses": 24,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -740,32 +740,6 @@
     },
     {
       "subject": "IEMS",
-      "course_code": "5721",
-      "title": "Broadband Access Technologies",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course aims to introduce various advanced wireline (copper wire and optical fiber) and wireless communication technologies to realize first-mile broadband access for video and data services. The wireline technologies include hybrid fiber coax (HFC), digital subscriber line (DSL), data over cable service interface specification (DOCSIS), passive optical network (PON) and fiber-to-the-home/premise (FTTH / FTTP), and broadband over powerline (BPL). The wireless technologies include multichannel\nmultipoint distribution service (MMDS), local multipoint destribution service (LMDS), wireless local loop (WLL), WiFi and WiMAX, free-space-optics (FSO), and ultrawideband (UWB). Radio frequency identification (RFID) technique and applications. Fixed / mobile convergence access networks. Enabling technologies and network applications for home networks. Cases studies.",
-      "enrollment_requirement": "For all students in Engineering Faculty",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "At the completion of this course,\n\n1. students understand the basic system requirement of broadband access over different physical transmission media.\n2. students understand the basic principles of various kinds of wireline and wireless broadband access technologies.\n3. students are able to compare and evaluate the communication technologies for different broadband access applications.\n4. students are able to appreciate different kind of broadband access technologies in the practical deployment.",
-      "course_syllabus": "The course aims to introduce various advanced wireline (copper wire and optical fiber) and wireless communication technologies to realize first-mile broadband access for video and data services. The wireline technologies include hybrid fiber coax (HFC), digital subscriber line (DSL), data over cable service interface specification (DOCSIS), passive optical network (PON) and fiber-to-the-home/premise (FTTH / FTTP), and broadband over powerline (BPL). The wireless technologies include multichannel\nmultipoint distribution service (MMDS), local multipoint destribution service (LMDS), wireless local loop (WLL), WiFi and WiMAX, free-space-optics (FSO), and ultrawideband (UWB). Radio frequency identification (RFID) technique and applications. Fixed / mobile convergence access networks. Enabling technologies and network applications for home networks. Cases studies.",
-      "assessment_types": {
-        "Essays": "20",
-        "Presentation": "30",
-        "Selected response test or exam": "50"
-      },
-      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:\n\nStudents are welcome to express their comments and suggestions via the following formal and informal feedback channels:\n\n- Two course evaluations. First one to be conducted in the middle of the term and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.\n\n- Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or simply discussing with the tutors or the instructor directly.",
-      "required_readings": "To be advised by course teacher",
-      "recommended_readings": "1\n\n| 1 | *Broadband Access Networks: Technologies and Deployments*, Edited by A. Shami, M. Maier, C. Assi, Springer 2009. |\n| --- | --- |\n| 2 | *Broadband Last Mile: Access Technologies for Multimedia Communications*, Edited by Nikil Jayant, CRC Press 2005. |"
-    },
-    {
-      "subject": "IEMS",
       "course_code": "5722",
       "title": "Mobile Network Programming and Distributed Server Architecture",
       "credits": "3.00",
@@ -1196,12 +1170,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Information Engineering",
       "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the principles of the building blocks, e.g., lasers, modulators, photodiodes, and beam alignment modules, in optical wireless communication (WOC) systems;\n2. analyze the performance characteristics of WOC systems, such as link loss, turbulence, and capacity estimates; and\n3. appraise various WOC systems, including systems using indoor visible light communication, underwater WOC, optical camera communication, and free-space laser communication.",
+      "course_syllabus": "Week 1 - Basics of optical communication\nWeek 2 - Photonic devices for wireless optical communication (WOC)\nWeek 3 - Free-space optical channel characterization\nWeek 4 - Optical alignment and beam tracking\nWeek 5 - Visible light communication + Midterm Exam\nWeek 6 - Underwater and water-air WOC-1\nWeek 7 - Underwater and water-air WOC-2\nWeek 8 - Satellite laser communication\nWeek 9 - Optical camera communication\nWeek 10 - Photovoltaic WOC\nWeek 11 - Student presentation\nWeek 12 - Student presentation",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be advised by course teacher.",
+      "recommended_readings": "* Optical Wireless Communications: System and Channel Modelling with MATLAB® by Ghassemlooy, Popoola, and Rajbhandari, 2nd ed., CRC Press [2018].\n* Advanced Optical and Wireless Communications Systems by Ivan B. Djordjevic, 2nd ed., Springer [2022].\n* Free-Space Laser Communications Principles and Advances Introduction by Arun K. Majumdar, Jennifer C. Ricklin, Springer [2008]"
     },
     {
       "subject": "IEMS",

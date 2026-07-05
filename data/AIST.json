@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T07:41:49.475367+00:00",
+    "scraped_at": "2026-07-04T13:24:14.053337+00:00",
     "subject": "AIST",
     "subject_title": "AI: Systems & Tech",
     "total_courses": 23,
@@ -886,12 +886,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n1) Design and implement multi-agent systems: Utilize frameworks like AutoGen to design and build multi-agent systems capable of performing complex tasks that require collaboration, reasoning, and tool use.\n2) Understand and apply LLM serving systems: Explain the system architecture and key optimization techniques (e.g., PagedAttention) of high-performance inference serving frameworks like vLLM, and be able to deploy and evaluate their performance.\n3) Evaluate and strengthen agentic systems: Identify potential vulnerabilities and security risks in agentic systems (e.g., prompt injection) and apply appropriate evaluation methodologies and techniques to ensure system reliability, safety, and ethical conduct.",
+      "course_syllabus": "Week 1: Introduction to agentic AI\nWeek 2: Reasoning and planning\nWeek 3: Tool use and environment interaction\nWeek 4: Memory and knowledge retrieval\nWeek 5: AutoGen basics and conversational agents\nWeek 6: Advanced AutoGen and multi-agent collaboration\nWeek 7: Introduction to LLM serving\nWeek 8: vLLM deep dive\nWeek 9: Advanced serving with AIBrix\nWeek 10: Agentic serving optimization\nWeek 11: Safety and ethics of AI agents\nWeek 12: Evaluation and benchmarking\nWeek 13: Final project and presentations",
+      "assessment_types": {
+        "Examination": "40",
+        "Project": "40",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1) \"Chain-of-Thought Empowers Transformers to Solve Inherently Serial Problems\" by Zhiyuan Li, Hong Liu, Denny Zhou, Tengyu Ma.\n2) \"ReAct: Synergizing Reasoning and Acting in Language Models\" by Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, Yuan Cao\n3) \"AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation\" by Qingyun Wu, Gagan Bansal, Jieyu Zhang, Yiran Wu, Beibin Li, Erkang Zhu, Li Jiang, Xiaoyun Zhang, Shaokun Zhang, Jiale Liu, Ahmed Hassan Awadallah, Ryen W White, Doug Burger, Chi Wang\n4) \"Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs\" by Krista Opsahl-Ong, Michael J Ryan, Josh Purtell, David Broman, Christopher Potts, Matei Zaharia, Omar Khattab\n5) \"WorkArena++: Towards Compositional Planning and Reasoning-based Common Knowledge Work Tasks\" by Léo Boisvert, Megh Thakkar, Maxime Gasse, Massimo Caccia, Thibault Le Sellier De Chezelles, Quentin Cappart, Nicolas Chapados, Alexandre Lacoste, Alexandre Drouin\n6) \"DecodingTrust: A Comprehensive Assessment of Trustworthiness in GPT Models\" by Boxin Wang, Weixin Chen, Hengzhi Pei, Chulin Xie, Mintong Kang, Chenhui Zhang, Chejian Xu, Zidi Xiong, Ritik Dutta, Rylan Schaeffer, Sang T. Truong, Simran Arora, Mantas Mazeika, DanHendrycks, Zinan Lin, Yu Cheng, Sanmi Koyejo, Dawn Song, Bo Li.\n7) \"Efficient Memory Management for Large Language Model Serving with PagedAttention\" by Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E. Gonzalez, Hao Zhang, Ion Stoica."
     },
     {
       "subject": "AIST",
@@ -908,12 +912,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Demonstrate a solid understanding of the fundamental models and algorithms for graph mining and graph neural networks.\n2. Implement and critically evaluate selected graph neural network models and algorithms introduced in the course.\n3. Apply the acquired knowledge to design and carry out a project addressing a real-world problem.\n4. Communicate clearly and effectively about the application of graph neural networks to practical problem-solving.",
+      "course_syllabus": "Week 1. Overview: structured data as graph\nWeek 2. Spectral graph theory\nWeek 3. Message passing neural network\nWeek 4. Sequence as graph\nWeek 5. Image as graph\nWeek 6. Applications (1) pretraining and multi-task learning\nWeek 7. Applications (2) physics, chemistry, and material science\nWeek 8. Applications (3) biology and environmental science\nWeek 9. Applications (4) knowledge graph learning\nWeek 10. Applications (5) multi-modal learning\nWeek 11. Applications (6) foundation model\nWeek 12. Presentation (1)\nWeek 13. Presentation (2)",
+      "assessment_types": {
+        "Examination": "30",
+        "Homework or assignment": "60",
+        "Presentation": "10"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. Graph Mining: Laws, Tools, and Case Studies, Deepayan Chakrabarti and Christos Faloutsos, Morgan & Claypool Publishers; 1st Edition (October 19, 2012)\n2. Mining Graph Data, Diane J. Cook and Lawrence B. Holder, John Wiley & Sons (2006)\n3. Introduction to Graph Neural Networks, Zhiyuan Liu and Jie Zhou, Morgan & Claypool (March 20, 2020)\n4. Tutorial on Physics-Inspired Geometric Pretraining for Molecule Representation. AAAI. Shengchao Liu (2025)"
     },
     {
       "subject": "AIST",
@@ -930,12 +938,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Derive advanced deep learning algorithms by hand;\n2. Understand the mathematics behind state-of-the-art deep learning systems;\n3. Prototyping basic deep learning algorithms.",
+      "course_syllabus": "Week 1: Course Introduction: Why mathematical foundations matter in deep learning\nWeek 2: Linear Algebra: Vector Spaces and Matrices\nWeek 3: Numerical Linear Algebra: Algorithmic Efficiency in Machine Learning\nWeek 4: Probability Foundations: Random Variables, Distributions and Central Limit\nTheorem\nWeek 5: Selected topics in Bayesian Inference (Bayes' Rule, Prior, Likelihood, Posterior)\nWeek 5: Selected topics in Probabilistic models (Overview of Graphical Models)\nWeek 6: Optimization in Deep Learning I: Concepts and Algorithms\nWeek 7: Optimization in Deep Learning II: Large-scale Model Training\nWeek 8: Modern Deep Learning I: Universal Approximation and Model Architectures\nWeek 9: Modern Deep Learning II: Inference and Training of Large Models\nWeek 10: Modern Deep Learning III: Generalization Theory\nWeek 11: Modern Deep Learning IV: Weight Geometry and Regularization\nWeek 12: Information Theory Interpretation of Deep Learning\nWeek 13: Review & Connections to Foundation Models (eg, Large Language Models)",
+      "assessment_types": {
+        "Examination": "30",
+        "Homework or assignment": "60",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "1. Test or quiz\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. Bishop C M, Nasrabadi N M. Pattern recognition and machine learning. New York: springer, 2006.\n2. Goodfellow I, Bengio Y, Courville A, et al. Deep learning[M]. Cambridge: MIT press, 2016."
     },
     {
       "subject": "AIST",
@@ -952,12 +964,18 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Design and implement embodied intelligent systems in simulation environments. Develop intelligent agents in physics simulators (PyBullet, Isaac Gym, or MuJoCo) that integrate virtual sensors (RGB cameras, depth sensors) and actuators to interact with simulated environments. Grasp embodied AI interactions with large language models and vision-language models.\n2. Apply reinforcement learning and imitation learning for different tasks. Implement and train RL algorithms (DQN, PPO, SAC) and imitation learning methods (behavioral cloning, DAgger) using standard frameworks (Stable-Baselines3, RLlib) to solve navigation, grasping, and manipulation tasks, and understand sim-to-real transfer principles.\n3. Process and fuse multimodal sensor data for problem solving. Use computer vision libraries (OpenCV, PyTorch Vision) to process RGB images and depth maps, implement sensor fusion algorithms to combine camera and LiDAR data, and build perception pipelines that enable robots to detect objects, estimate poses, and make decisions in both simulation and real-world applications.",
+      "course_syllabus": "Week 1: What is Embodied Intelligence?\nWeek 2: Camera and Vision Systems\nWeek 3: LiDAR and 3D Sensing Technologies\nWeek 4: Multimodal Perception\nWeek 5: Reinforcement Learning Fundamentals\nWeek 6: Policy Gradient Methods\nWeek 7: Imitation Learning\nWeek 8: VLM-based Planning\nWeek 9: Embodied AI Applications in Autonomous Driving\nWeek 10: Embodied AI Applications in Elderly Caring\nWeek 11: Embodied AI Applications in Healthcare\nWeek 12: Human-machine Partnership in Embodied AI\nWeek 13: Future Trends and Ethical Considerations",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "40",
+        "Presentation": "5",
+        "Project": "10",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire;\n2. Results of assignments and examination;\n3. Question-and-Answer sessions during class;\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. Pfeifer, R., & Bongard, J. (2006). How the Body Shapes the Way We Think: A New View of Intelligence. MIT Press.\n2. Russell, S., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach (4th Edition). Pearson.\n3. Sutton, R. S., & Barto, A. G. (2018). Reinforcement Learning: An Introduction (2nd Edition). MIT Press.\n4. Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.\n5. Thrun, S., Burgard, W., & Fox, D. (2005). Probabilistic Robotics. MIT Press."
     },
     {
       "subject": "AIST",
@@ -974,12 +992,15 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Effectively utilize autonomous coding agents to translate high-level natural language requirements into complex, multi-file software implementations while maintaining code cohesion.\n2. Master the art of context management by creating structured documentation that minimizes ambiguity and optimizes the performance of LLM context windows.\n3. Apply Test-Driven Development and testing strategies to identify, isolate, and rectify AI problems.\n4. Design modular software architectures that are decoupled and optimized for AI comprehension, and integrate data models to enable semantic intelligence within applications.\n5. Construct robust DevOps pipelines (CI/CD) to automate testing and deployment, while identifying and mitigating specific security risks.",
+      "course_syllabus": "Week 1: Introduction to AI-Native Software Engineering and Coding Agents\nWeek 2: Context Engineering & Specifications\nWeek 3: Large Language Model Fundamentals for Software Engineering\nWeek 4: AI-Driven Testing, Test-Driven Development, and Continuous Integration\nWeek 5: AI-Driven Data Modeling\nWeek 6: AI-Driven Debugging and Code Review\nWeek 7: AI-Friendly Architecture Design\nWeek 8: UI/UX and The Full Stack Glue\nWeek 9: Development Operations\nWeek 10: Principles of Agents\nWeek 11: Security and Risks\nWeek 12: Project Presentation\nWeek 13: Project Presentation",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "60"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire;\n2. Results of assignments and examination;\n3. Question-and-Answer sessions during class;\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "(1) Karpathy, A. (2017). \"Software 2.0\".\n(2) Sutton, Richard. \"The bitter lesson.\" Incomplete Ideas (blog) 13, no. 1 (2019): 38.\n(3) Jimenez, Carlos E., et al. \"Swe-bench: Can language models resolve real-world github issues?.\" arXiv preprint arXiv:2310.06770 (2023).\n(4) Wei, Jason, et al. \"Chain-of-thought prompting elicits reasoning in large language models.\" Advances in neural information processing systems 35 (2022): 24824-24837.\n(5) Liu, N. F., et al. (2023). \"Lost in the Middle: How Language Models Use Long Contexts”.\n(6) Yao, S., et al. (2023). \"ReAct: Synergizing Reasoning and Acting in Language Models\". (ICLR).\n(7) \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks”.\n(8) Chase, H. LangChain / LangGraph Documentation (The Conceptual Guides)."
     },
     {
       "subject": "AIST",
@@ -1706,12 +1727,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Critically evaluate the strengths and limitations of PhysAI and GenAI approaches in scientific applications.\n2. Implement and experiment with AI models that incorporate physics priors or generative capabilities using modern machine learning frameworks (e.g., PyTorch, PyTorch-Geometric, Transformers).\n3. Design and prototype workflows that combine physics-based constraints with generative modeling for real-world scientific problems.\n4. Communicate complex ideas and findings effectively through coding projects, written reports, and oral presentations.",
+      "course_syllabus": "Week 1: Overview on AI for Science\nWeek 2: Generative AI\nWeek 3: Physics-inspired AI\nWeek 4: Pretraining, Foundation Model, and Large Language Model\nWeek 5: The Multi-modal Learning and Alignment\nWeek 6: PhysAI for Chemistry: Energy and Force, AI MD\nWeek 7: GenAI for Chemistry: Molecule Generation, Molecule Optimization, Reaction Mechanism\nWeek 8: PhysAI for Material Science: Crystallization, Phase Detection\nWeek 9: GenAI for Material Science: Material Generation, Structure Generation\nWeek 10: PhysAI for Biology: Folding, Binding, Structure-based Drug Design\nWeek 11: GenAI for Biology: Protein Design and Engineering, Structure Generation, Metabolism Pathway\nWeek 12: Group Presentation (1)\nWeek 13: Group Presentation (2)",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Presentation": "20",
+        "Project": "40"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Question-and-answer sessions during class\n3. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Yang Song, Diederik Kingma, (2021), How to Train Your Energy-Based Models. ArXiv.\n2. Shengchao Liu, (2025), Tutorial on Physics-Inspired Geometric Pretraining for Molecule Representation. AAAI.\n3. Shengchao Liu, (2025), Tutorial on Multi-modal Foundation Model for Scientific Discovery: With Applications in Chemistry, Material, and Biology. AAAI"
     },
     {
       "subject": "AIST",
@@ -1728,12 +1753,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Implement at least four optimizers (AdamW, Adafactor, Lion, Muon) with LR schedules and clipping and justify choices via ablations.\n2. Fine-tune a model with LoRA/QLoRA and report compute-normalized quality and memory.\n3. Reproduce a small-scale RLHF baseline and a DPO run; evaluate with preference win-rates and calibration.\n4. Prototype GRPO-style training on a reasoning toy task; analyze sample cost vs. gains.\n5. Build a decode-time optimizer that meets an accuracy/latency target using best-of-N, ToT, or contrastive decoding; quantify improvements.",
+      "course_syllabus": "Week 1: Optimization across the LLM lifecycle. Taxonomy of objectives (training vs. post-training vs. decoding). An Overview of Optimization.\nWeek 2: Optimizers I — Adam/AdamW, Adafactor Decoupled weight decay vs. L2; second-moment factorizations; gradient clipping.\nWeek 3: Optimizers II — Lion, Muon; LR warmup/cosine; gradient clipping Sign-momentum (Lion); orthogonality-flavored Muon; warm restarts; exploding-gradients & clip-norm.\nWeek 4: Optimizers III: Theory of Adaptive Methods: convergence analysis of adaptive methods under different conditions (convex, PL, smooth non-convex), including iteration complexity and sample complexity.\nWeek 5: Efficient fine-tuning (PEFT): LoRA and QLoRA Rank choice, adapter placement.\nWeek 6: Post-training I — Reinforcement learning from human feedback (RLHF) (KL-regularized PPO) InstructGPT pipeline; reward-model fit; KL trust-region view.\nWeek 7: Post-training II — DPO and variants: Preference fitting as logistic risk; reference-model effects; PPO-style RLHF.\nWeek 8: Post-training III — GRPO & resource-aware RL: Group-relative baselines, critic-free PPO; sampling costs and scaling; current analyses & tweaks (CPPO).\nWeek 9: Decoding I — sampling controls and contrastive methods Temperature, top-k; contrastive search vs. contrastive decoding.\nWeek 10: Decoding II — test-time compute: Self-consistency (best-of-N), Tree-of-Thoughts search\nWeek 11: Serving-time acceleration: Speculative decoding (draft-then-verify) and lookahead decoding (parallel exact steps)\nWeek 12: In-Context Learning (ICL) — statistical and optimization views ICL as implicit Bayes; transformers emulating GD; synthetic setups that reproduce ICL phenomena.\nWeek 13: Diffusion models (optimization and sampling) denoising diffusion probabilistic model (DDPM) objective; DDIM acceleration; DPM-Solver",
+      "assessment_types": {
+        "Homework or assignment": "60",
+        "Project": "40"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Question-and-answer sessions during class\n3. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Loshchilov & Hutter (2017). Decoupled Weight Decay Regularization (AdamW). ICLR.\n2. Chen et al. (2023). Symbolic Discovery of Optimization Algorithms (Lion). arXiv.\n3. Jordan (2024). Muon: An optimizer for hidden layers in neural networks. Blog.\n4. oshchilov & Hutter (2017). SGDR: Stochastic Gradient Descent with Warm Restarts. ICLR.\n5. Hu et al. (2022). LoRA: Low-Rank Adaptation of Large Language Models. ICLR.\n6. Dettmers et al. (2023). QLoRA: Efficient Finetuning of Quantized LLMs. NeurIPS.\n7. Rafailov et al. (2023). Direct Preference Optimization (DPO). NeurIPS/OpenReview.\n8. Shao et al. (2024). DeepSeekMath (introduces GRPO). arXiv.\n9. Wang et al. (2023). Self-Consistency Improves Chain-of-Thought Reasoning. ICLR.\n10. Xie et al. (2022). An Explanation of In-Context Learning as Implicit Bayesian Inference. ICLR.\n11. Ho, Jain, Abbeel (2020). DDPM. NeurIPS."
     }
   ]
 }
