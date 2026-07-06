@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T12:34:02.792747+00:00",
+    "scraped_at": "2026-07-04T17:24:38.328779+00:00",
     "subject": "MAEG",
     "subject_title": "Mechanical & Automation Engg",
-    "total_courses": 56,
+    "total_courses": 55,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -456,32 +456,6 @@
       "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
       "required_readings": "The details will be provided by the course instructor.",
       "recommended_readings": "(1) Gary R. Bertoline, Introduction to Graphics Communications for Engineers, McGraw Hill, 2009\n(2) Benhabib, Beno. Manufacturing: design, production, automation, and integration. CRC Press, 2003.\n(3) Raja, Vinesh, and Kiran J. Fernandes, eds. Reverse engineering: an industrial perspective. Springer Science & Business Media, 2007."
-    },
-    {
-      "subject": "MAEG",
-      "course_code": "2010",
-      "title": "Computer-aided Drafting",
-      "credits": "2.00",
-      "terms": [],
-      "description": "The course introduces the basics of engineering graphics, background of computer-aided design, views and projections, sections and cutting planes, dimensioning, tolerances, working drawings, and basic guidelines in product design. It provides a series of homework and a project for students to learn and practice using standard CAD packages for creating 2D engineering drawing, 3D models, animation and analysis.",
-      "enrollment_requirement": "Not for students who have taken MAEG1020.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Mech & Automation Engg",
-      "academic_org": "Dept of Mech & Automation Engg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) be able to read and understand engineering drawings and CAD models of existing design;\n(2) be able to have proficiency to use CAD software for product modelling, drafting, and analysis;\n(3) be able to have basic knowledge of product design and manufacturing process;\n(4) be able to carry out simple product design in a team.",
-      "course_syllabus": "The details will be provided by the course instructor.",
-      "assessment_types": {
-        "Homework or assignment": "40",
-        "Presentation": "10",
-        "Project": "50"
-      },
-      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
-      "required_readings": "The details will be provided by the course instructor.",
-      "recommended_readings": "(1) Engineering Design Graphics, 11th Edition, by James H. Earle, Prentice Hall, 2004, ISBN: 0-13-142573-0.\n(2) Introduction to Graphics Communications For Engineers, 3/e, Gary R. Bertoline, McGraw-Hill, 2006, ISBN: 0-07-295084-6"
     },
     {
       "subject": "MAEG",
@@ -1225,7 +1199,7 @@
         }
       ],
       "description": "This course covers important topics in fluid mechanics. It will introduce the nature of fluids; pressure, hydrostatics, and buoyancy; integral and differential equations of fluid flows; conservation of mass, momentum, and energy; basic mass transfer; inviscid flow, viscous-dominated flows; Navier-Stokes equation; dimensional analysis; internal and external flows, boundary layers, and lift and drag on objects.",
-      "enrollment_requirement": "---",
+      "enrollment_requirement": "(ENR) PR-MAEG2030/ESTR2402/Consent of the course instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -3444,7 +3418,7 @@
     {
       "subject": "MAEG",
       "course_code": "5710",
-      "title": "Computer Aided Design and Manufacturing",
+      "title": "Geometric Modelling for Computer Aided Design and Manufacturing",
       "credits": "3.00",
       "terms": [
         {
@@ -3480,7 +3454,7 @@
           ]
         }
       ],
-      "description": "This course focuses on the technologies for the modeling and visualization of 3D objects. This includes topics on the transformation of objects and coordinate systems. Techniques for the representation of free form curves and surfaces including parametric cubic, Bezier, B-spline, and NURBS will be covered. Techniques for modeling trimmed surface will also be studied. The basic theory of solid modeling and representation schemes will be covered. The Constructive Solid Geometry and the Boundary Representation scheme will be studied. The basic concept for the generation of machining tool paths will be covered. There will also be an introduction to feature based design.",
+      "description": "This course focuses on the technologies for the modeling and visualization of 3D objects. This includes topics on the rendering of 3D objects, and the mathematical descriptions of curves and surfaces commonly used in Computer-Aided Design and Manufacturing systems. The basic theory of solid modeling and solid representation scheme will be covered. Some popular solid representation schemes and the algorithms for Boolean operations on solid models will also be covered. The basic concept for the generation of tool paths from 3D models for machining and 3D printing will be studied.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5030",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -3489,7 +3463,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. Able to identify geometric functions of computer-aided design and manufacturing;\n2. Able to apply engineering mathematics knowledge to conduct analysis for computer-aided design and manufacturing;\n3. Competent to identify the influences of modern computing techniques on the development of advanced computer-aided design and manufacturing; and\n4. Skilled at computer programming for computer-aided design and manufacturing.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. Able to identify geometric modeling functions required in design and manufacturing;\n2. Able to apply engineering mathematics knowledge to construct and manipulate geometric models for design and manufacturing;\n3. Competent to identify the influences of modern computing techniques on the development of advanced computer-aided design and manufacturing system; and\n4. Skilled at computer programming for design and manufacturing.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Essay test or exam": "70",
@@ -3502,7 +3476,7 @@
     {
       "subject": "MAEG",
       "course_code": "5715",
-      "title": "Computer Interface and Simulation",
+      "title": "Artificial Intelligence of Things (AIoT) Technology",
       "credits": "3.00",
       "terms": [
         {
@@ -3544,7 +3518,7 @@
           ]
         }
       ],
-      "description": "This course will be offered to cover the knowledge of computer interface, including sensor, actuators, haptics, and human-computer interaction methods. To support the usage of human-computer interface, methods for 3D object modeling, deformation and simulation will be taught to make an integrated interaction and simulation system.",
+      "description": "This course will be offered to cover the knowledge of Artificial Intelligence of Things (AIoT) technologies, including sensors, actuators, signal processing, AI control and simulation. To support the adoption of Internet of Things (IoT) technologies for human-computer interface applications, system design, communication, system model, control theory and AI analytics will be taught to make an integrated interaction system with computer analytics and simulation capability.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -3553,7 +3527,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. Understand sensors and sensor interface for automated systems;\n2. Understand human-computer interfaces and teleoperated systems; and\n3. Understand solid models and their applications in computer simulations and virtual reality.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. Understand sensors and sensor interface for automated systems;\n2. Understand actuators and control forhuman-computer interfaces and teleoperated systems; and\n3. Understand system models, signal processing, communication, control theory and AI analytics for different computer interaction applications.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Essay test or exam": "50",
@@ -3596,7 +3570,7 @@
           ]
         }
       ],
-      "description": "This course provides students with theoretical backgrounds of computer vision. It will cover the following topics: imaging models; segmentation; pose estimation by visual means; 3D shape estimation by stereo vision; camera and stereo calibration; and motion tracking. A wide variety of case studies and practical applications in engineering are also included.",
+      "description": "This course provides a hands-on introduction to computer vision, focusing on practical applications and real-world challenges. Students will explore key concepts such as image processing, feature extraction, object detection, segmentation, and deep learning-based vision models, etc. Through coding assignments and projects, students will implement and optimize vision algorithms. The course emphasizes practical problem-solving, deployment considerations, and the integration of vision systems into real-world applications.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -3605,7 +3579,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. Able to synthesize image and video observations in a camera from 3-D shape, motion, camera position, and camera settings;\n2. Able to calibrate imaging system;\n3. Understand the process of retrieving 3-D shapes and motions from image data using stereo vision, visual motion, and other vision cues; and\n4. Able to relate typical engineering problems that require access to 3-D, to particular vision cues and the corresponding setups of the imaging system.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. To understand core concepts by explaining fundamental principles of computer vision, such as image processing, feature extraction, convolutional neural networks, etc.;\n2. To implement and optimize vision models e.g. using OpenCV, PyTorch, and deep learning frameworks, to develop accurate and efficient applications;\n3. To work with real-world data by preprocessing, augmenting, and evaluating image datasets for training and testing vision models; and\n4. To critically analyze and improve models by assessing the strengths and limitations of different vision techniques and optimizing them based on performance metrics.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Essay test or exam": "50",
@@ -3687,8 +3661,8 @@
       "title": "Applied Computational Intelligence",
       "credits": "3.00",
       "terms": [],
-      "description": "This course applies artificial intelligent algorithms to solve mechanical and automation problems. It consists of the following topics: various areas of emerging technologies of artificial intelligent systems; introduction and review of neural networks; support vector machines; fuzzy systems; simulated annealing, and genetic algorithms; the applications of intelligent systems to control, robotics, automation, manufacturing, and transportation systems.",
-      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5060",
+      "description": "This course applies artificial intelligent algorithms to solve mechanical and automation problems. It consists of the following topics: various areas of emerging technologies of artificial intelligent systems; introduction and review of neural networks; fuzzy systems; simulated annealing; swarm intelligence and genetic algorithms. The applications of intelligent systems to control, robotics, automation, manufacturing, and transportation systems.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -3696,7 +3670,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. Understand the emerging technologies of various artificial intelligent systems;\n\n2. Understand the functions and characteristics of specific artificial intelligent systems; and\n\n3. Understand the design principles and application potentials of artificial intelligent systems.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. Understand the emerging technologies of various human-inspired or nature-inspired artificial intelligent systems;\n2. Understand the functions and characteristics of specific human-inspired or nature-inspired artificial intelligent systems; and\n\n3. Understand the design principles and application potentials of human-inspired or nature-inspired\n\nartificial intelligent systems.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Essay test or exam": "80",
@@ -3709,7 +3683,7 @@
     {
       "subject": "MAEG",
       "course_code": "5745",
-      "title": "Measurement and Instrumentation",
+      "title": "Mechatronic Systems",
       "credits": "3.00",
       "terms": [
         {
@@ -3751,7 +3725,7 @@
           ]
         }
       ],
-      "description": "This course is intended to provide basic concepts and methods to interface electro-mechanical parts and sensors to computers. It covers the following topics: analogue and digital circuitry; design of linear circuits with ICs and Op-amps; design of low-noise circuits.",
+      "description": "This course provides an in-depth exploration of mechatronic systems, emphasizing the integration of mechanical, electronic, and computer engineering principles. Students will engage in practical projects to design, build, and optimize mechatronic systems, incorporating advanced techniques such as AI and computational intelligence. The course covers physical system modeling, sensors and actuators, data acquisition, microcontrollers, control system design, and system integration. Through case studies and hands-on projects, students will develop the skills necessary to innovate and lead in the field of mechatronics.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -3760,15 +3734,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. Able to understand the basics of sensor, instruments and measurement;\n2. Able to understand the basics of data analysis and statistical inference; and\n3. Able to conduct the Design of Experiments.",
-      "course_syllabus": "The details will be provided by the course instructor.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. An ability to analyze the principles of actuators, sensors, electronics, and hardware components in the integration and application of mechatronic systems;\n2. An ability to design, build, program, and troubleshoot mechatronic systems, and implement AI techniques to optimize the performance and functionality of mechatronic systems;\n3. An ability to develop innovative solutions to complex engineering challenges using interdisciplinary approaches; and\n4. An ability to work competently as individuals and as members of a small team to present project results.",
+      "course_syllabus": "* Physical System Modeling and Analysis\n* Measurement and Manipulation Principles\n* Sensors and Actuators\n* Data Acquisition and Conversion\n* Microcontrollers and Interface\n* Control System Design and Tuning\n* AI Techniques in Mechatronics\n* Case Studies in System Integration\n* Course Project, Project Management and Teamwork",
       "assessment_types": {
-        "Essay test or exam": "40",
-        "Homework or assignment": "60"
+        "Classwork": "10",
+        "Essay test or exam": "30",
+        "Homework or assignment": "30",
+        "Project": "30"
       },
       "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
       "required_readings": "The details will be provided by the course instructor.",
-      "recommended_readings": "1. Alan S. Morris and Reza Langari, Measurement and Instrumentation, Theory and Application, 2nd Edition, Elsevier, 2015."
+      "recommended_readings": "1. Introduction to Mechatronics and Measurement Systems, by David G. Alciatore and Michael B. Histand (5th Edition), McGraw-Hill, ISBN: 9781259892349 or 9781260816440c2012.\n2. Handbook of AI-Based Mechatronics Systems and Smart Solutions in Industrial Automation (1st Edition, ISBN 9781032614359); Edited by Pushpalatha Naveenkumar, Vandana Sharma, Gunapriya D., Azween Abdullah, and Ahmed A. Elngar, CRC Press, 2025."
     },
     {
       "subject": "MAEG",
@@ -3776,7 +3752,7 @@
       "title": "Microelectromechanical Systems Technology and Applications",
       "credits": "3.00",
       "terms": [],
-      "description": "This course covers the general introduction to micro-systems including integrated circuits, micromachine design, and microelectromechanical systems (MEMS) fabrication techniques. The second part of the course includes the scaling law, operational principles, design and analysis of microscale sensors and actuators, and the applications of micro sensors and actuators in robotic, biomedical, aerospace, and manufacturing industries.",
+      "description": "This course covers the general introduction to the fabrication and design of micro-systems including different fabrication processes of integrated circuits, emerging micro- and nanoscale fabrication processes; as well as modeling and design of microelectromechanical systems (MEMS). Important topics includes scaling law, integrated circuits fabrication processes, modeling and design of microscale sensors and actuators, and the applications of micro-sensors and actuators to form micro-systems for different applications, including automobiles, robotics, biomedical, and aerospace etc.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken ENGG5404",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -3836,8 +3812,8 @@
           ]
         }
       ],
-      "description": "This course will first give an introduction to robotics and its applications in industries and services; and then teach fundamentals in robotics including kinematics and dynamics of robot manipulators, sensors and actuators, motion control, and machine intelligence. Finally, examples of medical robotics and service robotics will be introduced.",
-      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5090 or ENGG5402",
+      "description": "This course will first give an introduction to robotics and its applications in industries and services; and then teach fundamentals in robotics including kinematics and dynamics of robot manipulators, sensors and actuators, motion control, and machine intelligence. Finally, advanced modern topics related to the research and application development of robotics will be introduced.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5090 or ENGG5402 or ROSE5710",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -3845,7 +3821,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. Understand forward and inverse kinematics of robot manipulator;\n2. Understand fundamental concepts in robot control; and\n3. Understand robot sensors, actuators and basics in robot programming.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. Understand kinematics and dynamics of robot manipulator;\n2. Understand fundamental concepts in robot control;\n3. Understand robot sensors, actuators and basics in robot programming;\n4. Understand different types of robots and real-world applications; and\n5. Staying abreast to state-of-the-art issues and solutions relating to robotics.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Essay test or exam": "80",
@@ -3961,7 +3937,7 @@
           ]
         }
       ],
-      "description": "This course will discuss the global energy consumption and supply, thermodynamic principles of energy conversion and efficiency, fossil fuel usage, operation of nuclear power plant, emerging technologies utilizing renewable energy sources, energy harvesting and storage technologies, environmental impacts, energy systems management and government policy.",
+      "description": "This course will discuss the topics of energy and environment from the perspective of mechanical engineering. The topics include global energy consumption and supply, thermodynamic principles of energy conversion and efficiency, fossil fuel usage, operation of nuclear power plant, emerging technologies utilizing renewable energy sources, energy harvesting and storage technologies, environmental impacts, energy systems management and government policy.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -3970,7 +3946,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. To understand the principles of power generation and various energy sources.\n2. To understand the important issues of energy supply, utilization, and sustainability.\n3. To be aware of the impacts of energy consumption to the environment, for example, climate change and global warming.",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. To understand the principles of power generation and various energy sources;\n2. To understand the important issues of energy supply, utilization, and sustainability;\n3. To apply mechanical engineering principles to analyze energy processes; and\n4. To be aware of the impacts of energy consumption to the environment, for example, climate change and global warming.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Homework or assignment": "10",
@@ -4012,7 +3988,7 @@
     {
       "subject": "MAEG",
       "course_code": "5785",
-      "title": "Precision Machine Design and Vibration Control",
+      "title": "Precision Machine Design",
       "credits": "3.00",
       "terms": [
         {
@@ -4048,7 +4024,7 @@
           ]
         }
       ],
-      "description": "This course is designed to address the challenges of modern precision and high speed automation machinery design technology. It covers design methods, selection on components and systems, precision measurement and vibration control with industrial practical knowledge.",
+      "description": "This interdisciplinary course is designed to address the challenges of modern precision machine design and high-speed automation technologies. It covers machine design principles, precision metrology, precision machining, vibration control, and instrumentation. Students will gain industrial knowledge from the photonics, semiconductor, and biotechnology sectors, along with hands-on experience and practical skills to design, instrument, and control precision machinery and automation systems.",
       "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
@@ -4057,7 +4033,7 @@
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "After completing this course, the student should understand the precision machine design methods and applications domain knowledge. The course develops professional engineering competence that enable students to have career opportunities to join relevant industries.",
+      "learning_outcomes": "After completing this course, students should understand the fundamental principles of precision machine design and the key technologies involved in high-precision mechanical components (e.g., actuators, sensors, and transmission elements), and be able to design, analyze, and implement precision systems. The course develops professional engineering competencies that enable students to pursue career opportunities in relevant industries.",
       "course_syllabus": "The details will be provided by the course instructor.",
       "assessment_types": {
         "Essays": "10",
@@ -4519,7 +4495,7 @@
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Others",
+      "component": "Practicum",
       "campus": "Main Campus",
       "academic_group": "Div of Mechan & Automation Erg",
       "academic_org": "Div of Mechan & Automation Erg",
@@ -4552,10 +4528,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "975",
+                "available_seats": "974",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4627,10 +4603,10 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "120",
+                "enrolled": "119",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "879",
+                "available_seats": "880",
                 "status": "Open"
               },
               "class_attributes": "English only"

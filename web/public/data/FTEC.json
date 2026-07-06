@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T11:17:12.976057+00:00",
+    "scraped_at": "2026-07-04T16:06:39.141728+00:00",
     "subject": "FTEC",
     "subject_title": "Financial Technology",
-    "total_courses": 34,
+    "total_courses": 33,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -605,28 +605,6 @@
       "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:\n\n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.\n\n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.\n\n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
       "required_readings": "According to the course teacher in the respective teaching term.",
       "recommended_readings": "Lecture slides and research articles on the topics"
-    },
-    {
-      "subject": "FTEC",
-      "course_code": "4006",
-      "title": "Internet Finance",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides students with the fundamentals in the operations and management of Internet finance. It will cover overall applications of Internet-based technologies such as mobile payments, social network, search engines, cloud computing, and big data on the financial sector. Specific topics include third-party payments, Internet currency, P2P lending, crowdfunding, and the use of big data in financial services. The course adopts case studies as the major means of teaching and learning.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "At the completion of this course, students should be able to:\n\n1. Understand the fundamental principles behind the design, operations, and management of internet finance;\n2. Acquire basic capability to apply the basic Internet-based technologies to meet various needs in financial services, such as third-party payments, Internet currency, P2P lending, crowdfunding, and big data analytics;\n3. Identify potential risk sources to Internet finance business and design mitigation measures;\n4. Analyze the economic and social impacts of Internet finance and understand the importance of regulation.",
-      "course_syllabus": "This course provides students with the fundamentals in the operations and management of Internet finance. It will cover overall applications of Internet-based technologies such as mobile payments, social network, search engines, cloud computing, and big data on the financial sector. Specific topics include third-party payments, Internet currency, P2P lending, crowdfunding, and the use of big data in financial services. The course adopts case studies as the major means of teaching and learning. Assessment Type (50% Project 50% Assignment)",
-      "assessment_types": {},
-      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:\n\n1. Two course evaluations. The first one is to be conducted in the middle of the term, and the second one at the end of the term. Students are encouraged to provide specific comments and/or suggestions in addition to the numeric ratings.\n\n2. Meeting between class representatives and Departmental Teaching and Learning Committee. Class representatives will collect the comments and suggestions from the class, and convey them to the Departmental T&L Committee in a meeting in the middle of the term.\n\n3. Students are also encouraged to provide feedbacks using informal channels, such as email, course newsgroup, or discussing with the instructor or the tutors directly.",
-      "required_readings": "Internet Finance in China: Introduction and Practical Approaches\n\nby Ping Xie, Chuanwei Zou, and Haier Liu\n\nRoutledge, 2016",
-      "recommended_readings": "Lecture notes, handouts, and other recommended reading materials will be distributed by the instructor in class."
     },
     {
       "subject": "FTEC",
@@ -2017,11 +1995,12 @@
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
       "academic_org": "Div of Engineering",
-      "learning_outcomes": "By the end of this course, students will be able to\n1. Understand Core Financial and Regulatory Principles: Equip students with a strong foundation in financial markets and the regulatory frameworks that ensure market safety, fairness, and efficiency, emphasizing their practical application in today’s global economy.\n2. Gain Proficiency in Digital Asset and Blockchain Technologies: Provide students with the technical knowledge needed to navigate digital assets, blockchain, and tokenized finance, including the legal and compliance aspects of cryptocurrencies and decentralized finance.\n3. Develop Practical Skills in Compliance and Risk Management: Teach students how to apply RegTech tools and techniques to real-world compliance challenges, focusing on AML/KYC, transaction monitoring, and cybersecurity within the financial and Web3 ecosystems.\n4. Refine Professional Communication and Presentation Skills: Foster essential skills for clear and effective communication with legal and financial professionals, including techniques for presenting complex information, managing client relationships, and delivering persuasive presentations.\n5. Cultivate Job-Ready Skills in Interviewing, Networking, and Career Planning: Prepare students for careers in finance and RegTech with hands-on training in interviewing, resume-building, and professional networking, ensuring they can stand out in competitive roles.\n6. Engage with Industry Leaders and Current Market Trends: Through guest speakers and interactive discussions, students will gain insights from industry experts on the latest trends in FinTech, RegTech, and digital finance, building a robust understanding of where the industry is headed.",
-      "course_syllabus": "Week 1: Introduction to Course / Legal Systems / Intellectual Property Rights\nWeek 2: Financial Markets 101 – Finance, Technology and the Regulator – Foundational Class\nWeek 3: Compliant Data - Fixed Income Valuation\nWeek 4: Compliant Data - Rapid development of data and technology in the sustainable finance space\nWeek 5: Digital assets 101 – Background, Developments, and the Regulatory Approach - Foundational Class\nWeek 6: Digital assets – Regulatory approach to stablecoins and beyond\nWeek 7: Digital assets – Digital Money, e-HKD and the regulator\nWeek 8: Digital assets – Forensic analysis in digital assets\nWeek 9: RegTech in Web3 - how a virtual insurer underwrites Web3 risks using GenAI\nWeek 10: RegTech - How to talk to a lawyer\nWeek 11: Navigating the Quantum Frontier: Blockchains, Post-Quantum Cryptography, and the Future of Digital Assets\nWeek 12: Final presentation\nWeek 13: Final exam",
+      "learning_outcomes": "By the end of this course, students will be able to\n1. Understand Core Financial and Regulatory Principles and Rules: Equip students with a strong foundation in financial markets and the regulatory frameworks that ensure market safety, fairness, and efficiency, emphasizing their practical application in today’s global economy.\n2. Gain Proficiency in Digital Asset and Blockchain Technologies: Provide students with the technical knowledge needed to navigate digital assets, blockchain, and tokenized finance, including the legal and compliance aspects of cryptocurrencies and decentralized finance.\n3. Develop Practical Skills in Compliance and Risk Management: Teach students how to apply RegTech tools and techniques to real-world compliance challenges, focusing on AML/KYC, transaction monitoring, and cybersecurity within the financial and Web3 ecosystems.\n4. Appreciate the contextual factors that influence the operation of the law and the impact the law has on the financial markets and Fintech industries .\n5. Assess the law from comparative and international perspectives, given that the financial markets and particularly Fintech industries are increasingly globalized and need to faces cross-border issue.\n6. Engage with Industry Leaders and Current Market Trends: Through guest speakers and interactive discussions, students will gain insights from industry experts on the latest trends in FinTech, RegTech, and digital finance, building a robust understanding of where the industry is headed.",
+      "course_syllabus": "Week 1: Introduction to Course\nWeek 2: Financial Regulatory Framework in Hong Kong\nWeek 3: Digital Assets (1): Legal Nature, Accounting and Taxation Issues\nWeek 4: Digital Assets (2): Trading Platform and Other Intermediaries\nWeek 5: Stablecoin\nWeek 6: Central Bank Digital Currency\nWeek 7: Mid-term Quiz\nWeek 8: RWA Tokenization\nWeek 9: Data Regulation and Governance (1): Domestic Issues\nWeek 10: Data Regulation and Governance (2): Cross-border Issues\nWeek 11: AI Regulation and Ethics\nWeek 12: Final Presentation\nWeek 13: Final Exam",
       "assessment_types": {
-        "Examination": "30",
-        "Presentation": "70"
+        "Examination": "40",
+        "Presentation": "30",
+        "Test or quiz": "30"
       },
       "feedback_evaluation": "1. Formal Course and Teaching Evaluation\n2. Informal feedback to instructor and/or teaching assistant",
       "required_readings": "Course notes will be provided by the instructor.",
@@ -2341,7 +2320,7 @@
       "subject": "FTEC",
       "course_code": "5620",
       "title": "Wealth Management Business and Fintech",
-      "credits": "2.00",
+      "credits": "3.00",
       "terms": [],
       "description": "This course aims to provide students with a practical and management level understanding of how technology is and could be used and applied to the management, growth and development of wealth management business in Hong Kong / Mainland as well as Asia and other parts of the world. Key topics to be discussed include the regulatory framework for wealth management industry, a review of the relationship between macro-economic cycle and wealth management product development and product shelf management strategies, roles and responsibilities of the various players within the wealth management industry value chain to fulfill various stages of individual customers’ financial needs, wealth management business proposition including sales and marketing strategies, and the technology and operational infrastructure required to support and to enhance the business process and to deliver exceptional customer experience.",
       "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
@@ -2353,16 +2332,16 @@
       "academic_group": "Div of Engineering",
       "academic_org": "Div of Engineering",
       "learning_outcomes": "After completing this course, students should be able to explain the key technology components, enablers and success factors for managing a wealth management business through the market life cycles, and for those students who are interested in developing further academic study and research, or in preparing them to take up senior leadership roles within their company or in the wealth management industry.",
-      "course_syllabus": "Week 1 - Wealth management business, industry value chain and technology overview\n\nWeek 2 / 3 - Discovery of personal financial needs and factors affecting customer behaviour in macroeconomics cycle, designing product development & management process, and current and potential future use of technology in these areas\n\nWeek 4 / 5 - Delivery of Excellent Multi-Channel Marketinging, Sales & Services Customer Experience and the role of technology\n\nWeek 6 - Group Project on Applied Technology in Wealth Management Business presentation\n\nWeek 7 - Developing the technology solution for implementation of Regulatory, Legal & Compliance Framework\n\nWeek 8 - Volatility, Financial Crisis & Contingency Planning\n\nWeek 9 - Final Exam",
+      "course_syllabus": "Week 1 - Wealth management business, industry value chain and technology overview\n\nWeek 2 - Technology for investment research & analysis, decision, trading & Portfolio Management\n\nWeek 3 - Discovery of personal financial needs and factors affecting customer behaviour in macroeconomics cycle, designing product development & management process, and current and potential future use of technology in these areas\n\nWeek 4 - Wealth product design, development & management process, and current and potential future use of technology in these areas\n\nWeek 5 - Group Investment Portfolio Project check point 1\n\nWeek 6 - Delivery of Excellent Multi-Channel Marketing, Sales & Services Customer Experience and the role of technology\n\nWeek 7 - Sales & Distribution of wealth using Technologies\n\nWeek 8 - Operational process and technology infrastructure for wealth management business in current and potential future internal and external business environment\n\nWeek 9 - Group Investment Portfolio Project check point 2\n\nWeek 10 - Developing the technology solution for implementation of Regulatory, Legal & Compliance Framework\n\nWeek 11 - Volatility, Financial Crisis & Contingency Planning\n\nWeek 12 - Group Investment Portfolio Project final result presentation\n\nWeek 13 - Final Exam",
       "assessment_types": {
-        "Examination": "30",
-        "Homework or assignment": "20",
-        "Project": "20",
-        "Test or quiz": "30"
+        "Examination": "25",
+        "Homework or assignment": "25",
+        "Project": "25",
+        "Test or quiz": "25"
       },
-      "feedback_evaluation": "1. Formal Course and Teaching Evaluation\n2. Informal feedback to instructor and/or teaching assistant",
-      "required_readings": "Course notes will be provided by the instructor.",
-      "recommended_readings": ""
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There is a course evaluation at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "Readings will be recommended by the course instructor.",
+      "recommended_readings": "Readings will be recommended by the course instructor."
     },
     {
       "subject": "FTEC",
@@ -2699,12 +2678,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Engineering",
       "academic_org": "Div of Engineering",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon successful completion of this course, students will gain a comprehensive understanding of advanced topics and the latest developments in Financial Technology.",
+      "course_syllabus": "This course introduces students to advanced topics in Financial Technology. The specific content may vary from year to year to reflect current developments in the field and the instructor's areas of expertise.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There is a course evaluation at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "To be provided by course instructor."
     },
     {
       "subject": "FTEC",

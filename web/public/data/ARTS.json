@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T07:55:04.012826+00:00",
+    "scraped_at": "2026-07-04T13:37:08.189104+00:00",
     "subject": "ARTS",
     "subject_title": "Courses offered by Arts Fac",
     "total_courses": 12,
@@ -151,11 +151,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -229,10 +229,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "26",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -249,10 +249,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "26",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -295,12 +295,16 @@
       "campus": "Main Campus",
       "academic_group": "Fac Office of Arts",
       "academic_org": "Fac Office of Arts",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Critical Description of AI Technologies: Students will be able to describe the recent history of generative AI technologies and their implications for creative practices, including their impact on authorship, originality, and artistic expression.\n2. Interdisciplinary Understanding: Students will demonstrate an understanding of the interdisciplinary nature of generative AI, incorporating perspectives from literature, philosophy, art, and technology to explore how these fields intersect.\n3. Creative Application of AI Tools: Students will gain hands-on experience using generative AI tools to create original works in various mediums (e.g., text, visual art, music) while understanding the underlying algorithms and methodologies.\n4. Ethical Considerations: Students will evaluate the ethical considerations surrounding the use of generative AI in creative fields, including issues of bias, intellectual property, environmental burden, unequal access, and the potential for misuse.",
+      "course_syllabus": "Week 1: Introduction to Generative AI\n1. 1 The Making of AI: a brief history of how our digital world came to be\n1. 2 Overview of generative AI: definitions and applications\n\nWeek 2: Foundations of Creativity I: Human Creativity\n2. 1 Comparative exploration of definitions of creativity in arts and humanities: literature, music, visual art, and creative industries (architecture, fashion, graphic design, etc.)\n2. 2 Discussion of individual vs. collaborative creative work\n\nWeek 3: Foundations of Creativity II: Human vs. Machine Creativity\n3. 1 Definitions of creativity in AI context\n3. 2 Historical context of AI in creative fields\n\nFirst tutorial: Studio experiment #1\n\nWeek 4: Understanding Generative Models I: LLMs\n4. 1 Introduction to key building blocks of generative models (embedding space, parameters, pre-training and fine-tuning, prompting)\n4. 2 Basics of how AI generates creative works\n\nSecond tutorial: Studio experiment #2\n\nFirst journal entry due\n\nWeek 5: Understanding Generative Models II: multimodal models (e.g. text-to-image/video/sound)\n5. 1 Introduction to key generative multimodal models and how they work (embedding, alignment)\n5. 2 What do multimodal models \"know\"?\n\nThird tutorial: Studio experiment #3\n\nWeek 6: Ethical Implications of AI in Creativity I\n6. 1 copyright and data extraction\n6. 2 bias and functionality fallacies\n\nFourth tutorial: Studio experiment #4\n\nSecond journal entry due\n\nWeek 7: Ethical Implications of AI in Creativity II\n7. 1 environmental burden\n7. 2 resource allocation gaps and access disparities\n\nFifth tutorial: Studio experiment #5\n\nWeek 8: AI in Creative Expressions Fundamentals Review\n8. 1 Interactive review of human vs. machine creativity; how generative models work; and AI ethics, spotlighting challenging material and emphasizing a firm grasp of AI fundamentals\n8. 2 Reflective discussion about course outcomes so far\n\nSixth tutorial: continuation of experiments 1-4 (per individual student choice)\n\nWeek 9: AI in Literature\n9. 1 Case studies of AI-generated texts (poetry, prose) and their public reception\n9. 2 Analysis of authorship and originality in AI-generated literature\n\nSeventh tutorial: Studio experiment #6\n\nThird journal entry due\n\nWeek 10: AI in Visual Arts\n10. 1 Exploration of AI-generated visual art (painting, photography, film)\n10. 2 Discussion of notable AI artists and artworks and their public reception\n\nEighth tutorial: Studio experiment #7\n\nWeek 11: Music and Sound Creation with AI\n11. 1 Examination of AI-generated music compositions and their public reception\n11. 2 Tools and software for AI music generation\n\nNinth tutorial: Studio experiment #8\n\nFourth journal entry due\n\nWeek 12: AI and Creative Industries\n12. 1 Impact of generative AI on cultural narratives and production in the fields of architecture, fashion, and graphic design\n\nTenth tutorial: planning for your final project\n\nWeek 13: The Future\n13. 1 Where the field is going: developments in multi-agent systems and their potential for sophisticated generative AI\n13. 2 Final Project Workshop and Course Reflection: students present final projects in peer groups\n\nEleventh tutorial: initial peer feedback on final project plans and reflective discussion on learning outcomes",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "30",
+        "Participation": "30"
+      },
+      "feedback_evaluation": "Students may raise questions or offer comments during class sessions, as well as via email or during individual office hours.\n\nAt the end of the course, students will be asked to complete Course Evaluations for both the lectures and tutorials for the course. Both the instructors and the Faculty value this information highly, as it allows us to understand what we are doing well and how we can improve. We use your feedback to revise our teaching methods and course content.",
+      "required_readings": "Bender, et al., “On the Dangers of Stochastic Parrots,” Association for Computing Machinery FaccT, 2021.",
+      "recommended_readings": "Inioluwa Deborah Raji, Elizabeth Kumar, Aaron Horowitz, Andrew Selbst, “The Fallacy of AI Functionality.” Association for Computing Machinery FaccT, 2022.\n\nVaswan, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, et al. 2017. “Attention Is All You Need.” In 31st Conference on Neural Information Processing Systems, edited by Ulrike von Luxburg, Isabelle Guyon, Samy Bengio, Hanna Wallach, and Rob Fergus, 6000-6010. New York: Curran Associates.\n\nOpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, et al. 2023. “GPT-4 Technical Report.” Preprint, submitted in 2023. https://arxiv.org/abs/2303.08774.\n\nNature Editorial. 2024. “Why Scientists Trust AI Too Much — And What To Do About It.” Nature 627.\n\nPublications on creativity from creative disciplines:\n\nBaron, Naomi. Who Wrote This? How AI and the Lure of Efficiency Threaten Human Writing. Stanford UP, 2023.\n\nChiang, Ted. 2023. “ChatGPT Is a Blurry JPEG of the Web.” The New Yorker, February 9, 2023.\n\nD’Erasmo, Stacy. The Long Run: A Creative Inquiry. Graywolf, 2024.\n\nMoss, Adam. The Work of Art: How Something Comes from Nothing. Penguin, 2024.\n\nAndrew Sullivan, “I used to be a human being,” New Yorker, September 2016."
     },
     {
       "subject": "ARTS",

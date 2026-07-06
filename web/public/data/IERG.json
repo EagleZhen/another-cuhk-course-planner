@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T12:03:03.749837+00:00",
+    "scraped_at": "2026-07-04T16:52:57.399292+00:00",
     "subject": "IERG",
     "subject_title": "Information Engineering",
-    "total_courses": 86,
+    "total_courses": 85,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -2280,7 +2280,7 @@
       "enrollment_requirement": "Co-requisite: IERG3080 or ESTR3308.\nNot for students who have taken CSCI3310 or IEMS5722.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
-      "grading_basis": "Distinction/Pass/Failure",
+      "grading_basis": "Graded",
       "component": "Practicum",
       "campus": "Main Campus",
       "academic_group": "Dept of Information Engg",
@@ -2311,12 +2311,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Information Engg",
       "academic_org": "Dept of Information Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Demonstrate knowledge of the fundamental concepts in GenAI, including the feasibility and limitations for code generation, iterative and emergent design, and application components.\n2. Transform product requirements into a tangible and functional application through rapid iterations and pragmatic decision-making.\n3. Acquire self-learning via GenAI in a new languages, tools, and frameworks for developing different applications.\n4. Design and implement different applications using the chosen languages, tools, and frameworks.\n5. Evaluate and explore the limits of GenAI.",
+      "course_syllabus": "1. Lectures\nWeek 1 – Overview, GenAI basics, Prompt Engineering\nWeek 2 – GenAI for learning programming language and debugging\nWeek 3 – Lab 1\nWeek 4 – GenAI for building web application\nWeek 5 – Lab 2\nWeek 6 – GenAI for product requirements\nWeek 7 – Lab 3\nWeek 8 – GenAI for building various advanced applications and software testing\nWeek 9 – Lab 4\nWeek 10 – Beyond GenAI, course summary\n\n2. Self-Learning and Project\nWeek 11~13 – Choose and learn languages/tools/platforms/frameworks and develop the course project",
+      "assessment_types": {
+        "Lab reports": "12",
+        "Lab performance": "48",
+        "Project": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook. Lecture notes will be provided for the fundamental concepts. Online learning resources will be provided for students to self-learn the tools for the projects. Students are encouraged to seek out their own learning resources as well.",
+      "recommended_readings": "1. Gene Kim, Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents, and Beyond, 2025.\n2. https://www.ibm.com/think/topics/vibe-coding\n3. https://blog.replit.com/what-is-vibe-coding"
     },
     {
       "subject": "IERG",
@@ -3540,7 +3544,7 @@
         }
       ],
       "description": "Data science is a cross-disciplinary study involving informatics, machine learning, and statistics. This course adopts a problem driven approach to discuss various components in the pipeline of a data science project and the applications in various real-life examples. Topics include, but not limited to, Python programming, data pre-processing, feature selection, common machine learning algorithms and data visualization.",
-      "enrollment_requirement": "Not for students who have taken ESTR2540 or ESTR4324 or SEEM2460.",
+      "enrollment_requirement": "Not for students who have taken ESTR4324",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -5948,7 +5952,7 @@
         }
       ],
       "description": "This course aims to cover advanced topics on blockchain. The focus will be on advanced topics like permissionless blockchain, Ethereum, smart contract, mining pool, permissioned blockchain, anonymity, new consensus, sidechain, ripple, offchain and lightning network.\n\nAdvisory: Students are expected to have solid foundations on operating systems and database systems.",
-      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: CSCI5590 or FTEC5520 or IEMS5725",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: CSCI5590",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -6147,32 +6151,6 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
       "required_readings": "To be provided by course instructor.",
       "recommended_readings": "To be provided by course instructor."
-    },
-    {
-      "subject": "IERG",
-      "course_code": "6300",
-      "title": "Theory of Probability",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course covers the following topics: Construction of measures, integration, transformation, product spaces, distributions, expectation, Borel-Cantelli lemmas, characteristic functions, weak convergence, independence, weak law of large numbers, strong law of large numbers, central limit theorem, conditional expectation, Markov chains, stopping times and renewal times, martingales, martingale convergence Theorems, Doob's decomposition theorem, up-crossing inequality, and Birkhoff's ergodic theorem. The focus will be on mathematical rigor and development of all the tools to prove the results formally.\n\nAdvisory: Students are expected to have basic background in probability and real analysis at undergraduate level.",
-      "enrollment_requirement": "For students in MPhil-PhD Computer Science & Engineering; Electronic Engineering; Information Engineering; Mechanical and Automation Engineering; Systems Engineering and Engineering Management; and Biomedical Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Understand the rigorous foundations of probability theory\n\n2. Apply certain standard techniques and arguments in their research problems",
-      "course_syllabus": "The course covers the following topics: Construction of measures, integration, transformation, product spaces, distributions, expectation, Borel-Cantelli lemmas, characteristic functions, weak convergence, independence, weak law of large numbers, strong law of large numbers, central limit theorem, conditional expectation, Markov chains, stopping times and renewal times, martingales, martingale convergence Theorems, Doob's decomposition theorem, up-crossing inequality, and Birkhoff's ergodic theorem. The focus will be on mathematical rigor and development of all the tools to prove the results formally.\n\nAdvisory: Students are expected to have basic background in probability and real analysis at undergraduate level.\n\nCourse Syllabus will be changed from year to year.",
-      "assessment_types": {
-        "Essays": "20",
-        "Essay test or exam": "50",
-        "Short answer test or exam": "30"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the instructor directly.",
-      "required_readings": "1. SRS Varadhan, \"Probability Theory\", AMS: Chapters 1, 2, 3.1-3.3, 3.6, 4.1-4.5,5.1-5.5, 6.1-6.2\n\n2. Durrett, \"Probability: Theory and Examples\", Duxbury Press: Chapters 1.6 – 1.7, 4.4 – 4.7, 6.2\n\n3. Lecture Notes in Class: loosely based on the above material",
-      "recommended_readings": "1. Cohn, \"Measure Theory\"\n\n2. Billingsley, \"Probability and Measure\""
     },
     {
       "subject": "IERG",

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T14:11:19.332450+00:00",
+    "scraped_at": "2026-07-04T19:09:50.099350+00:00",
     "subject": "PSYC",
     "subject_title": "Psychology",
-    "total_courses": 143,
+    "total_courses": 142,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -177,10 +177,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3734,12 +3734,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Demonstrate a fundamental understanding of the key concepts, principles, and procedures of statistical analyses commonly used in Industrial and Organizational Psychology.\n2. Select and apply appropriate statistical procedures to test research hypotheses, and interpret statistical results presented in the scientific literature.\n3. Differentiate among and evaluate basic types of experimental, quasi-experimental, and non-experimental research designs.\n4. Analyze quantitative data, interpret multivariate statistical results, and communicate research findings effectively in both scientific and business settings.\n5. Critically evaluate the strengths and limitations of various analytic tools and research designs in applied psychological research.",
+      "course_syllabus": "Review of Basic Statistics (Descriptive statistics)\nPsychometrics modules (Reliability and Validity)\nLinear Regression\nModeration Analysis\nMediation Analysis\nStructural Equation modelling\nAnalysis of Variance (Univariate and Multivariate, with Covariate)",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "20",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -4763,10 +4767,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "48",
+                "enrolled": "47",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4824,9 +4828,9 @@
         }
       ],
       "description": "This course provides a critical review of issues in talent management. Topics covered include job analysis and evaluation, competency modelling, personnel recruitment, selection and placement, criterion development and measurement, and performance appraisal and management.",
-      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology",
+      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology",
       "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
+      "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Lecture",
       "campus": "Main Campus",
@@ -5298,59 +5302,6 @@
     },
     {
       "subject": "PSYC",
-      "course_code": "6210",
-      "title": "Research Issues in Clinical Psychology",
-      "credits": "2.00",
-      "terms": [
-        {
-          "term_code": "2390",
-          "term_name": "2025-26 Term 2",
-          "schedule": [
-            {
-              "section": "-S01-SEM (1875)",
-              "meetings": [
-                {
-                  "time": "Tu 2:30PM - 5:30PM",
-                  "location": "TBA",
-                  "instructor": "Dr. XU Xingya",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2, 17/2, 24/2, 3/3, 10/3"
-                }
-              ],
-              "availability": {
-                "capacity": "25",
-                "enrolled": "25",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
-              },
-              "class_attributes": "Cantonese and English"
-            }
-          ]
-        }
-      ],
-      "description": "This seminar addresses methodological issues and strategies in clinical research. Major topics include principles and practices of clinical research; basic concepts and design of clinical measures; sources of artifact and bias in clinical research; analysis and interpretation of clinical research data; and ethical issues raised by clinical research.",
-      "enrollment_requirement": "For students in MSSc Clinical Psychology",
-      "course_attributes": "Shared Learning Activities with PSYC6010",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Seminar",
-      "campus": "Main Campus",
-      "academic_group": "Div of Psychology",
-      "academic_org": "Div of Psychology",
-      "learning_outcomes": "Upon completion of this course, students will have a better understanding about the concepts and principles of statistical modeling and data analysis in general. Moreover, students should be more proficient in applying different statistical techniques such as analysis of covariance, factor analysis, structural equation modeling, hierarchical linear modeling, and log linear modeling on different areas of clinical psychology.",
-      "course_syllabus": "MANOVA\n\nRepeated Measures Analysis\n\nAnalysis of Covariance\n\nExploratory Factor Analysis\n\nConfirmatory Factor Analysis\n\nStructural Equation Modeling",
-      "assessment_types": {
-        "Examination": "45",
-        "Homework or assignment": "45",
-        "Participation": "10"
-      },
-      "feedback_evaluation": "Course Evaluation Questionnaire",
-      "required_readings": "Please refer to the course outline.",
-      "recommended_readings": "Please refer to the course outline."
-    },
-    {
-      "subject": "PSYC",
       "course_code": "6220",
       "title": "Independent Study",
       "credits": "1.00",
@@ -5703,11 +5654,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Formulate a well-informed understanding of the role of clinical psychologists in the design and delivery of professional services, within the broader context of multidisciplinary teams and organisational structures\n2. Recognise and uphold the importance of professional attitudes, values, and priorities in clinical psychological practice\n3. Demonstrate a commitment to professional excellence through continuous self-improvement in competencies, professional demeanor, and ethical conduct\n4. Reflect critically on supervisory experiences and identify strategies to enhance the productivity, effectiveness, and collaborative nature of clinical supervision",
+      "course_syllabus": "The main syllabus consists of presentations of real-case scenarios and purposeful discussions on a wide range of topics, such as developing a working relationship with your supervisor, multi-disciplinary collaboration, record keeping and document control, time management, reporting progress regularly, responding to critical feedback, diversity issues in clinical service and supervision, evidence-based practice, clinical sensitivity and empathy, managing a joint clinic session, setting realistic goals and embracing imperfection, etc. The course instructor will also arrange consultation clinics for students who encounter specific difficulties at placement and require one-on-one advice.",
+      "assessment_types": {
+        "Others": "60",
+        "Presentation": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Course evaluation questionnaire",
+      "required_readings": "1. The Hong Kong Institute of Clinical Psychologists Code of Ethics. (2026, Apr). *Code of Ethics of Hong Kong Institute of Clinical Psychologists Limited. https://www.icphk.org.hk/images/conduct\\_and\\_discipline/D09\\_Code%20of%20Ethics%20of%20HKICP.pdf*\n\n2. American Psychological Association*.* (2017). *Ethical principles of Psychologists and Code of* *conduct. https://www.apa.org/ethics/code/*\n3. Watkins, C. E., & Milne, D. L. (Eds.) (2014). *The Wiley International Handbook of Clinical Supervision.* John Wiley & Sons, Ltd.",
       "recommended_readings": ""
     },
     {
@@ -5725,11 +5680,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Demonstrate a comprehensive understanding of the multifaceted roles of clinical psychologists in the development, delivery, administration, audit, and evaluation of clinical services, as well as in clinical consultation, supervision, training, and research\n2. Exemplify a strong commitment to the professional attitudes, values, and priorities expected of clinical psychologists\n3. Engage in reflective evaluation of their own professional performance, identifying areas for further growth in competencies, professional demeanor and ethical conduct\n4. Facilitate effective clinical supervision with confidence, both in the role of a supervisee and a future supervisor\n5. Critically analyse the operation of clinical services and propose actionable strategies for further enhancement\n6. Reflect on their emerging role within the professional community, and articulate how they can contribute to service excellence, knowledge transfer, and the cultivation of a healthy professional culture.",
+      "course_syllabus": "The main syllabus consists of presentations of real-case scenarios and purposeful discussions on a wide range of topics, such as communicating difficult concepts in lay language, critical observation of a service operation and potential improvement plan, considered use of social media as a CP, choosing the right treatment approach, participating in the professional community, compassion fatigue, when therapy doesn't work, reflecting on supervision as a future supervisor, developing clinical specialisation, etc. Practicing clinical psychologists will be invited to share their experience and insight on some of the topics. In addition, the course instructor will also arrange consultation clinics for students who encounter specific difficulties at placement and require one-on-one advice.",
+      "assessment_types": {
+        "Others": "60",
+        "Presentation": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Course evaluation questionnaire",
+      "required_readings": "1. The Hong Kong Institute of Clinical Psychologists Code of Ethics. (2026, Apr). *Code of Ethics of Hong Kong Institute of Clinical Psychologists Limited. https://www.icphk.org.hk/images/conduct\\_and\\_discipline/D09\\_Code%20of%20Ethics%20of%20HKICP.pdf*\n\n2. American Psychological Association*.* (2017). *Ethical principles of Psychologists and Code of* *conduct. https://www.apa.org/ethics/code/*\n3. Watkins, C. E., & Milne, D. L. (Eds.) (2014). *The Wiley International Handbook of Clinical Supervision.* John Wiley & Sons, Ltd.",
       "recommended_readings": ""
     },
     {
@@ -5747,12 +5706,12 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Design and implement advanced research studies in organizational contexts\n\n2. Analyze and interpret organizational data using appropriate statistical and methodological tools\n\n3. Apply ethical principles and evidence-based reasoning to address organizational challenges",
+      "course_syllabus": "1. Principles of Evidence-Based Practice in I-O Psychology\n2. Advanced Research Design for Organizational Studies\n3. Quantitative and Qualitative Data Collection Methods\n4. Statistical Analysis and Interpretation in Workplace Research\n5. Survey Design and Psychometric Evaluation\n6. Translating Research Findings into Organizational Solutions\n7. Ethical and Legal Considerations in Workplace Research\n8. Communicating Research to Stakeholders and Decision-Makers",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -5769,12 +5728,12 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Design and implement advanced research studies in organizational contexts\n\n2. Analyze and interpret organizational data using appropriate statistical and methodological tools\n\n3. Apply ethical principles and evidence-based reasoning to address organizational challenges",
+      "course_syllabus": "1. Principles of Evidence-Based Practice in I-O Psychology\n2. Advanced Research Design for Organizational Studies\n3. Quantitative and Qualitative Data Collection Methods\n4. Statistical Analysis and Interpretation in Workplace Research\n5. Survey Design and Psychometric Evaluation\n6. Translating Research Findings into Organizational Solutions\n7. Ethical and Legal Considerations in Workplace Research\n8. Communicating Research to Stakeholders and Decision-Makers",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -5810,9 +5769,9 @@
         }
       ],
       "description": "This is the first course of a series of two courses in organizational psychology. Topics covered in this course include: job attitudes, work motivation, stress, job enrichment, communication, decision making, and conflict management.",
-      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology",
+      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology",
       "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
+      "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Lecture",
       "campus": "Main Campus",
@@ -5865,9 +5824,9 @@
         }
       ],
       "description": "This is the second course of a series of two courses in organizational psychology that provides a critical review of interpersonal, group, and organizational level issues in organizations. Topics covered include: groups dynamics, leadership and management, organizational development, and cross-cultural issues in organizational psychology.",
-      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology",
+      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology",
       "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
+      "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Lecture",
       "campus": "Main Campus",
@@ -6218,12 +6177,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this practicum, students are expected to:\n1. Apply theoretical knowledge to real-world organizational challenges\n\n2. Collaborate effectively with professionals in organizational environments\n\n3. Reflect critically on professional experiences to enhance I-O psychology competencies",
+      "course_syllabus": "1. Orientation to Professional Practice in I-O Psychology\n2. Setting Learning Goals and Project Objectives\n3. Workplace Communication and Stakeholder Engagement\n4. Applying I-O Psychology Principles in Real-World Projects\n5. Navigating Organizational Culture and Dynamics\n6. Ethical Conduct and Professional Responsibility\n7. Reflective Practice and Performance Evaluation",
+      "assessment_types": {
+        "Fieldwork or field study": "70",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -6259,9 +6221,9 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course provides a critical review of the psychological issues in learning and development. Topics covered include: training needs assessment, psychological principles to enhance training, types of trainings, coaching and mentoring, technology enhanced training, evaluation of training programmes.",
-      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology",
+      "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology",
       "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
+      "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
       "component": "Seminar",
       "campus": "Main Campus",
@@ -6343,12 +6305,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n\n1. Demonstrate proficiency in coaching techniques and behavioral interview methods\n\n2. Utilize psychological assessment tools for key organizational functions\n\n3. Apply ethical principles to real-world I-O psychology practices",
+      "course_syllabus": "1. Fundamentals of Coaching in Organizational Settings\n2. Behavioral Interviewing Techniques and Applications\n3. Assessment Tools for Employee Selection and Development\n4. Ethical Decision-Making in Applied I-O Psychology",
+      "assessment_types": {
+        "Essays": "15",
+        "Others": "15",
+        "Presentation": "50",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -6365,12 +6332,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Explain foundational theories and processes related to culture and cognition in organizational settings.\n2. Analyze the impact of cultural contexts on psychological phenomena relevant to I-O psychology.\n3. Apply cultural frameworks to interpret and address organizational challenges.\n4. Appreciate the complexity of cultural diversity and intercultural interactions in organizational contexts, thereby increasing cross-cultural understanding and competency",
+      "course_syllabus": "1. Foundations of Cultural Psychology\n2. Cognition, Emotion, and Behavior in Cultural Contexts\n3. Cross-Cultural Communication and Leadership\n4. Creativity and Innovation Across Cultures\n5. Self-Regulation and Motivation in Cultural Settings\n6. Goal Synergy and Conflict in Diverse Workplaces\n7. Team Dynamics and Intercultural Collaboration\n8. Ethical Decision-Making and Organizational Culture",
+      "assessment_types": {
+        "Essays": "30",
+        "Examination": "30",
+        "Presentation": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -6387,12 +6359,17 @@
       "campus": "Main Campus",
       "academic_group": "Div of Psychology",
       "academic_org": "Div of Psychology",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n1. Identify and explain key characteristics of Big Data relevant to psychological research\n\n2. Apply computational tools to analyze digital data in social psychology contexts\n\n3. Evaluate the use of generative AI in psychological research and its implications for studying individual differences and group behavior",
+      "course_syllabus": "1. Introduction to Big Data in Psychological Research\n2. Characteristics and Sources of Big Data\n3. Computational Text Analysis for Behavioral Insights\n4. Analyzing Individual Differences Using Large-Scale Data\n5. Digital Field Experiments in Social Contexts\n6. Modeling Group Dynamics with Computational Tools\n7. Basics of Machine Learning and Generative AI\n8. Applications of Generative AI in Social Psychology\n9. Ethical Considerations in Big Data and Social Psychology",
+      "assessment_types": {
+        "Examination": "30",
+        "Homework or assignment": "30",
+        "Presentation": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Course Evaluation Questionnaire",
+      "required_readings": "Please refer to the course outline",
+      "recommended_readings": "Please refer to the course outline"
     },
     {
       "subject": "PSYC",
@@ -6428,7 +6405,7 @@
         }
       ],
       "description": "This course introduces students to the key concepts and issues related to various mental disorders. Students will learn about the clinical phenomenology of different mental disorders and how these disorders are classified and diagnosed according to the DSM system. Throughout the course, students will learn to integrate research findings from bio-psycho-social domains and develop an integrative perspective in understanding the development of different mental disorders.",
-      "enrollment_requirement": "For students in MPhil-PhD Psychology or MSSc Clinical Psychology",
+      "enrollment_requirement": "For students in MSSc Clinical Psychology",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -6502,7 +6479,7 @@
         }
       ],
       "description": "This course provides a fundamental background in health and community psychology. Students will have the opportunity to critically examine and evaluate conceptual, methodological, and research issues that are germane in health and community psychology. New developments in these areas will be covered to equip students to lead the field. Focus will be on the synthesis and integration of the two disciplines within a person-in-environment perspective. Students are expected to evaluate issues not only at the individual level, but as well as within the ecology, including groups, settings, communities, cultures, etc. Furthermore, prevention, intervention, and rehabilitation are equally emphasized. It is the aim that students will have a fundamental understanding of major health and community psychology concepts and be able to conceptualize various health issues and formulate sound interventions in an ecological perspective.",
-      "enrollment_requirement": "For students in MPhil-PhD Psychology or MSSc Clinical Psychology",
+      "enrollment_requirement": "For students in MSSc Clinical Psychology",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
@@ -6976,7 +6953,7 @@
     {
       "subject": "PSYC",
       "course_code": "6750",
-      "title": "Intervention Seminar III: Special Topics",
+      "title": "Intervention Seminar III: Other Therapeutic Approaches",
       "credits": "3.00",
       "terms": [
         {

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T14:04:59.483103+00:00",
+    "scraped_at": "2026-07-04T19:03:10.409063+00:00",
     "subject": "PHYS",
     "subject_title": "Physics",
     "total_courses": 100,
@@ -3125,7 +3125,7 @@
           ]
         }
       ],
-      "description": "This course provides students with the basic knowledge of a few numerical methods and computer programming commonly used to solve problems in physics. Topics include: basic programming skills, interpolation, numerical integration of functions, numerical solution of ordinary differential equations and wave equations. There are computational laboratories for practice, demonstration and illustration of the subject matter. This course, together with PHYS3061 and 4061, provides basic, intermediate and advanced training on this important branch of computational physics. This fundamental course assumes no prior knowledge in computing.",
+      "description": "This course provides students with the basic knowledge of a few numerical methods and computer programming commonly used to solve problems in physics. Topics include: basic programming skills, interpolation, numerical integration of functions, numerical solution of ordinary differential equations and wave equations, brief introduction to data science and statistical learning. There are computational laboratories for practice, demonstration and illustration of the subject matter. This fundamental course assumes no prior knowledge in computing.",
       "enrollment_requirement": "Not for students who have taken CSCI2800 / 1510 / 1520 / 1110 / 1120. Pre-requisite/Co-requisite: MATH1010 or 1018 or 1520 or its equivalents, or permission of instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -3135,7 +3135,7 @@
       "academic_group": "Dept of Physics",
       "academic_org": "Dept of Physics",
       "learning_outcomes": "By the end of the course, students will be able to:\n1. perform elementary programming in C\n2. demonstrate knowledge in basic numerical methods\n3. employ numerical methods taught and C codes to solve basic physics problems",
-      "course_syllabus": "1. Introduction\nPrograming languages, program structures and version control.\n2. C: Basic concepts\nVariables, Expressions and statements, operators, Input/Output, compiling and running the first C program.\n3. C: Control logic and iteration\nIf-else and switch statements, for, while, do…while, break and continue statements.\n4. C: Functions and program structure\nBasics of functions, scope rules, header files, block structure.\n5. C: Arrays and pointers\nData structures and arrays, array definition and initialization. The concept of pointers, pointer assignment, dereferencing, indexing.\n6. Numerical methods: Interpolation\nLagrange interpolation, Neville’s algorithm, Runge phenomenon, Chebyshev polynomials & nodes, Gibbs phenomenon.\n7. Numerical methods: Integration of functions\nTrapezoidal rule, Simpson’s rule, improper integrals, Gauss-Legendre integration.\n8. Numerical methods: Ordinary differential equations\nEuler method, Richardson extrapolation, Taylor method, Runge-Kutta method, boundary value problems, the shooting method.\n9. Numerical methods (optional): Wave equations and Monte Carlo methods\nFinite difference approximation to a PDE, Monte Carlo integration, importance sampling and hypothesis testing.",
+      "course_syllabus": "1. Introduction\nPrograming languages, program structures and version control.\n2. C: Basic concepts\nVariables, Expressions and statements, operators, Input/Output, compiling and running the first C program.\n3. C: Control logic and iteration\nIf-else and switch statements, for, while, do…while, break and continue statements.\n4. C: Functions and program structure\nBasics of functions, scope rules, header files, block structure.\n5. C: Arrays and pointers\nData structures and arrays, array definition and initialization. The concept of pointers, pointer assignment, dereferencing, indexing.\n6. Numerical methods: Interpolation\nLagrange interpolation, Neville’s algorithm, Runge phenomenon, Chebyshev polynomials & nodes.\n7. Numerical methods: Integration of functions\nTrapezoidal rule, Simpson’s rule, Gauss-Legendre integration.\n8. Numerical methods: Ordinary differential equations\nEuler method, Taylor method, Runge-Kutta method, boundary value problems, the shooting method.\n9. Numerical methods: Brief introduction to data science and statistical learning\nBasic statistics, model fitting, making predictions and hypothesis testing.\n10. Numerical methods (optional): Wave equations and Monte Carlo methods\nFinite difference approximation to a PDE, Monte Carlo integration, importance sampling.",
       "assessment_types": {
         "Homework or assignment": "20",
         "Lab performance": "20",
@@ -5487,7 +5487,7 @@
           ]
         }
       ],
-      "description": "This is a project-oriented course on computer simulation, emphasizing the setting up of physical models, the development of algorithms for the models, data analysis and graphical techniques. The basic usage of generative AI will be introduced, and students will be expected to practice the AI tools in computer simulation. Topics include: the cooling problem, single and many particle dynamics, chaotic dynamics, random processes, wave phenomena, and electrostatic problems. There are computational laboratories for practice, demonstration and illustration of the subject matter. Students are expected to have a solid background in the introductory calculus-based physics courses: PHYS1111, 1122, 2041 and first-year mathematics course: MATH1010, and have written working computer programs before taking this course.\nStudents are advised to seek prior advice from the instructor before enrolment.",
+      "description": "This is a project-oriented course on computer simulation, emphasizing the setting up of physical models, the development of algorithms for the models, data analysis and graphical techniques. The basic usage of generative AI will be introduced, and students will be expected to practice the AI tools in computer simulation. Topics include: the cooling problem, non-linear fitting, single and many particle dynamics, chaotic dynamics, random processes, wave phenomena, and electrostatic problems. There are computational laboratories for practice, demonstration and illustration of the subject matter. Students are expected to have a solid background in the introductory calculus-based physics courses: PHYS1111, 1122, 2041 and first-year mathematics course: MATH1010, and have written working computer programs before taking this course.\nStudents are advised to seek prior advice from the instructor before enrolment.",
       "enrollment_requirement": "",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -5909,7 +5909,7 @@
         }
       ],
       "description": "The course aims to provide students an introduction to the principles and techniques of observational astronomy in the optical waveband, including the principles of the telescopes and instruments, and hands-on experience of data acquisition and data analysis. The topics covered will include the motivation of observations, targets to observe, practical challenges of observations, the telescopes, instruments, detectors, imaging and spectroscopic methods, data calibration, processing, and analysis methods. PHYS3430 and PHYS3440 are independent courses from each other.",
-      "enrollment_requirement": "Pre-requisite: PHYS2711.",
+      "enrollment_requirement": "Pre-requisite: PHYS2401 and PHYS2711, or their equivalents, or permission of instructor.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -9714,7 +9714,7 @@
         }
       ],
       "description": "This is an introductory level course for postgraduate students on various computational techniques and concepts of artificial intelligence adopted in the field of computational physics. This course provides an opportunity for students to learn and apply the artificial intelligence related techniques learned in the lecture to various research related projects. To prepare for this course, students are expected to have taken undergraduate level computational physics (PHYS3061 or equivalent) and have grasped fundamental skills in computer programming. The course will cover random processes, linear and nonlinear regression, clustering, neural network methods, machine learning applications in physics, and other advanced artificial intelligence topics such as Generative AI, large language model, etc. The student is expected to conduct several related programming projects and deliver a final presentation.",
-      "enrollment_requirement": "For students in PHYS-MPHD, MSEG-MPHD, PHYS-MSC, BSc Physics;Prerequisite: PHYS3061 or PHYS4061 or sufficient programming skills in PYTHON and/or C. \nThe registration of the course requires a permission of the instructor.",
+      "enrollment_requirement": "For students in PHYS-MPHD, MSEG-MPHD, PHYS-MSC, BSc Physics, AISC-MSC; Prerequisite: PHYS3061 or PHYS4061 or sufficient programming skills in PYTHON and/or C. \nThe registration of the course requires a permission of the instructor.",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -10169,7 +10169,7 @@
         }
       ],
       "description": "Unlike a course in computer science or programming, this course is intended to provide taught postgraduate students a solid training in the computational techniques for the analysis and modelling of physical systems. It focuses specifically on methods for solving various physics problems. Topics include: basic numerical methods, numerical methods in linear algebra, numerical methods for ordinary and partial differential equations in physics. Students are suggested to have taken at least one course in programming prior this course.",
-      "enrollment_requirement": "For students in MSc Physics;Pre-requisite: A prior programming class or sufficient programming skills in PYTHON and/or C.\nThe registration of the course requires a permission of the instructor.\nExclusion: Not for students who have taken PHYS4061.",
+      "enrollment_requirement": "For students in PHYS-MSC, AISC-MSC;Pre-requisite: A prior programming class or sufficient programming skills in PYTHON and/or C.\nThe registration of the course requires a permission of the instructor.\nExclusion: Not for students who have taken PHYS4061.",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",

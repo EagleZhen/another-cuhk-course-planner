@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T13:31:34.515327+00:00",
+    "scraped_at": "2026-07-04T18:28:28.520985+00:00",
     "subject": "PBHT",
     "subject_title": "Public Heatlh (TPg)",
     "total_courses": 16,
@@ -281,12 +281,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1) Understand basic coding in R computing environment\n\n2) Apply modern coding concepts and practices through the tidyverse packages\n\n3) Process raw data to prepare it for statistical analysis\n\n4) Present and discuss results using the most suitable visualization and interactive methods\n\n5) Apply the coding skills learned in the course to their own projects\n\n6) Have the capability to independently learn and apply R packages not covered in the course",
+      "course_syllabus": "| 1. Overview of R and RStudio software |\n| --- |\n| 2. Reproducibility in science |\n| 3. Selecting and filtering data |\n| 4. Summarizing data |\n| 5. Data cleaning |\n| 6. Data manipulation and interactive exploration |\n| 7. Data visualization and introduction to factors |\n| 8. Introduction to biostatistics |\n| 9. Final assessment |",
+      "assessment_types": {
+        "Classwork": "25",
+        "Presentation": "65",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "nil",
+      "recommended_readings": "1) R for Data Science (2e). https://r4ds.hadley.nz\n\n2) Statistical Inference via Data Science. https://moderndive.com/index.html\n\n3) Data Science for Environmental Health. https://daseh.org/materials\\_schedule.html\n\n4) Introduction to Data Science. http://rafalab.dfci.harvard.edu/dsbook/\n\n5) Decoding the exposome: data science methodologies and implications in exposome-wide association studies (ExWASs) https://academic.oup.com/exposome/article/4/1/osae001/7574628"
     },
     {
       "subject": "PBHT",
@@ -392,24 +396,27 @@
     {
       "subject": "PBHT",
       "course_code": "5901",
-      "title": "Exchange Study",
-      "credits": "1.50",
+      "title": "International Exchange Study",
+      "credits": "1.00",
       "terms": [],
-      "description": "Students enrolled in public health courses during their summer or winter terms in other universities can seek unit credits for their studies towards their MPH degree. Approval made on a case-by-case basis by the Concentration Coordinator after discussion with Curriculum Coordinator.",
-      "enrollment_requirement": "For Master of Public Health and MSc Health Services Management students",
+      "description": "Public Health in Action in The Association of Southeast Asian Nations (ASEAN): Field study of Brunei Darussalam’s healthcare system, disease prevention and control strategies",
+      "enrollment_requirement": "For students in Master of Public Health and MSc Epidemiology & Biostatistics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
+      "grading_basis": "Pass (P)/Fail (U)",
       "component": "Independent Study",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. Learn more about different aspects of public health, which are addressed in the study; and\n2. Have direct interaction with healthcare professionals and students of different background.",
-      "course_syllabus": "| Introduction to Health and Human Security |\n| --- |\n| Overview of Human Security Frameworks and History |\n| Conflict and Post-conflict Settings |\n| Disasters and Security |\n| Tutorial (topic to be confirmed) (for CUHK MPH students only, credit bearing) |\n| Tutorial (topic to be confirmed) (for CUHK MPH students only, credit bearing) |",
-      "assessment_types": {},
+      "learning_outcomes": "1. Observe the organisation and delivery of healthcare services in Brunei, and compare them with health service models in other Asia Pacific countries and jurisdictions (including Hong Kong and Mainland China).\n2. Explain environmental health and vector control strategies used for vector borne diseases and other infectious diseases.\n3. Assess regulatory mechanisms for food safety and worker safety through relevant agencies.\n4. Discuss how intersectoral collaboration supports national public health goals, including cross-agency coordination in infectious disease control, environmental health, and safety regulation.\n5. Reflect on lessons learned and how insights from Brunei’s public health strategies can inform public health practice in the region.",
+      "course_syllabus": "| 1. Healthcare system and services in Brunei Darussalam |\n| --- |\n| 2. Environmental health & Disease prevention and control |\n| 3. Health Promotion, Food Safety & occupational safety regulations |",
+      "assessment_types": {
+        "Discussion": "70",
+        "Presentation": "30"
+      },
       "feedback_evaluation": "CTE",
-      "required_readings": "Leaning J. Health and human security in the 21st century. In Brauch HG et al., eds. Facing Global Environmental Change: Environmental, Human, Energy, Food, Health and Water Security Concepts Series. Hexagon Series on Human and Environmental Security and Peace, Vol. 4, Springer Press. Berlin, 2009: 541-551.\n\nLeaning J, Arie S, Stites E. Human security in crisis and transition. Praxis: The Fletcher Journal of International Development 2004; XIX: 5-30.\n\nWorld Food Programme. Global Food Security Update. July 2013.\n\n<http://documents.wfp.org/stellent/groups/public/documents/ena/wfp258655.pdf>",
-      "recommended_readings": ""
+      "required_readings": "https://www.who.int/countries/brn\n\nhttps://www.oecd.org/en/publications/health-at-a-glance-asia-pacific-2024\\_51fed7e9-en.html\n\n[https://www.who.int/westernpacific/our-work/resources/data](http://documents.wfp.org/stellent/groups/public/documents/ena/wfp258655.pdf)",
+      "recommended_readings": "Brunei PPKK, MOH, SHENA, BDFA, JPMC webpages:\n\n<https://ppkk.gov.bn/SitePages/Home.aspx>\n\n<https://moh.gov.bn/>\n\n<https://jpmcbrunei.com/>\n\n<https://shena.gov.bn/>\n\nhttps://bdfa.gov.bn/"
     },
     {
       "subject": "PBHT",
@@ -426,12 +433,16 @@
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Observe the organisation and delivery of public health related programme and projects in Asia-Pacific region.\n2. Supplement their academic knowledge with a practical work experience in a field related to the work of hosting organization.\n3. Assist in relevant fields in connection to the hosting organization’s strategic framework and to UN Sustainable Development Goals.\n4. Participate in high-level discussion on how intersectoral collaboration supports including cross-agency coordination in infectious disease control, One Health, and food safety regulation.\n5. Reflect on lessons learned and how insights from Brunei’s public health strategies can inform public health practice in the region.",
+      "course_syllabus": "| 1. Understanding of organizational mandates and programmes |\n| --- |\n| 2. Organizational assignments |\n| 3. Health Promotion, Food Safety & One Health |",
+      "assessment_types": {
+        "Internship or practicum": "30",
+        "Presentation": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "To be confirmed by course coordinator",
+      "recommended_readings": "To be confirmed by course coordinator"
     },
     {
       "subject": "PBHT",
@@ -479,10 +490,10 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "15",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "84",
+                "available_seats": "83",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -544,7 +555,7 @@
                 {
                   "time": "TBA",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Professor YIP Hon Kei",
+                  "instructor": "Miss LAM Yan Yi, \nMiss LEE Sze Man, \nMiss WONG Sze Yeuk, \nMs. CHAN Tan Hung, \nMs. YEUNG Tsz Yan, \nProfessor YIP Hon Kei",
                   "dates": "06/04/2026 - 08/06/2026"
                 }
               ],
@@ -564,7 +575,7 @@
                 {
                   "time": "TBA",
                   "location": "Prince of Wales Hospital",
-                  "instructor": "Professor YIP Hon Kei",
+                  "instructor": "Miss LAM Yan Yi, \nMiss LEE Sze Man, \nMiss WONG Sze Yeuk, \nMs. CHAN Tan Hung, \nMs. YEUNG Tsz Yan, \nProfessor YIP Hon Kei",
                   "dates": "06/04/2026 - 08/06/2026"
                 }
               ],

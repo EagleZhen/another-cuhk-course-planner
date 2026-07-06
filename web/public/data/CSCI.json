@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T09:17:02.026136+00:00",
+    "scraped_at": "2026-07-04T14:44:22.038988+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 85,
+    "total_courses": 78,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -127,31 +127,6 @@
       "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Results of assignments and examination\n3. Question-and-Answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "-",
       "recommended_readings": "1. Introduction to Java Programming: Fundamentals First (6th Edition) (GOAL Series) (Paperback), Daniel Liang, Prentice Hall, 2006"
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "1040",
-      "title": "Hands-on Introduction to Python",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course aims to provide an intensive hands-on introduction to the Python scripting language. Topics include the basic Python language syntax, variable declaration, basic operators, programme flow and control, defining and using functions, file and operating system interface. Specific key features of the Python scripting language such as object-oriented support, high level dynamic data types, embedding within applications etc. will be highlighted.",
-      "enrollment_requirement": "Not for students who have taken AIST1110 or CSCI1550 or IERG1080",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. Be able to write, compile and execute Python programs;\n2. Be able to make use of Python's object-oriented methodology;\n3. Be able to design and create applications using Python modules;\n4. Be able to develop embedded applications using Python.",
-      "course_syllabus": "This course aims to provide an intensive hands-on introduction to the Python scripting language. Topics include the basic Python language syntax, variable declaration, basic operators, programme flow and control, defining and using functions, file and operating system interface. Specific key features of the Python scripting language such as object-oriented support, high level dynamic data types, embedding within applications etc. will be highlighted.",
-      "assessment_types": {
-        "Others": "50",
-        "Short answer test or exam": "50"
-      },
-      "feedback_evaluation": "1. Course evaluation and questionnaire;\n2. Results of assignments and examination;\n3. Question-and-Answer sessions during class;\n4. Student consultation during office hours or online;",
-      "required_readings": "1. Official Python web site http://www.python.org;\n2. Beginners’ guide to Python http://wiki.python.org/moin/BeginnersGuide.",
-      "recommended_readings": ""
     },
     {
       "subject": "CSCI",
@@ -2360,7 +2335,7 @@
           ]
         }
       ],
-      "description": "This course introduces the concepts and applications of blockchain technologies, explain their potential impacts on different industries, and explore the latest techniques of blockchains. Students will learn skills in popular blockchain platforms to understand blockchain technologies and applications, in IoT and NFT, etc. Topics include: (1) Blockchain Fundamentals; (2) Blockchain Mining; (3) Sustainable Blockchain; (4) Blockchain and Hyperledger; (5) Blockchain and Decentralized Applications (DApps); (6) AI in Blockchain, and Impact on Industry; (7) IOT and Blockchain; (8) Security issue in Blockchain; (9) Scalable Blockchain and Blockchain as a Service (BaaS); (10) Blockchain Applications.",
+      "description": "This course introduces the concepts and applications of blockchain technologies, explains their potential impacts on different industries, and explores the latest techniques of blockchains. Students will learn skills in popular blockchain platforms to understand blockchain technologies and applications, in IoT and NFT, etc. Topics include: (1) Blockchain Fundamentals; (2) Blockchain Mining; (3) Blockchain and FinTech; (4) Blockchain and Hyperledger; (5) Blockchain and Decentralized Applications (DApps); (6) AI in Blockchain; (7) IOT and Blockchain; (8) Security issue in Blockchain; (9) Scalable Blockchain and Blockchain as a Service (BaaS); (10) Blockchain Applications.",
       "enrollment_requirement": "Not for students who have taken IERG4360 or ESTR4326.\nPrerequisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ENGG1110 or ESTR1002 or 1100 or 1102.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -2370,15 +2345,16 @@
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
       "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. explain the concepts and techniques of different types of blockchains;\n2. explain decentralized applications running on a decentralized peer-to-peer network\n3. explain the blockchain applications running on popular blockchain platforms;",
-      "course_syllabus": "Week 1: Blockchain Fundamentals\nWeek 2: Blockchain Mining\nWeek 3: Sustainable Blockchain\nWeek 4: Blockchain and Hyperledger\nWeek 5: Ethereum\nWeek 6: Blockchain and Decentralized Applications (DApps)\nWeek 7: AI in Blockchain, and Impact on Industry\nWeek 8: IOT and Blockchain\nWeek 9: Security issue in Blockchain\nWeek 10: Scalable Blockchain and Blockchain as a Service (BaaS)\nWeek 11: IOT and Blockchain Applications\nWeek 12: Blockchain Applications\nWeek 13: Blockchain Applications",
+      "course_syllabus": "Week 1: Blockchain Fundamentals\nWeek 2: Blockchain Mining\nWeek 3: Blockchain and FinTech\nWeek 4: Blockchain and Ethereum\nWeek 5: Blockchain and Hyperledger\nWeek 6: Blockchain and Decentralized Applications (DApps)\nWeek 7: AI in Blockchain, and Impact on Industry\nWeek 8: IOT and Blockchain\nWeek 9: Security issue in Blockchain\nWeek 10: Scalable Blockchain and Blockchain as a Service (BaaS)\nWeek 11: IOT and Blockchain Applications\nWeek 12: Blockchain Applications\nWeek 13: Blockchain Applications",
       "assessment_types": {
-        "Examination": "55",
-        "Homework or assignment": "25",
-        "Project": "20"
+        "Examination": "45",
+        "Homework or assignment": "20",
+        "Project": "25",
+        "Participation": "10"
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "-",
-      "recommended_readings": "1) Imran Bashir. Mastering Blockchain: A deep dive into distributed ledgers, consensus protocols, smart contracts, DApps, cryptocurrencies, Ethereum, and more, 3rd Edition, Packt Publishing Limited, 2020 (ISBN-10: 1839213191 | ISBN-13: 978-1839213199).\n2) Andreas Antonopoulos. Mastering Bitcoin 2nd Edition, O'Reilly Media, Inc, USA, 2017 (ISBN10: 1491954388 | ISBN-13: 978-1491954386).\n3) Timi Ajiboye , Luis Buenaventura , Lily Liu. The Little Bitcoin Book: Why Bitcoin Matters for Your Freedom, Finances, and Future, Whispering Candle, 2019 (ISBN-10: 1641990503 | ISBN13: 978-1641990509)."
+      "recommended_readings": "1) Imran Bashir. Mastering Blockchain: A deep dive into distributed ledgers, consensus protocols, smart contracts, DApps, cryptocurrencies, Ethereum, and more, 4th Edition, Packt Publishing Limited, 2021 (ISBN-10: 1803241063 | ISBN-13: 9781803241067).\n2) Andreas M. Antonopoulos and David A. Harding. Mastering Bitcoin, 3rd Edition, O'Reilly Media, Inc, USA, 2023 (ISBN-10: 1098150090 | ISBN-13: 978-1098150099).\n3) Anthony Scaramucci. The Little Book of Bitcoin: What You Need to Know that Wall Street Has Already Figured Out, John Wiley & Sons, 2025 (ISBN-10: 1394286643 | ISBN-13: 9781394286645)"
     },
     {
       "subject": "CSCI",
@@ -2548,7 +2524,7 @@
         }
       ],
       "description": "This course is designed for students to learn the principles of data mining and information processing via a hands-on approach. The first half of the course focuses on the fundamentals of data collection and processing, including the mathematical foundation and the representation of audio and visual data. In the second half of the course, classical data mining methods will be introduced, along with their applications in datasets with meaningful physical interpretations. Students are advised to have a background in programming and a basic understanding of college-level mathematics.",
-      "enrollment_requirement": "Prerequisite: (ENGG1110 or ESTR1002) and (ENGG1120 or ESTR1005)",
+      "enrollment_requirement": "Prerequisite: (ENGG1110 or ESTR1002) and (ENGG1120 or ESTR1005)\nNot for students who have taken CSCI3230 or ESTR3108 or CSCI3320",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2913,8 +2889,8 @@
           ]
         }
       ],
-      "description": "The course aims at teaching students about compiler development methodology and its associated technology to modern applications. The course contents included formal aspects, lexical analysis, syntax analysis, syntax-directed translation, run-time environments, intermediate code generation, code generation and code optimization.",
-      "enrollment_requirement": "Prerequisite: CSCI3130",
+      "description": "The course aims to teach students about compiler development methodology and its associated technology for modern applications. The course contents include lexical analysis, syntax analysis, semantic analysis, intermediate code generation, LLVM, code generation, and code optimization. At the end of this course, an overview of domain-specific compilers will be introduced, such as AI compilers.",
+      "enrollment_requirement": "",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -2922,8 +2898,8 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired:\n1. Fundamental concepts of the compiler, in particular, lexical analysis, syntax analysis, and code generation and optimization;\n2. Deep understanding of how programming languages are executed in machines/computers;\n3. Implementation experience in developing a real compiler for a certain programming language.",
-      "course_syllabus": "Week 1: Course Overview and Project Introduction\nWeek 2: Formal Aspects in Compiler\nWeek 3: Lexical Analysis\nWeek 4: Syntax Analysis\nWeek 5: Syntax-Directed Translation\nWeek 6: Top-Down Parsing\nWeek 7: Bottom-Up Parsing\nWeek 8: Semantic Analysis\nWeek 9: Run-time Environments\nWeek 10: Intermediate Code Generation\nWeek 11: Code Generation\nWeek 12: Code Optimization\nWeek 13: Course Summary and Project Presentation",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Fundamental concepts of the compiler, in particular, lexical analysis, syntax analysis, and code generation and optimization;\n2. Deep understanding of how programs are executed in machines/computers;\n3. Implementation experience in developing a real compiler for a certain programming language.",
+      "course_syllabus": "Week 1: Introduction to compilers\nWeek 2: Lexing\nWeek 3: Context-free grammar\nWeek 4: Parsing: LL\nWeek 5: Parsing: LR\nWeek 6: Semantic analysis\nWeek 7: Type checking\nWeek 8: Intermediate representation\nWeek 9: LLVM\nWeek 10: Code optimization\nWeek 11: Code generation\nWeek 12: Register allocation\nWeek 13: Selected topics in modern compilers",
       "assessment_types": {
         "Examination": "40",
         "Homework or assignment": "20",
@@ -2931,7 +2907,7 @@
       },
       "feedback_evaluation": "1. Results of assignments and examination;\n2. Course evaluation and questionnaire;\n3. Reflection of teachers;\n4. Question-and-answer sessions during class;\n5. Student consultation during office hours or online;",
       "required_readings": "-",
-      "recommended_readings": "1. [ASU86] Aho, A.V., Sethi, R., and Ullman, J.D., Compilers: Principles, Techniques, and Tools, Addison-Wesley, 1986. (Reserved in UL)\n2. [ALS+07] Aho, A.V., Lam, M.S., Sethi, R., and Ullman, J.D., Compilers: Principles, Techniques, & Tools, Second Edition, Addison-Wesley, 2007. (available in the University Library)\n3. [AeK01] Allen, R. and Kennedy, K., Optimizing Compilers for Modern Architectures, Morgan Kaufmann, 2001.\n4. [CoT04] Cooper, K.D. and Torczon, L., Engineering a Compiler, Morgan Kaufmann,\n2004. \n5. [Ric09] Rich, E., Automata, Computability, and Complexity, Prentice Hall, 2009.\n6. [Seb08] Sebesta, R.W., Concepts of Programming Languages, 8/e, Addison Wesley, 2008."
+      "recommended_readings": "[ALS+07] Aho, A.V., Lam, M.S., Sethi, R., and Ullman, J.D., Compilers: Principles, Techniques, & Tools, Second Edition, Addison-Wesley, 2007. (available in the University Library)"
     },
     {
       "subject": "CSCI",
@@ -5922,38 +5898,16 @@
       "campus": "Main Campus",
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "4250",
-      "title": "Online Algorithms for Machine Learning and Optimization",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims to cover topics in online learning and online optimization. Typical topics include multi-armed bandit (MAB) problems in various settings, online convex optimization (OCO) problems such as online linear regression, online classification, and certain general reinforcement learning problems. Different algorithms will be introduced to solve these problems and analysis of the performance and efficiency will be provided.",
-      "enrollment_requirement": "Not for students who have taken ESTR4122\nPrerequisite: CSCI3160 and CSCI3320",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand typical problems of online learning and online optimization and to model certain practical problems into them,\n2. design effective algorithms to solve the problems in online learning and online optimization\n3. analyse performance and efficiency of the algorithms",
-      "course_syllabus": "This course aims to cover topics in online learning and online optimization. Typical topics include multi-armed bandit (MAB) problems in various settings, online convex optimization (OCO) problems such as online linear regression, online classification, and certain general reinforcement learning problems. Different algorithms will be introduced to solve these problems and analysis of the performance and efficiency will be provided.",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze probabilistic behavior, derive approximation guarantees, and balance rigor with practicality in real-world applications.\n2. Apply randomized and approximation algorithms to classical problems such as set cover, Max-SAT, graph optimization, and online decision-making.\n3. Interpret and evaluate algorithmic research ideas, understand their underlying principles, and recognize when to apply specific techniques in new contexts.",
+      "course_syllabus": "Week 1 — Concentration Bounds\nWeek 2 — Probabilistic Method I\nWeek 3 — Probabilistic Method II\nWeek 4 — Expanders and Random Walk Amplification (I)\nWeek 5 — Expanders and Random Walk Amplification (II)\nWeek 6 — Game-Theoretic Techniques\nWeek 7 — Online Algorithms\nWeek 8 — Greedy Algorithms and Local Search\nWeek 9 — Linear/Integer Programming and Rounding\nWeek 10 — Semi-Definite Programming and Rounding\nWeek 11 — Primal–Dual Method\nWeek 12 — Approximate Counting and Sampling\nWeek 13 — Lattice Problems and Shortest Vector",
       "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "20",
-        "Project": "30"
+        "Examination": "70",
+        "Homework or assignment": "10",
+        "Project": "20"
       },
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "nil",
-      "recommended_readings": "1. Online Learning and Online Convex Optimization, Shai Shalev-Shwartz, Foundations and Trends in Machine Learning, Vol. 4, No. 2, pages 107–194, 2011.\n2. Regret Analysis of Stochastic and Nonstochastic Multi-armed Bandit Problems, Sebastien Bubeck and Nicolo Cesa-Bianchi, Foundations and Trends in Machine Learning, Vol. 5, No. 1, pages 1–122, 2012.\n3. A Tutorial on Linear Function Approximators for Dynamic Programming and Reinforcement Learning, Alborz Geramifard, Thomas J. Walsh, Stefanie Tellex, Girish Chowdhary, Nicholas Roy, Jonathan P. How, Foundations and Trends in Machine Learning, Vol. 6, No. 4, pages 375–451, 2013.\n4. Introduction to Online Convex Optimization, Elad Hazan, Foundations and Trends in Optimization, Vol. 2, No. 3-4, pages 157–325, 2015"
+      "required_readings": "-",
+      "recommended_readings": "1. Probability and computing: Randomized algorithms and probabilistic analysis, by Michael Mitzenmacher and Eli Upfal. Cambridge University Press. (2005)\n2. Randomized Algorithms, by Rajeev Motwani and Prabhakar Raghavan. Cambridge University Press. (1995)\n3. The Design of Approximation Algorithms, by David P. Williamson and David B. Shmoys. Cambridge University Press. (2011)\n4. Approximation Algorithms, by Vijay V. Vazirani. Springer. (2001)"
     },
     {
       "subject": "CSCI",
@@ -7721,7 +7675,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course first introduces fundamentals of machine learning with a large size of samples, including basic principles (maximum likelihood vs least redundancy) and typical structures (linear systems of hidden factors, mixture of local structures, and Markov temporal models), The second part of the course covers learning theories towards small sample size challenge, including major topics (model selection, learning regularization, two stage implementation, sparse learning, and automatic model selection) and three streams of efforts, namely generalization error estimation (CV, AIC, VC theory), shortest coding length (MML vs MDL) or similarly various Bayes (BIC, MAP, Laplace, marginal, and variational) , and BYY learning (BYY system, best harmony theory, Ying-Yang alternation updating, and five action circling implementation).",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN)",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN); Not for students who have taken AIMS5704",
       "course_attributes": "",
       "academic_career": "Postgraduate - Research",
       "grading_basis": "Graded",
@@ -7867,31 +7821,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "5160",
-      "title": "Advanced Algorithms",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will study the design and analysis of exact and approximation algorithms using advanced techniques such as combinatorial methods, probabilistic methods, linear programming, semidefinite programming, and spectral methods.",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering;Not for students who have ENGG5102",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Apply algorithmic techniques to solve problems in computer science\n2. Understand one advanced algorithmic technique in depth, including the technical knowledge and the various applications\n3. See the connections between the course content and their own research area",
-      "course_syllabus": "This course will study the design and analysis of exact and approximation algorithms using advanced techniques such as combinatorial methods, probabilistic methods, linear programming, semidefinite programming, and spectral methods.",
-      "assessment_types": {
-        "Essays": "50",
-        "Others": "50"
-      },
-      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Reflection of teachers\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. Combinatorial Optimization: Polyhedral and Efficiency, by Alexander Schrijver, Springer, 2003.\n2. The Design of Approximation Algorithms, by David Williamson and David Shmoys, Cambridge University Press, 2010.\n3. Semidefinite programs and combinatorial optimization, by L. Lovász, in: Recent Advances in Algorithms and Combinatorics (ed. B.A. Reed, C.L. Linhares-Sales), CMS Books Math./Ouvrages Math. SMC 11, Springer, New York (2003), 137-194.\n4. Randomized Algorithms, by Rajeev Motwani and Prabhakar Raghavan, Cambridge University Press, 1995.\n5. Lecture notes on “spectral graph theory”, by Daniel Spielman, Yale University, 2012."
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5210",
       "title": "Advanced Computer Graphics and Visualization",
       "credits": "3.00",
@@ -7911,28 +7840,6 @@
       "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Reflection of teachers\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "1. Radiosity and Global Illumination, By Francois X. Sillion and Claude Puech, Morgan Kaufmann, 1994.\n2. Realistic Ray Tracing, By Peter Shirley, A K Peters, 2000."
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5320",
-      "title": "Topics in Graph Algorithms",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will discuss graph theory and graph algorithms with emphasis on the algorithmic aspects of graph theory. The course will cover classical topics such as search techniques, connectivity, colouring, matching and covering, network flows, planarity, traversability, perfect graphs, and NP-completeness of graph problems. The course will also discuss FPT algorithms for solving graph problems.\n\nAdvisory: Students are expected to have taken CSCI3160",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. use some fundamental graph algorithms to solve other graph problems,\n2. establish NP-completeness of graph problems, and\n3. use various tools to design FPT algorithms to solve NP-complete graph problems in practice.",
-      "course_syllabus": "This course will discuss graph theory and graph algorithms with emphasis on the algorithmic aspects of graph theory. The course will cover classical topics such as search techniques, connectivity, colouring, matching and covering, network flows, planarity, traversability, perfect graphs, and NP-completeness of graph problems. The course will also discuss FPT algorithms for solving graph problems.",
-      "assessment_types": {},
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. D. West, Introduction to Graph Theory, Prentice Hall, 2001.\n2. M. Ashraf Iqbal, Graph Theory & Algorithms, 2010.\n3. R.G. Downey and M.R. Fellows, Parameterized Complexity, Springer, 1997.\n4. M.R, Garey, and D.S. Johnson, Computers and Intractability: A Guide to the Theory of NP-Completeness, W. H. Freeman and Company, 1979."
     },
     {
       "subject": "CSCI",
@@ -8116,32 +8023,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "5460",
-      "title": "Virtual Reality",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the fundamental and advanced research topics in virtual reality (VR), including VR tools & metaphors, multi-sensory interactions, geometric and behavior modelling, touch-enabled interfaces, real-time immersive navigation, human factor in VR, augmented reality systems, internet-based VR applications. The web-based virtual reality interfaces plus 3D graphics engines build up the developing tools for testing the innovative ideas/solutions for the advanced VR research and real-time applications.\n\nAdvisory: Students are expected to have taken CSCI3260 or equivalent",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering; Exclusion: CMSC5716",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. learn fundamental methodology in VR projects/systems.\n2. build VR environments and web-based virtual effects.\n3. realize the virtual immersion and interactions in VR.\n4. apply VR techniques to the application via 3D graphics tools.",
-      "course_syllabus": "This course introduces the fundamental and advanced research topics in virtual reality (VR), including VR tools & metaphors, multi-sensory interactions, geometric and behavior modelling, touch-enabled interfaces, real-time immersive navigation, human factor in VR, augmented reality systems, internet-based VR applications. The web-based virtual reality interfaces plus 3D graphics engines build up the developing tools for testing the innovative ideas/solutions for the advanced VR research and real-time applications.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "50",
-        "Presentation": "10"
-      },
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. Virtual Reality Technology – 2nd Edition by Grigore Burdea and Philippe Coiffet, John Wiley, New York, 2003.\n2. Touch in Virtual Environments, Haptics and the Design of Interactive Systems, by M. McLaughlin, J. Hespanha, G. Sukhatme, Pretice Hall, 2002.\n3. Online WebGL homepage: http://www.khronos.org/webgl/\n4. Learning WebGL tutorials: http://learningwebgl.com/blog/\n5. Selected research papers in VR journals and conferences (e.g MIT PRESENCE, ACM VRST).\nARToolKit homepage: http://www.hitl.washington.edu/artoolkit/"
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5540",
       "title": "Machine Learning Systems",
       "credits": "3.00",
@@ -8264,32 +8145,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "5570",
-      "title": "Large Scale Data Processing Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces contemporary systems for large scale data processing. Topics to be covered include, but are not limited to: (1) advanced database systems (including distributed, parallel, columnar, in-memory systems, etc., for both OTLP and OLAP applications); (2) NoSQL and NewSQL systems; (3) distributed data stores; (4) big data analysis systems; (5) graph processing systems; (6) stream processing systems; and (7) data visualization. Advanced algorithms for data analytics (e.g., distributed machine learning algorithms, streaming algorithms, etc.) that are implemented using the systems introduced in the course will also be discussed.",
-      "enrollment_requirement": "For students in MSc Computer Science or MPhil-PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand the key concepts in the design and development of systems for large scale data processing;\n2. understand the key ideas in the design and implementation of contemporary large scale systems for processing different types of data, and their applications;\n3. analyze the strengths and limitations of various contemporary systems for large scale data processing;\n4. master the basic skills and techniques for processing different types of data using systems introduced in the course.",
-      "course_syllabus": "This course introduces contemporary systems for large scale data processing. Topics to be covered include, but are not limited to: (1) advanced database systems (including distributed, parallel, columnar, in-memory systems, etc., for both OTLP and OLAP applications); (2) NoSQL and NewSQL systems; (3) distributed data stores; (4) big data analysis systems; (5) graph processing systems; (6) stream processing systems; and (7) data visualization. Advanced algorithms for data analytics (e.g., distributed machine learning algorithms, streaming algorithms, etc.) that are implemented using the systems introduced in the course will also be discussed.",
-      "assessment_types": {
-        "Essays": "20",
-        "Essay test or exam": "40",
-        "Others": "40"
-      },
-      "feedback_evaluation": "1. Assignments, course project and essays\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. Andrew S. Tanenbaum, Maarten van Steen: Distributed systems - principles and paradigms (2. ed.). Pearson Education 2007, ISBN 978-0-13-239227-3.\n2. Jerome Saltzer, M. Frans Kaashoek: Principles of Computer System Design: An Introduction (1. ed.). Morgan Kaufmann 2009, ISBN: 978-01-2374957-4.\n3. Hector Garcia-Molina, Jeffrey D. Ullman, Jennifer Widom: Database systems - the complete book (2. ed.). Pearson Education 2009, ISBN 978-0-13-187325-4.\n4. M. Tamer Özsu, Patrick Valduriez: Principles of Distributed Database Systems (3. ed.). Springer 2011, ISBN 978-1-4419-8833-1."
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5600",
       "title": "Advanced Topics in Distributed Systems",
       "credits": "3.00",
@@ -8364,32 +8219,6 @@
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "[1] Peter Brass: Advanced Data Structures. Cambridge University Press, 2008, ISBN-13: 978-0521880374.\n[2] Bernard Chazelle: Filtering Search: A New Approach to Query-Answering. SIAM J. Comput. 15(3): 703-724 (1986).\n[3] Bernard Chazelle: A Functional Approach to Data Structures and Its Use in Multidimensional Searching. SIAM J. Comput. 17(3): 427-462 (1988).\n[4] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein: Introduction to Algorithms, 3rd Edition, MIT Press, ISBN: 978-0-262-03384-8.\n[5] Graham Cormode, S. Muthukrishnan: An improved data stream summary: the count-min sketch and its applications. J. Algorithms 55(1): 58-75 (2005).\n[6] James R. Driscoll, Neil Sarnak, Daniel Dominic Sleator, Robert Endre Tarjan: Making Data Structures Persistent. J. Comput. Syst. Sci. 38(1): 86-124 (1989).\n[7] Jacob Holm, Kristian de Lichtenberg, Mikkel Thorup: Poly-logarithmic deterministic fully-dynamic algorithms for connectivity, minimum spanning tree, 2-edge, and biconnectivity. J. ACM 48(4): 723-760 (2001).\n[8] Piotr Indyk, Rajeev Motwani, Prabhakar Raghavan, Santosh Vempala:Locality-Preserving Hashing in Multidimensional Spaces. STOC 1997: 618-625.\n[9] Robert Krauthgamer, James R. Lee: Navigating nets: simple algorithms for proximity search. SODA 2004: 798-807.\nJürg Nievergelt, Edward M. Reingold: Binary Search Trees of Bounded Balance. SIAM J. Comput. 2(1): 33-43 (1973).\n[10] Mark H. Overmars: The Design of Dynamic Data Structures. Lecture Notes in Computer Science 156, Springer 1983, ISBN 3-540-12330-X.\n[11] Rasmus Pagh, Flemming Friche Rodler: Cuckoo hashing. J. Algorithms 51(2): 122-144 (2004)."
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5620",
-      "title": "Algorithms for Data Science",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This is a graduate level course which provides the mathematical and algorithmic foundations for data science. Target audience are students interested in doing research in algorithms, statistics, machine learning or data mining. Topics to be covered will be probability and concentration bounds, high-dimension space and its properties, nearest neighbouring search and projection methods, singular value decomposition and its algorithms, random walks and Markov chains, constrained convex optimization, online stochastic gradient descent, boosting, streaming and sampling algorithms, sketches (e.g., count-min), graph sketching, random graphs.\nAdvisory: Students are expected to have taken CSCI3160 and CSCI3320",
-      "enrollment_requirement": "For students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Be familiar with the concept of concentration and various tail bounds\n2. Be familiar with data in high dimension space and its properties\n3. Be familiar with singular value decomposition (SVD) and its algorithms\n4. Be familiar with random walks, Markov chains and their applications\n5. Be familiar with online learning and VC-dimension\n6. Be familiar with streaming, sketching and sampling techniques\n7. Be familiar about graph structures and their applications",
-      "course_syllabus": "This is a graduate level course which provides the mathematical and algorithmic foundations for data science. Target audience are students interested in doing research in algorithms, statistics, machine learning or data mining. Topics to be covered will be probability and concentration bounds, high-dimension space and its properties, nearest neighbouring search and projection methods, singular value decomposition and its algorithms, random walks and Markov chains, constrained convex optimization, online stochastic gradient descent, boosting, streaming and sampling algorithms, sketches (e.g., count-min), graph sketching, random graphs.",
-      "assessment_types": {
-        "Examination": "50",
-        "Homework or assignment": "20",
-        "Project": "30"
-      },
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course instructor.",
-      "recommended_readings": "1. Foundations of Data Science, by Avrim Blum, John Hopcroft, and Ravindran Kannan\n2. Various research papers"
     },
     {
       "subject": "CSCI",
@@ -8725,12 +8554,15 @@
       "campus": "Main Campus",
       "academic_group": "Div of Computer Science & Engg",
       "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Fundamental understanding of the pros and cons of various dynamic and static software testing tools;\n2. Conduct extensive testing on various software systems to ensure their reliability;\n3. Conduct research in software engineering and software security-related fields.",
+      "course_syllabus": "Week 1: Software testing and software quality assurance\nWeek 2: Program analysis basics\nWeek 3: Random test generation\nWeek 4: Grammar-based test generation\nWeek 5: Mutation-based testing\nWeek 6: Guided random testing\nWeek 7: Symbolic and concolic testing\nWeek 8: Regression testing\nWeek 9: AI-based test generation\nWeek 10: Testing advanced software: Compilers and databases\nWeek 11: Testing advanced software: Deep learning libraries\nWeek 12: Final projects\nWeek 13: Final projects",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "70"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Question-and-answer sessions during class\n3. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "- Cadar, Cristian, Daniel Dunbar, and Dawson R. Engler. \"Klee: unassisted and automatic generation of high-coverage tests for complex systems programs.\" OSDI.. Vol. 8. 2008.\n\n- Majumdar, Rupak, and Koushik Sen. \"Hybrid concolic testing.\" 29th International Conference on Software Engineering (ICSE'07). IEEE, 2007.\n\n- Holler, Christian, Kim Herzig, and Andreas Zeller. \"Fuzzing with code fragments.\" 21st USENIX Security Symposium (USENIX Security 12). 2012.\n\n- Le, Vu, Mehrdad Afshari, and Zhendong Su. \"Compiler validation via equivalence modulo inputs.\" ACM Sigplan Notices 49.6 (2014): 216-226.\n\n- Ba, Jinsheng, and Manuel Rigger. \"Testing database engines via query plan guidance.\" 2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE). IEEE, 2023.\n\n- Ernst, Michael D., et al. \"Dynamically discovering likely program invariants to support program evolution.\" IEEE transactions on software engineering 27.2 (2001): 99-123.\n\n- Zeller, Andreas, and Ralf Hildebrandt. \"Simplifying and isolating failure-inducing input.\" IEEE Transactions on software engineering 28.2 (2002): 183-200."
     },
     {
       "subject": "CSCI",

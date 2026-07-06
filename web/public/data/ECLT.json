@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T09:43:04.334990+00:00",
+    "scraped_at": "2026-07-04T15:03:44.339312+00:00",
     "subject": "ECLT",
     "subject_title": "E-Commerce (Business Programme",
-    "total_courses": 15,
+    "total_courses": 14,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -347,32 +347,6 @@
       },
       "feedback_evaluation": "Feedback from students; CTE",
       "required_readings": "“Data Mining - Concepts and Techniques”, J. Han, M. Kamber, and J. Pei (Morgan\nKaufmann)\n\n“Data Science for Business”, F. Provost and T. Fawcett, O’Reilly",
-      "recommended_readings": "As recommended by course teacher."
-    },
-    {
-      "subject": "ECLT",
-      "course_code": "5820",
-      "title": "Distributed and Mobile Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Distributed and mobile systems are the key framework for E-Commerce applications. This course covers the principles of distributed systems (including mobile applications) and software, and the engineering mechanisms for their specifi cation, design, deployment, and evaluation. Topics include: architectural models for distributed systems, server techniques, remote procedure call and multicast communications, RFID technology, emerging standards and platforms, distributed transactions, concurrency control, reliability and security issues.",
-      "enrollment_requirement": "For students in MSc E-Commerce & Logistics Technologies",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "After completing the course, a student should have learned the problems that occur during construction of distributed systems; the principles and techniques to solve them; the infrastructure and components for distributed and mobile systems; and the practical applications of distributed systems, particularly in e-commerce technologies.",
-      "course_syllabus": "Characterization of Distributed Systems\nCommunication and RPC\nSecurity\nNaming, Trading, and P2P Systems\nTime, Coordination and Agreement\nConcurrency Control\nTransactions\nFault Tolerance and Replication\nMobile, Ubiquitous Computing\nBlockchain, Bitcoin, and Ethereum\nCloud Computing",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "20",
-        "Presentation": "40"
-      },
-      "feedback_evaluation": "Feedback from students; CTE",
-      "required_readings": "Distributed Systems: Concepts and Design, George Coulouris, Jean Dollimore, and Tim Kindberg, Addison-Wesley, 5th edition, 2012.",
       "recommended_readings": "As recommended by course teacher."
     },
     {
@@ -1072,11 +1046,14 @@
       "campus": "Main Campus",
       "academic_group": "Div of System Erg & Erg Mgt",
       "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Apply Data Analytics for Supply Chain Optimization: Develop and implement data-driven strategies to enhance supply chain efficiency, reduce costs, and improve responsiveness using core analytics concepts and techniques.\n2. Transform Data into Actionable Insights: Analyze complex datasets to generate meaningful insights that support informed decision-making in areas such as logistics, procurement, and inventory management.\n3. Utilize Industry-Standard Analytical Tools: Gain hands-on experience with widely used and accessible data analytics software tools to perform real-time analysis, visualization, and modeling.\n4. Address Key Supply Chain Functions: Tackle critical supply chain processes including demand forecasting, supply planning, procurement, inventory control, warehousing, transportation routing, reverse logistics, and risk management.\n5. Understand Supply Chain Challenges Across Industries: Recognize and evaluate supply chain issues in diverse business environments, preparing to adapt analytical approaches to various operational contexts and sectors.",
+      "course_syllabus": "Course Objectives: This course aims to equip students with the analytical skills and practical tools necessary to optimize supply chain operations through data-driven decision-making. Students will learn to apply core data analytics techniques, interpret complex datasets, and utilize industry-standard software to enhance efficiency, reduce costs, and improve responsiveness across key supply chain functions. The course also prepares students to address diverse operational challenges and adapt analytical approaches across various industries.",
+      "assessment_types": {
+        "Classwork": "50",
+        "Examination": "50"
+      },
+      "feedback_evaluation": "Students are encouraged to seek feedback on their performance in case studies and the final examination. The instructor will provide individualized responses, referencing relevant learning objectives and assessment criteria. CTE is scheduled to be conducted at the end of term.",
+      "required_readings": "James R. Evans, Business Analytics, 3rd edition, Pearson, 2019.\nRamesh Sharda, Dursun Delen, Efraim Turban, Business Intelligence, Analytics, Data Science, and AI, 5th edition, Pearson, 2023.",
       "recommended_readings": ""
     }
   ]

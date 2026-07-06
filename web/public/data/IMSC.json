@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-06-27T12:04:01.564031+00:00",
+    "scraped_at": "2026-07-04T16:53:58.459485+00:00",
     "subject": "IMSC",
     "subject_title": "Artic BSc PhD Pgm in Math Sci",
     "total_courses": 32,
@@ -66,8 +66,8 @@
           ]
         }
       ],
-      "description": "This course is intended as the first course on algebra for students majoring in Articulated Bachelor of Science – Ph.D. Programme in Mathematical Sciences. The course emphasizes the fundamental concepts and principles in algebra, and focuses on rigorous reasoning of mathematical statements, computational techniques as well as applications.",
-      "enrollment_requirement": "Not for students who have taken MATH1030/1038.",
+      "description": "This course is designed as a rigorous introduction to the basics of algebraic concepts and structures, such as groups, rings and fields.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -75,16 +75,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "Students are able to\n\n* define and distinguish the usual concepts used in algebra\n* logically prove basic statements in algebra and understand ideas behind the proofs of theorems\n* solve problems using algebra, including those in an abstract setting\n* apply the methods of algebra to standard problems in physics, engineering, or business economics\n* appreciate the rationale and impact of algebra to human development in science and technology",
-      "course_syllabus": "Set notations; system of linear equations, Gaussian elimination; matrices, determinants; Euclidean and abstract vector spaces, subspaces, linear span, linear independence, bases and dimension; definition and examples of linear transformations; eigenvalues and eigenvectors, diagonalization; orthogonality, Gram-Schmidt process.",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in basic the definitions of algebraic structures, and in algebraic properties and their consequences for various algebraic structures;\n\nDemonstrate ability in recognizing underlying algebraic structures which are common to various concrete mathematical examples;\n\nDemonstrate understanding in the basics of group theory, ring theory, and field theory;\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Groups and subgroups. Cyclic groups, permutation groups and dihedral groups. Lagrange’s Theorem. Group homomorphisms and group isomorphisms. Normal subgroups and quotient groups. Product groups. Correspondence Theorem. Isomorphism Theorems for groups. Group action. Cayley’s Theorem. Centralizer and normalizer. Class equation for finite groups. p-groups, Sylow Theorems.\n\nRings, integral domains and fields. Polynomial rings. Fields of fractions. Ring homomorphisms. Subrings, ideals and quotient rings. Prime and maximal ideals. Factorization in integral domains. Principal ideal domains. Unique factorization domains. Quadratic number fields Algebraic and transcendental elements. Field extension, and degree of a field extension. Irreducible polynomials. Adjoining roots. Finite fields. Primitive elements. Function fields.",
       "assessment_types": {
-        "Essay test or exam": "55",
+        "Essay test or exam": "50",
         "Others": "10",
-        "Short answer test or exam": "35"
+        "Short answer test or exam": "40"
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "* G. Strang: Linear algebra and applications\n* S. Friedberg, A. Insel, L. Spence: Linear algebra"
+      "recommended_readings": "• P. Aluffi: Algebra: Chapter 0, American Mathematical Society.\n• Michael Artin: Algebra (Second Edition), Pearson Prentice Hall.\n• D. Dummit and R. Foote, Abstract Algebra, John Wiley and Sons.\n• John F. Fraleigh: A First Course in Abstract Algebra (any recent edition), Pearson.\n• Thomas W. Hungerford: Algebra, Springer-Verlag.\n• Serge Lang: Algebra (Third Edition), Springer-Verlag.\n• Joseph J. Rotman: Advanced Modern Algebra (Second Edition), American Mathematical Society.\n• Igor R. Shafarevich: Basic Notions of Algebra, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -236,8 +236,8 @@
           ]
         }
       ],
-      "description": "This introductory calculus-based course discusses the basic principles of optics, special relativity, and quantum physics and its applications, plus an introduction to particle physics. Topics include: Geometric optics, interference, diffraction, special relativity, quantum physics and its applications to atoms, molecules, solids, and nuclei, particle physics. Students are advised to take this course concurrently with a course in calculus.",
-      "enrollment_requirement": "Not for students who have taken PHYS1122. Pre-requisite: IMSC2018.",
+      "description": "This introductory calculus-based course discusses the basic principles of electromagnetism and optics. Topics include: Coulomb’s law, electric field and potential, Gauss’ law, capacitance and dielectrics, current and resistance, DC circuits, magnetic fields, Ampere’s law, Faraday’s law, inductance, AC circuits, Maxwell’s equations and electromagnetic waves, geometric optics, interference and diffraction.",
+      "enrollment_requirement": "Not for students who have taken PHYS1122.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -245,16 +245,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "Upon completion of the course, students will be able to\n\n* describe the basic concepts of optics, special relativity, and quantum physics\n* analyze and solve basic problems in optics and special relativity\n* apply the concepts of quantum physics to analyze basic one-dimensional bound state problems\n* state and appreciate applications of quantum mechanics in microscopic situations\n* have the necessary background for relevant upper-level courses.",
-      "course_syllabus": "* The Nature and Propagation of Light: The nature of light, with a qualitative discussion on electromagnetic waves, reflection and refraction, total internal reflection, polarization, dispersion, Huygens’ principle.\n* Geometric Optics: Reflection and reflection at a plane surface and a spherical surface, thin lenses, some optical instruments.\n* Interference: Interference and coherent sources, Young’s interference experiment, intensity in interference patterns, interference in thin films, Michelson’s interferometer.\n* Diffraction: Diffraction and wave theory of light, Fresnel and Fraunhofer diffraction, diffraction from a single slit, intensity in single-slit diffraction, multiple slits, diffraction gratings, circular aperture, resolving power.\n* Relativity: Galilean relativity, Einstein’s postulates, relativity of simultaneity, relativity of time intervals, relativity of length, the Lorentz transformation, Lorentz velocity transformation equations, relativistic mementum, relativistic work and energy, mass and energy.\n* Photons, Electrons, and Atoms: Emission and absorption of light, photoelectric effect, atomic line spectra and energy levels, the nuclear atom, Bohr model, X-ray production, the Compton effect, photons and EM waves.\n* The Wave Nature of Particles: de Broglie waves, electron diffraction, double-slit experiment revisited, probability and uncertainty, the electron microscope, wave functions and the Schrodinger equation.\n* Quantum Mechanics: Particle in a box, potential wells, potential barriers and tunneling, harmonic oscillator, (brief) three-dimensional problems.\n* Atomic Physics: The wave function for hydrogen, physical interpretation of the quantum numbers, the Zeeman effect, the electron spin, many-electron atoms and the Pauli exclusion principle, the periodic table, X-ray spectra.\n* Molecules and Solids: Molecular bonds, Molecular spectra, bonding in solids, free-electron model of metals, band theory of solids, electrical conduction in metals, insulators, and semiconductors, semiconductor devices, STM.\n* Nuclear Physics: Some properties of nuclei, nuclear binding and nuclear structure (nuclear force and nuclear models), nuclear stability and radioactivity, decay processes, nuclear reactions, nuclear fission, nuclear fusion, biological effects of radiation, (optional) NMR and MRI.\n* Particle Physics and Cosmology: Some particles, positron and antiparticles, particles as force mediator and the meson, particle accelerators and detectors, particles and interactions, finding patterns in particles, quarks, the standard model and beyond, the Cosmic connection (the expanding universe, the big bang, the standard model and the history of the universe).",
+      "learning_outcomes": "1. Gain an understanding of the fundamental principles of electromagnetism and optics, within a formalism using vectors and elementary calculus\n2. Acquire the ability to use some mathematical methods, such as vector algebra and calculus, and an appreciation of their roles and applications in electromagnetism, and the be able to apply them to other courses\n3. Build up a solid foundation of the necessary background for upper-level courses in electromagnetism and other physics courses in the curriculum\n4. Gain an appreciation of the importance of electromagnetism and optics in physics, as well as their applications in the modern world",
+      "course_syllabus": "| No. | Topics | **Highlights of Fundamental Concepts** |\n| --- | --- | --- |\n| 1. | Electric Charge and Electric Field | Electric charge, conductors and insulators, Coulomb’s law, electric field, electric field calculations (point charge, electric dipole, line of charge, continuous charge distribution), electric field lines, charged particle in an electric field, a dipole in an electric field |\n| 2. | Gauss’ Law | Charge and electric flux, Gauss’ Law, applications of Gauss’ Law (cylindrical, planar, spherical symmetries), charged isolated conductor. |\n| 3. | Electric Potential | Electric potential energy, electric potential and potential difference, equipotential surfaces, calculating the potential from the field, examples (point charges, electric dipole, continuous charge distribution), calculating the field from the potential, potential of a charged isolated conductor, the Millikan oil-drop experiment |\n| 4. | Capacitance | Capacitors and dielectrics, capacitance, calculating the capacitance, capacitors in series and parallel, energy stored in an electric field, dielectrics (molecular model of induced charge), Gauss’ law in dielectrics |\n| 5. | Current and Resistance | Electric current, current density, resistance and resistivity, Ohm’s law, free-electron model of resistivity, materials and conductivity, power in electric circuits |\n| 6. | Direct Current Circuits | Electromotive force, resistors in parallel and in series, Kirchhoff’s rules, electrical measuring instruments (the meters), RC circuit |\n| 7. | Magnetic Fields | Magnetic fields and forces, motion of a charged particle in a uniform magnetic field, applications (mass spectrometer, cyclotron, and velocity selector), magnetic force on a current carrying wire, torque on a current loop, magnetic dipole moment, the discovery of electron, the Hall effect |\n| 8. | Sources of the Magnetic Field | Magnetic field due to a current (Biot-Savart Law), magnetic force between two parallel currents, Ampere’s law and its applications, solenoids, a current-carrying coil as a magnetic dipole |\n| 9. | Induction and Inductance | Induction experiments, Faraday’s law and Lenz’ law, induction and energy transfer (motional emf), induced electric fields, inductors and inductance, self-induction, RL circuits, energy stored in a magnetic field, energy density of a magnetic field, mutual induction. |\n| 10. | Maxwell’s Equations and Electromagnetic Waves | The displacement current and the general form of Ampere’s law, Maxwell’s equations (integral form), electromagnetic waves, energy transport and the Poynting vector, radiation pressure, polarization, the electromagnetic spectrum |\n| 11. | The Nature and Propagation of Light | The nature of light, with a qualitative discussion on electromagnetic waves, reflection and refraction, total internal reflection, polarization, dispersion, Huygens’ principle |\n| 12. | Geometric Optics | Reflection and reflection at a plane surface and a spherical surface, thin lenses, some optical instruments |\n| 13. | Interference | Interference and coherent sources, Young’s interference experiment, intensity in interference patterns, interference in thin films, Michelson’s interferometer |\n| 14. | Diffraction | Diffraction and wave theory of light, Fresnel and Fraunhofer diffraction, diffraction from a single slit, intensity in single-slit diffraction, multiple slits, diffraction gratings, circular aperture, resolving power |",
       "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "10",
-        "Short answer test or exam": "40"
+        "Examination": "45",
+        "Homework or assignment": "20",
+        "Short answer test or exam": "35"
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\n\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "* H.D. Young and R.A. Freedman, “University Physics with Modern Physics”, 12 th edition, Addison-Wesley Publishing Company, 2008 (or later editions). [This is the current edition of Sears and Zemansky’s University Physics.]\n* J.W. Jewett, Jr., R.A. Serway, “Physics for Scientists and Engineers with Modern Physics” (7th edition) (Thomson 2008) (or later editions). [The Modern Physics part is good.]\n* D. Halliday, R. Resnick, and J. Walker, “Fundamentals of Physics”, 7th edition, John Wiley & Sons, 2005 (or later editions) [The international student edition of the 9th edition is renamed “Principles of Physics”.]\n* P.M. Fishbane, S.G. Gasiorowicz, S.T. Thornton, “Physics for Scientists and Engineers with Modern Physics”, 3rd edition (Pearson 2005) (or later editions)."
+      "recommended_readings": "* H.D. Young and R.A. Freedman, “University Physics with Modern Physics”, 12 th edition, Addison-Wesley Publishing Company, 2008 (or later editions).\n* D. Halliday, R. Resnick, and J. Walker, “Fundamentals of Physics”, 7th edition, John Wiley & Sons, 2005 (or later editions)\n* D. J. Griffiths, Introduction to Electrodynamics (5th ed.). Cambridge University Press, 2023."
     },
     {
       "subject": "IMSC",
@@ -321,8 +321,8 @@
           ]
         }
       ],
-      "description": "This course is intended to introduce the basics of the calculus of functions of several variables. Topics include: vectors, geometry of Euclidean spaces, curves, limits, partial derivatives, differentiability, chain rule, first and second derivative test, maximum and minimum, Taylor polynomials, Lagrange multipliers, implicit function theorem.",
-      "enrollment_requirement": "Not for students who have taken any one of MATH2010/2018, 2020/2028. Co-requisite: IMSC1038.",
+      "description": "This course is designed as a rigorous introduction to the theory of differential and integral calculus for real-valued functions of several real variables.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -330,8 +330,8 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "Students understand the basic concepts and applications of the calculus of functions of several variables, including vectors, functions of several variables, partial derivatives and their applications, and extremum problems, as well as the ideas behind the proofs of the theorems.",
-      "course_syllabus": "vectors, geometry of Euclidean spaces, curves, limits, partial derivatives, differentiability, chain rule, first and second derivative test, maximum and minimum, Taylor polynomials, Lagrange multipliers, implicit function theorem.",
+      "learning_outcomes": "Demonstrate understanding in basic concepts and applications of the calculus of functions of several variables, including vectors, functions of several variables, partial derivatives and their applications, extremum problems, multiple integrals, as well as the ideas behind the proofs of the theorems;\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Review on linear algebra and geometry for R^n as an inner-product space, notion of inverses, determinants and eigenvalues for square matrices with real entries.\n\nBasic topology in Euclidean space R^n, compactness and connectedness for subsets of Euclidean space R^n. Limits of sequences in R^n.\n\nLimits and continuity of real/vector-valued functions of several (real) variables. Partial derivatives, and Jacobian matrix. Continuously differentiable functions. Chain Rule. Taylor’s Theorem. Inverse Function Theorem and Implicit Function Theorem.\n\nCritical points and their classification. Relative extrema and absolute extrema. Lagrange multiplier.\n\nIntegrals over rectangles, and existence question and evaluation for such integrals. Integrals over bounded sets. Change of Variable Theorem.",
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "10",
@@ -339,7 +339,7 @@
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "* T. Au, Differential Multivariable Calculus, Asian Customized Edition, McGraw Hill\n* G. B. Thomas, M. D. Weir and J. Hass, Thomas' Calculus, Pearson\n* H. Anton, I. Bivens and S. Davis, Anton's Calculus, Early Transcendentals, Wiley\n* C. H. Edwards and D. E. Penney, Calculus, Early Transcendentals, Prentice Hall"
+      "recommended_readings": "* T. M. Apostol: Mathematical Analysis (Second Edition), Addison-Wesley.\n* C. H. Edwards: Advanced Calculus of Several Variables, Dover.\n* Harold M. Edwards: Advanced Calculus: A Differential Forms Approach, Birkhaeuser.\n* Wendell Fleming: Functions of Several Variables (Second Edition), Springer-Verlag.\n* James R. Munkres: Analysis on Manifolds, Addison-Wesley.\n* Michael Spivak: Calculus on Manifolds, Addison-Wesley.\n* V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -442,8 +442,8 @@
           ]
         }
       ],
-      "description": "This is a continuation of IMSC2018. The following topics will be discussed: multiple integrals in n-dimensions: areas and n-volumes, surface areas, volumes of submanifolds and hypersurfaces in n-space, change of variables; vector analysis: line integrals, surface integrals, integration on submanifolds, Green theorem, divergence theorem and Stokes theorem in n-dimensions.",
-      "enrollment_requirement": "Not for students who have taken MATH2020/2028. Pre-requisite: IMSC2018.",
+      "description": "This course is a continuation of IMSC2018. It is intended as a rigorous introduction to the classical results and applications of vector calculus and differential forms, and the basic idea of differentiable manifolds.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC2018.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -451,8 +451,8 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "Students understand the theory and the applications of multiple integrals. These include line integrals, multiple integrals, surface integrals and applications to vector analysis, as well as the ideas behind the proofs of the theorems.",
-      "course_syllabus": "Multiple integrals in n-dimensions: areas and n-volumes, surface areas, volumes of submanifolds and hypersurfaces in n-space, change of variables; vector analysis: line integrals, surface integrals, integration on submanifolds, Green theorem, divergence theorem and Stokes theorem in n-dimensions.",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the theory and the applications of vector calculus, as well as the ideas behind the proofs of the theorems.\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Integrals over bounded sets. Rectifiable sets. Partition of unity. Change of Variable Theorem. Diffeomorphism in R^n. Partition of unity. Change of Variable Theorem. Diffeomorphism in R^n. Manifolds in R^n, boundary of a manifold, and parametrization. Integrating a scalar function over a manifold.\n\nMultilinear algebra, alternating tensors, wedge product. Tangent vectors and differential forms. Relation between differential forms and grad, curl and div. Differential operator (on differential forms). Vector and scalar fields. Action of a differentiable map.\n\nIntegrating forms over parametrized manifolds. Orientable manifolds. Integrating forms over oriented manifolds. Stokes' Theorem and its classical low-dimension formulations for vector calculus. Exact forms and closed forms. Poincare’s Lemma.\n\nStructural Equations of R^n, surfaces in R^3 intrinsic geometry of surfaces. Gauss-Bonnet Theorem and Morse Theorem.",
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "10",
@@ -460,7 +460,7 @@
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "- T. Au, Differential Multivariable Calculus, Asian Customized Edition, McGraw Hill\n- C. H. Edwards and D. E. Penney, Calculus, Early Transcendentals, Prentice Hall\n- W. Fleming, Functions of Several Variables, Springer\n- S. Lang, Calculus of Several Variables, Springer\n- M. Spivak, Calculus on Manifolds, Addison-Wesley\n- J. Stewart, Calculus Multivariables, Cengage Learning\n- G. B. Thomas, M. D. Weir and J. Hass, Thomas' Calculus, Pearson"
+      "recommended_readings": "• Manfredo P. do Carmo: Differential Forms and Applications, Springer-Verlag.\n• C. H. Edwards: Advanced Calculus of Several Variables, Dover.\n• Loring W. Tu: An Introduction to Manifolds (Second Edition), Springer-Verlag.\n• Harold M. Edwards: Advanced Calculus: A Differential Forms Approach, Birkhaeuser.\n• Wendell Fleming: Functions of Several Variables (Second Edition), Springer-Verlag.\n• Klaus Jaenich: Vector Analysis, Springer-Verlag.\n• James R. Munkres: Analysis on Manifolds, Addison-Wesley.\n• Michael Spivak: Calculus on Manifolds, Addison-Wesley.\n• V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -477,12 +477,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "1. Describe the basic concepts of thermodynamics, special relativity, and quantum physics.\n2. Analyze and solve basic problems in thermodynamics and special relativity.\n3. Apply the concepts of quantum physics to analyze basic one-dimensional bound state problems.\n4. State and appreciate applications of quantum mechanics in microscopic situations.\n5. Have the necessary background for relevant upper-level courses",
+      "course_syllabus": "| No. | Topics | Highlights of Fundamental Concepts |\n| --- | --- | --- |\n| 1 | Temperature, Heat, and the First Law of Thermodynamics | Temperature and the Zeroth law of thermodynamics, thermometers and temperature scales, thermal expansion of solids and liquids, temperature and heat, specific heat and latent heat, heat and work in thermodynamic processes, internal energy and the First law of thermodynamics with applications, energy transfer mechanisms |\n| 2. | Kinetic Theory of Gases | Molecular model of an ideal gas, pressure and molecular motion, the meaning of temperature, translational kinetic energy, equipartition of energy, mean free path, distribution of molecular speeds, specific heat of an ideal gas, adiabatic processes for an ideal gas |\n| 3. | Entropy and the Second Law of Thermodynamics | Reversible and irreversible processes, irreversible processes and entropy, the Second Law of thermodynamics, engines and refrigerators, the Carnot cycle, efficiency of real engines, microscopic interpretation of entropy |\n| 4. | Relativity | Galilean relativity, Einstein’s postulates, relativity of simultaneity, relativity of time intervals, relativity of length, the Lorentz transformation, Lorentz velocity transformation equations, relativistic momentum, relativistic work and energy, mass and energy |\n| 5. | Photons, Electrons, and Atoms | Emission and absorption of light, photoelectric effect, atomic line spectra and energy levels, the nuclear atom, Bohr model, X-ray production, the Compton effect, photons and EM waves |\n| 6. | The Wave Nature of Particles | de Broglie waves, electron diffraction, double-slit experiment revisited, probability and uncertainty, the electron microscope, wave functions and the Schrodinger equation |\n| 7. | Quantum Mechanics | Particle in a box, potential wells, potential barriers and tunneling, harmonic oscillator, (brief) three-dimensional problems |\n| 8. | Atomic Physics | The wave function for hydrogen, physical interpretation of the quantum numbers, the Zeeman effect, the electron spin, many-electron atoms and the Pauli exclusion principle, the periodic table, X-ray spectra |\n| 9. | Molecules and Solids | Molecular bonds, Molecular spectra, bonding in solids, free-electron model of metals, band theory of solids, electrical conduction in metals, insulators, and semiconductors, semiconductor devices, STM |\n| 10. | Nuclear Physics | Some properties of nuclei, nuclear binding and nuclear structure (nuclear force and nuclear models), nuclear stability and radioactivity, decay processes, nuclear reactions, nuclear fission, nuclear fusion, biological effects of radiation, (optional) NMR and MRI |\n| 11. | Particle Physics | Some particles, positron and antiparticles, particles as force mediator and the meson, particle accelerators and detectors, particles and interactions, finding patterns in particles, quarks, the standard model and beyond, the Cosmic connection |",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "15",
+        "Short answer test or exam": "35"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* H.D. Young and R.A. Freedman, “University Physics with Modern Physics”, 12 th edition, Addison-Wesley Publishing Company, 2008 (or later editions).\n* D. Halliday, R. Resnick, and J. Walker, “Fundamentals of Physics”, 7th edition, John Wiley & Sons, 2005 (or later editions)\n* J.R. Taylor, C.D. Zafiratos, and M.A. Dubson, Modern Physics for Scientists and Engineers (Pearson 2004; 2nd or later edition)\n* A. Beiser, Concepts of Modern Physics, (McGraw-Hill 1995; 5th or later edition)"
     },
     {
       "subject": "IMSC",
@@ -585,8 +589,8 @@
           ]
         }
       ],
-      "description": "This is a continuation of IMSC1038. Topics include: abstract vector spaces, linear transformations, matrix representation, nullity and rank, properties of determinants, diagonalization, Cayley-Hamilton theorem, inner product spaces, normal and self-adjoint operators, unitary and orthogonal operators, bilinear forms, dual spaces, canonical forms, spectral theorem.",
-      "enrollment_requirement": "Not for students who have taken MATH2040/2048. Pre-requisite: IMSC1038.",
+      "description": "This course is a continuation of IMSC1038. This course is designed as a rigorous introduction to the theory of bilinear forms and linear groups, Galois theory and the theory of representation.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC1038.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -594,8 +598,8 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "We expect students to understand more advanced topics in algebra: abstract vector spaces and linear transformations, eigenvalues and eigenvectors, canonical forms of matrices and linear transformations, inner product spaces, duals spaces and bilinear forms, spectral theorems. Students are expected to understand the ideas underlying the concepts and write rigorous mathematical proofs.",
-      "course_syllabus": "Abstract vector spaces over general fields, subspaces, sum and direct sum, span and linear independence, basis and dimension, product and quotient spaces, examples of infinite dimensional vector spaces, linear transformations and their matrix representations, null space and range, rank-nullity theorem, change of basis formula, invertibility and isomorphism, dual spaces, properties of determinants, eigenvalues and eigenvectors, diagonalization, invariant subspaces and Cayley-Hamilton theorem, inner product spaces, orthogonality, adjoint of an operator, normal and self-adjoint operators, unitary and orthogonal operators, bilinear forms, Jordan canonical forms, spectral theorems and applications.",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the basic notions of bilinear forms and linear groups, and basic results about such objects;\nDemonstrate understanding in the basics of Galois theory;\nDemonstrate understanding in the basics of module theory and representation theory, and their inter-relation;\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Bilinear forms. Symmetric forms, Hermitian forms, and skew-symmetric forms. Orthogonality. Spectral Theorem. Conics and Quadrics. Key examples of classical groups, and their basic properties. Lie algebra (for such groups).\n\nField extensions, algebraic extensions and algebraic closures, splitting fields, separable and inseparable extensions, Galois extensions, Galois correspondences, cyclotomic extensions, solvability by radicals, et cetera.\n\nGroup representations. Irreducible representations and unitary representations. Characters. Schur’s Lemma. Modules over principal ideal domains. Free modules. Group rings. Noetherian rings. Structure of Abelian groups. Maschke's theorem. Constructions of representations, et cetera.",
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "10",
@@ -603,7 +607,7 @@
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "* S. Friedberg, A. Insel and L. Spence: Linear Algebra\n* C. Curtis: Linear Algebra An Introductory Approach\n* S. Axler: Linear Algebra Done Right\n* P. Halmos: Finite Dimensional Vector Spaces\n* K. Hoffman and R. Kunze: Linear Algebra"
+      "recommended_readings": "• P. Aluffi: Algebra: Chapter 0, American Mathematical Society.\n• Michael Artin: Algebra (Second Edition), Pearson Prentice Hall.\n• D. Dummit and R. Foote, Abstract Algebra, John Wiley and Sons.\n• Harold M. Edwards: Galois Theory, Springer-Verlag.\n• John F. Fraleigh: A First Course in Abstract Algebra (any recent edition), Pearson.\n• Thomas W. Hungerford: Algebra, Springer-Verlag.\n• Serge Lang: Algebra (Third Edition), Springer-Verlag.\n• Joseph J. Rotman: Advanced Modern Algebra (Second Edition), American Mathematical Society.\n• Jean-Pierre Serre: Linear Representations of Finite Groups, Springer-Verlag.\n• Igor R. Shafarevich: Basic Notions of Algebra, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -688,8 +692,8 @@
           ]
         }
       ],
-      "description": "This course is intended to provide conceptual understanding in the theory of functions of one or more real variables. Topics include: real numbers, real valued functions, set notations; limits of sequences (including limsup and liminf), convergence, Bolzano-Weierstrass, infinite series; limits of functions, continuous functions, uniform continuity.",
-      "enrollment_requirement": "Not for students who have taken MATH2050/2058. Co-requisite: IMSC1038.",
+      "description": "This course is intended as an introduction to the background knowledge for the study of advanced courses in mathematical analysis such as real analysis, functional analysis, and classical harmonic analysis. It is also provides a preparation for the study of point-set topology.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -697,8 +701,8 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "We emphasize the rigorous epsilon-delta approach to analysis, which is crucial for a solid study of analysis. After taking and passing this course, a student is expected\n\n* to understand the axioms of the real number system (constructions such as the Dedekind cuts are not necessary),\n* to know the basic properties of countable and uncountable sets (must know that real numbers and irrational numbers are uncountable) and the statement of the continuum hypothesis,\n* to familiarize with the concept of limits of sequences, series and functions, and\n* to know the concept of continuity and uniform continuity for functions on the real line, on higher dimensional Euclidean spaces, as well as relevant results.",
-      "course_syllabus": "Real numbers, real valued functions, set notations; limits of sequences (including limsup and liminf), convergence, Bolzano- Weierstrass, infinite series; limits of functions, continuous functions, uniform continuity.",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate ability in describing limit and continuity in terms of open sets in a metric space;\nDemonstrate understanding in fundamental results such as Stone-Weierstrass Theorem, Baire Category Theorem and Ascoli's theorem, and apply these results in the study of theoretical or concrete problems in analysis.",
+      "course_syllabus": "Metric spaces, and topological spaces (with emphasis on point-set topology in the context of analysis). Open sets and continuity. Space of continuous functions. Compactness, connectedness and completeness, especially in the context of metrics space (but not limited to the context of metric spaces). Weierstrass Approximation Theorem, Urysohn’s Lemma, Stone-Weierstrass Theorem, Baire Category Theorem, Ascoli's Theorem, Banach Fixed Point Theorem.",
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "10",
@@ -706,7 +710,7 @@
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "* Introduction to Real Analysis, 3rd Edition, by R.G. Bartle and D.R. Sherbert, John-Wiley and Sons, NY\n* Principles of Mathematical Analysis, 3rd Edition, by W. Rudin, McGraw-Hill, International Editions\n* Functions of Several Variables, 2nd Edition, by W. Fleming, Undergraduate Texts in Mathematics, Springer-Verlag, New York\n* Mathematical Analysis I and II, Fudan University, Commerce Press"
+      "recommended_readings": "• John L. Kelly: General Topology, Springer-Verlag.\n• James R. Munkres: Topology, Prentice Hall.\n• H. L. Royden, P. Fitzpatrick: Real Analysis (Fourth Edition), Prentice Hall.\n• George F. Simmons: Introduction to Topology and Modern Analysis Topology, McGraw-Hill.\n• V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -809,8 +813,8 @@
           ]
         }
       ],
-      "description": "This is a continuation of IMSC2058. Topics include: differentiability in one or higher dimensions, mean-value theorem, Taylor theorem, convexity; integrability in one or higher dimensions, fundamental theorem of calculus, improper integrals, Fubini's theorem for double series and continuous functions; power series, radius of convergence, series for elementary functions, real analyticity; sequence and series of functions, uniform convergence.",
-      "enrollment_requirement": "Not for students who have taken MATH2060/2068. Pre-requisite: IMSC2058.",
+      "description": "This course is a continuation of IMSC2058. This course provides a rigorous introduction to real analysis.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. \nPre-requisite: IMSC2058.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -818,8 +822,8 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "After taking and passing this course a student will be able\n(1) to know the properties of differentiable functions and convex functions,\n(2) to use Darboux sums to study Riemann integrable functions and learn the Taylor formula with remainder,\n(3) to understand the fundamental theorems of calculus which relate integration to differentiation, and\n(4) to know basic tests for convergence of infinite series and functions, and\n(5) to know how the elementary functions including the exponential, logarithmic, and trigonometric functions are rigorously defined.\nIn (1)-(3) he/she should master those examples and counterexamples which illustrate the applicability of various theorems.",
-      "course_syllabus": "Differentiability in one or higher dimensions, mean-value theorem, Taylor theorem, convexity; integrability in one or higher dimensions, fundamental theorem of calculus, improper integrals, Fubini's theorem for double series and continuous functions; power series, radius of convergence, series for elementary functions, real analyticity; sequence and series of functions, uniform convergence.",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of measurable sets and measurable functions on the real line and their basic properties, and the notion of Lebesgue integration and its basic properties.\nDemonstrate understanding in fundamental convergence results, and results in connection with differentiation, in the context of the Lebesgue theory of integration.",
+      "course_syllabus": "The extended real numbers. Borel sets. Measurable sets and Lebesgue measure. Measurable functions. Littlewood’s principles. Lebesgue integral. Fatou’s Lemma. The monotone convergence theorem, and Lebesgue dominated convergence theorem. Differentiation (in the context of Lebesgue’s theory). Functions of bounded variation. Absolute continuity. Convex functions. The L^p spaces, and approximation in such spaces. Minkowski Inequality and Hoelder Inequality.\n\nMeasure spaces and measurable functions. General Convergence Theorems. Signed measures. Radon-Nikodym Theorem. Outer measure and measurability. The Extension Theorem. Lebesgue-Stieltjes integral. Product measures. Integral operators. Caratheodory outer measure. Hausdorff measure. Borel sets and Borel measures.",
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "10",
@@ -827,7 +831,7 @@
       },
       "feedback_evaluation": "Mid-term evaluation (optional)\n\nEnd-term evaluation (mandatory)",
       "required_readings": "- -",
-      "recommended_readings": "* Introduction to Real Analysis, 3rd Edition, by R.G. Bartle and D.R. Sherbert, John-Wiley and Sons, NY\n* Principles of Mathematical Analysis, 3rd Edition, by W. Rudin, McGraw-Hill, International Editions\n* Functions of Several Variables, 2nd Edition, by W. Fleming, Undergraduate Texts in Mathematics, Springer-Verlag, New York\n* Mathematical Analysis I and II, Fudan University, Commerce Press\n* Calculus on manifolds, by M. Spivak, Westview Press"
+      "recommended_readings": "• E. Hewitt and K. Stromberg: Real and Abstract Analysis, Springer-Verlag.\n• H. L. Royden, P. Fitzpatrick: Real Analysis (Fourth Edition), Prentice Hall.\n• Walter Rudin: Real and Complex Analysis, McGraw-Hill.\n• George F. Simmons: Introduction to Topology and Modern Analysis Topology, McGraw-Hill.\n• V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -836,7 +840,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This is a continuation of IMSC1038 and IMSC2048. This course is designed as a rigorous introduction to the theory of commutative algebra. The tools relevant to the study of commutative algebra from homological algebra and category theory will be picked up as well.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisites: IMSC1038 and (IMSC2048 or MATH2046).",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -844,12 +848,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the basic notions of commutative algebra, and the basic and important results in commutative algebra;\n\nDemonstrate familiarity with tools from homological algebra and category theory which are directly applicable in the study of commutative algebra.",
+      "course_syllabus": "Localization. Fractions. Hom and Tensor. Construction of Primes. Rings and modules of finite length.\n\nAssociated Primes. Prime avoidance. Prime decomposition (and its geometric interpretation).\n\nCayley-Hamilton Theorem. Nakayama's Lemma. Normal domains and normalization process. Normalization in the analytic case. Primes in an integral extension. Hilbert's Nullstellensatz.\n\nFiltrations and the Artin-Rees Lemma. Associated graded rings and modules. The Blowup Algebra. The Krull Intersection Theorem. The tangent cone.\n\nFlatness. The Rees algebra.\n\nCompletion. Hensel's Lemma. Cohen Structure Theory and coefficient fields. Maps from power series rings.\n\nDimension theory.\n\nPrincipal Ideal Theorem. Regular local rings.\n\nDiscrete valuation rings. Normal rings and Serre's Criterion. Invertible modules. Unique factorization of codimension-one ideals. Divisors and multiplicities.\n\nDimension and Hilbert-Samuel polynomials. Hilbert-Samuel functions.\n\nDimension of affine rings. Noether normalization, and Hilbert's Nullstellensatz (re-visited). Finiteness of integral closure.\n\nElimination Theorem. Generic freeness. Dimension of fibers.\n\nConcepts and methods from homological algebra and category theory, in the context of the above.\n\nOptional: Groebner bases.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term Evaluation (optional)\n\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* P. Aluffi: Algebra: Chapter 0, American Mathematical Society.\n* M. F. Atiyah, I. G. MacDonald: Introduction to Commutative Algebra, Addison-Wesley.\n* D. Dummit and R. Foote: Abstract Algebra, John Wiley and Sons.\n* David Eisenbud: Commutative Algebra with a view towards Algebraic Geometry, Springer-Verlag.\n* Peter J. Hilton, Urs Stammbach: A Course in Homological Algebra (Second Edition), Springer-Verlag.\n* Serge Lang: Algebra (Third Edition), Springer-Verlag.\n* M. Scott Osborne: Basic Homological Algebra, Springer-Verlag.\n* Joseph J. Rotman: Advanced Modern Algebra (Second Edition), American Mathematical Society.\n* Oscar Zariski, Pierre Samuel: Commutative Algebra (Volumes 1, 2), Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -858,7 +866,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course provides a rigorous introduction to the theory and methods of complex analysis.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC2028.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -866,12 +874,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate ability in defining and recognizing analytic functions;\n\nDemonstrate understanding in the basic and important results analytic functions, and ability in providing arguments for these results;\n\nDemonstrate understanding the important results in local and global theories for analytic functions;\n\nDemonstrate ability in performing calculations with methods provided by the theory of analytic functions.",
+      "course_syllabus": "Complex numbers. Limits, continuity and derivatives for complex-valued functions of one complex variable. Cauchy-Riemann equations, analytic functions. Analytic functions defined by power series. Elementary functions.\n\nContours integrals. Cauchy-Goursat Theorem. Cauchy Integral Formula. Morera’s Theorem. Zeros and poles. Maximum Principle. Fundamental Theorem of Algebra. Simple connectivity, locally exact differentials, multiply-connected regions. Residue Theorem. Argument Principle. Evaluation of infinite real integrals. Harmonic functions. Poisson’s Formula, Schwarz’s Theorem.\n\nPower series expansions. Taylor series and Laurent’s series. Partial fractions. Infinite products and canonical products. Gamma Function and Stirling’s Formula. Jensen’s Formula and Hadamard’s Theorem. Riemann Zeta Function. Normal families. Arzela-Ascoli’s Theorem.\n\nConformality and conformal mappings. Linear transformations. Mapping by elementary functions. Riemann Mapping Theorem, Conformal mapping of polygons. Harnack’s Principle. Subharmonic functions. Dirichlet’s Problem.\n\nOptional: Rudiments of the theory of elliptic functions, double periodic functions, the Weierstrass p-function. Analytic continuation. Rudiments of the theory of Riemann surfaces. Picard’s Theorem.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Lars V. Ahlfors: Complex Analysis, McGraw-Hill.\n\n• Reinhold Remmert: Theory of Complex Functions, Springer-Verlag.\n\n• Reinhold Remmert: Classical Topics in Complex Function Theory, Springer-Verlag.\n\n• Walter Rudin: Real and Complex Analysis, McGraw-Hill.\n\n• E. C. Titchmarsh: Theory of Functions, Oxford University Press."
     },
     {
       "subject": "IMSC",
@@ -880,7 +892,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This is a continuation of IMSC2058 and IMSC2068. This course provides a rigorous introduction to functional analysis.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisites: IMSC2028 and (IMSC2058 or IMSC2068 or MATH2066).",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -888,12 +900,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notions of normed linear spaces and inner product spaces, of bounded linear operators, functionals and dual spaces, and also of various types of convergence in a normed linear space, and the basic properties of these objects and concepts;\n\nDemonstrate understanding in the notion of orthogonality and direct sums in inner product spaces, and their relevance in Fourier series and other classical orthogonal series;\n\nDemonstrate understanding in the Riesz Representation Theorem on Hilbert space and in rudiments of the theory of self-adjoint operators;\n\nDemonstrate understanding in rudiments of various advanced topics in functional analysis such as spectrum, compact operators, Fredholm alternatives, positive operators, and their applications (such as in the study of differential equations and of measure theory).",
+      "course_syllabus": "Normed space and Banach space. Finite-dimensional normed spaces and subspaces. Bounded linear operators. Linear functionals. Normed spaces of operators. Dual space.\n\nInner-product space and Hilbert space. Orthogonal complements and direct sums. Orthonormal sets and orthonormal sequences. Totality of orthonormal sets. Riesz Representation Theorem, Trigonometric series. Fourier series of continuous functions. Hilbert-adjoint operators. Self-adjoint, unitary and normal operators.\n\nHahn-Banach Theorem. Adjoint operators (for normed spaces). Reflexivity. Uniform Boundedness Theorem (Banach-Steinhauss Theorem). Open Mapping Theorem. Closed Graph Theorem. Various types of convergence. Banach Fixed Point Theorem. Approximations in normed space.\n\nSpectrum, resolvent. Compact linear operators. Fredholm theory. Spectral theory of bounded self-adjoint linear operators. Positive operators. Projection operators.\n\nApplications of the various concepts and methods above in the study of ordinary differential equations.\n\nOptional: Rudiments of the generalization of the concepts and results above to the situation of (general) topological vector spaces.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• John B. Conway: Functional Analysis, Springer-Verlag.\n\n• Manfred Einsiedler, Thomas Ward: Functional Analysis, Spectral Theory, and Applications, Springer-Verlag.\n\n• Francis Hirsch, Gilles Lacombe: Elements of Functional Analysis, Springer-Verlag.\n\n• E. Kreyszig: Introductory Functional Analysis with Applications, Wiley.\n\n• Peter D. Lax: Functional Analysis, Wiley.\n\n• Reinhold Meise, Dietmar Vogt: Introductory to Functional Analysis, Oxford University Press.\n\n• Walter Rudin: Functional Analysis, McGraw-Hill.\n\n• George F. Simmons: Introduction to Topology and Modern Analysis Topology, McGraw-Hill.\n\n• Wolfgang Walters: Ordinary Differential Equations, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -902,7 +918,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course is a continuation of IMSC2018, IMSC2028 and IMSC3260. It is intended as a study of various properties of smooth manifolds, and various basic concepts and constructions associated to the notion of smooth manifolds. It platforms further courses in topology and differential geometry, and mathematical physics.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken MATH3070 or 4030 or 5061 or 5062 or 5070.\nPre-requisite: IMSC2028.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -910,12 +926,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of smooth manifolds, and various basic concepts and constructions associated to the notion of smooth manifolds;\n\nDemonstrate ability in performing computations concerned with various basic concepts and constructions associated to the notion of smooth manifolds in concrete situations.",
+      "course_syllabus": "Smooth structures and smooth manifolds. Manifolds with boundary. Smooth maps. Partitions of unity. Tangent vectors. Differential of a smooth map. Tangent bundle. Alternative definitions for the notion of tangent vectors. Submersions, immersions, and embeddings. Maps of Constant Rank. Smooth covering maps.\n\nSard's Theorem. The Whitney Embedding Theorem. The Whitney Approximation Theorems. Transversality.\n\nLie groups. Lie group homomorphisms. Lie subgroups. Group actions and equivariant maps. Vector fields on manifolds. Vector fields and smooth maps. Lie brackets. The Lie algebra of a Lie group. Integral curves. Flows and flowouts. Lie derivatives. Commuting vector fields.\n\nVector bundles. Local and global sections of vector bundles. Bundle homomorphisms. Subbundles. Fiber bundles.\n\nCovectors. Differential of a function. Pullbacks of covector fields. Tensors. Tensor fields on manifolds. Differential forms on manifolds. Exterior derivatives. Lie derivatives.\n\nOrientations of manifolds. Integration of differential forms. Stokes' Theorem. Riemannian metrics, and Riemannian manifolds. The tangent-cotangent isomorphism. Pseudo-Riemannian metrics. The Riemannian volume form. Geometry of volume measurement. Integration on Riemannian manifolds.\n\nDe Rham Cohomology Groups. Homotopy Invariance. The Mayer-Vietoris Theorem. Degree Theory. Singular homology, and Singular cohomology. Smooth singular homology. De Rham Theorem.\n\nSheaves and presheaves. Sheaf cohomology. Relation between sheaf cohomology with classical cohomology theories (Alexander-Spanier cohomology, de Rham cohomology, singular cohomology, Cech cohomology). Multiplicative structure.\n\nDistributions and involutivity. The Frobenius Theorem. Foliations. Lie Subalgebras and Lie Subgroups. One-parameter subgroups and the exponential map. The Closed Subgroup Theorem. Infinitesimal generators of group actions. The Lie Correspondence, and Lie's Fundamental Theorems. Quotients of manifolds by group actions. Covering manifolds. Homogeneous Spaces.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Glen E. Bredon: Topology and Geometry, Springer-Verlag.\n\n• John M. Lee: Introduction to Topological Manifolds (Second Edition), Springer-Verlag.\n\n• John M. Lee: Introduction to Smooth Manifolds (Second Edition), Springer-Verlag.\n\n• James R. Munkres: Analysis on Manifolds, Addison-Wesley.\n\n• Loring W. Tu: An introduction to Manifolds, Springer-Verlag.\n\n• Frank W. Warner: Foundations of Differentiable Mainfolds and Lie Groups, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -924,7 +944,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course is intended as an introduction to the elements of topology, including the notion of topological space and concepts associated to it, and the basic results and applications about fundamental groups and covering spaces. It serves as a platform for further courses in geometry and topology.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken MATH3070 or 4030 or 5061 or 5062 or 5070.\nPre-requisite: IMSC2028.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -932,12 +952,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of topological space, and concepts and constructions related to it.\n\nDemonstrate understanding in the notion of fundamental group and covering space for topological spaces, and basic theoretical results and applications of these concepts.\n\nDemonstrate ability in performing computations concerned with various basic concepts and constructions associated to the notion of fundamental group and covering space in concrete situations.",
+      "course_syllabus": "Topological spaces, and topologies. Convergence and continuity. Homeomorphisms. Hausdorff spaces. Bases and countability. Manifolds as topological spaces. Subspaces of topological space. Product spaces. Disjoint union spaces. Quotient spaces. Adjunction spaces. Topological groups and group actions. Connectedness. Compactness. Local compactness. Paracompactness. Proper maps.\n\nCell complexes and CW complexes. Topological properties of CW complexes. Classification of 1-dimensional manifolds. Simplicial complexes.\n\nSurfaces. Connected sums of surfaces. Polygonal presentations of surfaces. The Classification Theorem for compact surfaces. The Euler Characteristic. Orientability.\n\nHomotopy. The fundamental group. Homomorphisms induced by continuous maps. Homotopy equivalence. Mapping cylinder and deformation retracts. Higher homotopy groups. Lifting properties of the circle. Fundamental group of the circle. Degree theory for the circle.\n\nJordan Separation Theorem. Invariance of Domain. Jodan Curve Theorem. Winding Number.\n\nFree products, and free groups. Presentations of groups. Free Abelian groups. The Seifert-Van Kampen Theorem. Fundamental groups of compact surfaces. Classification of compact surfaces.\n\nOptional: Singular Homology Groups. Homotopy invariance. Relation between homology and the fundamental group. Mayer-Vietoris Theorem. Homology of spheres. Homology of CW Complexes. Cohomology.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Glen E. Bredon: Topology and Geometry, Springer-Verlag.\n\n• Ioan M. James: Topological and Uniform Spaces, Springer-Verlag.\n\n• John L. Kelley: General Topology, Springer-Verlag.\n\n• John M. Lee: Introduction to Topological Manifolds (Second Edition), Springer-Verlag.\n\n• James R. Munkres: Topology, Prentice Hall."
     },
     {
       "subject": "IMSC",
@@ -946,7 +970,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course is intended as an introduction to the basic theory and methods of ordinary differential equations (ODE’s) and partial differential equations (PDE’s). The emphasis of the course is the application of simple analytic and geometric methods for finding, or describing, solutions for various types of ODE’s and PDE’s (and various types of initial/boundary value problems involving such equations). This is supplemented by elements of the qualitative theory behind the methods. This course platforms further courses about differential equations, numerical analysis, and mathematical physics.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken MATH3270 or 4220 or 5021 or 5022. \nPre-requisite: IMSC2028",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -954,12 +978,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in basic properties of ordinary differential equations and partial differential equations (and initial/boundary value problems involving such equations);\n\nDemonstrate ability in applying simple analytic and geometric methods for the study of ODE’s and PDE’s (and initial/boundary value problems involving such equations), with or without finding explicit solutions.",
+      "course_syllabus": "Fundamental Theorem on Existence and Uniqueness of Solution to a general ordinary differential equation (ODE). Elementary methods for solving simple first/second-order ODE's (such as change of variables and power series expansion). First-order systems. Higher-order ODE’s. Structure theory of linear systems of equations. Linearizations of non-linear systems. Elements of stability theory for dynamical systems. Elements of Sturm-Liouville theory for ODE's. Application of Fourier series in solving two-point boundary value problems.\n\nTypes of partial differential equations (PDE’s). Simplification of PDE’s by change of variables. Well-posed problems. Method of separation of variables (with emphasis on solving mixed problems including one-dimensional wave and heat equations as well as solving the boundary value problems for the Laplace equation on a disk). Relation between the method of separation of variables with eigenvalue problems, (including proofs of convergence of the series of solutions). Method of spherical means and the Cauchy problem for wave equations in low dimensions. Heat Kernel, Fourier transform, and the Cauchy problem for the heat equation. Characteristic properties of heat flows and wave motions. Poison formula for the solution of the Laplace equation on a ball, and idea of solving the problem over a general domain by Perron’s method. Maximum Principle and its application to the uniqueness question for elliptic and parabolic equations.\n\nApplication of the methods in handling problems involving ODE’s/PDE’s which arise from mathematical physics.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• William E. Boyce, Richard C. DiPrima: Elementary Differential Equations and Boundary Value Problems (any latest edition), Wiley.\n• Martin Braun: Differential Equations and their Applications (Fourth Edition), Springer-Verlag.\n• Earl A. Coddington: An Introduction to Ordinary Differential Equations, Dover.\n• Earl A. Coddington, Norman Levinson: Theory of Ordinary Differential Equations, McGraw-Hill.\n• Peter J. Collins: Differential Equations and Integral Equations, Oxford University Press.\n• Michael Renardy, Robert C. Rogers: An Introduction to Partial Differential Equations (Second Edition), Springer-Verlag.\n• W. A. Strauss: Partial Differential Equations: An introduction, John-Wiley and Sons.\n• Wolfgang Walters: Ordinary Differential Equations, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -968,7 +996,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course is intended as an introduction to the elements of probability theory and stochastic analysis.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken MATH3280 or 4240.\nPre-requisite: IMSC2028.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -976,12 +1004,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the basic notions in probability theory and stochastic processes, and their basic properties.\n\nPerform computations about probability theory and stochastic processes in concrete situations.",
+      "course_syllabus": "Axioms of probability. Conditional probability. Independence. Discrete random variables. Continuous random variables. Mean, variance and covariance. Moment generating function.\n\nPoisson distributions. Normal distributions. Central Limit Theorem. Law of Large Numbers.\n\nBernoulli processes and sum of independent random variables\n\nRandom walks. Markov chain. Transition probability. Hitting time. Transient and recurrent states. Stationary distribution of Markov chains, existence and uniqueness, convergence and long time behaviour. Gambler’s Ruin problem. Branching chains.\n\nContinuous-time Markov chains. Generator of the chains. Differential equation technique. Poisson processes. Time of arrivals. Markov pure jump processes. Birth and death processes. Queuing chains.\n\nGaussian processes and Brownian motions.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* Kai Lai Chung: A Course in Probability, Academic Press.\n* Kai Lai Chung, Farid AitSahlia: Elementary Probability Theory:\n* With Stochastic Processes and an Introduction to Mathematical Finance, Springer-Verlag.\n* P. Hoel, S. Port and C. Stone: Introduction to Stochastic Processes, Waveland Press.\n* G. Lawler: Introduction to Stochastic Processes, Chapman and Hall ."
     },
     {
       "subject": "IMSC",
@@ -990,7 +1022,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course provides a rigorous introduction to the theory and methods of numerical analysis.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken MATH3230 or 3240 or 5211 or 5212. \nPre-requisite: IMSC2028.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -998,12 +1030,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in fundamental concepts involved in numerical analysis, including those for differential equations;\nDemonstrate understanding in basic approaches in solving linear and nonlinear systems, constructing interpolations, doing numerical differentiation and integration, and solving ordinary and partial differential equations, and apply the techniques in handling these problems.",
+      "course_syllabus": "Basic concepts in scientific computing:\n- Fixed-point numbers, floating-point numbers, single and double precision, overflow and underflow, roundoff errors, absolute and relative errors, stable and unstable computations.\n- Floating-point arithmetic. Backward error analysis for estimating possible errors generated in numerical computing.\nNumerical solution of nonlinear equations:\n- Iterative methods, rate of convergence, local and global convergence. Classical methods: bisection methods, Newton's method, quasi-Newton's method and fixed-point iteration. Analysis of convergence of these method.\nNumerical solution of linear systems:\n- Cholesky factorization, LU and LDU factorization, forward- and backward-substitutions for triangular systems, Gaussian elimination.\n- Sensitivity analysis of the solutions of linear systems with respect to some errors in their coefficient matrices or in their right-hand sides. Condition numbers.\nPolynomial interpolations:\n- Newton form of interpolations, Lagrange and spline interpolations. Estimating the interpolation error.\nNumerical differentiation, and numerical integration:\n- Popular methods of numerical integrations. Trapezoidal and composite trapezoidal rules, Simpson and composite Simpson rules, Newton-Cotes quadrature rule, Gaussian quadrature rules. Estimating the errors of quadrature rules.\n- Basic numerical differentiation techniques. Forward differences, backward differences, central differences. Estimating the errors of these difference schemes.\nNumerical solution of ordinary differential equations.\n- Well-posedness of an ordinary differential equation (ODE).\n- Construction of approximate solutions for first-order ODE’s; Taylor-series methods and Runge-Kutta methods.\n- Multistep methods; the quadrature rule approach, test function approach by polynomials, Adams-Bashforth and Adams-Mouton methods.\n- Solving ODEs using multistep methods and predictor-corrector methods. Orders of multistep methods. Consistency, stability, convergence of multistep methods, and the relationship between these three concepts.\n- Conversion of a higher order ODE into a system of first-order ODEs and construction of approximate solutions for the resultant ODE system.\n- Numerical methods for solving stiff ODEs, and A-stability, absolute stability, regions of absolute stability.\nNumerical solution of partial differential equations:\n- Shooting method to transform a two-point boundary value problem into an initial value problem.\n- Basic finite difference schemes and collocation methods to solve two-point boundary value problems.\n- Basic finite difference schemes to solve the one- and two-dimensional parabolic equations. Analysis of the consistency, stability and convergence of a finite difference scheme.\n- Simple finite element methods to solve the one- and two-dimensional parabolic equation.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• D. Kincaid, W. Cheney: Numerical Analysis: Mathematics of Scientific Computing, Brooks/Cole Publishing Co.\n• G. W. Stewart: Afternotes on Numerical Analysis, SIAM.\n• G. H. Golub, C. F. van Loan, Matrix computations, Johns Hopkins University Press.\n• Quarteroni, A. Valli: Numerical Mathematics, Springer-Verlag.\n• Quarteroni, A. Valli: Numerical approximation of partial differential equations, Springer-Verlag."
     },
     {
       "subject": "IMSC",
@@ -1012,7 +1048,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This course provides an introduction to the mathematical foundations of data analytics and machine learning. It emphasizes the mathematical theories and methods that underpin various branches of data sciences, such as knowledge discovery in databases, machine learning, and artificial intelligence.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken MATH3320 or 3330 or 3340 or 4230 or 4280.\nPre-requisite: IMSC2028.",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1020,12 +1056,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in various topics in modern data analysis and the technical difficulties in solving them;\n\nDemonstrate understanding in the mathematical and theoretical foundation of computational data analytics;\n\nDemonstrate understanding in how to use various mathematical models to extract important information from big data;\n\nDemonstrate ability in evaluating systematically the performance of different models to solve various data analysis problems;\n\nDemonstrate understanding in the importance of computational data analytics for real-world problems;\n\nDemonstrate understanding in some classical analysis techniques in statistical learning theory;\n\nDemonstrate ability in apply the skills in learning theory.",
+      "course_syllabus": "Mathematical foundations of probability. Linear approximation and its polynomial and high dimensional extensions. Proper orthogonal decomposition methods. Linear regression. Empirical risk optimization (including error decomposition, Rademacher complexity, covering number). Optimization (including gradient descent and stochastic gradient descent). Gradient type optimization algorithms. Kernel methods. Theories of nonlinear neural network and deep neural networks, and their approximations.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• F. Bach, Learning Theory from First Principles, 2023.\n• P. L Bartlett, A. Montanari, A. Rakhlin. Deep learning: a statistical viewpoint. Acta Numerica, 2021.\n• S. Shalev-Shwartz, S Ben-David, Understanding Machine Learning, CUP, 2014."
     },
     {
       "subject": "IMSC",
@@ -1042,12 +1082,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Recognize an advanced and mature topic, or some recent or current research topic, in algebra and number theory.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1064,12 +1104,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Recognize an advanced and mature topic, or some recent or current research topic, in algebra and number theory.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1086,12 +1126,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Recognize an advanced and mature topic, or some recent or current research topic, in analysis and differential equations.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1108,12 +1148,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in analysis and differential equations.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1130,12 +1170,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in geometry and topology.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1152,12 +1192,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in geometry and topology.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1174,12 +1214,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in computational and applied mathematics.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1196,12 +1236,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in computational and applied mathematics.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1218,12 +1258,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in computational and applied mathematics.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1240,12 +1280,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in computational and applied mathematics.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1262,12 +1302,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in computational and applied mathematics.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1284,12 +1324,12 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nRecognize an advanced and mature topic, or some recent or current research topic, in computational and applied mathematics.",
+      "course_syllabus": "As advised by individual course teachers.",
       "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1298,7 +1338,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "A project in mathematics, either in research or in reviewing the literature of an advanced topic. Each section may be taken by an individual student or a team of two students.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken IMSC4900 or MATH4400 or MATH4900. \nPre-requisites: IMSC2028 and IMSC2041 and IMSC2048 and IMSC2068 and IMSC2230 and MATH2221 and PHYS3011 and PHYS3021 and (IMSC2078 or 2240).",
       "course_attributes": "Capstone Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1306,12 +1346,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Upon completion of the course, students are able to demonstrate:---\n\nAbility in doing independent advanced study or research, and skills in communicating ideas, and training in rigor.",
+      "course_syllabus": "As advised by individual course teachers.",
+      "assessment_types": {
+        "Essays": "15",
+        "Others": "5",
+        "Presentation": "80"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     },
     {
       "subject": "IMSC",
@@ -1320,7 +1364,7 @@
       "credits": "3.00",
       "terms": [],
       "description": "This is a Capstone Course. Small group work on topics in mathematics. Knowledge in other fields related to mathematics may be discussed.",
-      "enrollment_requirement": "",
+      "enrollment_requirement": "Not for students who have taken IMSC4800 or MATH4400 or MATH4900.\nPre-requisites: IMSC1038 and IMSC2028.",
       "course_attributes": "Capstone Course",
       "academic_career": "Undergraduate",
       "grading_basis": "Graded",
@@ -1328,12 +1372,16 @@
       "campus": "Main Campus",
       "academic_group": "Artic BSc PhD Pgm in Math Sci",
       "academic_org": "Artic BSc PhD Pgm in Math Sci",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
+      "learning_outcomes": "Students are able to demonstrate:---\n\n• Ability in presenting an integrated view of mathematics at undergraduate level,\n• Training in practicing mathematical thoughts in a specific context,\n• Skills in applying mathematical methods to certain situation,\n• Appreciation of the rationale and impact of mathematics on human development.",
+      "course_syllabus": "As advised by individual course teachers.",
+      "assessment_types": {
+        "Essays": "15",
+        "Others": "5",
+        "Presentation": "80"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "As advised by individual course teachers."
     }
   ]
 }
