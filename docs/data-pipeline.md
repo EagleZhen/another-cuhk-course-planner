@@ -45,7 +45,7 @@ Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_u
 
 ## Publish
 
-Publishing validates scraped data and copies publishable files to [web/public/data/](../web/public/data/).
+Publishing validates scraped data and copies publishable files to [web/public/data/](../web/public/data/). Fields the app never renders are stripped during the copy (see `STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)); the full data stays in [data/](../data/).
 
 The publish script checks:
 
