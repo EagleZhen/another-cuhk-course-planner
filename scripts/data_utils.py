@@ -518,3 +518,15 @@ def save_json_with_newline(filepath: str, data: Any) -> None:
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+
+def get_academic_year(term_name: str) -> Optional[str]:
+    """Extract the academic year label from a term name for year-partitioning.
+
+    Mirrors ``getAcademicYear`` in web/src/lib/courseUtils.ts. Returns the
+    ``"YYYY-YY"`` label (e.g. "2025-26" from "2025-26 Term 2"), or None when the
+    term name has no recognizable year (used to route courses with no scheduled
+    terms elsewhere).
+    """
+    match = re.search(r"(\d{4})-(\d{2})", term_name)
+    return match.group(0) if match else None
