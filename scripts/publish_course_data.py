@@ -22,6 +22,8 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
+from data_utils import save_json_with_newline
+
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
 
@@ -34,6 +36,16 @@ LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
 # Course data inputs and publish targets
 SOURCE_DATA_DIR = "data"
 PUBLISHED_DATA_DIR = os.path.join("web", "public", "data")
+
+# Fields scraped into /data but never rendered by the web app, stripped from the
+# published copy to cut payload (~68% of the gzipped transfer as of Jul 2026).
+# Remove a field from this list once the app actually renders it.
+STRIPPED_COURSE_FIELDS = (
+    "course_syllabus",
+    "required_readings",
+    "recommended_readings",
+    "feedback_evaluation",
+)
 
 # Frontend source files used for validation
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "subjects.ts")
@@ -526,7 +538,12 @@ def main():
 
             try:
                 if not dry_run:
-                    shutil.copy2(file_path, dest_path)
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    for course in data.get("courses", []):
+                        for field in STRIPPED_COURSE_FIELDS:
+                            course.pop(field, None)
+                    save_json_with_newline(dest_path, data)
                 copied_count += 1
             except Exception as e:
                 print(f"❌ Failed to copy {filename}: {e}")

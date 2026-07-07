@@ -72,3 +72,9 @@ Why it fits:
 
 - the only lever Cloudflare's build system respects for this
 - pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
+
+## Strip Unrendered Fields At Publish
+
+Scraped course data carries fields the app doesn't render (`course_syllabus`, required/recommended readings, feedback) — some with base64-embedded images. Serving them cost roughly two-thirds of the gzipped transfer for data no one sees (~12MB → ~4MB on the wire as of mid-2026; both figures grow with each added year of data).
+
+Decision: strip these at publish (`STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)), not at scrape. [data/](../data/) keeps the full raw data, so a field can be published again by removing it from the list once the app renders it well (see [issue #27](https://github.com/EagleZhen/another-cuhk-course-planner/issues/27)). Stripping at the publish boundary keeps the source complete while shrinking only what ships.
