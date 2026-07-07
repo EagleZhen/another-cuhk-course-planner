@@ -44,3 +44,9 @@ docstring-code-format = true
 [tool.isort]
 profile = "black"
 line_length = 100
+
+[tool.pytest.ini_options]
+# scripts/ modules import each other by bare name (they run with scripts/ on the
+# path), so add it here too. Tests live next to the code under scripts/tests/.
+pythonpath = ["scripts"]
+testpaths = ["scripts/tests"]
