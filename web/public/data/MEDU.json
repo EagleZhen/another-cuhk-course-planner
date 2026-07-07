@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T17:38:02.538092+00:00",
     "subject": "MEDU",
     "subject_title": "Medicine",
-    "total_courses": 58,
+    "total_courses": 49,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -588,27 +588,6 @@
     },
     {
       "subject": "MEDU",
-      "course_code": "1130",
-      "title": "Cells and Tissues",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course introduces the microscopic anatomy of cells and tissues in the human body. Histological features of different tissues and organs are emphasized and demonstrated with the use of virtual microscopy. Topics include: histology of epithelial and glandular tissues, connective tissues and extracellular matrix, muscular tissues, nervous tissues, skin and appendages, tendons and ligaments, cartilages and bones.",
-      "enrollment_requirement": "FO - MBChB Major",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nPracticum",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "Upon completion of this course, students should be able to:\n\nKnowledge:\n• recognize the microscopic structure of normal human tissues and organs, with emphasis on the basic tissues and musculoskeletal tissues;\n• relate the histological features of cells and tissues to their functions; and\n• provide clinical examples related to human structures.\n\nSkills:\n• recognize histological features of different cells and tissues with the use of microscopy.",
-      "assessment_types": {
-        "Examination": "80",
-        "Test or quiz": "20"
-      }
-    },
-    {
-      "subject": "MEDU",
       "course_code": "1131",
       "title": "Basic Integrative Pathology",
       "credits": "2.00",
@@ -828,85 +807,6 @@
         "Classwork": "15",
         "Essays": "30",
         "Participation": "35"
-      }
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "1150",
-      "title": "Perspectives of Medicine in Real Life",
-      "credits": "1.00",
-      "terms": [],
-      "description": "Apart from knowledge gleaned from comprehensive pre-clinical basic science learning, students are encouraged to experience the actual practice of clinical medicine. Students are required to participate in simulation teaching with clinical scenarios demonstrating the importance of basic science, visit the medical museum to witness the evolution of the healthcare system in the past decades and learn the skills to make full use of the medical library through the medical library tours.\n\nIt is mandatory for students to attend all the learning activities, including visit and workshop arrange under the course. Students who are absent from the learning activities will be deemed failing the course. Competition of the course is a pre-requisition for promoting to Year 2.",
-      "enrollment_requirement": "FO - MBChB Major",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Visit\nWorkshop",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "By the end of this course, students should be able to:\n\n1. be aware of the importance of basic science in the practice of clinical medicine;\n2. understand the history and evolution of the healthcare system in Hong Kong; and\n3. appreciate the crucial functions of the library system in supporting medical education and research.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "1160",
-      "title": "Digital Health",
-      "credits": "1.00",
-      "terms": [],
-      "description": "Digital health is a broad overarching term encompassing digital tools, technologies and services that connect and empower people and populations to manage health and wellness. Digital health varies from relatively established areas such as communication between a patient and a doctor through telemedicine to newly emerging areas such as the use of computer science in big data and artificial intelligence to enhance the accuracy of the diagnostic processes or predicting patient outcomes. In the recent years, digital health became an inevitable part of healthcare providing personalized healthcare.\nThis course will introduce undergraduate students to the landscape of digital health technology and the application of digital health data. Digital devices can be helpful for individuals to monitor their health through wearable devices, mobile application monitoring and home systems. These devices can have benefits to patient care and improve health. This course will provide students with the basic architecture of digital health from digital devices and data platforms, computing and data science and artificial intelligence. Students will also acquire experience of digital innovation from user and stakeholder engagement.\nStudents will start with an overview of digital health and then discuss research articles on social media data for disease management, new forms of health data from wearable devices and mobile APPs, and discussion on the big data and the application of artificial intelligence. Students will be divided into different teams to prepare a pitching presentation after they attend lessons from case studies and stakeholder sharing. Feedbacks and comments will be given by a team of judgement panel in the final presentation. Finally, they will be able to describe the basic components of digital health and understand the application of digital health technology through experiential learning in a pitching presentation.",
-      "enrollment_requirement": "FO - MBChB Major",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Discussion\nLecture\nInteractive Tutorial\nWeb-enhanced Teaching",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "After completing this course, students should be able to:\n\n- describe components of digital health and data management\n\n- apply knowledge in review of digital innovations in health\n\n- write a proposal of a digital health solution using digital health technology\n\n- understand the need of digital health from user and stakeholder perspectives",
-      "assessment_types": {
-        "Attendance": "10",
-        "Homework or assignment": "25",
-        "Presentation": "65"
-      }
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "1881",
-      "title": "General Education Course in Area A",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course is not for student enrolment. Students would be assigned a UGEA1881 Understanding Chinese Medicine course after course registration period. This course is created to facilitate course registration.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "Not applicable",
-      "assessment_types": {}
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "2000",
-      "title": "Medicine Plus: Exploring Contemporary Medicine",
-      "credits": "0.00",
-      "terms": [],
-      "description": "This course is the first stage of the CU Medicine Plus Course framework, which includes three stages:\n- Foundation level at MED1 and MED2 (MedExplore)\n- Intermediate level at MED3 and MED4 (MedExceed)\n- Advanced level at MED5 and MED6 (MedExcel)\n\nThe CU Medicine Plus course aims to nurture physicians to embody four core professional identities: scholars, innovators, leaders, and humanitarians by encouraging structured opportunities for earlier exposure to clinical practice, research innovation, and humanitarian services, thereby equipping graduates to become future leaders in medicine.\n\nThis foundational level of the CU Medicine Plus course provides students with opportunities to engage in four different pathways designed to broaden perspectives and enhance professional development as future physicians. These activities are scheduled during the first and second years of the MBChB curriculum, including the two summer periods.\n\nFour pathways:\n1. Scholar pathway: Acquiring cross-disciplinary knowledge through minor programmes in engineering, statistics and data science, computer science, public health, biomedical engineering, health informatics, or other approved disciplines to broaden academic perspectives and enhance interdisciplinary understanding.\n2. Innovator pathway: Participating in structured work placements or practicum experiences in medical technologies, healthcare innovation projects, digital health initiatives, or biomedical research laboratories.\n3. Leader pathway: Engaging in leadership activities, service-oriented administrative experiences, social and healthcare policy projects, or management training programmes.\n4. Humanitarian pathway: Participating in structured community service, global health initiatives, humanitarian medical missions, or public health intervention programmes, both locally and internationally.\n\nStudents are required to participate in activities within the four pathways in a self-determined proportion to fulfil the overall requirement of the course. A relatively prolonged engagement (2-6 weeks) in the structured activities is expected during the summer holiday.",
-      "enrollment_requirement": "For Medical Study Year 2 (MYR2)",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Lecture\nOthers",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "1. Explain the relevance of non-clinical disciplines to modern medical practice by completing courses outside the MBChB curriculum that relate to the relationship between medicine and society, such as data science, engineering, or public health, and by describing their application to healthcare challenges.\n2. Demonstrate foundational professional competencies by successfully completing a minimum number of work hours in structured activities within the four pathways: the Innovator, Leader, or Humanitarian tracks, through placements, projects, or service.\n3. Analyse and articulate the development of their professional identity by producing a reflective portfolio that connects their course experiences to the roles of scholar, innovator, leader, and humanitarian in future medical practice.",
-      "assessment_types": {
-        "Attendance": "80",
-        "Report": "20"
       }
     },
     {
@@ -1537,27 +1437,6 @@
       "academic_org": "MB ChB Pgm Comm",
       "learning_outcomes": "See details for the individual courses MEDU3110, MEDU3210, MEDU3310, MEDU3320 and MEDU3330.",
       "assessment_types": {}
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "3010",
-      "title": "Artificial Intelligence Research Internship",
-      "credits": "0.00",
-      "terms": [],
-      "description": "Students undertake the Artificial Intelligence Research Internship (AIRI), a year-long programme designed to immerse Medicine Year 1 to 3 students in AI-related research within the healthcare domain. Under the supervision of CU Medicine faculty members, and collaboration with potential members from other CU faculties and external partners, students engage in independent study and collaborative projects that span diverse AI topics, gaining practical experience in data analysis, AI tools, research methodologies, and applications of AI in medical settings.\n\nThe internship promotes critical thinking, ethical research practices, and a deeper understanding of AI’s role in clinical and research settings. Students are matched to projects based on their preferences and qualifications, and are assessed through participation, logbook documentation, written reports, and peer evaluation. The use of generative AI tools is permitted with prior approval, depending on project requirements.\n\nUpon successful completion, students are eligible for exemption from the Selected Study Modules (SSM) in Medicine Year 4. AIRI also offers recognition through academic prizes for outstanding performance.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Discussion\nIndependent Study\nOthers\nProject",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "After the Artificial Intelligence Research Internship (AIRI), students should be able to:\n\n1. Demonstrate a fundamental understanding of AI concepts and their applications in healthcare.\n2. Understand the importance of research data management to uphold data integrity and protect patient privacy.\n3. Apply research methodologies specific to AI in healthcare projects.\n4. Gain practical experience in using AI tools and software commonly employed in healthcare research.\n5. Understand the current landscape of AI research in healthcare and identify potential areas for future development.\n6. Develop critical thinking skills in assessing the strengths and limitations of AI technologies in medical contexts.\n7. Reflect on the integration of AI knowledge into their medical education and future practice as healthcare professionals.\n\nSpecific learning outcomes for each project will be stated on the respective project information sheets.",
-      "assessment_types": {
-        "Others": "60",
-        "Participation": "40"
-      }
     },
     {
       "subject": "MEDU",
@@ -3278,63 +3157,6 @@
       "academic_group": "MB ChB Pgm Comm",
       "academic_org": "MB ChB Pgm Comm",
       "learning_outcomes": "See details for individual courses MEDU3110, MEDU3210, MEDU3200, MEDU3340.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "3520",
-      "title": "Clinical Anatomy and Clinical Skills",
-      "credits": "0.00",
-      "terms": [],
-      "description": "This course is a 3-week bridging course taught at the end of the year 3, i.e., the final year of preclinical education in the MBChB programme. It is aimed to help student to revise anatomy of all body regions and appreciate their relevance in basic skills in clinical examinations of the human body. It is an intensive course taught by basic and clinical lectures, e-lectures, interactive radiology sessions and small group clinical skill practical involving actual patients.",
-      "enrollment_requirement": "For Medical Study Year 3 (MYR3)",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Lecture\nPracticum\nInteractive Tutorial\nWeb-enhanced Teaching",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "After completing the course in Medicine Year 3, students should be able to:\n1. revise anatomical structure in major regions of the human body;\n2. apply this anatomical knowledge to radiological imaging;\n3. appreciate clinical relevance of this anatomical knowledge;\n4. apply relevant anatomical knowledge to basic clinical skills; and\n5. perform basic physical examination skills",
-      "assessment_types": {}
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "3580",
-      "title": "WE HEAL - the learning of patient pathways to health systems",
-      "credits": "0.00",
-      "terms": [],
-      "description": "The course \"WE HEAL - the learning of patient pathways to health systems\" illustrates key concepts in the design of health systems by following the journey of a patient in the health system. Jointly organized by the Faculty of Medicine with the CUHK Medical Centre (CUHKMC), the course (MEDU3580) is the first stage of the series of \"WE HEAL\" courses introduced to Year 3 medical students.\n\nHealth systems are highly complex and dynamic. To deliver quality and safe care to patients, doctors need to work with a large number of stakeholders from different disciplines and professionals. Two workshops - Health System Challenges and Interprofessional Collaborative Practice – will be offered to prepare medical students for their more intense clinical exposure in clinical years. The concepts of patient-first approach, team-based care, compassionate and holistic care, evidence-based medicine practice, and ethical care will be covered in the workshops.\n\nTeaching modalities combine lecture, workshop, e-learning with experiential learning.",
-      "enrollment_requirement": "For Medical Study Year 3 (MYR3)",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Discussion\nLecture\nWorkshop",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "By the end of the course, students should be able to have understanding and basic concepts on the following topics.\n\n1. To develop insights on experience of patients in their healthcare journeys.\n2. To understand health system dynamics and how hospitals function in the delivery of patient care.\n3. To understand the concept of interprofessional collaborative practice.\n4. To understand the concept of design thinking in a healthcare context.",
-      "assessment_types": {
-        "Attendance": "30",
-        "Presentation": "70"
-      }
-    },
-    {
-      "subject": "MEDU",
-      "course_code": "3600",
-      "title": "Basic Pathology",
-      "credits": "0.00",
-      "terms": [],
-      "description": "This is a 3-week course aiming to help medical students bridging their pre-clinical knowledge and their upcoming clinical practice. Week 1 consists of general pathologic principles by Anatomical Pathology. Week 2 includes of immunology subjects by Chemical Pathology and Forensic Pathology particulars. Week 3 will be on Basic Infection Control by Microbiology.\n\nThis intensive summer course includes lectures, e-lectures, laboratories and small-group tutorials.",
-      "enrollment_requirement": "For Medical Study Year 3 (MYR3)",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Medical School Grades",
-      "component": "Laboratory\nLecture\nInteractive Tutorial\nWeb-enhanced Teaching",
-      "campus": "Main Campus",
-      "academic_group": "MB ChB Pgm Comm",
-      "academic_org": "MB ChB Pgm Comm",
-      "learning_outcomes": "After completion of this course, medical students should be able to:\n\n1. acquire basic pathologic principles;\n2. understand important pathologic definitions;\n3. appreciate the range of pathologic services provided by Anatomical Pathology, Chemical Pathology, Forensic pathology and Microbiology;\n4. apply appropriate pathologic studies in the clinical management of a patient.",
       "assessment_types": {}
     },
     {

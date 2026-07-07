@@ -3,31 +3,10 @@
     "scraped_at": "2026-07-04T17:21:35.509522+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
-    "total_courses": 97,
+    "total_courses": 65,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
-    {
-      "subject": "LSCI",
-      "course_code": "1000",
-      "title": "Biochemistry of Health and Disease",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides a general introduction to the biochemistry of health and disease. Topics covered include nutrition and health, biomolecules and energy metabolism, molecular genetics and its applications in modern medicine, the immune system in health and disease, and the biochemistry of cancer. It is suitable for students (other than those who major in Life Sciences) who want to learn about the biochemical basis of various cellular functions and their relevance to disease. This course provides the fundamental knowledge that is essential to the study of other biochemistry or life science courses.",
-      "enrollment_requirement": "Not for students who have taken LSCI1002.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "School of Life Sciences",
-      "academic_org": "School of Life Sciences",
-      "learning_outcomes": "After completing the course, students should be able to:\n\n1. describe the nutrients derived from diet and their functions.\n\n2. explain the basic features, functions, and clinical relevance of enzymes.\n\n3. discuss how energy is produced from metabolism of nutrients and the clinical significances.\n\n4. explain how genetic information is encoded and executed in cells, and applications of recombinant technology.\n\n5. discuss how the immune system protects us from pathogens, and the clinical manoeuvres of the immune system.\n\n6. describe the cause and treatment strategy of cancer.\n\n完成課程以後，學生應該掌握以下重點：\n1. 膳食中的營養成份以及其功效\n\n2. 酶的基本特性，功效和臨床上的應用\n\n3. 能量是如何由營養成份代謝而產生及其在臨床應用上的重要性\n\n4. 在細胞中遺傳信息如何得以編碼和解碼，以及重組技術的實際應用\n\n5. 免疫系統是如何保衛我們遠離病原體的侵害，以及臨床上的免疫調控\n\n6. 腫瘤的起因和治療方法\n\n完成课程以后，学生应该掌握以下重点：\n1. 膳食中的营养成份以及其功效\n\n2. 酶的基本特性，功效和临床上的应用\n\n3. 能量是如何由营养成份代谢而产生及其在临床应用上的重要性\n\n4. 在细胞中遗传信息如何得以编码和译码，以及重组技术的实际应用\n\n5. 免疫系统是如何保卫我们远离病原体的侵害，以及临床上的免疫调控\n\n6. 肿瘤的起因和治疗方法",
-      "assessment_types": {
-        "Essay test or exam": "90",
-        "Short answer test or exam": "10"
-      }
-    },
     {
       "subject": "LSCI",
       "course_code": "1001",
@@ -167,28 +146,6 @@
       "assessment_types": {
         "Essay test or exam": "90",
         "Homework or assignment": "10"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "1003",
-      "title": "Life Sciences for Engineers",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course gives engineering students exposure to some of the basic and essential concepts in biology and biotechnology. Topics include cell structure and energy metabolism, DNA structure and replication, protein structure and function, genetic engineering, stem cell and tissue regeneration, neural biology, cardiovascular system, muscle and skeletal system of animals, microbes and microbial biotechnology. The overall aim of this course is to introduce students with the fundamental ideas and concepts in life sciences especially those with relevance to engineering studies.",
-      "enrollment_requirement": "Not for students who have taken LSCI1001.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "School of Life Sciences",
-      "academic_org": "School of Life Sciences",
-      "learning_outcomes": "1. Students will be able to understand and integrate some basic concepts of biology and biotechnology, especially those relevant to engineering studies\n\n2. Students will develop generic skills necessary in life sciences, including acquisition of appropriate study techniques, ability to ask critical questions, and application of problem-solving skills\n\n1. 學生將能夠理解和整合一些與工程研究相關的生物學和生物技術基本概念。\n\n2. 學生將培養出在生命科學領域中所必需的共通能力，包括適當的學習技巧，提出關鍵問題 和解決問題的能力。\n\n1. 学生将能够理解和整合一些与工程研究相关的生物学和生物技术基本概念。\n\n2. 学生将培养出在生命科学领域中所必需的共通能力，包括适当的学习技巧，提出关键问题 和解决问题的能力。",
-      "assessment_types": {
-        "Essays": "20",
-        "Essay test or exam": "50",
-        "Short answer test or exam": "30"
       }
     },
     {
@@ -916,28 +873,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "4910",
-      "title": "Group Research in Life Sciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is a capstone course consists of group projects to investigate the heated topics related to Life Sciences, such that students will be inspired by how different fields of life sciences have made their impacts on the globalized knowledge-based society of Hong Kong.",
-      "enrollment_requirement": "Not for students who have taken BCHE4902, BIOL4902, CMBI4902, ENSC4902, FNSC4902, MBTE4902 or LSCI4000.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Project",
-      "campus": "Main Campus",
-      "academic_group": "School of Life Sciences",
-      "academic_org": "School of Life Sciences",
-      "learning_outcomes": "1. Recognize how different aspects of life sciences make various impacts on the society and environment of Hong Kong;\n2. Design a group research project to address the scientific questions or problems related to the society and environment of Hong Kong;\n3. Read scientific literature relevant to their research project;\n4. Acquire practical research skills of information search from various types of databases and/or hands-on research techniques in conducting experiments;\n5. Recognize, analyze, and comment on the scientific and ethical issues of certain basic research and applications of different fields of life sciences in Hong Kong;\n6. Develop practical skills in team building, problem-solving and communication through different types of learning activities;\n7. Develop a sense of responsibility and team spirit;\n8. Improve skills in writing scientific proposal;\n9. Gain learning methodologies that promote life-long learning in life sciences to promote its impact on the society.\n\n1. 認識生命科學的不同方面如何對香港的社會和環境產生各種影響；\n2. 設計小組研究計劃，以解決與香港社會和環境有關的科學問題；\n3. 閱讀與其研究項目有關的科學文獻；\n4. 從各種類型的數據庫中獲得信息搜索的實踐研究技能和/或進行實驗的研究技術；\n5. 認識，分析和評論香港生命科學各個領域的某些基礎研究和應用的科學和倫理問題；\n6. 通過不同類型的學習活動，培養團隊建設，解決問題和交流方面的實踐技能；\n7. 培養責任心和團隊合作精神；\n8. 提高科學寫作和口頭表達能力；\n9. 獲得終身學習生命科學知識的學習方法並促進其對社會的影響。",
-      "assessment_types": {
-        "Others": "40",
-        "Project": "40",
-        "Participation": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
       "course_code": "4911",
       "title": "Group Research in Life Sciences (I)",
       "credits": "2.00",
@@ -1082,288 +1017,6 @@
         "Presentation": "35",
         "Project": "35",
         "Participation": "10"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5000",
-      "title": "Introduction to Graduate Research in Life Sciences I",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course discusses basic research methods, data analysis, writing and presentation skills, and principles of selected experimental techniques in life sciences. Topics to be covered may vary from year to year. Proposed topics include laboratory management, information search, experimental design, biostatistics, writing of research proposal, thesis and scientific papers, techniques in conference presentations, bioinformatics, flow cytometry, confocal microscopy, real-time PCR, recombinant protein technology, animal transgenesis and gene tree construction.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "To become acquainted with advanced skills necessary in conducting graduate research in life sciences, including laboratory management, information search, experimental design, biostatistics, presentation of conference papers, writing of research proposal, thesis and scientific paper, and selected experimental and bioinformatics techniques on different disciplines of life sciences.",
-      "assessment_types": {
-        "Essays": "50",
-        "Examination": "50"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5001",
-      "title": "Introduction to Graduate Research in Life Sciences II",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides students with hands-on experience in research methods, data analysis, writing and presentation skills, and experimental techniques discussed in its counterpart course, LSCI 5000 Introduction to Graduate Research in Life Sciences I. Students of this course will enhance and consolidate their understanding of the principles learned in LSCI 5000 by participating in experiments and workshops.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "To acquire hands-on experiences on the skills discussed in the counterpart course, LSCI 5000, through workshops and laboratory experiments.",
-      "assessment_types": {
-        "Essays": "60",
-        "Lab performance": "24",
-        "Test or quiz": "16"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5002",
-      "title": "Advanced Topics in Cell and Molecular Biology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This graudate course focuses on recent developments in cell and molecular biology, aiming at introducing the latest concepts and technologies in the field. The course is provided in both lecture and journal club formats. Following lectures given by the teachers, students will be required to work on selected papers by critical reading and evaluation. This will be followed by student presentation and class discussion.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in cell and molecular biology.\n2. To have increased interest in cell and molecular biology.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Attendance": "25",
-        "Presentation": "50",
-        "Participation": "25"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5003",
-      "title": "Advanced Topics in Environmental Science",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Review of current topics in environmental science. Critical reading and evaluation of current literature. Selected papers will be analysed and discussed in detail among the teacher(s) and students.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in environmental science.\n2. To have increased interest in environmental science.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Presentation": "80",
-        "Participation": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5004",
-      "title": "Advanced Topics in Bioinformatics and Omic Sciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Literature review of current topics in bioinformatics and omics sciences will be performed. The latest high-throughput technologies and methods, and their applications and analyses across a broad spectrum of biological and biomedical research will be discussed in a journal club format.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in genomics, proteomics and metabolomics.\n2. To have increased interest in genomics, proteomics and metabolomics.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion",
-      "assessment_types": {
-        "Presentation": "50",
-        "Participation": "50"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5005",
-      "title": "Advanced Topics in Molecular Biotechnology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course enables students to gain insight into the latest developments and advancements in biotechnology. It addresses current trends and issues of plant, animal microbial and medical biotechnology with concepts, principles and critical analysis underlying these developments and their social significance. Selected literatures with topics concerning genetic engineering, gene construction and expression, tissue/ cell culture, transformation and transgenic techniques, new methodology and techniques will be discussed through lecture or student presentation.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in molecular biotechnology.\n2. To have increased interest in molecular biotechnology.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Attendance": "10",
-        "Discussion": "30",
-        "Presentation": "60"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5006",
-      "title": "Advanced Topics in Immunology and Cancer Research",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Literature review of current topiscs in immunology and cancer research will be performed. The lastest methods, techniques and concepts in immunology and cancer research will also be discussed. Selected papers will be presented and discussed in detail by staff and students.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in immunology and cancer research.\n2. To have increased interest in immunology and cancer research.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Homework or assignment": "25",
-        "Presentation": "75"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5007",
-      "title": "Advanced Topics in Neurosciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Literature review of current topics in neurosciences will be performed. The lastest methods, techniques and concepts in neurosciences will be also be discussed. Selected papers will be presented and discussed in detail by staff and students.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in neurosciences.\n2. To have increased interest in neurosciences.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Presentation": "80",
-        "Participation": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5008",
-      "title": "Advanced Topics in Marine Ecology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Literature review of current topics in marine ecology will be performed. The lastest methods, techniques and concepts in marine ecology will be also be discussed. Selected papers will be presented and discussed in detail by staff and students.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in marine ecology.\n2. To have increased interest in marine ecology.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Presentation": "80",
-        "Participation": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5009",
-      "title": "Advanced Topics in Protein Sciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This graduate course is provided in both lecture and journal club formats with the aim to introduce the major development of protein sciences, including protein expression, purification and structural and functional analyses of proteins. Besides taking lectures, students are required to critically read selected papers and discuss their findings in class.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in protein sciences.\n2. To have increased interest in protein sciences.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Attendance": "10",
-        "Discussion": "15",
-        "Presentation": "75"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5010",
-      "title": "Advanced Topics in Physical Biochemistry",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This postgraduate level course provides an overview of the various biophysical methods used to decipher the molecular and structural properties of biomolecules. The course begins with an introduction into quantum mechanics to introduce the physical basis for energy levels and light absorption. It will then introduce traditional spectroscopic methods used to study the properties of biomolecules (absorption, fluorescence, phosphorescence, circular dichroism) as well as structural methods (nucleic magnetic resonance, x-ray crystallography). After describing the theory behind each method, examples will be provided from the literature to illustrate their application in real examples. Finally, a discussion of modern mass spectroscopic approaches and their uses in protein identification and protein modification will be presented.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "• Understand the fundamentals of the techniques used to study biomolecules\n• Be aware of the breadth of techniques available to understand a property of a biomolecule\n• Be able to critically assess the merits of a method and the validity of the conclusions made.",
-      "assessment_types": {
-        "Presentation": "80",
-        "Participation": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5011",
-      "title": "Advanced Topics in Marine and Environmental Science",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Review of current topics in marine and environmental science. Critical reading and evaluation of current literature. Selected papers will be analysed and discussed in detail among the teacher(s) and students.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry,\nMPhil-PhD Biology,\nMPhil-PhD Environmental Science,\nMPhil-PhD Food & Nutritional Sciences,\nMPhil-PhD Molecular Biotechnology,\nMPhil-PhD Cell and Molecular Biology.",
-      "course_attributes": "Zero Billing Factor",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students taking this course are expected to achieve the following:\n1. To be aware of the most up-to-date developments in environmental science.\n2. To have increased interest in environmental science.\n3. To have increased skills in literature search.\n4. To have enhanced skills in critical reading and evaluation.\n5. To have enhanced skills in oral presentation and open discussion.",
-      "assessment_types": {
-        "Presentation": "50",
-        "Participation": "50"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5012",
-      "title": "Advanced Topics in Biological Electron Microscopy and Live Cell Imaging",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will discuss the theory and provide hands-on practice of advanced transmission electron microscopy (TEM) and advanced live cell imaging for biological science research. Techniques covered will include TEM sample processing with high-pressure freezer, electron tomography, and live cell imaging with cutting-edge fluorescence microscopes. Emphasis will be placed on proper use of the state of the art microscopy instrument equipped in the RGC-AoE Center for Organelle Biogenesis and Function (COBF) and Centre for Cell & Developmental Biology (CCDB) of the School of Life Sciences (SLS).\nStudents will learn the theories behind the techniques of transmission TEM, TEM sample preparation, tomography reconstruction, scanning electron microscopy (SEM) and fluorescent microscopy (confocal laser scanning microscopy--CLSM and spinning disk confocal microscopy--SDCM) imaging of live cells, as well as image analysis software (e.g. Imaris). The hands-on sessions will reinforce the application of these techniques to analyze mechanisms of cellular processes. It is expected that students will be able to incorporate these techniques readily into their research, as they will practice with the instruments that the COBF and CCDB possess for their actual applications in thesis research.\nThis course is targeted to entering postgraduate students in SLS and student registration will be limited to 20. If seats are available, second-year postgraduates students can join. This course is scheduled in the fall term (1st semester) and consists of 5 lectures (3 hours each) and 8 hands-on sessions (3 hours each), totaling 39 hours.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry, MPhil-PhD Biology, MPhil-PhD Environmental Science, MPhil-PhD Food & Nutritional Sciences, MPhil-PhD Molecular Biotechnology or MPhil-PhD Cell and Molecular Biology\nNot for students who have taken LSCI6303",
-      "course_attributes": "Zero Billing Factor",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students should understand theoretical and practical aspects on the methodology of TEM, tomography, live cell imaging, and analysis for research efforts aimed at structure-function elucidation of subcellular organelles. This course will help students combine high-resolution 3D microscopy techniques with other molecular techniques to maximize their investigative power and success potential.",
-      "assessment_types": {
-        "Attendance": "10",
-        "Homework or assignment": "15",
-        "Lab performance": "30",
-        "Others": "5",
-        "Presentation": "15",
-        "Participation": "5",
-        "Test or quiz": "20"
       }
     },
     {
@@ -1675,27 +1328,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "5431",
-      "title": "Chemical Biology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The discipline of chemical biology is focused on the application of chemical principles, particularly organic chemistry, to the study and manipulation of biological systems. Two major focus areas include the development of chemical tools to proteins and cells, and in the identification and creation of novel compounds as therapeutics for the treatment of human disease. The course will begin with a brief review of organic chemistry fundamentals and bio-orthogonal ligand reactions. It will then cover case studies to illustrate the power of chemical biology to solve important problems at the chemistry-biology interface.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; Biology; Environmental Science; Food and Nutritional Sciences; Molecular Biotechnology; Cell Molecular Biology\nCourse Exclusion: BCHE3110",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Knowledge\n\n• Recall the fundamental aspects of chirality and basic reaction mechanisms in organic chemistry.\n\n• Know the core bio-orthogonal reactions that can be used with biological systems.\n\n• Be aware of the important biological and biomedical problems being tackled by scientists.\n\n• Account for how chemical biology methods are used within biomedical research and pre-clinical drug discovery.\n\nSkill\n\n• Students will be able to assess, evaluate and choose appropriate chemical biology methods to use in their future research studies.\n\nValue\n\n• Chemical biology approaches have led to advances that have led to creation of multiple active biotech companies. The knowledge gained will equip them with the skills needed to pursue careers in disciplines at the chemistry and biology interface.",
-      "assessment_types": {
-        "Essays": "40",
-        "Short answer test or exam": "60"
-      }
-    },
-    {
-      "subject": "LSCI",
       "course_code": "5440",
       "title": "Aspects of Neuroscience",
       "credits": "3.00",
@@ -1813,27 +1445,6 @@
         "Essays": "10",
         "Essay test or exam": "40",
         "Short answer test or exam": "50"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5462",
-      "title": "Methods in Biochemistry",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will allow students to gain theoretical and practical, hands-on knowledge of various advanced research methodologies and their applications in biochemical research and pre-clinical services. Methods include: • Ion exchange chromatography • Spectrophotometry • SDS-Polyacrylamide gel electrophoresis and Western blot analysis • Enzymatic assay • DNA cloning technologies and DNA electrophoresis • PCR and site-directed mutagenesis • Bacterial transformation and culture • Recombinant protein expression and purification • Human cell culture and cytotoxicity assay • Fluorescence technology: and flow cytometry, confocal microscopy, fluorescence spectrum scanning and measurement",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BBMS6200",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Upon successful completion of this course, students should be able to:\n1) Describe the concepts of modern analytical and instrumental techniques relevant to measurements in biochemical research and pre-clinical services.\n2) Master a number of biochemical techniques such as polyacrylamide gel electrophoresis and Western blot analysis, enzymatic assay, DNA electrophoresis and DNA fingerprinting , PCR and polymorphism analysis, human cell culture and cytotoxicity assay, ELISA and flow cytometry, Rasmol and computer tools for analysis, Bacterial transformation and test for food contamination, statistical analysis of toxic chemicals in environment and fermentation technology.\n3) Justify the selection of different bio-analytical methods to characterize the composition of a complex sample.\n4) Critically evaluate the merits, limitations and future trends of various biochemical analytical techniques.\n5) Work in a collaborative manner with others on a team, contributing to the management, planning and implementation of a task.\n6) Demonstrate a commitment to professional integrity and ethical behavior consistent with the missions of the university and accepted standards of professional conduct.",
-      "assessment_types": {
-        "Examination": "45",
-        "Lab reports": "55"
       }
     },
     {
@@ -2003,73 +1614,6 @@
         "Others": "3",
         "Short answer test or exam": "30",
         "Selected response test or exam": "30"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5522",
-      "title": "Environmental Biotechnology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course deals with biotechnological principles and techniques, and their applications to resolve environmental problems. Underlying principles of biodegradation and biotransformation, and basic techniques such as culture collection and cell immobilization are introduced. Case studies emphasize on insect control, waste and wastewater treatment, energy production and cleanup of contaminated soils.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4220",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Upon completion of the course, student will:\n- understand basic principles and techniques in environmental biotechnology\n- apply the basic principles and techniques in insect control, waste and wastewater treatment, and cleanup of contaminated soils.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Short answer test or exam": "40",
-        "Selected response test or exam": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5523",
-      "title": "Global Change Biology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The aim of this course is to introduce students to the ways in which environmental change affects biodiversity from organisms to ecosystems. Using this foundation, we will explore core responses of species and build up to the more complex responses of communities and ecosystems. This course will further students’ understanding of experimental research with a focus on how researchers evaluate current anthropogenic stressors and predict future ecological trajectories. Topics may include, but are not limited to, the contributions that human population growth and globalization have made to increases in greenhouse gases and associated climate change, biological invasions, land degradation, disease, and, ultimately, impacts on biological systems.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4230",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Upon successful completion of the course students should:\n\n- Have a basic understanding of large-scale environmental changes on earth; be able to compare and contrast causes of historical and contemporary changes in climate.\n\n- Be able to synthesize factors that influence core species responses and describe how contemporary human impacts are altering species distributions, abundance, and evolution.\n\nBe able to evaluate how global change can disrupt species interactions and to summarize the factors that contribute to ecosystem collapse and ecosystem resilience.",
-      "assessment_types": {
-        "Classwork": "30",
-        "Examination": "40",
-        "Project": "30"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5542",
-      "title": "Marine Microbial Ecology",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course brings the students to the marine microbial biosphere. Microbes are the engines that drive carbon and nutrient cycles in the ocean, and influence the health of marine plants and animals. In this course, we will discuss major concepts in ecological studies of microbes in the ocean, the way microbes function in their natural environments, and how their activities influence ecosystem functioning, global climate and the Earth as human habitat.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4420",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Knowledge\n• Understand key concepts in marine microbial ecology\n• Know the power of modern biotechnology in driving marine microbial ecology\n• Comprehend important questions and key issues in marine microbial ecology\n\nSkill\n• Application of scientific method to marine microbial ecology\n• Search for information from primary literature\n• Critical analysis of information from primary literature\n• Presentation and communication of ideas in marine microbial ecology using charts, graphs, diagrams and tables\n\nValue\n• Appreciate marine microbial roles in climate change and regulation\n• Understand microbial roles in marine animal and plant conservation\n• Recognize marine microbes as a source of novel metabolites for industrial application",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Homework or assignment": "30",
-        "Presentation": "10",
-        "Short answer test or exam": "30"
       }
     },
     {
@@ -2549,28 +2093,6 @@
         "Attendance": "20",
         "Examination": "70",
         "Participation": "10"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5750",
-      "title": "Environmental Health",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the contemporary problems and issues in environmentally dependent aspects of health. Broad coverage of health effects of foodborne, airborne and waterborne pollutants, pesticides, and consumer product are considered.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken ENSC4250",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "This course is designed to give students an overview of the sources, modes of action, and health effects of the global and local important pollutants including pesticides, food additives, transgenes in genetically modified foods, environmental tobacco smoke, indoor air pollutants, water pollutants, peroxisome proliferators, environmental estrogens, and benzene. After the study, the student should be able to:\n1. Describe the sources of the pollutants\n2. Understand the modes of action of the pollutants\n3. Familiar with the symptoms and human health effects resulting from exposure to the pollutants\n4. Discuss ways to reduce our exposure to the pollutants",
-      "assessment_types": {
-        "Homework or assignment": "15",
-        "Short answer test or exam": "45",
-        "Selected response test or exam": "40"
       }
     },
     {
@@ -3090,24 +2612,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "5935",
-      "title": "Medical Biotechnology",
-      "credits": "2.00",
-      "terms": [],
-      "description": "The field of medical biotechnology is experiencing rapid growth in recent years, leading to the development of innovative techniques for diagnosis, prevention, and treatment of diseases. With the basis in gene manipulation and cell culture, innovations in biomolecular therapies such as recombinant proteins, monoclonal antibodies, vaccines, nucleic acid therapies, and regenerative medicines are developed. These significantly improve human health. The course is designed to give students an insight into the principles and techniques leading to these innovations. Safety and ethical issues will also be discussed. Topics include: 1) History of Medical Biotechnology; 2) High-throughput technologies in molecular diagnosis I and II;3) Clinical sequencing in infectious disease control; 4) Clinical sequencing and precision medicine; 5) Protein therapeutics (pharmaceuticals, recombinant antibodies and enzymes); 6) Nucleic acids therapeutic agents and gene therapy; 7) Current vaccine design; 8) Stem cells and regenerative medicine; 9) Nanoparticles in medicine",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken MBTE3510",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "1. Describe the basic principles and techniques of medical biotechnology.\n2. Understand the mechanisms whereby the therapeutic molecules and diagnostic tools work.\n3. Evaluate the use of medical biotechnology towards the modern society.\n4. Appreciate the range of therapeutic molecules and diagnostic tools developed by the biotechnology industry over the last few years.\n5. Realize the potential safety and ethical issues on these technologies on human health.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "LSCI",
       "course_code": "5943",
       "title": "Genetic Engineering",
       "credits": "3.00",
@@ -3317,27 +2821,6 @@
         "Essay test or exam": "30",
         "Others": "40",
         "Short answer test or exam": "30"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "5953",
-      "title": "Microbial Biotechnology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Knowledge in microbial technology is growing exponentially throughout the discovery of novel sequences of hundreds of microorganisms and the advancement of new technologies, such as genomics, transcriptomics, proteomics and metabolomics. This course examines the application of the latest technologies in microbial biotechnology to environment, agriculture, industry and medicine. Selected topics include applied microbial physiology; genetic manipulation through applied genetics and genetic engineering; genomics and proteomics; metabolomics and biosynthetic pathway analysis and industrial fermentation technology and enzyme technology. Examples of applications include microbial production of single-cell proteins, protein engineering, primary and secondary metabolites. Plant/animal – microbe interactions and microbial technology in biocatalysis, biodegradation and bioremediation will also be discussed.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken MBTE4530",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "1. Critical thinking in solving microbial biotechnology related problems\n2. Learn and aware of the latest technology of microbial technology in the industry\n3. Understand the trends and application of microbial biotechnology related products\n4. Able to perform independent research and evaluation on assigned fermentation projects\n5. Understand the logistics of downstream processing of biotechnology product",
-      "assessment_types": {
-        "Essays": "80",
-        "Others": "20"
       }
     },
     {
@@ -3584,45 +3067,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "6104",
-      "title": "Techniques in Molecular Modelling of Proteins",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course will provide students with hand-on experiences on using molecular modelling, which enable students to formulate hypotheses to understand structure/functions of proteins.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will learn\n\n1. to perform basic protein sequence analysis such as sequence alignment and secondary structure prediction\n2. to use molecular graphics programs, such as PyMOL and Chimera, to understand biomolecular interactions and to identify structural changes in proteins\n3. to perform homology modelling to predict 3D structures of proteins and use the model to understand the structure/function of a protein\n4. to use docking simulation to predict protein-ligand interactions",
-      "assessment_types": {
-        "Attendance": "50",
-        "Homework or assignment": "50"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6105",
-      "title": "Techniques in Protein Crystallography",
-      "credits": "1.00",
-      "terms": [],
-      "description": "Protein Crystallography is a powerful method for determining the structures of proteins for both structure-function studies and drug-inhibitor design. This course will combine practical training in solving a structure using crystallographic methods, together with theoretical exposure to the physical and mathematical basis for the technique.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Knowledge\n• Know how to process a dataset\n• Be able to refine a dataset\n• Have a theoretical understanding of the X-ray experiment including Bragg’s Law, space groups, and R-values.\n\nSkill\n• Students will be able to assess, and evaluate the quality of a reported X-ray protein structure.\n\nValue\n• The training of the candidates in the basic techniques needed for protein crystallography will equip them with a skill they can use in their research studies",
-      "assessment_types": {}
-    },
-    {
-      "subject": "LSCI",
       "course_code": "6106",
       "title": "Techniques in Evolutionary Genomic Analysis",
       "credits": "1.00",
@@ -3665,28 +3109,6 @@
       "academic_org": "Division of Life Sciences",
       "learning_outcomes": "• Know the genomic methods used to infer evolutionary relationship, date the evolutionary trees, reconstruct the ancestral genomic processes, and interrogate the population genetic forces.\n• Understand the principles underlying the mainstream methods.\n• Understand the strengths and limitations of these methods.",
       "assessment_types": {}
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6107",
-      "title": "Techniques in Proteomics",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course will provide a theoretical and practical basis on techniques for protein separations, analysis and identification. Students will learn to master techniques in proteome analysis: protein sample preparation, multi-dimensional chromatographic methodologies; 2D gel methodologies, Peptide Mass Fingerprinting (PMF) analysis and De Novo protein sequencing using both ESI and MALDI-ToF/ToF and related software.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will learn\n1. how to isolate proteins in different scenarios.\n2. Applications of different separating techniques (chromatography and electrophoresis).\n3. How to prepare samples for mass spectrometric analysis.\n4. Basic operation of mass spectrometer",
-      "assessment_types": {
-        "Examination": "50",
-        "Homework or assignment": "25",
-        "Test or quiz": "25"
-      }
     },
     {
       "subject": "LSCI",
@@ -3734,27 +3156,6 @@
       "assessment_types": {
         "Essays": "60",
         "Presentation": "40"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6301",
-      "title": "Techniques in Mammalian Cell Research",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will teach students about basic and advanced techniques on mammalian cell research.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will learn\n1. the theories of mammalian cell growth\n2. the basic techniques involved in mammalian cell culture and gene manipulation of mammalian cells\n3. the techniques for mammalian cell research at cell level\n4. the techniques for mammalian cell research at molecular level\n5. specialized assays for cardiac, neuronal and associated gila research\n6. the ways to establish animal models",
-      "assessment_types": {
-        "Examination": "70",
-        "Test or quiz": "30"
       }
     },
     {
@@ -3874,74 +3275,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "6304",
-      "title": "Techniques in Marine Biological and Ecological Research",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Students will be introduced to the theory and principle of common contemporary research techniques in marine biology and ecology. Topics will include, but not limited to: maintaining indoor/outdoor culture and experimental systems; stable isotope analysis; underwater survey techniques; toxicity tests and risk assessment; molecular techniques: genomes and e-DNA.\n\nThe second part of the course will be a series of workshops focusing on discussing the application of these techniques to specific student projects.",
-      "enrollment_requirement": "For students in MPhil-PhD Biology or MPhil-PhD Environmental Science",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "By the end of the course, students will be able to:\n- explain the principle and practice of the common techniques employed in contemporary marine biological and ecological research\n- select and apply appropriate techniques to their own research project",
-      "assessment_types": {
-        "Attendance": "5",
-        "Lab performance": "25",
-        "Participation": "10",
-        "Short answer test or exam": "60"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6305",
-      "title": "Techniques in Plant Sciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course teaches theory and skills used in modern plant physiology, plant cell signaling, and plant cellular and molecular biology researches.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students will learn and master the abilities to:\n1. identify and explain key research methodologies in different areas of plant sciences\n2. design methods and experiments to investigate research questions in plant sciences\n3. apply research methods for sampling and data collection\n4. analyse and present research data",
-      "assessment_types": {
-        "Lab performance": "40",
-        "Presentation": "30",
-        "Participation": "10",
-        "Report": "20"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6306",
-      "title": "Techniques in NGS Sequencing Library Preparation",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course contains lectures and laboratory practice sections related to sequencing techniques in genomics, transcriptomics, and epigenetics. This course will focus on molecular biology experiment methods (aka wet lab skills) such as genomic DNA sequencing, RNA-Seq, small RNA-Seq, chromatin immunoprecipitation sequencing (ChIP-Seq), DNaseI-Seq, ATAC-Seq and whole-genome bisulfite sequencing. In addition, a genomic technology known as optical mapping that is complementary to sequencing will also be discussed and performed.",
-      "enrollment_requirement": "For students in MPhil-PhD Biology; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will be able to perform\n\n1. DNA-Seq\n\n2. RNA-Seq and sRNA-Seq\n\n3. ChIP-Seq and DAP-Seq\n\n4. DNaseI-Seq and ATAC-Seq\n\n5. WGBS-Seq\n\n6. Optical mapping analysis",
-      "assessment_types": {
-        "Lab reports": "40",
-        "Lab performance": "50",
-        "Participation": "10"
-      }
-    },
-    {
-      "subject": "LSCI",
       "course_code": "6307",
       "title": "Techniques in Molecular Marine Ecology",
       "credits": "1.00",
@@ -3987,28 +3320,6 @@
         "Attendance": "10",
         "Homework or assignment": "50",
         "Lab performance": "40"
-      }
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "7100",
-      "title": "Directed Research in Life Sciences",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course allows students to perform independent literature research in a specific topic under the supervision of instructors.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "By the end of the course, students will be able to:\n\n- acquire core and in-depth knowledge in a particular field of life sciences\n\n- acquire skills in data analysis and scientific writing\n\n- strengthen skills in critical thinking, creativity, and scientific communication.",
-      "assessment_types": {
-        "Attendance": "10",
-        "Essays": "60",
-        "Report": "30"
       }
     },
     {

@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T19:14:37.346877+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
-    "total_courses": 36,
+    "total_courses": 30,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1009,28 +1009,6 @@
         "Essay test or exam": "50",
         "Homework or assignment": "15",
         "Short answer test or exam": "35"
-      }
-    },
-    {
-      "subject": "RMSC",
-      "course_code": "4005",
-      "title": "Stochastic Calculus for Finance and Risk",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course starts with the introduction of the concepts of arbitrage and risk-neutral pricing. It then proceeds to discuss the stochastic calculus foundations for continuous-time finance models. Topics include: Brownian motion, stochastic integral, Itô's formula, Girsanov's change of measure, and the relationship between stochastic calculus and partial differential equations. Examples will be taken from equity options, including the Black-Scholes formula for foreign exchange and term-structure models.",
-      "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Risk Management Science PC",
-      "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) do the basic option pricing (the Black-Sholes approach) for European and American options under the assumption that the stock price behaves as a drifted Brownian Motion; and\n(2) do the basic manipulation of stochastic integrations and stochastic partial differential equations.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Homework or assignment": "30",
-        "Short answer test or exam": "30"
       }
     },
     {
@@ -2117,67 +2095,6 @@
       "assessment_types": {
         "Examination": "50",
         "Project": "50"
-      }
-    },
-    {
-      "subject": "RMSC",
-      "course_code": "6004",
-      "title": "Special Topics in Risk Management",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course aims at discussing recent advances in risk management.",
-      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Risk Management Science",
-      "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand advanced theories in risk management;\n(2) use various statistical methods and techniques to analyse problems in risk management.",
-      "assessment_types": {
-        "Homework or assignment": "50",
-        "Presentation": "50"
-      }
-    },
-    {
-      "subject": "RMSC",
-      "course_code": "6005",
-      "title": "Special Topics in Quantitative Finance",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course aims at discussing recent advances in quantitative finance.",
-      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics, MPhil Risk Management Science and MSc in Data Science and Business Statistics",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Risk Management Science",
-      "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) understand advanced theories in quantitative finance;\n(2) use various statistical methods and techniques to analyse problems in risk management.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "RMSC",
-      "course_code": "6006",
-      "title": "Portfolio Theory with Risk Management Perspective",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course introduces the general theory of financial portfolio based on utility theory. Non-arbitrage pricing theory based on the idea of risk management will be applied. Selected topics include utility functions, risk aversion, the St Petersburg paradox, dynamic asset pricing, forecast and valuation, portfolio optimisation under budget constraints, wealth consumption, and growth versus income.",
-      "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Risk Management Science",
-      "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "Upon completion of the course, students should be able to,\n(1) understand portfolio theory based on utility function;\n(2) understand dynamic asset pricing theories;\n(3) learn portfolio optimisation techniques and optimal consumption.",
-      "assessment_types": {
-        "Examination": "40",
-        "Homework or assignment": "20",
-        "Project": "40"
       }
     },
     {
@@ -3357,42 +3274,6 @@
           ]
         }
       ],
-      "description": "Students are required to conduct research under the supervision of their advisors.",
-      "enrollment_requirement": "For students in MPhil Risk Management Science",
-      "course_attributes": "Zero Billing Factor",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Distinction/Pass/Failure",
-      "component": "Thesis Monitoring Course",
-      "campus": "Main Campus",
-      "academic_group": "Div of Risk Management Science",
-      "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "After completing the course, a student should be able to\n(1) understand related background and knowledge about the research field that the student works on;\n(2) conduct research projects under the guidance and supervision of his/her supervisor(s).",
-      "assessment_types": {}
-    },
-    {
-      "subject": "RMSC",
-      "course_code": "8303",
-      "title": "Research for Thesis",
-      "credits": "6.00",
-      "terms": [],
-      "description": "Students are required to conduct research under the supervision of their advisors.",
-      "enrollment_requirement": "For students in MPhil Risk Management Science",
-      "course_attributes": "Zero Billing Factor",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Distinction/Pass/Failure",
-      "component": "Thesis Monitoring Course",
-      "campus": "Main Campus",
-      "academic_group": "Div of Risk Management Science",
-      "academic_org": "Div of Risk Management Science",
-      "learning_outcomes": "After completing the course, a student should be able to\n(1) understand related background and knowledge about the research field that the student works on;\n(2) conduct research projects under the guidance and supervision of his/her supervisor(s).",
-      "assessment_types": {}
-    },
-    {
-      "subject": "RMSC",
-      "course_code": "8304",
-      "title": "Research for Thesis",
-      "credits": "6.00",
-      "terms": [],
       "description": "Students are required to conduct research under the supervision of their advisors.",
       "enrollment_requirement": "For students in MPhil Risk Management Science",
       "course_attributes": "Zero Billing Factor",

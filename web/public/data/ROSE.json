@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T19:15:07.181322+00:00",
     "subject": "ROSE",
     "subject_title": "Robotics",
-    "total_courses": 12,
+    "total_courses": 10,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -516,27 +516,6 @@
     },
     {
       "subject": "ROSE",
-      "course_code": "5810",
-      "title": "Practical Robotics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The primary objective of this course is to prepare students for deploying state-of-the-art robotic systems to solve real-world challenges. Students will work with sophisticated and advanced robotic platforms to tackle complex, practical problems, including participation in competitive robotics events and real-world application scenarios, developing competencies in system integration, advanced programming, problem-solving under constraints, and collaborative teamwork.\n\nThe course covers practical topics drawn from selected research papers and industrial best practices, enabling students to understand and implement state-of-the-art robotics and embodied-AI methodologies within advanced robotic systems such as humanoids. Through competition-based projects and practical applications, students will gain experience in rapid prototyping, performance optimization, strategic planning, and delivering robust solutions in time-critical environments, and professional documentation. This course prepares students for professional robotics engineering roles and advanced research in robotics.",
-      "enrollment_requirement": "For students in MSc Robotics\nNot for students who have taken ROSE5910",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Workshop",
-      "campus": "Main Campus",
-      "academic_group": "Div of Mechan & Automation Erg",
-      "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "At the end of the course of studies / Upon successful completion of this course, students should be able to:\n\n1. Understand and implement state-of-the-art robotics and embodied-AI methodologies within advanced robotic systems such as humanoids;\n\n2. Deploy sophisticated robotic platforms to tackle complex, practical problems including competitive robotics events and real-world application scenarios;\n\n3. Demonstrate competencies in system integration, advanced programming, problem-solving under constraints, and collaborative teamwork;\n\n4. Apply practical knowledge drawn from research papers and industrial best practices to real-world robotic challenges;\n\n5. Execute rapid prototyping, performance optimization, and strategic planning in robotics projects; and\n\n6. Deliver robust solutions in time-critical environments through competition-based projects and practical applications.",
-      "assessment_types": {
-        "Presentation": "40",
-        "Report": "60"
-      }
-    },
-    {
-      "subject": "ROSE",
       "course_code": "5910",
       "title": "M.Sc.Projects",
       "credits": "3.00",
@@ -848,24 +827,6 @@
         "Essays": "70",
         "Presentation": "30"
       }
-    },
-    {
-      "subject": "ROSE",
-      "course_code": "5920",
-      "title": "Robotics Internship",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to allow students to acquire a basic understanding and the skills of the practical aspects of the robotics profession. During the internship, the student must attach to a company in a study-related position for no less than 12 weeks. The student will have an academic supervisor (as primary supervisor) and an industry co-supervisor from the company, both have the expertise to provide advice to the student. To be qualified for award of the subject credit, the student must submit a report summarizing the internship experience at the end of the internship. Additional presentation may be required by the hosting company.\n\nThe internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies.\n\nStudents are recommended to seek the Professor-in-Charge's comment on potential internship opportunities before enrolling in the course.",
-      "enrollment_requirement": "For students in MSc Robotics",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Practicum",
-      "campus": "Main Campus",
-      "academic_group": "Div of Mechan & Automation Erg",
-      "academic_org": "Div of Mechan & Automation Erg",
-      "learning_outcomes": "At the end of the course of studies, a student should be able to\n\n1. Have a good understanding and appreciate the characteristics of a robotics work environment, including employer expectation, management structure of a team, industrial standards and practices, trends and common issues in robotics, etc.;\n2. Carry out basic duties in a robotics work environment;\n3. Exhibit good etiquette in the workplace;\n4. Work independently as well as in a team environment; and\n5. Communicate effectively and efficiently with peers, supervisors and possibly also clients.",
-      "assessment_types": {}
     }
   ]
 }

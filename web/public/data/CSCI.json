@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T14:44:22.038988+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 78,
+    "total_courses": 55,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -94,27 +94,6 @@
       "academic_group": "Dept of Computer Sci & Engg",
       "academic_org": "Dept of Computer Sci & Engg",
       "learning_outcomes": "1. Be able to write, compile and execute Standard C++ programs\n2. Be able to make use of C++'s object-oriented methodology\n3. Be able to develop object-oriented program using classes, inheritance, encapsulation, and polymorphism",
-      "assessment_types": {
-        "Others": "50",
-        "Short answer test or exam": "50"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "1030",
-      "title": "Hands-on Introduction to Java",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course aims to provide an intensive hands-on introduction to the Java programming language. Topics include the basic Java language syntax, variable declaration, basic operators, program flow and control, defining and using functions, file and operating system interface. Specific key features of the Java programming language such as object-oriented methodology, class templates, encapsulation, inheritance, polymorphism, etc. will be highlighted.",
-      "enrollment_requirement": "Not for students who have taken CSCI1130 or 1530 or ESTR1102.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. Be able to write, compile and execute Java programs\n2. Be able to make use of Java's object-oriented methodology\n3. Be able to design and create applications using Java Foundation Classes (JFC)\n4. Be able to develop object-oriented program using classes, inheritance, encapsulation, and polymorphism",
       "assessment_types": {
         "Others": "50",
         "Short answer test or exam": "50"
@@ -4436,24 +4415,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "3270",
-      "title": "Advanced Programming Laboratory",
-      "credits": "2.00",
-      "terms": [],
-      "description": "The course will mainly focus on programming exercises for advanced data structures and algorithms. Topics include dynamic programming, computational geometry, number theory, simulation, combinatorial problems, optimization techniques, graph theory, etc.",
-      "enrollment_requirement": "1. Prerequisite: CSCI2100 or ESTR2102;2. Corequisite: CSCI3160 or ESTR3104.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "Students will be able to:\n1. Use dynamic programming in their problem solving\n2. Understand basic Number Theory to be able to identify a potential solution\n3. Code simulation problems more effectively\n4. Analyze the combinatorial characteristic of the problem and solution in programming codes\n5. Implement basic graph data structures and advanced graph-based algorithms\n6. Learn some basic numerical optimization techniques and apply them in practice\n\nObjectives: related Outcomes\n1. Requirements and specifications: 3, 4, 5\n2. Fundamental data structures and algorithms: 1, 2, 5, 6\n3. Problem solving skills: 1, 2, 3, 5, 6\n\nOutcomes: reflected Objectives\n1. Dynamic programming: 3\n2. Number Theory: 2, 3\n3. Simulation problems: 1, 3\n4. Combinatorial characteristics: 1\n5. Graph data structures: 1, 2, 3\n6. Numerical optimization: 2, 3",
-      "assessment_types": {}
-    },
-    {
-      "subject": "CSCI",
       "course_code": "3280",
       "title": "Introduction to Multimedia Systems",
       "credits": "3.00",
@@ -4560,27 +4521,6 @@
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "50"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "3290",
-      "title": "Computational Imaging and Vision",
-      "credits": "3.00",
-      "terms": [],
-      "description": "It is an emerging new field created by the convergence of computer graphics, computer vision and machine learning. Its main purpose is to overcome the limitations of the traditional camera by using computational techniques to produce a richer, more vivid, perhaps more perceptually meaningful representation of our visual world. The content of this course is to study ways in which samples from the real world (images and video) can be used to generate compelling computer imagery. We will learn how to acquire, represent, and render scenes from digitized photographs. The following topics will be covered: cameras, image formation and models; image manipulation (warping, morphing, mosaicing, matting, compositing); data-driven synthesis; visual perception; high dynamic range imaging and tone mapping; image-based lighting; non-photorealistic rendering; and other applications in machine vision.",
-      "enrollment_requirement": "Prerequisite: CSCI2100 or ESTR2102.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand the problem and emerging techniques of computational photography.\n2. know the methods for generating compelling pictures and understanding images in computer vision.\n3. use software packages, such as Python, C++, or Matlab.",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Others": "70"
       }
     },
     {
@@ -4814,27 +4754,6 @@
         "Others": "35",
         "Short answer test or exam": "55",
         "Selected response test or exam": "10"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "3330",
-      "title": "Fundamentals of Applied Computer Vision",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides a comprehensive introduction and foundation of applied computer vision. Computer vision is the enterprise of building machines that can sense and extract information from 3D scenes. It is one of the fastest growing and exciting disciplines in today’s academia and industry, with a wide variety of applications in robotics, video surveillance, navigation, consumer electronics, human-computer interaction, medical imaging, remote sensing, space exploration, and so on. This course is designed to open the doors for students who are interested in learning about the fundamental principles and important applications of computer vision. The following topics will be covered: cameras and image formation, image filtering, edge and corner detection, image features and matching, image alignment, geometric camera models, binocular stereo, optical flow, radiometry, photometric stereo, structured light, and other applications in machine vision. We will expose students to a number of real-world applications that are important to our daily lives. Students will learn core concepts of computer vision, as well as hands-on experience to solve real world problems with computer vision.",
-      "enrollment_requirement": "Prerequisite: CSCI2100 or CSCI2520 or ESTR2102",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired:\n1. mathematical fundamentals of image formation and camera models in computer vision\n2. core concepts and algorithms of image processing as well as feature extraction and matching\n3. core concepts and algorithms of 3D reconstruction with computer vision\n4. core concepts and algorithms of radiometry, motion, and other aspects of computer vision\n5. hands-on programming experiences to implement computer vision algorithms.",
-      "assessment_types": {
-        "Examination": "30",
-        "Homework or assignment": "70"
       }
     },
     {
@@ -5079,49 +4998,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "3360",
-      "title": "Introduction to Computational Complexity",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course offers a deep dive into the field of computational complexity, a cornerstone of theoretical computer science (TCS) that studies the inherent difficulty of computational problems and classifies them according to their computational resources, such as time and space. The course is designed to elucidate the pivotal role of computational complexity in shaping the landscape of modern computing, touching on its interplay with algorithm design, cryptography, network, and the burgeoning field of quantum computing. By exploring these interdisciplinary connections, students will gain a holistic view of how complexity theory informs and is informed by other scientific and technological domains, thereby enhancing their ability to innovate and solve complex problems.\n\nTopics include:\n- Resources for computation (time, space, nondeterminism, randomness) and their associated complexity classes\n- Relationships among resources (P vs NP and more), Reductions, and completeness\n- Space complexity: PSPACE, L, NL\n- Randomized computation: RP, BPP\n- Alternation: the polynomial hierarchy, time-space trade-offs for SAT\n- Basic circuit complexity (P/poly, NC, and more)\n- Interactive proofs (AM, MA, IP)\n- Probabilistically checkable proofs (PCP) and non-approximability\n- Counting: #P, Toda's Theorem, approximate counting\n- Average-case complexity and cryptography: TFNP, Kolmogorov complexity, one-way functions, Factoring, Discrete log, Diffie-Hellman\n- Quantum complexity classes: BQP, QMA, PostBQP, quantum auxiliary advice, hidden subgroup problems, (local) Hamiltonian problems",
-      "enrollment_requirement": "Prerequisite: ENGG2760 or ESTR2018 or ESTR2308 or IERG2470",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze and evaluate computational problems using complexity theory principles, assessing the required resources and potential computational limits.\n2. Apply mathematical tools and techniques, such as concentration bounds and Markov chains, to solve practical problems in computer science and related fields.\n3. Interpret, discuss, and synthesize theoretical computer science texts and research, identifying key questions and collaboratively exploring advanced topics in computational complexity.\n4. Engage with ongoing research in computational complexity, applying theoretical knowledge to practical challenges in cryptography, networking, and quantum computing.",
-      "assessment_types": {
-        "Examination": "40",
-        "Homework or assignment": "30",
-        "Project": "30"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "4120",
-      "title": "Principles of Computer Game Software",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims at establishing the principles, techniques and tools in the design and development of computer game software with focus on the real time performance consideration. Topics include: stages in computer game development, concept of game engine, rendering considerations, physics effects, artificial intelligence (AI), audio effects, scripting and environment for game project development.",
-      "enrollment_requirement": "1. Prerequisite: CSCI2100 or 2520 or ESTR2102;2. Prerequisite/Corequisite: CSCI3260 or 3550.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. able to implement simple walkthrough programs\n2. able to write simple shader program for GPU\n3. able to use a game engine to build a complete computer game software\n4. able to incorporate various game design principles in the final product",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      }
-    },
-    {
-      "subject": "CSCI",
       "course_code": "4130",
       "title": "Introduction to Cyber Security",
       "credits": "3.00",
@@ -5246,27 +5122,6 @@
       "assessment_types": {
         "Essay test or exam": "64",
         "Others": "36"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "4140",
-      "title": "Open-source Software Project Development",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is to introduce techniques in developing software projects. Topics include leveraging the web server, the database server, and the scripting languages, such as the LAMP (Linux, Apache, MySQL, PHP) platform, to develop software projects, advanced debugging techniques, and performance tuning techniques. Also, this course will introduce the knowledge on software licensing, such as the GNU public license (GPL) and the Berkeley Software Distribution (BSD) license. Last but not least, this course emphasizes in arousing the creativity and fun in developing software projects.",
-      "enrollment_requirement": "Prerequisite: CSCI2100 or 2520 or ESTR2102.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. Students will understand different system development issues, such as interprocess communication, system logging, and system security.\n2. Students will learn different scripting languages such as PHP and Perl.\n3. Students will learn performance tuning techniques, such as the program profiling technique, as well as advanced debugging techniques, such as the memory leakage detection.",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Others": "70"
       }
     },
     {
@@ -5513,27 +5368,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "4190",
-      "title": "Introduction to Social Networks",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces how the social, technological, and natural worlds are connected, and how these relationships can be modeled as high dimensional graphs. The use of algorithmic approach to study these large scale networks so as to shed light on their connections and intrinsic properties will be employed. Topics include:1) how opinions, personal interests, idea, news and political movements spread via social networks; 2) how to maintain the robustness of the world wide web; 3) why we observe fragility in some of our electrical networks; 4) understand the formation process of large scale online social networks like Facebook; 5) how to perform effective product advertisement in large scale online social networks; and 6) how information or virus can be propagated in these large scale online social networks. This course aims to provide simple but fundamental theories on how one can understand the formation and interaction on these social networks. This course is multi-disciplinary in nature, and it is suitable for engineering, science, mathematics, economics or business students.",
-      "enrollment_requirement": "Pre-requisite: CSCI2100 or 2520 or ESTR2102.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "Students will be able to\n1. understand the concepts and principles of social networks;\n2. understand how various factors may influence the formation of social networks;\n3. apply simple algorithms to extract information from these online social networks.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "50"
-      }
-    },
-    {
-      "subject": "CSCI",
       "course_code": "4200",
       "title": "Operating System Engineering",
       "credits": "3.00",
@@ -5668,49 +5502,6 @@
         "Homework or assignment": "40",
         "Lab reports": "5",
         "Project": "15"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "4230",
-      "title": "Computational Learning Theory",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces theoretical foundations of efficient learning algorithms and their limitations. Topics include Probably Approximately Correct learning, Occam learning, Vapnik–Chervonenkis dimension, boosting, Statistical Query learning, active learning, and crypotgraphic hardness of learning.",
-      "enrollment_requirement": "Prerequisite: ENGG2430 or 2450 or 2760 or 2780 or ESTR2002 or 2005 or 2018 or 2020 or 2308 or 2362 or IERG2470 or MIEG2440",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. identify the mathematical models in various learning applications\n2. analyze the performance of different learning algorithms\n3. understand the relative computational hardness of various learning problems",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "50"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "4240",
-      "title": "Advanced Algorithms: Randomization and Approximation",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces advanced algorithmic techniques with a focus on randomized and approximation methods. Randomness yields speed and robustness, while approximation provides rigorous guarantees when exact solutions are infeasible. The course will introduce several important, representative problems including set cover, Max-SAT, k-server, Max-Cut, and SVP over lattices etc. Along the way, students will acquire a set of mathematical and algorithmic techniques, including concentration inequalities, the probabilistic method, expander graphs, Integer/linear and semidefinite programming, primal-dual methods, and approximate counting. These techniques and algorithmic problems are at the core of modern theoretical computer science.\nEmphasizing breadth over depth, the course aims to broaden students' horizons and strengthen their algorithmic thinking by exposing them to powerful ideas and techniques that are foundational across theoretical computer science.",
-      "enrollment_requirement": "Pre-requisite: (ENGG2760 or ESTR2018) and (ENGG1120 or ESTR1005)\nCo-requisite: CSCI3160",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze probabilistic behavior, derive approximation guarantees, and balance rigor with practicality in real-world applications.\n2. Apply randomized and approximation algorithms to classical problems such as set cover, Max-SAT, graph optimization, and online decision-making.\n3. Interpret and evaluate algorithmic research ideas, understand their underlying principles, and recognize when to apply specific techniques in new contexts.",
-      "assessment_types": {
-        "Examination": "70",
-        "Homework or assignment": "10",
-        "Project": "20"
       }
     },
     {
@@ -7437,49 +7228,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "5010",
-      "title": "Practical Computational Geometry Algorithms",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will discuss data structures and algorithms for solving fundamental problems in computational geometry with good theoretical guarantees. Topics covered include line-segment intersection, polygon triangulation, convex hull, linear programming, orthogonal range searching, point location, voronoi diagram, delaunay triangulation, and so on.\n\nAdvisory: Students are expected to have taken CSCI2100 or ESTR2102 or CSCI2520 or equivalent",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand algorithms for solving fundamental problems in computational geometry.\n2. learn and develop techniques for designing and analyzing computational geometry algorithms with non-trivial theoretical guarantees.",
-      "assessment_types": {
-        "Essay test or exam": "60",
-        "Others": "40"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5030",
-      "title": "Machine Learning Theory",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course first introduces fundamentals of machine learning with a large size of samples, including basic principles (maximum likelihood vs least redundancy) and typical structures (linear systems of hidden factors, mixture of local structures, and Markov temporal models), The second part of the course covers learning theories towards small sample size challenge, including major topics (model selection, learning regularization, two stage implementation, sparse learning, and automatic model selection) and three streams of efforts, namely generalization error estimation (CV, AIC, VC theory), shortest coding length (MML vs MDL) or similarly various Bayes (BIC, MAP, Laplace, marginal, and variational) , and BYY learning (BYY system, best harmony theory, Ying-Yang alternation updating, and five action circling implementation).",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN); Not for students who have taken AIMS5704",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "Students will be able to understand fundamental concepts and develop critical thinking on :\n1. ingredients, challenges, basic principles and a unified perspective of machine learning;\n2. fundamentals of machine learning with a large size of samples;\n3. efforts on learning theories and methods towards small sample size challenge;\n4. a unified statistical learning framework: BYY learning and best harmony theory.",
-      "assessment_types": {
-        "Others": "25",
-        "Short answer test or exam": "65",
-        "Selected response test or exam": "10"
-      }
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5120",
       "title": "Advanced Topics in Database Systems",
       "credits": "3.00",
@@ -7594,24 +7342,6 @@
         "Presentation": "10",
         "Project": "50"
       }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5210",
-      "title": "Advanced Computer Graphics and Visualization",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provide in-depth treatment of the following advanced computer graphics and visualization topics: radiosity rendering and global illumination, procedure texturing and modeling, image- based rendering, stereo imaging, real-time volume graphics and interactive visualization.\nAdvisory: Students are expected to have taken CSCI3260 or its equivalent.",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of this course, students will have acquired the ability to\n1. design, implement and evaluate customized graphics and visualization applications.\n2. process and analyze data for scientific visualization applications.\n3. carry out research in global illumination, image-based rendering and modeling.\n4. carry out research in GPU-based volume visualization and large data visualization.",
-      "assessment_types": {}
     },
     {
       "subject": "CSCI",
@@ -7732,70 +7462,6 @@
         "Homework or assignment": "30",
         "Presentation": "40",
         "Test or quiz": "30"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5390",
-      "title": "Advanced GPU Programming",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The evolution of consumer graphics hardwares leads to the introduction of parallel, programmable GPUs (Graphics Processing Units). The strong parallel computational power of GPUs not only supports real-time and realistic rendering, but also the cost- effective platform for scientific computing, such as physical simulation, numerical analysis, evolutionary computation, image processing, and computer vision, etc. This course introduces the evolution of shading language and GPU, the basic concept in GPU programming and the recent advanced usage of GPU in computer graphics and general- purpose computing. Topics covered include: shader programming, procedural texture and modelling, programmable graphics pipeline, modern shading language, GPGPU (general-purpose computing in GPU), limitations of GPU, and case studies of advanced usages of GPU.\n\nAdvisory: Students are expected to have taken CSCI2100 or ESTR2102 or CSCI2520 or equivalent.",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand the design rationale of the hard-to-learn GPU programming.\n2. understand how leading researchers in various fields making use of GPU for advanced research.\n3. use GPU.",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Others": "30",
-        "Presentation": "40"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5440",
-      "title": "Theory of Cryptography",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an in-depth exploration of the theoretical foundation behind modern cryptography. A distinguishing feature of this course is its intentional focus on the connection between cryptography and other theoretical computer science areas, such as:\n\n• Quantum Computing: Analyze the dual role of cryptography in quantum computing, both as a catalyst for advancing quantum technology and as a crucial field for developing quantum-resistant security protocols.\n\n• Computational Complexity: Delve into how cryptographic challenges enrich computational complexity research, introducing concepts such as hardness amplification, average-case complexity, black-box separation, and more, highlighting cryptography's influence on computational theory.\n\n• Theory of Consensus Mechanisms: Explore how cryptography theories underpin consensus protocols like Byzantine Fault Tolerance (BFT) and Proof of Work (PoW), illustrating the critical role of cryptography in achieving reliable consensus in decentralized environments.",
-      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or\nArtificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Develop a thorough understanding of advanced cryptographic techniques and principles;\n2. Acquire the capability to comprehend and discuss new research papers on the frontier of cryptography, effectively communicating complex ideas to collaborators and peers; and\n3. Critically analyze and develop advanced cryptographic solutions that address challenges in related fields such as quantum computing, computational complexity, and blockchain technology.",
-      "assessment_types": {
-        "Homework or assignment": "50",
-        "Project": "50"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5540",
-      "title": "Machine Learning Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The goal of this course is to provide students an understanding and overview of elements in modern machine learning systems. Throughout the course, students will learn about the design rationale behind the state-of-the-art machine learning systems for training and serving, and advanced system techniques to scale these systems efficiently. Students will have the opportunity to explore many open challenges in this fast-evolving area.\n\nAdvisory: Students are expected to have taken (CSCI3150 or ESTR3102) and (AIST3020 or CENG3420 or CSCI2510 or IERG3060)",
-      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or Artificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze the impact of various design decisions on performance, cost, and complexity, and make informed choices based on project requirements.\n2. Apply system techniques to optimize machine learning processes in terms of scalability and resource efficiency.\n3. Conduct research or work in the field of machine learning systems and engineering.",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Project": "70"
       }
     },
     {
@@ -7941,49 +7607,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "5610",
-      "title": "Advanced Data Structures",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces advanced techniques for designing data structures with strong theoretical guarantees. Topics to be covered include (i) generic methods such as partial persistence, logarithmic rebuilding, weight balancing, filtering, independent sampling, bit twiddling, tabulating, etc., and (ii) specific structures such as the interval tree, the priority search tree, cuckoo hashing, the van Emde Boas structure, range min structures, locality sensitive hashing, the suffix tree, the count-min sketch, etc.\n\nAdvisory: Students are expected to have taken CSCI2100 or ESTR2102",
-      "enrollment_requirement": "For students in MSc Computer Science or Mphil - PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand the theory behind the techniques covered;\n2. Utilize those techniques to design new data structures for solving other related problems.",
-      "assessment_types": {
-        "Essay test or exam": "75",
-        "Homework or assignment": "25"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5630",
-      "title": "Advanced Topics in Graph Mining",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces advanced techniques for graph mining. Topics to be covered include, but are not limited to graph classification, graph clustering, community detection, influence maximization, dense subgraph finding, frequent subgraph mining, correlated subgraph mining, subgraph matching, subgraph motif enumeration, graph centralities, and other important and emerging topics in graph mining. The course will cover both classic and the state-of-the-art algorithms and systems for the topics to be studied.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN)",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n\n1. master the basic skills and techniques of a broad range of important topics in graph mining;\n\n2. understand the key ideas in the design and implementation of some representative algorithms of each topic introduced in the course;\n\n3. understand the key ideas in the design and implementation of the state-of-the-art systems of each topic introduced in the course;\n\n4. relate the algorithms and systems learnt in the course to real-world applications.",
-      "assessment_types": {
-        "Presentation": "30",
-        "Project": "50",
-        "Report": "20"
-      }
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5640",
       "title": "Natural Language Processing",
       "credits": "3.00",
@@ -8068,94 +7691,6 @@
         "Presentation": "20",
         "Project": "20",
         "Short answer test or exam": "40"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5650",
-      "title": "Graph Neural Networks",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Graph is a fundamental data structure with a wide range of applications. This course covers advanced topics in graph neural networks (GNN) that include, but are not limited to: introductory algorithms and analyses for graph mining, graph-based semi-supervised learning, graph embedding techniques, graph convolution networks, graph attention networks, graph encoder-decoder, graph transformer, knowledge graphs and translation models, application of graph algorithms, etc.\n\nAdvisory: Students are expected to have the background of deep learning, machine learning, linear algebra, programming, and data structure.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN)",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand and be knowledgeable about the basic models and algorithms for graph mining and graph neural networks\n2. Implement and evaluate some of the graph neural network models and algorithms presented in the course\n3. Use the learned knowledge and applied them in a project that solves a real-world problem\n4. Communicate concisely and clearly about how to use graph neural networks in solving a real-world problem",
-      "assessment_types": {
-        "Examination": "30",
-        "Homework or assignment": "20",
-        "Presentation": "20",
-        "Project": "30"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5660",
-      "title": "Advanced Topics of AI for Life Sciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the advanced machine learning techniques for extending the boundary of life sciences. Topics to be covered include but are not limited to the recent successful stories of AI for life sciences study. We are going to cover reinforcement learning-based drug design (GENTRL), graph neural network-assisted antibiotics discovery, deep learning-enhanced super-resolution microscopy, ground-breaking molecular folding algorithm (AlphaFold), deep learning-based disease diagnosis and prediction, deep learning for single-cell and spatial transcriptomics, multi-modality/omics learning, model interpretability, privacy-preserving learning for life sciences. Along the course, we will further discuss the challenges and opportunities of AI in life sciences, such as foundation models with unlabeled data for solving data scarcity issue, out-of-distribution learning for drug design. This is a research-orientated course. By the end of the course, the students are expected to finish a substantial project, aiming at publication.",
-      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or Artificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. know the different kinds of computational problems in life sciences.\n2. understand how to use the AI techniques to resolve the above computational problems.\n3. apply and develop AI techniques to resolve the above problems.\n4. analyze the performance of the machine learning method and understand their limitations.\n5. enhance problem-solving ability, communication and presentation skills by doing project.",
-      "assessment_types": {
-        "Homework or assignment": "20",
-        "Project": "60",
-        "Test or quiz": "20"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5670",
-      "title": "Computational Imaging Systems and Algorithms",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Computational imaging systems are novel cameras that are combinations of optics, sensors, electronics,and algorithms that jointly enable new approaches for smart visual sensing and perception. It has a wide variety of applications in consumer electronics, autonomous driving, robotics, remote sensing, medical imaging, human computer interaction, machine vision, and scientific imaging. This course will cover core ideas and advanced topics of computational imaging systems and algorithms, including camera and image sensor models, high dynamc range imaging, coded imaging systems (aperture, exposure, illumination), burst photography for low-light imaging, 3D imaging, plenoptic functions and light field, Neural Radiance Fields (NeRF), compressive sensing, neuromorphic imaging, optical neural network, and more. Emphasis is on novel hardware and system design of computational cameras, as well as solving inverse problems with classic optimization algorithms and modern end-to-end learning-based methods. Students will learn the core principles of many computational imaging systems and implement key optimization-based and learning-based algorithms to solve inverse problems.\n\nAdvisory note: It is preferred to have taken courses in deep learning and signal processing beforehand.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering;Not for students who have taken IERG5670",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired:\n1. core principles for digital cameras, camera ISP, and image sensors\n2. optimization algorithms to solve inverse problems (classical and DNN-based)\n3. knowledge of plenoptic function, light transport, and many novel computational camera designs\n4. hands-on programming experience to implement algorithms for image/video quality enhancement\ntasks such as denoising, HDR, super-resolution, and deblur.\n5. skills to characterize and optimize computational imaging systems for given tasks\n6. abilities to design and apply computational imaging systems in related research areas",
-      "assessment_types": {
-        "Homework or assignment": "60",
-        "Project": "40"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5680",
-      "title": "Advanced Topics in Flash Memory Technology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims to cover research topics on flash memory technology. Topics include Flash Memory, NAND flash, Flash Memory Organization & Architecture, Flash Memory Management Software, Flash Translation Layer, Flash Address Mapping, Garbage Collection, Wear Levelling, Lifetime & Reliability, SSD Architecture & Controller, NVMe & Open-channel SSDs, and New Techniques in Flash Memory.\n\nAdvisory: Students are expected to have taken ENGG2020 and CSCI3150",
-      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or\nArtificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. understand flash memory technology,\n2. identify research trends in flash memory technology, and\n3. acquire research skill set in flash memory technology.",
-      "assessment_types": {
-        "Homework or assignment": "40",
-        "Presentation": "30",
-        "Project": "30"
       }
     },
     {
@@ -8249,27 +7784,6 @@
         "Examination": "20",
         "Homework or assignment": "40",
         "Project": "40"
-      }
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5700",
-      "title": "Advanced Topics in Software Testing",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will focus on practical software engineering topics relevant to software testing. We will explore advanced modern software testing techniques to detect security vulnerabilities, functional defects, and more. This course will explain in detail the most advanced topics, including automated test generation, fuzzing, symbolic execution, and AI-powered test generation. We will also show the state-of-the-art software testing solutions based on generative AI models.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Fundamental understanding of the pros and cons of various dynamic and static software testing tools;\n2. Conduct extensive testing on various software systems to ensure their reliability;\n3. Conduct research in software engineering and software security-related fields.",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Project": "70"
       }
     },
     {

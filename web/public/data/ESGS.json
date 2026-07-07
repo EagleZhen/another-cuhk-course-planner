@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T15:43:01.669036+00:00",
     "subject": "ESGS",
     "subject_title": "Earth System and GeoInfo Sci",
-    "total_courses": 18,
+    "total_courses": 14,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -252,29 +252,6 @@
     },
     {
       "subject": "ESGS",
-      "course_code": "5006",
-      "title": "Principles of Hydrology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Water is a major formative factor and driving force of the physical and biological environment. Water also provides a logical link between biophysical environment and the society. This course introduces the hydrologic concepts, principles, and techniques that are necessary to understand the occurrence, distribution, and circulation of water that pervades, links, and drives various components and processes of the Earth System. Emphasis will be placed on the various components in the land phase of the hydrologic cycle, including precipitation, evaporation and transpiration, infiltration and soil physics, and surface and subsurface flow to streams. Special topics on hydrologic modeling and impact studies will also be addressed.",
-      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture\nPracticum",
-      "campus": "Main Campus",
-      "academic_group": "Div of Social Science",
-      "academic_org": "Div of Social Science",
-      "learning_outcomes": "To understand the concepts and basic principles of hydrologic cycle and the role of water in the earth and environmental systems;\nTo characterize and estimate the major components of hydrologic cycle;\nTo apply the knowledge and skills acquired to analyze the interactions of various hydrologic components and their influences on water availability and hazards;\nTo understand the general characteristics of water resources in Hong Kong, mainland China and the world",
-      "assessment_types": {
-        "Fieldwork or field study": "8",
-        "Homework or assignment": "15",
-        "Project": "32",
-        "Test or quiz": "45"
-      }
-    },
-    {
-      "subject": "ESGS",
       "course_code": "5009",
       "title": "Research Methods",
       "credits": "2.00",
@@ -332,27 +309,6 @@
         "Presentation": "30",
         "Participation": "30",
         "Report": "40"
-      }
-    },
-    {
-      "subject": "ESGS",
-      "course_code": "5010",
-      "title": "Terrain analysis and digital terrain modelling",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Digital terrain modelling is important component of modern geo-spatial information technology. Natural terrain surface can be modelled using digital terrain models to form digital data sets that can further be used for terrain parameter derivation and feature interpretation, This subject aims to introduce students the basic concept of digital terrain modelling and analysis. Methods and techniques will be introduced for digital representation of 3-dimensional terrain surface and data structure of digital terrain data. The analytical tools and methods will also be introduced to derive terrain parameters and to extract geomorphic or terrain features from the terrain data. Applications of digital terrain modelling to hydrology soil, ecology and environment will also be discussed.",
-      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Social Science",
-      "academic_org": "Div of Social Science",
-      "learning_outcomes": "- Basic concepts and principles of digital terrain modelling\n- Data structure of digital terrain models and how it is generated and represented as 3-dimensional surface\n- Using methods to derive terrain parameters and extract terrain features from digital terrain models\n- Application of digital terrain modelling",
-      "assessment_types": {
-        "Examination": "60",
-        "Lab performance": "40"
       }
     },
     {
@@ -424,28 +380,6 @@
         "Presentation": "25",
         "Project": "30",
         "Short answer test or exam": "25"
-      }
-    },
-    {
-      "subject": "ESGS",
-      "course_code": "5012",
-      "title": "Introduction to Earth Environmental Simulations and the Applications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course introduces the basic knowledge of earth environmental model simulations. Numerical models serve as important tools for earth environmental research and operations. While the topic of earth environmental modelling is broad, this course will focus on the fundamental concepts of numerical modelling, such as temporal and spatial discretizations, parameterizations, model uncertainty and evaluation. Various components of earth system model will be introduced, including atmospheric general circulation model, regional climate model, weather prediction and land surface model, oceanic general circulation model, air quality model, health assessment model and integrated assessment model. In addition, this course will discuss numerical model design, application and testing. Practical exercises such as weather forecast and air quality prediction are also provided for students to gain technical skills and hands-on experience in modelling.",
-      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Social Science",
-      "academic_org": "Div of Social Science",
-      "learning_outcomes": "After taking this course, students are expected to\n• understand basic concepts and theories of earth environmental modelling,\n• learn numerical model design, application and testing,\n• gain technical skills and practical experiences of earth environmental modelling,\n• select appropriate models for solving given earth environmental problems, and\n• apply the knowledge of numerical modelling on their research and career.",
-      "assessment_types": {
-        "Examination": "40",
-        "Lab reports": "40",
-        "Project": "20"
       }
     },
     {
@@ -781,28 +715,6 @@
         "Examination": "40",
         "Lab reports": "30",
         "Project": "30"
-      }
-    },
-    {
-      "subject": "ESGS",
-      "course_code": "5019",
-      "title": "Global Navigation Satellite System (GNSS) and Sensor Network for Environmental Monitoring",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course describes broad principles of Environmental Sensor Network (SN), the integration with positioning technologies and its roles in contemporary environmental studies and smart cities developments. The integration of SN and positioning technologies offers a powerful combination of distributed sensing capacity, real time data visualization and spatial analysis and integration with remote sensing data sources. The combined technologies are greatly needed in large-scale environmental monitoring and Smart Cities developments.\n\nAnother half of the course introduces the Global Navigation Satellite System (GNSS) and other indoor positioning technologies. It covers the basic principles, advanced techniques as well as their applications in Earth System Sciences and urban management. With the background knowledge and the practical skills, students shall be able to integrate GNSS and SN in their future research and studies.",
-      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Social Science",
-      "academic_org": "Div of Social Science",
-      "learning_outcomes": "With the background knowledge and the practical skills, students shall be able to integrate GNSS and SN in their future researches and studies.",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Lab reports": "40",
-        "Others": "30"
       }
     },
     {

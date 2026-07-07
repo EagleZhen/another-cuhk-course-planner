@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T16:48:25.697756+00:00",
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
-    "total_courses": 24,
+    "total_courses": 20,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1070,51 +1070,6 @@
     },
     {
       "subject": "IEMS",
-      "course_code": "5728",
-      "title": "Data-center and Cloud-based Networking Technologies",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course explores technologies, techniques, and designs of data-center and cloud-based networking services. Real-world production networks from various cloud providers will be used as examples. Topics include a brief recap of fundamental computer networking concepts (routing, TCP, etc.), data- center networks, multipath topologies and routing, load balancing, network virtualization, Software-Defined Networks (SDN), Network Function Virtualization, new transport protocols, hardware offloading and acceleration (FPGA), in-network computing with programmable switches (P4), congestion control, network management and verification, etc. The course also discusses the main elements of the data-center networking infrastructure, including the topologies and techniques that are used to scale such networks to hundreds of thousands of servers and the services and accelerators that are used to scale the performance of the distributed/ cloud-based applications/ services that are hosted by data-centers.",
-      "enrollment_requirement": "For all students in Engineering Faculty",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand how a large-scale data-center networks work in general\n2. investigate the key enabling technologies for data-center networking and cloud-based networking services at different layers of the protocol stack\n3. appreciate the key design tradeoffs when working with cloud-scale systems, and understand the emerging trends in this space\n4. build simple network configuration and management solutions based on OpenFlow, P4, Sonic, and other open- source systems widely used in the industry",
-      "assessment_types": {
-        "Examination": "30",
-        "Homework or assignment": "30",
-        "Lab reports": "20",
-        "Presentation": "20"
-      }
-    },
-    {
-      "subject": "IEMS",
-      "course_code": "5729",
-      "title": "Wireless Optical Communication and its applications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The emerging space economy and low-altitude economy necessitate integrated networks and connectivity for drones and satellites. Wireless optical communication (WOC) provides future-proof solutions with the required flexibility and bandwidth. This course provides fundamental knowledge for developing wireless optical communication systems that can be applied across different scenarios. The basic building blocks of WOC will be introduced. Techniques for analyzing transmission characteristics and performance will be studied. Various applications of WOC, including free-space laser communication, indoor visible-light communication, underwater WOC, optical camera communication, and photovoltaic communication, will be presented.",
-      "enrollment_requirement": "For students in MSc Information Engineering;Pre-requisite: IERG2310",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the principles of the building blocks, e.g., lasers, modulators, photodiodes, and beam alignment modules, in optical wireless communication (WOC) systems;\n2. analyze the performance characteristics of WOC systems, such as link loss, turbulence, and capacity estimates; and\n3. appraise various WOC systems, including systems using indoor visible light communication, underwater WOC, optical camera communication, and free-space laser communication.",
-      "assessment_types": {
-        "Examination": "40",
-        "Homework or assignment": "30",
-        "Presentation": "30"
-      }
-    },
-    {
-      "subject": "IEMS",
       "course_code": "5730",
       "title": "Big Data Systems and Information Processing",
       "credits": "3.00",
@@ -1371,27 +1326,6 @@
         "Examination": "40",
         "Homework or assignment": "30",
         "Short answer test or exam": "30"
-      }
-    },
-    {
-      "subject": "IEMS",
-      "course_code": "5780",
-      "title": "Building and Deploying Scalable Machine Learning Services",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Machine learning refers to making computer perform various tasks by learning from data. It is also now one of the essential components in many online services, for example, to generate personalized recommendations on e-commerce platforms, perform face detection and recognition or predict the arrival time of delivery, etc. Given the widespread usage of machine learning, it is important that complex machine learning models can be deployed in an efficient way to support real time services at scale and to allow seamless update of the models. This course will first introduce fundamental concepts in the architecture of scalable internet-based services, distributed/network programming and infrastructure support for content delivery. It then goes on to introduce how scalable online services can be created and maintained, with a focus on services that involve machine learning. Topics will include asynchronous programming, distributed message queues and brokers, load balancers, micro-services, distributed caches and databases, and challenges and solutions in building and deploying various machine learning models/services in a production environment.\n\nAdvisory note: Students are expected to have background in computer networking and machine learning.",
-      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG4080 or ESTR4312",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Understand and analyse different design principles and considerations in building scalable systems\n\n2. Understand the importance and working principles of different major components in such systems\n\n3. Design and develop a scalable machine learning service using open source and commercial tools available online\n\n4. Identify issues and problems in an existing system and suggest solutions to increase scalability and efficiency",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
       }
     },
     {
@@ -1984,24 +1918,6 @@
         "Essays": "50",
         "Presentation": "50"
       }
-    },
-    {
-      "subject": "IEMS",
-      "course_code": "5930",
-      "title": "Information Engineering Internship",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to allow students to acquire a basic understanding and the skills of the practical aspects of the information engineering profession. During the internship, the student must attach to a company in a study-related position for no less than 12 weeks. The student will have an academic supervisor (as primary supervisor) and an industry co-supervisor from the company, both have the expertise to provide advice to the student. To be qualified for award of the subject credit, the student must submit a report summarizing the internship experience at the end of the internship. Additional presentation may be required by the hosting company.\n\nThe internship should normally take place in the summer term after a student has finished the first two semesters of studies. Part-time students can decide to undertake the internship in the summer term of either the first or second year of studies.",
-      "enrollment_requirement": "For students in MSc Information Engineering; Not for students who have taken IEMS5920",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Practicum",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "At the end of the course of studies, a student should be able to\n\n1. Understand the impact of engineering solutions in a global and societal context, especially the importance of health, safety and environmental considerations to both workers and the general public;\n2. Use the techniques, skills, and modern engineering tools necessary for engineering practice appropriate to the degree discipline.",
-      "assessment_types": {}
     }
   ]
 }
