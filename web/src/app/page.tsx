@@ -21,6 +21,7 @@ import {
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjects'
+import { SCHEDULE_DATA_VERSION } from '@/lib/constants'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -41,9 +42,6 @@ export default function Home() {
 
   // Current term state
   const [currentTerm, setCurrentTerm] = useState('2025-26 Summer Session')
-
-  // Current data format version for localStorage migration
-  const SCHEDULE_DATA_VERSION = 1
 
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
@@ -149,7 +147,7 @@ export default function Home() {
       setSelectedSubjects(new Set())
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
-  }, [currentTerm, SCHEDULE_DATA_VERSION, isHydrated])
+  }, [currentTerm, isHydrated])
 
   // Save subject filters to session state whenever they change
   useEffect(() => {
