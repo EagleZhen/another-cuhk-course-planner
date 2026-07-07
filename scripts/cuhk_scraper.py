@@ -12,12 +12,14 @@ import onnxruntime
 import requests
 from bs4 import BeautifulSoup, Tag
 from data_utils import (
+    NO_TERMS_DIR,
     calculate_duration_seconds,
     clean_class_attributes,
     clean_html_text,
     format_duration_human,
     html_to_clean_markdown,
     parse_enrollment_status_from_image,
+    partition_subject_by_year,
     save_json_with_newline,
     utc_now_iso,
     utc_to_hkt,
@@ -1849,9 +1851,12 @@ class CuhkScraper:
                 # Always try to save, even if no courses (some subjects legitimately have no courses)
                 saved_file = self._save_subject_immediately(subject, courses or [], self.config)
 
-                if saved_file:
+                # None means the save failed; an empty list means an empty subject
+                # scraped fine (still completed).
+                if saved_file is not None:
                     completed_subjects.append(subject)
                     saved_files[subject] = saved_file
+                    saved_display = ", ".join(saved_file) or "(no file — empty subject)"
 
                     # Calculate duration and mark as completed in progress tracker
                     duration_minutes = (time.time() - start_time) / 60
@@ -1862,17 +1867,21 @@ class CuhkScraper:
                             "max_courses": self.config.max_courses_per_subject,
                         }
                         self.progress_tracker.complete_subject(
-                            subject, len(courses or []), saved_file, duration_minutes, config_info
+                            subject,
+                            len(courses or []),
+                            saved_display,
+                            duration_minutes,
+                            config_info,
                         )
 
                     # Use different message for empty vs populated subjects
                     if courses:
                         self.logger.info(
-                            f"✅ {subject} completed: {len(courses)} courses in {duration_minutes:.1f}min → {saved_file}"
+                            f"✅ {subject} completed: {len(courses)} courses in {duration_minutes:.1f}min → {saved_display}"
                         )
                     else:
                         self.logger.info(
-                            f"✅ {subject} completed: no courses (empty subject) in {duration_minutes:.1f}min → {saved_file}"
+                            f"✅ {subject} completed: no courses (empty subject) in {duration_minutes:.1f}min → {saved_display}"
                         )
                 else:
                     failed_subjects.append(subject)
@@ -1924,8 +1933,13 @@ class CuhkScraper:
 
     def _save_subject_immediately(
         self, subject: str, courses: List[Course], config: ScrapingConfig
-    ) -> Optional[str]:
-        """Save single subject immediately to prevent data loss"""
+    ) -> Optional[List[str]]:
+        """Save single subject immediately to prevent data loss.
+
+        Writes one file per academic year plus the no-terms bucket
+        (data/<year>/<subject>.json). Returns the list of written paths (empty for
+        an empty subject), or None on failure.
+        """
         try:
             # Get subject title from cache (fetched at start of production scraping)
             subject_title = self.subject_titles_cache.get(
@@ -1951,13 +1965,20 @@ class CuhkScraper:
                 "courses": [course.to_dict() for course in courses],
             }
 
-            # Save to simple filename (no timestamp suffix for better git diffs)
-            filename = f"{config.output_directory}/{subject}.json"
+            # Write one file per academic year (+ the no-terms bucket), partitioning
+            # the subject's courses/terms by year. An empty subject produces no file.
+            written = []
+            for year, slice_data in partition_subject_by_year(subject_data).items():
+                subdir = year if year is not None else NO_TERMS_DIR
+                dir_path = os.path.join(config.output_directory, subdir)
+                os.makedirs(dir_path, exist_ok=True)
+                file_path = os.path.join(dir_path, f"{subject}.json")
+                save_json_with_newline(file_path, slice_data)
+                written.append(file_path)
 
-            save_json_with_newline(filename, subject_data)
-
-            self.logger.info(f"💾 SAVED {subject} → {filename}")
-            return filename
+            summary = ", ".join(written) if written else "(no file — empty subject)"
+            self.logger.info(f"💾 SAVED {subject} → {summary}")
+            return written
 
         except Exception as e:
             self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")

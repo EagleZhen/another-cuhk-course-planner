@@ -532,6 +532,11 @@ def get_academic_year(term_name: str) -> Optional[str]:
     return match.group(0) if match else None
 
 
+# Directory name for the bucket of courses with no scheduled terms (the None key
+# from partition_subject_by_year). Not a year, so year globs exclude it.
+NO_TERMS_DIR = "no-terms"
+
+
 def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
     """Split a subject's courses into per-year ``subject_data`` slices, keyed by
     academic year ("2025-26"). A course spanning years appears in each with only
