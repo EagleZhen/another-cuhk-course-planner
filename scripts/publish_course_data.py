@@ -38,6 +38,12 @@ LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
 SOURCE_DATA_DIR = "data"
 PUBLISHED_DATA_DIR = os.path.join("web", "public", "data")
 
+# Interim: data/ is now partitioned by academic year (data/<year>/). Until per-year
+# serving lands, publish only the current live year, flattened to web/public/data/ as
+# before, so the app is unchanged. Removed once the app fetches per-year.
+INTERIM_PUBLISH_YEAR = "2025-26"
+SOURCE_YEAR_DIR = os.path.join(SOURCE_DATA_DIR, INTERIM_PUBLISH_YEAR)
+
 # Fields scraped into /data but never rendered by the web app, stripped from the
 # published copy to cut payload (~68% of the gzipped transfer as of Jul 2026).
 # Remove a field from this list once the app actually renders it.
@@ -177,11 +183,11 @@ def find_course_files() -> Tuple[List[str], List[str], List[str], int]:
         "XWAS",
     }
 
-    if not os.path.exists(SOURCE_DATA_DIR):
+    if not os.path.exists(SOURCE_YEAR_DIR):
         return [], [], [], 0
 
-    # Find JSON files
-    pattern = os.path.join(SOURCE_DATA_DIR, "*.json")
+    # Find JSON files (current live year only; see INTERIM_PUBLISH_YEAR)
+    pattern = os.path.join(SOURCE_YEAR_DIR, "*.json")
     all_files = glob.glob(pattern)
 
     course_files = []

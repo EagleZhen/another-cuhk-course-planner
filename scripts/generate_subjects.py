@@ -17,6 +17,11 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 
+# Interim: data/ is partitioned by academic year. Read the current live year so the
+# subject list matches what publish serves (INTERIM_PUBLISH_YEAR in
+# publish_course_data.py). Becomes a union across year dirs when per-year serving lands.
+INTERIM_YEAR = "2025-26"
+
 
 def format_ts_string(value: str) -> str:
     # Match Prettier's TS output so regenerated subjects.ts does not create churn.
@@ -44,7 +49,7 @@ def main():
 
     subject_titles = {}
 
-    for filepath in sorted(DATA_DIR.glob("*.json")):
+    for filepath in sorted((DATA_DIR / INTERIM_YEAR).glob("*.json")):
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
 
