@@ -60,14 +60,12 @@ import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 // Using clean internal types only
 
 interface CourseSearchProps {
-  // Data
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
   availableTerms?: string[]
   selectedSections: Map<string, string>
   selectedSubjects?: Set<string> // Subject filter
   lastDataUpdate?: Date | null // Last data sync timestamp
-  // Handlers / callbacks
   onAddCourse: (
     course: InternalCourse,
     termName: string,
