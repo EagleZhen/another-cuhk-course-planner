@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T13:23:13.780608+00:00",
+    "subject": "AIMS",
+    "subject_title": "Artificial Intelligence",
+    "total_courses": 3,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "AIMS",
+      "course_code": "5704",
+      "title": "Machine Learning Theory",
+      "credits": "3.00",
+      "terms": [],
+      "description": "With machine learning and artificial intelligence now central to many disciplines, it is increasingly important to understand the theoretical tools that make these systems reliable and interpretable in practice. This course focuses on foundational theoretical ideas and analytical derivations that underlie standard machine learning and AI methods. Students will learn to reason about generalization and optimization in machine learning and apply theoretical frameworks to real-world AI workflows through Python-based mini-labs designed to connect theory with practical machine learning.\n\nThe course provides an introduction to key theoretical topics in machine learning, including probability and statistics for machine learning (basic concentration inequalities, maximum likelihood, exponential family models), generalization concepts (empirical versus true risk, VC dimension, and capacity norms), kernel methods and feature maps (Mercer’s theorem, representer theorem, and kernel-based learning), optimization theory (gradient descent and stochastic gradient descent, adaptive step-size methods AdaGrad and Adam), online learning and stochastic bandits (regret formulation, upper confidence bound, and Thompson sampling), and the theoretical foundations of generative modeling and diffusion models (score functions and Langevin dynamics).",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence;Pre-requisites: Linear algebra, probability, statistics; Not for students who have taken CSCI5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "1. Understand the standard theoretical ideas that form the foundation of modern machine learning and AI;\n2. Apply probability, statistics, and optimization tools to analyze how learning algorithms generalize and converge;\n3. Use theoretical frameworks of kernel methods, online learning, and bandits to address machine learning tasks;\n4. Relate theoretical principles to modern generative AI and diffusion models.",
+      "course_syllabus": "Week Topic\nW1: Probability and Linear Algebra in ML: Basic Definitions and Tools\nW2: Statistics in ML: Maximum Likelihood, Exponential Family models\nW3: Generalization in ML (Part 1): Empirical vs. Population Risk, Uniform Convergence Analysis\nW4: Generalization in ML (Part 2): VC Dimension, Generalization Bounds\nW5: Optimization in ML (Part 1): Gradient Descent, Convergence Analysis\nW6: Optimization in ML (Part 2): Stochastic Gradient Descent, Adaptive Optimization Methods (AdaGrad/Adam)\nW7: Kernel Methods in ML (Part 1): Representer Theorem, Kernel Learning\nW8: Kernel Methods in ML (Part 2): Neural Tangent Kernels, Generalization and Optimization in Deep Learning\nW9: Online Learning in ML (Part 1): Regret Formulation, Prediction with Expert Advice\nW10: Online Learning in ML (Part 2): Exploration–Exploitation Tradeoff, Greedy vs. ε-Greedy Algorithms\nW11: Online Learning in ML (Part 3):, UCB Algorithm, Thompson Sampling\nW12: Diffusion Models in ML (Part 1): Score function, Score-based Generative Modeling\nW13: Diffusion Models in ML (Part 2): Langevin dynamics, Diffusion-based Sampling as Iterative Denoising",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Selected response test or exam": "30"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Q&A sessions during class\n4. Consultation hours",
+      "required_readings": "Lecture Notes to be provided by course instructor.",
+      "recommended_readings": "1. Shai Shalev-Shwartz and Shai Ben-David, *Understanding Machine Learning: From Theory to Algorithms*, Cambridge University Press, 2014.\n2. Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar, *Foundations of Machine Learning*, 2nd Edition, MIT Press, 2018.\n3. Stephen Boyd and Lieven Vandenberghe, *Convex Optimization*, Cambridge University Press, 2004.\n4. Joe Suzuki, *Kernel Methods for Machine Learning with Math and Python*, Springer Singapore, 2022\n5. Tor Lattimore and Csaba Szepesvári, *Bandit Algorithms*, Cambridge University Press, 2020."
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5770",
+      "title": "Advanced Topics in Artificial Intelligence (I)",
+      "credits": "2.00",
+      "terms": [],
+      "description": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to understand the advanced topics along the latest development of Artificial Intelligence.",
+      "course_syllabus": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "To be provided by course instructor."
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5771",
+      "title": "Advanced Topics in Artificial Intelligence (II)",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty. This course is independent of AIMS5770. Students can take either course or both.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to understand the advanced topics along the latest development of Artificial Intelligence.",
+      "course_syllabus": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "To be provided by course instructor."
+    }
+  ]
+}

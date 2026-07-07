@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T15:43:01.669036+00:00",
+    "subject": "ESGS",
+    "subject_title": "Earth System and GeoInfo Sci",
+    "total_courses": 4,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "ESGS",
+      "course_code": "5006",
+      "title": "Principles of Hydrology",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Water is a major formative factor and driving force of the physical and biological environment. Water also provides a logical link between biophysical environment and the society. This course introduces the hydrologic concepts, principles, and techniques that are necessary to understand the occurrence, distribution, and circulation of water that pervades, links, and drives various components and processes of the Earth System. Emphasis will be placed on the various components in the land phase of the hydrologic cycle, including precipitation, evaporation and transpiration, infiltration and soil physics, and surface and subsurface flow to streams. Special topics on hydrologic modeling and impact studies will also be addressed.",
+      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nPracticum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Social Science",
+      "academic_org": "Div of Social Science",
+      "learning_outcomes": "To understand the concepts and basic principles of hydrologic cycle and the role of water in the earth and environmental systems;\nTo characterize and estimate the major components of hydrologic cycle;\nTo apply the knowledge and skills acquired to analyze the interactions of various hydrologic components and their influences on water availability and hazards;\nTo understand the general characteristics of water resources in Hong Kong, mainland China and the world",
+      "course_syllabus": "1. Introduction to hydrologic sciences\n2. Precipitation and interception\n3. Soil moisture and infiltration\n4. Evaporation and transpiration\n5. Runoff generation and streamflow\n6. Groundwater storage and flow",
+      "assessment_types": {
+        "Fieldwork or field study": "8",
+        "Homework or assignment": "15",
+        "Project": "32",
+        "Test or quiz": "45"
+      },
+      "feedback_evaluation": "by CTE",
+      "required_readings": "* Arnell, N, 2002. Hydrology and Global Environmental Change. Prentice Hall, Harlow, England. (UL: GB665.A76 2002)\n* Brooks, K.N., P.F. Ffolliott, and J.A. Magner, 2012. Hydrology and the Management of Watersheds (4th Edition). Iowa State University, Ames, Iowa. (UL E-book for online access)\n* Davie, T., 2008. Fundamentals of Hydrology. Routledge, London, England. (UL: GB661.2 .D38 2008)\n* Dunne, T., and L.B. Leopold, 1978. Water in Environmental Planning. W.H. Freeman and Company, New York, NY. (UL: TD160.D85)\n* Maidment, D.R. (ed.), 1993. Handbook of Hydrology. McGraw-Hill, New York, NY. (GB662.5.M35 1993)",
+      "recommended_readings": "* Mather, J.R., 1978. The Climatic Water Budget in Environmental Analysis. Lexington Books, Lexington, MA. (UL: GB848.M37)\n* Viessman, W., Jr., and G.L. Lewis, 2003. Introduction to Hydrology, 5th Edition. Harper Collins College Publishers, New York, NY. (UL: GB661.2.V44 2003)"
+    },
+    {
+      "subject": "ESGS",
+      "course_code": "5010",
+      "title": "Terrain analysis and digital terrain modelling",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Digital terrain modelling is important component of modern geo-spatial information technology. Natural terrain surface can be modelled using digital terrain models to form digital data sets that can further be used for terrain parameter derivation and feature interpretation, This subject aims to introduce students the basic concept of digital terrain modelling and analysis. Methods and techniques will be introduced for digital representation of 3-dimensional terrain surface and data structure of digital terrain data. The analytical tools and methods will also be introduced to derive terrain parameters and to extract geomorphic or terrain features from the terrain data. Applications of digital terrain modelling to hydrology soil, ecology and environment will also be discussed.",
+      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Social Science",
+      "academic_org": "Div of Social Science",
+      "learning_outcomes": "- Basic concepts and principles of digital terrain modelling\n- Data structure of digital terrain models and how it is generated and represented as 3-dimensional surface\n- Using methods to derive terrain parameters and extract terrain features from digital terrain models\n- Application of digital terrain modelling",
+      "course_syllabus": "1. Introduction of DEM\n2. Organization & Generation of DEM\n3. Visualization of DEM\n4. Principle of Digital Terrain Analysis\n5. Extraction of Terrain Attributes and feature\n6. Extraction of Typical Terrain Feature\n7. Hydrological Analysis\n8. DEM application in Regional Terrain Analysis & Engineering\n9. Uncertainty of DEMs and DTMs",
+      "assessment_types": {
+        "Examination": "60",
+        "Lab performance": "40"
+      },
+      "feedback_evaluation": "by CTE",
+      "required_readings": "* David F., Ph.D. Maune，Digital Elevation Model Technologies and Applications， Amazon Press，2007\n* Zhilin Li, Qing Zhu, Chris Gold Digital terrain modeling: principles and methodology. CRC Press, 2005\n* Qiming Zhou, Brian Lees, and Guo-an Tang, Advanced in Digital terrain Analysis, Springer Press, 2007\n* Wilson, J.P., Gallant, J.C., 2000, Terrain analysis: principles and applications, John Wiley & Sons, UK",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "ESGS",
+      "course_code": "5012",
+      "title": "Introduction to Earth Environmental Simulations and the Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course introduces the basic knowledge of earth environmental model simulations. Numerical models serve as important tools for earth environmental research and operations. While the topic of earth environmental modelling is broad, this course will focus on the fundamental concepts of numerical modelling, such as temporal and spatial discretizations, parameterizations, model uncertainty and evaluation. Various components of earth system model will be introduced, including atmospheric general circulation model, regional climate model, weather prediction and land surface model, oceanic general circulation model, air quality model, health assessment model and integrated assessment model. In addition, this course will discuss numerical model design, application and testing. Practical exercises such as weather forecast and air quality prediction are also provided for students to gain technical skills and hands-on experience in modelling.",
+      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Social Science",
+      "academic_org": "Div of Social Science",
+      "learning_outcomes": "After taking this course, students are expected to\n• understand basic concepts and theories of earth environmental modelling,\n• learn numerical model design, application and testing,\n• gain technical skills and practical experiences of earth environmental modelling,\n• select appropriate models for solving given earth environmental problems, and\n• apply the knowledge of numerical modelling on their research and career.",
+      "course_syllabus": "This course will introduce numerical simulation theories and technologies on earth systems which include abiotic complexes of atmosphere, hydrosphere, pedosphere and biotic elements of growth processes and population dynamics. The lectures and tutorials will provide students with basic knowledge on use of High Performance Computing simulations of the earth system dynamics, in particular, the global climate change and the adaptation and risk management.",
+      "assessment_types": {
+        "Examination": "40",
+        "Lab reports": "40",
+        "Project": "20"
+      },
+      "feedback_evaluation": "by CTE",
+      "required_readings": "* Philip J. Rasch, Climate Change Modeling Methodology: Selected Entries from the Encyclopedia of Sustainability Science and Technology, Springer; 2012 edition, 2012.\n* Eugenia Kalnay, Atmospheric Modeling, Data Assimilation and Predictability, Cambridge University Press, 2002.\n* Martin Beniston, From Turbulence to Climate: Numerical Investigations of the Atmosphere with a Hierarchy of Models, Springer, 1997.",
+      "recommended_readings": "1) Luca Bonaventura, René Redler, Reinhard Budich. Earth System Modelling - Volume 2 [electronic resource]: Algorithms, Code Infrastructure and Optimisation. Berlin, Heidelberg : The Authors 2012.\n2) Jonathan L. Bamber and Antony J. Payne. Mass balance of the cryosphere: observations and modelling of contemporary and future changes. Cambridge ; New York : Cambridge University Press 2004.\n3) Mark Z. Jacobson, Fundamentals of atmospheric modelling. Cambridge ; New York : Cambridge University Press 1999.\n4) Philip W Mote; Alan O'Neill. Numerical modelling of the global atmosphere in the climate system. Dordrecht ; Boston : Kluwer Academic Publishers c2000.\n5) John H. Seinfeld, Spyros N. Pandis. Atmospheric chemistry and physics : from air pollution to climate change. New York : John Wiley c1998.\n6) Asante-Duah, Kofi. Public Health Risk Assessment for Human Exposure to Chemicals. Dordrecht: Springer 2017."
+    },
+    {
+      "subject": "ESGS",
+      "course_code": "5019",
+      "title": "Global Navigation Satellite System (GNSS) and Sensor Network for Environmental Monitoring",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course describes broad principles of Environmental Sensor Network (SN), the integration with positioning technologies and its roles in contemporary environmental studies and smart cities developments. The integration of SN and positioning technologies offers a powerful combination of distributed sensing capacity, real time data visualization and spatial analysis and integration with remote sensing data sources. The combined technologies are greatly needed in large-scale environmental monitoring and Smart Cities developments.\n\nAnother half of the course introduces the Global Navigation Satellite System (GNSS) and other indoor positioning technologies. It covers the basic principles, advanced techniques as well as their applications in Earth System Sciences and urban management. With the background knowledge and the practical skills, students shall be able to integrate GNSS and SN in their future research and studies.",
+      "enrollment_requirement": "For students of MSc in Geo-survey and Public Management, MSc in Environmental Information, Health and Public Management and MPhil-PhD in Earth System and GeoInformation Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Social Science",
+      "academic_org": "Div of Social Science",
+      "learning_outcomes": "With the background knowledge and the practical skills, students shall be able to integrate GNSS and SN in their future researches and studies.",
+      "course_syllabus": "1. The Big Picture: Smart City, Big Data and Wireless Environmental Sensor Network\n\n2. Basics of Wireless Communication, sensor node and sensor network\n\n3. Spatial analysis and sensors network\n\n4. Building and Planning a sensor network\n\n5. Indoor Positioning Technologies\n\n6. GNSS Basic 1: Satellite Signal and Error Source\n\n7. GNSS Basic 2: Positioning Methods\n\n8. GNSS and SN Integration\n\n9. Application of GNSS & SN I - Smart City\n\n10. Application of GNSS & SN II - Locational-based Services (LBS)\n\n11. Application of GNSS & SN III - Earth System Science",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Lab reports": "40",
+        "Others": "30"
+      },
+      "feedback_evaluation": "by CTE",
+      "required_readings": "1. Building Wireless Sensor Network / Robert Faludi, O’Reilly\n2. Introduction to GPS : the Global Positioning System / Ahmed El-Rabbany, Artech House\n3. Indoor Wayfinding and Navigation / H. A. Karimi, CRC Press",
+      "recommended_readings": "1. Handbook of Sensor Networks – Algorithm and Architectures / Ivan Stojmenovic, Wiley-Interscience\n2. Integrated approach to environmental data management systems / Nilgun B. Harmancioglu, Kluwer Academic\n3. Understanding GPS : principles and applications / Elliott D. Kaplan, Christopher J. Hegarty, editors. Boston : Artech House, c2006.\n4. Introduction to GPS : the Global Positioning System / Ahmed El-Rabbany, El-Rabbany, Ahmed.\n5. GPS: theory, algorithms and applications / Guochang Xu.New York : Springer, 2003."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T16:19:06.000730+00:00",
+    "subject": "GISM",
+    "subject_title": "Geoinformation Science",
+    "total_courses": 1,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "GISM",
+      "course_code": "5024",
+      "title": "Global Positioning Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course covers the basic principles of Global Positioning Systems (GPS): observables, error sources and their reduction, and positioning techniques. Other systems of Global Navigation Satellite Systems (GNSS) will also be introduced. Applications of GNSS in various fields will be discussed, including navigation, Intelligent Transport Systems (ITS), Location Based Services (LBS), engineering, and atmosphere sensing. Through hands-on exercises, students will learn how to use GPS devices to collect data in the field in support of various geospatial applications.",
+      "enrollment_requirement": "For students in MSc Geoinformation Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Geo & Resource Mgt",
+      "academic_org": "Div of Geo & Resource Mgt",
+      "learning_outcomes": "At the end of the course, students are expected to:\n- Master the GPS navigation and positioning techniques and the measures to improve the results;\n- Understand how GNSS can be applied in various fields and the ways to resolve the relevant issues of application;\n- Employ GPS receivers to collect the data for various geospatial applications.",
+      "course_syllabus": "L1: GPS/GNSS: the concept\n\nL2: GPS observables\n\nL3: Coordinate/time systems\n\nL4: Positioning with pseudo-ranges\n\nL5: Positioning with carrier phases\n\nL6: RTK and precise point positioning (PPP)\n\nL7 & 8: GPS Applications in navigation &LBS\n\nL9: GPS Applications in engineering\n\nL10: GPS Applications in atmosphere sensing\n\nL11: GPS modernization & other GNSS systems",
+      "assessment_types": {
+        "Examination": "40",
+        "Lab reports": "20",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "Course and Teaching Evaluation (CTE)",
+      "required_readings": "* Ahmed El-Rabbany, Introduction to GPS - The Global Positioning System, Artech House 2002. [G109.5 .E6 2002](http://library.cuhk.edu.hk/search/cG109.5+.E6+2002/cg+++109.5+e6+2002/-5,-1,,E/browse)\n* B. Hofmann-Wellenhof, H. Lichtengtengger, and J. Collins , Global Positioning System Theory and Practice, Springer-Verlag New York. 2001. [TL798.N3 H64 2001](http://library.cuhk.edu.hk/search/cTL798.N3+H64+2001/ctl++798+n3+h64+2001/-5,-1,,E/browse)\n* Chris Dane, Chris Rizos, Positioning systems in intelligent transportation systems, Artech House, 1998. [TE228.3 .D73 1998](http://library.cuhk.edu.hk/search/cTE228.3+.D73+1998/cte++228.3+d73+1998/-5,-1,,E/browse)\n* Jeff Thurston, Thomas K. Poiker, J. Patrick Moore, Integrated geospatial technologies: a guide to GPS, GIS, and data logging, John Wiley, c2003. [G70.212 .T54 2003](http://library.cuhk.edu.hk/search/cG70.212+.T54+2003/cg++++70.212+t54+2003/-5,-1,,E/browse)\n* John Spencer ... [et al.], Global Positioning System : a field guide for the social sciences, Malden, Mass. : Blackwell Pub., 2003. [G109.5 .G56 2003](http://library.cuhk.edu.hk/search/cG109.5+.G56+2003/cg+++109.5+g56+2003/-5,-1,,E/browse)\n* Michael Kennedy, The Global Positioning System and GIS, London: Taylor & Francis, 2002. [G109.5 .K46 2002](http://library.cuhk.edu.hk/search/cG109.5+.K46+2002/cg+++109.5+k46+2002/-5,-1,,E/browse)\n* Rick Broida, How to do everything with your GPS, Emeryville, McGraw-Hill/Osborne, 2004. [G109.5 .B76 2004](http://library.cuhk.edu.hk/search/cG109.5+.B76+2004/cg+++109.5+b76+2004/-5,-1,,E/browse)\n* SPILKER Jr., J.J. & PARKINSON, B.W. (eds.), 1995. Global Positioning Systems: Theory &Applications. American Institute of Aeronautics & Astronautics (AIAA), 1995, Vol.1,Vol.2. [TL507 .P75 v.163-164](http://library.cuhk.edu.hk/search/cTL507+.P75+v.163-164/ctl++507+p75+v++163+164/-5,-1,,E/browse)\n* Tsui, J.B.Y., Fundamentals of Global Positioning System Receivers: A Software Approach, Published By: John Wiley & Sons, Inc., 2000. [G109.5 .T85 2000](http://library.cuhk.edu.hk/search/cG109.5+.T85+2000/cg+++109.5+t85+2000/-5,-1,,E/browse)\n\n* http://earth-info.nga.mil/GandG/sathtml/\n* http://igscb.jpl.nasa.gov/\n* http://science.nasa.gov/SpaceScience.htm\n* <http://www.gmat.unsw.edu.au/snap/gps/about_gps.htm>\n* <http://www.unb.ca/gge>\n* <http://europa.eu.int/comm/dgs/energy_transport/galileo/video/index_en.htm>\n* Journal of GNSS solutions\n* GPS world ([www.gpsworld.com](http://www.gpsworld.com))",
+      "recommended_readings": "Please refer to the list above."
+    }
+  ]
+}

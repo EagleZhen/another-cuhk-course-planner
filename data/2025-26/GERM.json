@@ -1,0 +1,1631 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T16:14:32.722164+00:00",
+    "subject": "GERM",
+    "subject_title": "German",
+    "total_courses": 12,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "GERM",
+      "course_code": "1000",
+      "title": "German I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (9558)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "15",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "BC01-CLW (9559)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 404",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "15",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "CC01-CLW (4745)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "9",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "DC01-CLW (5821)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "23",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "EC01-CLW (9381)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "12",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "FC01-CLW (4747)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "14",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "GC01-CLW (9102)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "18",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "HC01-CLW (9183)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "23",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "IC01-CLW (9197)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "21",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "JC01-CLW (7764)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg 208",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg 208",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg 208",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "22",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "KC01-CLW (9148)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 713",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "17",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1273)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "23",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "As the first in a series of six language courses, this course invites students without prior knowledge of German to explore the basic features of the German language. Supported by audiovisual aids, students will receive intensive practice in spoken and written German through interactive class work, homework and online exercises. They will become familiar with the basic concepts of German grammar and learn how to interact in some simple everyday situations.",
+      "enrollment_requirement": "Not for students who have taken GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to deal with some simple daily situations in German such as greeting somebody and exchanging basic personal information with someone in a social gathering, talking about languages and professions, making assumptions, talking about preferences for food and drinks and going shopping.",
+      "course_syllabus": "GERM1000\n\nThe course covers the first 3 units of the textbook “*Kontakte, German I and German II”*.\n\n| Chapter | Topics | Culture | Structures |\n| --- | --- | --- | --- |\n| Einführung A (Introduction A) | requests names clothes and colours greetings numbers | first names colours as symbols German way of counting German way of writing | A.1 Giving instructions: Polite commands A.2 What’s your name? The verb *heißen* A.3 The German case system A.4 Grammatical gender: Nouns and pronouns A.5 Addressing people: *Sie* versus *du* |\n| Einführung B (Introduction B) | The classroom Descriptions Our body Our family Weather and seasons Nationality and origins | What is important in life? Weather and climate The location of Germany in Europe | B.1 Definite and indefinite articles B.2 Who are you? The verb *sein* B.3 What do you have? The verb *haben* B.4 Plural forms of nouns B.5 Personal pronouns B.6 Origins: Woher kommen Sie? B.7 Possessive adjectives: *mein* and *dein/Ihr* |\n| Chapter 1 | Spare time School and university Daily routine Personal information | Leisure time German school system | 1.1 The present tense 1.2 Expressing likes and dislikes : gern/nicht gern 1.3 Telling Time 1.4 Word order in statements 1.5 Separable préfix verbs 1.6 Word order in questions |",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "25",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: (available at The Commercial Press University Bookstore)\n\n• Tschirner, Nikolai, Terrell (2012) Kontakte, German I & German II, Singapore: McGraw-Hill.\n\nReadings & references:\n\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n\nWeb-based learning support:\n\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n\n• Leo online dictionary (English-Chinese, English German www.leo.org)\n\n• Please refer to the Blackboard sites for GERM1000 and GERM0000 for online exercises and further materials",
+      "recommended_readings": "Textbook: (available at The Commercial Press University Bookstore)\n\n• Tschirner, Nikolai, Terrell (2012) Kontakte, German I & German II, Singapore: McGraw-Hill.\n\nReadings & references:\n\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n\nWeb-based learning support:\n\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n\n• Leo online dictionary (English-Chinese, English German www.leo.org)\n\n• Please refer to the Blackboard sites for GERM1000 and GERM0000 for online exercises and further materials"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "1001",
+      "title": "First Step in German",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (8745)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "26",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "124",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8525)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "42",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "108",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1372)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "24",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "126",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "[This course is offered via asynchronous online mode. Students should register the course via KEEP, a CUHK eLearning platform where the course materials are uploaded.]\n\nThis online self-learning course invites students without prior knowledge of German to explore some basic features of the German language and culture through a virtual journey. Based on texts, audio and video input, and interactive tasks, students will be able to practice both spoken and written German. This course serves as a taster course for students who may consider taking German courses at CUHK in the future.",
+      "enrollment_requirement": "Not for students who have taken GERM1000,2000,2001,2050,3000,3001,3002,3050,3051or4001\nFrom 2023-24, students can only earn up to 2 units of these courses: CLCP1001,CLCP1101,CLCC1001,CLCC1101,JASP1350,HKSL1001,SPAN1001,GERM1001,KORE1001,FREN1001",
+      "course_attributes": "Virtual Teaching & Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, students are expected to be able to\n• understand basic features of the German language;\n• understand selected information related to German culture;\n• identify “international” loanwords (e.g. “kindergarten”) as a helpful means to understand vocabulary;\n• recognise the relationship between English and German in terms of vocabulary;\n• apply basic structures to simple everyday situations, e.g. greetings, introducing oneself and others, expressing food preferences and dislikes, and talking about hobbies;\n• implement independent learning as part of their learning experience.",
+      "course_syllabus": "| | **Course Content** | | |\n| --- | --- | --- | --- |\n| **Sections** | **Speech acts/Topics** | **Grammar** | **Culture** |\n| **Unit 1** Introducing yourself | * Greeting people * Introducing oneself * Giving and asking basic personal information * The German alphabet * Pronouncing and spelling simple words | * Formal and informal form of address; personal pronouns * selected verbs and their conjugation: sein, kommen, heißen * interrogative pronouns, and question | * Greetings and their regional differences: Guten Tag, Auf Wiedersehen, Hallo, Tschüs, Grüezi, Ade.... * German names and surnames * Formal and informal use of language * German-speaking countries: die Schweiz, Österreich, Deutschland |\n| **Unit 2** Languages and Countries | * Talking about countries and languages * Talking about other people * Saying “Yes” and “No” | * The 3rd person singular of the present tense * The verb “to speak” * Yes (*“ja”*) and No (*“nein”*) in the sentence * numbers 0-9 | * Geographical names/languages: Deutschland, Deutsch, etc. * International words: Taxi, Information, Polizei, Restaurant, Bar, Telefon etc. |\n| **Unit 3** Food! | * Talking about food * Expressing likes/dislikes * Understanding prices * Ordering at restaurants | * The verbs “*mögen*”, “*trinken*”, “*essen*” in singular * negation with “*nicht*” * The verb “*nehmen*” in singular * The usage of “*bitte*”, “*danke*” | * Typical dishes of German-speaking countries * Information about and names of selected dishes, and their regional prevalence * German restaurant etiquette and ordering |\n| **Unit 4** Spare-time activities | * Discussing hobbies * Expressing preference for various spare time activities | * Verb conjugations in the plural * Sentences with “*gerne*” * The verb “*finden*” | * German football: Culture, clubs, players etc. * Other popular sports: Biathlon, skiing, tennis,... |",
+      "assessment_types": {},
+      "feedback_evaluation": "An online course evaluation exercise will be conducted at the end of the course, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Course website: Moodle@Keep\n[https://moodle.keep.edu.hk/](http://moodle.keep.edu.hk/)\n\nOnline resources:\n• Leo online dictionary (English-Chinese, English German [www.leo.org/](http://www.leo.org/) )\n• German as a foreign language on Youtube\n[https://www.youtube.com/channel/UCbxb2fqe9oNgglAoYqsYOtQ](http://www.youtube.com/channel/UCbxb2fqe9oNgglAoYqsYOtQ)\n• German Music channel on Youtube (suggestions welcome):\nhttps://[www.youtube.com/playlist?list=PL2e0DtFeEEi1qOlAnzixOIgOb-elJQqfg](http://www.youtube.com/playlist?list=PL2e0DtFeEEi1qOlAnzixOIgOb-elJQqfg)",
+      "recommended_readings": "• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "1100",
+      "title": "Germany Today",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-C01-CLW (4746)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 712",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "20",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "Germany was a once divided nation with complex historical background and rich culture which continuously attracts international interest. This course investigates trends and developments in contemporary German culture and society from a cross-cultural perspective, taking into consideration the historical events of different generations in Germany. Students will be encouraged to compare and critically analyze the reflections about Germany and their own society. The course content will be presented by up-to-date audiovisual materials. No knowledge of German is required.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "The aim of this course is to let students explore different aspects of German culture and society and make them think about the source of behaviour, customs and attitudes, while comparing with Hong Kong and Chinese behaviours. The famous German poet Goethe included in his concept of culture clothing and food, history and philosophy, art and science, children’s games and sayings, climate and landscapes, economy and literature, political and private life. Although the course can not cover all aspects, it will give students an idea about German mentality and ways of thinking and refer them back to their own background. One needs to be aware of one’s own background to discover the identity of the other.",
+      "course_syllabus": "1 Introduction, Perception\n\n2 Germany in Movies\n\n3 Heimat, Population\n\n4 National Anthem\n\nReading: Geography, Population, Language\n\n5 Geography\n\n6 “\n\n7 Leisure Life\n\n8 Student Presentation\n\nReading: Holidays, Customs, Leisure\n\n8 Festivals\n\n9 Student Presentation\n\n10 Education System\n\n11 Student Presentation\n\nReading :Structures of Education\n\n12 Mid-Term Test\n\n13 Student Presentation\n\n14 History\n\n15 Student Presentation\n\nReading: Modern German History\n\n16 Resistance\n\n17 Student Presentation\n\nReading: How far could German Resistance have changed the course of History?\n\n19 Women\n\n20 Student Presentation\n\nReading: Women, Marriage and Education\n\n21 German Cuisine\n\n22 Student Presentation\n\nReading: Food, Wine, Beer and Fashion\n\n23 Music\n\n24 Student Presentation\n\nReading: The Performing Arts: Music\n\n25 Loriot/ Comedians\n\n26 Final Test",
+      "assessment_types": {
+        "Essay test or exam": "20",
+        "Others": "10",
+        "Presentation": "30",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Core Reading:\n\nGerman Federal Office (ed.) Facts about Germany. Berlin 2005\n\nhttp://www.tatsachen-ueber-deutschland.de\n\nBernstein, Eckhard: Culture and Customs of Germany. Westport: Greenwood Press, 2004.\n\nLewis, Derek: Contemporary Germany. A Handbook. London: Oxford University Press, 2001.\n\nFraser, Catherine C, Hoffmann, Dierk O. Pop Culture Germany! Santa Barbara: ABC-CLIO, 2006",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "GERM",
+      "course_code": "2000",
+      "title": "German II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (9537)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Archi Bldg G02",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "20",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "BC01-CLW (9269)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "15",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "CC01-CLW (6647)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 411",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 411",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 411",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "9",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "DC01-CLW (5831)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Y.C. Liang Hall G06",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Y.C. Liang Hall G06",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Y.C. Liang Hall G06",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "8",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "16",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "EC01-CLW (4825)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "8",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "16",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1196)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "13/5, 20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "21/5, 28/5"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "21",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "Building on the knowledge acquired in GERM1000, this course aims to further develop students’ ability to communicate in German in various everyday situations. It also seeks to give students a taste of German culture and invites them to explore cultural differences. Through intensive practice students will develop more confidence in interacting in German while further expanding and solidifying their understanding of the basic grammar and pronunciation patterns.",
+      "enrollment_requirement": "1. Not for students who have taken GERM2001,2050,3000,3001,3002,3050,3051 or 4001\n2. Prerequisite: GERM1000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to deal with some simple daily situations in German such as\n- Shopping in a supermarket\n- Talking about family and relatives\n- Discussing daily routines and leisure activities\n- Giving/receiving directions and telling time",
+      "course_syllabus": "| Course Content: the course will cover units 4 to 7 of Tangram Aktuell 1 (vol. 1 and 2) | | |\n| --- | --- | --- |\n| 4 Im Supermarkt In the supermarket | - Shopping in the supermarket - Finding your way around the supermarket - Asking politely for advice and assistance | - Dative case of personal pronouns and locations - Imperative - Food, measurements and packaging |\n| 5 Arbeit und Freizeit Work and leisure | - Discussing advantages and disadvantages - Leisure activities - Telling time and making appointments - Dates - Expressing frequency | - Modal verbs - Locations and directions - Expressing time - Ordinal numbers |\n| 6 Familie und Haushalt Family and household | - Family and relatives - Discussing household chores - Daily routines | - Possesive articles - Separable prefix verbs - two-way prepositions - conjunctions (*und, aber, oder*) |\n| 7 Berlin! Berlin! | - Giving/receiving directions - Speaking about past events - Discussing favorite places | - Locations and directions - The present perfect tense - Past perfect participle - Personal pronouns in the accusative case |",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "30",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: (available at The Commercial Press University Bookstore)\n• Tschirner, Nikolai, Terrell (2012) Kontakte, German I & German II, Singapore: McGraw-Hill.\n\nReadings & references:\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n• Please refer to the Blackboard site for GERM2000 for further materials and online-exercises",
+      "recommended_readings": "Textbook: (available at The Commercial Press University Bookstore)\n• Tschirner, Nikolai, Terrell (2012) Kontakte, German I & German II, Singapore: McGraw-Hill.\n\nReadings & references:\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n• Please refer to the Blackboard site for GERM2000 for further materials and online-exercises"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "2001",
+      "title": "German III",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (6637)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Ms. Annette Josefa Maria FROMEL",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "10",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            },
+            {
+              "section": "BC01-CLW (6631)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "16",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1383)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "6",
+                "enrolled": "7",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to further enhance students’ communication skills in the four language domains listening, speaking, reading and writing. Students are expected to communicate confidently in a wider range of social interactions including more formal situations and simple professional contexts as well as reporting past events and sharing experience. At the end of this course, students will have completed a proficiency level comparable to level A1 of the Common European Framework of Reference for Languages (CEFR).",
+      "enrollment_requirement": "1. Not for students who have taken GERM3000,3001,3002,3050, 3051 or 4001\n2. Prerequisite: GERM2000 or 2050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to deal with a range of situations in German such as\n• discussing one’s living situation;\n• discussing holiday and vacation;\n• reporting about Germany and one’s own country;\n• talking about health and nutrition;\n• talking about events of the past.",
+      "course_syllabus": "| Course Content: The course will cover 4 units of the textbook Studio D A1. | | |\n| --- | --- | --- |\n| Lesson | Speech acts | Grammar |\n| Station 2 | Revision of Einheit 5-8 | |\n| 9. Ferien und Urlaub (Holiday and vacation) | - Talk about holidays and vacation in different European countries - Describe an accident - Describe one’s own vacation | - Perfect tense of regular and irregular verbs |\n| 10. Essen und Trinken (Food and drinks) | - Shopping: handle conversations in a shop, such as request for items, ask for prices - Talk about food, likes and dislikes - Understand and explain a recipe | - Frequency: jeden Tag, manchmal, nie - Question Word: welch- - Comparatives: viel, gut, gern |\n| 11. Kleidung und Wetter (Clothing and weather) | - Talk about clothes - Buy clothes - Give information on colours and sizes - Understand weather information - Talk about the weather | - Adjectives in Akkusativ – indefinite articles - Demonstrative pronouns: dieser – dieses – diese/ der – das - die - Personal pronoun: es |\n| 12. Körper und Gesundheit (Body and health) | - Name body parts - Express health problems and where it hurts - Give recommendations and instructions - Write a letter | - Imperatives - Modal Verb dürfen - Personal pronouns in Akkusativ |",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "25",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: (available at University Bookstore)\n\nTangram Aktuell 2, Lektion 1-4, by Dallapiazza, Rosa-Maria / von Jan, Eduard / Schönherr, Till, Ismaning: Hueber Verlag 2009\n\nReadings & references:\n\n• Reimann, Monika (2001): Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996): Modern German grammar: a practical guide. London: Routledge\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n• Please refer to the Moodle site for GERM2001 for further materials and exercises",
+      "recommended_readings": "Textbook: (available at University Bookstore)\n\nTangram Aktuell 2, Lektion 1-4, by Dallapiazza, Rosa-Maria / von Jan, Eduard / Schönherr, Till, Ismaning: Hueber Verlag 2009\n\nReadings & references:\n\n• Reimann, Monika (2001): Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996): Modern German grammar: a practical guide. London: Routledge\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n• Please refer to the Moodle site for GERM2001 for further materials and exercises"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "2020",
+      "title": "Sounds of German",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "-C01-CLW (9192)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 410",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 410",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "17",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an introduction to the phonetic system of the German language, with an emphasis on the similarities and differences between German and English pronunciation. Illustrations and examples will be taken from modern spoken German. Students learning German are encouraged to take this course.",
+      "enrollment_requirement": "Prerequisite: GERM2000,2001,2050,3000,3001,3002,3050,3051 or 4001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "- To learn about different forms of Sounds in the German language\n\ne.g. dialogues, prose, poems, rhymes, songs etc.\n\n- to get acquainted with the German phonetic structure\n\n- to improve pronunciation and intonation\n\n- to speak better German\n\n- to have fun with the German language",
+      "course_syllabus": "First contact + Adjustment of standard\n\nThe 5 vowels (long and short)\n\nThe long vowel of O and E and the endings\n\nThe Umlauts : Ä, Ö and Ü and\n\nthe Diphthongs au / eu / ei\n\nThe sounds of “ch” and “sch”\n\nThe sounds of “R”\n\nHoliday (Chung Yeung Festival)\n\nThe sounds of the numbers\n\nMid Term Test\n\nThe melody\n\nThe accent and the rhythm\n\nCombination and changes\n\nThe tongue-twisters\n\nFinal Test",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "30",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Our language programme highly values students’ feedback and comments and is happy to use them for reflection on our\n\nteaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their\n\ncourse teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks\n\nwill be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in\n\nclass and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the\n\nend of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Hand-outs will be given during class, contents will include phonetic instructions, reading materials, and homework exercises. There is no need to buy a text-book, although the course of instruction is based on the German phonetic Video Course “SIMSALABIM”. [Langenscheidt: Ursula Hirschfeld und Kerstin Reinke]",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "GERM",
+      "course_code": "2200",
+      "title": "German Cinema",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (9302)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "12",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "German cinema has always captured the attention of the world. This course is an introduction to the history and major developments in German cinema. It explores the language of cinema and the aesthetic strategies used by filmmakers. Through analyses and discussions about the making and content of the films,\nstudents will not only get to know the films as entertaining art, but embed them in a social and historical context. Films are screened outside class hours. All films are with English subtitles, all readings and discussions in English. No knowledge of German is required.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, students can:\n• analyze key works of German cinema since the 1990s\n• explore the relationship between film and culture/history\n• talk about differences and similarities between film and one’s own perception of culture\n• analyze several aesthetic and cultural concepts related to film\n• analyze film scenes using tools learned during the course",
+      "course_syllabus": "| **Week** | **Movie** | **Film language** | **Culture/ History** |\n| --- | --- | --- | --- |\n| Week 1 | | Film language: Introduction Film posters Trailer | German Cinema: Introduction |\n| Week 2 | **Run Lola Run** Original: Lola rennt Year: 1998 Director: Tom Tykwer | Genre Opening Credits Symbols and motifs | A thriller film following several runs of a woman (Lola). Short, innovative, and highly unique. |\n| Week 3 | **Run Lola Run** | Characters Sound Camera | contemporary urban life |\n| Week 4 | **Run Lola Run** | Camera | free will vs determinism |\n| Week 5 | **Good Bye Lenin**! Year: 2003 Director: Wolfgang Becker | Lighting | A comedy film about a boy who keeps the life of his mother firmly rooted in a world that no longer exists for the sake of her health. A lighter film set in the rapidly changing world. Fall of the Wall (East and West Germany) German reunification |\n| Week 6 | **Good Bye Lenin**! | *Mise-en-scene* | Values (loss of GDR culture) Attitude towards life |\n| Week 7 | **The Edukators** Original: Die fetten Jahre sind vorbei Year: 2004 Director: Hans Weingartner | Genre Set & Costumes | ``` ``` ``` The film is about the unconventional methods, opportunities and difficulties of young adults to engage in social injustice. ``` ``` ``` social injustice (methods, possibilities, difficulties) |\n| Week 8 | **The Edukators** | Camera Sound | The 1968 generation (today’s social status, ideational legacy) forms of protest |\n| Week 9 | **The Lives of Others** Original: Das Leben der anderen Year: 2006 Director: Florian Henckel von Donnersmarck | Sound | “Lives of Others” is one of the most powerful films depicting the dystopian invasion of personal privacy and political murder committed by the East German regime. The GDR regime Stasi: The secret police of GDR |\n| Week 10 | **The Lives of Others** | Directors and acting *Mise-en-scene* | “Lives of Others” is one of the most powerful films depicting the dystopian invasion of personal privacy and political murder committed by the East German regime. surveillance and privacy protection |\n| Week 11 | **Downfall** Original: Der Untergang Year: 2004 Director: Oliver Hirschbiegel | Script | Downfall” is a film depicting the last days of the Nazi party. It is a critically acclaimed movie that gives a personal look into the face of evil. Nazi Germany |\n| Week 12 | **Downfall** | *Mise-en-scene* | Right-wing extremism |\n| Week 13 | | | Summary and discussions |",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "20",
+        "Homework or assignment": "20",
+        "Presentation": "25",
+        "Participation": "15"
+      },
+      "feedback_evaluation": "Our language programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "https://moodle.keep.edu.hk/\nAnnouncements over the Blackboard site GERM0000",
+      "recommended_readings": "• Brockmann, Stephen, A Critical History of German Film (Rochester, NY: Camden House, 2010)\n• Barsam, Richard and David Monahan, Looking at Movies (W. W. Norton & Company; Fifth edition (2015)\n• Bordwell, David and Kristin Thompson, Film Art: An Introduction (New York: McGraw-Hill, 2009).\n• Elsaesser, Thomas and Michael Wedel, The BFI Companion to German Cinema (London: British Film Institute, 1999).\n• Hake, Sabine, German National Cinema (London: Routledge, 2008).\n• Cooke, Paul and Chris Homewood, New Directions in German Cinema (London: I.B. Tauris, 2011)\n• Clarke, David (ed.), German Cinema since Unification (London: Continuum, 2006)\n\nOnline resources:\n• German-Films: http://www.german-films.de/\n• Goethe-Institut: https://www.goethe.de/en/kul/flm.html\n• The Film experience: http://thefilmexperience.net/\n• Rotten Tomatoes: https://www.rottentomatoes.com/\n• Quizlet: https://quizlet.com/"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "3000",
+      "title": "German IV",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AC01-CLW (5833)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 308",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 308",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 308",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 308",
+                  "instructor": "Mr. Bernd ESCH",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "18",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1384)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "4/6, 11/6, 18/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "5/6, 12/6"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at increasing students' communicative fluency in oral and written German. Using a variety of classroom activities and multimedia, students will build up their competence in the four language domains listening, speaking, reading and writing. Through intensive practice they will be able to communicate in a wide range of social situations with the appropriate awareness of the pragmatic rules involved. Students receive guidance in the process of composing longer texts displaying a range of registers and styles relating to past, present and future events.",
+      "enrollment_requirement": "1. Not for students who have taken GERM3001,3002,3050,3051 or 4001\n2. Prerequisite: GERM2001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to:\n- Talk about his or her learning biography\n- Talk about family and related issues\n- Plan or book a trip in German\n- Speak about hobbies.",
+      "course_syllabus": "| Course Content: The course will cover 4 units of the textbook Studio D A2. | | |\n| --- | --- | --- |\n| Lesson | Speech acts | Grammar |\n| 1. Sprachen und Biografien | - Talking about languages - Giving reasons - Talking about one’s own learning biography | - Subordinate clause with ‘weil’ - Comparatives - Comparison of ‘wie’ and ‘als’ - Superlatives: ‘am höchsten’, ‘am weitesten’ |\n| 2. Familienalbum | - Talking about family and family celebrations - Describing photos and persons - Congratulating someone, inviting someone - Expressing views | - Possessive articles in ‘Dativ’ - Adjectives in ‘Dativ’ - Subordinate clauses with ‘dass’ - Genitive |\n| 3. Reisen und Mobilität | - Talking about a journey - Expressing assumptions: *wahrscheinlich/ vielleicht* - Reading travel itineraries - Planning and booking a trip - Expressing contraries: *aber* - Expressing alternatives: *oder* | Modal verb: *sollen* |\n| 4. Aktiv in der Freizeit | - Talking about leisure time activities - Speaking about hobbies and interests - Reacting positively or negatively | - Reflexive pronouns - Verbs with prepositions - Indefinite words |",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "25",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: (available at Commercial Press University Bookstore)\n• Tschirner, Nikolai, Terrell (2013) Kontakte, German III and German IV\n\nReadings & references:\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\nWeb-based learning support:\n• Online homework can be found on Blackboard https://elearn.cuhk.edu.hk\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• Leo online dictionary (German/English /Chinese www.leo.org )\n• Please refer to the Blackboard sites GERM2001 and GERM0000 for online exercises and further materials",
+      "recommended_readings": "Textbook: (available at Commercial Press University Bookstore)\n• Tschirner, Nikolai, Terrell (2013) Kontakte, German III and German IV\n\nReadings & references:\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\nWeb-based learning support:\n• Online homework can be found on Blackboard https://elearn.cuhk.edu.hk\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• Leo online dictionary (German/English /Chinese www.leo.org )\n• Please refer to the Blackboard sites GERM2001 and GERM0000 for online exercises and further materials"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "3001",
+      "title": "German V",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (4748)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "15",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1388)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "13/5, 20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "21/5, 28/5"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "6",
+                "enrolled": "11",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on the further development of communication skills in German with emphasis on the expression of personal views and the training of argumentative strategies. The course will also engage students in critical reflections on various aspects of life in German-speaking countries and their own social environment. Students will be guided to analyze various types of data to support their views. They will learn how to express their wishes and aspirations using the appropriate registers.",
+      "enrollment_requirement": "1. Not for students who have taken GERM3002,3051 or 4001\n2. Prerequisite: GERM3000 or GERM3050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to:\n- describe locations while reporting about features of nature, geography and scenery in Germany.\n- discuss causes and consequences from various perspectives in discussions of family relationships.\n- report about events of the past, both in discussion of individual experience and in (re-)narrating stories.\n- identify basic generic elements of a fairy tale comparing/contrasting these elements across versions.",
+      "course_syllabus": "| Course Content: The course will cover the units 5 - 8 of the textbook Studio D A2. | | |\n| --- | --- | --- |\n| Lesson | Speech acts | Grammar |\n| Unit 5: “Medien” Media | - talking about media - writing personal messages (sms, email) - making a complaint (about quality) | - indirect questions in subordinate sentences: if-sentences, indirect questions with interrogatives - adjectives without article -indefinite pronouns: „niemand, wenige, viele, alle“ |\n| Unit 6: „Ausgehen“ Going out | - leisure time activities – expressing preferences - reading a restaurant menu - ordering in a restaurant - talking about dating and contacts | - Personal pronouns in Dativ („mit dir, mit ihm“) - Relative clause, relative pronouns in Nominativ and Akkusativ |\n| Unit 7: “Zu Hause” At home | - talking about living in the city and in the countryside - analyzing property advertisements - looking for an apartment - planning to move house - reporting accidents in the household | - modal verbs in simple past - subordinate clauses with “als” |\n| Unit 8: “Kultur erleben” Experience culture | - talking about cultural interests - planning a city tour - going to the theatre - talking and writing about events in the past | - temporal adverbs “damals, früher / heute,jetzt“ - verbs in simple past - perfect tense and simple past |",
+      "assessment_types": {
+        "Essays": "10",
+        "Essay test or exam": "50",
+        "Others": "25",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbooks:\n• Reader with texts will be handed out in class\n• Link, Caroline (1996) Jenseits der Stille (DVD) (available at Amazon and in the CUHK library). Purchase of this material is mandatory.",
+      "recommended_readings": "Readings &references:\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber Available in the Swindon book store on campus)\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended.\nWeb-based learning support:\n• Additional material will be available on the course website (Blackboard)"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "3002",
+      "title": "German VI",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "AC01-CLW (7772)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 11:15AM",
+                  "location": "Wu Ho Man Yuen Bldg 504",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "12",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1389)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "4/6, 11/6, 18/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "5/6, 12/6"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course builds on the knowledge acquired through previous German language courses. It aims at leading students to a proficiency level comparable to the threshold from A2 to B1 of the Common European Framework for Languages (CEFR), becoming “independent users” of German. To achieve this goal, students will be encouraged to work project-based through independent or collaborative work with their peers. At the end of this course students will have mastered the most important grammar features of German and be able to communicate effectively in a wide range of everyday situations and a number of professional contexts. They will be able to use their oral and written language skills to relate to, reflect on and analyze past and current issues involving the German-speaking societies.",
+      "enrollment_requirement": "1. Not for students who have taken GERM3051 or 4001\n2. Prerequisite: GERM3001",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, participants will be able to use German according to the level A2 of the Common European Framework. This includes written and oral interaction.",
+      "course_syllabus": "| Course Content: The course will cover units 9 to 12 of Studio D vol. 2. | | |\n| --- | --- | --- |\n| Lesson | Speech acts | Grammar |\n| 9 Arbeitswelten Work environments | - talking about career paths and career options - analyse job advertisements and CVs - telephone messages - polite requests | - connecting sentences with “denn” and “weil” - the verb “werden” (to become) - word formation: verb to noun - wishes, politeness “hätte“, „könnte“ |\n| 10 Feste und Geschenke Festivals and presents | - talking about festivals and customs - talking about presents - compare festivals in German-speaking countries and other countries | - prepositions with Dativ - verbs with Dativ objects - verbs with Dativ and Akkusativ objects |\n| 11 Mit allen Sinnen With all senses | - recognizing emotions - expressing emotions - reacting on emotions - talking about a movie | - indefinite pronouns “einige, manche” - verbs with prepositions in Akkusativ or Dativ (“liegen – legen”) - understanding Genitiv - relative clauses: „in, mit“ + Dativ |\n| 12 Erfindungen und Erfinder Inventions and inventors | - understanding the manuals of products and inventions - working with texts - talking about purpose - describing processes | - subordinate clauses with “um … zu” and “damit” - passive voice (das Passiv) with „werden / wurden“ |",
+      "assessment_types": {
+        "Essays": "10",
+        "Essay test or exam": "50",
+        "Others": "25",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "• Reader with texts will be handed out in class\n• Link, Caroline (1996) Jenseits der Stille (DVD) (available at Amazon and in the CUHK library).\n\nReadings & references:\n• Gschossmann-Hendershot, Elke & Feuerle, Lois (2009) Schaum's Outline of German Grammar 4th ed. McGraw-Hill. Available in the University Library\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber Leo online dictionary: www.dict.leo.org\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• Leo Online dictionary www.leo.org\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\nWeb-based learning support:\n• Additional material can be found on the CUHK e-learning platform for the course.",
+      "recommended_readings": "• Reader with texts will be handed out in class\n• Link, Caroline (1996) Jenseits der Stille (DVD) (available at Amazon and in the CUHK library).\n\nReadings & references:\n• Gschossmann-Hendershot, Elke & Feuerle, Lois (2009) Schaum's Outline of German Grammar 4th ed. McGraw-Hill. Available in the University Library\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber Leo online dictionary: www.dict.leo.org\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n• Leo Online dictionary www.leo.org\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\nWeb-based learning support:\n• Additional material can be found on the CUHK e-learning platform for the course."
+    },
+    {
+      "subject": "GERM",
+      "course_code": "3050",
+      "title": "German III & IV",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1381)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Mr. Alexander Markus KLING",
+                  "dates": "22/5, 29/5, 5/6, 12/6"
+                }
+              ],
+              "availability": {
+                "capacity": "17",
+                "enrolled": "8",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This is a summer intensive German language course, covering the full syllabus of GERM2001 and 3000.",
+      "enrollment_requirement": "1.Not for students who have taken GERM2001,3000,3001,3002,3051 or 4001\n2.Prerequisite: GERM2000 or GERM2050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to deal with some simple daily situations in German such as\n1. talk about vacations, journeys\n2. talk about food, shopping and prices\n3. describe clothes, weather\n4. name the bodily parts and diseases\n5. talk about different languages",
+      "course_syllabus": "GERM3050\n\n| Chapter | Topics | Culture | Structures |\n| --- | --- | --- | --- |\n| Kapitel 5 | Presents and favours Professions Workplaces In the kitchen | Artist: Adolf von Menzel, Realism. Leipzig Training and profession Music: Millionär (Die Prinzen) Movie “Der Tunnel” | 5.1 Dative case: articles and possessive adjectives 5.2 Question pronouns: wer, wen, wem 5.3 Expressing change: the verb werden 5.4 Location: in, an, auf + dative case 5.5 Dative case: personal pronouns |\n| Kapitel 6 | House and apartment A city quarter Looking for an apartment Housework | Architect: Friedensreich Hundertwasser Music: Haus am See (Peter Fox) Movie: “Goodbye Lenin” Text: City ranking 2010 | 6.1 Dative verbs 6.2 Location vs. destination: two-way prepositions with the dative or accusative case 6.3 Word order: time before place 6.4 Direction: in/auf vs. zu/nach 6.5 Separable-prefix verbs: the present tense and the perfect tense 6.6 The prepositions *mit* and *bei+*dative |\n| Kapitel 7 | Geography Means of transport Travel experiences | Artist: Elfriede Lohse-Wächtler, Avantgarde Cars: Volkswagen Die Schweiz Music: Mädchen lach doch mal (Wise Guys) Movie: Im Juli Poem: Lorelei (Heinrich Heine) | 7.1 Relative clauses 7.2 Making comparisons: the comparative and superlative of adjectives and adverbs 7.4 The perfect tense (review) 7.5 The simple past tense of haben and sein |\n| Kapitel 8 | Food and drinks Household appliances Shopping and cooking In the Restaurant | Artist: Georg Flegel, still life Österreich Restaurant Music: Hawaii Toast Song (Alexander Marcus) Movie: Bella Martha Short story: Die Motorradtour (Christina Egger) | 8.1 Adjectives: an overview 8.2 Attributive adjectives in the nominative and accusative cases 8.3 Destination vs. location: stellen/stehen, legen/liegen, setzen/sitzen, hängen/hängen 8.4 Adjectives in the dative case 8.5 Talking about the future: the present and future tenses |\n\nCourse Outline GERM3050 page 1\n\n| Kapitel 9 | Childhood Youth Stories | Artist, Ingrid Schmeck Music: Wir beide (Juli) Movie: Nordwand | 9.1 The conjunction als with dependent-clause word order 9.2 The simple past tense of werden, the modal verbs, and wissen 9.3 Time: als, wenn, wann 9.4 The simple past tense of strong and weak verbs (receptive) |\n| --- | --- | --- | --- |\n| Kapitel 10 | Travel plans Asking for directions Holiday at the beach | Artist: Franz Marc, Expressionism Music: Dieser Weg (Xavier Naidoo) Tourist guide: Husum Movie: Die fetten Jahre sind vorbei Poem: Die Stadt (Theodor Fontane) | 10.1 Prepositions to talk about places: aus, bei, nach, von, zu 10.2 Requests and instructions: the imperative (summary review) 10.3 Prepositions for giving directions: an … vorbei, bis zu, entlang, gegenüber von, über 10.4 Being polite: the subjunctive form of modal verbs |",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "30",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Our program highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement.\nStudents are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also\nfollow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: Funk, Hermann / Kuhn, Christina / Demme, Silke (2005) Studio D - A 1 – Deutsch als Fremdsprache, Berlin: Cornelsen Verlag\n\nFunk, Hermann / Kuhn, Christina / Demme, Silke (2005) Studio D - A 2 – Deutsch als Fremdsprache, Berlin: Cornelsen Verlag.\n(available at Swindon University Bookstore, CUHK)",
+      "recommended_readings": "Readings & references:\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n\nWeb-based learning support:\nAdditional material can be found on http://moodle.cuhk.edu.hk"
+    },
+    {
+      "subject": "GERM",
+      "course_code": "3051",
+      "title": "German V & VI",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "-C01-CLW (1382)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "11/5, 18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "1/6, 8/6, 15/6, 22/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "13/5, 20/5, 27/5, 3/6, 10/6, 17/6, 24/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "21/5, 28/5, 4/6, 11/6, 18/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 501",
+                  "instructor": "Dr Irene Brigitta LITTIG",
+                  "dates": "22/5, 29/5, 5/6, 12/6"
+                }
+              ],
+              "availability": {
+                "capacity": "17",
+                "enrolled": "3",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "German and English"
+            }
+          ]
+        }
+      ],
+      "description": "This is a summer intensive German language course, covering the full syllabus of GERM3001 and 3002.",
+      "enrollment_requirement": "Not for students who have taken GERM3001,3002 or 4001\nPrerequisite: GERM3000 or GERM3050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "Upon completion of the course, the student should be able to deal with daily situations in German such as talking about media (including writing SMS and email), leisure time activities, going out and dating, apartments and living conditions, and cultural interests and productions. The student should also be able to write and speak about events in the past.",
+      "course_syllabus": "GERM3051\n\nThis course consists of six units: *Länder und Landschaften* (Regions and Landscapes), *Familie* (Family), *Es war einmal*\n(Once upon a Time), *Feiern in Deutschland* (Celebrating in Germany), *DDR Erinnerrungen* (GDR Memories) and *Von*\n\nSchlager to Punk (From “Schlager” to Punk)\n\n| Topic / Unit | Main texts | Speech acts | Vocabulary and Grammar | Cultural knowledge and cultural comparisons |\n| --- | --- | --- | --- | --- |\n| Unit 1 Länder und Landschaften Regions and Landscapes | - Official websites of German Bundesländer - Photos with captions from travel sites - Poems by Theodor Storm | - Describing landscape, nature, scenery - Discussing interplay between notions of place and self - Talking about location | - Adjective endings - Vocabulary and phrases related to describing geographical location and features of nature and scenery - Preposition with correct case for describing location | - Geography and regional diversity of Germany - Portrayal of landscape and scenery in various media - Landscape/nature associated to “home” and its expressive thematization in (German) poetry |\n| Unit 2 Familie Familie | - Movie: Jenseits der Stille - Various graphs with statistical material related to the topic of family | - Discussing family relationships and family roles including issues of upbringing and role models - Discussing duties, rights and wishes of young people - Expressing own opinion | - Language related to describing relationships, family life and upbringing - Past tense of *haben*, *sein* and modal verbs - Establishing connections between cause and consequence through subordinate clauses with *weil* and *wenn* - Expressing temporal location with als | - The concept of family in Germany and Hong Kong: similarities and differences in terms of roles and values - Aspects of values in childhood and upbringing on personal and societal level - Appreciation of film as a cultural product |\n\n| Unit 3: Es war einmal... Once upon a Time | - Fairy tale by the Grimm brothers - Alternative versions of fairy tale (in the form of short film and photo/picture) | - Telling and retelling the plot of a story - Comparing and contrasting alternative story versions | - Simple past tense (regular and irregular verbs) - Discourse markers for establishing chronology (conjunctions, adverbs of time) - Vocabulary and phrases for identifying and describing prototypical aspects of a fairy tale | - Fairy tales as reflection of temporally and culturally situated models and values |\n| --- | --- | --- | --- | --- |\n| Unit 4 Feiern in Deutschland Celebrating in Germany | Interviews concerning individual traditions when celebrating birthdays <http://www.kaleidos.de/allta>g/rituale/geb04.htm Article on the subject of basic manners when dining <http://www.lecker.de/deko/di>nner/artikel-456654-dinner/Tisch-Knigge-Alle- wichtigen-Tischmanieren-auf-einen-Blick.html Articles on different holidays and traditions <http://www.kaleidos.de/allta>g/rituale/deindex.htm | Describing rituals and traditions Reporting about related personal experiences Comparing and contrasting rituals of different locations | Passive voice Reflexive verbs Discourse markers for expressing comparison and contrast Vocabulary and phrases related to describing typical events taking place during celebrations | Significant traditions and celebrations of the German speaking countries The cultural specificity of customs and habits during social gatherings |\n| Unit 5 DDR Erinerrungen GDR Memories | Graphic novel: “*Drüben”* | Defining the meaning of typical and significant GDR/divided Germany- related terms Describing and discussing relations between personal life and society Hypothesizing on one’s own imaginary choices and actions | Relative clauses (with prepositions) Prepositions for expressing causes and consequences The genitive case Conjunctive mood for conditional and hypothetical statements Vocabulary and phrases related to German history and aspects of life in the GDR | Coming to terms with the divided Germany as a significant and defining feature of German history Autobiographical accounts of life in the divided Germany as expressions of ‘working through’ the past on both individual and societal level. |\n| Unit 6: Von Schlager zu Punk From „Schlager“ to Punk | Selected German songs (audio, video and lyrics) representing a variety of genres (with an emphasis on German Schlager and Punkrock) Text chronicling typical music genres of different decades <http://www.nthuleen.com/te>ach/culture/popmusik.html | Identify and convey main topics of songs Identify salient features of music genres Reporting about dreams, wishes, thoughts of others Compare and contrast music trends across eras, people and places. | da-compunds Vocabulary and phrases for identifying and describing features of music genres | Music as reflection of temporally and culturally situated wishes and values German Schlager and Punk as historically situated expressions of societal trends. |",
+      "assessment_types": {
+        "Essays": "10",
+        "Essay test or exam": "55",
+        "Others": "20",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Our programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and\n\nimprovement. Students are very welcome to provide comments and feedback on the course any time to their course teacher\n\nor the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected\n\nin the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make\n\nimprovements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and\n\nstudents’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: Funk, Hermann / Kuhn, Christina / Demme, Silke (2005) Studio D A2 – Deutsch als Fremdsprache, Berlin: Cornelsen Verlag (available at Swindons University Bookstore)",
+      "recommended_readings": "Readings & references:\n\n• Reimann, Monika (2001) Essential grammar of German with exercises. Ismaning: Hueber\n\n• Dodd, Bill et al. (1996) Modern German grammar: a practical guide. London: Routledge\n\n• Beolingus online dictionary (English-German: http://dict.tu-chemnitz.de/)\n\n• A desk-size bilingual dictionary, such as Langenscheidt, Collins or Duden-Oxford (pocket-size dictionaries are not recommended).\n\nWeb-based learning support:\n\nAdditional material can be found on http://moodle.cuhk.edu.hk"
+    }
+  ]
+}

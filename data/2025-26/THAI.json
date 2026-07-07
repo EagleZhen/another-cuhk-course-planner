@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T19:48:07.295656+00:00",
+    "subject": "THAI",
+    "subject_title": "Thai",
+    "total_courses": 2,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "THAI",
+      "course_code": "1000",
+      "title": "Thai I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (6752)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 405",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 405",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 405",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "17",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            },
+            {
+              "section": "BC01-CLW (9346)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "15",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (9146)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "11",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "AC01-CLW (1200)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "18/5"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "13/5, 20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 401",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "6",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "22",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course invites students without prior knowledge of Thai to explore the basic features of the Thai language. Supported by audiovisual aids, students will receive intensive practice in spoken and written Thai through interactive class work, homework and online exercises. They will become familiar with the basic concepts of Thai grammar and learn how to interact in some simple everyday situations.",
+      "enrollment_requirement": "Not for students who have taken THAI2000(1002),2001,2050(1010) or 3000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "At the end of the course, the students will be able to conduct proper communication in various daily life situations, using basic knowledge of spoken Thai.",
+      "course_syllabus": "| Lesson | Speech acts | Grammar |\n| --- | --- | --- |\n| Lesson 1 | * Basic Facts about Thailand * Greetings, Introductions , Leave Taking | * Phonetics system used in the text * Word Order * Expressions in the class |\n| Lesson 2 | * Asking and Telling Details about People , , Things and Places | * Question Word “ What”/ “ Who” * Verb to be * What is your nationality? |\n| Lesson 3 | * Ask and Telling Details about People ,Things and Places | * Question Word “ Where” * Why do you learn Thai? * Where is\\_\\_\\_? |\n| Lesson 4 | * Tenses / Verbs Days , Months, Years | * Past / Present / Future Tense * Have you ever\\_\\_\\_? * Question Word “When” |\n| Lesson 5 | * My family * Career | * Question “ Can you\\_\\_\\_? “ * Question word “ How old\\_\\_\\_?’’ |\n| Lesson 6 | * Transportations in Thailand | * Question Word “ How” |\n| Lesson 7 | * Asking for Directions | * Question Word “ How” |\n| Lesson 8 | * Go Shopping in Thailand * Colours, Sizes. Bargaining | * Question word “ How much” |\n| Lesson 9 | * Going to see the doctor | * Question word “ Have you ....yet? |\n| Lesson 10 | * Festivals in Thailand : Loy Krathong / Songkran * Thai Dress , Thai Dance | * Making “ Krathong” |\n| Lesson 11 | * Ordering Food , Drinks Going to Thai Restaurant / Thai Food sampling in Class | * Using “ “ Can you please...”? * May I...? |\n| Lesson 12 | * Oral Final Exam * Group presentations | |\n\n|\n| |\n|",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Our language programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Hand-outs by teacher.\nAdditional online resources will be introduced in class.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "THAI",
+      "course_code": "2000",
+      "title": "Thai II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (6780)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "11",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        }
+      ],
+      "description": "Building on the knowledge acquired in THAI1001, this course aims to further develop students' ability to communicate in Thai in various everyday situations. It also seeks to give students a taste of Thai culture and invites them to explore cultural differences. Through intensive practice students will develop more confidence in interacting in Thai while further expanding and solidifying their understanding of the basic grammar and pronunciation patterns.",
+      "enrollment_requirement": "1.Prerequisite: THAI1000 (1001)\n2.Not for students who have taken THAI2001, 2050 (1010) or 3000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "At the end of the course, the students will be able to conduct proper communication in various daily life situations, using basic knowledge of spoken Thai.",
+      "course_syllabus": "| **Date** | **Topics** | **Grammar** |\n| --- | --- | --- |\n| Week 1 | Revisions of basic structures from THAI 1000 Introducing Thai alphabets / vowels | Verbs/ Question words Middle consonants / long vowels |\n| Week 2 | Revisions of Tenses / Time frame Introducing Thai alphabets / vowels | Time frames in details Low consonants / short vowels |\n| Week 3 | Time telling Introducing Thai alphabets / vowels | Time frames in details High consonants / short and long vowels |\n| Week 4 | Festival : Chinese New Year in Thailand Practice writing and reading easy words | Vocabularies for Festivals , celebration , holidays Wishing .......... |\n| Week 5 | Directions / Regions in Thailand Practice writing and reading words with tone marks | North , south , Central , Northeastern |\n| Week 6 | Seasons and weather in Thailand Writing and reading practice words with special rules | Vocabularies about seasons and weather Start , stop , end |\n| Week 7 | Thai cooking and Thai food sampling Writing and reading menus | Vocabularies about Thai cooking inn details |\n| Week 8 | Conjunctions in details Writing and reading easy text about conjunctions | Therefore , so that , otherwise, except , except for , unless , when , while, however , in that case |\n| Week 9 | Prepositions in details Writing and reading practice | In , on , at , above , left , right , ahead , underneath , between , near , far |\n| Week 10 | Special verbs and expressions in Thai Thai writing and reading | .”ให้”, verb + ไป , verb +มา |\n| Week 11 | Watching Thai film & Discussion | Vocabularies for Thai movies Slangs, expressions using in daily life |\n| Week 12 | Revisions on writing Written test | |\n| Week 13 | Final exam : Oral exam / group presentations | |\n| Week 14 | Joining “ Songkran celebration “ in Kowloon city Writing a short essay . | ( To be advised ) |",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "30",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Our language programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Hand-outs by teacher.\nAdditional online resources will be introduced in class.",
+      "recommended_readings": "Thai for Beginners by Benjawan Poomsan Becker\nSimple Thai Grammar by Werachai Sethapun"
+    }
+  ]
+}
