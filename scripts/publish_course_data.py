@@ -128,7 +128,7 @@ def validate_course_file(
                     f"Subject status is '{subject_progress.get('status')}', not 'completed'"
                 )
 
-            # Check course count consistency
+            # Check the scrape's own count consistency
             expected_count = subject_progress.get("courses_count", 0)
             scraped_count_progress = subject_progress.get("courses_scraped", 0)
 
@@ -137,10 +137,10 @@ def validate_course_file(
                     f"Progress mismatch: expected {expected_count}, scraped {scraped_count_progress}"
                 )
 
-            if actual_count != scraped_count_progress:
-                issues.append(
-                    f"File vs progress mismatch: file has {actual_count}, progress says {scraped_count_progress}"
-                )
+            # Note: no file-vs-progress count check here. progress_data counts a full
+            # flat scrape, while a published file now holds only one year's slice of a
+            # subject (data/<year>/), so the two legitimately differ. A per-year check
+            # returns when the scraper records progress per year.
 
     # Check course structure (sample a few courses)
     for i, course in enumerate(courses[:3]):  # Check first 3 courses
