@@ -19,6 +19,7 @@ import re
 import shutil
 import sys
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
@@ -526,7 +527,7 @@ def main():
         if dry_run:
             print(f"Dry run: would publish {len(files_to_copy)} files")
         else:
-            print(f"Publishing {len(files_to_copy)} files to {published_data_dir}")
+            print(f"Publishing {len(files_to_copy)} files to {Path(published_data_dir).as_posix()}")
 
         # Copy files
         print()
@@ -552,15 +553,15 @@ def main():
         print("Publishing Summary:")
         if not dry_run:
             print(f"   ✅ Published: {copied_count}/{len(files_to_copy)} files")
-            print(f"   Destination: {published_data_dir}")
+            print(f"   Destination: {Path(published_data_dir).as_posix()}")
         else:
             print(f"   Would publish: {copied_count}/{len(files_to_copy)} files")
             print("   DRY RUN - No files actually copied")
 
         print()
         print("Logs saved to:")
-        print(f"   {timestamped_publish_log}")
-        print(f"   {latest_publish_log}")
+        print(f"   {Path(timestamped_publish_log).as_posix()}")
+        print(f"   {Path(latest_publish_log).as_posix()}")
 
     finally:
         # Restore original stdout and close log file
