@@ -60,43 +60,43 @@ import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 // Using clean internal types only
 
 interface CourseSearchProps {
+  courseEnrollments: CourseEnrollment[]
+  currentTerm: string
+  availableTerms?: string[]
+  selectedSections: Map<string, string>
+  selectedSubjects?: Set<string> // Subject filter
+  lastDataUpdate?: Date | null // Last data sync timestamp
   onAddCourse: (
     course: InternalCourse,
     termName: string,
     localSelections: Map<string, string>
   ) => void
   onRemoveCourse: (courseKey: string) => void
-  courseEnrollments: CourseEnrollment[]
-  currentTerm: string
-  availableTerms?: string[]
   onTermChange?: (term: string) => void
-  selectedSections: Map<string, string>
   onSelectedSectionsChange: (sections: Map<string, string>) => void
   onScrollToCart?: (enrollmentId: string) => void // Explicit scroll to shopping cart
   onSearchControlReady?: (
     setSearchTerm: (term: string, fromCourseDetails?: boolean) => void
   ) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
-  selectedSubjects?: Set<string> // Subject filter
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
-  lastDataUpdate?: Date | null // Last data sync timestamp
 }
 
 export default function CourseSearch({
-  onAddCourse,
-  onRemoveCourse,
   courseEnrollments,
   currentTerm,
   availableTerms = [],
-  onTermChange,
   selectedSections,
+  selectedSubjects = new Set(),
+  lastDataUpdate,
+  onAddCourse,
+  onRemoveCourse,
+  onTermChange,
   onSelectedSectionsChange,
   onScrollToCart,
   onSearchControlReady,
   onDataUpdate,
-  selectedSubjects = new Set(),
   onAvailableSubjectsUpdate,
-  lastDataUpdate,
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
