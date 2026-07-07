@@ -24,6 +24,11 @@ except ImportError:
     exit(1)
 
 
+# Directory name for the bucket of courses with no scheduled terms (the None key
+# from partition_subject_by_year). Not a year, so year globs exclude it.
+NO_TERMS_DIR = "no-terms"
+
+
 def clean_word_html(html_content: str) -> str:
     """
     Clean Word-specific HTML artifacts before markdown conversion.
@@ -530,11 +535,6 @@ def get_academic_year(term_name: str) -> Optional[str]:
     """
     match = re.search(r"(\d{4})-(\d{2})", term_name)
     return match.group(0) if match else None
-
-
-# Directory name for the bucket of courses with no scheduled terms (the None key
-# from partition_subject_by_year). Not a year, so year globs exclude it.
-NO_TERMS_DIR = "no-terms"
 
 
 def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
