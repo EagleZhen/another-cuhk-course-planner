@@ -567,3 +567,15 @@ def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
         year: {"metadata": {**metadata, "total_courses": len(courses)}, "courses": courses}
         for year, courses in courses_by_year.items()
     }
+
+
+# Teaching-calendar order for term-name suffixes (the part of a term_name after the
+# "YYYY-YY " year prefix), covering every suffix seen in scraped data as of 2026-07.
+TERM_SUFFIX_ORDER = (
+    "Term 1",
+    "Term 2",
+    "Term 3",
+    "Term 4",
+    "Summer Session",
+    "Acad Year (Medicine)",
+)
