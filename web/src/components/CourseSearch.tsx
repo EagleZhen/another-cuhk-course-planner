@@ -46,7 +46,7 @@ import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
-import { getAllSubjectCodes } from '@/lib/generated/subjects'
+import { getAllSubjectCodes } from '@/lib/subjectUtils'
 import {
   MOBILE_BREAKPOINT,
   NOTICE_STORAGE_KEY,
