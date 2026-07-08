@@ -27,6 +27,7 @@ dev = [
     "ruff (>=0.14.4,<0.15.0)",
     "pre-commit (>=4.3.0,<5.0.0)",
     "isort (>=7.0.0,<8.0.0)",
+    "pytest>=9.1.1",
 ]
 
 [tool.ruff]
@@ -43,3 +44,9 @@ docstring-code-format = true
 [tool.isort]
 profile = "black"
 line_length = 100
+
+[tool.pytest.ini_options]
+# scripts/ modules import each other by bare name (they run with scripts/ on the
+# path), so add it here too. Tests live next to the code under scripts/tests/.
+pythonpath = ["scripts"]
+testpaths = ["scripts/tests"]

@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T13:24:14.053337+00:00",
     "subject": "AIST",
     "subject_title": "AI: Systems & Tech",
-    "total_courses": 23,
+    "total_courses": 10,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -282,70 +282,6 @@
     },
     {
       "subject": "AIST",
-      "course_code": "2601",
-      "title": "Technology, Society and Engineering Practice",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course teaches the following topics: the impact of technology on society; introduction to engineering as a profession (different engineering fields, professional societies and registration, soft skills for working in a team); engineering design and innovation; introduction to intellectual property (copyright, trademarks, registered design and patents); engineering project management; product safety; professional ethics; liability and responsibility; workplace safety; environmental impact and market requirements; case studies and experience sharing from industry; global energy policies and standards.",
-      "enrollment_requirement": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n\n1. examine the impact of technology on the society and the environment.\n\n2. recognise the contributions of engineers to the society\n\n3. appreciate the design and innovation aspects of engineering profession\n\n4. acquire the skills and tools to manage engineering projects\n\n5. learn the skills for working in a team\n\n6. understand the value of being an ethical engineer and a responsible citizen",
-      "assessment_types": {
-        "Essays": "25",
-        "Presentation": "25",
-        "Short answer test or exam": "50"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "2602",
-      "title": "Engineering Practicum",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course arranges industrial and professional workshops or seminars as required by the Major programme.",
-      "enrollment_requirement": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Distinction/Pass/Failure",
-      "component": "Practicum",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Hand-on skills of engineering practice\n2. Understanding the value of practical engineering skills and experiences",
-      "assessment_types": {
-        "Others": "65",
-        "Project": "35"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "3010",
-      "title": "Numerical Optimization",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course aims to provide students with the basic knowledge of optimization theory and introduce various computational libraries and programming techniques to perform optimization. Topics include unconstrained optimization methods, conjugate gradient methods, quasi-newton methods, theory of constrained optimization, linear programming, non-linear constrained optimization, etc.",
-      "enrollment_requirement": "Pre-requisite: ENGG1120/ESTR1005 or ENGG1130/ESTR1006 or MATH1510\nNot for students who have taken AIST3030 or ESTR3112 or ESTR3114",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. formulate unconstrained optimization problems\n2. solve unconstrained optimization problems, either analytically or via computing modules\n3. formulate constrained optimization problems\n4. solve constrained optimization problems, either analytically or via computing modules",
-      "assessment_types": {
-        "Essay test or exam": "60",
-        "Homework or assignment": "40"
-      }
-    },
-    {
-      "subject": "AIST",
       "course_code": "3020",
       "title": "Introduction to Computer Systems",
       "credits": "3.00",
@@ -569,28 +505,6 @@
     },
     {
       "subject": "AIST",
-      "course_code": "3110",
-      "title": "Music Information Retrieval",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides a comprehensive study on the analysis, visualisation, processing, and mining of sound and music data. Music processing is an interdisciplinary research area where technology and art meets. The course covers topics on feature extraction and analysis in different time scales, including tempo and beat tracking, chord recognition, and structure analysis. The ultimate goal is on \"machine listening\", where the computers will have the ability to understand the music to facilitate creation.",
-      "enrollment_requirement": "Pre-requisite/Co-requisite: AIST2010 or CSCI3280",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. recognize sound and musical features in programming;\n2. use machine learning tools to manipulate music dataset;\n3. generate music with musical features.",
-      "assessment_types": {
-        "Examination": "40",
-        "Lab reports": "20",
-        "Project": "40"
-      }
-    },
-    {
-      "subject": "AIST",
       "course_code": "3120",
       "title": "Introduction to Natural Language Processing",
       "credits": "3.00",
@@ -722,27 +636,6 @@
     },
     {
       "subject": "AIST",
-      "course_code": "3510",
-      "title": "Human-computer Interaction",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an introduction to the fast evolving field of human computer interaction (HCI). HCI is a multidisciplinary subject concerning the design, implemen-tation and evaluation of interactive computing systems for human use, and the study of major phenomena surrounding them. We will provide a broad overview of the field, including the theory and principles underlying good designs, with an emphasis on the interface design process, development and evaluation. We will also sample some state-of-the-art technologies in HCI, such as speech recognition, haptics, virtual reality, software agents and computer supported cooperative work.",
-      "enrollment_requirement": "Not for students who have taken SEEM3510",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. Acquiring the mathematical and engineering foundations that underlie human-computer interaction;\n2. Appreciation of the use of other fields of knowledge in the interdisciplinary field of HCI, with the target to achieve a high degree of system usability;\n3. Understanding of the integration of component technologies into end-to-end systems that support user-centered HCI;\n4. Ability to design and critique user interfaces, as well as conduct empirical evaluation of their interim and overall performances;\n5. Awareness of the state-of-the-art technologies that support HCI in real applications and usage contexts.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "50"
-      }
-    },
-    {
-      "subject": "AIST",
       "course_code": "4010",
       "title": "Foundation of Applied Deep Learning",
       "credits": "3.00",
@@ -821,117 +714,6 @@
         "Lab reports": "10",
         "Presentation": "10",
         "Test or quiz": "30"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "4020",
-      "title": "Agentic AI and LLM Serving",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces students to the principles and practice of building and serving agentic AI systems. It provides a comprehensive understanding of the entire lifecycle, from designing agents capable of reasoning, planning, and using tools, to the systems-level optimizations required for efficient, large-scale deployment.\n\nStudents will gain hands-on experience by programming multi-agent systems using the agentic framework (e.g., AutoGen) and implementing low-level optimizations for LLM inference with serving frameworks like vLLM. The curriculum balances agentic theory, application development, and systems architecture, preparing students for careers in AI engineering and system design.",
-      "enrollment_requirement": "Prerequisite: AIST3020 or CSCI3150 or ESTR3102",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n1) Design and implement multi-agent systems: Utilize frameworks like AutoGen to design and build multi-agent systems capable of performing complex tasks that require collaboration, reasoning, and tool use.\n2) Understand and apply LLM serving systems: Explain the system architecture and key optimization techniques (e.g., PagedAttention) of high-performance inference serving frameworks like vLLM, and be able to deploy and evaluate their performance.\n3) Evaluate and strengthen agentic systems: Identify potential vulnerabilities and security risks in agentic systems (e.g., prompt injection) and apply appropriate evaluation methodologies and techniques to ensure system reliability, safety, and ethical conduct.",
-      "assessment_types": {
-        "Examination": "40",
-        "Project": "40",
-        "Test or quiz": "20"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "4030",
-      "title": "Structured Data Modeling and Graph Neural Network",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces advanced topics in structured data modeling with a unifying perspective based on graph neural networks (GNNs). Students will study how diverse data types such as images, sequences, and general graphs can be modeled within this framework, covering core architectures including CNNs, RNNs, GNNs, Transformers, and Mamba. The course also explores a broad range of applications in physics, chemistry, materials science, biology, environmental science, as well as pretraining, multi-task learning, multimodal modeling, foundation models, and knowledge graph learning.",
-      "enrollment_requirement": "Prerequisite: AIST3120 or CSCI3230 or ESTR3108 or CSCI3320",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Demonstrate a solid understanding of the fundamental models and algorithms for graph mining and graph neural networks.\n2. Implement and critically evaluate selected graph neural network models and algorithms introduced in the course.\n3. Apply the acquired knowledge to design and carry out a project addressing a real-world problem.\n4. Communicate clearly and effectively about the application of graph neural networks to practical problem-solving.",
-      "assessment_types": {
-        "Examination": "30",
-        "Homework or assignment": "60",
-        "Presentation": "10"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "4040",
-      "title": "Mathematical Foundations of Deep Learning",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The purpose of this course is to provide students with a solid mathematical background for modern machine learning, deep learning, and artificial intelligence. The course contains selected topics in linear algebra, numerical analysis, optimization, applied probability and classic machine learning algorithms.",
-      "enrollment_requirement": "Prerequisite: (ENGG1120/ESTR1005 or ENGG1125/ESTR1007 or ENGG1130/ESTR1006 or ENGG2760/ESTR2018 or ENGG2780/ESTR2020) AND (AIST3030/ESTR3112)",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Derive advanced deep learning algorithms by hand;\n2. Understand the mathematics behind state-of-the-art deep learning systems;\n3. Prototyping basic deep learning algorithms.",
-      "assessment_types": {
-        "Examination": "30",
-        "Homework or assignment": "60",
-        "Participation": "10"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "4050",
-      "title": "Embodied Intelligence: Algorithms and Applications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Embodied intelligence represents a paradigm where intelligent systems achieve cognition through physical interaction with their environment, with recent breakthroughs enabling transformative applications in autonomous systems. This course aims at providing students with fundamental knowledge and techniques in embodied intelligence, covering theoretical foundations of scene recognition, machine learning methods, multimodal interaction technologies, and policy learning algorithms including reinforcement learning and imitation learning. Application domains such as autonomous navigation, healthcare, and human-robot interaction will be covered. Through lectures, assignments, and project exercises, students will acquire theoretical understanding and practical skills in developing embodied intelligent systems and technologies.",
-      "enrollment_requirement": "Prerequisite: AIST1000",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Design and implement embodied intelligent systems in simulation environments. Develop intelligent agents in physics simulators (PyBullet, Isaac Gym, or MuJoCo) that integrate virtual sensors (RGB cameras, depth sensors) and actuators to interact with simulated environments. Grasp embodied AI interactions with large language models and vision-language models.\n2. Apply reinforcement learning and imitation learning for different tasks. Implement and train RL algorithms (DQN, PPO, SAC) and imitation learning methods (behavioral cloning, DAgger) using standard frameworks (Stable-Baselines3, RLlib) to solve navigation, grasping, and manipulation tasks, and understand sim-to-real transfer principles.\n3. Process and fuse multimodal sensor data for problem solving. Use computer vision libraries (OpenCV, PyTorch Vision) to process RGB images and depth maps, implement sensor fusion algorithms to combine camera and LiDAR data, and build perception pipelines that enable robots to detect objects, estimate poses, and make decisions in both simulation and real-world applications.",
-      "assessment_types": {
-        "Examination": "40",
-        "Homework or assignment": "40",
-        "Presentation": "5",
-        "Project": "10",
-        "Participation": "5"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "4060",
-      "title": "AI-Native Software Engineering",
-      "credits": "2.00",
-      "terms": [],
-      "description": "The emergence of artificial intelligence has fundamentally transformed the software development lifecycle, shifting the engineer’s role from manual implementation to intent-based orchestration—a paradigm often described as vibe coding. This course elevates this practice from an intuitive art to a rigorous engineering discipline.\n\nStudents will explore the principles of AI-Native Software Engineering, focusing on how to build reliable, scalable, and secure systems using autonomous coding agents. Moving beyond simple prompt engineering, the curriculum covers the full spectrum of agentic workflows: from Context Engineering and Spec-Driven Development to AI-Augmented Architecture and Automated Validation. Through a hands-on project, students will learn to navigate the probabilistic nature of AI models, employing strict testing frameworks and CI/CD pipelines to mitigate hallucinations and ensure code quality. This course prepares students to become the architects of the next generation of software.",
-      "enrollment_requirement": "Prerequisite: AIST3020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI3180 or ESTR1100 or ESTR1102 or ESTR3106\nNot for students who have taken IERG3844",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Effectively utilize autonomous coding agents to translate high-level natural language requirements into complex, multi-file software implementations while maintaining code cohesion.\n2. Master the art of context management by creating structured documentation that minimizes ambiguity and optimizes the performance of LLM context windows.\n3. Apply Test-Driven Development and testing strategies to identify, isolate, and rectify AI problems.\n4. Design modular software architectures that are decoupled and optimized for AI comprehension, and integrate data models to enable semantic intelligence within applications.\n5. Construct robust DevOps pipelines (CI/CD) to automate testing and deployment, while identifying and mitigating specific security risks.",
-      "assessment_types": {
-        "Homework or assignment": "40",
-        "Project": "60"
       }
     },
     {
@@ -1540,28 +1322,6 @@
     },
     {
       "subject": "AIST",
-      "course_code": "5020",
-      "title": "Trustworthy Artificial Intelligence",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the principles and techniques of Trustworthy Artificial Intelligence (Trustworthy AI), which aims to mitigate the potential adverse effects of AI on people and society. The course focuses on four main aspects of trustworthy AI: privacy & security, robustness, explainability, and fairness. It covers the state-of-the-art research progress in these areas, including federated learning and adversarial attacks. Algorithms, models, and systems will be covered. Moreover, the course discusses the ethical and social implications of trustworthy AI, to foster social awareness among students who would use or develop AI techniques in the future. This course is suitable for students who have some background in machine learning, probability, and linear algebra.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Understand and explain the main concepts and techniques of trustworthy AI and its applications in various domains;\n2. Compare and contrast the advantages and disadvantages of different trustworthy AI techniques;\n3. Implement and evaluate different types of trustworthy AI techniques using popular frameworks such as PyTorch or TensorFlow;\n4. Discuss the ethical and social implications of trustworthy AI, in terms of privacy, security, robustness, explainability, fairness, etc.;\n5. Organize and conduct a group project for state-of-the-art research.",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Presentation": "30",
-        "Project": "40"
-      }
-    },
-    {
-      "subject": "AIST",
       "course_code": "5030",
       "title": "Generative Artificial Intelligence",
       "credits": "3.00",
@@ -1626,49 +1386,6 @@
         "Presentation": "20",
         "Project": "15",
         "Report": "35"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "5040",
-      "title": "PhysAI and GenAI for Natural Science",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces PhysAI and GenAI as complementary approaches to natural scientific discovery. PhysAI refers to physics-inspired AI models that embed domain knowledge, physical laws, and invariances into learning frameworks, enabling models to achieve greater robustness, accuracy, and interpretability. In contrast, GenAI leverages generative modeling to create hypotheses, design candidates, and explore novel scientific paradigms beyond the limits of existing data. Together, PhysAI and GenAI form a powerful synergy: PhysAI accelerates and strengthens established paradigms, while GenAI opens pathways to entirely new directions of research. Through this integration, PhysAI and GenAI hold the potential to transform discovery in chemistry, materials science, and biology.\n\nAdvisory: Students are expected to have taken AIST1000 or AIST 3120 or AIST 4010 or CSCI3230 or CSCI3320.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Critically evaluate the strengths and limitations of PhysAI and GenAI approaches in scientific applications.\n2. Implement and experiment with AI models that incorporate physics priors or generative capabilities using modern machine learning frameworks (e.g., PyTorch, PyTorch-Geometric, Transformers).\n3. Design and prototype workflows that combine physics-based constraints with generative modeling for real-world scientific problems.\n4. Communicate complex ideas and findings effectively through coding projects, written reports, and oral presentations.",
-      "assessment_types": {
-        "Homework or assignment": "40",
-        "Presentation": "20",
-        "Project": "40"
-      }
-    },
-    {
-      "subject": "AIST",
-      "course_code": "5050",
-      "title": "Optimization for Large Language Models",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the advanced optimization principles that power modern large language model (LLM) systems across their full lifecycle. This course begins with training time adaptive optimization methods, including Adaptive Moment Estimation (Adam), Adaptive Moment Estimation with decoupled weight decay (AdamW), Adafactor, Lion, and Muon, along with learning rate schedules and gradient clipping. This course also covers parameter efficient fine tuning, specifically Low Rank Adaptation (LoRA) and Quantized Low Rank Adaptation (QLoRA), for settings with tight memory and compute budgets.\n\nNext, post training with feedback will be introduced, including Reinforcement Learning from Human Feedback (RLHF) using Proximal Policy Optimization with a Kullback Leibler divergence constraint (PPO), Direct Preference Optimization (DPO), and emerging variants such as Group Relative Policy Optimization (GRPO). Throughout, the course emphasize objective design, stability, and compute efficiency.\n\nFinally, the course frame inference time optimization as a budgeted decision problem, covering best of N selection and self consistency, Tree of Thoughts, contrastive decoding, speculative decoding, and lookahead decoding. this course also introduces in context learning and its interpretation as implicit Bayesian inference and gradient descent in context. To connect modalities, the course includes a short diffusion unit to contrast optimization and sampling strategies.\n\nThe course is hands on and research oriented. Students will learn the theoretical principles of these techniques, run small scale ablations, match floating point operations when comparing methods, and present a final project.\n\nAdvisory: Students are expected to have taken CSCI3320 or ENGG 5501 or equivalent.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Implement at least four optimizers (AdamW, Adafactor, Lion, Muon) with LR schedules and clipping and justify choices via ablations.\n2. Fine-tune a model with LoRA/QLoRA and report compute-normalized quality and memory.\n3. Reproduce a small-scale RLHF baseline and a DPO run; evaluate with preference win-rates and calibration.\n4. Prototype GRPO-style training on a reasoning toy task; analyze sample cost vs. gains.\n5. Build a decode-time optimizer that meets an accuracy/latency target using best-of-N, ToT, or contrastive decoding; quantify improvements.",
-      "assessment_types": {
-        "Homework or assignment": "60",
-        "Project": "40"
       }
     }
   ]

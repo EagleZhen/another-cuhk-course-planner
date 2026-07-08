@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T19:21:03.324277+00:00",
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engg Mgt",
-    "total_courses": 69,
+    "total_courses": 58,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -2184,24 +2184,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "4670",
-      "title": "Service Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Overview of the evolution of information systems and technologies used in selected service industries, such as health care, finance, insurance, hospitality, telecommunication, retail, etc. Examination of the unique features of a service system as a product or service. Qualitative and Quantitative methods for analyzing, designing, and operating service systems. User influence. Systems Development.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "1\n\nif !supportLists?1.endif?Understand the use of systems in selected service industries.\n\nif !supportLists?2.endif?Identify system features for service operations.\n\nif !supportLists?3.endif?Be able to apply qualitative and quantitative methods for service systems.\n\nif !supportLists?4.endif?Appreciate the importance of user influence.\n\nif !supportLists?5.endif?Understand managerial and technical issues in developing service systems.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "SEEM",
       "course_code": "4720",
       "title": "Computational Finance",
       "credits": "3.00",
@@ -3192,27 +3174,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "5010",
-      "title": "Advanced Database and Information Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Database and information system design and control: advanced data structures, query optimization, recovery, concurrency control, deadlock resolution and recovery. Distributed system environment. Object-oriented approach. Engineering application: requirements and proposed solutions. Current topics. (Not for students who have taken CSE5120.)",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management; Not for students who have taken CSCI5120",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the student should have acquired the ability to\n1. Comprehend the basic concepts in database and information systems\n2. Advance the knowledge in database techniques\n3. Acquire skills for solving database and system problems",
-      "assessment_types": {
-        "Others": "70",
-        "Presentation": "30"
-      }
-    },
-    {
-      "subject": "SEEM",
       "course_code": "5020",
       "title": "Algorithms for Big Data",
       "credits": "3.00",
@@ -3338,70 +3299,6 @@
         "Presentation": "20",
         "Project": "15",
         "Report": "35"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5120",
-      "title": "Advanced Topics in Systems Engineering and Engineering Management (I)",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to investigate and to discuss selected advanced topics of current interest in Systems Engineering and Engineering Management.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the students should have acquired the ability to understand the foundations of the new research topics, to explore new topics along the same research direction, and to integrate the techniques developed with their own research topics.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5121",
-      "title": "Advanced Topics in Systems Engineering and Engineering Management (II)",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to investigate and to discuss selected advanced topics of current interest in Systems Engineering and Engineering Management.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the students should have acquired the ability to understand the foundations of the new research topics, to explore new topics along the same research direction, and to integrate the techniques developed with their own research topics.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5160",
-      "title": "Advanced Data Science for Systems Engineering",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This graduate level course introduces the basic concepts of statistical pattern processing and machine learning algorithm. A particular focus is given on state-of-the-art machine learning techniques used in a set of application systems including but not limited to financial market models, pricing models, fraud detection, natural language processing, speech and audio technologies that are purposefully designed for the current SEEM research postgraduate students specializing in either of the two broad areas of information systems and operational research. This course is also available to undergraduate students of senior years with sufficient backgrounds in linear algebra, vector calculus, probability and statistics.",
-      "enrollment_requirement": "For students in SEEM MPhil/PhD programme and RPg programmes under Faculty of Engineering",
-      "course_attributes": "English only",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "Understand the basic principles of pattern classification and machine learning.\nUnderstand Expectation Maximization as a general optimization technique.\nUnderstand sequence modelling and representation approaches such as hidden Markov models and finite state transducers\nUnderstand current sequence classification and prediction schemes such as feedforward neural networks and recurrent neural networks\nUnderstand Bayesian learning techniques and Gaussian process to model uncertainty\nApply machine learning techniques to practical applications in application systems such as financial engineering and speech recognition",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "20",
-        "Project": "40"
       }
     },
     {
@@ -3618,48 +3515,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "5350",
-      "title": "Numerical Optimization",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is to teach students modern numerical optimization methods for large scale systems. Topics covered in this course include gradient method, subgradient method, proximal gradient method, Nesterov's acceleration technique, alternating direction method of multipliers, coordinate descent method, and stochastic / randomized algorithms. Applications of these optimization methods for solving problems in contemporary applications arising from big data analytics, machine learning, statistics, signal processing etc. will also be discussed.",
-      "enrollment_requirement": "For students in SEEM MPhil/PhD programme and RPg programmes under Faculty of Engineering",
-      "course_attributes": "English only",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of this course, the student should\n• familiarize with optimization algorithms for solving large scale optimization problems\n• understand the convergence behaviors of different algorithms\n• understand the capability of different algorithms\n• be able to use learned algorithms to solve practical problems",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5380",
-      "title": "Optimization Methods for High-Dimensional Statistics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The prevalence of high-dimensional data has motivated active research on efficient methods for tackling optimization problems that arise in statistical analysis. In this course, we will give an introduction to this exciting area of research, with emphasis on the theory of structured regularizers for high-dimensional statistics and the design and analysis of statistically and computationally efficient optimization algorithms. Applications in various areas of science and engineering, such as machine learning, signal processing, and statistics, will also be discussed. Students are expected to have taken ENGG 5501 or equivalent.",
-      "enrollment_requirement": "For students in SEEM MPhil/PhD programme and RPg programmes under Faculty of Engineering; Prerequisite: ENGG5501 or as approved by the course teacher",
-      "course_attributes": "English only",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of this course, students should be able to\n- understand the optimization formulations of various statistical problems\n- understand various algorithmic approaches to statistical optimization problems\n- analyze and implement basic statistical optimization algorithms",
-      "assessment_types": {
-        "Essays": "50",
-        "Essay test or exam": "50"
-      }
-    },
-    {
-      "subject": "SEEM",
       "course_code": "5390",
       "title": "Stochastic Optimization and Risk Management",
       "credits": "3.00",
@@ -3711,27 +3566,6 @@
         "Essay test or exam": "40",
         "Homework or assignment": "20",
         "Project": "40"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5410",
-      "title": "Optimal Control",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Dynamic continuous-time systems. Examples, modelling, and classification of optimal control problems. Pontryagin’s maximum principle: adjoint equation, Hamiltonian system, and sufficient condition of optimality. Bellman’s dynamic programming: principle of optimality, Hamilton-Jacobi-Bellman equation, and verification theorem. Linear quadratic control: Riccati equation and linear matrix inequality. Introduction to numerical methods of solving optimal control problems.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "1. Master the basic knowledge of mathematical modeling of dynamic systems, the concept of feedback, and theoretical framework of optimal control;\n2. Understand how to derive optimal control policies under various conditions and how to implement them numerically.\n3. Become familiar with research frontier in optimal control and its applications in management science and financial engineering.",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Project": "70"
       }
     },
     {
@@ -3853,29 +3687,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "5640",
-      "title": "Conversational Artificial Intelligence Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Conversational AI is a rapidly developing, interdisciplinary field brings together speech processing, natural language processing, pattern recognition and machine learning. Conversational AI systems integrate a variety of speech and language processing technologies to bring about potentially life-changing applications. This course introduces students to the principles, theories and technologies in conversational AI. We build on fundamentals including signal processing, linguistics, information theory and machine learning. We introduce component technologies including automatic speech recognition, natural language understanding, dialog modeling, knowledge graph search, natural language generation, as well as text-to-speech synthesis. These technologies can be integrated into a diversity of systems, e.g. the ubiquitous chatbot systems, speech/text mining/retrieval/summarization systems, language learning systems, etc.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the student should have acquired the knowledge and ability relating to:\n• Knowledge of different levels of description (namely, acoustic, phonetic and linguistic levels) of human speech and language,\n• Understanding the component technologies for processing human speech and language at different levels,\n• Understanding the AI technologies, such as automatic speech recognition, natural language understanding, dialog modeling, knowledge graph search, natural language generation, as well as text-to-speech synthesis,\n• Develop different AI technologies and integrate them into different human speech and language systems,\n• Develop end-to-end conversational AI systems.",
-      "assessment_types": {
-        "Homework or assignment": "20",
-        "Presentation": "30",
-        "Project": "15",
-        "Report": "35"
-      }
-    },
-    {
-      "subject": "SEEM",
       "course_code": "5650",
       "title": "Integer Programming",
       "credits": "3.00",
@@ -3926,50 +3737,6 @@
       "assessment_types": {
         "Essay test or exam": "40",
         "Others": "60"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5670",
-      "title": "Advanced Models in Financial Engineering",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers various applications of engineering technicalities in financial modeling. Emphasis will be on two main topics: investment portfolio optimization and financial derivative pricing. We introduce dynamic programming approach, martingale and PDE numerical solutions, Monte Carlo simulation methods for solving these two problems.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "1. Understanding the essences of stochastic calculus,\n2. Understanding the no-arbitrage principle and fundamental theory of asset pricing,\n3. Be able to use the tool of Ito calculus to build up financial pricing models,\n4. Be able to carry out PDE and probabilistic approaches to evaluate financial securities.",
-      "assessment_types": {
-        "Essay test or exam": "80",
-        "Others": "20"
-      }
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5680",
-      "title": "Text Mining Models and Application",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers basic mining models that are able to discover useful patterns and knowledge from text data. The form of text data ranges from semi-structured representation to free natural language texts. It discusses retrieval models as well as learning models based on user feedback. It also covers advanced models including language modeling, automatic entity extraction, and machine learning models suitable for text. Text mining applications such as knowledge management are presented.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the student should have acquired the ability to understand\n(i) techniques for text mining models\n(ii) text data analytics\n(iii) text mining applications",
-      "assessment_types": {
-        "Essays": "25",
-        "Essay test or exam": "40",
-        "Presentation": "20",
-        "Short answer test or exam": "15"
       }
     },
     {

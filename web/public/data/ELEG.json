@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T15:21:00.034143+00:00",
     "subject": "ELEG",
     "subject_title": "Electronic Engineering",
-    "total_courses": 71,
+    "total_courses": 49,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1902,29 +1902,6 @@
     },
     {
       "subject": "ELEG",
-      "course_code": "3302",
-      "title": "Fundamentals of Photonics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers the fundamental knowledge in photonics and its applications in engineering. The topics include review of ray optics, wave and beam optics, Fourier optics and optical image formation, holography and holographic storage, polarization optics and liquid crystal display technology, light emitting diodes, optical resonators and lasers, optical interconnects and switches, optical fiber communications and fiber sensors. The applications of photonic technology in modern consumer products will also be explained.",
-      "enrollment_requirement": "Not for students who have taken ELEG3010.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Electronic Engineering",
-      "academic_org": "Dept of Electronic Engineering",
-      "learning_outcomes": "By the end of the course, students should be able to\n- gain the fundamental knowledge and skills in photonics, and understand the advantages and limitation of the technology.\n- apply their knowledge and skills in optics for design in optical elements, optical measurement techniques, and optical instrumentation.\n- understand the technological impact of photonics to the society.\n- understand the basic physical principle and the engineering of photonics for further specialization in areas related to optical science and optical engineering.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "15",
-        "Lab reports": "10",
-        "Short answer test or exam": "25"
-      }
-    },
-    {
-      "subject": "ELEG",
       "course_code": "3303",
       "title": "Introduction to Optical Communications",
       "credits": "3.00",
@@ -2964,73 +2941,6 @@
         "Essay test or exam": "50",
         "Homework or assignment": "25",
         "Short answer test or exam": "25"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "4216",
-      "title": "Design Methodology of Modern Digital Circuits",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course teaches the design methods for modern digital circuits. Digital circuit technology trends are described. Implementation methods and design flows for modern digital circuits are explained in detail, and their trade-offs are discussed. Advanced circuit techniques in digital designs are introduced. Design tools, e.g., Verilog, are taught. Packaging and testing of digital integrated circuits are briefed.",
-      "enrollment_requirement": "Not for students who have taken ELEG3205.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Electronic Engineering",
-      "academic_org": "Dept of Electronic Engineering",
-      "learning_outcomes": "Upon completion of this course, students should be able to\n- understand the intricate trade-offs in different implementation methods\n- know with design flows and have the competence to use design tools\n- use Verilog as a Hardware Description Language\n- apply advanced circuit techniques in digital designs\n- gain a comprehensive knowledge of integrated circuits as a technology\n- gain hands-on experience in implementing digital designs into hardware through practice",
-      "assessment_types": {
-        "Essays": "5",
-        "Essay test or exam": "50",
-        "Others": "20",
-        "Short answer test or exam": "25"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "4311",
-      "title": "Physics and Technology of Semiconductor Devices",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This is an elective course for ELEG undergraduate students who are interested in the physics and technology of semiconductor devices. The course content is designed to equip the students with the fundamental concepts and principles of the semiconductor devices. It will discuss advanced physical mechanisms which limit the performance of state-of-the-art diodes and transistors. The course begins with the basic knowledge about the semiconductors, and is then advanced to the fundamental physics and principles of the semiconductor devices. Finally, the course connects the design and fabrication of semiconductor devices and circuits to the material and device physics. The course will also be extended to novel semiconductor technologies such as flexible and wearable electronics.",
-      "enrollment_requirement": "Not for students who have taken ELEG4301 or ELEG4510 or ESTR4210 or ESTR4216.\nPrerequisites: ELEG3301 or ESTR3204 or consent of the instructor.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Electronic Engineering",
-      "academic_org": "Dept of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of the course, students will be able to\n\n1. understand and explain fundamental physics underlying semiconductor device technology;\n2. perform analysis and design of common semiconductor devices based on fundamental principles;\n3. describe how to analyze semiconductor devices and extract key device parameters by suitable experiments;\n4. design and engineer materials and devices for special device and circuit applications;\n5. decribe extended knowledge about semiconductor technology based on disordered semiconductors, such as flexible and printed electronics",
-      "assessment_types": {
-        "Attendance": "10",
-        "Examination": "70",
-        "Homework or assignment": "20"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "4312",
-      "title": "Micro-optic Devices and Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers the physics of micro-optical devices and systems. Topics include optical coherence and interference, thin film optical filters, optical diffraction, principles of optical waveguides, photodetectors and optical modulators, optical imaging subsystems. It also gives an introduction to optical coherence tomography and LIDAR.",
-      "enrollment_requirement": "Not for students who have taken ELEG4302.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Electronic Engineering",
-      "academic_org": "Dept of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of the course, students will be able to\n1. understand and explain fundamental concepts in optics；\n2. explain the principles of optical waveguides, thin film filters, optical interferometers;\n3. explain the basic principles of Optical Coherence Tomography and LIDAR;\n4. design micro-optical subsystems.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "20",
-        "Short answer test or exam": "30"
       }
     },
     {
@@ -4590,159 +4500,6 @@
     },
     {
       "subject": "ELEG",
-      "course_code": "5020",
-      "title": "Advanced Topics in Integrated Circuits and Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Integrated circuits and systems are the technological pillar of modern electronic systems and cover a wide range of topics. This course focuses on a selected specialized area in integrated circuits and systems. Students will be provided in-depth knowledge about the analysis and design techniques for integrated circuits and systems in the selected area.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. To appreciate the current issues and trends in Integrated Circuit design\n2. To acquire the skill to use new design tools\n3. To understand new design flow",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Lab reports": "30",
-        "Others": "30"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5030",
-      "title": "Advanced Topics in Wireless Communications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course will consist of a series of lectures on timely topics in a broad range of areas related to wireless communications. These topics include MIMO systems, antenna arrays, channel modeling, power amplifiers, microwave systems, and evolution of standards, industrial systems design.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. To appreciate the current issues and trends of wireless communication\n2. To acquire the skill to analyze wireless communication systems\n3. To understand the challenges and limitations of wireless technologies",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Lab reports": "30",
-        "Others": "30"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5040",
-      "title": "Advanced Topics in Signal Processing",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is intended to introduce important timely topics in signal processing and related areas, e.g., communications, data science, machine learning. It covers theoretical and/or application aspects of signal processing research and aims to encourage students to develop an inter-disciplinary perspective.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. To appreciate the current issues and trends in signal processing\n2. To understand new theories and algorithms on signal processing\n3. To understand the most recent applications and development of signal processing",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "30",
-        "Presentation": "30"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5050",
-      "title": "Advanced Topics in Solid State Technology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to introduce advanced topics or topics of current interest in semiconductor device physics and fabrication technology. The related areas include, but not limited to, memory and switching devices, optoelectronic devices and sensors. It aims to help students to develop an inter-disciplinary perspective of future solid-state device technologies. Students will be invited to contribute seminars on selected topics.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. To appreciate the current issues and trends in Integrated Circuit design\n2. To acquire the skill to use new design tools\n3. To understand new design flow",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Lab reports": "30",
-        "Others": "30"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5060",
-      "title": "Applied Functional Analysis and Approximation Theory",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will provide graduate students with a panorama of functional analysis and approximation theory in multiple dimensions, adopting a systematic dual point of view (functions defined through a collection of measurements, weak formulations). The emphasis will be laid on the simplest, albeit modern mathematical concepts and mechanisms, with a view to avoid extraneous formalism and more abstract (e.g., topological) considerations. This knowledge will be used to devise methods for solving exactly or approximately various inverse problems; e.g., resulting from partial differential equations.\nThis knowledge will be used to model engineering problems (e.g., data acquisition, sampling), to devise methods for solving exactly or approximately the inverse problems that are related (e.g., resulting from partial differential equations), and to analyse the error resulting from the approximations.\n\nCourse contents: elements of\n\n- measure theory, Lebesgue integral, Hilbert spaces\n- generalized functions/distributions (delta, etc.), duality\n- Fourier, convolutions\n- functionals, Lagrangians, variational calculus\n- partial differential equations, integral equations, Green functions\n- approximations in partial differential equations\n- approximation of functions, Ritz-Galerkin approximations\n- splines, finite elements, wavelets, Gabor functions\n- interpolation of uniform and scattered data, radial basis functions\n- examples in electromagnetism, continuum mechanics, image processing etc.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Engineering and MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "By the end of the course, students should be able to\n\nThe goal of this course is, for the students, to learn the most important mathematical ideas that are needed to be able to solve mathematically and numerically a number of multivariate problems that arise in engineering fields (including physics, signal processing). It is not meant to provide very detailed, complete mathematical coverage of each theory encountered, though.\n\nAt the end of this course, the students are expected to be able to\n\n1. Understand the working principle of the theory of measure/integration (Lebesgue)\n\n2. Understand and apply generalized functions in an engineering/physics context\n\n3. Understand and apply the Fourier transformation in multiple dimensions\n\n4. Understand and apply variational calculus\n\n5. Understand and apply exact approaches for solving partial differential equations\n\n6. Understand and apply numerical approaches for solving partial differential equations (approximation theory)\n\n7. Apply a part of the knowledge learnt in a Matlab project (computer implementation)",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "50",
-        "Short answer test or exam": "10"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5150",
-      "title": "Processing of Functional Materials",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The processing techniques used to manufacture materials and components is a very broad activity encompassing materials science, mechanical engineering, electronic engineering, chemistry and economics. Commercial processing is now accomplished by automated and computer controlled equipment yet the engineers and researchers must understand the basic principles to program and control the parameters. This course is to develop the scientific base and fundamental nature of some common processes. The aim of this course is to provide students with the basic understanding of manufacturing processes, and the relationships between process design and fundamental concepts in transport phenomena, and properties.",
-      "enrollment_requirement": "For ELEG RPG & TPG students",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "At the end of this course the students will be able to\n\n1. **Explain** the relationships between basic concepts and design of the processing route.\n2. **Apply** basic concepts to predict the material behaviour during processing.\n3. **Predict** the structure and properties of the end products\n4. **List** the advantages and limitations of each process\n5. **Choose** the best process for a particular component, device or material.",
-      "assessment_types": {
-        "Homework or assignment": "25",
-        "Presentation": "25",
-        "Short answer test or exam": "50"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5280",
-      "title": "Analog-Digital ASIC Design",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the technology trends, integration requirements, design skills and methodologies of Analog-digital ASIC design. The course content covers layout and matching, noise in electronic circuits, coupling and isolation, synthesis of basic cells, e.g., operational trans-conductance amplifiers, comparators, voltage and current references. The design of analog-digital integrated circuits at the building block and system level, e.g., continuous-time and sampled-data filters, Nyquist-rate A/D and D/A converters, oversampled A/D converters, will also be taught.",
-      "enrollment_requirement": "For ELEG major and minor undergraduate and ELEG RPg and TPg students as elective course; Not for students who have taken ELEG5201",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon satisfactory completion of this course, the students will be able to:\n\nUpon satisfactory completion of this course, the students will be able to:\n\n- Demonstrate an understanding of devices used in mixed-signal ICs\n\n- Describe challenges in modern mixed-signal IC design\n\n- Compute fundamental limits in analog circuits\n\n- Relate closed-loop requirements to the specifications of the amplifier and Design an certain type of amplifier to meet specifications with optimized power consumption\n\n- Analyze a switched-capacitor circuit and Synthesis a switched-capacitor circuit from a given transfer function\n\n- Define performance measures for data converters\n\n- Recognize various type of data converter circuits and Compare and Analyze their performance\n\n- Demonstrate the ability to design a data converter at the transistor level to meet a given set of specifications using EDA tools.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "50"
-      }
-    },
-    {
-      "subject": "ELEG",
       "course_code": "5301",
       "title": "Photonic Integrated Circuits",
       "credits": "3.00",
@@ -4859,53 +4616,6 @@
       "assessment_types": {
         "Essay test or exam": "60",
         "Homework or assignment": "40"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5491",
-      "title": "Introduction to Deep Learning",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an introduction to deep learning. Students taking this course will learn the theories, models, algorithms, implementation and recent progress of deep learning, and obtain empirical experience on training deep neural networks. The course starts with machine learning basics and some classical deep models (including convolutional neural network, deep belief net, and auto-encoder), followed by optimization techniques for training deep neural networks, implementation of large-scale deep learning, multi-task deep learning, transferred deep learning, recurrent neural networks, applications of deep learning to computer vision and speech recognition, and understanding why deep learning works. The students taking are expected to have some basic background knowledge on calculus, linear algebra, probability, statistics and random process as a prerequisite.",
-      "enrollment_requirement": "For ELEG RPG & TPG students, ELEG undergraduate major and minor students as elective course; Not for students who have taken ELEG5040",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. Understand the fundamental concepts, theories and algorithms of deep learning.\n2. Understand why deep learning outperforms other machine learning methods when the training data is in large scale\n3. Understand the principles of designing different deep models for various applications\n4. Implement and train deep neural networks with deep learning toolboxes\n5. Obtain empirical experience of designing and training deep models in practical applications.",
-      "assessment_types": {
-        "Essays": "15",
-        "Essay test or exam": "30",
-        "Others": "20",
-        "Presentation": "20",
-        "Selected response test or exam": "15"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5520",
-      "title": "Advanced Topics in Optoelectronics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The lecture course covers selected topics in optoelectronics. Possible topics that will be covered include the principle, design and analysis of advanced optical materials, devices and subsystems, and their applications in optical interconnects and communications, information processing, display, storage, optical metrology, and sensing system.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Engineering.\nThe student should have prior knowledge of semiconductor devices or optoelectronics at the junior undergraduate level before taking this course.",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "By the end of this course, students should be able to:\n\n• Understand the new progress in advanced optical materials, devices, and subsystems\n• Acquire knowledge on the design of different optical systems and analyze their performances\n• Develop and evaluate techniques for optical measurements and characterization",
-      "assessment_types": {
-        "Essays": "20",
-        "Essay test or exam": "40",
-        "Others": "20",
-        "Presentation": "20"
       }
     },
     {
@@ -5044,27 +4754,6 @@
         "Presentation": "10",
         "Project": "50",
         "Selected response test or exam": "30"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5620",
-      "title": "Electronic Engineering Seminar",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Electronic engineering is a fast evolving interdisciplinary field. This course consists of the most up-to-date research topics presented by active researchers and experts in the field and strikes a balance between discussions of hardware and software development in electronic engineering. There will be 26 seminars in total, and each seminar contains a 45-minute presentation followed by a 25-minute discussion session. The students are required to attend at least 70% of the seminars and write one report on their learning from one or two specific seminars.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Erg",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Pass/Not Pass",
-      "component": "Discussion\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of the course, students will be able to\n\n1. Stay abreast of latest technological developments in the field of electronic engineering\n2. Acquire knowledge of research topics related to electronic engineering\n3. Acquire, enhance, and practice presentation skills\n4. Develop skills in analytical and reflective thinking",
-      "assessment_types": {
-        "Attendance": "70",
-        "Essays": "30"
       }
     },
     {
@@ -5223,52 +4912,6 @@
         "Examination": "30",
         "Homework or assignment": "35",
         "Project": "25"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5755",
-      "title": "Optical Communications and Interconnects",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an overview of optical fibre communications. The course content includes types and properties of fibres, optical transmitters, receivers, and repeaters, passive optical devices, optical modulation and multiplexing techniques, fibre communication systems and optical networks. The course also introduces optical interconnects, silicon photonics, active optical cables and discusses future trends of optical interconnects.",
-      "enrollment_requirement": "For students in MPhil-PhD Electronic Erg and MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "By the end of the course, students should obtain an overall picture of the history and recent developments of optical communications, and understand its advantages and limitations. They will acquire knowledge on the operating principle and technology of different key components in an optical communication system and optical interconnects. They should be able to apply skills for the design of basic fibre components, systems, and networks and carry out qualitative and quantitative analyses on their performances.",
-      "assessment_types": {
-        "Essay test or exam": "70",
-        "Lab reports": "10",
-        "Short answer test or exam": "20"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5757",
-      "title": "Intelligent Wearable Electronics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Introduction to wearable technology, reviews on wearable robotics, wearable sensor principles, wearable augmentation and machine intelligence, wearable design by \"MINDS\" (Miniaturization, Intelligence, Networking, Digitization, and Standardization), wearable medical devices and systems, wearable electro-physiologies, implantable therapeutic systems, sensor informatics, data-driven intelligent applications, and project topics of current interests.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon completion of this course, students will be able to\n\n* Understand the basic concepts of wearable electronics technology\n* Understand the basic principles of sensor technology for wearable device design\n* Learn the fundamentals of wearable robotics\n* Know how to design wearable devices and systems\n* Familiar with applications of machine intelligence in wearable electronics and healthcare.\n\n```\n\n```",
-      "assessment_types": {
-        "Essays": "20",
-        "Lab reports": "10",
-        "Presentation": "25",
-        "Short answer test or exam": "25",
-        "Selected response test or exam": "20"
       }
     },
     {
@@ -5729,49 +5372,6 @@
     },
     {
       "subject": "ELEG",
-      "course_code": "5766",
-      "title": "AI in Medical Image Analysis",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Medical imaging has been an integral part in modern healthcare procedures. Advances in deep learning have revolutionized the analysis of biomedical data, clinical diagnosis, and prognosis. In this course, students will learn fundamental image processing techniques, characteristics of different types of medical images, and how to apply different classical image processing techniques to different types of medical images. Topics covered in this course include but are not limited to:\n- An overview of medical imaging modalities and their clinical use,\n- Introduction to medical image computing, including registration, segmentation, classification, reconstruction, super-resolution, and visualization,\n- Traditional image processing techniques for medical image analysis,\n- Machine learning/deep learning for medical image analysis, and\n- Frontline of AI in medical imaging and case studies.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering and MPhil-PhD Electronic Erg",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. have some basic ideas of artificial intelligence and machine learning;\n2. know the medical applications of artificial intelligence and machine learning;\n3. understand the limitations and possibilities of different approaches to artificial intelligence in medical image analysis;",
-      "assessment_types": {
-        "Classwork": "30",
-        "Project": "30",
-        "Test or quiz": "40"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5768",
-      "title": "CMOS Radio Frequency Integrated Circuits Design",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This subject aims to train students with the advanced knowledge of radio frequency (RF) integrated circuit design in the advanced CMOS technology, including design and analysis of widely-used RF transceiver architectures and circuits. The student will get hands-on experience to design and analyze RF integrated circuits and get familiar with the complete design flow from circuit design, layout design and parasitic parameters extraction.\n\nThe content of this course is composed of seven parts: 1)RF passive circuits and matching networks; 2) Noise and nonlinearity in RF system; 3) Communication system and standard; 4) RF transceiver architecture; 5) RF transceiver calibration; 6) RF module circuit design; 7) Introduction to mmWave IC. The students to be enrolled in this course are required to be with basic knowledge in physics, semiconductor device and integrated circuits.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand RFIC system and architecture design.\n2. Understand popular communication system and standard.\n3. Analyze important RF module circuits in advanced CMOS process.\n4. Use mainstream EDA tools in the industry to design and optimize the performance of RF module circuits.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Project": "60"
-      }
-    },
-    {
-      "subject": "ELEG",
       "course_code": "5769",
       "title": "Mixed-signal Integrated Circuit Design",
       "credits": "3.00",
@@ -5828,93 +5428,6 @@
       "assessment_types": {
         "Essay test or exam": "40",
         "Project": "60"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5770",
-      "title": "Advanced Semiconductor Packaging",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This subject aims to train students with the fundamental knowledge of microelectronic and power electronic packaging technologies, including concepts, electrical design, structural & thermal design, material selection, process development, test and failure analysis, with the focus on the understanding of mainstream packaging technologies for high-power & high-frequency related applications. Tutorials can be arranged to ensure the students with hand-on experience on the mainstream design software and understand the fabrication process of electronic packages/modules in industry.\nThe content of this course is composed of seven parts: 1) Mainstream microelectronics packaging format & process; 2) Mainstream power electronics packaging format & process; 3) Fundamentals of thermal management, mechanics & reliability; 4) Electrical, thermal and mechanical co-design considerations with case studies; 5) Modelling and simulation of mainstream electronic packages; 6) Chiplet design and heterogeneous integration packaging; 7) Techniques for failure analysis.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n1. Understand mainstream microelectronics & power electronics packaging format & process;\n2. Understand the fundamentals of thermal management, mechanics & reliability;\n3. Understand the principles of reliability tests & failure analysis techniques;\n4. Use mainstream EDA tools in the industry to design and simulate the performance of electronics packages.",
-      "assessment_types": {
-        "Essay test or exam": "60",
-        "Homework or assignment": "40"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5771",
-      "title": "Micro/Nano-Chip Manufacturing Technology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the science and engineering of micro/nano-chip manufacturing. The manufacturing technology is the foundation to create integrated devices and systems with a feature size at the micrometer or nanometer level. The manufacturing processes are employed in multiple disciplines including microelectronics, optoelectronics, micro/nano-electromechanics, photonics, plasmonics, and microfluidics. Students will get comprehensive understanding of the manufacturing processes, environment, equipment, and applications of micro/nano-chips.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering and MPhil-PhD Electronic Erg:\nNot for students who have taken ELEG5550",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. Understand the fundamental principles of micro/nano-chip manufacturing.\n2. Understand the safety issues and precaution measures of micro/nano-chip manufacturing.\n3. Understand how to design the manufacturing processes according to the targeted applications.\n4. Understand how to evaluate the manufacturing quality.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "30",
-        "Short answer test or exam": "20"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5772",
-      "title": "Audio Signal Processing",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is an in-depth exploration of audio processing using neural networks. Starting with an introduction to audio problems, the course covers a range of topics including audio features and human labels, filtering and digital signal processing for audio processing, audio and music tagging with convolutional neural networks, audio and music transcription with recurrent neural networks, audio compression, bridging audio and language with sequence-to-sequence models, symbolic music generation, audio and music generation with pipelines, vocoder, and autoregressive models, audio and music generation with VAEs and diffusion models, controllable audio and music generation from texts and multiple modalities, and open problems and future directions in the field.",
-      "enrollment_requirement": "For ELEG PG students; Students should have knowledge of Linear Algebra, Probability, C/C++/Python, pattern recognition or machine learning;Not for students who have taken ELEG5421",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "Through a combination of lectures, assignments, and projects, students will gain hands-on experience working with state-of-the-art tools and techniques for audio and music processing. By the end of the course, students will have a solid foundation in the latest techniques for audio and music processing using neural networks, and will be able to apply these techniques to real-world problems in the field.",
-      "assessment_types": {
-        "Essay test or exam": "60",
-        "Homework or assignment": "40"
-      }
-    },
-    {
-      "subject": "ELEG",
-      "course_code": "5773",
-      "title": "Photonic Chip Design and Emerging Applications",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an introduction to the principles, techniques, and cutting-edge developments in photonic chip design. The course covers fundamental concepts in waveguide theory, optical materials, devices, circuits and simulation methodologies used in photonic integrated circuit (PIC) design. Beyond the fundamentals, the course introduces a wide range of emerging applications, including ultrafast optical communication, optical computing, sensing, and quantum photonics. Students will understand the theoretical foundations and the real-world opportunities of photonic chip technologies, preparing them for advanced study or careers in integrated photonics and semiconductor technology.",
-      "enrollment_requirement": "For students in MSc Electronic Engineering and MPhil-PhD Electronic Erg;Not for students who have taken ELEG5301",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Electronic Engineering",
-      "academic_org": "Div of Electronic Engineering",
-      "learning_outcomes": "1. Understand fundamental physics of waveguides, optical materials, and photonic device structures used in photonic integrated circuits (PICs).\n\n2. Design basic photonic components and circuits using industry-standard simulation tools and evaluate their performance.\n\n3. Understand the fundamental principles of photonic chip manufacturing\n\n4. Understand the principle and assessment of emerging applications of photonic chips, including ultrafast optical communication, optical computing, sensing, and quantum photonics.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "20",
-        "Presentation": "10",
-        "Short answer test or exam": "20"
       }
     },
     {

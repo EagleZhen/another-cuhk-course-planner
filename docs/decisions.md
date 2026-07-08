@@ -78,3 +78,15 @@ Why it fits:
 Scraped course data carries fields the app doesn't render (`course_syllabus`, required/recommended readings, feedback) — some with base64-embedded images. Serving them cost roughly two-thirds of the gzipped transfer for data no one sees (~12MB → ~4MB on the wire as of mid-2026; both figures grow with each added year of data).
 
 Decision: strip these at publish (`STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)), not at scrape. [data/](../data/) keeps the full raw data, so a field can be published again by removing it from the list once the app renders it well (see [issue #27](https://github.com/EagleZhen/another-cuhk-course-planner/issues/27)). Stripping at the publish boundary keeps the source complete while shrinking only what ships.
+
+## Partition Course Data By Academic Year At Scrape Time
+
+CUHK's catalog now shows 2025-26 and 2026-27 simultaneously, and will eventually drop 2025-26. Each scrape overwrites `data/<subject>.json` wholesale, so a flat layout would silently lose 2025-26 the moment CUHK stops serving it.
+
+Decision: split each subject's courses by academic year (parsed from `term_name`) at scrape time, into `data/<year>/<subject>.json`, with dormant/no-term courses in `data/no-terms/`.
+
+Why it fits:
+
+- splitting at scrape, not publish, keeps `data/` itself complete and regenerable instead of flat and overwritten
+- year, not term: a term freezes and thaws with its year, not on its own — splitting further would turn today's instant term switching into a network fetch, for no preservation gain
+- a year freezes for free once CUHK stops serving it (a scrape only overwrites what it currently produces) — no archive step needed. `no-terms` is the exception: the subject keeps being scraped regardless, so a stale entry there has no archival meaning and is actively pruned (`partition_subject_by_year` in [scripts/data_utils.py](../scripts/data_utils.py))

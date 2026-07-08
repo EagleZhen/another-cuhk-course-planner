@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T16:54:22.216290+00:00",
     "subject": "INFD",
     "subject_title": "Infectious Diseases",
-    "total_courses": 11,
+    "total_courses": 4,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -101,48 +101,6 @@
     },
     {
       "subject": "INFD",
-      "course_code": "5002",
-      "title": "Topics in Infection and Microbiology I",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course is designed to strengthen knowledge in microbiology and infectious diseases in public health contexts.",
-      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "1. Students will learn how to look for factual detail about infectious disease events and outbreaks\n2. Students will understand the basics of immunology and how the immune system is involved in health and disease\n3. Students will be able to describe the major infectious disease syndromes",
-      "assessment_types": {
-        "Essays": "70",
-        "Presentation": "30"
-      }
-    },
-    {
-      "subject": "INFD",
-      "course_code": "5003",
-      "title": "Infectious Diseases of Public Health Importance: Epidemiology, Control and Policy",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to strengthen knowledge in microbiology and infectious diseases in public health contexts",
-      "enrollment_requirement": "For TPg students under School of Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. enhance knowledge in advances in infectious disease prevention and control\n2. update on public health interventions in responding to microbial threats",
-      "assessment_types": {
-        "Examination": "60",
-        "Presentation": "40"
-      }
-    },
-    {
-      "subject": "INFD",
       "course_code": "5004",
       "title": "Infection Control in Health Care and Community Settings",
       "credits": "2.00",
@@ -191,48 +149,6 @@
       "academic_org": "Div of Public Health",
       "learning_outcomes": "Student should be able to:\n1. update on the principles of infection control in health care setting, laboratory and community\n2. familiarize with system development in infection control practice",
       "assessment_types": {}
-    },
-    {
-      "subject": "INFD",
-      "course_code": "5005",
-      "title": "Surveillance / Outbreak Investigation / Control",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Students learn to apply the science of epidemiology to solve practical real life problems related to the surveillance and outbreaks of infectious diseases",
-      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. Update on knowledge in field epidemiology\n2. Apply epidemiological techniques in disease surveillance, case or outbreak investigation",
-      "assessment_types": {
-        "Examination": "70",
-        "Test or quiz": "30"
-      }
-    },
-    {
-      "subject": "INFD",
-      "course_code": "5006",
-      "title": "Applied Epidemiology: Outbreak Investigation",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course is designed to consolidate the knowledge base in infectious diseases epidemiology for application in public health practice.",
-      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "Students are expected to\n1) Become familiar with current methods used in infectious disease prevention & control;\n2) Gain hands-on experience with laboratory-based studies in infectious diseases;\n3) Develop skills in epidemiological investigations of infectious disease in the population;\n4) Become familiarized with an integrative approach to infectious disease epidemiology.",
-      "assessment_types": {
-        "Examination": "60",
-        "Project": "40"
-      }
     },
     {
       "subject": "INFD",
@@ -334,63 +250,6 @@
       "assessment_types": {
         "Examination": "60",
         "Presentation": "40"
-      }
-    },
-    {
-      "subject": "INFD",
-      "course_code": "5801",
-      "title": "Major and Neglected Tropical Infectious Diseases of Poverty",
-      "credits": "1.50",
-      "terms": [],
-      "description": "Introduction to the major tropical infectious diseases and neglected tropical diseases (NTD) of poverty, as well as the current control strategies at the global and regional levels",
-      "enrollment_requirement": "For TPg student under School of Public Health:\n- Master of Public Health;- MSc/PgD in Epidemiology & Biostatistics; - MSc/PgD in Health Services Management;- PgD in Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n• understand the epidemiology of the major and neglected tropical infectious diseases;\n• ability to design, implement and evaluate the control strategy.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "INFD",
-      "course_code": "5802",
-      "title": "Introduction of Bioinformatics",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course intends to provide an overview of the bioinformatics analyses for health management and epidemiological studies. Content of this course includes to examine the current knowledge and strategy for managing information of patient- and pathogen-specific covariates and genetic information to understand disease progression or host-pathogen interaction. Key issues in i) Genetic Association Studies, ii) Network Analysis, iii) Deep Sequencing Applications and iv) Phylogenetic Analysis will be addressed in this course.",
-      "enrollment_requirement": "For TPg students under School of Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. Gain knowledge related to modern molecular and computation tools and resources for studying health risk and epidemiology\n2. Examine predicting factors associated with human health outcomes\n3. Participate effectively in multi-disciplinary collaboration in disease based program planning and evaluation activities related to health responses and infectious disease control.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "INFD",
-      "course_code": "6801",
-      "title": "Practicum on Infectious Diseases",
-      "credits": "1.00",
-      "terms": [],
-      "description": "The course offers a learning opportunity to students who are interested in the public health control of infectious diseases in the local context. In addition to learning about the work of the Centre for Health Protection (CHP), Department of Health, the Module coordinator would guide students with discussion and tutorial.",
-      "enrollment_requirement": "For students in Master of Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "Student should be able to:\n1. possess the knowledge on surveillance of infectious diseases and infection control in Hong Kong;\n2. apply to their future workplace on how to respond to the outbreak of infectious diseases.",
-      "assessment_types": {
-        "Discussion": "20",
-        "Essays": "80"
       }
     }
   ]

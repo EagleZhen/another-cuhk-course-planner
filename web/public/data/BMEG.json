@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T13:52:59.025902+00:00",
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
-    "total_courses": 61,
+    "total_courses": 52,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -122,30 +122,6 @@
         "Discussion": "20",
         "Presentation": "30",
         "Test or quiz": "30"
-      }
-    },
-    {
-      "subject": "BMEG",
-      "course_code": "2011",
-      "title": "Biomedical Engineering Laboratory and Hospital Experience",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course provides hands-on experience in various aspects of biomedical engineering, introduction to basic electronics, chemistry, molecular biology, microbiology, electrophysiology laboratory techniques and hospital visits. Laboratory skills, experimental design, interpretation of data, technical writing and safety and ethical issues relevant to laboratory work. It concludes with a student-driven design project.",
-      "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2012 or BMEG2130 or BMEG2602 or ESTR2202 or ESTR2203 or ESTR2602.\nCo-requisite: ELEG2202 or with the consent of the instructor.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture\nProject",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "By the end of the course, students should be able to\n\n- Undertake laboratory experiments using basic techniques in electronics, chemistry, molecular biology, microbiology and electrophysiology to support the study and solution of biomedical engineering problems; and\n\n- Apply engineering design process to the conceptual design of a biomedical engineering device; and\n\n- Document through a written report and an oral presentation the results of an engineering design project performed as part of a team of student engineers; and\n\n- Exhibit good safety and teamwork skills and serve as effective members of multidisciplinary project teams; and\n\n- Understand the fundamentals and daily operation of various medical instruments from the perspectives of end-users, (doctors, technicians, nurses) and recipients (patients) through observation and work shadowing; and\n\n- Appreciate the role of biomedical engineers in hospitals, the importance of disinfection and aseptic techniques, experience the daily operation, information flow and logistics in the running of a hospital; and\n\n- Relate theory and engineering knowledge to practicing in a real-world setting\n\nThis course meets the Course Learning Outcomes to the BEng (BME) Programme Outcomes 1 – 8.",
-      "assessment_types": {
-        "Lab reports": "30",
-        "Presentation": "10",
-        "Project": "35",
-        "Participation": "10",
-        "Short answer test or exam": "15"
       }
     },
     {
@@ -405,28 +381,6 @@
         "Homework or assignment": "15",
         "Lab reports": "10",
         "Short answer test or exam": "30"
-      }
-    },
-    {
-      "subject": "BMEG",
-      "course_code": "2218",
-      "title": "Ethical Practice in Bionic Human",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course exposes students to a range of state-of-the-art developments in biomedical engineering. It invites students to discuss the long-term societal impacts and ethical implications of these technological advances, particularly in the use of bioengineering for human enhancements beyond therapy. The course starts by illustrating some amazing designs in our human body and yet how vulnerable we are in terms of diseases and ageing. Examples will be given on how modern biomedical engineering helps us face our human conditions and beyond, including musculoskeletal prosthetics, neural engineering, reproductive technology, stem cells and regenerative medicine, genome editing and DNA engineering, social humanoid robotics and artificial intelligence, etc. The course features related sci-fi movies and YouTube materials on bionic humans. The course wraps up with some social, ethical, and philosophical reflections on the above issues and on the future of being human, raising questions concerning the perennial human quest for transcendence.",
-      "enrollment_requirement": "Not for students who have taken BMEG1217 or UGEB1217",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "Upon successful completion of the course, students will be able to (a) articulate the principles of bioethics, especially in the context of bioengineering; (b) discuss the pertinent ethical, societal and philosophical issues associated with the use of bioengineering, covering both the pros and cons of the issues; and (c) articulate the presuppositions behind their own positions regarding the above issues.",
-      "assessment_types": {
-        "Homework or assignment": "70",
-        "Participation": "20",
-        "Test or quiz": "10"
       }
     },
     {
@@ -782,51 +736,6 @@
     },
     {
       "subject": "BMEG",
-      "course_code": "3101",
-      "title": "Medical Instrumentation and Design",
-      "credits": "3.00",
-      "terms": [],
-      "description": "In view of the prevalence of the aging population and accompanying chronic illnesses, demands for medical instrumentation and design have been escalating worldwide. This course aims at enabling students to master design-thinking skills and by applying it to the broad medical fields. Laboratory sessions will be arranged to train students in developing prototypes and enrich their understanding of the fundamental design concepts covered in lectures.",
-      "enrollment_requirement": "Not for students who have taken ELEG3101 or BMEG3111 or ESTR3210 or ESTR3601 or ESTR3603.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nProject\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "Upon completing this course, students should be able to:\n1. Give an overview of the origins of certain selected biological and physiological signals;\n2. Understand the design process of various medical devices;\n3. Evaluate the different classes of medical instruments and measurement principles;\n4. Master some common medical instruments;\n5. Foresee the future trend in related topics;\n6. Design at least one new medical device that meets health demand;\n7. Demonstrate ability to design new medical devices in a dynamic group setting; and\n8. Have acquired design-thinking skills in producing prototypes that meet specific design goals.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "5",
-        "Presentation": "25",
-        "Short answer test or exam": "20"
-      }
-    },
-    {
-      "subject": "BMEG",
-      "course_code": "3102",
-      "title": "Bioinformatics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the basic concepts in bioinformatics. On the theoretical side, students are expected to learn the relevant knowledge in computer science, biology and mathematics from lectures and tutorials. On the practical side, they are given assignments and tutorials to get hands-on experience in locating, studying and using developed tools to apply the learned concepts in performing standard analytical tasks on biomedical data. Topics to be covered include: introduction to bioinformatics, reviews of molecular biology and genetics, biomedical data types and databases, sequence alignment and searching methods, mutation models and molecular phylogenetics, molecular structures, basics of human genetics and genetic diseases, clinical bioinformatics for genetic diseases diagnosis.",
-      "enrollment_requirement": "Not for students who have taken ELEG4120 or CSCI3220 or ESTR3110.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nOthers\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "By the end of the course, students should be able to\n- Tell the main ideas in bioinformatics, and its roles in biomedical engineering; and\n- Apply learned algorithms and skills to carry out standard analytical tasks, such as sequence alignment and phylogenetic tree reconstruction; and\n- Develop innovative engineering tools and software modules for bioinformatics analysis",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "45",
-        "Participation": "5"
-      }
-    },
-    {
-      "subject": "BMEG",
       "course_code": "3103",
       "title": "Big Data in HealthCare",
       "credits": "3.00",
@@ -1091,28 +1000,6 @@
     },
     {
       "subject": "BMEG",
-      "course_code": "3130",
-      "title": "Tele-medicine and Mobile Healthcare",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces remote and smartphone-based healthcare management. This course covers the basic technology of tele-medicine and m-health systems, including information types and transmission, communication systems and networks, hospital information system, medical image processing, medical data coding and compression, information privacy, mobile biosensors and optical sensors and spectrometers, point-of-care testing, tele-surgery, smart homes, and internet healthcare.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Field Studies/Field-trip\nLecture\nProject\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "By the end of the course, students should be able:\n- To acquire basic knowledge of communication networks\n- To understand medical image processing and data coding and compression methods\n- To know basic of mobile sensors in mobile health\n- To have hands-on experience on developing a mini-project targeting m-health applications",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Homework or assignment": "20",
-        "Project": "30"
-      }
-    },
-    {
-      "subject": "BMEG",
       "course_code": "3140",
       "title": "Molecular and Cellular Engineering Laboratory",
       "credits": "3.00",
@@ -1214,29 +1101,6 @@
         "Homework or assignment": "20",
         "Lab reports": "60",
         "Test or quiz": "20"
-      }
-    },
-    {
-      "subject": "BMEG",
-      "course_code": "3210",
-      "title": "Biofluids",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the fundamental knowledge in fluid mechanics, including nature of fluids, integral and differential equations of fluid flows, conservation of mass, momentum and energy, basic mass transfer, inviscid flow, viscous-dominated flows, navier-stokes equation, dimensional analysis, internal and external flows and reynolds number. It covers micro-fluidic devices and biological applications. It also describes fluids in human body and blood flow, including blood velocity, blood vessel geometry and respiratory mechanics.",
-      "enrollment_requirement": "Not for students who have taken MAEG3030 or ESTR3212.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "Upon completion of this course, students should have acquired the ability to:\n\nUpon completion of this course, students should have acquired the ability to:\n\n- Understand the fundamental concepts of fluid mechanics.\n\n- Apply the principle of conservation of mass, momentum to perform various flow analysis\n\n- Understand the state-of-the-art microfluidic devices and their applications in biology\n\n- Perform dimensional analysis for complex flow system and design proper experiments\n\n* *-**Perform basic quantitative analysis on simple biological flow system",
-      "assessment_types": {
-        "Essay test or exam": "45",
-        "Homework or assignment": "10",
-        "Project": "20",
-        "Short answer test or exam": "25"
       }
     },
     {
@@ -2625,30 +2489,6 @@
         "Lab reports": "5",
         "Presentation": "15",
         "Short answer test or exam": "25"
-      }
-    },
-    {
-      "subject": "BMEG",
-      "course_code": "4510",
-      "title": "Biomolecular Engineering",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course consists of two parts. The first half covers basic concepts in biomolecular engineering, including structure and properties of biomolecules (e.g., nucleic acid, protein, lipid, and sugar), the central dogma of molecular biology, and regulation of gene expression. Building on the theoretical framework from the first half, the second half introduces experimental tools involved in biomolecular engineering research, including synthesis and characterization of DNA and protein, gene recombination, and basic genomics. Set at the advanced undergraduate level, the course focuses on developing students’ ability to analyze research data and critique the scientific literature.",
-      "enrollment_requirement": "Not for students who have taken ESTR4204. Pre-requisite: SBMS1440 or with the consent of the course instructor.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Biomedical Engineering",
-      "academic_org": "Dept of Biomedical Engineering",
-      "learning_outcomes": "Upon completion of this course, students are expected to able to:\n1. understand the tools and concepts of biomolecular engineering;\n2. interpret data from and formulate hypothesis based on research in biomolecular engineering and offer objective critiques to the scientific literature;\n3. appreciate the impact of biomolecular engineering from intellectual, clinical and commercial perspectives",
-      "assessment_types": {
-        "Essay test or exam": "45",
-        "Homework or assignment": "10",
-        "Lab reports": "5",
-        "Presentation": "10",
-        "Short answer test or exam": "30"
       }
     },
     {
@@ -4607,27 +4447,6 @@
     },
     {
       "subject": "BMEG",
-      "course_code": "5630",
-      "title": "Fundamental Gene Therapy",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course is designed to provide students with foundational knowledge and technology related to gene therapy and genetic engineering. As research and applications in gene therapy gain increasing prominence in medical and biomedical fields, this course aims to equip students with essential insights into these areas, focusing on both fundamental concepts and their practical applications. The emphasis will be on translating biological sciences into biomedical engineering practices. Structured to accommodate students with minimal prior knowledge, the course covers key components such as the definitions of gene therapy and genetic engineering, gene delivery methods (including both viral and non-viral vectors), therapeutic antisense technologies, basic gene editing techniques, and typical clinical applications like CAR-T cell therapy. The curriculum will highlight biomedical engineering perspectives, encompassing relevant instrumentation and methodologies for gene sequencing, medical imaging, and related fields.",
-      "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering; or\nFor students in MSc Biomedical Engineering; or\nFor students in BEng Biomedical Engineering.\nNot for students who have taken BMEG4510.",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Biomedical Engineering",
-      "academic_org": "Div of Biomedical Engineering",
-      "learning_outcomes": "By the end of the course, students should be able to:\n1. Clearly define and differentiate between gene therapy and genetic engineering;\n2. Explain the principles of antisense technology and its therapeutic potential;\n3. Demonstrate an understanding of gene editing technologies and their clinical implications; and\n4. Evaluate case studies of gene therapy applications, particularly in the context of biomedical engineering.",
-      "assessment_types": {
-        "Examination": "60",
-        "Homework or assignment": "40"
-      }
-    },
-    {
-      "subject": "BMEG",
       "course_code": "5710",
       "title": "Introduction to Biomedical Engineering",
       "credits": "3.00",
@@ -5316,27 +5135,6 @@
         "Homework or assignment": "20",
         "Presentation": "30",
         "Short answer test or exam": "50"
-      }
-    },
-    {
-      "subject": "BMEG",
-      "course_code": "5880",
-      "title": "Stem Cell Fundamentals",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an in-depth introduction to the fundamental knowledge and technologies related to stem cells, which have become increasingly significant in various areas of biomedical research, industrial research and development (R&D), clinical practice, and academic education. As advancements in stem cell technologies continue to transform healthcare and scientific inquiry, biomedical engineering (BME) students need to understand both the theoretical and practical aspects of this field. Designed specifically for students pursuing a degree in BME, the course emphasizes core concepts of stem cell biology while ensuring that the material remains accessible and applicable. Rather than diving deeply into complex biological mechanisms, the course focuses on essential principles that underlie stem cell science. Students will explore mainstream applications of stem cell technology, learning how to effectively translate biological sciences into innovative and practical solutions for real-world challenges. The curriculum covers a range of critical topics, including the definitions, criteria, and standards of “stemness,” which serve as foundational concepts in the study of stem cells. Additionally, the course will delve into the regulatory frameworks and ethical considerations that govern stem cell research and development, providing students with a comprehensive understanding of the responsibilities and implications associated with this research. Students will also engage with fundamental aspects of embryonic, fetal, and adult stem cell biology, allowing them to grasp the complexities of each type and its unique properties. By the end of the course, students will have a thorough understanding of the diverse roles that stem cells play across various biomedical fields.",
-      "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemical & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering.\nNot for students who have taken BMEG4530.",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Biomedical Engineering",
-      "academic_org": "Div of Biomedical Engineering",
-      "learning_outcomes": "After completing this course, students will be able to:\n1. Understand the basic concepts of stem cells: master the definition, criteria and standards of \"stem cells\" and understand their importance in biomedicine;\n2. Apply the principles of stem cell biology: be able to explain the basic biological mechanisms of stem cells, including the characteristics of embryonic stem cells, fetal stem cells and adult stem cells and their development process;\n3. Analyze the application of stem cell technology: identify and discuss the main application areas of stem cells in regenerative medicine, such as cardiac, neurological, orthopedic and immunotherapy;\n4. Evaluate ethical and regulatory issues: understand the ethical considerations and laws and regulations related to stem cell research, and be able to put forward reasonable opinions in relevant discussions;\n5. Ability to solve practical problems: transform biological science knowledge into innovative solutions, and be able to propose practical stem cell technology applications for real-world challenges;\n6. Conduct scientific discussions and exchanges: have the ability to participate in meaningful discussions about the application and future development potential of stem cells, and be able to conduct effective scientific exchanges with peers; and\n7. Prepare for a career: through a comprehensive understanding of the field of stem cells, enhance the ability to develop careers in biomedical engineering and related fields, and lay the foundation for future research or careers.",
-      "assessment_types": {
-        "Examination": "60",
-        "Homework or assignment": "40"
       }
     },
     {

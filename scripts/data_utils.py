@@ -24,6 +24,15 @@ except ImportError:
     exit(1)
 
 
+# Directory name for the bucket of courses with no scheduled terms (the None key
+# from partition_subject_by_year). Not a year, so year globs exclude it.
+NO_TERMS_DIR = "no-terms"
+
+# Interim: the one year generate_subjects.py and publish_course_data.py both read,
+# until per-year serving lands. Shared here so the two can't drift apart.
+INTERIM_LIVE_YEAR = "2025-26"
+
+
 def clean_word_html(html_content: str) -> str:
     """
     Clean Word-specific HTML artifacts before markdown conversion.
@@ -518,3 +527,43 @@ def save_json_with_newline(filepath: str, data: Any) -> None:
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+
+def get_academic_year(term_name: str) -> Optional[str]:
+    """Extract the academic year label from a term name for year-partitioning.
+
+    Mirrors ``getAcademicYear`` in web/src/lib/courseUtils.ts. Returns the
+    ``"YYYY-YY"`` label (e.g. "2025-26" from "2025-26 Term 2"), or None when the
+    term name has no recognizable year (used to route courses with no scheduled
+    terms elsewhere).
+    """
+    match = re.search(r"(\d{4})-(\d{2})", term_name)
+    return match.group(0) if match else None
+
+
+def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
+    """Split a subject's courses into per-year ``subject_data`` slices, keyed by
+    academic year ("2025-26"). A course spanning years appears in each with only
+    that year's terms; courses with no terms go under the key ``None``.
+    """
+    metadata = subject_data.get("metadata", {})
+    courses_by_year: dict[Optional[str], list] = {}
+
+    for course in subject_data.get("courses", []):
+        terms = course.get("terms", [])
+        if not terms:
+            courses_by_year.setdefault(None, []).append(course)
+            continue
+
+        terms_by_year: dict[Optional[str], list] = {}
+        for term in terms:
+            year = get_academic_year(term.get("term_name", ""))
+            terms_by_year.setdefault(year, []).append(term)
+
+        for year, year_terms in terms_by_year.items():
+            courses_by_year.setdefault(year, []).append({**course, "terms": year_terms})
+
+    return {
+        year: {"metadata": {**metadata, "total_courses": len(courses)}, "courses": courses}
+        for year, courses in courses_by_year.items()
+    }

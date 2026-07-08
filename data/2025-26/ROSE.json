@@ -1,0 +1,872 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T19:15:07.181322+00:00",
+    "subject": "ROSE",
+    "subject_title": "Robotics",
+    "total_courses": 10,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "ROSE",
+      "course_code": "5710",
+      "title": "Fundamental Robotics and Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3745)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12, 9/12"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "14/10"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "92",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "\"Fundamental Robotics and Systems\" is a foundational course in our Master's program, designed to provide students with an in-depth understanding of essential robotics principles and systems. This course is indispensable for students keen on advanced studies or careers in robotics.\n\nThe course will concentrate on fundamental technical concepts of robotics, including robotic kinematics, dynamics, sensors, actuators, robotic programming, and basic applications of AI and machine learning in robotics.",
+      "enrollment_requirement": "For students in MSc Robotics\nNot for students who have taken MAEG5755 or ENGG5402",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand fundamental principles and systems in robotics, including kinematics, dynamics, sensors, and actuators.\n\n2. Understand basic skills in robot programming using languages such as Python and/or C++, and frameworks like ROS.\n\n3. Gain knowledge about the basic applications of AI and machine learning in robotics, including supervised, unsupervised, and reinforcement learning.\n\n4. Develop a basic understanding of systems, including aspects of communication, coordination, and control.\n\n5. Grasp the concepts and implications of different robot applications and stay informed about the future trends in robotics.",
+      "course_syllabus": "The details will be provided by the course instructor.Teaching Plan:\n\n| **Weeks** | **Course Topics** |\n| --- | --- |\n| **1** | Introduction to Robotics and Systems: Definition, Scope, Trends, Importance |\n| **2** | Robotic Kinematics: Forward/Inverse Kinematics, Jacobian |\n| **3** | Robotic Dynamics: Dynamics Models, Newton-Euler and Lagrange-Euler formulations |\n| **4** | Sensors in Robotics: Types, Working Principles, Applications |\n| **5** | Actuators in Robotics: Electric, Hydraulic and Pneumatic Actuators |\n| **6** | Basic Control Theories in Robotics: PID Control, Feedforward Control |\n| **7** | Introduction to Robot Programming: Basics of ROS, Python, C++ |\n| **8** | Basics of AI in Robotics: Supervised Learning, Unsupervised Learning |\n| **9** | Introduction to Machine Learning in Robotics: Reinforcement Learning Concepts |\n| **10** | Multi-Robot Systems: Communication, Coordination, Control |\n| **11** | Human-Robot Interaction: Basic Concepts and Social Implications |\n| **12** | Future of Robotics: Overview of Advanced Topics and Emerging Trends |",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "30",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels. 1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "1. Robotics, Vision and Control, 3rd edition, Peter Corke, Springer, 2023.\n2. Artificial Intelligence for Robotics, 2nd edition, Francis X. Govers III, Packt Publishing, 2024.",
+      "recommended_readings": "The details will be provided by the course instructor."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5720",
+      "title": "Experimental Robotics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9578)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor CHEN Fei",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor CHEN Fei",
+                  "dates": "14/4, 21/4"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor CHEN Fei",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "92",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The primary objective of this course is to equip students with the foundational and practical knowledge necessary for executing real-world robotic systems. It aims to help students understand the needs and requirements of robotic experiments and applications, teaching them about various hardware components, software architectures, and development tools.\n\nStudents will design and build a small-scale robot prototype in a laboratory setting, gaining hands-on experience with the essential components and principles that underpin robotic systems. The course covers the following main topics: foundations of robotic systems, robot electronics, sensors and actuators in robotics, robot networking and data communication, introduction to robot operating system (ROS), advanced ROS programming, interfacing with sensors and actuators, robot sensing and control, measurement devices for robot performance, robot experiment setup, operations in robot experiments.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Workshop",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the hardware components that are required for an operational robot.2. Understand how to use software design and architectures for developing software for robot autonomy. 3. Gain practical experience on developing practical robot systems.4. Learn how to design and perform experiments using robot systems",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Weeks | Course Topics |\n| --- | --- |\n| 1 | Foundations of Robotic Systems: Robot mechanisms, hardware components, system architecture |\n| 2 | Robot Electronics: Embedded systems, microcontrollers, microprocessors |\n| 3 | Sensors and Actuators in Robotics: Sensor types, actuator types, sensor-actuator interfacing |\n| 4 | Robot Networking and Data Communication: Network protocols, data transmission, network security |\n| 5 | Introduction to ROS: ROS architecture, ROS nodes, ROS topics |\n| 6 | Advanced ROS Programming: ROS services, ROS actions, ROS debugging tools |\n| 7 | Interfacing with Sensors and Actuators: Sensor data acquisition, actuator control, sensor-actuator integration |\n| 8 | Robot Sensing and Control: Sensor fusion, feedback control, control algorithms |\n| 9 | Measurement Devices for Robot Performance: Performance metrics, measurement tools, data analysis |\n| 10 | Robot Experiment Setup: Experiment design, safety considerations, experiment execution |\n| 11 | Operations in Robot Experiments: Data collection, troubleshooting, result interpretation |\n| 12 | Summary and Revision: Key concepts review, practical skills recap, future trends in robotics |",
+      "assessment_types": {
+        "Project": "60",
+        "Test or quiz": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "Morgan Quigley, Brian Gerkey, and William D. Smart, \"Programming Robots with ROS: A Practical Introduction to the Robot Operating System,\" 1st Edition, O'Reilly Media, 2015."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5730",
+      "title": "Autonomous Mobile Robots",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3711)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "27/2, 6/3, 13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "92",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course \"Autonomous Mobile Robots,\" aims to provide students with an in-depth understanding of autonomous robots principles and applications. This course is particularly relevant for students targeting careers in robotics, AI, or related fields, given the growing integration of autonomous mobile robots across various industries.\n\nThe curriculum covers key areas such as fundamentals of autonomous mobile robots, robot perception, robot localization, mapping, path planning, robot control, multi-robot systems, robot navigation, robot communication, autonomous aerial robots, autonomous ground robots, future of autonomous robots.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to: 1. Understand the principles of autonomous mobile robotics.2. Gain basic experience working with autonomous mobile robotic systems.3. Understand the design, control, and optimize the performance of autonomous mobile robotic systems.4. Comprehend advanced topics in autonomous mobile robotics.5. Develop the basic capability to solve complex problems in the field of autonomous mobile robotics.",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Weeks | Course Topics |\n| --- | --- |\n| 1 | Fundamentals of Autonomous Mobile Robots: Basic concepts, types of robots, robot architectures. |\n| 2 | Robot Perception: Sensors for autonomous robots, sensory data processing, feature extraction. |\n| 3 | Robot Localization: Localization techniques, probabilistic localization, Kalman Filters, Particle Filters. |\n| 4 | Mapping: Occupancy grids, SLAM (Simultaneous Localization And Mapping), map representation. |\n| 5 | Path Planning: Graph-based planning, grid-based planning, potential field methods. |\n| 6 | Robot Control: Control architectures, PID control, adaptive control. |\n| 7 | Multi-Robot Systems: Multi-robot coordination, swarm robotics, distributed algorithms. |\n| 8 | Robot Navigation: Navigation architectures, obstacle avoidance techniques, navigation in dynamic environments. |\n| 9 | Robot Communication: Inter-robot communication, wireless communication protocols, networked robotics. |\n| 10 | Robot manipulation: robot grasping, robot manipulation, visual servoing manipulation |\n| 11 | Autonomous Robots: wheeled robots, legged robots, UAVs, autonomous cars. |\n| 12 | Future of Autonomous Robots: Current research trends, real-world applications, ethical considerations. |",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "40",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "Siegwart, R., Nourbakhsh, I.R., Scaramuzza, D., \"Autonomous Mobile Robots,\" 2nd edition, MIT Press, 2011."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5740",
+      "title": "Robot Mechanism and Actuation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3704)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Professor CHENG Shing Shin",
+                  "dates": "5/11, 12/11, 19/11, 26/11, 3/12, 10/12, 17/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "32",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "48",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The goal of this course is to introduce various types of actuators and mechanisms that would enable robots to perform a multitude of tasks within manipulation. This course will teach both the fundamental working principles of different mechanisms and actuators and the practical design and implementation of such devices.\n\nThis course will include the following main topics: different types of actuators (including motors, pneumatics, hydraulics, smart materials), transmission mechanisms (including cable-driven systems, gears and belt drives), parallel mechanisms, closed-loop mechanisms, robot grippers and hands, vacuum grippers, and flexible and soft mechanisms.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the different types of actuators that can be used for robotic systems.2. Understand the different types of mechanisms that can actuate a robot3. Understand the different types of end-effector mechanisms for robot manipulation.4. Gain practical experience of how different mechanisms are suitable for different application settings. 5. Develop the capability to solve complex problems in academic research, industrial applications, or new technology development in the robotics field.",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Weeks | Course Topics |\n| --- | --- |\n| 1 | Robot Actuators - Traditional: Motors, Pneumatics, Hydraulics |\n| 2 | Robot Actuators - Modern: Smart Materials, Electroactive Polymers, Shape Memory Alloys |\n| 3 | Robot Transmission Mechanisms - Linkages, Closed Chain: Cable-Driven Systems, Gears, Belt Drives |\n| 4 | Robot Transmission Mechanisms - Rigid and Cable Actuation: Worm Drives, Harmonic Drives, Capstan Drives |\n| 5 | Parallel Mechanisms: Stewart Platforms, Delta Robots, Hexapods |\n| 6 | Robot Grippers and Vacuums: Mechanical Grippers, Vacuum Grippers, Magnetic Grippers |\n| 7 | Robot Hands - Part 1: Anthropomorphic Hands, Adaptive Grippers, Underactuated Hands |\n| 8 | Robot Hands - Part 2: Tactile Sensing, Grasp Planning, Dexterous Manipulation |\n| 9 | Flexible and Soft Mechanisms - Part 1: Soft Actuators, Elastomer Sensors, Soft Robotics |\n| 10 | Flexible and Soft Mechanisms - Part 2: Fluidic Actuators, Bending Actuators, Soft Grippers |\n| 11 | Applications of Manipulation: Industrial Robotics, Service Robotics, Surgical Robotics |\n| 12 | Summary and Revision: Key Concepts Recap, Practical Applications, Future Trends |",
+      "assessment_types": {
+        "Project": "40",
+        "Test or quiz": "60"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "1. Siciliano, B., Sciavicco, L., Villani, L., Oriolo, G., \"Robotics: Modelling, Planning and Control\", 4th Edition, Springer, 20132. Spong, M. W., Hutchinson, S., Vidyasagar, M., \"Robot Modeling and Control\", 2nd Edition, Wiley, 2020"
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5750",
+      "title": "Micro-nano and Soft Robotics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3705)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor ZHANG Li",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "78",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to systematically introduce the fundamental knowledge of emerging and interdisciplinary research fields—micro-/nanorobotics and soft robotics. Through a combination of theoretical learning and practical operations, students will gain a comprehensive understanding of the historical development and state-of-the-art of this field, as well as acquire skills related to designing and manufacturing micro-nano and soft robots. The main topics covered in this course are as follows: historical development and basic principles of micro-nano and soft robots; structural design, material selection and manufacturing, actuation methods, and motion control of micro-nano and soft robots; applications of micro-nano and soft robots in fields such as biomedicine and engineering. Throughout the course, students will not only grasp the fundamental concepts of small-scale robotics and soft robotics, but also learn how to design and construct these robots with physical/mechanical/embodied intelligence. The comprehensive learning experience provided by this course can foster students' scientific and technological innovation thinking, as well as enhance their practical skills, providing a solid foundation for their future research and/or work in related fields.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "By successfully completing this course, students will achieve the following learning outcomes:1. Gain a comprehensive and thorough understanding of micro-nano and soft robots, including their historical development, basic definitions, working mechanisms, and design principles.2. Learn the characteristics of different types of micro-nano and soft robots, including aspects like fabrication methods, substrate materials, structural design, and actuation strategies3. Understand the applications of micro-nano and soft robots in biomedicine and engineering, as well as the opportunities and challenges that the field faces in the future.4. Acquire key technologies in the design and fabrication of micro-nano and soft robots, such as modeling and simulation, 3D printing, material synthesis, and microelectronic techniques, and gain relevant experience through practical operation.5. Develop the ability to engage in scientific research, technological development, and product design related to the field of small-scale robotics.",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Week | Course Topic |\n| --- | --- |\n| 1 | Introduction on small-scale robotics and scaling law |\n| 2 | Introduction on soft robotics (i.e., smart materials and structures) |\n| 3 | Manufacturing at small-scales 2D, 3D, and assembly |\n| 4 | Fluid-Driven Soft Robotics and Applications |\n| 5 | Materials selection, actuation methods and sensing principles |\n| 6 | Mechanical Metamaterials and Mechanical Computing |\n| 7 | Bio-inspired locomotion: swimming, crawling, and jumping |\n| 8 | Stretchable Electronics for Sensing |\n| 9 | Robot swarm and collectives at small-scales |\n| 10 | Navigation of micro-/nano and soft robots, and applications |\n| 11 | Selected topics discussion |\n| 12 | Project presentation and summary |",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "25",
+        "Presentation": "15"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "Relevant reading lists will be provided by course teachers.",
+      "recommended_readings": "1. 1. Li Zhang, Shihao Yang, Qianqian Wang, Dongdong Jin. Magnetic Micro and Nanorobot Swarms: From Fundamentals to Applications, Singapore, Springer Singapore, ISBN: 978-981-99-3035-7, 2023.\n2. Li Zhang, Jiachen Zhang, Neng Xia, Yue Dong. Untethered Miniature Soft Robots: Materials, Fabrications, and Applications, John Wiley & Sons, ISBN: 978-352-73-5177-0, 2023.\n3. Sitti Metin. Mobile microrobotics. MIT Press, ISBN:978-026-20-3643-6, 2017.\n4. Fundamental of Microfabrication and Nanotechnology, 3rd edition, MJ Madou, CRC PRESS\n5. Rus, Daniela, and Michael T. Tolley. \"Design, fabrication and control of soft robots.\" *Nature* 521.7553 (2015): 467-475.\n6. Yasuda, H., Buskohl, P. R., Gillman, A., Murphey, T. D., Stepney, S., Vaia, R. A., & Raney, J. R. (2021). Mechanical computing. *Nature*, *598*(7879), 39-48.\n7. Zheng, X., Jiang, Y., Mete, M., Li, J., Watanabe, I., Yamada, T., & Paik, J. (2025). Metamaterial robotics. *Science Robotics*, *10*(108), eadx1519.\n8. Rogers, J. A., Someya, T., & Huang, Y. (2010). Materials and mechanics for stretchable electronics. *science*, *327*(5973), 1603-1607."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5760",
+      "title": "Robot Learning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3675)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LI Zhongyu",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LI Zhongyu",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "57",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The main goal of this course is to comprehensively introduce the principles and technical methods used in modern robot learning and control techniques. This course will not only teach students how to use data-driven methods to design, control and optimize robot systems through theoretical learning and practical operations, but will also delve into relevant basic knowledge and skills, to ensure that students can fully master and apply these important skills. Practical assignments will give students the opportunity to implement these techniques on simulated and real robot systems, providing them with a comprehensive educational experience.\n\nThis course will include the following main topics: robot kinematics and dynamics, optimal control, reinforcement learning in robots, teaching learning, embodied intelligent learning, trajectory optimization and robot perception, human-robot interactive and collaborative learning used in robot control and perception, machine learning, etc.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the principles and techniques of robot learning, optimization, and control thoroughly.2. Acquire the ability to apply techniques like optimal control, reinforcement learning, and trajectory optimization in the design and optimization of robotic systems.3. Gain practical experience by implementing learned techniques on real and simulated robotic systems.4. Comprehend advanced topics in robotics, such as multi-robot systems, human-robot interaction, and the use of machine learning in robot control and perception.5. Develop the capability to solve complex problems in academic research, industrial applications, or new technology development in the robotics field.",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| **Weeks** | **Course Topics** |\n| --- | --- |\n| 1 | Basics of robot learning and control: kinematics, dynamics, quadratic cost function, Gauss–Newton algorithm, Jacobian matrices, control laws. |\n| 2 | Robot sensing and data: sensors, datasets, physics modeling, robot simulation, sensor fusion, data interpretation. |\n| 3 | Robot trajectory: encoding, basis functions, trajectory planning, path following, obstacle avoidance. |\n| 4 | Robot trajectory optimization: movement primitives, cost minimization, constraints handling, dynamic programming. |\n| 5 | Robot reinforcement learning: Q-learning, policy gradient, deep deterministic policy gradient, Monte Carlo method, exploration vs exploitation, reward shaping. |\n| 6 | Robot imitation learning: behavior cloning, inverse reinforcement learning, learning from demonstration, kinesthetic teaching, model-free vs model-based approaches. |\n| 7 | Robot embodied intelligence learning: humanoid robot, embodiment intelligence, sensorimotor learning, embodied cognition. |\n| 8 | Human-robot interaction and collaboration: teleoperation, collaboration, shared autonomy, user interfaces, cooperative control. |\n| 9 | Robot learning control: control primitives, linear quadratic tracking, iterative linear quadratic tracking, PID control, model predictive control. |\n| 10 | Robots with generative AI: robot perception, robot manipulation, large language models, generative models, image synthesis. |\n| 11 | Selected topics discussion: current research trends, case studies, industry applications. |\n| 12 | Project presentation and summary: project execution, report writing, presentation skills, project review and feedback. |",
+      "assessment_types": {
+        "Homework or assignment": "60",
+        "Project": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "1. Steven L. Brunton, J. Nathan Kutz, “Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control”."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5770",
+      "title": "Unmanned Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3732)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor CHEN Xi",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor CHEN Xi",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor CHEN Xi",
+                  "dates": "13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "39",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "\"Unmanned Systems\" is a cutting-edge course as a response to the rapid technological advancements and increasing industry demands in this domain. This course aims to provide students with a comprehensive understanding of theoretical foundations and practical implementations of unmanned systems, for example unmanned aerial vehicle (UAV), remotely operated vehicle (ROV), autonomous driving vehicles. The course is specifically designed to expose students to the challenges and opportunities present in the design, control, and application of unmanned systems, thereby preparing them for impactful careers in this rapidly evolving field.\n\nThe course will cover essential technical elements including introduction to unmanned systems, system architecture, autonomous control, sensors for unmanned systems, sensor fusion, path planning, navigation systems, AI for unmanned systems, unmanned aerial vehicles, underwater and surface vehicles, autonomous driving vehicles, future challenges and opportunities.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the essential components and design principles of unmanned systems, including their types, characteristics, and applications.2. Gain knowledge of autonomous control algorithms and levels, as well as system stability factors in unmanned systems.3. Acquire skills in integrating and using various types of sensors in unmanned systems, and learn data fusion techniques for sensor data.4. Master various path planning algorithms and obstacle avoidance techniques in dynamic environments.5. Develop an understanding of the role and application of AI in unmanned systems, including machine learning algorithms and AI decision-making processes.",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| **Weeks** | **Course Topics** |\n| --- | --- |\n| 1 | Introduction to Unmanned Systems: Types of unmanned systems, basic characteristics, applications. |\n| 2 | System Architecture: System components, interconnection and interaction, design principles. |\n| 3 | Autonomous Control: Control algorithms, autonomy levels, system stability. |\n| 4 | Sensors for Unmanned Systems: Types of sensors, sensor integration, data acquisition. |\n| 5 | Sensor Fusion: Data fusion techniques, sensor fusion algorithms, benefits and challenges. |\n| 6 | Path Planning: Path planning algorithms, obstacle avoidance, dynamic path planning. |\n| 7 | Navigation Systems: GPS, INS, SLAM, sensor-based navigation. |\n| 8 | AI for Unmanned Systems: Role of AI, machine learning algorithms, AI in decision-making. |\n| 9 | Unmanned Aerial Vehicles: UAV types, UAV control, UAV applications. |\n| 10 | Underwater and Surface Vehicles: ROV, AUV, ASV, control and applications. |\n| 11 | Autonomous Driving Vehicles: ADAS, autonomous driving levels, key technologies. |\n| 12 | Future Challenges and Opportunities: Emerging technologies, ethical considerations, industry trends. |",
+      "assessment_types": {
+        "Homework or assignment": "60",
+        "Project": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "Thrun, Sebastian, Wolfram Burgard, and Dieter Fox. \"Probabilistic Robotics.\" MIT Press, 2005."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5780",
+      "title": "Special Topics in Advanced Robotics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3677)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "59",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "21",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Robotics is a rapidly evolving field, with new technologies emerging every day. The course offers students timely and updated coverage of a wide range of topics relevant to robotics tapping on the latest and diverse range of developments in the repertoire of the subject area, such as the delivery of a measured collation of advanced and unconventional robotics designs applied to real problems of a diverse nature and which are not easily and directly available from standard literature. The nature of the course allows the flexibility for recent topics, problems and solutions to be shared with the students.\n\nTopics might include but not limited to cutting-edge technologies in robotics platforms, unmanned systems, modeling and control, communications systems, vision systems, sensing and information processing, navigation and path planning, information fusion, multi-agent robotics systems, mission management, machine intelligence, artificial intelligence, human-machine collaboration, and digital twins systems, as well as innovative application case studies.",
+      "enrollment_requirement": "For students in MSc Robotics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the principles and techniques of specific topics in robotics systems thoroughly.2. Acquire the ability to design specific robotics systems for special applications. 3. Gain the first-hand experience on the latest development in robotics research areas.4. Develop research interests in the related fields.5. Develop the capability to solve complex problems in academic research, industrial applications, or new technology development in the robotics field.",
+      "course_syllabus": "Up-to-date topics will be delivered every week.",
+      "assessment_types": {
+        "Homework or assignment": "60",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "To be determined on the actual topics selected."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5790",
+      "title": "Commercialization and Entrepreneurship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3771)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course, \"Entrepreneurship in Robotics\", acknowledges the growing role of high technologies such as robotics in various sectors and the increasing demand for innovators and entrepreneurs in this dynamic field. This course aims to bridge the gap between technical expertise in the technical field and the entrepreneurial skills needed to bring innovative ideas to market.\n\nThe course will cover key aspects of entrepreneurship tailored specifically to the robotics sector. Topics will include: introduction to advanced technologies, identifying market opportunities in robotics, understanding the process of commercializing a robotics product, company setup and navigating the legal and regulatory landscape, team formation, product identification, project management, Business Model for robotics, sales and marketing, account and finance, budgeting and funding, business plan and investment deck, and final presentation for astartup. Practical aspects of starting and running a start-up, such as team building, fundraising, and pitching to investors, will also be covered.",
+      "enrollment_requirement": "For students in MSc Robotics; Exclusion: AIMS5760 or CMSC5730 or ENGG3802 or ENGG3803 or ENGG5700 or ESTR3502 or FTEC5570 or IEMS5712 or IERG5340 or SEEM3450",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the fundamentals of entrepreneurship specifically tailored to a specific sector, including identifying market opportunities, and commercializing a product.2. Acquire knowledge on the legal and regulatory landscape impacting robotics, including patents and intellectual property.3. Gain practical skills related to starting and running a start-up, such as team building, fundraising, and pitching to investors.4. Master techniques for developing business and financial plans, marketing and sales strategies, and customer relations and support for a robotics start-up.5. Develop insights on scaling a robotics start-up and understanding emerging trends and future opportunities in robotics and entrepreneurship.",
+      "course_syllabus": "The details will be provided by the course instructor. Teaching Plan\n\n| Weeks | Course Topics |\n| --- | --- |\n| 1 | Introduction to advanced technologies: Definition, Scope, Trends, Entrepreneurship |\n| 2 | Identifying Market Opportunities: Robotics Market, Needs, Applications, Case Studies |\n| 3 | Commercializing a Product: Prototype, Challenges, Guest Speaker |\n| 4 | Company Setup: Startup Formation, Legal Aspects, Regulations |\n| 5 | Team Formation: Team Importance, Balanced Team, Conflict Management |\n| 6 | Product Identification: Viable Product, Development Lifecycle, MVP Concept |\n| 7 | Project Management: Basics, Agile Methodologies, Risk Management |\n| 8 | Business Model: Understanding, Monetization, Case Studies |\n| 9 | Sales and Marketing: Sales Strategies, Marketing Channels, B2B, B2C |\n| 10 | Accounting and Finance: Basics, Financial Management, Cash Flow |\n| 11 | Budgeting and Funding: Budgeting, Funding Sources, Investment Rounds |\n| 12 | Business Plan and Investment Deck: Business Plan, Investment Deck, Pitching |",
+      "assessment_types": {
+        "Presentation": "40",
+        "Project": "60"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels.1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "1. Peter Thiel, Blake Masters, “Zero to One: Notes on Startups, or How to Build the Future”, 1st Edition, Crown Business, 2014.2. Eric Ries, “The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses”, 1st Edition, Crown Business, 2011.3. Steve Blank, Bob Dorf, “The Startup Owner's Manual: The Step-by-Step Guide for Building a Great Company”, 1st Edition, K&S Ranch, 2012."
+    },
+    {
+      "subject": "ROSE",
+      "course_code": "5910",
+      "title": "M.Sc.Projects",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "-L01-LAB (3689)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "05/01/2026 - 09/02/2026"
+                },
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Dongyan",
+                  "dates": "23/02/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AL01-LAB (9860)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss WONG Fung Kuen, \nProfessor LAM Hiu Fung",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "7",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BL01-LAB (9861)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Benmei",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "7",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DL01-LAB (9862)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EL01-LAB (9863)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "6",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FL01-LAB (9864)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Fei",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "7",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GL01-LAB (9865)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HL01-LAB (9866)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HUANG Jie",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "JL01-LAB (9867)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Li",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "6",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ML01-LAB (9872)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Xi",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "OL01-LAB (9868)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHU Xiangyu",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PL01-LAB (9869)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Yunhui",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "8",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "QL01-LAB (9870)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Yunjian",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZL01-LAB (9871)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Fei",
+                  "dates": "05/01/2026 - 04/05/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "8",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, each student will conduct research project on a topic within the robotics areas of study. Faculty members from the department will supervise the project. Upon completion, students must submit a written report and deliver an oral presentation for performance evaluation.",
+      "enrollment_requirement": "For students in MSc Robotics\nNot for students who have taken ROSE5810",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:1. Understand the fundamental knowledge and latest developments in the selected research area.2. Conduct research in the selected research area and solve problems effectively.3. Communicate effectively through both written reports and oral presentations.",
+      "course_syllabus": "In this course, each student will perform research project on a topic related to robotics area under the supervision of faculty members supported by various related available facilities, such as the faculty labs, CUHK Robotics Institute, InnoHK Centres, start-ups and state-of-the-art robot equipment and hardware. No class will be arranged. The student will meet with the supervisor regularly to discuss the research progress. At the end of the project, the student is required to submit a written report and give an oral presentation for the assessment of performance.",
+      "assessment_types": {
+        "Essays": "70",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "* 1. Email feedback\n2. Review meeting*",
+      "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
+      "recommended_readings": "Reading materials will be provided by each supervisor according to research topics."
+    }
+  ]
+}

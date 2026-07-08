@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T13:56:05.554097+00:00",
     "subject": "CENG",
     "subject_title": "Computer Engineering",
-    "total_courses": 12,
+    "total_courses": 9,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1431,73 +1431,6 @@
         "Presentation": "15",
         "Project": "70",
         "Report": "15"
-      }
-    },
-    {
-      "subject": "CENG",
-      "course_code": "5030",
-      "title": "Energy Efficient Computing",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Low power consumption is an important design concern in modern computing systems. It has direct impact on the battery life of mobile electronic equipment and on the operating speed of computing devices. This course aims at introducing students the basic concepts and modern techniques in designing, modeling and evaluating energy-efficient computing systems. This course will study techniques to improve energy consumption at various design levels. It will also study representative research papers to introduce the state of the art approaches to energy efficient computing.\nAdvisory: Students are expected to have taken ENGG2020 or ESTR2104 or CENG3420.",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nSeminar",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand the concepts and techniques in designing, modeling and evaluating energy-efficient computing systems.\n2. master the techniques to improve energy consumption at various design levels.\n3. know how to critically review literature in this field.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "40",
-        "Short answer test or exam": "10"
-      }
-    },
-    {
-      "subject": "CENG",
-      "course_code": "5270",
-      "title": "EDA for Physical Design of Digital Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims to present the fundamental concepts and algorithms applied in Design Automation (CAD) of VLSI circuits. The scope will include various areas in Physical Design of digital systems, including circuit partitioning, FPGA technology mapping, floorplanning, placement, routing, compaction and interconnect optimization.\n\nAdvisory: Students are expected to have taken CSCI2100 or ENGG2020 or ESTR2102 or ESTR2104",
-      "enrollment_requirement": "For students in MSc Computer Science; or MPhil-PhD Computer Science & Engineering; or For undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering;(CENGU & CENGN)",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to understand the concepts, previous research and future trends of:\n1. floorplanning and placement\n2. circuit partitioning\n3. routing\n4. technology mapping\n5. interconnect optimization\n6. design for manufacturability",
-      "assessment_types": {
-        "Essay test or exam": "15",
-        "Others": "45",
-        "Presentation": "40"
-      }
-    },
-    {
-      "subject": "CENG",
-      "course_code": "5280",
-      "title": "Quantum Computer Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course delves into topics in the design of quantum computer systems. We will begin by developing the mathematical foundations of quantum computation and information, followed by an in-depth exploration of powerful techniques in quantum application and architecture design. Students will gain hands-on experience using quantum computing software tools to write quantum programs. Key topics covered include quantum programming, quantum algorithms, quantum compilation, quantum memory, quantum error mitigation and correction.\n\nAdvisory: Students are expected to have taken CSCI2510 or CSCI3120 or equivalent.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Synthesis and optimize the quantum circuit for the resource saving purpose.\n2. Compile quantum algorithms to hardware execution.\n3. Build their own quantum circuit via the quantum programming platforms and play on simulators.",
-      "assessment_types": {
-        "Homework or assignment": "25",
-        "Presentation": "15",
-        "Project": "35",
-        "Test or quiz": "25"
       }
     }
   ]

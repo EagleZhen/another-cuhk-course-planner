@@ -3,7 +3,7 @@
     "scraped_at": "2026-07-04T16:06:39.141728+00:00",
     "subject": "FTEC",
     "subject_title": "Financial Technology",
-    "total_courses": 33,
+    "total_courses": 26,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -435,48 +435,6 @@
     },
     {
       "subject": "FTEC",
-      "course_code": "4001",
-      "title": "Advanced Database Technologies",
-      "credits": "3.00",
-      "terms": [],
-      "description": "To support high-speed online payments, one important issue is efficiency and another important issue is reliability for millions of payments to be transferred among accounts. This course introduces the advanced topics in database systems. The topics include query processing and optimization, transaction management, concurrency control, recovery systems, parallel databases, and distributed database systems.",
-      "enrollment_requirement": "Prerequisite: SEEM3550",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "At the completion of this course, students should be able to:\n\n1. Conduct data analysis using query processing techniques over a large amount of data.\n2. Achieve high efficiency by using advanced parallel and distributed querying processing techniques.\n3. Build reliable systems to ensure all processing tasks are correct based on transaction processing, concurrency control.\n4. Maintain a heavy system by understanding how to recovery from possible systems failures",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "50"
-      }
-    },
-    {
-      "subject": "FTEC",
-      "course_code": "4002",
-      "title": "Behavioral Analytics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Behavioral analytics is a recent advancement that reveals customer behaviors. In this course, we will focus on (i) how to use optimization techniques to design survey questions and to collect data that are relevant to customer behaviors, (ii) theories of customer behaviors, especially those under risk, (iii) how to use data mining techniques to reveal customer behaviors, and (iv) psychological biases in customer behaviors and their impact on financial and business decisions.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "At its completion, the students should be able to apply basic tools of behavioral analytics to reveal investor and customer behaviors and apply them to financial and business decisions.",
-      "assessment_types": {
-        "Essay test or exam": "80",
-        "Others": "20"
-      }
-    },
-    {
-      "subject": "FTEC",
       "course_code": "4003",
       "title": "Data Mining for FinTech",
       "credits": "3.00",
@@ -547,27 +505,6 @@
       "assessment_types": {
         "Essay test or exam": "70",
         "Others": "30"
-      }
-    },
-    {
-      "subject": "FTEC",
-      "course_code": "4005",
-      "title": "Financial Informatics",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces basic concepts, models, techniques, and applications on financial data analytics. Topics include processing and analytical techniques for data streams; processing and searching high-dimensional data; big graph analysis; Web mining; recommendation systems for Web applications. The applications may involve financial data processing and analysis, time series, portfolio management, social networks, recommender systems, and so on.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "At the completion of this course, students should be able to:\n\n1. Understand the key issues on big data processing and analytics.\n2. Acquire fundamental techniques and scalable algorithms in big data analytics, and apply software tools for big data analytics.\n3. Achieve adequate perspectives of big data analytics in financial technology and services, social networking, etc.",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Others": "70"
       }
     },
     {
@@ -660,27 +597,6 @@
       "assessment_types": {
         "Essay test or exam": "40",
         "Others": "60"
-      }
-    },
-    {
-      "subject": "FTEC",
-      "course_code": "4008",
-      "title": "Natural Language Processing for FinTech",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The course aims at equipping students with an overview of latest natural language processing (NLP) technologies that have been increasingly adopted in finance sector. The course will introduce basic concepts of NLP and the advanced developments based on machine learning, especially deep learning. The topics of word representations, sequence modeling, large language models, and conversational AI will be further explored. Based on the introduced foundation in NLP, multiple financial applications will be introduced to illustrate how NLP techniques, e.g., text mining, sentiment analysis, conversational AI and large language models, can increase productivity in various scenarios, including general financial data processing practice and specific RegTech and InsurTech use cases. Students will have ample opportunities to apply the learned techniques in hands-on implementation on course projects.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sys Engg & Engg Mgt",
-      "academic_org": "Dept of Sys Engg & Engg Mgt",
-      "learning_outcomes": "Upon completion of this course, students would be able to:\n\n* Acquire a solid understanding of the NLP concepts and knowledge of advanced NLP technologies, that have been increasingly adopted in finance sector;\n* Develop a strong foundation in NLP, with practical skills for implementing and applying NLP models to various FinTech domains;\n* Develop an awareness of the capabilities and limitations of NLP in FinTech applications;\n* Gain practical experience in implementing a group project based on latest technologies.",
-      "assessment_types": {
-        "Homework or assignment": "40",
-        "Project": "60"
       }
     },
     {
@@ -2226,29 +2142,6 @@
     },
     {
       "subject": "FTEC",
-      "course_code": "5620",
-      "title": "Wealth Management Business and Fintech",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims to provide students with a practical and management level understanding of how technology is and could be used and applied to the management, growth and development of wealth management business in Hong Kong / Mainland as well as Asia and other parts of the world. Key topics to be discussed include the regulatory framework for wealth management industry, a review of the relationship between macro-economic cycle and wealth management product development and product shelf management strategies, roles and responsibilities of the various players within the wealth management industry value chain to fulfill various stages of individual customers’ financial needs, wealth management business proposition including sales and marketing strategies, and the technology and operational infrastructure required to support and to enhance the business process and to deliver exceptional customer experience.",
-      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering",
-      "learning_outcomes": "After completing this course, students should be able to explain the key technology components, enablers and success factors for managing a wealth management business through the market life cycles, and for those students who are interested in developing further academic study and research, or in preparing them to take up senior leadership roles within their company or in the wealth management industry.",
-      "assessment_types": {
-        "Examination": "25",
-        "Homework or assignment": "25",
-        "Project": "25",
-        "Test or quiz": "25"
-      }
-    },
-    {
-      "subject": "FTEC",
       "course_code": "5630",
       "title": "Green FinTech",
       "credits": "3.00",
@@ -2367,28 +2260,6 @@
         "Examination": "40",
         "Homework or assignment": "40",
         "Project": "20"
-      }
-    },
-    {
-      "subject": "FTEC",
-      "course_code": "5650",
-      "title": "Topics in International Fintech",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Hong Kong is “Asia’s world city” and an international financial center as well as an emerging innovation hub. Accordingly, it is important for Hong Kong’s fintech students to develop a much broader understanding of the international fintech ecosystems.\n\nThis course aims to expand students’ knowledge of the fintech landscapes beyond the borders of mainland China and Hong Kong SAR perspectives. The course learning material will help students to appreciate the unique and significant difference of the Hong Kong fintech ecosystems from other international jurisdictions.\n\nStudents are introduced to the latest international fintech trends and are provided with an overview of the respective ecosystems\\* of:\n(1) Africa (Sub-Saharan Africa)\n(2) Middle East & North Africa\n(3) Asia (South Asia)\n(4) East Asia & Pacific\n(5) Europe and Central Asia\n(6) Latin America & the Caribbean\n(7) North America\n\\*geographic ecosystems for the course are organized according to the World Bank analytical grouping scheme of seven (7) regions (https://datatopics.worldbank.org/sdgatlas/archive/2017/the-world-by-region.html)\n\nThe course addresses the concept of techno-business ecosystems via a comprehensive framework including: people/firms, markets, policy/regulation, culture, finance, and infrastructure support.\n\nThis course will also include a variety of C-suite level and international guest speakers to supplement lecture course material. Topics will be updated year to year.",
-      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering",
-      "learning_outcomes": "By the end of this course, student will:\n\n1. Understand the international fintech competitive landscape;\n2. Have a broad understanding and knowledge of the fintech ecosystems of Africa (Sub-Saharan Africa) region; Middle East & North Africa region; Asia (South Asia) region; East Asia & Pacific region; Europe and Central Asia region; Latin America & Caribbean region; North America;\n3. Gain a comprehension of global trading blocs and associated collaborative organizations within the international fintech order;\n4. Obtain knowledge of intergovernmental regulations / regulatory institutions within the international fintech landscape.",
-      "assessment_types": {
-        "Examination": "25",
-        "Project": "50",
-        "Test or quiz": "25"
       }
     },
     {
@@ -2541,28 +2412,6 @@
         "Examination": "50",
         "Homework or assignment": "25",
         "Project": "25"
-      }
-    },
-    {
-      "subject": "FTEC",
-      "course_code": "5690",
-      "title": "Advanced Topics in Financial Technology",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces students to advanced topics in Financial Technology. The specific content may vary from year to year to reflect current developments in the field and the instructor's areas of expertise.",
-      "enrollment_requirement": "For students in MSc Financial Technology or PgD Financial Technology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Engineering",
-      "academic_org": "Div of Engineering",
-      "learning_outcomes": "Upon successful completion of this course, students will gain a comprehensive understanding of advanced topics and the latest developments in Financial Technology.",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Project": "40",
-        "Report": "30"
       }
     },
     {

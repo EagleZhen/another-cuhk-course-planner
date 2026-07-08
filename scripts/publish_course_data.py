@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
-from data_utils import save_json_with_newline
+from data_utils import INTERIM_LIVE_YEAR, save_json_with_newline
 
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
@@ -37,6 +37,10 @@ LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
 # Course data inputs and publish targets
 SOURCE_DATA_DIR = "data"
 PUBLISHED_DATA_DIR = os.path.join("web", "public", "data")
+
+# Interim: publish only the current live year, flattened to web/public/data/ as
+# before, so the app is unchanged. Removed once the app fetches per-year.
+SOURCE_YEAR_DIR = os.path.join(SOURCE_DATA_DIR, INTERIM_LIVE_YEAR)
 
 # Fields scraped into /data but never rendered by the web app, stripped from the
 # published copy to cut payload (~68% of the gzipped transfer as of Jul 2026).
@@ -122,7 +126,7 @@ def validate_course_file(
                     f"Subject status is '{subject_progress.get('status')}', not 'completed'"
                 )
 
-            # Check course count consistency
+            # Check the scrape's own count consistency
             expected_count = subject_progress.get("courses_count", 0)
             scraped_count_progress = subject_progress.get("courses_scraped", 0)
 
@@ -131,10 +135,10 @@ def validate_course_file(
                     f"Progress mismatch: expected {expected_count}, scraped {scraped_count_progress}"
                 )
 
-            if actual_count != scraped_count_progress:
-                issues.append(
-                    f"File vs progress mismatch: file has {actual_count}, progress says {scraped_count_progress}"
-                )
+            # Note: no file-vs-progress count check here. progress_data counts a full
+            # flat scrape, while a published file now holds only one year's slice of a
+            # subject (data/<year>/), so the two legitimately differ. A per-year check
+            # returns when the scraper records progress per year.
 
     # Check course structure (sample a few courses)
     for i, course in enumerate(courses[:3]):  # Check first 3 courses
@@ -156,46 +160,24 @@ def validate_course_file(
     return len(issues) == 0, issues
 
 
-def find_course_files() -> Tuple[List[str], List[str], List[str], int]:
+def find_course_files() -> Tuple[List[str], List[str], int]:
     """
-    Find all course JSON files in /data directory,
-    excluding exemption codes (administrative placeholders with no real courses)
+    Find all course JSON files in /data directory.
     Validates file naming and warns about unexpected files
     """
-    # Exemption codes - administrative placeholders, not real subjects
-    # Must match EXCLUDED_SUBJECTS in scripts/generate_subjects.py
-    EXCLUDED_SUBJECTS = {
-        "EX_PGDE",
-        "EX_RPG",
-        "EX_TPG",
-        "EX_UG",
-        "XCBS",
-        "XCCS",
-        "XFUD",
-        "XUNC",
-        "XUSC",
-        "XWAS",
-    }
+    if not os.path.exists(SOURCE_YEAR_DIR):
+        return [], [], 0
 
-    if not os.path.exists(SOURCE_DATA_DIR):
-        return [], [], [], 0
-
-    # Find JSON files
-    pattern = os.path.join(SOURCE_DATA_DIR, "*.json")
+    # Find JSON files (current live year only; see INTERIM_LIVE_YEAR)
+    pattern = os.path.join(SOURCE_YEAR_DIR, "*.json")
     all_files = glob.glob(pattern)
 
     course_files = []
-    excluded_files = []
     unexpected_files = []
 
     for file_path in all_files:
         filename = os.path.basename(file_path)
         name_without_ext = os.path.splitext(filename)[0]  # Remove extension
-
-        # Exclude exemption codes (consistent with generate_subjects.py)
-        if name_without_ext in EXCLUDED_SUBJECTS:
-            excluded_files.append(name_without_ext)
-            continue
 
         # Validate it's a proper subject code (4 letters or has underscore for special codes)
         if (
@@ -206,7 +188,7 @@ def find_course_files() -> Tuple[List[str], List[str], List[str], int]:
             # Unexpected file format - report but don't include
             unexpected_files.append(filename)
 
-    return sorted(course_files), sorted(excluded_files), sorted(unexpected_files), len(all_files)
+    return sorted(course_files), sorted(unexpected_files), len(all_files)
 
 
 def validate_subject_list(found_subjects: List[str]) -> bool:
@@ -421,14 +403,9 @@ def main():
                     )
 
         # Find course files
-        course_files, excluded_files, unexpected_files, total_json_files = find_course_files()
+        course_files, unexpected_files, total_json_files = find_course_files()
         print("Course JSON files:")
         print(f"   Source files in data/: {total_json_files}")
-        if excluded_files:
-            print(
-                f"   Excluded exemption/admin codes: {len(excluded_files)} "
-                f"({', '.join(excluded_files)})"
-            )
         if unexpected_files:
             print(f"   Skipped unexpected filenames: {len(unexpected_files)}")
             for filename in unexpected_files:

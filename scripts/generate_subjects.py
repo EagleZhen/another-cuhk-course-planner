@@ -14,6 +14,8 @@ After running, copy the output to web/src/lib/subjects.ts (replace the SUBJECT_T
 import json
 from pathlib import Path
 
+from data_utils import INTERIM_LIVE_YEAR
+
 PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 
@@ -28,31 +30,14 @@ def format_ts_string(value: str) -> str:
 
 
 def main():
-    # Exemption codes - administrative placeholders, not real subjects
-    EXCLUDED_SUBJECTS = {
-        "EX_PGDE",
-        "EX_RPG",
-        "EX_TPG",
-        "EX_UG",
-        "XCBS",
-        "XCCS",
-        "XFUD",
-        "XUNC",
-        "XUSC",
-        "XWAS",
-    }
-
     subject_titles = {}
 
-    for filepath in sorted(DATA_DIR.glob("*.json")):
+    for filepath in sorted((DATA_DIR / INTERIM_LIVE_YEAR).glob("*.json")):
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         subject = data["metadata"]["subject"]
         subject_title = data["metadata"]["subject_title"]
-
-        if subject in EXCLUDED_SUBJECTS:
-            continue
 
         subject_titles[subject] = subject_title
 
