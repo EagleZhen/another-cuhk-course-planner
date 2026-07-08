@@ -1968,13 +1968,26 @@ class CuhkScraper:
             # Write one file per academic year (+ the no-terms bucket), partitioning
             # the subject's courses/terms by year. An empty subject produces no file.
             written = []
+            produced_subdirs = set()
             for year, slice_data in partition_subject_by_year(subject_data).items():
                 subdir = year if year is not None else NO_TERMS_DIR
+                produced_subdirs.add(subdir)
                 dir_path = os.path.join(config.output_directory, subdir)
                 os.makedirs(dir_path, exist_ok=True)
                 file_path = os.path.join(dir_path, f"{subject}.json")
                 save_json_with_newline(file_path, slice_data)
                 written.append(file_path)
+
+            # No-terms dedup: if this scrape produced no dormant courses for the subject,
+            # drop any stale no-terms file so a now-offered course isn't left duplicated
+            # in both a year dir and no-terms. Safe on every scrape (needs no term-wide
+            # context, unlike active-year pruning).
+            if NO_TERMS_DIR not in produced_subdirs:
+                stale_no_terms = os.path.join(
+                    config.output_directory, NO_TERMS_DIR, f"{subject}.json"
+                )
+                if os.path.exists(stale_no_terms):
+                    os.remove(stale_no_terms)
 
             summary = ", ".join(written) if written else "(no file — empty subject)"
             self.logger.info(f"💾 SAVED {subject} → {summary}")
