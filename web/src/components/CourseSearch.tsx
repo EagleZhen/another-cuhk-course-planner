@@ -46,7 +46,7 @@ import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
-import { getAllSubjectCodes } from '@/lib/subjects'
+import { getAllSubjectCodes } from '@/lib/generated/subjects'
 import {
   MOBILE_BREAKPOINT,
   NOTICE_STORAGE_KEY,
@@ -329,7 +329,7 @@ export default function CourseSearch({
       let totalDataSize = 0
 
       try {
-        // 🚀 Load ALL subjects - using single source of truth from lib/subjects.ts
+        // 🚀 Load ALL subjects - using single source of truth from lib/generated/subjects.ts
         // Automatically excludes exemption codes (EX_*, X*)
         console.log(`📂 Loading ALL subjects for complete coverage...`)
         setLoadingProgress({

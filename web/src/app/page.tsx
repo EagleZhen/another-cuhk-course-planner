@@ -20,7 +20,7 @@ import {
 } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { getSubjectTitle } from '@/lib/subjects'
+import { getSubjectTitle } from '@/lib/generated/subjects'
 import { SCHEDULE_DATA_VERSION } from '@/lib/constants'
 
 // Color assignment is now handled in courseUtils.ts
