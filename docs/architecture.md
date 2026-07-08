@@ -9,7 +9,7 @@ For rationale behind the static/frontend-only direction, see [decisions.md](deci
 ```text
 CUHK catalog
     -> scripts/ scraper + publisher
-    -> web/public/data/*.json
+    -> web/public/data/<year>/*.json
     -> browser data loading
     -> validation boundary
     -> internal domain model

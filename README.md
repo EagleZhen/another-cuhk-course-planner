@@ -41,14 +41,14 @@ Open <http://localhost:3000>.
 
 ```text
 .
-├── scripts/              Python scraper and data publishing tools
-├── data/                 Scraped course JSON files
-├── lab/                  Exploratory scripts, outputs, and analysis records
-├── logs/                 Scraping and publishing logs
-├── docs/                 Development and project documentation
-└── web/                  Next.js web app
-    ├── public/data/      Published course data used by the app
-    └── src/              App, components, utilities, and types
+├── scripts/                  Python scraper and data publishing tools
+├── data/                     Scraped course JSON files
+├── lab/                      Exploratory scripts, outputs, and analysis records
+├── logs/                     Scraping and publishing logs
+├── docs/                     Development and project documentation
+└── web/                      Next.js web app
+    ├── public/data/<year>/   Published course data, per academic year
+    └── src/                  App, components, utilities, and types
 ```
 
 ---

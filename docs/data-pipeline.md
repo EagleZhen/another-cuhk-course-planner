@@ -7,7 +7,7 @@ CUHK course catalog
     -> scripts/scrape_all_subjects.py
     -> data/<year>/*.json (+ data/no-terms/*.json for courses with no scheduled terms)
     -> scripts/publish_course_data.py
-    -> web/public/data/*.json
+    -> web/public/data/<year>/*.json
 ```
 
 ## Quick Start
@@ -45,12 +45,12 @@ Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_u
 
 ## Publish
 
-Publishing validates scraped data and copies publishable files to [web/public/data/](../web/public/data/). Fields the app never renders are stripped during the copy (see `STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)); the full data stays in [data/](../data/).
+Publishing validates scraped data and copies publishable files to a per-year directory under [web/public/data/](../web/public/data/) (`web/public/data/<year>/`), so the app can fetch one year at a time. Fields the app never renders are stripped during the copy (see `STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)); the full data stays in [data/](../data/).
 
 The publish script checks:
 
 - JSON structure and per-course subject consistency
-- scraped subjects against [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts)
+- each year's scraped subjects against `SUBJECTS_BY_YEAR` in [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts)
 - scraping progress metadata
 - zero-course subjects and structural issues
 
@@ -60,22 +60,20 @@ Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log
 
 Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current counts.
 
-Read the publish count summary as:
+Read the publish count summary per source year (`data/<year>/`) as:
 
-- source JSON files found in the current live year's directory (see `INTERIM_LIVE_YEAR` in [scripts/data_utils.py](../scripts/data_utils.py))
+- source JSON files found in that year's directory
 - files selected and copied for publishing
 
 ## Subject List Changes
 
-[web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts) is the web app's subject list. If CUHK adds or removes subjects, publishing blocks until this list is updated.
+[web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts) is the web app's subject list: `SUBJECTS_BY_YEAR` (codes per academic year) and `SUBJECT_TITLES` (code to title). If CUHK adds or removes subjects, publishing blocks until it is regenerated.
 
-Regenerate the `SUBJECT_TITLES` constant:
+Regenerate it (the script writes the file directly), then review the diff and run publish again:
 
 ```bash
 uv run python scripts/generate_subjects.py
 ```
-
-Copy the printed constant into [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts), then run the publish script again.
 
 ## Term List
 
