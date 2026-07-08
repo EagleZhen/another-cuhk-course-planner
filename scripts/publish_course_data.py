@@ -162,46 +162,24 @@ def validate_course_file(
     return len(issues) == 0, issues
 
 
-def find_course_files() -> Tuple[List[str], List[str], List[str], int]:
+def find_course_files() -> Tuple[List[str], List[str], int]:
     """
-    Find all course JSON files in /data directory,
-    excluding exemption codes (administrative placeholders with no real courses)
+    Find all course JSON files in /data directory.
     Validates file naming and warns about unexpected files
     """
-    # Exemption codes - administrative placeholders, not real subjects
-    # Must match EXCLUDED_SUBJECTS in scripts/generate_subjects.py
-    EXCLUDED_SUBJECTS = {
-        "EX_PGDE",
-        "EX_RPG",
-        "EX_TPG",
-        "EX_UG",
-        "XCBS",
-        "XCCS",
-        "XFUD",
-        "XUNC",
-        "XUSC",
-        "XWAS",
-    }
-
     if not os.path.exists(SOURCE_YEAR_DIR):
-        return [], [], [], 0
+        return [], [], 0
 
     # Find JSON files (current live year only; see INTERIM_PUBLISH_YEAR)
     pattern = os.path.join(SOURCE_YEAR_DIR, "*.json")
     all_files = glob.glob(pattern)
 
     course_files = []
-    excluded_files = []
     unexpected_files = []
 
     for file_path in all_files:
         filename = os.path.basename(file_path)
         name_without_ext = os.path.splitext(filename)[0]  # Remove extension
-
-        # Exclude exemption codes (consistent with generate_subjects.py)
-        if name_without_ext in EXCLUDED_SUBJECTS:
-            excluded_files.append(name_without_ext)
-            continue
 
         # Validate it's a proper subject code (4 letters or has underscore for special codes)
         if (
@@ -212,7 +190,7 @@ def find_course_files() -> Tuple[List[str], List[str], List[str], int]:
             # Unexpected file format - report but don't include
             unexpected_files.append(filename)
 
-    return sorted(course_files), sorted(excluded_files), sorted(unexpected_files), len(all_files)
+    return sorted(course_files), sorted(unexpected_files), len(all_files)
 
 
 def validate_subject_list(found_subjects: List[str]) -> bool:
@@ -427,14 +405,9 @@ def main():
                     )
 
         # Find course files
-        course_files, excluded_files, unexpected_files, total_json_files = find_course_files()
+        course_files, unexpected_files, total_json_files = find_course_files()
         print("Course JSON files:")
         print(f"   Source files in data/: {total_json_files}")
-        if excluded_files:
-            print(
-                f"   Excluded exemption/admin codes: {len(excluded_files)} "
-                f"({', '.join(excluded_files)})"
-            )
         if unexpected_files:
             print(f"   Skipped unexpected filenames: {len(unexpected_files)}")
             for filename in unexpected_files:
