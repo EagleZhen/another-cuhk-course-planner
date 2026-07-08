@@ -3,6 +3,7 @@ import json
 import pytest
 from data_utils import (
     collect_terms_by_year,
+    diff_term_names,
     get_academic_year,
     partition_subject_by_year,
     render_terms_module,
@@ -139,3 +140,22 @@ export const TERMS_BY_YEAR: Record<string, readonly string[]> = {
 } as const
 """
     )
+
+
+def test_diff_term_names_reports_added_and_removed():
+    old = render_terms_module({"2025-26": ["2025-26 Term 1", "2025-26 Term 2"]})
+    new = render_terms_module({"2025-26": ["2025-26 Term 2", "2025-26 Term 3"]})
+
+    added, removed = diff_term_names(old, new)
+
+    assert added == {"2025-26 Term 3"}
+    assert removed == {"2025-26 Term 1"}
+
+
+def test_diff_term_names_reports_nothing_when_unchanged():
+    content = render_terms_module({"2025-26": ["2025-26 Term 1"]})
+
+    added, removed = diff_term_names(content, content)
+
+    assert added == set()
+    assert removed == set()

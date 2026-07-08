@@ -622,3 +622,12 @@ def render_terms_module(terms_by_year: dict[str, list[str]]) -> str:
         lines.append("  ],")
     lines.append("} as const")
     return "\n".join(lines) + "\n"
+
+
+def diff_term_names(old_content: str, new_content: str) -> Tuple[set, set]:
+    """Compare two rendered terms.ts contents by their quoted term-name strings.
+    Returns (added, removed) term name sets, for a publish-time change warning.
+    """
+    old_terms = set(re.findall(r"'([^']*)'", old_content))
+    new_terms = set(re.findall(r"'([^']*)'", new_content))
+    return new_terms - old_terms, old_terms - new_terms
