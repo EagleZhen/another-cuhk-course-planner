@@ -10,6 +10,7 @@ This module has no external dependencies beyond BeautifulSoup and optional markd
 import json
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Optional, Tuple
 from zoneinfo import ZoneInfo
 
@@ -579,3 +580,28 @@ TERM_SUFFIX_ORDER = (
     "Summer Session",
     "Acad Year (Medicine)",
 )
+
+
+def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
+    """Collect every distinct term name found under a year directory (data/<year>/),
+    grouped by academic year and sorted per TERM_SUFFIX_ORDER.
+    """
+    names_by_year: dict[str, set] = {}
+    for filepath in sorted(Path(year_dir).glob("*.json")):
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for course in data.get("courses", []):
+            for term in course.get("terms", []):
+                term_name = term.get("term_name", "")
+                year = get_academic_year(term_name)
+                if year:
+                    names_by_year.setdefault(year, set()).add(term_name)
+
+    def sort_key(term_name: str, year: str) -> int:
+        suffix = term_name[len(year) :].strip()
+        return TERM_SUFFIX_ORDER.index(suffix)
+
+    return {
+        year: sorted(names, key=lambda name: sort_key(name, year))
+        for year, names in sorted(names_by_year.items())
+    }
