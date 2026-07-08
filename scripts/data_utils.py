@@ -29,10 +29,6 @@ except ImportError:
 # from partition_subject_by_year). Not a year, so year globs exclude it.
 NO_TERMS_DIR = "no-terms"
 
-# Interim: the one year generate_subjects.py and publish_course_data.py both read,
-# until per-year serving lands. Shared here so the two can't drift apart.
-INTERIM_LIVE_YEAR = "2025-26"
-
 
 def clean_word_html(html_content: str) -> str:
     """
