@@ -1978,10 +1978,8 @@ class CuhkScraper:
                 save_json_with_newline(file_path, slice_data)
                 written.append(file_path)
 
-            # No-terms dedup: if this scrape produced no dormant courses for the subject,
-            # drop any stale no-terms file so a now-offered course isn't left duplicated
-            # in both a year dir and no-terms. Safe on every scrape (needs no term-wide
-            # context, unlike active-year pruning).
+            # If this scrape found no dormant courses, drop any stale no-terms file so a
+            # now-offered course isn't left duplicated in both a year dir and no-terms.
             if NO_TERMS_DIR not in produced_subdirs:
                 stale_no_terms = os.path.join(
                     config.output_directory, NO_TERMS_DIR, f"{subject}.json"
