@@ -628,6 +628,9 @@ def diff_term_names(old_content: str, new_content: str) -> Tuple[set, set]:
     """Compare two rendered terms.ts contents by their quoted term-name strings.
     Returns (added, removed) term name sets, for a publish-time change warning.
     """
-    old_terms = set(re.findall(r"'([^']*)'", old_content))
-    new_terms = set(re.findall(r"'([^']*)'", new_content))
+    # Match term names ("YYYY-YY <suffix>") but not the bare "YYYY-YY" object keys:
+    # a term name always has a space after the year prefix.
+    pattern = r"'(\d{4}-\d{2} [^']*)'"
+    old_terms = set(re.findall(pattern, old_content))
+    new_terms = set(re.findall(pattern, new_content))
     return new_terms - old_terms, old_terms - new_terms

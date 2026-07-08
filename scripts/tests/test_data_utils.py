@@ -159,3 +159,15 @@ def test_diff_term_names_reports_nothing_when_unchanged():
 
     assert added == set()
     assert removed == set()
+
+
+def test_diff_term_names_ignores_year_keys_on_new_year():
+    # A whole new year appearing must report only its term names, not the bare
+    # "2026-27" object key.
+    old = render_terms_module({"2025-26": ["2025-26 Term 1"]})
+    new = render_terms_module({"2025-26": ["2025-26 Term 1"], "2026-27": ["2026-27 Term 1"]})
+
+    added, removed = diff_term_names(old, new)
+
+    assert added == {"2026-27 Term 1"}
+    assert removed == set()
