@@ -90,3 +90,17 @@ Why it fits:
 - splitting at scrape, not publish, keeps `data/` itself complete and regenerable instead of flat and overwritten
 - year, not term: a term freezes and thaws with its year, not on its own — splitting further would turn today's instant term switching into a network fetch, for no preservation gain
 - a year freezes for free once CUHK stops serving it (a scrape only overwrites what it currently produces) — no archive step needed. `no-terms` is the exception: the subject keeps being scraped regardless, so a stale entry there has no archival meaning and is actively pruned (`partition_subject_by_year` in [scripts/data_utils.py](../scripts/data_utils.py))
+
+## Generate The Term List, Keep The Default Term By Hand
+
+The app hardcoded the term names, so an academic-year rollover would match nothing in the new data — an empty planner.
+
+Decision: publish generates `web/src/lib/generated/terms.ts` from the scraped data and the app reads it. The default term (`DEFAULT_CURRENT_TERM` in [constants.ts](../web/src/lib/constants.ts)) stays hand-set.
+
+Why it fits:
+
+- terms.ts auto-writes on publish (no manual gate like subjects.ts) — term names are mechanical. Publish warns on change so it isn't missed.
+- which term is "current" isn't in the data — the terms aren't a timeline (Term 3/4 postgraduate; Summer, Medicine special) — so it stays a human call.
+- no fallback for a stale default: it would hide the mistake and force an arbitrary pick. A test ([constants.test.ts](../web/src/lib/constants.test.ts)) fails if the default isn't a generated term.
+
+Limitation: bump `DEFAULT_CURRENT_TERM` by hand on rollover; the test catches a stale one.

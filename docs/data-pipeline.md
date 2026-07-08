@@ -50,9 +50,11 @@ Publishing validates scraped data and copies publishable files to [web/public/da
 The publish script checks:
 
 - JSON structure and per-course subject consistency
-- scraped subjects against [web/src/lib/subjects.ts](../web/src/lib/subjects.ts)
+- scraped subjects against [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts)
 - scraping progress metadata
 - zero-course subjects and structural issues
+
+It also regenerates the term manifest ([web/src/lib/generated/terms.ts](../web/src/lib/generated/terms.ts), see [Term List](#term-list)).
 
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
 
@@ -60,12 +62,12 @@ Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current coun
 
 Read the publish count summary as:
 
-- source JSON files found in the current live year's directory (see `INTERIM_PUBLISH_YEAR` in [scripts/publish_course_data.py](../scripts/publish_course_data.py))
+- source JSON files found in the current live year's directory (see `INTERIM_LIVE_YEAR` in [scripts/data_utils.py](../scripts/data_utils.py))
 - files selected and copied for publishing
 
 ## Subject List Changes
 
-[web/src/lib/subjects.ts](../web/src/lib/subjects.ts) is the web app's subject list. If CUHK adds or removes subjects, publishing blocks until this list is updated.
+[web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts) is the web app's subject list. If CUHK adds or removes subjects, publishing blocks until this list is updated.
 
 Regenerate the `SUBJECT_TITLES` constant:
 
@@ -73,7 +75,13 @@ Regenerate the `SUBJECT_TITLES` constant:
 uv run python scripts/generate_subjects.py
 ```
 
-Copy the printed constant into [web/src/lib/subjects.ts](../web/src/lib/subjects.ts), then run the publish script again.
+Copy the printed constant into [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts), then run the publish script again.
+
+## Term List
+
+[web/src/lib/generated/terms.ts](../web/src/lib/generated/terms.ts) lists the app's available terms per academic year. Unlike subjects.ts, publish regenerates it automatically and only warns if it changed — term names need no human review. Commit the change with the published data.
+
+The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; a test blocks it from drifting off the generated list.
 
 ## Scraper Model
 

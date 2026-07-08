@@ -10,3 +10,6 @@ export const NOTICE_IMAGE_LOADED_EVENT = 'mobile-notice-image-loaded'
 
 // Data versioning
 export const SCHEDULE_DATA_VERSION = 1
+
+// Default selected term. Bump on rollover manually for now.
+export const DEFAULT_CURRENT_TERM = '2025-26 Summer Session'

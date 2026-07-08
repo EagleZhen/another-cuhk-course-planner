@@ -20,28 +20,23 @@ import {
 } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { getSubjectTitle } from '@/lib/subjects'
-import { SCHEDULE_DATA_VERSION } from '@/lib/constants'
+import { getSubjectTitle } from '@/lib/generated/subjects'
+import { TERMS_BY_YEAR } from '@/lib/generated/terms'
+import { SCHEDULE_DATA_VERSION, DEFAULT_CURRENT_TERM } from '@/lib/constants'
 
 // Color assignment is now handled in courseUtils.ts
+
+// Interim: terms.ts holds only the live year, so this flattens to that year's terms.
+const availableTerms = Object.values(TERMS_BY_YEAR).flat()
 
 export default function Home() {
   // Reference to CourseSearch's setSearchTerm function
   const setSearchTermRef = useRef<((term: string, fromCourseDetails?: boolean) => void) | null>(
     null
   )
-  // Available terms
-  const availableTerms = [
-    '2025-26 Term 1',
-    '2025-26 Term 2',
-    '2025-26 Term 3',
-    '2025-26 Term 4',
-    '2025-26 Summer Session',
-    '2025-26 Acad Year (Medicine)',
-  ]
 
   // Current term state
-  const [currentTerm, setCurrentTerm] = useState('2025-26 Summer Session')
+  const [currentTerm, setCurrentTerm] = useState(DEFAULT_CURRENT_TERM)
 
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())

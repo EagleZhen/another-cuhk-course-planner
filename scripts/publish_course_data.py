@@ -23,7 +23,13 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
-from data_utils import INTERIM_LIVE_YEAR, save_json_with_newline
+from data_utils import (
+    INTERIM_LIVE_YEAR,
+    collect_terms_by_year,
+    diff_term_names,
+    render_terms_module,
+    save_json_with_newline,
+)
 
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
@@ -53,7 +59,11 @@ STRIPPED_COURSE_FIELDS = (
 )
 
 # Frontend source files used for validation
-SUBJECTS_FILE = os.path.join("web", "src", "lib", "subjects.ts")
+SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
+
+# Auto-written on every publish (no manual-copy gate like SUBJECTS_FILE - term
+# names are mechanical, not a judgment call).
+TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
 
 
 def load_scraping_progress() -> Optional[Dict]:
@@ -193,11 +203,11 @@ def find_course_files() -> Tuple[List[str], List[str], int]:
 
 def validate_subject_list(found_subjects: List[str]) -> bool:
     """
-    Validate found subjects against SUBJECT_TITLES in lib/subjects.ts (single source of truth)
+    Validate found subjects against SUBJECT_TITLES in lib/generated/subjects.ts (single source of truth)
     Returns True if validation passes, False if there are discrepancies (blocks publishing)
     """
     if not os.path.exists(SUBJECTS_FILE):
-        print("❌ Could not find lib/subjects.ts - publishing blocked")
+        print("❌ Could not find lib/generated/subjects.ts - publishing blocked")
         print()
         return False
 
@@ -252,13 +262,15 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print("   To fix:")
             print("      1. Run: uv run python scripts/generate_subjects.py")
             print(
-                "      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)"
+                "      2. Copy output to web/src/lib/generated/subjects.ts (replace SUBJECT_TITLES constant)"
             )
             print("      3. Run this script again")
             print()
             return False
         else:
-            print(f"Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
+            print(
+                f"Subject list matches lib/generated/subjects.ts ({len(found_subjects)} subjects)"
+            )
             print()
             return True
 
@@ -505,6 +517,28 @@ def main():
             print(f"Dry run: would publish {len(files_to_copy)} files")
         else:
             print(f"Publishing {len(files_to_copy)} files to {Path(published_data_dir).as_posix()}")
+
+        # Regenerate the years->terms manifest (auto-written, no manual-copy gate
+        # like subjects.ts - see TERMS_FILE). Warn if it changed so a term-name
+        # change doesn't silently slip through. Done here, past the abort gates, so
+        # a failed publish leaves the manifest untouched.
+        new_terms_content = render_terms_module(collect_terms_by_year(Path(SOURCE_YEAR_DIR)))
+        old_terms_content = ""
+        if os.path.exists(TERMS_FILE):
+            with open(TERMS_FILE, "r", encoding="utf-8") as f:
+                old_terms_content = f.read()
+        if old_terms_content and old_terms_content != new_terms_content:
+            added, removed = diff_term_names(old_terms_content, new_terms_content)
+            print("⚠️  Terms manifest changed:")
+            if added:
+                print(f"   Added: {', '.join(sorted(added))}")
+            if removed:
+                print(f"   Removed: {', '.join(sorted(removed))}")
+            print()
+        if not dry_run:
+            os.makedirs(os.path.dirname(TERMS_FILE), exist_ok=True)
+            with open(TERMS_FILE, "w", encoding="utf-8") as f:
+                f.write(new_terms_content)
 
         # Copy files
         print()

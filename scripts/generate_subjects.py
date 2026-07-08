@@ -2,13 +2,13 @@
 """
 Generate subject code to title mapping from scraped course data.
 
-This script creates the SUBJECT_TITLES constant for web/src/lib/subjects.ts,
+This script creates the SUBJECT_TITLES constant for web/src/lib/generated/subjects.ts,
 which serves as the single source of truth for all subject-related data.
 
 Usage:
     uv run python scripts/generate_subjects.py
 
-After running, copy the output to web/src/lib/subjects.ts (replace the SUBJECT_TITLES constant)
+After running, copy the output to web/src/lib/generated/subjects.ts (replace the SUBJECT_TITLES constant)
 """
 
 import json
