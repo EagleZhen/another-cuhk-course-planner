@@ -50,7 +50,7 @@ Publishing validates scraped data and copies publishable files to [web/public/da
 The publish script checks:
 
 - JSON structure and per-course subject consistency
-- scraped subjects against [web/src/lib/subjects.ts](../web/src/lib/subjects.ts)
+- scraped subjects against [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts)
 - scraping progress metadata
 - zero-course subjects and structural issues
 
@@ -65,7 +65,7 @@ Read the publish count summary as:
 
 ## Subject List Changes
 
-[web/src/lib/subjects.ts](../web/src/lib/subjects.ts) is the web app's subject list. If CUHK adds or removes subjects, publishing blocks until this list is updated.
+[web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts) is the web app's subject list. If CUHK adds or removes subjects, publishing blocks until this list is updated.
 
 Regenerate the `SUBJECT_TITLES` constant:
 
@@ -73,7 +73,7 @@ Regenerate the `SUBJECT_TITLES` constant:
 uv run python scripts/generate_subjects.py
 ```
 
-Copy the printed constant into [web/src/lib/subjects.ts](../web/src/lib/subjects.ts), then run the publish script again.
+Copy the printed constant into [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts), then run the publish script again.
 
 ## Scraper Model
 

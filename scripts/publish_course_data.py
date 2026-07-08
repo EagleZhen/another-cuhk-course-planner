@@ -53,7 +53,7 @@ STRIPPED_COURSE_FIELDS = (
 )
 
 # Frontend source files used for validation
-SUBJECTS_FILE = os.path.join("web", "src", "lib", "subjects.ts")
+SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
 
 
 def load_scraping_progress() -> Optional[Dict]:
@@ -193,11 +193,11 @@ def find_course_files() -> Tuple[List[str], List[str], int]:
 
 def validate_subject_list(found_subjects: List[str]) -> bool:
     """
-    Validate found subjects against SUBJECT_TITLES in lib/subjects.ts (single source of truth)
+    Validate found subjects against SUBJECT_TITLES in lib/generated/subjects.ts (single source of truth)
     Returns True if validation passes, False if there are discrepancies (blocks publishing)
     """
     if not os.path.exists(SUBJECTS_FILE):
-        print("❌ Could not find lib/subjects.ts - publishing blocked")
+        print("❌ Could not find lib/generated/subjects.ts - publishing blocked")
         print()
         return False
 
@@ -252,13 +252,15 @@ def validate_subject_list(found_subjects: List[str]) -> bool:
             print("   To fix:")
             print("      1. Run: uv run python scripts/generate_subjects.py")
             print(
-                "      2. Copy output to web/src/lib/subjects.ts (replace SUBJECT_TITLES constant)"
+                "      2. Copy output to web/src/lib/generated/subjects.ts (replace SUBJECT_TITLES constant)"
             )
             print("      3. Run this script again")
             print()
             return False
         else:
-            print(f"Subject list matches lib/subjects.ts ({len(found_subjects)} subjects)")
+            print(
+                f"Subject list matches lib/generated/subjects.ts ({len(found_subjects)} subjects)"
+            )
             print()
             return True
 
