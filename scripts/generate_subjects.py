@@ -14,13 +14,10 @@ After running, copy the output to web/src/lib/subjects.ts (replace the SUBJECT_T
 import json
 from pathlib import Path
 
+from data_utils import INTERIM_LIVE_YEAR
+
 PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
-
-# Interim: data/ is partitioned by academic year. Read the current live year so the
-# subject list matches what publish serves (INTERIM_PUBLISH_YEAR in
-# publish_course_data.py). Becomes a union across year dirs when per-year serving lands.
-INTERIM_YEAR = "2025-26"
 
 
 def format_ts_string(value: str) -> str:
@@ -35,7 +32,7 @@ def format_ts_string(value: str) -> str:
 def main():
     subject_titles = {}
 
-    for filepath in sorted((DATA_DIR / INTERIM_YEAR).glob("*.json")):
+    for filepath in sorted((DATA_DIR / INTERIM_LIVE_YEAR).glob("*.json")):
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
 

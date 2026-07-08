@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
-from data_utils import save_json_with_newline
+from data_utils import INTERIM_LIVE_YEAR, save_json_with_newline
 
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
@@ -38,11 +38,9 @@ LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
 SOURCE_DATA_DIR = "data"
 PUBLISHED_DATA_DIR = os.path.join("web", "public", "data")
 
-# Interim: data/ is now partitioned by academic year (data/<year>/). Until per-year
-# serving lands, publish only the current live year, flattened to web/public/data/ as
+# Interim: publish only the current live year, flattened to web/public/data/ as
 # before, so the app is unchanged. Removed once the app fetches per-year.
-INTERIM_PUBLISH_YEAR = "2025-26"
-SOURCE_YEAR_DIR = os.path.join(SOURCE_DATA_DIR, INTERIM_PUBLISH_YEAR)
+SOURCE_YEAR_DIR = os.path.join(SOURCE_DATA_DIR, INTERIM_LIVE_YEAR)
 
 # Fields scraped into /data but never rendered by the web app, stripped from the
 # published copy to cut payload (~68% of the gzipped transfer as of Jul 2026).
@@ -170,7 +168,7 @@ def find_course_files() -> Tuple[List[str], List[str], int]:
     if not os.path.exists(SOURCE_YEAR_DIR):
         return [], [], 0
 
-    # Find JSON files (current live year only; see INTERIM_PUBLISH_YEAR)
+    # Find JSON files (current live year only; see INTERIM_LIVE_YEAR)
     pattern = os.path.join(SOURCE_YEAR_DIR, "*.json")
     all_files = glob.glob(pattern)
 
