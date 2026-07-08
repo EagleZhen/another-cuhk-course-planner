@@ -56,16 +56,11 @@ The publish script checks:
 
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
 
-Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current counts. The number of source JSON files in [data/](../data/) can be higher than the number of published JSON files, because publish excludes exemption/admin placeholder codes:
-
-```text
-EX_PGDE, EX_RPG, EX_TPG, EX_UG, XCBS, XCCS, XFUD, XUNC, XUSC, XWAS
-```
+Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current counts.
 
 Read the publish count summary as:
 
-- source JSON files found in [data/](../data/)
-- excluded placeholder files
+- source JSON files found in the current live year's directory (see `INTERIM_PUBLISH_YEAR` in [scripts/publish_course_data.py](../scripts/publish_course_data.py))
 - files selected and copied for publishing
 
 ## Subject List Changes
