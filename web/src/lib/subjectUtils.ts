@@ -1,4 +1,4 @@
-import { SUBJECT_TITLES } from './generated/subjects'
+import { SUBJECT_TITLES, SUBJECTS_BY_YEAR } from './generated/subjects'
 
 /**
  * Get full subject title for display
@@ -8,8 +8,8 @@ export function getSubjectTitle(subjectCode: string): string {
 }
 
 /**
- * Get all available subject codes
+ * Get the subject codes offered in an academic year (e.g. '2025-26').
  */
-export function getAllSubjectCodes(): string[] {
-  return Object.keys(SUBJECT_TITLES)
+export function getSubjectCodesForYear(year: string): readonly string[] {
+  return SUBJECTS_BY_YEAR[year] ?? []
 }
