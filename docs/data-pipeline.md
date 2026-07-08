@@ -54,6 +54,8 @@ The publish script checks:
 - scraping progress metadata
 - zero-course subjects and structural issues
 
+It also regenerates the term manifest ([web/src/lib/generated/terms.ts](../web/src/lib/generated/terms.ts), see [Term List](#term-list)).
+
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
 
 Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current counts.
@@ -74,6 +76,12 @@ uv run python scripts/generate_subjects.py
 ```
 
 Copy the printed constant into [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts), then run the publish script again.
+
+## Term List
+
+[web/src/lib/generated/terms.ts](../web/src/lib/generated/terms.ts) lists the app's available terms per academic year. Unlike subjects.ts, publish regenerates it automatically and only warns if it changed — term names need no human review. Commit the change with the published data.
+
+The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; a test blocks it from drifting off the generated list.
 
 ## Scraper Model
 
