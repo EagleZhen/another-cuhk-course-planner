@@ -26,6 +26,7 @@ from zoneinfo import ZoneInfo
 from data_utils import (
     INTERIM_LIVE_YEAR,
     collect_terms_by_year,
+    diff_term_names,
     render_terms_module,
     save_json_with_newline,
 )
@@ -437,8 +438,24 @@ def main():
             sys.exit(1)
 
         # Regenerate the years->terms manifest (auto-written, no manual-copy gate
-        # like subjects.ts - see TERMS_FILE).
+        # like subjects.ts - see TERMS_FILE). Warn (don't block) if it changed, so a
+        # term-name change doesn't silently slip through an auto-written file.
         new_terms_content = render_terms_module(collect_terms_by_year(Path(SOURCE_YEAR_DIR)))
+
+        old_terms_content = ""
+        if os.path.exists(TERMS_FILE):
+            with open(TERMS_FILE, "r", encoding="utf-8") as f:
+                old_terms_content = f.read()
+
+        if old_terms_content and old_terms_content != new_terms_content:
+            added, removed = diff_term_names(old_terms_content, new_terms_content)
+            print("⚠️  Terms manifest changed:")
+            if added:
+                print(f"   Added: {', '.join(sorted(added))}")
+            if removed:
+                print(f"   Removed: {', '.join(sorted(removed))}")
+            print()
+
         if not dry_run:
             os.makedirs(os.path.dirname(TERMS_FILE), exist_ok=True)
             with open(TERMS_FILE, "w", encoding="utf-8") as f:
