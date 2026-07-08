@@ -542,6 +542,11 @@ def get_academic_year(term_name: str) -> Optional[str]:
     return match.group(0) if match else None
 
 
+def year_dirs(data_root: Path) -> list[Path]:
+    """Return the sorted data/<year>/ directories, skipping non-year dirs (no-terms)."""
+    return sorted(p for p in Path(data_root).iterdir() if p.is_dir() and get_academic_year(p.name))
+
+
 def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
     """Split a subject's courses into per-year ``subject_data`` slices, keyed by
     academic year ("2025-26"). A course spanning years appears in each with only
