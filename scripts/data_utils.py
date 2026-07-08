@@ -570,8 +570,12 @@ def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
     }
 
 
-# Teaching-calendar order for term-name suffixes (the part of a term_name after the
-# "YYYY-YY " year prefix), covering every suffix seen in scraped data as of 2026-07.
+# A term name is "YYYY-YY <suffix>", e.g. "2025-26 Term 1". One anchored pattern
+# splits it into (year, suffix) so both always agree on where the year ends.
+TERM_NAME_RE = re.compile(r"(\d{4}-\d{2})\s+(.+)")
+
+# Teaching-calendar order for term-name suffixes, covering every suffix seen in
+# scraped data as of 2026-07.
 TERM_SUFFIX_ORDER = (
     "Term 1",
     "Term 2",
@@ -584,7 +588,8 @@ TERM_SUFFIX_ORDER = (
 
 def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
     """Collect every distinct term name found under a year directory (data/<year>/),
-    grouped by academic year and sorted per TERM_SUFFIX_ORDER.
+    grouped by academic year and sorted per TERM_SUFFIX_ORDER. Term names not shaped
+    like "YYYY-YY <suffix>" (e.g. "TBA") are skipped.
     """
     names_by_year: dict[str, set] = {}
     for filepath in sorted(Path(year_dir).glob("*.json")):
@@ -592,19 +597,16 @@ def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
             data = json.load(f)
         for course in data.get("courses", []):
             for term in course.get("terms", []):
-                term_name = term.get("term_name", "")
-                year = get_academic_year(term_name)
-                if year:
-                    names_by_year.setdefault(year, set()).add(term_name)
+                match = TERM_NAME_RE.fullmatch(term.get("term_name", "").strip())
+                if match:
+                    names_by_year.setdefault(match.group(1), set()).add(match.group(0))
 
-    def sort_key(term_name: str, year: str) -> int:
-        suffix = term_name[len(year) :].strip()
-        return TERM_SUFFIX_ORDER.index(suffix)
+    def suffix_rank(term_name: str) -> int:
+        match = TERM_NAME_RE.fullmatch(term_name)
+        assert match, term_name  # every collected name matched above
+        return TERM_SUFFIX_ORDER.index(match.group(2))
 
-    return {
-        year: sorted(names, key=lambda name: sort_key(name, year))
-        for year, names in sorted(names_by_year.items())
-    }
+    return {year: sorted(names, key=suffix_rank) for year, names in sorted(names_by_year.items())}
 
 
 def render_terms_module(terms_by_year: dict[str, list[str]]) -> str:
