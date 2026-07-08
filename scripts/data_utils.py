@@ -608,7 +608,12 @@ def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
 
 
 def render_terms_module(terms_by_year: dict[str, list[str]]) -> str:
-    """Render the web/src/lib/generated/terms.ts module contents."""
+    """Render the web/src/lib/generated/terms.ts module contents.
+
+    Term names are emitted into TS single-quoted without escaping. Safe because
+    they come from a fixed vocabulary (year prefix + TERM_SUFFIX_ORDER), none
+    containing a quote or backslash; revisit if that ever stops holding.
+    """
     lines = [
         "/**",
         " * Available terms by academic year.",
