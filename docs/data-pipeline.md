@@ -5,7 +5,7 @@ The data pipeline turns CUHK course catalog pages into JSON files used by the we
 ```text
 CUHK course catalog
     -> scripts/scrape_all_subjects.py
-    -> data/*.json
+    -> data/<year>/*.json (+ data/no-terms/*.json for courses with no scheduled terms)
     -> scripts/publish_course_data.py
     -> web/public/data/*.json
 ```
