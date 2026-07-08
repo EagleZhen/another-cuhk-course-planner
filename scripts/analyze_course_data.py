@@ -33,12 +33,22 @@ def load_subject_data(data_directory: str = "data") -> Dict[str, any]:
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            # A subject can span multiple year dirs; merge its courses for analysis.
+            # A subject can span multiple year dirs, with the same course appearing in
+            # each (holding only that year's terms). Merge by course_code so course
+            # counts aren't inflated by counting one course once per year.
             subject_code = data["metadata"]["subject"]
-            if subject_code in subjects_data:
-                subjects_data[subject_code]["courses"].extend(data.get("courses", []))
-            else:
+            if subject_code not in subjects_data:
                 subjects_data[subject_code] = data
+                continue
+
+            existing_courses = {c["course_code"]: c for c in subjects_data[subject_code]["courses"]}
+            for course in data.get("courses", []):
+                code = course["course_code"]
+                if code in existing_courses:
+                    existing_courses[code]["terms"].extend(course.get("terms", []))
+                else:
+                    subjects_data[subject_code]["courses"].append(course)
+                    existing_courses[code] = course
 
         except Exception as e:
             print(f"⚠️ Error loading {file_path}: {e}")
