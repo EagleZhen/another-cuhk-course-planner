@@ -21,7 +21,7 @@ repos:
         entry: npx --no-install prettier --write
         language: system
         files: '\.(js|jsx|ts|tsx|mjs|md|json|ya?ml|css)$'
-        exclude: '^(data/|web/public/data/|docs/archived/|lab/)'
+        exclude: '^(data/|web/public/data/|web/src/lib/generated/|docs/archived/|lab/)'
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
