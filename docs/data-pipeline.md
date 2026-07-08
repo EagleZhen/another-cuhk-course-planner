@@ -60,7 +60,7 @@ Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current coun
 
 Read the publish count summary as:
 
-- source JSON files found in the current live year's directory (see `INTERIM_PUBLISH_YEAR` in [scripts/publish_course_data.py](../scripts/publish_course_data.py))
+- source JSON files found in the current live year's directory (see `INTERIM_LIVE_YEAR` in [scripts/data_utils.py](../scripts/data_utils.py))
 - files selected and copied for publishing
 
 ## Subject List Changes
