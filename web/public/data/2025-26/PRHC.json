@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T19:03:38.533699+00:00",
+    "subject": "PRHC",
+    "subject_title": "Primary Healthcare",
+    "total_courses": 1,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "PRHC",
+      "course_code": "5001",
+      "title": "Development of Primary Healthcare",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3723)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HUANG Junjie, \nProfessor WONG Carmen, \nProfessor WONG Chi Sang, \nProfessor ZHONG Chenwen",
+                  "dates": "9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor HUANG Junjie, \nProfessor WONG Carmen, \nProfessor WONG Chi Sang, \nProfessor ZHONG Chenwen",
+                  "dates": "27/2, 6/3"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "40",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "59",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an update on the structure, functions, strengths, and development of primary healthcare, which has been evolving over time.",
+      "enrollment_requirement": "For students in Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Understand the definition, scope, and functions of primary healthcare in Hong Kong as compared to other primary healthcare systems in other countries. Appreciate a wide range of strategies to improve lifestyle habits of the general population. Contextualize stakeholders and tools used in primary healthcare. Comprehend common Public-Private Partnership (PPP) programmes in Hong Kong. Appreciate a wide range of strategies that may be employed to enhance quality of care and address current challenges in primary healthcare.",
+      "assessment_types": {
+        "Presentation": "50",
+        "Selected response test or exam": "50"
+      }
+    }
+  ]
+}

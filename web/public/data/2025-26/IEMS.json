@@ -1,0 +1,1923 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T16:48:25.697756+00:00",
+    "subject": "IEMS",
+    "subject_title": "Information Engineering (TPg)",
+    "total_courses": 20,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "IEMS",
+      "course_code": "5701",
+      "title": "Wireless Communication",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9585)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHEN He",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHEN He",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHEN He",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHEN He",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor CHEN He",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor CHEN He",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Professor CHEN He",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "6",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "74",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Physical characteristics of radio channels, cellular coverage, noise and interferences; radio modem technologies; channel assignment by frequency, time, or code division; handoffs and mobility management; wide area wireless network case studies: GSM and 3G; local area wireless network case studies: IEEE 802.11 and IEEE 802.15; principles of satellite communications, introduction to GPS system.",
+      "enrollment_requirement": "For all students in Engineering Faculty; Exclusion: ESTR4304 or IERG4100",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "At the completion of this course, the student should be able to:\n\nGain the conceptual knowledge in wireless communication, including those specified in the course contents (physical characteristics of radio channels, cellular coverage, noise and interferences; radio modem technologies; channel assignment by frequency, time, or code division; handoffs and mobility management; wide area wireless network)\nStudents would also have gone through case studies in contemporary topics in wireless communication.",
+      "assessment_types": {
+        "Essays": "40",
+        "Essay test or exam": "60"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5705",
+      "title": "Optical Communication and Lightwave Networks",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2740)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "35",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Optical fiber and transmission characteristics, optical sources (lasers and light-emitting diodes) and transmitters, photodetectors and optical receivers, optical passive and active components: couplers, filters, switches, modulators, EDFA and Raman amplifiers, etc., optical system design, lightwave systems and networks: undersea systems, optical multia-access network design, SONET/SDH, fiber-in-the-loop, passive optical networks, optical network management.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: ELEG3303 or ESTR3206 or IERG4030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "At the completion of this course, the student should be able to:\n\nGain conceptual knowledge in optical communication and lightwave networks. Including those specified in the course content (Optical fiber and transmission characteristics, optical sources (lasers and light-emitting diodes) and transmitters, photodetectors and optical receivers, optical passive and active components: couplers, filters, switches, modulators, EDFA and Raman amplifiers, etc., optical system design, lightwave systems and networks: undersea systems, optical multi-access network design, SONET/SDH, fiber-in-the-loop, passive optical networks, optical network management).",
+      "assessment_types": {
+        "Essays": "15",
+        "Essay test or exam": "50",
+        "Selected response test or exam": "35"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5707",
+      "title": "Multimedia Coding and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3634)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIN Dahua",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIN Dahua",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIN Dahua",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIN Dahua",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "84",
+                "waitlist_capacity": "30",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Digital text, image, audio and video coding techniques; digital image and video processing; standard of video compression: MPEG and H.261; advanced topics in multimedia systems and applications.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG4190",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "At the completion of this course, the student should be able to:\n\nAt the completion of this course, the student should be able to:\n\nGain conceptual knowledge in multimedia coding and processing. Including those as specified in the course content (Digital text, image, audio and video coding techniques; digital image and video processing; standard of video compression: MPEG and H.261; advanced topics in multimedia systems and applications.)",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "70",
+        "Selected response test or exam": "10"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5709",
+      "title": "Emerging Topics in Information Engineering",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (3753)",
+              "meetings": [
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "11/4, 18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "77",
+                "waitlist_capacity": "30",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (2805)",
+              "meetings": [
+                {
+                  "time": "Sa 10:00AM - 1:00PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "29/11"
+                },
+                {
+                  "time": "Sa 10:00AM - 1:00PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "28/2"
+                },
+                {
+                  "time": "Sa 10:00AM - 1:00PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "13/12, 20/12, 27/12, 3/1, 10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "19",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will introduce to the students emerging topics in information engineering. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty. Course assessment is at the discretion of course teacher.",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon completion of this course, participants will be able to:\n\n1. apply knowledge of mathematics, science, and engineering appropriate to the degree discipline.\n\n2. use the computer/IT tools relevant to the discipline along with an understanding of their processes and limitations.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Others": "30",
+        "Project": "40"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5710",
+      "title": "Cryptography, Information Security and Privacy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (1829)",
+              "meetings": [
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Chen Kou Bun Bldg LT3",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Chen Kou Bun Bldg LT3",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "130",
+                "enrolled": "135",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "B-LEC (1094)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "13/4, 20/4, 27/4, 4/5, 11/5, 18/5"
+                },
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "1/6, 8/6"
+                }
+              ],
+              "availability": {
+                "capacity": "68",
+                "enrolled": "23",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to enhance students’ knowledge in cryptography as well as information security and privacy, in both theoretical and practical ways. The course introduces cryptography at an elementary level, enabling students to appreciate on its application to information security and privacy. Daily applications of cryptography will be discussed, including digital certificate and Public Key Infrastructure (PKI), Virtual Private Network (VPN), wireless communication security, as well as security and privacy issues in online social networks.",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon completion of this course, participants will be able to:\n1. gain conceptual knowledge in cryptography, security, and privacy; and\n2. completed case studies in contemporary topics in cryptography, security, and privacy, such as security audit, and digital right management.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "50",
+        "Others": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5712",
+      "title": "Innovation and Entrepreneurship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1964)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 801",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "10/1, 17/1, 24/1, 31/1, 7/2, 14/2"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 801",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "28/2, 7/3, 14/3, 21/3, 28/3"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 801",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "11/4, 18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "23",
+                "waitlist_capacity": "20",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Entrepreneur characteristics; product innovation: factors driving innovation, creation and evaluation of new product ideas, risk assessment of commercialization, critical factors for success; business planning: market assessment and strategy, business model, product planning, financial planning, cash flow; financing options, negotiation and deals; formation of a new venture: team, company and product building; execution and dealing with reality; exit strategies; case studies related to innovation and entrepreneurship in information engineering.",
+      "enrollment_requirement": "For all students\nExclusion: CMSC5730 or ENGG3802 or ENGG3803 or ENGG5700 or ESTR3502 or FTEC5570 or IERG5340 or SEEM3450",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "a) The students will learn the 4 aspects of a framework of Entrepreneurship, namely\n\n•Identification of Opportunity\n•Venture Design (includes Business Model Design and Organization Design)\n•Resource Mobilization\n•Venture Execution\n\nb) The students will learn the typical stages from idea creation to the formation of a startup company, with successful venture capital funding and management team in place.\n\nc) They also learn how other entrepreneurs make decisions, do deals, analyze problems, allocate and mobilize scarce resources and succeed in local or even an international context.",
+      "assessment_types": {
+        "Essays": "20",
+        "Others": "30",
+        "Presentation": "50"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5717",
+      "title": "Emerging Communication Technologies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (1981)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 801",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "2/12, 9/12, 16/12, 23/12, 30/12, 6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 801",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "24/2"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "59",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers the principles and applications of various emerging communication and networking technologies to support the current high-capacity and flexible telecommunication data networks. The topics include telecommunication network infrastructures, optical fiber transport and access networks, mobile cellular systems and emerging wireless networking technologies, cloud/fog/edge computing, software-defined networking and network virtualization, distributed systems for big data analytics, and network control and management.",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management\nExclusion: IERG4340",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Learn the basic principles of the state-of-art communication technologies to support the current telecommunication networks.\n\n2. Learn about the various applications of the emerging communication technologies.",
+      "assessment_types": {
+        "Essays": "20",
+        "Presentation": "40",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5718",
+      "title": "Web Programming and Internet Security",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (3697)",
+              "meetings": [
+                {
+                  "time": "Th 7:00PM - 10:00PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. MA Pui Kit",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 7:00PM - 10:00PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. MA Pui Kit",
+                  "dates": "26/2, 5/3, 12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "91",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "49",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The World-Wide Web increasingly becomes the popular choice for delivering interactive applications, offering advantages such as instantaneous access, automated upgrade, online collaboration. This course introduces web technologies including client-side scripting, server programming, database, and user interface. It also briefly describes other related topics such as free/open hosting platforms and SaaS (Software as a Service), open API, virtualized servers on cloud. RIA (Rich Internet Application) across the online and mobile networks. Students also learn web programming concepts, and learn common web security threats and how to avoid them. Hands-on projects may be used to enhance the experience and the appreciation of the topics.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG4210",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "At the completion of this course, the student should be able to\n\n1. Design and implement secure dynamic web applications using core technologies such as Javascript and AJAX.\n\n2. Have sound technical knowledge about latest trends in web applications such as SaaS (Software as a Service), social\n\nnetworks, and cloud computing",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "50"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5719",
+      "title": "Technology Strategy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (2771)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Professor LO Wai Shun",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Professor LO Wai Shun",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Professor LO Wai Shun",
+                  "dates": "1/12, 8/12, 15/12, 22/12, 29/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "15",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces technology strategy and management. The challenges of technology companies (such as hardware, software, internet, consumer electronics, communications and networking) regardless they are in startup or mature stage, are very different from other industries. They need to consider five aspects carefully to formulate an effective strategy. A framework of strategy in technology-intensive companies will be introduced. This framework consists of 5 components:\n1. Network Effects\n2. Multi-sided Platforms\n3. Intellectual Property (IP) and Standards\n4. Technology Commercialization\n5. Digital Convergence",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon completion of this course, participants will be able to analyze the strategy of technology companies and able to use the framework and Innovation Theory to answer questions such as:\n1. Which technologies should a firm explore and develop?\n2. How likely will the consumer adopt these new technologies and innovations?\n3. What is Disruptive Innovation as defined by Clayton Christensen?\n4. How can Open Innovation help companies?\n5. How can technology be leveraged to build standards and multi-sided platforms?\n6. Should firms partner with other companies which could become their competitors (recent example is Nokia/Microsoft partnership)?\n7. How can firms capture value from their R&D and innovations and sustain value despite wide-spread imitation and new technologies emerging?",
+      "assessment_types": {
+        "Essays": "40",
+        "Presentation": "30",
+        "Short answer test or exam": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5720",
+      "title": "Social Networking",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1841)",
+              "meetings": [
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "24/2, 3/3, 10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "14/4"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "140",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Social networking concerned with the conduction of various social behaviors over the internet, as well as the underlying technologies. It is an interdisciplinary subject involving multiple fields including computer networks and applications, psychology, as well as sociology. This course provides a holistic overview on both technology and humanity aspects of social networks, with emphases on the social sciences aspects and perspectives. It covers topics such as social network analysis (e.g. discourse analysis, semantics, social network pattern), network-mediated knowledge building and collaboration, epistemology in social networks, and applications of social networks in business and education.",
+      "enrollment_requirement": "For all students in Engineering Faculty",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "At the completion of this course, the student should\n\nAt the completion of this course, the student should\n\n1. gain knowledge and understanding in both technical and humanity aspects of social networks\n2. be able to perform basic social network analysis\n3. be familiar with and experienced in advanced usage of social networks; and\n4. be able to propose applications of social networks in areas such as business and education.",
+      "assessment_types": {
+        "Essays": "40",
+        "Others": "10",
+        "Presentation": "20",
+        "Short answer test or exam": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5722",
+      "title": "Mobile Network Programming and Distributed Server Architecture",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2753)",
+              "meetings": [
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Mr. NG Sau Koon",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Mr. NG Sau Koon",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Mr. NG Sau Koon",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                },
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Mr. NG Sau Koon",
+                  "dates": "3/12, 10/12"
+                }
+              ],
+              "availability": {
+                "capacity": "160",
+                "enrolled": "158",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course studies the essentials, advanced topics and emerging technologies on mobile network programming on two popular mobile platforms - Android and IOS. Topics include the mobile programming language fundamentals, application framework, application components, network programming, multithreading and so on. Further, different distributed server architectures and models that can offer scalability and extensibility will be highlighted.",
+      "enrollment_requirement": "For all students in Engineering Faculty",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon completion of this course, participants will be able to:\n1. gain the technical know-how on network programming on two popular mobile platforms (Android, IOS);\n2. understand about emerging technologies and advanced topics that are happening on mobile platforms; and\n3. understand the basics on network server programming and distributed server architecture.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Presentation": "40"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5723",
+      "title": "Social Media Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "B-LEC (3739)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "48",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "12",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course gives an overview of social media, studies how different tools in information science can be used to analyse social media content, and how these results can be useful in different applications. This course will cover both knowledge in computational analysis of social media and the corresponding social networks, and basic technical skills in Python programming for the analysis.",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon completion of this course, participants will be able to:\n1. understand the current status of social media and its impact;\n2. perform social media analysis using the mathematical knowledge and programming skills learned in the course; and\n3. apply social media analysis and Web development skills to practical problems.",
+      "assessment_types": {
+        "Essays": "40",
+        "Others": "10",
+        "Presentation": "30",
+        "Short answer test or exam": "20"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5725",
+      "title": "Blockchain and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9616)",
+              "meetings": [
+                {
+                  "time": "Mo 7:00PM - 10:00PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Dr. MA Pui Kit",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "94",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "6",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course introduces the basic underlying cryptographic concepts of blockchain as a powerful tool to support distributed ledgers in all digital transactions. The significances of trust, anonymity, and consensus mechanisms are discussed. The course further explores the applications of blockchain and smart contracts in various practical applications, including financial services, distributed systems, and specific domains such as smart city, healthcare, logistics and supply chains, etc.",
+      "enrollment_requirement": "For all students in Engineering Faculty\nExclusion: CSCI5590 or ESTR4326 or IERG4360 or IERG5590",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Understand the cryptographic concepts of blockchain as a distributed ledger;\n2. Describe the issues of trust, anonymity and consensus mechanisms;\n3. Describe and understand the differences between different types of blockchain structures;\n4. Understand the applications of blockchain in various applications, as well as their challenges.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "30",
+        "Short answer test or exam": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5726",
+      "title": "Data Science in Practice",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (1850)",
+              "meetings": [
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "149",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "B-LEC (1093)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "13/3, 20/3, 27/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6"
+                },
+                {
+                  "time": "Th 7:00PM - 10:00PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "23/4, 30/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "81",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Data science is a cross-disciplinary study involving informatics, machine learning, and statistics. This course discusses various components in the pipeline of a data science project, which include Python programming, data pre-processing, feature selection, common machine learning algorithms and data visualization. A problem driven approach is adopted to discuss applications of data science in various real-life examples.",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management\nExclusion: ESTR4324 or IERG4320",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Apply Python as a programming language for data science projects.\n2. Realize the end-to-end workflow and processing pipeline of a data science project.\n3. Understand the principles and perform feature selection and data analysis.\n4. Apply statistics and visualization tools to present results of data science projects.",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Homework or assignment": "20",
+        "Project": "50"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5727",
+      "title": "Internet of Things and Smart Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (1859)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "William MW Mong Eng Bldg 1007",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "85",
+                "enrolled": "110",
+                "waitlist_capacity": "30",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (4534)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "3/12, 10/12, 17/12"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building LT4",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "25/2"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "79",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course introduces the principles, architectures, enabling technologies and smart applications of Internet of Things (IoT) systems. Various technology options for smart object identification, sensors, machine-to-machine communications and protocols, cloud computing and big data analytics, security, as well as their design considerations will be discussed. Emerging smart applications of IoT in various fields such as healthcare, transportation, logistics, manufacturing & production, home automation, smart city, will be studied.",
+      "enrollment_requirement": "For all students in Engineering Faculty and students in MSc Information Science and Technology Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the principles and architectures of Internet of Things\n2. understand the enabling communication technologies and various design considerations.\n3. understand various emerging applications of the Internet of Things\n4. design and apply the concept of the Internet of Things to enable smart engineering applications",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "30",
+        "Project": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5730",
+      "title": "Big Data Systems and Information Processing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3525)",
+              "meetings": [
+                {
+                  "time": "Mo 7:00PM - 10:00PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 7:00PM - 10:00PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 7:00PM - 10:00PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "13/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "14",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "66",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students an understanding in the operating principles and hands-on experience with mainstream Big Data Computing systems. Open-source platforms for Big Data processing and analytics would be discussed. Topics to be covered include:\n• Programming models and design patterns for mainstream Big Data computational frameworks ;• System Architecture and Resource Management for Data-center-scale Computing ;• System Architecture and Programming Interface of Distributed Big Data stores ; • High-level Big Data Query languages and their processing systems ;Advisory: This course contains substantial hands-on components which require solid background in programming and hands-on operating systems experience.",
+      "enrollment_requirement": "For all students in Engineering Faculty; Exclusion: ESTR4316 or IERG4330",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Understand the mainstream parallel/ distributed programming models for industrial-strength big data processing platforms/ systems.\n\n2. Apply common design patterns to build applications for large-scale information processing using open-sourced, industrial-strength big data platforms.\n\n3. Understand the system architecture, operating principles and design trade-offs of industrial-strength big data processing platforms/ systems.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "40",
+        "Project": "20"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5731",
+      "title": "Software Design and Development",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (2899)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                }
+              ],
+              "availability": {
+                "capacity": "85",
+                "enrolled": "83",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (2900)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "85",
+                "enrolled": "72",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces basic programming methodology and provides students experience in designing, implementing, testing large programs using Java. Topics include basic Java programming, object-oriented programming, web application development and software development methodologies.",
+      "enrollment_requirement": "For all students of MSc in Information Science and Technology Management only\nExclusion: Not for students who have taken CSCI3100 or ENGG3820 or ESTR3308 or IERG3080.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. To deliver correct Java programs.\n2. To design and implement programs using OOP concepts.\n3. To gain hands-on experience on JAVA web frameworks.\n4. To follow discussions about software development.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Essay test or exam": "30",
+        "Homework or assignment": "30",
+        "Project": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5732",
+      "title": "Data Communications and Networking",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (2875)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "19/12"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "2/1, 9/1, 16/1, 23/1, 30/1, 6/2, 13/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "3/12"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "23/12"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "3/1"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "27/2"
+                }
+              ],
+              "availability": {
+                "capacity": "85",
+                "enrolled": "72",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (2806)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "2/12"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "16/12"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Y.C. Liang Hall 103",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "30/12, 6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "23/12"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "3/1"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor ZHANG Yingjun",
+                  "dates": "27/2"
+                }
+              ],
+              "availability": {
+                "capacity": "85",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is an introductory course for data communications, computer networking systems and internet protocols. The course topics include data transmission fundamentals, multiplexing and switching, layered network architectures and the TCP/IP model, and common internet protocols, wired and wireless local and wide area networks.",
+      "enrollment_requirement": "For all students of MSc in Information Science and Technology Management\nExclusion: CSCI4430/ESTR4120 and IERG3310/ESTR3310",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the principles of the basic elements of a data communication systems\n2. understand the principles and architectures of computer networks and internet\n3. understand the principles of common internet protocols and applications\n4. understand the features of different types of data networks in real-life",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Short answer test or exam": "30"
+      }
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5910",
+      "title": "Advanced Research and Development Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "CJ01-PRJ (9958)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (9959)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHIU Dah Ming",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "96",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GJ01-PRJ (9960)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XING Guoliang",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "94",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (9961)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "95",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KJ01-PRJ (9962)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Kehuan",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "95",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "PJ01-PRJ (9963)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHAO Changhong",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (9964)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "XJ01-PRJ (9965)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YUE Xiangyu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "4",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "95",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (9966)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "01/09/2025 - 24/11/2025"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "90",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "DJ01-PRJ (9786)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHIU Dah Ming",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (9912)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LJ01-PRJ (9772)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Mr. CHENG Benedict Kin Fan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "96",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (9776)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2400",
+          "term_name": "2025-26 Term 3",
+          "schedule": [
+            {
+              "section": "GJ01-PRJ (1236)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XING Guoliang",
+                  "dates": "02/03/2026 - 08/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (1237)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "02/03/2026 - 08/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "LJ01-PRJ (1238)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Mr. CHENG Benedict Kin Fan",
+                  "dates": "02/03/2026 - 08/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "96",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (1239)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "02/03/2026 - 08/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Student will work independently under the supervision of a faculty member on a research project in Information Engineering. The topic and scope of the study is to be agreed between the student and the supervisor. A project report is required at the end of the course.",
+      "enrollment_requirement": "For students in MSc Information Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Gain advanced knowledge in the topic investigated and master the advanced concepts involved.\n\nPossess the competency, aptitude, and attitude in conducting rigorous engineering research.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5920",
+      "title": "Advanced Research and Development Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "CJ01-PRJ (9913)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kit",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (9764)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHIU Dah Ming",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "97",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GJ01-PRJ (9765)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XING Guoliang",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "96",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HJ01-PRJ (9766)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "96",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "KJ01-PRJ (9767)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Kehuan",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "SJ01-PRJ (9769)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "XJ01-PRJ (9770)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YUE Xiangyu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "97",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ZJ01-PRJ (9771)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "05/01/2026 - 13/04/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "94",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "ZJ01-PRJ (1604)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "11/05/2026 - 22/06/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "98",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Student will work independently under the supervison of a faculty member on a research project in Information Engineering. The topic and scope of the studyis to be agreed between the student and the supervisor. A project report is required at the end of the course.",
+      "enrollment_requirement": "For students in MSc Information Engineering;Pre-requisite: IEMS5910;Not for students who have taken IEMS5930",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Gain advanced knowledge in the topic investigated and master the advanced concepts involved.\n\nPossess the competency, aptitude, and attitude in conducting rigorous engineering research.",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "50"
+      }
+    }
+  ]
+}

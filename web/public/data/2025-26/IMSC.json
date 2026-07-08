@@ -1,0 +1,779 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-04T16:53:58.459485+00:00",
+    "subject": "IMSC",
+    "subject_title": "Artic BSc PhD Pgm in Math Sci",
+    "total_courses": 8,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "IMSC",
+      "course_code": "1038",
+      "title": "Algebra I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9873)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Professor YANG Ziquan",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Professor YANG Ziquan",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9878)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Staff",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed as a rigorous introduction to the basics of algebraic concepts and structures, such as groups, rings and fields.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in basic the definitions of algebraic structures, and in algebraic properties and their consequences for various algebraic structures;\n\nDemonstrate ability in recognizing underlying algebraic structures which are common to various concrete mathematical examples;\n\nDemonstrate understanding in the basics of group theory, ring theory, and field theory;\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "1113",
+      "title": "Basic Physics I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9874)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Dr. YIP Long Sang Kenny",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Dr. YIP Long Sang Kenny",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Dr. YIP Long Sang Kenny",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9877)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "4/9, 11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This introductory calculus-based course discusses the basic principles of mechanics, fluids and waves. Topics include: particle kinematics, force and motion, work and kinetic energy, potential energy, momentum, systems of particles and collisions, rotation, Newton’s law of gravitation, fluid statics and the dynamics of ideal fluids, oscillations, and waves. Students are advised to take this course concurrently with an introductory mathematics course that includes vectors and calculus.",
+      "enrollment_requirement": "Not for students who have taken PHYS1111 or 1113.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students should have\n\n* gained an understanding in Newtonian mechanics and waves, within a formalism using vectors and elementary calculus;\n* acquired familiarity with some mathematical methods, such as vector algebra and elementary calculus, gained an appreciation of their roles and applications in mechanics and the ability to apply them in other courses;\n* acquired the necessary background for upper-level courses in mechanics as well as other physics courses in the curriculum;\n* developed an appreciation of the quantitative nature of physics;\n* built up skills for solving relevant problems; and\n* acquired a sense of the importance of classical physics, especially its fundamental role in different fields in science and engineering.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "1122",
+      "title": "Basic Physics II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2410",
+          "term_name": "2025-26 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1414)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Dr. LAI Yu Hang",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Dr. LAI Yu Hang",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "13",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (1415)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Staff",
+                  "dates": "12/5, 19/5, 26/5, 2/6, 9/6, 16/6, 23/6"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Staff",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6, 25/6"
+                }
+              ],
+              "availability": {
+                "capacity": "13",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This introductory calculus-based course discusses the basic principles of electromagnetism and optics. Topics include: Coulomb’s law, electric field and potential, Gauss’ law, capacitance and dielectrics, current and resistance, DC circuits, magnetic fields, Ampere’s law, Faraday’s law, inductance, AC circuits, Maxwell’s equations and electromagnetic waves, geometric optics, interference and diffraction.",
+      "enrollment_requirement": "Not for students who have taken PHYS1122.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "1. Gain an understanding of the fundamental principles of electromagnetism and optics, within a formalism using vectors and elementary calculus\n2. Acquire the ability to use some mathematical methods, such as vector algebra and calculus, and an appreciation of their roles and applications in electromagnetism, and the be able to apply them to other courses\n3. Build up a solid foundation of the necessary background for upper-level courses in electromagnetism and other physics courses in the curriculum\n4. Gain an appreciation of the importance of electromagnetism and optics in physics, as well as their applications in the modern world",
+      "assessment_types": {
+        "Examination": "45",
+        "Homework or assignment": "20",
+        "Short answer test or exam": "35"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2018",
+      "title": "Calculus I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9875)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Dr. CHENG Man Chuen",
+                  "dates": "2/9, 9/9, 16/9, 23/9, 30/9"
+                },
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Dr. CHENG Man Chuen",
+                  "dates": "14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "Y.C. Liang Hall G06",
+                  "instructor": "Dr. CHENG Man Chuen",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9879)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall G06",
+                  "instructor": "Staff",
+                  "dates": "5/9, 12/9, 19/9, 26/9, 3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed as a rigorous introduction to the theory of differential and integral calculus for real-valued functions of several real variables.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Demonstrate understanding in basic concepts and applications of the calculus of functions of several variables, including vectors, functions of several variables, partial derivatives and their applications, extremum problems, multiple integrals, as well as the ideas behind the proofs of the theorems;\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2028",
+      "title": "Calculus II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9668)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9669)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC2018. It is intended as a rigorous introduction to the classical results and applications of vector calculus and differential forms, and the basic idea of differentiable manifolds.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC2018.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the theory and the applications of vector calculus, as well as the ideas behind the proofs of the theorems.\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2048",
+      "title": "Algebra II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9670)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2, 10/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "24/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "10/3, 17/3, 24/3, 31/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9671)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2, 12/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Li Dak Sum Building 214",
+                  "instructor": "Dr. YU Chenglong",
+                  "dates": "12/3, 19/3, 26/3, 2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC1038. This course is designed as a rigorous introduction to the theory of bilinear forms and linear groups, Galois theory and the theory of representation.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC1038.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the basic notions of bilinear forms and linear groups, and basic results about such objects;\nDemonstrate understanding in the basics of Galois theory;\nDemonstrate understanding in the basics of module theory and representation theory, and their inter-relation;\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2058",
+      "title": "Analysis I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2380",
+          "term_name": "2025-26 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9876)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "1/9, 8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9881)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "3/9, 10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor LEUNG Chi Wai",
+                  "dates": "5/11, 12/11, 19/11, 26/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended as an introduction to the background knowledge for the study of advanced courses in mathematical analysis such as real analysis, functional analysis, and classical harmonic analysis. It is also provides a preparation for the study of point-set topology.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate ability in describing limit and continuity in terms of open sets in a metric space;\nDemonstrate understanding in fundamental results such as Stone-Weierstrass Theorem, Baire Category Theorem and Ascoli's theorem, and apply these results in the study of theoretical or concrete problems in analysis.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2068",
+      "title": "Analysis II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2390",
+          "term_name": "2025-26 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9672)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "5/1, 12/1, 19/1, 26/1, 2/2, 9/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "23/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "9/3, 16/3, 23/3, 30/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 8:30AM - 9:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 8:30AM - 9:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 8:30AM - 9:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9673)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "7/1, 14/1, 21/1, 28/1, 4/2, 11/2"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "13",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC2058. This course provides a rigorous introduction to real analysis.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. \nPre-requisite: IMSC2058.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of measurable sets and measurable functions on the real line and their basic properties, and the notion of Lebesgue integration and its basic properties.\nDemonstrate understanding in fundamental convergence results, and results in connection with differentiation, in the context of the Lebesgue theory of integration.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      }
+    }
+  ]
+}
