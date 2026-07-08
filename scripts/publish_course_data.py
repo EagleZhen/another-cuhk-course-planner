@@ -23,7 +23,12 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
-from data_utils import INTERIM_LIVE_YEAR, save_json_with_newline
+from data_utils import (
+    INTERIM_LIVE_YEAR,
+    collect_terms_by_year,
+    render_terms_module,
+    save_json_with_newline,
+)
 
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
@@ -54,6 +59,10 @@ STRIPPED_COURSE_FIELDS = (
 
 # Frontend source files used for validation
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
+
+# Auto-written on every publish (no manual-copy gate like SUBJECTS_FILE - term
+# names are mechanical, not a judgment call).
+TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
 
 
 def load_scraping_progress() -> Optional[Dict]:
@@ -426,6 +435,14 @@ def main():
         if not validate_subject_list(found_subjects):
             print("❌ Publishing aborted due to subject list mismatch")
             sys.exit(1)
+
+        # Regenerate the years->terms manifest (auto-written, no manual-copy gate
+        # like subjects.ts - see TERMS_FILE).
+        new_terms_content = render_terms_module(collect_terms_by_year(Path(SOURCE_YEAR_DIR)))
+        if not dry_run:
+            os.makedirs(os.path.dirname(TERMS_FILE), exist_ok=True)
+            with open(TERMS_FILE, "w", encoding="utf-8") as f:
+                f.write(new_terms_content)
 
         # Create published data directory
         published_data_dir = PUBLISHED_DATA_DIR
