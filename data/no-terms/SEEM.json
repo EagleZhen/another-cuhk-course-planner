@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T19:21:03.324277+00:00",
+    "scraped_at": "2026-07-08T22:19:02.760514+00:00",
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engg Mgt",
-    "total_courses": 11,
+    "total_courses": 7,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -56,31 +56,6 @@
     },
     {
       "subject": "SEEM",
-      "course_code": "5120",
-      "title": "Advanced Topics in Systems Engineering and Engineering Management (I)",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is designed to investigate and to discuss selected advanced topics of current interest in Systems Engineering and Engineering Management.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the students should have acquired the ability to understand the foundations of the new research topics, to explore new topics along the same research direction, and to integrate the techniques developed with their own research topics.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      },
-      "feedback_evaluation": "Feedbacks from students; CTE.",
-      "required_readings": "As recommended by course teacher.",
-      "recommended_readings": "As recommended by course teacher"
-    },
-    {
-      "subject": "SEEM",
       "course_code": "5121",
       "title": "Advanced Topics in Systems Engineering and Engineering Management (II)",
       "credits": "3.00",
@@ -129,31 +104,6 @@
       "feedback_evaluation": "1. Mid-term course evaluation\n2. Term-end course evaluation\n3. Students' performance in their assessments\n4. Students' performance and participation in classes",
       "required_readings": "According to the course teacher in the respective teaching term.",
       "recommended_readings": "1. Christopher M. Bishop, Pattern Recognition and Neural Networks Oxford University Press, 1995.\n2. Richard O. Duda, Peter E. Hart and David G. Stork, Pattern Classification, Wiley, 2001.\n3. David J. C. Mackay, Information Theory, Inference and Learning Algorithms, Cambridge University Press, 2004.\n4. Christopher M. Bishop, Pattern Recognition and Machine Learning, Springer 2006\n5. Kevin P. Murphy Machine Learning: a Probabilistic Perspective, the MIT Press (2012).\n6. David Barber Bayesian Reasoning and Machine Learning, Cambridge University Press (2012).\n7. Ian Goodfellow, Yoshua Bengio, Aaron Courville, Deep Learning, the MIT Press, 2016."
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5350",
-      "title": "Numerical Optimization",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course is to teach students modern numerical optimization methods for large scale systems. Topics covered in this course include gradient method, subgradient method, proximal gradient method, Nesterov's acceleration technique, alternating direction method of multipliers, coordinate descent method, and stochastic / randomized algorithms. Applications of these optimization methods for solving problems in contemporary applications arising from big data analytics, machine learning, statistics, signal processing etc. will also be discussed.",
-      "enrollment_requirement": "For students in SEEM MPhil/PhD programme and RPg programmes under Faculty of Engineering",
-      "course_attributes": "English only",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of this course, the student should\n• familiarize with optimization algorithms for solving large scale optimization problems\n• understand the convergence behaviors of different algorithms\n• understand the capability of different algorithms\n• be able to use learned algorithms to solve practical problems",
-      "course_syllabus": "This course introduces modern numerical optimization methods and underlying theory for complex/large scale systems. Particular focuses will be given to direct search methods, various gradient methods, subgradient methods and acceleration techniques, stochastic/randomized algorithms, cutting plane methods and level function methods. It will also introduce fundamental theory of convex and quasi-convex optimization. At the end of the course, students are expected to apply the learned optimization methods to solve practical problems arising from areas such as big data analytics, machine learning, statistics and signal processing.\n\nSyllabus (tentative)\n\n1. Direct search methods\n2. Convexity, quasi-convexity and Fenchel duality\n3. Cutting plane method and level function method\n4. Gradient method and quasi-Newton method\n5. Subgradient and subgradient method\n6. Proximal mapping and proximal gradient method\n7. Accelerated proximal gradient method\n8. Proximal point method and augmented Lagrangian method\n9. Alternating direction method of multipliers\n10. Coordinate descent method\n11. Stochastic algorithms",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      },
-      "feedback_evaluation": "• Mid-term and end-of-term course evaluation\n• Individual meetings with students on course, especially on choice of term project topic",
-      "required_readings": "As recommended by course teacher.",
-      "recommended_readings": "• S. Boyd and L. Vandenberghe, Convex Optimization, Cambridge University Press, 2004\n• D. Bertsekas, Nonlinear Programming, Athena Scientific, 1999\n• J. Nocedal and S.J. Wright, Numerical Optimization, Springer, 2006\n• Y. Nesterov, Introductory Lectures on Convex Optimization: A Basic Course, Kluwer, 2003"
     },
     {
       "subject": "SEEM",
@@ -231,58 +181,6 @@
       "feedback_evaluation": "Feedbacks from students, CTE.",
       "required_readings": "According to the course teacher in the respective teaching term.\n\n| | | | | |\n| --- | --- | --- | --- | --- |",
       "recommended_readings": "Spoken Language Processing: A Guide to Theory, Algorithm and System Development, by X.D. Huang, A. Acero, H.W. Hon, Prentice Hall\nSpeech and Language Processing, 2nd Edition by D Jurafsky, Prentice Hall"
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5670",
-      "title": "Advanced Models in Financial Engineering",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers various applications of engineering technicalities in financial modeling. Emphasis will be on two main topics: investment portfolio optimization and financial derivative pricing. We introduce dynamic programming approach, martingale and PDE numerical solutions, Monte Carlo simulation methods for solving these two problems.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "1. Understanding the essences of stochastic calculus,\n2. Understanding the no-arbitrage principle and fundamental theory of asset pricing,\n3. Be able to use the tool of Ito calculus to build up financial pricing models,\n4. Be able to carry out PDE and probabilistic approaches to evaluate financial securities.",
-      "course_syllabus": "The course introduces some basic concepts of stochastic calculus, an important mathematical tool used in financial engineering, and based on it, treats systematically the theory of risk neutral pricing. It will discuss extensively various applications in option pricing and financial modeling.",
-      "assessment_types": {
-        "Essay test or exam": "80",
-        "Others": "20"
-      },
-      "feedback_evaluation": "Feedbacks from students, CTE.",
-      "required_readings": "S. E. Shreve, Stochastic Calculus for Finance II: Continuous-Time Models. Springer.\n\nT.Bjork, Arbitrage Theory in Continuous Time. 3rd Edition. Oxford University Press.",
-      "recommended_readings": "1. D. Duffie, Dynamic Asset Pricing, 3rd Edition, Princeton University Press.\n2. P. Glasserman, Monte Carlo Methods in Financial Engineering, Springer.\n3. YK, Kwok, Mathematical Models of Financial Derivatives, 2nd Edition, Springer."
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5680",
-      "title": "Text Mining Models and Application",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers basic mining models that are able to discover useful patterns and knowledge from text data. The form of text data ranges from semi-structured representation to free natural language texts. It discusses retrieval models as well as learning models based on user feedback. It also covers advanced models including language modeling, automatic entity extraction, and machine learning models suitable for text. Text mining applications such as knowledge management are presented.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the student should have acquired the ability to understand\n(i) techniques for text mining models\n(ii) text data analytics\n(iii) text mining applications",
-      "course_syllabus": "Massive amount of text data exist in electronic form such as news, emails, Web pages, memos, reports, etc. It generates a large demand for advanced techniques for retrieval and mining. The data typically ranges from semi-structured form (such as Web pages) to free texts (natural language texts). This course discusses methods for retrieving relevant text documents and analyzing text data based on machine learning approaches. Advanced models such as text classification, latent semantic indexing, topic modeling, neural network models will also be presented.",
-      "assessment_types": {
-        "Essays": "25",
-        "Essay test or exam": "40",
-        "Presentation": "20",
-        "Short answer test or exam": "15"
-      },
-      "feedback_evaluation": "Feedback from students; course evaluation.",
-      "required_readings": "According to the course teacher in the respective teaching term.",
-      "recommended_readings": "- \"Introduction to Information Retrieval\", C. Manning, P. Raghavan, H. Schutze, Cambridge University Press.\n\\* A copy has been reserved at the CUHK main library\n- \"Speech and Language Processing\", 3rd Edition, D. Jurafsky and J. Martin\n- \"Pattern Recognition and Machine Learning\", C.M. Bishop, Springer.\n- \"Mining Text Data', C.C. Aggarwal and C.X. Zhai, Springer Science."
     }
   ]
 }

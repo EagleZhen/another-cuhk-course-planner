@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T18:28:28.520985+00:00",
+    "scraped_at": "2026-07-08T20:56:03.168465+00:00",
     "subject": "PBHT",
     "subject_title": "Public Heatlh (TPg)",
-    "total_courses": 11,
+    "total_courses": 8,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -76,32 +76,6 @@
       "feedback_evaluation": "CTE",
       "required_readings": "Designing Qualitative Research, 4th Edition, by Catherine Marshall and Gretchen B. Rossman (2006) Thousand Oaks, CA: Sage Publications.",
       "recommended_readings": ""
-    },
-    {
-      "subject": "PBHT",
-      "course_code": "5007",
-      "title": "R Analytics in Environmental Health Sciences",
-      "credits": "2.00",
-      "terms": [],
-      "description": "This course provides an introduction to the R programming environment and commonly used tidyverse packages for data preprocessing and visualization. It will also cover basic applications of biostatistics and modeling packages in R. Students will be assessed through an open-book in-class examination covering the skills taught in the course.",
-      "enrollment_requirement": "For students in Master of Public Health and MSc Epidemiology and Biostatistics",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "1) Understand basic coding in R computing environment\n\n2) Apply modern coding concepts and practices through the tidyverse packages\n\n3) Process raw data to prepare it for statistical analysis\n\n4) Present and discuss results using the most suitable visualization and interactive methods\n\n5) Apply the coding skills learned in the course to their own projects\n\n6) Have the capability to independently learn and apply R packages not covered in the course",
-      "course_syllabus": "| 1. Overview of R and RStudio software |\n| --- |\n| 2. Reproducibility in science |\n| 3. Selecting and filtering data |\n| 4. Summarizing data |\n| 5. Data cleaning |\n| 6. Data manipulation and interactive exploration |\n| 7. Data visualization and introduction to factors |\n| 8. Introduction to biostatistics |\n| 9. Final assessment |",
-      "assessment_types": {
-        "Classwork": "25",
-        "Presentation": "65",
-        "Participation": "10"
-      },
-      "feedback_evaluation": "CTE",
-      "required_readings": "nil",
-      "recommended_readings": "1) R for Data Science (2e). https://r4ds.hadley.nz\n\n2) Statistical Inference via Data Science. https://moderndive.com/index.html\n\n3) Data Science for Environmental Health. https://daseh.org/materials\\_schedule.html\n\n4) Introduction to Data Science. http://rafalab.dfci.harvard.edu/dsbook/\n\n5) Decoding the exposome: data science methodologies and implications in exposome-wide association studies (ExWASs) https://academic.oup.com/exposome/article/4/1/osae001/7574628"
     },
     {
       "subject": "PBHT",
@@ -203,57 +177,6 @@
       "feedback_evaluation": "CTE",
       "required_readings": "Please refer to the course outline provided by course teacher",
       "recommended_readings": ""
-    },
-    {
-      "subject": "PBHT",
-      "course_code": "5901",
-      "title": "International Exchange Study",
-      "credits": "1.00",
-      "terms": [],
-      "description": "Public Health in Action in The Association of Southeast Asian Nations (ASEAN): Field study of Brunei Darussalam’s healthcare system, disease prevention and control strategies",
-      "enrollment_requirement": "For students in Master of Public Health and MSc Epidemiology & Biostatistics",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Pass (P)/Fail (U)",
-      "component": "Independent Study",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "1. Observe the organisation and delivery of healthcare services in Brunei, and compare them with health service models in other Asia Pacific countries and jurisdictions (including Hong Kong and Mainland China).\n2. Explain environmental health and vector control strategies used for vector borne diseases and other infectious diseases.\n3. Assess regulatory mechanisms for food safety and worker safety through relevant agencies.\n4. Discuss how intersectoral collaboration supports national public health goals, including cross-agency coordination in infectious disease control, environmental health, and safety regulation.\n5. Reflect on lessons learned and how insights from Brunei’s public health strategies can inform public health practice in the region.",
-      "course_syllabus": "| 1. Healthcare system and services in Brunei Darussalam |\n| --- |\n| 2. Environmental health & Disease prevention and control |\n| 3. Health Promotion, Food Safety & occupational safety regulations |",
-      "assessment_types": {
-        "Discussion": "70",
-        "Presentation": "30"
-      },
-      "feedback_evaluation": "CTE",
-      "required_readings": "https://www.who.int/countries/brn\n\nhttps://www.oecd.org/en/publications/health-at-a-glance-asia-pacific-2024\\_51fed7e9-en.html\n\n[https://www.who.int/westernpacific/our-work/resources/data](http://documents.wfp.org/stellent/groups/public/documents/ena/wfp258655.pdf)",
-      "recommended_readings": "Brunei PPKK, MOH, SHENA, BDFA, JPMC webpages:\n\n<https://ppkk.gov.bn/SitePages/Home.aspx>\n\n<https://moh.gov.bn/>\n\n<https://jpmcbrunei.com/>\n\n<https://shena.gov.bn/>\n\nhttps://bdfa.gov.bn/"
-    },
-    {
-      "subject": "PBHT",
-      "course_code": "6801",
-      "title": "Global Experiential Learning",
-      "credits": "3.00",
-      "terms": [],
-      "description": "Short-term internships at international organisations: Experiential learning by participating field activities",
-      "enrollment_requirement": "For students in Master of Public Health",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Pass (P)/Fail (U)",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Public Health",
-      "academic_org": "Div of Public Health",
-      "learning_outcomes": "1. Observe the organisation and delivery of public health related programme and projects in Asia-Pacific region.\n2. Supplement their academic knowledge with a practical work experience in a field related to the work of hosting organization.\n3. Assist in relevant fields in connection to the hosting organization’s strategic framework and to UN Sustainable Development Goals.\n4. Participate in high-level discussion on how intersectoral collaboration supports including cross-agency coordination in infectious disease control, One Health, and food safety regulation.\n5. Reflect on lessons learned and how insights from Brunei’s public health strategies can inform public health practice in the region.",
-      "course_syllabus": "| 1. Understanding of organizational mandates and programmes |\n| --- |\n| 2. Organizational assignments |\n| 3. Health Promotion, Food Safety & One Health |",
-      "assessment_types": {
-        "Internship or practicum": "30",
-        "Presentation": "40",
-        "Report": "30"
-      },
-      "feedback_evaluation": "CTE",
-      "required_readings": "To be confirmed by course coordinator",
-      "recommended_readings": "To be confirmed by course coordinator"
     },
     {
       "subject": "PBHT",

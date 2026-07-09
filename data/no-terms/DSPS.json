@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T15:01:52.316489+00:00",
+    "scraped_at": "2026-07-08T15:24:51.382728+00:00",
     "subject": "DSPS",
     "subject_title": "Data Science & Policy Studies",
-    "total_courses": 16,
+    "total_courses": 15,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -166,33 +166,6 @@
       "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
       "required_readings": "* Cristina, S. & Saeed, M. (2023). *Calculus for Machine Learning*: *Understanding the Language of Mathematics*. Independent Publishing.\n* Stade, E. (2023). *Calculus: A Modeling and Computational Thinking Approach*. Springer.",
       "recommended_readings": "* Bear, H. S. (2003). *Understanding Calculus* (2nd Edition). Wiley-IEEE Press.\n* Farrell, P., Fuentes, A., Kolhe, A. S., Nguyen, Q., Sarver, A. S., & Tsatsos, M. (2020). *The Statistics and Calculus with Python Workshop: A C**omprehensive* *I**ntroduction to* *M**athematics in Python for* *A**rtificial* *I**ntelligence* *A**pplications*. Packt Publishing.\n* Hass, J. R., Heil, C. E., Weir, M. D., & Bogacki, P. (2022). *Thomas' Calculus: Early Transcendentals* (15th Edition). Pearson.\n* Kneusel, R. T. (2021). *Math for Deep Learning: What You Need to Know to Understand Neural Networks*. No Starch Press.\n* Nelson, H. (2023). *Essential Math for AI*. O'Reilly Media.\n* Nield, T. (2022). *Essential Math for Data Science*. O'Reilly Media.\n* Rudd, M. (2023). *Regression, a Friendly Guide*. Manning.\n* Statnikov, A., Aliferis, C. F., Douglas P Hardin, D. P., & Guyon, I. (2011). *A Gentle Introduction to Support Vector Machines in Biomedicine (Volume 1: Theory and Methods)*. World Scientific."
-    },
-    {
-      "subject": "DSPS",
-      "course_code": "3190",
-      "title": "Big Data Analytics for Public Policy",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides a comprehensive understanding of Big Data computing systems and programming models. Students will gain hands-on experience working with mainstream open-source platforms for Big Data processing and analytics, including Hadoop and Spark. The course covers the architecture and components of Hadoop and Spark, data processing with Spark, and advanced topics such as Spark Streaming, graph processing, and machine learning. Students will learn to develop operational and programming tools for data collection, serialization, migration, and workflow coordination in Big Data pipelines. By the end of the course, students will be able to design and implement solutions to real-world Big Data problems using Hadoop or Spark. This course is ideal for students with prior programming and database experience interested in developing expertise in Big Data computing systems and programming models for processing and analyzing large-scale datasets.",
-      "enrollment_requirement": "Pre-requisite(s): DSPS2202",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Data Science & Policy Stud PC",
-      "academic_org": "Data Science & Policy Stud PC",
-      "learning_outcomes": "Upon completion of the subject, students will be able to\n\n* Apply programming models and design patterns to build scalable Big Data systems using Hadoop and Spark.\n* Analyze and evaluate the architecture and resource management of Big Data computing systems for optimal performance.\n* Utilize high-level Big Data query languages and processing systems to extract insights from large, diverse data sets.\n* Develop effective operational and programming tools for data collection, serialization, migration, and workflow coordination in Big Data pipelines.\n* Design and implement solutions to real-world Big Data problems using Hadoop or Spark.",
-      "course_syllabus": "* Introduction to Big Data\n+ Refreshing students’ knowledge of big data\n+ Overview of big data and its challenges\n+ Overview of commonly used big data tools\n+ Use cases of big data\n* Distributed Computing and Hadoop\n+ Overview of distributed computing and parallel processing\n+ Hadoop architecture and its various components\n+ Hadoop Distributed File System (HDFS) and its characteristics\n+ MapReduce programming model and its use in processing large datasets\n* Spark Basics\n+ Overview of Spark architecture and components\n+ Resilient Distributed Datasets (RDDs) and their properties\n+ Introduction to Spark SQL and DataFrames for data processing\n* Data Processing with Spark\n+ Data processing concepts for structured and unstructured data\n+ Data ingestion and ETL (Extract, Transform, Load) techniques\n+ Transformations and actions in Spark for data manipulation\n+ Join, aggregation, and grouping operations for data analysis\n* Spark Programming\n+ Overview of Spark Streaming for real-time data processing\n+ Graph processing using Spark GraphX\n+ Introduction to machine learning with Spark MLlib\n+ Integration with external databases and systems for big data processing\n* Big Data Ecosystem\n+ Overview of other Big Data technologies and frameworks\n+ NoSQL databases and their use cases in big data processing\n+ Introduction to Apache Kafka for data streaming\n+ Introduction to Apache Cassandra for distributed data storage\n* Spark Applications in Policy Study\n+ Use cases and examples of Spark in policy analysis and decision-making\n+ Developing and optimizing Spark-based solutions for policy-related tasks",
-      "assessment_types": {
-        "Homework or assignment": "20",
-        "Project": "40",
-        "Participation": "10",
-        "Test or quiz": "30"
-      },
-      "feedback_evaluation": "At least one course evaluation survey, to be conducted usually in the last week of class.",
-      "required_readings": "* Chambers, B., & Zaharia, M. (2018). *Spark : the definitive guide : big data processing made simple (First Edition.)*. O’Reilly Media Inc.\n* Eadline, D. (2018). *Hadoop and Spark Fundamentals (1st edition)*. Addison-Wesley Professional. (Video)\n* Mendelevitch, O., Stella, C., & Eadline, D. (2017). *Practical data science with Hadoop® and Spark: designing and building effective analytics at scale (1st edition)*. Addison-Wesley Professional.",
-      "recommended_readings": "* Aven, J. (2018). *Data analytics with Spark using Python (1st edition).* Addison-Wesley.\n* Aytas, Y. (2021). *Designing big data platforms : how to use, deploy, and maintain big data systems.* Wiley.\n* Foster, I., Ghani, R., Jarmin, R. S., Kreuter, F., & Lane, J. (Eds.). (2020). *Big Data and social science: Data science methods and tools for research and practice.* CRC Press.\n* Koitzsch, K. (2017). *Pro Hadoop Data Analytics: Designing and Building Big Data Systems using the Hadoop Ecosystem (1st ed. 2017.)*. Apress.\n* Needham, M., & Hodler, A. E. (2019). *Graph algorithms : practical examples in Apache Spark and Neo4j (First edition.).* O’Reilly."
     },
     {
       "subject": "DSPS",

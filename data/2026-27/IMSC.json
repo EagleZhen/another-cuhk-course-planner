@@ -1,0 +1,1436 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T18:20:36.515088+00:00",
+    "subject": "IMSC",
+    "subject_title": "Artic BSc PhD Pgm in Math Sci",
+    "total_courses": 13,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "IMSC",
+      "course_code": "1038",
+      "title": "Algebra I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7195)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Staff",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Staff",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Staff",
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8208)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Staff",
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7264)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8170)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 208",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed as a rigorous introduction to the basics of algebraic concepts and structures, such as groups, rings and fields.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in basic the definitions of algebraic structures, and in algebraic properties and their consequences for various algebraic structures;\n\nDemonstrate ability in recognizing underlying algebraic structures which are common to various concrete mathematical examples;\n\nDemonstrate understanding in the basics of group theory, ring theory, and field theory;\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Groups and subgroups. Cyclic groups, permutation groups and dihedral groups. Lagrange’s Theorem. Group homomorphisms and group isomorphisms. Normal subgroups and quotient groups. Product groups. Correspondence Theorem. Isomorphism Theorems for groups. Group action. Cayley’s Theorem. Centralizer and normalizer. Class equation for finite groups. p-groups, Sylow Theorems.\n\nRings, integral domains and fields. Polynomial rings. Fields of fractions. Ring homomorphisms. Subrings, ideals and quotient rings. Prime and maximal ideals. Factorization in integral domains. Principal ideal domains. Unique factorization domains. Quadratic number fields Algebraic and transcendental elements. Field extension, and degree of a field extension. Irreducible polynomials. Adjoining roots. Finite fields. Primitive elements. Function fields.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• P. Aluffi: Algebra: Chapter 0, American Mathematical Society.\n• Michael Artin: Algebra (Second Edition), Pearson Prentice Hall.\n• D. Dummit and R. Foote, Abstract Algebra, John Wiley and Sons.\n• John F. Fraleigh: A First Course in Abstract Algebra (any recent edition), Pearson.\n• Thomas W. Hungerford: Algebra, Springer-Verlag.\n• Serge Lang: Algebra (Third Edition), Springer-Verlag.\n• Joseph J. Rotman: Advanced Modern Algebra (Second Edition), American Mathematical Society.\n• Igor R. Shafarevich: Basic Notions of Algebra, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "1113",
+      "title": "Basic Physics I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5777)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 514",
+                  "instructor": "Dr. YIP Long Sang Kenny",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Dr. YIP Long Sang Kenny",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Dr. YIP Long Sang Kenny",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8209)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Staff",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Staff",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This introductory calculus-based course discusses the basic principles of mechanics, fluids and waves. Topics include: particle kinematics, force and motion, work and kinetic energy, potential energy, momentum, systems of particles and collisions, rotation, Newton’s law of gravitation, fluid statics and the dynamics of ideal fluids, oscillations, and waves. Students are advised to take this course concurrently with an introductory mathematics course that includes vectors and calculus.",
+      "enrollment_requirement": "Not for students who have taken PHYS1111 or 1113.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students should have\n\n* gained an understanding in Newtonian mechanics and waves, within a formalism using vectors and elementary calculus;\n* acquired familiarity with some mathematical methods, such as vector algebra and elementary calculus, gained an appreciation of their roles and applications in mechanics and the ability to apply them in other courses;\n* acquired the necessary background for upper-level courses in mechanics as well as other physics courses in the curriculum;\n* developed an appreciation of the quantitative nature of physics;\n* built up skills for solving relevant problems; and\n* acquired a sense of the importance of classical physics, especially its fundamental role in different fields in science and engineering.",
+      "course_syllabus": "* Particle kinematics and dynamics: Vectors and scalars; motion in one, two and three dimensions; Newton's laws, force and motion; circular motion; work, kinetic energy, potential energy, conservation of energy. [Elementary calculus will be assumed, and only reviewed very quickly.]\n* Systems of particles: Center of mass, linear momentum, impulse, Newton's second law for a system of particles, collisions.\n* Rotation: Rotational kinematics, rotational inertia, torque, Newton's second law for rotation, work and rotational kinetic energy, rolling, angular momentum, conservation of angular momentum.\n* Gravitation: Newton's law of gravitation, gravitational potential energy, Kepler’s laws.\n* Fluids: Pressure, Pascal's principle, Archimedes' principle, ideal fluids in flow and equation of continuity, Bernoulli's equation.\n* Oscillations: Simple harmonic motion, energy in a simple harmonic motion, damped oscillation, forced oscillations and resonance.\n* Waves: Transverse and longitudinal waves, wavelength and frequency, energy of a travelling string wave, superposition, interference of waves, standing waves, sound waves, the speed of sound, intensity and sound level, interference, beats, Doppler’s effect.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\n\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* D Halliday, R Resnick, and J Walker, Fundamentals of Physics, 7th edition (or later edition), John Wiley & Sons, 2005. [Textbook, see references below for alternatives at equivalent level]\n* HD Young and RA Freedman, University Physics with Modern Physics, 12th edition, Addison-Wesley 2008 (or later edition) [Reference book]\n* JW Jerret, Jr and RA Serway, Physics for Scientists and Engineers with Modern Physics, 7th edition, Thomson 2008 (or later edition) [Reference book]\n* PM Fishbane, SG Gasiorowicz, ST Thornton, Physics for Scientists and Engineers with Modern Physics, 3rd edition (Pearson 2005) (or later edition) [Reference book]\n* SS Tong and K Young, E-learning Micro-modules for Introductory Physics, CUHK Physics Department, 2015 (and as continuously updated) [Supplementary material]"
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2018",
+      "title": "Calculus I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7053)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8214)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Staff",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 206",
+                  "instructor": "Staff",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed as a rigorous introduction to the theory of differential and integral calculus for real-valued functions of several real variables.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Demonstrate understanding in basic concepts and applications of the calculus of functions of several variables, including vectors, functions of several variables, partial derivatives and their applications, extremum problems, multiple integrals, as well as the ideas behind the proofs of the theorems;\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Review on linear algebra and geometry for R^n as an inner-product space, notion of inverses, determinants and eigenvalues for square matrices with real entries.\n\nBasic topology in Euclidean space R^n, compactness and connectedness for subsets of Euclidean space R^n. Limits of sequences in R^n.\n\nLimits and continuity of real/vector-valued functions of several (real) variables. Partial derivatives, and Jacobian matrix. Continuously differentiable functions. Chain Rule. Taylor’s Theorem. Inverse Function Theorem and Implicit Function Theorem.\n\nCritical points and their classification. Relative extrema and absolute extrema. Lagrange multiplier.\n\nIntegrals over rectangles, and existence question and evaluation for such integrals. Integrals over bounded sets. Change of Variable Theorem.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* T. M. Apostol: Mathematical Analysis (Second Edition), Addison-Wesley.\n* C. H. Edwards: Advanced Calculus of Several Variables, Dover.\n* Harold M. Edwards: Advanced Calculus: A Differential Forms Approach, Birkhaeuser.\n* Wendell Fleming: Functions of Several Variables (Second Edition), Springer-Verlag.\n* James R. Munkres: Analysis on Manifolds, Addison-Wesley.\n* Michael Spivak: Calculus on Manifolds, Addison-Wesley.\n* V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2028",
+      "title": "Calculus II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (6930)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AT01-TUT (6931)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (6940)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT01-TUT (6941)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC2018. It is intended as a rigorous introduction to the classical results and applications of vector calculus and differential forms, and the basic idea of differentiable manifolds.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC2018.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the theory and the applications of vector calculus, as well as the ideas behind the proofs of the theorems.\n\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Integrals over bounded sets. Rectifiable sets. Partition of unity. Change of Variable Theorem. Diffeomorphism in R^n. Partition of unity. Change of Variable Theorem. Diffeomorphism in R^n. Manifolds in R^n, boundary of a manifold, and parametrization. Integrating a scalar function over a manifold.\n\nMultilinear algebra, alternating tensors, wedge product. Tangent vectors and differential forms. Relation between differential forms and grad, curl and div. Differential operator (on differential forms). Vector and scalar fields. Action of a differentiable map.\n\nIntegrating forms over parametrized manifolds. Orientable manifolds. Integrating forms over oriented manifolds. Stokes' Theorem and its classical low-dimension formulations for vector calculus. Exact forms and closed forms. Poincare’s Lemma.\n\nStructural Equations of R^n, surfaces in R^3 intrinsic geometry of surfaces. Gauss-Bonnet Theorem and Morse Theorem.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Manfredo P. do Carmo: Differential Forms and Applications, Springer-Verlag.\n• C. H. Edwards: Advanced Calculus of Several Variables, Dover.\n• Loring W. Tu: An Introduction to Manifolds (Second Edition), Springer-Verlag.\n• Harold M. Edwards: Advanced Calculus: A Differential Forms Approach, Birkhaeuser.\n• Wendell Fleming: Functions of Several Variables (Second Edition), Springer-Verlag.\n• Klaus Jaenich: Vector Analysis, Springer-Verlag.\n• James R. Munkres: Analysis on Manifolds, Addison-Wesley.\n• Michael Spivak: Calculus on Manifolds, Addison-Wesley.\n• V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2041",
+      "title": "Basic Physics III",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5072)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Staff",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Staff",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5081)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This introductory calculus-based course discusses the basic principles of thermodynamics, special relativity, and quantum mechanics. Topics include the laws of thermodynamics and the kinetic theory of gases; relativistic kinematics, relativistic dynamics, old quantum theory, wavefunctions, and applications of quantum physics, such as atoms, molecules, solids and nuclei and particle physics.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "1. Describe the basic concepts of thermodynamics, special relativity, and quantum physics.\n2. Analyze and solve basic problems in thermodynamics and special relativity.\n3. Apply the concepts of quantum physics to analyze basic one-dimensional bound state problems.\n4. State and appreciate applications of quantum mechanics in microscopic situations.\n5. Have the necessary background for relevant upper-level courses",
+      "course_syllabus": "| No. | Topics | Highlights of Fundamental Concepts |\n| --- | --- | --- |\n| 1 | Temperature, Heat, and the First Law of Thermodynamics | Temperature and the Zeroth law of thermodynamics, thermometers and temperature scales, thermal expansion of solids and liquids, temperature and heat, specific heat and latent heat, heat and work in thermodynamic processes, internal energy and the First law of thermodynamics with applications, energy transfer mechanisms |\n| 2. | Kinetic Theory of Gases | Molecular model of an ideal gas, pressure and molecular motion, the meaning of temperature, translational kinetic energy, equipartition of energy, mean free path, distribution of molecular speeds, specific heat of an ideal gas, adiabatic processes for an ideal gas |\n| 3. | Entropy and the Second Law of Thermodynamics | Reversible and irreversible processes, irreversible processes and entropy, the Second Law of thermodynamics, engines and refrigerators, the Carnot cycle, efficiency of real engines, microscopic interpretation of entropy |\n| 4. | Relativity | Galilean relativity, Einstein’s postulates, relativity of simultaneity, relativity of time intervals, relativity of length, the Lorentz transformation, Lorentz velocity transformation equations, relativistic momentum, relativistic work and energy, mass and energy |\n| 5. | Photons, Electrons, and Atoms | Emission and absorption of light, photoelectric effect, atomic line spectra and energy levels, the nuclear atom, Bohr model, X-ray production, the Compton effect, photons and EM waves |\n| 6. | The Wave Nature of Particles | de Broglie waves, electron diffraction, double-slit experiment revisited, probability and uncertainty, the electron microscope, wave functions and the Schrodinger equation |\n| 7. | Quantum Mechanics | Particle in a box, potential wells, potential barriers and tunneling, harmonic oscillator, (brief) three-dimensional problems |\n| 8. | Atomic Physics | The wave function for hydrogen, physical interpretation of the quantum numbers, the Zeeman effect, the electron spin, many-electron atoms and the Pauli exclusion principle, the periodic table, X-ray spectra |\n| 9. | Molecules and Solids | Molecular bonds, Molecular spectra, bonding in solids, free-electron model of metals, band theory of solids, electrical conduction in metals, insulators, and semiconductors, semiconductor devices, STM |\n| 10. | Nuclear Physics | Some properties of nuclei, nuclear binding and nuclear structure (nuclear force and nuclear models), nuclear stability and radioactivity, decay processes, nuclear reactions, nuclear fission, nuclear fusion, biological effects of radiation, (optional) NMR and MRI |\n| 11. | Particle Physics | Some particles, positron and antiparticles, particles as force mediator and the meson, particle accelerators and detectors, particles and interactions, finding patterns in particles, quarks, the standard model and beyond, the Cosmic connection |",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "15",
+        "Short answer test or exam": "35"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* H.D. Young and R.A. Freedman, “University Physics with Modern Physics”, 12 th edition, Addison-Wesley Publishing Company, 2008 (or later editions).\n* D. Halliday, R. Resnick, and J. Walker, “Fundamentals of Physics”, 7th edition, John Wiley & Sons, 2005 (or later editions)\n* J.R. Taylor, C.D. Zafiratos, and M.A. Dubson, Modern Physics for Scientists and Engineers (Pearson 2004; 2nd or later edition)\n* A. Beiser, Concepts of Modern Physics, (McGraw-Hill 1995; 5th or later edition)"
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2048",
+      "title": "Algebra II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7268)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8171)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC1038. This course is designed as a rigorous introduction to the theory of bilinear forms and linear groups, Galois theory and the theory of representation.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC1038.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the basic notions of bilinear forms and linear groups, and basic results about such objects;\nDemonstrate understanding in the basics of Galois theory;\nDemonstrate understanding in the basics of module theory and representation theory, and their inter-relation;\nDemonstrate ability in applying basic results and techniques to solve problems in the theory and other related subjects.",
+      "course_syllabus": "Bilinear forms. Symmetric forms, Hermitian forms, and skew-symmetric forms. Orthogonality. Spectral Theorem. Conics and Quadrics. Key examples of classical groups, and their basic properties. Lie algebra (for such groups).\n\nField extensions, algebraic extensions and algebraic closures, splitting fields, separable and inseparable extensions, Galois extensions, Galois correspondences, cyclotomic extensions, solvability by radicals, et cetera.\n\nGroup representations. Irreducible representations and unitary representations. Characters. Schur’s Lemma. Modules over principal ideal domains. Free modules. Group rings. Noetherian rings. Structure of Abelian groups. Maschke's theorem. Constructions of representations, et cetera.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• P. Aluffi: Algebra: Chapter 0, American Mathematical Society.\n• Michael Artin: Algebra (Second Edition), Pearson Prentice Hall.\n• D. Dummit and R. Foote, Abstract Algebra, John Wiley and Sons.\n• Harold M. Edwards: Galois Theory, Springer-Verlag.\n• John F. Fraleigh: A First Course in Abstract Algebra (any recent edition), Pearson.\n• Thomas W. Hungerford: Algebra, Springer-Verlag.\n• Serge Lang: Algebra (Third Edition), Springer-Verlag.\n• Joseph J. Rotman: Advanced Modern Algebra (Second Edition), American Mathematical Society.\n• Jean-Pierre Serre: Linear Representations of Finite Groups, Springer-Verlag.\n• Igor R. Shafarevich: Basic Notions of Algebra, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2058",
+      "title": "Analysis I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7062)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Science Centre LG23",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Science Centre LG23",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8225)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Staff",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended as an introduction to the background knowledge for the study of advanced courses in mathematical analysis such as real analysis, functional analysis, and classical harmonic analysis. It is also provides a preparation for the study of point-set topology.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate ability in describing limit and continuity in terms of open sets in a metric space;\nDemonstrate understanding in fundamental results such as Stone-Weierstrass Theorem, Baire Category Theorem and Ascoli's theorem, and apply these results in the study of theoretical or concrete problems in analysis.",
+      "course_syllabus": "Metric spaces, and topological spaces (with emphasis on point-set topology in the context of analysis). Open sets and continuity. Space of continuous functions. Compactness, connectedness and completeness, especially in the context of metrics space (but not limited to the context of metric spaces). Weierstrass Approximation Theorem, Urysohn’s Lemma, Stone-Weierstrass Theorem, Baire Category Theorem, Ascoli's Theorem, Banach Fixed Point Theorem.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• John L. Kelly: General Topology, Springer-Verlag.\n• James R. Munkres: Topology, Prentice Hall.\n• H. L. Royden, P. Fitzpatrick: Real Analysis (Fourth Edition), Prentice Hall.\n• George F. Simmons: Introduction to Topology and Modern Analysis Topology, McGraw-Hill.\n• V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2068",
+      "title": "Analysis II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5924)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. XU Lingda",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8179)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Staff",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC2058. This course provides a rigorous introduction to real analysis.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221. \nPre-requisite: IMSC2058.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of measurable sets and measurable functions on the real line and their basic properties, and the notion of Lebesgue integration and its basic properties.\nDemonstrate understanding in fundamental convergence results, and results in connection with differentiation, in the context of the Lebesgue theory of integration.",
+      "course_syllabus": "The extended real numbers. Borel sets. Measurable sets and Lebesgue measure. Measurable functions. Littlewood’s principles. Lebesgue integral. Fatou’s Lemma. The monotone convergence theorem, and Lebesgue dominated convergence theorem. Differentiation (in the context of Lebesgue’s theory). Functions of bounded variation. Absolute continuity. Convex functions. The L^p spaces, and approximation in such spaces. Minkowski Inequality and Hoelder Inequality.\n\nMeasure spaces and measurable functions. General Convergence Theorems. Signed measures. Radon-Nikodym Theorem. Outer measure and measurability. The Extension Theorem. Lebesgue-Stieltjes integral. Product measures. Integral operators. Caratheodory outer measure. Hausdorff measure. Borel sets and Borel measures.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\n\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• E. Hewitt and K. Stromberg: Real and Abstract Analysis, Springer-Verlag.\n• H. L. Royden, P. Fitzpatrick: Real Analysis (Fourth Edition), Prentice Hall.\n• Walter Rudin: Real and Complex Analysis, McGraw-Hill.\n• George F. Simmons: Introduction to Topology and Modern Analysis Topology, McGraw-Hill.\n• V. A. Zorich: Mathematical Analysis I and II, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2078",
+      "title": "Algebra III",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5086)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
+                  "instructor": "Staff",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
+                  "instructor": "Staff",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Staff",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5087)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Hui Yeung Shing Bldg G04",
+                  "instructor": "Staff",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is a continuation of IMSC1038 and IMSC2048. This course is designed as a rigorous introduction to the theory of commutative algebra. The tools relevant to the study of commutative algebra from homological algebra and category theory will be picked up as well.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisites: IMSC1038 and (IMSC2048 or MATH2046).",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the basic notions of commutative algebra, and the basic and important results in commutative algebra;\n\nDemonstrate familiarity with tools from homological algebra and category theory which are directly applicable in the study of commutative algebra.",
+      "course_syllabus": "Localization. Fractions. Hom and Tensor. Construction of Primes. Rings and modules of finite length.\n\nAssociated Primes. Prime avoidance. Prime decomposition (and its geometric interpretation).\n\nCayley-Hamilton Theorem. Nakayama's Lemma. Normal domains and normalization process. Normalization in the analytic case. Primes in an integral extension. Hilbert's Nullstellensatz.\n\nFiltrations and the Artin-Rees Lemma. Associated graded rings and modules. The Blowup Algebra. The Krull Intersection Theorem. The tangent cone.\n\nFlatness. The Rees algebra.\n\nCompletion. Hensel's Lemma. Cohen Structure Theory and coefficient fields. Maps from power series rings.\n\nDimension theory.\n\nPrincipal Ideal Theorem. Regular local rings.\n\nDiscrete valuation rings. Normal rings and Serre's Criterion. Invertible modules. Unique factorization of codimension-one ideals. Divisors and multiplicities.\n\nDimension and Hilbert-Samuel polynomials. Hilbert-Samuel functions.\n\nDimension of affine rings. Noether normalization, and Hilbert's Nullstellensatz (re-visited). Finiteness of integral closure.\n\nElimination Theorem. Generic freeness. Dimension of fibers.\n\nConcepts and methods from homological algebra and category theory, in the context of the above.\n\nOptional: Groebner bases.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term Evaluation (optional)\n\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "* P. Aluffi: Algebra: Chapter 0, American Mathematical Society.\n* M. F. Atiyah, I. G. MacDonald: Introduction to Commutative Algebra, Addison-Wesley.\n* D. Dummit and R. Foote: Abstract Algebra, John Wiley and Sons.\n* David Eisenbud: Commutative Algebra with a view towards Algebraic Geometry, Springer-Verlag.\n* Peter J. Hilton, Urs Stammbach: A Course in Homological Algebra (Second Edition), Springer-Verlag.\n* Serge Lang: Algebra (Third Edition), Springer-Verlag.\n* M. Scott Osborne: Basic Homological Algebra, Springer-Verlag.\n* Joseph J. Rotman: Advanced Modern Algebra (Second Edition), American Mathematical Society.\n* Oscar Zariski, Pierre Samuel: Commutative Algebra (Volumes 1, 2), Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "2230",
+      "title": "Complex Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5099)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Staff",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Staff",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Staff",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Staff",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 12:30PM - 1:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5116)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 204",
+                  "instructor": "Staff",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides a rigorous introduction to the theory and methods of complex analysis.",
+      "enrollment_requirement": "Not for students who have taken any MATH1xxx - 2xxx course, except MATH2221.\nPre-requisite: IMSC2028.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate ability in defining and recognizing analytic functions;\n\nDemonstrate understanding in the basic and important results analytic functions, and ability in providing arguments for these results;\n\nDemonstrate understanding the important results in local and global theories for analytic functions;\n\nDemonstrate ability in performing calculations with methods provided by the theory of analytic functions.",
+      "course_syllabus": "Complex numbers. Limits, continuity and derivatives for complex-valued functions of one complex variable. Cauchy-Riemann equations, analytic functions. Analytic functions defined by power series. Elementary functions.\n\nContours integrals. Cauchy-Goursat Theorem. Cauchy Integral Formula. Morera’s Theorem. Zeros and poles. Maximum Principle. Fundamental Theorem of Algebra. Simple connectivity, locally exact differentials, multiply-connected regions. Residue Theorem. Argument Principle. Evaluation of infinite real integrals. Harmonic functions. Poisson’s Formula, Schwarz’s Theorem.\n\nPower series expansions. Taylor series and Laurent’s series. Partial fractions. Infinite products and canonical products. Gamma Function and Stirling’s Formula. Jensen’s Formula and Hadamard’s Theorem. Riemann Zeta Function. Normal families. Arzela-Ascoli’s Theorem.\n\nConformality and conformal mappings. Linear transformations. Mapping by elementary functions. Riemann Mapping Theorem, Conformal mapping of polygons. Harnack’s Principle. Subharmonic functions. Dirichlet’s Problem.\n\nOptional: Rudiments of the theory of elliptic functions, double periodic functions, the Weierstrass p-function. Analytic continuation. Rudiments of the theory of Riemann surfaces. Picard’s Theorem.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Lars V. Ahlfors: Complex Analysis, McGraw-Hill.\n\n• Reinhold Remmert: Theory of Complex Functions, Springer-Verlag.\n\n• Reinhold Remmert: Classical Topics in Complex Function Theory, Springer-Verlag.\n\n• Walter Rudin: Real and Complex Analysis, McGraw-Hill.\n\n• E. C. Titchmarsh: Theory of Functions, Oxford University Press."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "3250",
+      "title": "Geometry I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5082)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park 509",
+                  "instructor": "Staff",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Yasumoto Int'l Acad Park 509",
+                  "instructor": "Staff",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5083)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 304",
+                  "instructor": "Staff",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "Lee Shau Kee Building 304",
+                  "instructor": "Staff",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a continuation of IMSC2018, IMSC2028 and IMSC3260. It is intended as a study of various properties of smooth manifolds, and various basic concepts and constructions associated to the notion of smooth manifolds. It platforms further courses in topology and differential geometry, and mathematical physics.",
+      "enrollment_requirement": "Not for students who have taken MATH3070 or 4030 or 5061 or 5062 or 5070.\nPre-requisite: IMSC2028.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of smooth manifolds, and various basic concepts and constructions associated to the notion of smooth manifolds;\n\nDemonstrate ability in performing computations concerned with various basic concepts and constructions associated to the notion of smooth manifolds in concrete situations.",
+      "course_syllabus": "Smooth structures and smooth manifolds. Manifolds with boundary. Smooth maps. Partitions of unity. Tangent vectors. Differential of a smooth map. Tangent bundle. Alternative definitions for the notion of tangent vectors. Submersions, immersions, and embeddings. Maps of Constant Rank. Smooth covering maps.\n\nSard's Theorem. The Whitney Embedding Theorem. The Whitney Approximation Theorems. Transversality.\n\nLie groups. Lie group homomorphisms. Lie subgroups. Group actions and equivariant maps. Vector fields on manifolds. Vector fields and smooth maps. Lie brackets. The Lie algebra of a Lie group. Integral curves. Flows and flowouts. Lie derivatives. Commuting vector fields.\n\nVector bundles. Local and global sections of vector bundles. Bundle homomorphisms. Subbundles. Fiber bundles.\n\nCovectors. Differential of a function. Pullbacks of covector fields. Tensors. Tensor fields on manifolds. Differential forms on manifolds. Exterior derivatives. Lie derivatives.\n\nOrientations of manifolds. Integration of differential forms. Stokes' Theorem. Riemannian metrics, and Riemannian manifolds. The tangent-cotangent isomorphism. Pseudo-Riemannian metrics. The Riemannian volume form. Geometry of volume measurement. Integration on Riemannian manifolds.\n\nDe Rham Cohomology Groups. Homotopy Invariance. The Mayer-Vietoris Theorem. Degree Theory. Singular homology, and Singular cohomology. Smooth singular homology. De Rham Theorem.\n\nSheaves and presheaves. Sheaf cohomology. Relation between sheaf cohomology with classical cohomology theories (Alexander-Spanier cohomology, de Rham cohomology, singular cohomology, Cech cohomology). Multiplicative structure.\n\nDistributions and involutivity. The Frobenius Theorem. Foliations. Lie Subalgebras and Lie Subgroups. One-parameter subgroups and the exponential map. The Closed Subgroup Theorem. Infinitesimal generators of group actions. The Lie Correspondence, and Lie's Fundamental Theorems. Quotients of manifolds by group actions. Covering manifolds. Homogeneous Spaces.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Glen E. Bredon: Topology and Geometry, Springer-Verlag.\n\n• John M. Lee: Introduction to Topological Manifolds (Second Edition), Springer-Verlag.\n\n• John M. Lee: Introduction to Smooth Manifolds (Second Edition), Springer-Verlag.\n\n• James R. Munkres: Analysis on Manifolds, Addison-Wesley.\n\n• Loring W. Tu: An introduction to Manifolds, Springer-Verlag.\n\n• Frank W. Warner: Foundations of Differentiable Mainfolds and Lie Groups, Springer-Verlag."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "3260",
+      "title": "Topology I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5084)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Tsang Shiu Tim Bldg 103",
+                  "instructor": "Staff",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5085)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 2:30PM - 3:15PM",
+                  "location": "Lee Shau Kee Building 203",
+                  "instructor": "Staff",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended as an introduction to the elements of topology, including the notion of topological space and concepts associated to it, and the basic results and applications about fundamental groups and covering spaces. It serves as a platform for further courses in geometry and topology.",
+      "enrollment_requirement": "Not for students who have taken MATH3070 or 4030 or 5061 or 5062 or 5070.\nPre-requisite: IMSC2028.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in the notion of topological space, and concepts and constructions related to it.\n\nDemonstrate understanding in the notion of fundamental group and covering space for topological spaces, and basic theoretical results and applications of these concepts.\n\nDemonstrate ability in performing computations concerned with various basic concepts and constructions associated to the notion of fundamental group and covering space in concrete situations.",
+      "course_syllabus": "Topological spaces, and topologies. Convergence and continuity. Homeomorphisms. Hausdorff spaces. Bases and countability. Manifolds as topological spaces. Subspaces of topological space. Product spaces. Disjoint union spaces. Quotient spaces. Adjunction spaces. Topological groups and group actions. Connectedness. Compactness. Local compactness. Paracompactness. Proper maps.\n\nCell complexes and CW complexes. Topological properties of CW complexes. Classification of 1-dimensional manifolds. Simplicial complexes.\n\nSurfaces. Connected sums of surfaces. Polygonal presentations of surfaces. The Classification Theorem for compact surfaces. The Euler Characteristic. Orientability.\n\nHomotopy. The fundamental group. Homomorphisms induced by continuous maps. Homotopy equivalence. Mapping cylinder and deformation retracts. Higher homotopy groups. Lifting properties of the circle. Fundamental group of the circle. Degree theory for the circle.\n\nJordan Separation Theorem. Invariance of Domain. Jodan Curve Theorem. Winding Number.\n\nFree products, and free groups. Presentations of groups. Free Abelian groups. The Seifert-Van Kampen Theorem. Fundamental groups of compact surfaces. Classification of compact surfaces.\n\nOptional: Singular Homology Groups. Homotopy invariance. Relation between homology and the fundamental group. Mayer-Vietoris Theorem. Homology of spheres. Homology of CW Complexes. Cohomology.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• Glen E. Bredon: Topology and Geometry, Springer-Verlag.\n\n• Ioan M. James: Topological and Uniform Spaces, Springer-Verlag.\n\n• John L. Kelley: General Topology, Springer-Verlag.\n\n• John M. Lee: Introduction to Topological Manifolds (Second Edition), Springer-Verlag.\n\n• James R. Munkres: Topology, Prentice Hall."
+    },
+    {
+      "subject": "IMSC",
+      "course_code": "3270",
+      "title": "Differential Equations I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5117)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 3:15PM",
+                  "location": "Science Centre 139",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 3:15PM",
+                  "location": "Science Centre 139",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 3:15PM",
+                  "location": "Science Centre 139",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5118)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 515",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is intended as an introduction to the basic theory and methods of ordinary differential equations (ODE’s) and partial differential equations (PDE’s). The emphasis of the course is the application of simple analytic and geometric methods for finding, or describing, solutions for various types of ODE’s and PDE’s (and various types of initial/boundary value problems involving such equations). This is supplemented by elements of the qualitative theory behind the methods. This course platforms further courses about differential equations, numerical analysis, and mathematical physics.",
+      "enrollment_requirement": "Not for students who have taken MATH3270 or 4220 or 5021 or 5022. \nPre-requisite: IMSC2028",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Artic BSc PhD Pgm in Math Sci",
+      "academic_org": "Artic BSc PhD Pgm in Math Sci",
+      "learning_outcomes": "Upon completion of the course, students are able to:---\n\nDemonstrate understanding in basic properties of ordinary differential equations and partial differential equations (and initial/boundary value problems involving such equations);\n\nDemonstrate ability in applying simple analytic and geometric methods for the study of ODE’s and PDE’s (and initial/boundary value problems involving such equations), with or without finding explicit solutions.",
+      "course_syllabus": "Fundamental Theorem on Existence and Uniqueness of Solution to a general ordinary differential equation (ODE). Elementary methods for solving simple first/second-order ODE's (such as change of variables and power series expansion). First-order systems. Higher-order ODE’s. Structure theory of linear systems of equations. Linearizations of non-linear systems. Elements of stability theory for dynamical systems. Elements of Sturm-Liouville theory for ODE's. Application of Fourier series in solving two-point boundary value problems.\n\nTypes of partial differential equations (PDE’s). Simplification of PDE’s by change of variables. Well-posed problems. Method of separation of variables (with emphasis on solving mixed problems including one-dimensional wave and heat equations as well as solving the boundary value problems for the Laplace equation on a disk). Relation between the method of separation of variables with eigenvalue problems, (including proofs of convergence of the series of solutions). Method of spherical means and the Cauchy problem for wave equations in low dimensions. Heat Kernel, Fourier transform, and the Cauchy problem for the heat equation. Characteristic properties of heat flows and wave motions. Poison formula for the solution of the Laplace equation on a ball, and idea of solving the problem over a general domain by Perron’s method. Maximum Principle and its application to the uniqueness question for elliptic and parabolic equations.\n\nApplication of the methods in handling problems involving ODE’s/PDE’s which arise from mathematical physics.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "- -",
+      "recommended_readings": "• William E. Boyce, Richard C. DiPrima: Elementary Differential Equations and Boundary Value Problems (any latest edition), Wiley.\n• Martin Braun: Differential Equations and their Applications (Fourth Edition), Springer-Verlag.\n• Earl A. Coddington: An Introduction to Ordinary Differential Equations, Dover.\n• Earl A. Coddington, Norman Levinson: Theory of Ordinary Differential Equations, McGraw-Hill.\n• Peter J. Collins: Differential Equations and Integral Equations, Oxford University Press.\n• Michael Renardy, Robert C. Rogers: An Introduction to Partial Differential Equations (Second Edition), Springer-Verlag.\n• W. A. Strauss: Partial Differential Equations: An introduction, John-Wiley and Sons.\n• Wolfgang Walters: Ordinary Differential Equations, Springer-Verlag."
+    }
+  ]
+}

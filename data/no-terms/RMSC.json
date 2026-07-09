@@ -1,38 +1,12 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T19:14:37.346877+00:00",
+    "scraped_at": "2026-07-08T22:08:34.293701+00:00",
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
-    "total_courses": 6,
+    "total_courses": 5,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
-    {
-      "subject": "RMSC",
-      "course_code": "4005",
-      "title": "Stochastic Calculus for Finance and Risk",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course starts with the introduction of the concepts of arbitrage and risk-neutral pricing. It then proceeds to discuss the stochastic calculus foundations for continuous-time finance models. Topics include: Brownian motion, stochastic integral, Itô's formula, Girsanov's change of measure, and the relationship between stochastic calculus and partial differential equations. Examples will be taken from equity options, including the Black-Scholes formula for foreign exchange and term-structure models.",
-      "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Risk Management Science PC",
-      "academic_org": "Risk Management Science PC",
-      "learning_outcomes": "Upon completion of the course, students should be able to\n(1) do the basic option pricing (the Black-Sholes approach) for European and American options under the assumption that the stock price behaves as a drifted Brownian Motion; and\n(2) do the basic manipulation of stochastic integrations and stochastic partial differential equations.",
-      "course_syllabus": "Stochastic Calculus is an advance tool for modeling prices of risky assets. In this course you will learn the basics of stochastic calculus without going through the rigorous mathematics of measure theory. The following topics will be covered in this course:\n\n1. Examples of arbitrage and pricing in a single period forward option\n2. The multi-period binary model\n3. Conditional expectation and Martingale\n4. Continuous stochastic process and Brownian motion\n5. Stochastic integral and Ito’s formula\n6. Stochastic differential equation\n7. Applications of stochastic calculus in finance\n8. The Black-Scholes Model and pricing for European option",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Homework or assignment": "30",
-        "Short answer test or exam": "30"
-      },
-      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n1. Mid-term and term-end course evaluation\n2. Student-staff consultative committee meeting(s).",
-      "required_readings": "NA",
-      "recommended_readings": "A course in Financial Calculus / A. Etherridge\nIntroduction to Stochastic Calculus with Application / F. C. Klebaner"
-    },
     {
       "subject": "RMSC",
       "course_code": "6004",

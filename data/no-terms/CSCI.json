@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T14:44:22.038988+00:00",
+    "scraped_at": "2026-07-08T14:58:45.646450+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 23,
+    "total_courses": 18,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -106,57 +106,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "3360",
-      "title": "Introduction to Computational Complexity",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course offers a deep dive into the field of computational complexity, a cornerstone of theoretical computer science (TCS) that studies the inherent difficulty of computational problems and classifies them according to their computational resources, such as time and space. The course is designed to elucidate the pivotal role of computational complexity in shaping the landscape of modern computing, touching on its interplay with algorithm design, cryptography, network, and the burgeoning field of quantum computing. By exploring these interdisciplinary connections, students will gain a holistic view of how complexity theory informs and is informed by other scientific and technological domains, thereby enhancing their ability to innovate and solve complex problems.\n\nTopics include:\n- Resources for computation (time, space, nondeterminism, randomness) and their associated complexity classes\n- Relationships among resources (P vs NP and more), Reductions, and completeness\n- Space complexity: PSPACE, L, NL\n- Randomized computation: RP, BPP\n- Alternation: the polynomial hierarchy, time-space trade-offs for SAT\n- Basic circuit complexity (P/poly, NC, and more)\n- Interactive proofs (AM, MA, IP)\n- Probabilistically checkable proofs (PCP) and non-approximability\n- Counting: #P, Toda's Theorem, approximate counting\n- Average-case complexity and cryptography: TFNP, Kolmogorov complexity, one-way functions, Factoring, Discrete log, Diffie-Hellman\n- Quantum complexity classes: BQP, QMA, PostBQP, quantum auxiliary advice, hidden subgroup problems, (local) Hamiltonian problems",
-      "enrollment_requirement": "Prerequisite: ENGG2760 or ESTR2018 or ESTR2308 or IERG2470",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze and evaluate computational problems using complexity theory principles, assessing the required resources and potential computational limits.\n2. Apply mathematical tools and techniques, such as concentration bounds and Markov chains, to solve practical problems in computer science and related fields.\n3. Interpret, discuss, and synthesize theoretical computer science texts and research, identifying key questions and collaboratively exploring advanced topics in computational complexity.\n4. Engage with ongoing research in computational complexity, applying theoretical knowledge to practical challenges in cryptography, networking, and quantum computing.",
-      "course_syllabus": "Week 1: Course overview, computational models and Turing machines, halting problem and uncomputability, deterministic complexity classes\nWeek 2: nondeterminism, NP, co-classes, reductions, completeness, Cook-Levin theorem\nWeek 3: Diagonalization, (non-deterministic) time hierarchy theorem, polynomial hierarchy\nWeek 4: Polynomial Hierarchy and alternations, time-space trade-offs for SAT, Oracle machine and relativizing\nWeek 5: Boolean circuits, non-uniform advice, Karp-Lipton theorem, AC and NC, circuit lower bounds\nWeek 6: Counting complexity, #P, permanent, Valiant's theorem, Toda's theorem\nWeek 7: Randomness, promise problems, randomized complexity classes: ZPP, RP, BPP, PP\nWeek 8: interactive proofs (IP, MA), Goldwasser-Sipser AM protocol, IP=PSPACE\nWeek 9: Probabilistically checkable proofs (PCP), Micali-Kilian CS proofs\nWeek 10: Hardness amplification and Error Correcting Codes\nWeek 11: average-case complexity and cryptography: TFNP, Kolmogorov complexity, one-way functions, Factoring, Discrete log, Diffie-Hellman\nWeek 12: Quantum computational complexity I: crash course on quantum computing, BQP\nWeek 13: Quantum computational complexity II: QMA, PostBQP, quantum auxiliary advice, hidden subgroup problems, (local) Hamiltonian problems",
-      "assessment_types": {
-        "Examination": "40",
-        "Homework or assignment": "30",
-        "Project": "30"
-      },
-      "feedback_evaluation": "1. Course evaluation and questionnaire;\n2. Results of assignments and examination;\n3. Question-and-Answer sessions during class;\n4. Student consultation during office hours or online",
-      "required_readings": "-",
-      "recommended_readings": "1. Computational Complexity: A Modern Approach, by Sanjeev Arora and Boaz Barak\n2. Computational Complexity: A Conceptual Perspective, by Oded Goldreich\n3. Mathematics and Computation, by Avi Wigderson\n4. Computational Complexity, by Christos Papadimitriou\n5. The Complexity of Quantum States and Transformations: From Quantum Money to Black Holes, by Scott Aaronson"
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "4120",
-      "title": "Principles of Computer Game Software",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course aims at establishing the principles, techniques and tools in the design and development of computer game software with focus on the real time performance consideration. Topics include: stages in computer game development, concept of game engine, rendering considerations, physics effects, artificial intelligence (AI), audio effects, scripting and environment for game project development.",
-      "enrollment_requirement": "1. Prerequisite: CSCI2100 or 2520 or ESTR2102;2. Prerequisite/Corequisite: CSCI3260 or 3550.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. able to implement simple walkthrough programs\n2. able to write simple shader program for GPU\n3. able to use a game engine to build a complete computer game software\n4. able to incorporate various game design principles in the final product",
-      "course_syllabus": "This course aims at establishing the principles, techniques and tools in the design and development of computer game software with focus on the real time performance consideration. Topics include: stages in computer game development, concept of game engine, rendering considerations, physics effects, artificial intelligence (AI), audio effects, scripting and environment for game project development.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      },
-      "feedback_evaluation": "1. Course evaluation questionaire\n2. Results of game demo building projects\n3. Results of the examinations",
-      "required_readings": "-",
-      "recommended_readings": "1. Daniel S. Dalmau “Core Techniques and Algorithms in Game Programming”, New Riders Publishing 2004.\n2. Alan Watt & Fabio Policarpo “3D Games Real-time Rendering and Software Technology Vol. 1”, Addison-Wesley 2001.\n3. Andrew Rollings & Ernest Adams “Andrew Rollings & Ernest Adams on Game Design”, New Riders Publishing 2003.\n4. Richard A. Bartle “Designing Virtual Worlds”, New riders Publishing 2004."
-    },
-    {
-      "subject": "CSCI",
       "course_code": "4140",
       "title": "Open-source Software Project Development",
       "credits": "3.00",
@@ -232,32 +181,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "4240",
-      "title": "Advanced Algorithms: Randomization and Approximation",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces advanced algorithmic techniques with a focus on randomized and approximation methods. Randomness yields speed and robustness, while approximation provides rigorous guarantees when exact solutions are infeasible. The course will introduce several important, representative problems including set cover, Max-SAT, k-server, Max-Cut, and SVP over lattices etc. Along the way, students will acquire a set of mathematical and algorithmic techniques, including concentration inequalities, the probabilistic method, expander graphs, Integer/linear and semidefinite programming, primal-dual methods, and approximate counting. These techniques and algorithmic problems are at the core of modern theoretical computer science.\nEmphasizing breadth over depth, the course aims to broaden students' horizons and strengthen their algorithmic thinking by exposing them to powerful ideas and techniques that are foundational across theoretical computer science.",
-      "enrollment_requirement": "Pre-requisite: (ENGG2760 or ESTR2018) and (ENGG1120 or ESTR1005)\nCo-requisite: CSCI3160",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze probabilistic behavior, derive approximation guarantees, and balance rigor with practicality in real-world applications.\n2. Apply randomized and approximation algorithms to classical problems such as set cover, Max-SAT, graph optimization, and online decision-making.\n3. Interpret and evaluate algorithmic research ideas, understand their underlying principles, and recognize when to apply specific techniques in new contexts.",
-      "course_syllabus": "Week 1 — Concentration Bounds\nWeek 2 — Probabilistic Method I\nWeek 3 — Probabilistic Method II\nWeek 4 — Expanders and Random Walk Amplification (I)\nWeek 5 — Expanders and Random Walk Amplification (II)\nWeek 6 — Game-Theoretic Techniques\nWeek 7 — Online Algorithms\nWeek 8 — Greedy Algorithms and Local Search\nWeek 9 — Linear/Integer Programming and Rounding\nWeek 10 — Semi-Definite Programming and Rounding\nWeek 11 — Primal–Dual Method\nWeek 12 — Approximate Counting and Sampling\nWeek 13 — Lattice Problems and Shortest Vector",
-      "assessment_types": {
-        "Examination": "70",
-        "Homework or assignment": "10",
-        "Project": "20"
-      },
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "-",
-      "recommended_readings": "1. Probability and computing: Randomized algorithms and probabilistic analysis, by Michael Mitzenmacher and Eli Upfal. Cambridge University Press. (2005)\n2. Randomized Algorithms, by Rajeev Motwani and Prabhakar Raghavan. Cambridge University Press. (1995)\n3. The Design of Approximation Algorithms, by David P. Williamson and David B. Shmoys. Cambridge University Press. (2011)\n4. Approximation Algorithms, by Vijay V. Vazirani. Springer. (2001)"
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5010",
       "title": "Practical Computational Geometry Algorithms",
       "credits": "3.00",
@@ -309,28 +232,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "5210",
-      "title": "Advanced Computer Graphics and Visualization",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provide in-depth treatment of the following advanced computer graphics and visualization topics: radiosity rendering and global illumination, procedure texturing and modeling, image- based rendering, stereo imaging, real-time volume graphics and interactive visualization.\nAdvisory: Students are expected to have taken CSCI3260 or its equivalent.",
-      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of this course, students will have acquired the ability to\n1. design, implement and evaluate customized graphics and visualization applications.\n2. process and analyze data for scientific visualization applications.\n3. carry out research in global illumination, image-based rendering and modeling.\n4. carry out research in GPU-based volume visualization and large data visualization.",
-      "course_syllabus": "This course provide in-depth treatment of the following advanced computer graphics and visualization topics: radiosity rendering and global illumination, procedure texturing and modeling, image- based rendering, stereo imaging, real-time volume graphics and interactive visualization.",
-      "assessment_types": {},
-      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Reflection of teachers\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. Radiosity and Global Illumination, By Francois X. Sillion and Claude Puech, Morgan Kaufmann, 1994.\n2. Realistic Ray Tracing, By Peter Shirley, A K Peters, 2000."
-    },
-    {
-      "subject": "CSCI",
       "course_code": "5390",
       "title": "Advanced GPU Programming",
       "credits": "3.00",
@@ -379,31 +280,6 @@
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "- A Course in Cryptography, by Rafael Pass and Abhi Shelat\n- Introduction to Modern Cryptography, by Jonathan Katz and Yehuda Lindell\n- Foundations of Cryptography I & II, by Oded Goldreich\n- Proofs, Arguments, and Zero-Knowledge, by Justin Thaler\n- How To Simulate It --- A Tutorial on the Simulation Proof Technique, by Yehuda Lindell\n- A Pragmatic Introduction to Secure Multi-Party Computation, by David Evans, Vladimir Kolesnikov, Mike Rosulek\n- A Decade of Lattice Cryptography, by Chris Peikert\n- Foundations of Distributed Consensus and Blockchains, by Elaine Shi\n- Theoretical Toys, by Xiao Liang"
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5540",
-      "title": "Machine Learning Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "The goal of this course is to provide students an understanding and overview of elements in modern machine learning systems. Throughout the course, students will learn about the design rationale behind the state-of-the-art machine learning systems for training and serving, and advanced system techniques to scale these systems efficiently. Students will have the opportunity to explore many open challenges in this fast-evolving area.\n\nAdvisory: Students are expected to have taken (CSCI3150 or ESTR3102) and (AIST3020 or CENG3420 or CSCI2510 or IERG3060)",
-      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or Artificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Analyze the impact of various design decisions on performance, cost, and complexity, and make informed choices based on project requirements.\n2. Apply system techniques to optimize machine learning processes in terms of scalability and resource efficiency.\n3. Conduct research or work in the field of machine learning systems and engineering.",
-      "course_syllabus": "1. Introduction to ML Systems\n- Topics: Foundation models, transformers, systems design\n2. ML Frameworks\n- Topics: Pytorch, Megatron-lm\n3. Distributed Training (Architectures and Parallelism)\n- Topics: Parameter server, all-reduce, data/tensor/pipeline parallelism\n4. Inference Systems\n- Topics: Model serving, batching, load balancing\n5. Resource Management and Scheduling\n- Topics: GPU cluster management, heterogeneous resources\n6. Hardware Acceleration\n- Topics: Kernel fusion, compilers, TVM\n7. Memory Optimization\n- Topics: Gradient checkpointing, Pruning, ZeRO, Offload\n8. LLM Training\n- Topics: Flash attention, communication optimization, sequence parallelism, fault-tolerance\n9. LLM Serving\n- Topics: Paged attention, Prefill/Decode Disaggregation, Long Sequence\n10. Edge-side Deployment\n- Topics: Quantization, pruning, mixed precision\n11. Sparsity, MoE\n- Topics: Mixture of experts, expert routing, load balance, all-to-all optimization\n12. Final Projects\n13. Final Projects",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Project": "70"
-      },
-      "feedback_evaluation": "* Homework, and project\n* Course evaluation and questionnaire\n* Question-and-answer sessions during class\n* Student consultation during office hours and online",
-      "required_readings": "* Duan, Jiangfei, et al. \"Efficient Training of Large Language Models on Distributed Infrastructures: A Survey.\" \\*arXiv preprint arXiv:2407.20018\\* (2024).\n* Kwon, Woosuk, et al. \"Efficient memory management for large language model serving with pagedattention.\" \\*Proceedings of the 29th Symposium on Operating Systems Principles\\*. 2023.\n* Narayanan, Deepak, et al. \"PipeDream: Generalized pipeline parallelism for DNN training\". \\*Proceedings of the 27th ACM symposium on operating systems principles\\*. 2019.\n* Chen, Tianqi, et al. \"{TVM}: An automated {End-to-End} optimizing compiler for deep learning\" \\*13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)\\*. 2018.",
-      "recommended_readings": "* Machine Learning Systems: Design and Implementation, https://openmlsys.github.io/\n* Machine Learning Systems, [https://mlsysbook.ai/](https://mlsysbook.ai/)\n* Pouyanfar, Samira, et al. \"A survey on deep learning: Algorithms, techniques, and applications.\" \\*ACM computing surveys (CSUR)\\* 51.5 (2018): 1-36.\n* Paszke, Adam, et al. \"Pytorch: An imperative style, high-performance deep learning library.\" \\*Advances in neural information processing systems\\* 32 (2019).\n* Abadi, Martín, et al. \"{TensorFlow}: a system for {Large-Scale} machine learning.\" \\*12th USENIX symposium on operating systems design and implementation (OSDI 16)\\*. 2016.\n* Sergeev, Alexander, and Mike Del Balso. \"Horovod: fast and easy distributed deep learning in TensorFlow.\" \\*arXiv preprint arXiv:1802.05799\\* (2018)\n* Rasley, Jeff, et al. \"Deepspeed: System optimizations enable training deep learning models with over 100 billion parameters.\" \\*Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining\\*. 2020\n* Peng, Yanghua, et al. \"A generic communication scheduler for distributed DNN training acceleration.\" \\*Proceedings of the 27th ACM Symposium on Operating Systems Principles\\*. 2019.\n* Huang, Yanping, et al. \"Gpipe: Efficient training of giant neural networks using pipeline parallelism.\" \\*Advances in neural information processing systems\\* 32 (2019).\n* Xiao, Wencong, et al. \"Gandiva: Introspective cluster scheduling for deep learning.\" \\*13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)\\*. 2018.\n* Dao, Tri, et al. \"Flashattention: Fast and memory-efficient exact attention with io-awareness.\" \\*Advances in Neural Information Processing Systems\\* 35 (2022): 16344-16359\n* Ren, Jie, et al. \"{Zero-offload}: Democratizing {billion-scale} model training.\" \\*2021 USENIX Annual Technical Conference (USENIX ATC 21)\\*. 2021\n* Fang, Jiarui, and Shangchun Zhao. \"A Unified Sequence Parallelism Approach for Long Context Generative AI.\" \\*arXiv preprint arXiv:2405.07719\\* (2024)\n* Gu, Diandian, et al. \"Loongtrain: Efficient training of long-sequence llms with head-context parallelism.\" \\*arXiv preprint arXiv:2406.18485\\* (2024)\n* Zhong, Yinmin, et al. \"{DistServe}: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving.\" \\*18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)\\*. 2024."
     },
     {
       "subject": "CSCI",

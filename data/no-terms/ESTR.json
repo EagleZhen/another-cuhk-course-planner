@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T15:48:42.233679+00:00",
+    "scraped_at": "2026-07-08T16:42:02.817048+00:00",
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
-    "total_courses": 90,
+    "total_courses": 85,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -57,59 +57,6 @@
       "feedback_evaluation": "1. Course evaluation by students\n2. Newsgroup discussion",
       "required_readings": "N/A",
       "recommended_readings": "1. C. Thomas Wu, An Introduction to Object-Oriented Programming With JAVA, 4th Edition Update, McGraw-Hill, 2005\n2. Harvey M. Deitel & Paul J. Deitel, JAVA How to Program, 6th Edition, Prentice Hall, 2004"
-    },
-    {
-      "subject": "ESTR",
-      "course_code": "2100",
-      "title": "Embedded System Design",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
-      "enrollment_requirement": "Not for students who have taken CENG2400. Pre-requisite: ENGG2020 or ENGG2120 or ESTR2104.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Students will be able to\n1. design, implement, program and debug microprocessor-based embedded systems to solve real life problems.\n2. write assembly language programs.\n3. interface an embedded system with other devices such as integrated circuit devices and displays.",
-      "course_syllabus": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced that includes: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Lab reports": "20",
-        "Presentation": "5",
-        "Short answer test or exam": "25"
-      },
-      "feedback_evaluation": "Feedback for Evaluation\n1. Midterm evaluation\n2. Questions in labs/tutorials",
-      "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
-      "recommended_readings": "1. Furber, ARM System-on-Chip Architecture, 2000\n2. Web-based data sheets and teaching materials"
-    },
-    {
-      "subject": "ESTR",
-      "course_code": "2102",
-      "title": "Data Structures",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the concept of abstract data types and the advantages of data abstraction. Various commonly used abstract data types including vector, list, stack, queue, tree, and set and their implementations using different data structures (array, pointer based structures, linked list, 2-3 tree, B-tree, etc.) will be discussed. Sample applications such as searching, sorting, etc., will also be used to illustrate the use of data abstraction in computer programming. Analysis of the performance of searching and sorting algorithms. Application of data structure principles.",
-      "enrollment_requirement": "Not for students who have taken CSCI2100 or CSC2520.\nPre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the pre-requisite will be waived.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "1. To be able to implement the following data structures as abstract data types in a high level programming language: stack, queue, hash table, list, binary search tree (including AVL tree, red black tree and splay tree), B-tree, trie, disjoint set, graph (including minimum spanning tree and shortest path);\n2. To be able to use appropriate data structures in different applications;\n3. To be able to implement abstract data types;\n4. To be able to analyse the complexity of simple algorithms (such as searching and sorting).",
-      "course_syllabus": "This course introduces the concept of abstract data types and the advantages of data abstraction. Various commonly used abstract data types including vector, list, stack, queue, tree, and set and their implementations using different data structures (array, pointer based structures, linked list, 2-3 tree, B-tree, etc.) will be discussed. Sample applications such as searching, sorting, etc., will also be used to illustrate the use of data abstraction in computer programming. Analysis of the performance of searching and sorting algorithms. Application of data structure principles.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "25",
-        "Short answer test or exam": "25"
-      },
-      "feedback_evaluation": "1. Mid-term course and teaching evaluation\n2. Final course and teaching evaluation",
-      "required_readings": "-",
-      "recommended_readings": "1. Horowitz, Sahni and Freed, Fundamentals of Data Structures in C\n2. Weiss, Data Structures and Algorithm Analysis in C++\n3. Goodrich and Tamassia, Data Structures and Algorithms in Java\n4. Roberts, Programming Abstractions in C: A Second Course in Computer Science"
     },
     {
       "subject": "ESTR",
@@ -291,31 +238,6 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "1. Principles of Electric Circuits: Conventional, by Thomas L. Floyd , Prentice Hall 2009.\n2. Fundamentals of Logic Design, by C.H. Roth and L. K. Kinney, Cengage, 2013.",
       "recommended_readings": "1. Principles of Electric Circuits: Conventional, by Thomas L. Floyd , Prentice Hall 2009.\n2. Fundamentals of Logic Design, by C.H. Roth and L. K. Kinney, Cengage, 2013."
-    },
-    {
-      "subject": "ESTR",
-      "course_code": "2306",
-      "title": "Introduction to Systems Programming",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces the C programming language with applications to systems programming. Topics include fundamentals of the C programming language, software development tools, and system programming principles.",
-      "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002.\nNot for students who have taken CSCI1140 or CSCI1510 or IERG2080.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Develop software programs in the C programming language.\n2. Design software programs in a structured manner.\n3. Understand basic techniques for system programming.\n\nThis course contributes to the following HKIE Graduate Attributes: c, e, l \\*",
-      "course_syllabus": "This course introduces the C programming language with applications to systems programming. Topics include fundamentals of the C programming language, software development tools, and system programming principles.\n\nThe course syllabus may be updated from year to year.",
-      "assessment_types": {
-        "Classwork": "40",
-        "Short answer test or exam": "60"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
-      "required_readings": "1. Jens Gustedt, Modern C, released under a Creative Commons license.\nAvailable at http://icube-icps.unistra.fr/index.php/File:ModernC.pdf.",
-      "recommended_readings": "1. Randal E. Bryant and David R. O’Hallaron, Computer Systems: A Programmer’s Perspective, Third Edition, Pearson, 2016.\n2. The GNU C Reference Manual.\nAvailable at https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html\n3. Online Linux Man Pages: http://man7.org/linux/man-pages/index.html\n4. Stephen Prata, C Primer Plus, Sixth Edition, Addison-Wesley, 2014."
     },
     {
       "subject": "ESTR",
@@ -526,32 +448,6 @@
       "feedback_evaluation": "Feedback from students is collected via the following channels:\n\n1. Informal online contact\nStudents can show their comments via email or newsgroup. Teaching assistants will follow up with the comments or pass the information to the course instructor if necessary.\n\n2. Individual consulting\nStudents can make appointments with the course instructor and teaching assistants to exchange opinions for improving the quality of course.\n\n3. Faculty course questionnaire\n\nA midterm evaluation will also be conducted. At the end of the course, students are required to fill in the questionnaire to provide feedback on different aspects, including comments on the teaching and learning of the course.",
       "required_readings": "Relevant reading list will be provided by course teachers.",
       "recommended_readings": "1. John D. Enderle, Susan M. Blanchard, Joseph D. Bronzino (Ed.). Introduction to biomedical engineering. Elsevier Academic Press, 3rd edition,\n2. S. N. Sarbadhikari. A short introduction to biomedical engineering. CRC Press, 2007. (ISBN: 978-1420060119)\n3. Michael M. Domach. Introduction to biomedical engineering. Pearson/Prentice Hall, c2004. (ISBN: 978-0136020035)\n4. John G., Webster. Medical instrumentation: application and design. John Wiley & Sons, c2008. (ISBN: 978-0471676003)"
-    },
-    {
-      "subject": "ESTR",
-      "course_code": "3100",
-      "title": "Rapid Prototyping of Digital Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces digital prototyping techniques such as the use of a hardware description language for hardware system development, and the methods for interfacing field programmable devices to microprocessors, memory systems, and peripheral devices.",
-      "enrollment_requirement": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Laboratory\nLecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Students will be able to\n1. use a hardware description language to prototype a digital system.\n2. interface a computer with the outside world using field programmed devices.\n3. build reliable digital systems.",
-      "course_syllabus": "This course introduces digital prototyping techniques such as the use of a hardware description language for hardware system development, and the methods for interfacing field programmable devices to microprocessors, memory systems, and peripheral devices.",
-      "assessment_types": {
-        "Lab reports": "40",
-        "Project": "50",
-        "Participation": "10"
-      },
-      "feedback_evaluation": "1. Mid-term course and teaching evaluation;\n2. Final course and teaching evaluation;",
-      "required_readings": "1. Digital Design Principles and Practices by John F. Wakerly The fourth edition, Prentice Hall\n2. Advanced Signal Integrity for High-Speed Digital Design, Stephen H. Hall and Howard L. Heck , Wiley",
-      "recommended_readings": ""
     },
     {
       "subject": "ESTR",
@@ -889,31 +785,6 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
       "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
       "recommended_readings": "1. Gamma et al, \"Design Patterns\" , Addison Wesley (1995)"
-    },
-    {
-      "subject": "ESTR",
-      "course_code": "3310",
-      "title": "Computer Networks",
-      "credits": "3.00",
-      "terms": [],
-      "description": "OSI reference model. Overview of TCP/IP. Local area networks and wide area networks. Network layer and protocols. Transport layer and protocols. Examples of application layer protocols such as HTTP. Network security: firewall, SSL, and private and public keys encryption systems. One term project on client-server programming to create a web server and proxy.",
-      "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI4430 or ESTR4120 or IERG3310.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Fac Office of Engineering",
-      "academic_org": "Fac Office of Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. demonstrate knowledge and understanding of the basic principles of computer networks, including local-area networks,\nwide-area networks, and Internet;\n\n2. analyze and compare the performance of simple computer network technologies, protocols and possible application\nconfigurations; and\n\n3. write simple network applications via socket programming.",
-      "course_syllabus": "OSI reference model. Overview of TCP/IP. Local area networks and wide area networks. Network layer and protocols. Transport layer and protocols. Examples of application layer protocols such as HTTP. Network security: firewall, SSL, and private and public keys encryption systems. One term project on client-server programming to create a web server and proxy.\nThe course syllabus may be updated from year to year.",
-      "assessment_types": {
-        "Essay test or exam": "60",
-        "Others": "40"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
-      "required_readings": "1. James F. Kurose and Keith W. Ross, \"Computer Networking: A Top-down approach featuring the Internet, 5th Edition,\nAddison Wesley, 2010.",
-      "recommended_readings": "1. S. Keshav, \" An Engineering Approach to Computer Networking :ATM Networks, the Internet and the Telephone Network\",\nAddison Wesley, 1997.\n\n2. Radia Perlman, \"Interconnections: Bridges, Routers, Switches and Internetworking Protocols\", 2nd Edition,\nAddison Wesley, 1999."
     },
     {
       "subject": "ESTR",

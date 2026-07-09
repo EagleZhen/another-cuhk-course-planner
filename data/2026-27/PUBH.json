@@ -1,0 +1,785 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T22:02:04.185690+00:00",
+    "subject": "PUBH",
+    "subject_title": "Public Health (RPg)",
+    "total_courses": 12,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "PUBH",
+      "course_code": "6001",
+      "title": "Introduction to Biostatistics (RPg)",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4684)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai, \nDr. WANG Jingxuan, \nProfessor CHONG Ka Chun",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai, \nDr. WANG Jingxuan, \nProfessor CHONG Ka Chun",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces basic statistical concepts and methods. The emphasis of the course is on practical applications: choosing the correct method for particular datasets and correct interpretation of the analysis results. Examples from different disciplines of public health including chronic and infectious disease epidemiology, environmental health, and health policy will be used to illustrate the use of biostatistical methods in answering important public health questions.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. understand the importance of biostatistics in public health and medical research.\n2. develop a conceptual understanding of basic biostatistics,\n3. critically read and understand the statistical methodology and results sections of medical and public health research papers.\n4. be capable of carrying out basic statistical analyses using SPSS statistical software.",
+      "course_syllabus": "-",
+      "assessment_types": {
+        "Examination": "85",
+        "Homework or assignment": "15"
+      },
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6002",
+      "title": "Technical Writing (RPg)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4779)",
+              "meetings": [
+                {
+                  "time": "Fr 2:00PM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MUI Wai Ho, \nProfessor CHUNG Ming Kei, \nProfessor CHUNG Roger Yat Nork, \nProfessor KIM Jean Hee, \nProfessor MOK Ka Pun",
+                  "dates": "15/1"
+                },
+                {
+                  "time": "Fr 2:00PM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MUI Wai Ho, \nProfessor CHUNG Ming Kei, \nProfessor CHUNG Roger Yat Nork, \nProfessor KIM Jean Hee, \nProfessor MOK Ka Pun",
+                  "dates": "19/2"
+                },
+                {
+                  "time": "Fr 2:00PM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MUI Wai Ho, \nProfessor CHUNG Ming Kei, \nProfessor CHUNG Roger Yat Nork, \nProfessor KIM Jean Hee, \nProfessor MOK Ka Pun",
+                  "dates": "26/3"
+                },
+                {
+                  "time": "Fr 2:00PM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MUI Wai Ho, \nProfessor CHUNG Ming Kei, \nProfessor CHUNG Roger Yat Nork, \nProfessor KIM Jean Hee, \nProfessor MOK Ka Pun",
+                  "dates": "16/4"
+                },
+                {
+                  "time": "Fr 2:00PM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MUI Wai Ho, \nProfessor CHUNG Ming Kei, \nProfessor CHUNG Roger Yat Nork, \nProfessor KIM Jean Hee, \nProfessor MOK Ka Pun",
+                  "dates": "28/5"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will give an overview of the writing techniques required for publication in peer-reviewed journals. The course will also provide an understanding of the principles of good academic writing.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "1. Be able to construct proper written paragraphs and avoid common writing pitfalls of non-native English speakers\n2. Be able to write an interesting and professional-sounding manuscript for publication.",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "Please refer to the course outline.",
+      "required_readings": "Please refer to the course outline.",
+      "recommended_readings": "Please refer to the course outline."
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6003",
+      "title": "Health System and Policy (RPg)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4629)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "26/10, 2/11"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "7/12, 14/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an introduction to the basic principles of health system and policy, as well as health economics and financing. It serves as a foundation to more advanced coursework in health policy & management.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "The objective of this course is to acquire an understanding of the basic principles of healthcare policy, health economics and healthcare financing. Students will become familiar with the basic management theories and concepts that underlie the operations of healthcare organizations. The course will familiarize students to structure, process and outcomes of health services and students will learn to apply systems thinking to resolve organizational issues.",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6004",
+      "title": "Environmental Health and Risk Assessment (RPg)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4778)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHUNG Ming Kei, \nProfessor HO Kin Fai, \nProfessor TSE Lap Ah",
+                  "dates": "19/2, 26/2, 5/3, 12/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHUNG Ming Kei, \nProfessor HO Kin Fai, \nProfessor TSE Lap Ah",
+                  "dates": "26/3"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Through a few selected important topics, this course examines how environmental factors impact the health of people and the community, and what we can do to prevent or minimize the negative impacts.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "1. Students should understand the relationship between environment and health and the methods used in risk assessment;\n2. Students should understand the influence of work and the work environment on health;\n3. Students should be familiar with air pollution and water pollution as major environmental problems, and their impact on human health ;\n4. Students should understand the principles in the prevention and control of environmental health problems, including those encountered in the workplace.",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6005",
+      "title": "Infectious Diseases in Public Health Research",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4657)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor LEE Shui Shan, \nProfessor WONG Ngai Sze",
+                  "dates": "2/10, 9/10, 16/10, 23/10"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor LEE Shui Shan, \nProfessor WONG Ngai Sze",
+                  "dates": "6/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to broaden the perspectives of research students in infectious diseases and their impacts on human populations.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. acquire knowledge in the interaction between microbes and the society\n2. appreciate the scope, dimension and strategy of health protection as regards infectious diseases threats\n3. update on emerging infections and their relevance to public health practice",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6006",
+      "title": "Health Improvement: Social and Behavioural Sciences",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4705)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MUI Wai Ho, \nDr. YUNG Ka Chun, \nProfessor MO Phoenix Kit Han, \nProfessor WONG Chi Sang, \nProfessor YANG Xue, \nProfessor YEUNG Chun Yiu",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course provides students with an overview of the relationship between social and behavioural factors and health. Behavioural theories on various levels will be illustrated. The concept of setting based approach and social marketing to promote health will also be taught.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Upon completion of the course, students are expected to be able to (i) understand the relationship between social determinants and health, (ii) apply social and behavioural principles and concepts in various settings to intervene public health issues.",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6007",
+      "title": "Research Methods in Public Health",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4667)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. WANG Jingxuan, \nProfessor KIM Jean Hee, \nProfessor TIAN Yue, \nProfessor WANG Kailu, \nProfessor WANG Zixin, \nProfessor WEI Yuchen, \nProfessor YANG Zuyao",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. WANG Jingxuan, \nProfessor KIM Jean Hee, \nProfessor TIAN Yue, \nProfessor WANG Kailu, \nProfessor WANG Zixin, \nProfessor WEI Yuchen, \nProfessor YANG Zuyao",
+                  "dates": "3/11, 10/11, 17/11, 24/11, 1/12, 8/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will introduce basic epidemiology to students including introduction to epidemiology, applied health research methods, designing and conducting epidemiological studies (descriptive, case-control, cohort, clinical trials and meta-analysis).",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. appreciate the importance of epidemiology in clinical medicine as well as in public health\n2. adopt a population perspective for disease, disease control and health promotion\n3. understand basic epidemiological theories, concepts, and methods as applied to chronic diseases as well as infectious diseases\n4. learn the valid methods for estimating the frequency of disease, the effect of a cause or a treatment, and for comparing between groups and populations\n5. learn possible biases and their control methods in the estimation and comparisons\n6. apply epidemiological methods to address practical public health and clinical issues\nidentify and appraise findings from epidemiological research for application",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {
+        "Examination": "75",
+        "Homework or assignment": "25"
+      },
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6008",
+      "title": "Foundations of Public Health (RPg)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (4666)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YUNG Ka Chun, \nProfessor CHAN Ying Crystal, \nProfessor CHUNG Ka Ki, \nProfessor CHUNG Roger Yat Nork, \nProfessor POON Kwok Ming, \nProfessor TIAN Yue, \nProfessor WONG Yeung Shan Samuel, \nProfessor ZHONG Chenwen",
+                  "dates": "8/9"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YUNG Ka Chun, \nProfessor CHAN Ying Crystal, \nProfessor CHUNG Ka Ki, \nProfessor CHUNG Roger Yat Nork, \nProfessor POON Kwok Ming, \nProfessor TIAN Yue, \nProfessor WONG Yeung Shan Samuel, \nProfessor ZHONG Chenwen",
+                  "dates": "9/9"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an introductory course for all students which aims to provide an overview on the history, basic concepts and current issues in the field of public health. Students will gain a general understanding about how public health issues can be investigated using the three interrelated domains of public health (health protection, health improvement, and health services). This foundation course will equip students with an analytical tool that is essential for deeper learning in each of the three domains.",
+      "enrollment_requirement": "For students in MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. understand the basic concept and characteristics of public health, primary care and the social determinants of health.\n2. understand the basic concepts of population, societal and global disparities of health.\n3. appreciate the use of population data in illustrating public health issues.\n4. understand the use of the three domains framework in analyzing public health issues.\n5. appreciate the basic public health features of Hong Kong.\n6. understand the basic structures of health systems, in particular the key role of primary care in delivering health services.\n7. understand the challenges of non-communicable diseases and how to approach them strategically\n8. understand the basic concepts of environmental change and global health.",
+      "course_syllabus": "Please refer to the course outline.",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Presentation": "40",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "6200",
+      "title": "Seminar",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (3438)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (4796)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To present a seminar summarizing research work performed in the previous term/year.",
+      "enrollment_requirement": "For research postgraduate students in:\n(i) MPhil Public Health; or\n(ii) PhD Public Health; or\n(iii) MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nSeminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Students are expected to skillfully present research progress summarizing research work performed in the semester.",
+      "course_syllabus": "-",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "8003",
+      "title": "Thesis Research (RPg)",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (4712)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (4797)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To conduct research work on the assigned research topic under supervision.",
+      "enrollment_requirement": "For research postgraduate students in:\n(i) MPhil Public Health; or\n(ii) PhD Public Health; or\n(iii) MPhil-PhD Public Health",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "To conduct research work on the assigned research topic under supervision.",
+      "course_syllabus": "-",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "8006",
+      "title": "Thesis Research (RPg)",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-T01-TUT (4493)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-T01-TUT (4798)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To conduct research work on the assigned research topic under supervision.",
+      "enrollment_requirement": "For research postgraduate students in:\n(i) MPhil Public Health; or\n(ii) PhD Public Health; or\n(iii) MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "To conduct research work on the assigned research topic under supervision.",
+      "course_syllabus": "-",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    },
+    {
+      "subject": "PUBH",
+      "course_code": "8012",
+      "title": "Thesis Research (RPg)",
+      "credits": "12.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-T01-TUT (4494)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-T01-TUT (4799)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor HO Kin Fai",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To conduct research work on the assigned research topic under supervision.",
+      "enrollment_requirement": "For research postgraduate students in:\n(i) MPhil Public Health; or\n(ii) PhD Public Health; or\n(iii) MPhil-PhD Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "To conduct research work on the assigned research topic under supervision.",
+      "course_syllabus": "-",
+      "assessment_types": {},
+      "feedback_evaluation": "-",
+      "required_readings": "-",
+      "recommended_readings": "-"
+    }
+  ]
+}
