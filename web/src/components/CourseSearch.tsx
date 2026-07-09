@@ -1330,7 +1330,7 @@ function CourseCard({
     return () => observer.disconnect()
   }, [expanded])
 
-  // The "elevated" look (shadow, rounded corners, background) applies unconditionally
+  // The "elevated" look (shadow, background) applies unconditionally
   // whenever expanded, rather than only once actually pinned in place. Detecting "truly
   // stuck" would need JS (IntersectionObserver + React state), which - unlike the search
   // bar's pure-CSS sticky positioning - always lags the actual scroll by at least a

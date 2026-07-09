@@ -31,7 +31,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Sticky Action Buttons While Expanded
 
-Cart action buttons scrolled out of view on long section lists. Fix: dock them below the search bar via plain CSS `sticky` (like the search bar itself - no JS).
+Cart action buttons scrolled out of view on long section lists. Fix: dock them below the search bar via plain CSS `sticky` (like the search bar itself). JS (a `ResizeObserver`) only tracks the search bar's live position for the `top` offset - it plays no part in the pinning itself.
 
 - **Desktop** sticks the whole `CardHeader` (already a sibling of `CardContent`, so no restructuring needed) rather than pulling the buttons out of their inline spot beside the title.
 - **Mobile** sticks only a slim button bar, not the full header - badges/instructor chips can wrap several lines on a narrow screen.
