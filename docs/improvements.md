@@ -6,12 +6,6 @@ Working list, not a commitment. Describe the problem and why it matters; solutio
 
 A discrete, closeable fix belongs in the issue tracker, not here. Keep this doc for durable properties of the system that don't close via a single fix: standing constraints, recurring debt, and deliberate non-goals.
 
-## Year-Scoped Course Data
-
-The pipeline and app assume a single academic year: data files carry only the 2025-26 terms, and nothing in scraping, publish validation, or loading distinguishes years. When next year's catalog arrives, old terms become useless payload with no way to drop or partition them.
-
-Main upcoming data-model change. Touches scraper output, publish validation, data loading, term selection, and `schedule_${term}` localStorage keys.
-
 ## Terminology Consistency
 
 Core domain types (`InternalCourse`, `InternalSection`, `InternalMeeting`, `CourseEnrollment`, `InternalTerm`) are used consistently across code and docs. Two things worth a closer look before writing anything permanent:
