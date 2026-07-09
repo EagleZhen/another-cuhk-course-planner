@@ -46,12 +46,13 @@ import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
-import { getAllSubjectCodes } from '@/lib/generated/subjects'
+import { getSubjectCodesForYear } from '@/lib/subjectUtils'
 import {
   MOBILE_BREAKPOINT,
   NOTICE_STORAGE_KEY,
   NOTICE_VERSION,
   NOTICE_IMAGE_LOADED_EVENT,
+  CURRENT_ACADEMIC_YEAR,
 } from '@/lib/constants'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
@@ -171,7 +172,7 @@ export default function CourseSearch({
   })
   const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
-  const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
+  const [availableSubjects, setAvailableSubjects] = useState<readonly string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
@@ -338,15 +339,14 @@ export default function CourseSearch({
           currentSubject: 'Preparing complete subject list...',
         })
 
-        const ALL_SUBJECTS = getAllSubjectCodes()
+        const availableSubjects = getSubjectCodesForYear(CURRENT_ACADEMIC_YEAR)
 
         console.log(
-          `📂 Complete subject list: ${ALL_SUBJECTS.length} subjects (excludes exemption codes)`
+          `📂 Complete subject list: ${availableSubjects.length} subjects (excludes exemption codes)`
         )
 
         // Store all subjects for parent component (they'll filter by current term)
-        setAvailableSubjects(ALL_SUBJECTS)
-        const availableSubjects: string[] = [...ALL_SUBJECTS]
+        setAvailableSubjects(availableSubjects)
 
         setLoadingProgress({
           loaded: 0,
@@ -364,7 +364,7 @@ export default function CourseSearch({
           const subjectStartTime = performance.now()
 
           try {
-            const response = await fetch(`/data/${subject}.json`)
+            const response = await fetch(`/data/${CURRENT_ACADEMIC_YEAR}/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
               const subjectEndTime = performance.now()
@@ -511,7 +511,9 @@ export default function CourseSearch({
         })
 
         if (successCount === 0) {
-          console.error('❌ No course data could be loaded - check that /data/ files exist')
+          console.error(
+            `❌ No course data could be loaded - check that /data/${CURRENT_ACADEMIC_YEAR}/ files exist`
+          )
         }
 
         const failed = availableSubjects.length - successCount

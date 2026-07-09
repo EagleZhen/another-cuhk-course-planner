@@ -20,7 +20,7 @@ import {
 } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { getSubjectTitle } from '@/lib/generated/subjects'
+import { getSubjectTitle } from '@/lib/subjectUtils'
 import { TERMS_BY_YEAR } from '@/lib/generated/terms'
 import { SCHEDULE_DATA_VERSION, DEFAULT_CURRENT_TERM } from '@/lib/constants'
 

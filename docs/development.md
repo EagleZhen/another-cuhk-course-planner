@@ -20,7 +20,7 @@ data/*.json
     ↓
 scripts/publish_course_data.py
     ↓
-web/public/data/*.json
+web/public/data/<year>/*.json
     ↓
 web/ Next.js app
 ```

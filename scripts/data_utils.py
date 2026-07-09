@@ -29,10 +29,6 @@ except ImportError:
 # from partition_subject_by_year). Not a year, so year globs exclude it.
 NO_TERMS_DIR = "no-terms"
 
-# Interim: the one year generate_subjects.py and publish_course_data.py both read,
-# until per-year serving lands. Shared here so the two can't drift apart.
-INTERIM_LIVE_YEAR = "2025-26"
-
 
 def clean_word_html(html_content: str) -> str:
     """
@@ -540,6 +536,11 @@ def get_academic_year(term_name: str) -> Optional[str]:
     """
     match = re.search(r"(\d{4})-(\d{2})", term_name)
     return match.group(0) if match else None
+
+
+def year_dirs(data_root: Path) -> list[Path]:
+    """Return the sorted data/<year>/ directories, skipping non-year dirs (no-terms)."""
+    return sorted(p for p in Path(data_root).iterdir() if p.is_dir() and get_academic_year(p.name))
 
 
 def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:

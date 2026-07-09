@@ -13,3 +13,7 @@ export const SCHEDULE_DATA_VERSION = 1
 
 // Default selected term. Bump on rollover manually for now.
 export const DEFAULT_CURRENT_TERM = '2025-26 Summer Session'
+
+// Academic year the app eager-loads, derived from the default term (a term name
+// is "YYYY-YY <suffix>"). The single current-year knob is DEFAULT_CURRENT_TERM.
+export const CURRENT_ACADEMIC_YEAR = DEFAULT_CURRENT_TERM.split(' ')[0]

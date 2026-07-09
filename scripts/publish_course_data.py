@@ -24,11 +24,11 @@ from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from data_utils import (
-    INTERIM_LIVE_YEAR,
     collect_terms_by_year,
     diff_term_names,
     render_terms_module,
     save_json_with_newline,
+    year_dirs,
 )
 
 # Validation messages
@@ -40,13 +40,10 @@ PUBLISH_LOG_DIR = os.path.join(LOGS_DIR, "publish")
 SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
 LATEST_PUBLISH_LOG = os.path.join(LOGS_DIR, "latest_publish.log")
 
-# Course data inputs and publish targets
+# Course data inputs and publish targets. Each source year data/<year>/ is
+# published to its own web/public/data/<year>/ so the app can fetch per year.
 SOURCE_DATA_DIR = "data"
 PUBLISHED_DATA_DIR = os.path.join("web", "public", "data")
-
-# Interim: publish only the current live year, flattened to web/public/data/ as
-# before, so the app is unchanged. Removed once the app fetches per-year.
-SOURCE_YEAR_DIR = os.path.join(SOURCE_DATA_DIR, INTERIM_LIVE_YEAR)
 
 # Fields scraped into /data but never rendered by the web app, stripped from the
 # published copy to cut payload (~68% of the gzipped transfer as of Jul 2026).
@@ -170,16 +167,15 @@ def validate_course_file(
     return len(issues) == 0, issues
 
 
-def find_course_files() -> Tuple[List[str], List[str], int]:
+def find_course_files(year_dir: str) -> Tuple[List[str], List[str], int]:
     """
-    Find all course JSON files in /data directory.
+    Find all course JSON files in a data/<year>/ directory.
     Validates file naming and warns about unexpected files
     """
-    if not os.path.exists(SOURCE_YEAR_DIR):
+    if not os.path.exists(year_dir):
         return [], [], 0
 
-    # Find JSON files (current live year only; see INTERIM_LIVE_YEAR)
-    pattern = os.path.join(SOURCE_YEAR_DIR, "*.json")
+    pattern = os.path.join(year_dir, "*.json")
     all_files = glob.glob(pattern)
 
     course_files = []
@@ -201,84 +197,102 @@ def find_course_files() -> Tuple[List[str], List[str], int]:
     return sorted(course_files), sorted(unexpected_files), len(all_files)
 
 
-def validate_subject_list(found_subjects: List[str]) -> bool:
-    """
-    Validate found subjects against SUBJECT_TITLES in lib/generated/subjects.ts (single source of truth)
-    Returns True if validation passes, False if there are discrepancies (blocks publishing)
+def load_expected_subjects_by_year() -> Optional[Dict[str, set]]:
+    """Parse SUBJECTS_BY_YEAR from lib/generated/subjects.ts (the single source of
+    truth) into {year: set(codes)}. Returns None if it can't be read, which blocks
+    publishing.
     """
     if not os.path.exists(SUBJECTS_FILE):
         print("❌ Could not find lib/generated/subjects.ts - publishing blocked")
         print()
-        return False
+        return None
 
     try:
-        # Read subjects.ts and extract SUBJECT_TITLES keys
         with open(SUBJECTS_FILE, "r", encoding="utf-8") as f:
             content = f.read()
 
-        # Find SUBJECT_TITLES object using regex
-        pattern = r"const SUBJECT_TITLES[^{]*\{([\s\S]*?)\} as const"
-        match = re.search(pattern, content)
+        # Scope to the SUBJECTS_BY_YEAR object (the first `} as const`) so the
+        # SUBJECT_TITLES block below it is not matched.
+        block = re.search(r"SUBJECTS_BY_YEAR[^{]*\{([\s\S]*?)\}\s*as const", content)
+        if not block:
+            print("❌ Could not find SUBJECTS_BY_YEAR in subjects.ts - publishing blocked")
+            print()
+            return None
 
-        if not match:
-            print("❌ Could not find SUBJECT_TITLES in subjects.ts - publishing blocked")
-            print()
-            return False
+        # Each entry is `'YYYY-YY': ['ACCT', 'AIST', ...],`.
+        expected: Dict[str, set] = {}
+        for year, body in re.findall(r"'(\d{4}-\d{2})':\s*\[([^\]]*)\]", block.group(1)):
+            expected[year] = set(re.findall(r"'([^']+)'", body))
 
-        # Parse canonical generated object keys, e.g. `ACCT: 'Accountancy',`.
-        # Regex: line start, optional whitespace, 4-letter subject code, optional whitespace, colon.
-        object_content = match.group(1)
-        registered_subjects = re.findall(r"^\s*([A-Z]{4})\s*:", object_content, re.MULTILINE)
+        if not expected:
+            print("❌ Could not parse SUBJECTS_BY_YEAR entries - publishing blocked")
+            print("   Re-run scripts/generate_subjects.py to regenerate subjects.ts.")
+            print()
+            return None
 
-        if not registered_subjects:
-            print("❌ Could not parse subject codes from SUBJECT_TITLES - publishing blocked")
-            print()
-            print("   This may be a formatting mismatch between:")
-            print("      - scripts/generate_subjects.py")
-            print("      - scripts/publish_course_data.py")
-            print()
-            print("   Expected entries like:")
-            print("      ACCT: 'Accountancy',")
-            print()
-            return False
-
-        # Compare lists
-        found_set = set(found_subjects)
-        registered_set = set(registered_subjects)
-
-        added = found_set - registered_set
-        removed = registered_set - found_set
-
-        if added or removed:
-            print("❌ SUBJECT LIST MISMATCH - PUBLISHING BLOCKED")
-            print()
-            if added:
-                print(f"   New subjects in data ({len(added)}): {', '.join(sorted(added))}")
-            if removed:
-                print(
-                    f"   Subjects missing from data ({len(removed)}): {', '.join(sorted(removed))}"
-                )
-            print()
-            print("   To fix:")
-            print("      1. Run: uv run python scripts/generate_subjects.py")
-            print(
-                "      2. Copy output to web/src/lib/generated/subjects.ts (replace SUBJECT_TITLES constant)"
-            )
-            print("      3. Run this script again")
-            print()
-            return False
-        else:
-            print(
-                f"Subject list matches lib/generated/subjects.ts ({len(found_subjects)} subjects)"
-            )
-            print()
-            return True
+        return expected
 
     except Exception as e:
-        print(f"❌ Error validating subject list: {e}")
+        print(f"❌ Error reading subjects.ts: {e}")
         print("   Publishing blocked due to validation error")
         print()
+        return None
+
+
+def validate_year_subjects(year: str, found_subjects: List[str], expected: Optional[set]) -> bool:
+    """Check a year's scraped subject set exactly matches SUBJECTS_BY_YEAR[year].
+    Returns False (blocks publishing) on any mismatch.
+    """
+    found_set = set(found_subjects)
+    expected_set = expected or set()
+    added = found_set - expected_set
+    removed = expected_set - found_set
+
+    if added or removed:
+        print(f"❌ [{year}] SUBJECT LIST MISMATCH vs subjects.ts - PUBLISHING BLOCKED")
+        if added:
+            print(f"   In data, not in subjects.ts ({len(added)}): {', '.join(sorted(added))}")
+        if removed:
+            print(f"   In subjects.ts, not in data ({len(removed)}): {', '.join(sorted(removed))}")
+        print("   Fix: run `uv run python scripts/generate_subjects.py`, review the diff, re-run.")
+        print()
         return False
+
+    print(f"[{year}] subject list matches subjects.ts ({len(found_set)} subjects)")
+    return True
+
+
+def categorize_year_files(
+    course_files: List[str], progress_data: Optional[Dict]
+) -> Tuple[List[str], List[Tuple[str, List[str]]], List[str]]:
+    """Validate each file in a year. Returns (files_to_copy, blocking_failures, empty_codes):
+    - files_to_copy: valid files plus subjects whose only issue is having no courses
+    - blocking_failures: (file, non-empty issues) that must abort publishing
+    - empty_codes: subject codes with no courses (for reporting)
+    """
+    files_to_copy: List[str] = []
+    blocking_failures: List[Tuple[str, List[str]]] = []
+    empty_codes: List[str] = []
+
+    for file_path in course_files:
+        subject_code = os.path.splitext(os.path.basename(file_path))[0]
+        is_valid, issues = validate_course_file(file_path, subject_code, progress_data)
+
+        if is_valid:
+            files_to_copy.append(file_path)
+            continue
+
+        if EMPTY_COURSES_ISSUE in issues:
+            empty_codes.append(subject_code)
+
+        other_issues = [issue for issue in issues if issue != EMPTY_COURSES_ISSUE]
+        if other_issues:
+            blocking_failures.append((file_path, other_issues))
+        else:
+            # Only issue is "no courses" - still publishable.
+            files_to_copy.append(file_path)
+
+    return files_to_copy, blocking_failures, empty_codes
 
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
@@ -414,115 +428,83 @@ def main():
                         f"Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
                     )
 
-        # Find course files
-        course_files, unexpected_files, total_json_files = find_course_files()
-        print("Course JSON files:")
-        print(f"   Source files in data/: {total_json_files}")
-        if unexpected_files:
-            print(f"   Skipped unexpected filenames: {len(unexpected_files)}")
-            for filename in unexpected_files:
-                print(f"      - {filename}")
-        print(f"   Selected for publishing: {len(course_files)}")
-        print()
-
-        if not course_files:
-            print("❌ No course files found to copy")
+        # Discover source years and the subjects each should contain.
+        source_years = year_dirs(Path(SOURCE_DATA_DIR))
+        if not source_years:
+            print("❌ No source year directories (data/<year>/) found")
             return
 
-        # Validate subject list against subjects.ts (single source of truth)
-        found_subjects = [
-            os.path.splitext(os.path.basename(f))[0] for f in course_files
-        ]  # Extract subject codes
-        if not validate_subject_list(found_subjects):
-            print("❌ Publishing aborted due to subject list mismatch")
+        expected_by_year = load_expected_subjects_by_year()
+        if expected_by_year is None:
             sys.exit(1)
 
-        # Create published data directory
-        published_data_dir = PUBLISHED_DATA_DIR
-        if not dry_run:
-            os.makedirs(published_data_dir, exist_ok=True)
+        # Validate each year, building a (source, destination) copy plan. Abort if
+        # any year has a subject mismatch or a file with blocking issues, but check
+        # every year first so all problems are reported in one run.
+        copy_plan: List[Tuple[str, str]] = []  # (source_path, dest_path)
+        blocked = False
 
-        # Validate and categorize files
-        valid_files: List[str] = []
-        problematic_files: List[Tuple[str, List[str]]] = []
-        publishable_empty_subject_files: List[str] = []
-        empty_subject_codes_for_report: List[str] = []
-        for file_path in course_files:
-            filename = os.path.basename(file_path)
-            subject_code = os.path.splitext(filename)[0]  # Remove extension
+        for year_path in source_years:
+            year = year_path.name
+            course_files, unexpected_files, total_json_files = find_course_files(str(year_path))
 
-            is_valid, issues = validate_course_file(file_path, subject_code, progress_data)
+            print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}")
+            if unexpected_files:
+                print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
+            if not course_files:
+                print(f"❌ [{year}] no course files found")
+                blocked = True
+                continue
 
-            if is_valid:
-                valid_files.append(file_path)
-            else:
-                problematic_files.append((file_path, issues))
-                # Check if this subject has no courses
-                if EMPTY_COURSES_ISSUE in issues:
-                    empty_subject_codes_for_report.append(subject_code)
-                if issues == [EMPTY_COURSES_ISSUE]:
-                    publishable_empty_subject_files.append(file_path)
+            found_subjects = [os.path.splitext(os.path.basename(f))[0] for f in course_files]
+            if not validate_year_subjects(year, found_subjects, expected_by_year.get(year)):
+                blocked = True
+                continue
 
-        # Report subjects with no courses (compact single-line format)
-        if empty_subject_codes_for_report:
-            print(
-                f"Subjects with no courses ({len(empty_subject_codes_for_report)}): "
-                f"{', '.join(sorted(empty_subject_codes_for_report))}"
+            files_to_copy, blocking_failures, empty_codes = categorize_year_files(
+                course_files, progress_data
             )
-        else:
-            print("All subjects have courses")
+            if empty_codes:
+                print(
+                    f"   Subjects with no courses ({len(empty_codes)}): "
+                    f"{', '.join(sorted(empty_codes))}"
+                )
+            if blocking_failures:
+                print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
+                for file_path, issues in blocking_failures:
+                    code = os.path.splitext(os.path.basename(file_path))[0]
+                    print(f"      - {code}: {', '.join(issues)}")
+                blocked = True
+                continue
 
-        # Report blocking validation failures (everything except known-empty subjects)
-        blocking_validation_failures = [
-            (
-                file_path,
-                [issue for issue in issues if issue != EMPTY_COURSES_ISSUE],
-            )
-            for file_path, issues in problematic_files
-            if any(issue != EMPTY_COURSES_ISSUE for issue in issues)
-        ]
+            dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
+            for file_path in files_to_copy:
+                copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
 
-        if blocking_validation_failures:
-            print(f"⚠️ Files with other issues ({len(blocking_validation_failures)}):")
-            for file_path, issues in blocking_validation_failures:
-                filename = os.path.basename(file_path)
-                subject_code = os.path.splitext(filename)[0]
-                print(f"   - {subject_code}: {', '.join(issues)}")
-
-        if blocking_validation_failures:
-            print("Summary:")
-            print(
-                f"   Files ready to copy: {len(valid_files) + len(publishable_empty_subject_files)}"
-            )
-            print(f"   ❌ Files with validation issues: {len(blocking_validation_failures)}")
-            if empty_subject_codes_for_report:
-                print(f"   Subjects with no courses: {len(empty_subject_codes_for_report)}")
-            print()
+        print()
+        if blocked:
             print("❌ Publishing aborted due to validation issues.")
-            print("   Please double-check the scraped data before publishing.")
-            print("   Re-run the scraper or fix the source JSON files, then run this script again.")
+            print("   Fix the source data (or regenerate subjects.ts), then run this script again.")
             sys.exit(1)
 
-        # Determine files to copy (valid files plus known-empty subjects)
-        files_to_copy = valid_files + publishable_empty_subject_files
-
-        if empty_subject_codes_for_report:
-            print(f"Including {len(publishable_empty_subject_files)} subjects with no courses")
-
-        if not files_to_copy:
+        if not copy_plan:
             print("❌ No files to publish")
             return
 
+        published_root = Path(PUBLISHED_DATA_DIR).as_posix()
         if dry_run:
-            print(f"Dry run: would publish {len(files_to_copy)} files")
+            print(f"Dry run: would publish {len(copy_plan)} files under {published_root}/<year>/")
         else:
-            print(f"Publishing {len(files_to_copy)} files to {Path(published_data_dir).as_posix()}")
+            print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
 
-        # Regenerate the years->terms manifest (auto-written, no manual-copy gate
-        # like subjects.ts - see TERMS_FILE). Warn if it changed so a term-name
-        # change doesn't silently slip through. Done here, past the abort gates, so
-        # a failed publish leaves the manifest untouched.
-        new_terms_content = render_terms_module(collect_terms_by_year(Path(SOURCE_YEAR_DIR)))
+        # Regenerate the years->terms manifest across all source years (auto-written,
+        # no manual-copy gate like subjects.ts - see TERMS_FILE). Warn if it changed
+        # so a term-name change doesn't silently slip through. Done here, past the
+        # abort gates, so a failed publish leaves the manifest untouched.
+        terms_by_year: Dict[str, List[str]] = {}
+        for year_path in source_years:
+            terms_by_year.update(collect_terms_by_year(year_path))
+        new_terms_content = render_terms_module(terms_by_year)
         old_terms_content = ""
         if os.path.exists(TERMS_FILE):
             with open(TERMS_FILE, "r", encoding="utf-8") as f:
@@ -540,17 +522,14 @@ def main():
             with open(TERMS_FILE, "w", encoding="utf-8") as f:
                 f.write(new_terms_content)
 
-        # Copy files
+        # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()
         copied_count = 0
-
-        for file_path in files_to_copy:
-            filename = os.path.basename(file_path)
-            dest_path = os.path.join(published_data_dir, filename)
-
+        for source_path, dest_path in copy_plan:
             try:
                 if not dry_run:
-                    with open(file_path, "r", encoding="utf-8") as f:
+                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                    with open(source_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                     for course in data.get("courses", []):
                         for field in STRIPPED_COURSE_FIELDS:
@@ -558,15 +537,15 @@ def main():
                     save_json_with_newline(dest_path, data)
                 copied_count += 1
             except Exception as e:
-                print(f"❌ Failed to copy {filename}: {e}")
+                print(f"❌ Failed to copy {os.path.basename(source_path)}: {e}")
 
         # Publishing summary
         print("Publishing Summary:")
         if not dry_run:
-            print(f"   ✅ Published: {copied_count}/{len(files_to_copy)} files")
-            print(f"   Destination: {Path(published_data_dir).as_posix()}")
+            print(f"   ✅ Published: {copied_count}/{len(copy_plan)} files")
+            print(f"   Destination: {published_root}/<year>/")
         else:
-            print(f"   Would publish: {copied_count}/{len(files_to_copy)} files")
+            print(f"   Would publish: {copied_count}/{len(copy_plan)} files")
             print("   DRY RUN - No files actually copied")
 
         print()
