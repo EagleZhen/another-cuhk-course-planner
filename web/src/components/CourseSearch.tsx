@@ -1309,6 +1309,42 @@ function CourseCard({
     }
   }, [shouldAutoExpand, searchSequence])
 
+  // Action buttons dock right below the search/filter bar while expanded, so track its
+  // live position the same way page.tsx does for scroll-to-cart, rather than guessing a
+  // fixed pixel value. Kept live via ResizeObserver (matching WeeklyCalendar.tsx's own
+  // use of it) since the filter bar's height isn't fixed - e.g. the partial-load
+  // warning banner can appear/disappear, or filter chips can rewrap on resize.
+  const [stickyOffset, setStickyOffset] = useState(0)
+  useEffect(() => {
+    if (!expanded) return
+    const filterBar = document.querySelector('[data-course-search] .sticky')
+    if (!filterBar) return
+
+    // Reconstruct where the filter bar sits once actually stuck, rather than reading
+    // its current on-screen position: .getBoundingClientRect() reflects wherever it
+    // happens to sit *right now*, which is only its stuck position if the page has
+    // already been scrolled that far - expanding a card before scrolling down (e.g.
+    // the very first result) would otherwise capture its pre-stick position, which on
+    // a wide/tablet screen (more content above it) can be far down the page. The CSS
+    // `top` value (0 or 37px in archived-year views) is scroll-independent, so read it
+    // straight from computed style instead of duplicating that conditional here.
+    const updateOffset = () => {
+      const cssTop = parseFloat(getComputedStyle(filterBar).top) || 0
+      setStickyOffset(cssTop + filterBar.getBoundingClientRect().height)
+    }
+    updateOffset()
+
+    const observer = new ResizeObserver(updateOffset)
+    observer.observe(filterBar)
+    return () => observer.disconnect()
+  }, [expanded])
+
+  // The "elevated" look (shadow, background) applies unconditionally
+  // whenever expanded, rather than only once actually pinned in place. Detecting "truly
+  // stuck" would need JS (IntersectionObserver + React state), which - unlike the search
+  // bar's pure-CSS sticky positioning - always lags the actual scroll by at least a
+  // frame, causing a visible mismatch. Simpler and lag-free to just always apply it.
+
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {
     const daysWithCourses = new Set<number>()
@@ -1466,6 +1502,174 @@ function CourseCard({
       return nameA.localeCompare(nameB)
     })
 
+  // Cart action buttons (Add/Remove/Scroll to Cart/Replace), compact inline layout for desktop
+  const renderCartActionsInline = () => (
+    <>
+      {isAdded ? (
+        <>
+          {/* Remove button for enrolled courses */}
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              onRemoveCourse(courseKey)
+            }}
+            className="min-w-[70px]"
+            title="Remove course from cart"
+          >
+            <Trash2 className="w-3 h-3 mr-1" />
+            Remove
+          </Button>
+
+          {/* Scroll to Cart button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (onScrollToCart && enrolledCourse) {
+                onScrollToCart(enrolledCourse.courseId)
+              }
+            }}
+            className="min-w-[80px]"
+            title="Scroll to course in shopping cart"
+          >
+            <ShoppingCart className="w-3 h-3 mr-1" />
+            Scroll to Cart
+          </Button>
+
+          {/* Replace/Added status button - for courses already in cart */}
+          <Button
+            variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (hasSelectionsChanged && isEnrollmentComplete) {
+                onAddCourse(course, localSelections)
+              }
+            }}
+            disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+            className="min-w-[80px]"
+            title={
+              hasSelectionsChanged && isEnrollmentComplete
+                ? 'Replace course with new section selections'
+                : 'Course already added to cart'
+            }
+          >
+            {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
+          </Button>
+        </>
+      ) : (
+        /* Add button for non-enrolled courses */
+        <Button
+          variant={isEnrollmentComplete ? 'default' : 'secondary'}
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            if (isEnrollmentComplete) {
+              onAddCourse(course, localSelections)
+            }
+          }}
+          disabled={!isEnrollmentComplete}
+          className="min-w-[80px]"
+          title={
+            !isEnrollmentComplete
+              ? 'Select required sections to add course (some types may not have compatible options)'
+              : 'Add course to cart'
+          }
+        >
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+        </Button>
+      )}
+    </>
+  )
+
+  // Cart action buttons, full-width stacked layout (primary action on its own row) for mobile
+  const renderCartActionsStacked = () => (
+    <>
+      {isAdded ? (
+        <>
+          {/* Primary action: Replace/Added status - full width */}
+          <Button
+            variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (hasSelectionsChanged && isEnrollmentComplete) {
+                onAddCourse(course, localSelections)
+              }
+            }}
+            disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+            className="w-full"
+            title={
+              hasSelectionsChanged && isEnrollmentComplete
+                ? 'Replace course with new section selections'
+                : 'Course already added to cart'
+            }
+          >
+            {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
+          </Button>
+
+          {/* Secondary actions: Scroll to Cart + Remove - side by side */}
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                if (onScrollToCart && enrolledCourse) {
+                  onScrollToCart(enrolledCourse.courseId)
+                }
+              }}
+              className="flex-1"
+              title="Scroll to course in shopping cart"
+            >
+              <ShoppingCart className="w-3 h-3 mr-1" />
+              Scroll to Cart
+            </Button>
+
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                onRemoveCourse(courseKey)
+              }}
+              className="flex-1"
+              title="Remove course from cart"
+            >
+              <Trash2 className="w-3 h-3 mr-1" />
+              Remove
+            </Button>
+          </div>
+        </>
+      ) : (
+        /* Add button for non-enrolled courses - full width */
+        <Button
+          variant={isEnrollmentComplete ? 'default' : 'secondary'}
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            if (isEnrollmentComplete) {
+              onAddCourse(course, localSelections)
+            }
+          }}
+          disabled={!isEnrollmentComplete}
+          className="w-full"
+          title={
+            !isEnrollmentComplete
+              ? 'Select required sections to add course (some types may not have compatible options)'
+              : 'Add course to cart'
+          }
+        >
+          <Plus className="w-3 h-3 mr-1" />
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+        </Button>
+      )}
+    </>
+  )
+
   return (
     <Card
       className={`py-5 gap-0 transition-all duration-200 ${
@@ -1473,7 +1677,16 @@ function CourseCard({
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
     >
-      <CardHeader className="pb-3">
+      {/* Desktop: the whole header (title, badges, instructor filters, buttons) docks
+          below the search bar while expanded, same plain CSS sticky approach as the
+          search bar / archived-year banner itself. Buttons stay exactly where they are
+          today - no relocation needed */}
+      <CardHeader
+        className={`pb-3 transition-[background-color,box-shadow] duration-200 ${
+          expanded ? 'sm:sticky sm:z-[5] sm:bg-white sm:shadow-[0_-12px_0_0_white]' : ''
+        }`}
+        style={expanded ? { top: stickyOffset + 12 } : undefined}
+      >
         {/* Desktop Layout: Keep existing horizontal layout */}
         <div className="hidden sm:flex items-start justify-between">
           <div className="flex-1">
@@ -1531,83 +1744,7 @@ function CourseCard({
             </CardDescription>
           </div>
           <div className="flex items-center gap-2 ml-2">
-            {isAdded ? (
-              <>
-                {/* Remove button for enrolled courses */}
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    onRemoveCourse(courseKey)
-                  }}
-                  className="min-w-[70px]"
-                  title="Remove course from cart"
-                >
-                  <Trash2 className="w-3 h-3 mr-1" />
-                  Remove
-                </Button>
-
-                {/* Scroll to Cart button */}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (onScrollToCart && enrolledCourse) {
-                      onScrollToCart(enrolledCourse.courseId)
-                    }
-                  }}
-                  className="min-w-[80px]"
-                  title="Scroll to course in shopping cart"
-                >
-                  <ShoppingCart className="w-3 h-3 mr-1" />
-                  Scroll to Cart
-                </Button>
-
-                {/* Replace/Added status button - for courses already in cart */}
-                <Button
-                  variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (hasSelectionsChanged && isEnrollmentComplete) {
-                      onAddCourse(course, localSelections)
-                    }
-                  }}
-                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="min-w-[80px]"
-                  title={
-                    hasSelectionsChanged && isEnrollmentComplete
-                      ? 'Replace course with new section selections'
-                      : 'Course already added to cart'
-                  }
-                >
-                  {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
-                </Button>
-              </>
-            ) : (
-              /* Add button for non-enrolled courses */
-              <Button
-                variant={isEnrollmentComplete ? 'default' : 'secondary'}
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  if (isEnrollmentComplete) {
-                    onAddCourse(course, localSelections)
-                  }
-                }}
-                disabled={!isEnrollmentComplete}
-                className="min-w-[80px]"
-                title={
-                  !isEnrollmentComplete
-                    ? 'Select required sections to add course (some types may not have compatible options)'
-                    : 'Add course to cart'
-                }
-              >
-                {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
-              </Button>
-            )}
+            {renderCartActionsInline()}
             <Button
               variant="ghost"
               size="sm"
@@ -1830,106 +1967,32 @@ function CourseCard({
               )}
             </div>
           </div>
-
-          {/* Action buttons section - vertical hierarchy */}
-          <div className="border-t border-gray-100 pt-3 space-y-2">
-            {isAdded ? (
-              <>
-                {/* Primary action: Replace/Added status - full width */}
-                <Button
-                  variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (hasSelectionsChanged && isEnrollmentComplete) {
-                      onAddCourse(course, localSelections)
-                    }
-                  }}
-                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="w-full"
-                  title={
-                    hasSelectionsChanged && isEnrollmentComplete
-                      ? 'Replace course with new section selections'
-                      : 'Course already added to cart'
-                  }
-                >
-                  {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
-                </Button>
-
-                {/* Secondary actions: Scroll to Cart + Remove - side by side */}
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      if (onScrollToCart && enrolledCourse) {
-                        onScrollToCart(enrolledCourse.courseId)
-                      }
-                    }}
-                    className="flex-1"
-                    title="Scroll to course in shopping cart"
-                  >
-                    <ShoppingCart className="w-3 h-3 mr-1" />
-                    Scroll to Cart
-                  </Button>
-
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      onRemoveCourse(courseKey)
-                    }}
-                    className="flex-1"
-                    title="Remove course from cart"
-                  >
-                    <Trash2 className="w-3 h-3 mr-1" />
-                    Remove
-                  </Button>
-                </div>
-              </>
-            ) : (
-              /* Add button for non-enrolled courses - full width */
-              <Button
-                variant={isEnrollmentComplete ? 'default' : 'secondary'}
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  if (isEnrollmentComplete) {
-                    onAddCourse(course, localSelections)
-                  }
-                }}
-                disabled={!isEnrollmentComplete}
-                className="w-full"
-                title={
-                  !isEnrollmentComplete
-                    ? 'Select required sections to add course (some types may not have compatible options)'
-                    : 'Add course to cart'
-                }
-              >
-                <Plus className="w-3 h-3 mr-1" />
-                {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
-              </Button>
-            )}
-
-            {/* Expand button - separate as it's different from cart actions */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleToggle()
-              }}
-              className="w-full cursor-pointer"
-              title={expanded ? 'Hide sections' : 'Show sections'}
-            >
-              {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              <span className="ml-2">{expanded ? 'Hide Sections' : 'Show Sections'}</span>
-            </Button>
-          </div>
         </div>
       </CardHeader>
+
+      {/* Mobile: action buttons dock below the search bar while expanded, same plain
+          CSS sticky approach as the search bar / archived-year banner itself */}
+      <div
+        className={`sm:hidden bg-white px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5]' : ''}`}
+        style={expanded ? { top: stickyOffset } : undefined}
+      >
+        {renderCartActionsStacked()}
+
+        {/* Expand button - separate as it's different from cart actions */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            handleToggle()
+          }}
+          className="w-full cursor-pointer"
+          title={expanded ? 'Hide sections' : 'Show sections'}
+        >
+          {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          <span className="ml-2">{expanded ? 'Hide Sections' : 'Show Sections'}</span>
+        </Button>
+      </div>
 
       {expanded && (
         <CardContent className="pt-0">
