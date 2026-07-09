@@ -16,7 +16,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 - Exports only visible, valid enrollments — the visibility toggle silently doubles as an export filter.
 - Times are parsed as `Asia/Hong_Kong` and exported as UTC, so exchange students in other timezones get correct local times.
 - UIDs are deterministic (course + section + date + time), so re-importing an export overwrites events instead of duplicating them.
-- Meeting dates are scraped as `d/m` with no year; the year is inferred from the term name (Sep–Dec = first year of the academic year, Jan–Aug = second). Another place the single-year data model is baked in — see [improvements.md](../improvements.md#year-scoped-course-data).
+- Meeting dates are scraped as `d/m` with no year; the calendar year is inferred from the term name (Sep–Dec = first year of the academic year, Jan–Aug = second).
 
 ## ICS Undo
 
