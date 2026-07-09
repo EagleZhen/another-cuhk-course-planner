@@ -534,7 +534,27 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className={`container mx-auto px-4 py-2 ${isArchivedYear ? 'pb-16' : ''}`}>
+      {/* Reference-mode bar: sticky, global reminder while browsing a frozen, non-live year */}
+      {isArchivedYear && (
+        <div className="sticky top-0 z-40 border-b border-amber-300 bg-amber-50 text-amber-900 shadow-sm">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-sm">
+            <span className="flex items-center gap-2">
+              <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
+              <span>
+                Viewing <strong className="font-semibold">{currentTerm}</strong> — archived data.
+              </span>
+            </span>
+            <button
+              onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
+              className="flex-shrink-0 cursor-pointer rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-amber-700"
+            >
+              Back to current term
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div className="container mx-auto px-4 py-2">
         {/* Top Section - Calendar + Shopping Cart */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
@@ -727,25 +747,6 @@ export default function Home() {
           </div>
         </footer>
       </div>
-
-      {/* Reference-mode pill: floating reminder while browsing a frozen, non-live year */}
-      {isArchivedYear && (
-        <div className="fixed bottom-4 left-1/2 z-40 max-w-[calc(100%-2rem)] -translate-x-1/2">
-          <div className="flex items-center gap-3 rounded-full border border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-900 shadow-lg">
-            <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
-            <span className="truncate">
-              Viewing <strong className="font-semibold">{currentTerm}</strong> — archived data,
-              frozen as of the last scrape.
-            </span>
-            <button
-              onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
-              className="flex-shrink-0 cursor-pointer rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-amber-700"
-            >
-              Back to current term
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
