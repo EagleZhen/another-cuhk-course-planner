@@ -1319,26 +1319,11 @@ function CourseCard({
     setStickyOffset(filterBar ? filterBar.getBoundingClientRect().height : 0)
   }, [expanded])
 
-  // Only look "elevated" (shadow + rounded corners) once actually pinned in place, not
-  // just because the card is expanded - detected via a zero-height sentinel placed right
-  // before the bar, a standard trick for telling "stuck" apart from "in normal flow"
-  const stickySentinelRef = useRef<HTMLDivElement>(null)
-  const [isStuck, setIsStuck] = useState(false)
-  useEffect(() => {
-    if (!expanded) {
-      setIsStuck(false)
-      return
-    }
-    const sentinel = stickySentinelRef.current
-    if (!sentinel) return
-
-    const observer = new IntersectionObserver(([entry]) => setIsStuck(!entry.isIntersecting), {
-      rootMargin: `-${stickyOffset}px 0px 0px 0px`,
-      threshold: 0,
-    })
-    observer.observe(sentinel)
-    return () => observer.disconnect()
-  }, [expanded, stickyOffset])
+  // The "elevated" look (shadow, rounded corners, background) applies unconditionally
+  // whenever expanded, rather than only once actually pinned in place. Detecting "truly
+  // stuck" would need JS (IntersectionObserver + React state), which - unlike the search
+  // bar's pure-CSS sticky positioning - always lags the actual scroll by at least a
+  // frame, causing a visible mismatch. Simpler and lag-free to just always apply it.
 
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {
@@ -1672,7 +1657,16 @@ function CourseCard({
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
     >
-      <CardHeader className="pb-3">
+      {/* Desktop: the whole header (title, badges, instructor filters, buttons) docks
+          below the search bar while expanded, same plain CSS sticky approach as the
+          search bar / archived-year banner itself. Buttons stay exactly where they are
+          today - no relocation needed */}
+      <CardHeader
+        className={`pb-3 transition-colors duration-200 ${
+          expanded ? 'sm:sticky sm:z-[5] sm:bg-white sm:shadow-[0_-12px_0_0_white]' : ''
+        }`}
+        style={expanded ? { top: stickyOffset + 12 } : undefined}
+      >
         {/* Desktop Layout: Keep existing horizontal layout */}
         <div className="hidden sm:flex items-start justify-between">
           <div className="flex-1">
@@ -1956,16 +1950,12 @@ function CourseCard({
         </div>
       </CardHeader>
 
-      {/* Zero-height sentinel: lets the IntersectionObserver above detect the moment
-          this section actually becomes stuck, as opposed to just being expanded */}
-      <div ref={stickySentinelRef} className="sm:hidden" />
-
       {/* Mobile: action buttons dock below the search bar while expanded, same plain
           CSS sticky approach as the search bar / archived-year banner itself */}
       <div
-        className={`sm:hidden border-t border-gray-100 bg-white px-6 pt-3 pb-3 space-y-2 transition-shadow ${
-          expanded ? 'sticky z-10' : ''
-        } ${isStuck ? 'shadow-md rounded-b-lg' : ''}`}
+        className={`sm:hidden border-t border-gray-100 bg-white px-6 pt-3 pb-3 space-y-2 transition-all duration-200 ${
+          expanded ? 'sticky z-[5] rounded-b-lg shadow-md' : ''
+        }`}
         style={expanded ? { top: stickyOffset } : undefined}
       >
         {renderCartActionsStacked()}
