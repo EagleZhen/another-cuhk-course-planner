@@ -1953,9 +1953,7 @@ function CourseCard({
       {/* Mobile: action buttons dock below the search bar while expanded, same plain
           CSS sticky approach as the search bar / archived-year banner itself */}
       <div
-        className={`sm:hidden border-t border-gray-100 bg-white px-6 pt-3 pb-3 space-y-2 transition-all duration-200 ${
-          expanded ? 'sticky z-[5] rounded-b-lg shadow-md' : ''
-        }`}
+        className={`sm:hidden bg-white px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5]' : ''}`}
         style={expanded ? { top: stickyOffset } : undefined}
       >
         {renderCartActionsStacked()}
