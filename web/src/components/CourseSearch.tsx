@@ -1320,9 +1320,18 @@ function CourseCard({
     const filterBar = document.querySelector('[data-course-search] .sticky')
     if (!filterBar) return
 
-    // Use .bottom, not .height - the filter bar itself sticks at top-[37px] (not
-    // top-0) in archived-year views, and .bottom already reflects that live position
-    const updateOffset = () => setStickyOffset(filterBar.getBoundingClientRect().bottom)
+    // Reconstruct where the filter bar sits once actually stuck, rather than reading
+    // its current on-screen position: .getBoundingClientRect() reflects wherever it
+    // happens to sit *right now*, which is only its stuck position if the page has
+    // already been scrolled that far - expanding a card before scrolling down (e.g.
+    // the very first result) would otherwise capture its pre-stick position, which on
+    // a wide/tablet screen (more content above it) can be far down the page. The CSS
+    // `top` value (0 or 37px in archived-year views) is scroll-independent, so read it
+    // straight from computed style instead of duplicating that conditional here.
+    const updateOffset = () => {
+      const cssTop = parseFloat(getComputedStyle(filterBar).top) || 0
+      setStickyOffset(cssTop + filterBar.getBoundingClientRect().height)
+    }
     updateOffset()
 
     const observer = new ResizeObserver(updateOffset)

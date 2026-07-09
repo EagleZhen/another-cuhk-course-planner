@@ -31,13 +31,14 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Sticky Action Buttons While Expanded
 
-Cart action buttons scrolled out of view on long section lists. Fix: dock them below the search bar via plain CSS `sticky` (like the search bar itself). JS (a `ResizeObserver`) only tracks the search bar's live position for the `top` offset - it plays no part in the pinning itself.
+Cart action buttons scrolled out of view on long section lists. Fix: dock them below the search bar via plain CSS `sticky` (like the search bar itself). JS only computes the `top` offset - it plays no part in the pinning itself.
 
 - **Desktop** sticks the whole `CardHeader` (already a sibling of `CardContent`, so no restructuring needed) rather than pulling the buttons out of their inline spot beside the title.
 - **Mobile** sticks only a slim button bar, not the full header - badges/instructor chips can wrap several lines on a narrow screen.
 - **No `IntersectionObserver`-based "is it stuck" detection** (e.g. for a shadow that appears only once pinned) - it lags real scroll position by a frame, causing a visible mismatch. Styling keys off `expanded` alone instead.
 - z-index stays below the search bar's, so the search bar always wins on overlap.
-- Desktop's `top` offset sits a few px past the search bar's height, filled with a hard-edged `box-shadow` (not padding, which would jump the instant a card expands rather than only once actually stuck).
+- The offset is reconstructed from the search bar's CSS `top` (read via `getComputedStyle`, not hardcoded) plus its live height (via `ResizeObserver`) - **not** `getBoundingClientRect()`'s current position. The search bar's on-screen position only equals its _stuck_ position once the page has actually scrolled that far; expanding a card before scrolling (e.g. the first result, on a wide screen with more content above the search bar) would otherwise capture wherever it naturally sits pre-scroll, sticking the header far down the page.
+- Desktop's `top` offset sits a few px past that, filled with a hard-edged `box-shadow` (not padding, which would jump the instant a card expands rather than only once actually stuck).
 
 ## Known Limitations
 
