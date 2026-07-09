@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T23:00:50.227952+00:00",
+    "subject": "THAI",
+    "subject_title": "Thai",
+    "total_courses": 2,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "THAI",
+      "course_code": "1000",
+      "title": "Thai I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "AC01-CLW (7442)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 405",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "28",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            },
+            {
+              "section": "BC01-CLW (5820)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 301",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "28",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (5990)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 202",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "28",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course invites students without prior knowledge of Thai to explore the basic features of the Thai language. Supported by audiovisual aids, students will receive intensive practice in spoken and written Thai through interactive class work, homework and online exercises. They will become familiar with the basic concepts of Thai grammar and learn how to interact in some simple everyday situations.",
+      "enrollment_requirement": "Not for students who have taken THAI2000(1002),2001,2050(1010) or 3000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "At the end of the course, the students will be able to conduct proper communication in various daily life situations, using basic knowledge of spoken Thai.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "30",
+        "Presentation": "30"
+      }
+    },
+    {
+      "subject": "THAI",
+      "course_code": "2000",
+      "title": "Thai II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-C01-CLW (7460)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Ms. Titima RUNGUPHAN",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "28",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "28",
+                "status": "Open"
+              },
+              "class_attributes": "Thai and English"
+            }
+          ]
+        }
+      ],
+      "description": "Building on the knowledge acquired in THAI1001, this course aims to further develop students' ability to communicate in Thai in various everyday situations. It also seeks to give students a taste of Thai culture and invites them to explore cultural differences. Through intensive practice students will develop more confidence in interacting in Thai while further expanding and solidifying their understanding of the basic grammar and pronunciation patterns.",
+      "enrollment_requirement": "1.Prerequisite: THAI1000 (1001)\n2.Not for students who have taken THAI2001, 2050 (1010) or 3000",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "At the end of the course, the students will be able to conduct proper communication in various daily life situations, using basic knowledge of spoken Thai.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "30",
+        "Presentation": "30"
+      }
+    }
+  ]
+}

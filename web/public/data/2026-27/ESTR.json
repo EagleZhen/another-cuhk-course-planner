@@ -1,0 +1,4130 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T16:42:02.817048+00:00",
+    "subject": "ESTR",
+    "subject_title": "Courses for ELITE Stream",
+    "total_courses": 30,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "ESTR",
+      "course_code": "1002",
+      "title": "Problem Solving By Programming",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5259)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (8195)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor FU Chi Wing",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is a computer-programming course to equip students with software knowledge and skills to solve engineering problems. Students will learn fundamental programming concepts in C, such as data representation and variables, operators and expressions, flow-control statements, functions, arrays, structures, pointer basics, input/ output handling, etc. In addition to lectures and e-learning, students will work in labs to practise solving problems and complete an engineering software project. The course will cover various problem solving methods such as incremental development, divide-and-conquer, debugging technique, finite-state machine, etc. Through practices, students will acquire skills to define problems and specifications, to perform modelling and simulation, to develop software system prototypes, to carry out verification, validation, and performance analysis.",
+      "enrollment_requirement": "Not for students who have taken CSCI1020, CSCI1030, CSCI1110, CSCI1120, CSCI1130, CSCI1510, CSCI1520, CSCI1530, CSCI1540, ENGG1110, ESTR1100 or ESTR1102.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students are expected to acquire the ability to\n1. understand basic structural programming constructs in building a working software;\n2. apply computer programming to solve engineering problems;\n3. model a system on a computer to meet specifications and performance goals.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Lab reports": "30",
+        "Project": "20",
+        "Short answer test or exam": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "1003",
+      "title": "Engineering Physics: Electromagnetics, Optics and Modern Physics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7393)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Y.C. Liang Hall G04",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9217)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is an introductory calculus-based engineering physics course covering topics in electromagnetics, optics and modern physics. Topics in electromagnetics include: electric and magnetic properties, Coulomb’s law, Gauss’ law, electromagnetic energy and forces, Biot-Savart law, electromagnetic fields and Maxwell’s equations, propagation of plane electromagnetic waves. Topics in optics include: optical interference, interferometers, optical diffraction. Topics in modern physics include: wave-particle duality, momentum and energy of photons and electrons, electronic states and energy bands, electrical conduction in metals and semiconductors. Contents will be supplemented by discussions on applications relevant to engineering.",
+      "enrollment_requirement": "Not for students who have taken ENGG1310 or ENGG2520 or ESTR2006.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "By the end of the course, students should be able to\n• Perform qualitative and quantitative analysis of problems in electromagnetics, optics and modern physics\n• Recognize the physical properties of particles and waves\n• Understand the origins and the properties of electrical conduction in metals and semiconductors\n• Understand the key physical parameters and the fundamental laws in electromagnetism and wave propagation",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Lab reports": "10",
+        "Others": "12",
+        "Short answer test or exam": "28"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "1005",
+      "title": "Linear Algebra for Engineers",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5748)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Staff",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                },
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg C1",
+                  "instructor": "Staff",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9587)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 505",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 505",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 505",
+                  "instructor": "Staff",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at introducing students to the fundamental concepts and methods in linear algebra, which are key to many fields of engineering. Topics include systems of linear equations, Gauss elimination, matrix factorization, matrices and their operations, determinants, eigenvalues and eigenvectors, diagonalization, vector space, the Gram-Schmidt process, and linear transformation.",
+      "enrollment_requirement": "Not for students who have taken ENGG1120 or ENGG1410 or ESTR1004 or MATH1030 or MATH1038",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the conclusion of the course, students should be able to\n1. demonstrate knowledge and understanding of the basic elements of linear algebra\n2. apply results and techniques from linear algebra to solve simple engineering problems",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Homework or assignment": "25",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "1006",
+      "title": "Multivariable Calculus for Engineers",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9573)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9574)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at introducing students to fundamental concepts and methods in multivariable calculus, which provide tools for solving engineering problems. Topics include functions of several variables, curves and surfaces, partial derivatives, Taylor’s formula, method of Lagrange multipliers, multiple integrals, line and surface integrals, Green’s theorem, Stokes’ theorem and divergence theorem.",
+      "enrollment_requirement": "Pre-requisite(s): ENGG1125 or ESTR1007 or MATH1510\nNot for students who have taken ENGG1130 or ENGG1410 or ESTR1004 or MATH2010 or MATH2018 or MATH2020 or MATH2028",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the conclusion of the course, students should be able to\n1. demonstrate knowledge and understanding of the basic elements of multivariable calculus\n2. apply results and techniques from multivariable calculus to solve simple engineering problems",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Homework or assignment": "25",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "1007",
+      "title": "Single Variable Calculus for Engineers",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (6993)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 210",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9495)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for engineering students to acquire mathematical techniques in single-variable Calculus to model and solve engineering application problems. Topics include functions and their limits, continuity, derivatives, differentiation, integration and applications of Calculus to various engineering disciplines.\n\nStudents are expected to have mathematics background equivalent to HKDSE with Extended Module I or II.",
+      "enrollment_requirement": "Not for students who have taken ENGG1125 or MATH1510",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the mathematical principles of single variable Calculus\n2. master the techniques of solving single variable Calculus problems\n3. use single variable Calculus to model and solve common engineering problems and applications",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "15",
+        "Participation": "10",
+        "Test or quiz": "25"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2004",
+      "title": "Discrete Mathematics for Engineers",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5805)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT2",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8192)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Set theory, functions, relations, combinatorics, graph theory, algebraic systems, propositional and predicate logic.",
+      "enrollment_requirement": "Not for students who have taken CSCI2110 or ENGG2440 or ENGG2460 or ESTR2010 or ESTR2362 or MIEG2440.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Learning Outcomes:\n1. be familiar with basic mathematical concepts, e.g. sets, functions, graphs\n2. be familiar with formal mathematical reasoning, e.g. logic, proofs\n3. be able to see the connections between discrete mathematics and computer science",
+      "assessment_types": {
+        "Others": "40",
+        "Short answer test or exam": "60"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2014",
+      "title": "Complex Variables for Engineers",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (8193)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Mong Man Wai Bldg 702",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8246)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A first course in complex numbers and the calculus of functions of one complex variable. Topics include complex numbers, complex differentiation, analytic functions and Cauchy–Riemann equations, elementary complex functions, complex integration, series, and residues integration.",
+      "enrollment_requirement": "Not for students who have taken ENGG2420 or ENGG2460 or ENGG2720 or ESTR2000 or ESTR2010",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the conclusion of the course, students should be able to\n1. demonstrate knowledge and understanding of the basic elements of complex analysis\n2. identify simple engineering problems that can be formulated and solved using complex analytic techniques",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Homework or assignment": "25",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2016",
+      "title": "Differential Equations for Engineers",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8348)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5830)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor HUANG Chaoran",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A first course in the theory and applications of ordinary and partial differential equations. Topics include classification of differential equations, linear ordinary differential equations, Fourier series, and partial differential equations.",
+      "enrollment_requirement": "Not for students who have taken ENGG2420 or ENGG2460 or ENGG2740 or ESTR2000 or ESTR2010",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the conclusion of the course, students should be able to\n1. demonstrate knowledge and understanding of the basic elements of ordinary and partial differential equations\n2. model simple engineering problems using differential equations and solve them",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Homework or assignment": "25",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2018",
+      "title": "Probability for Engineers",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (8194)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 6:30PM - 7:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5922)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Lai Chan Pui Ngong LT",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Lai Chan Pui Ngong LT",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A first course in the fundamentals of probability theory and their applications in engineering. Topics include sample space and events, counting, axioms of probability, conditional probability, independence of events, discrete and continuous distributions, random variables, joint distributions, and limit theorems.",
+      "enrollment_requirement": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the conclusion of the course, students should be able to\n1. define and understand the fundamental concepts in probability\n2. identify, formulate, and solve simple engineering problems involving randomness",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Homework or assignment": "25",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2020",
+      "title": "Statistics for Engineers",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (8362)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5944)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A first course in the fundamentals of statistics and their applications in engineering. Topics include populations and samples, point estimation, confidence intervals, hypothesis testing, and basics of linear regression.",
+      "enrollment_requirement": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005.\nCo-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the conclusion of the course, students should be able to\n1. define and understand the fundamental concepts in statistics\n2. identify, formulate, and solve simple statistical problems in engineering and data science application",
+      "assessment_types": {
+        "Essay test or exam": "65",
+        "Homework or assignment": "25",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2100",
+      "title": "Embedded System Design",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7747)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (7209)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 102",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 2:30PM - 3:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 102",
+                  "instructor": "Professor XU Qiang",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
+      "enrollment_requirement": "Not for students who have taken CENG2400. Pre-requisite: ENGG2020 or ENGG2120 or ESTR2104.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Students will be able to\n1. design, implement, program and debug microprocessor-based embedded systems to solve real life problems.\n2. write assembly language programs.\n3. interface an embedded system with other devices such as integrated circuit devices and displays.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Lab reports": "20",
+        "Presentation": "5",
+        "Short answer test or exam": "25"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2102",
+      "title": "Data Structures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "B-LEC (5019)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg LT1",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BT01-TUT (5020)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the concept of abstract data types and the advantages of data abstraction. Various commonly used abstract data types including vector, list, stack, queue, tree, and set and their implementations using different data structures (array, pointer based structures, linked list, 2-3 tree, B-tree, etc.) will be discussed. Sample applications such as searching, sorting, etc., will also be used to illustrate the use of data abstraction in computer programming. Analysis of the performance of searching and sorting algorithms. Application of data structure principles.",
+      "enrollment_requirement": "Not for students who have taken CSCI2100 or CSC2520.\nPre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the pre-requisite will be waived.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "1. To be able to implement the following data structures as abstract data types in a high level programming language: stack, queue, hash table, list, binary search tree (including AVL tree, red black tree and splay tree), B-tree, trie, disjoint set, graph (including minimum spanning tree and shortest path);\n2. To be able to use appropriate data structures in different applications;\n3. To be able to implement abstract data types;\n4. To be able to analyse the complexity of simple algorithms (such as searching and sorting).",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "25",
+        "Short answer test or exam": "25"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2106",
+      "title": "Building Web Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9732)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8919)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Ho Sin-Hang Engg Bldg Rm123",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (8921)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg Rm123",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (8920)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 3:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg Rm123",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T04-TUT (8922)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg Rm123",
+                  "instructor": "Dr. TSANG Siu Chung",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is concerned with the development of web applications. The major topics include 1) Building blocks of web applications, 2) Client-side/front-end technologies, 3) Server-side/back-end technologies, and 4) Web application design and security issues.",
+      "enrollment_requirement": "Not for students who have taken CSCI2720 or IERG3840.\nPrerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102 or MATH2221 or PHYS2061 or its equivalent.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n\n1. Understand the principles and technologies involved in building a web application;\n2. Gain a better insight into emerging web technologies for building web applications;\n3. Create interactive dynamic websites and web applications.",
+      "assessment_types": {
+        "Essay test or exam": "20",
+        "Homework or assignment": "30",
+        "Project": "30",
+        "Short answer test or exam": "20"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2206",
+      "title": "Signals and Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6557)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Lady Shaw Bldg LT5",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 407",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (6425)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (9435)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (9434)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 703",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (8347)",
+              "meetings": [
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 704",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 704",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 1:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 704",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T04-TUT (6424)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Ms. NGAN Lai Yin",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the concepts of signals and systems and teaches the mathematical and computational tools for the analysis of engineering signals and systems. The course content covers Fourier representations of continuous-time and discrete-time signals, frequency spectrum, linear and time-invariant systems, impulse response, convolution sum and convolution integral, frequency response, Laplace transform and z-transform representations of signals and systems. Sampling theorem and the relation between continuous-time and discrete-time signals will be discussed. This course includes mandatory laboratory modules.",
+      "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, students will be able to:\n1. explain the meanings of signals and systems from engineering perspectives and with connection to real-world applications;\n2. demonstrate how signals and systems can be represented by mathematical expressions;\n3. explain the concepts of frequency and frequency spectrum;\n4. describe and explain the types and properties of systems, with an emphasis on linear time-invariant systems;\n5. use Laplace transform or z-transform to represent a linear system;\n6. analyze and explain the behavior of a linear system;\n7. explain the sampling theorem and its physical implications.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "20",
+        "Lab reports": "20",
+        "Short answer test or exam": "20"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2306",
+      "title": "Introduction to Systems Programming",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5039)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 11:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lady Shaw Bldg LT6",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (5031)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. YIN Ho Fai Hoover",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the C programming language with applications to systems programming. Topics include fundamentals of the C programming language, software development tools, and system programming principles.",
+      "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002.\nNot for students who have taken CSCI1140 or CSCI1510 or IERG2080.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Develop software programs in the C programming language.\n2. Design software programs in a structured manner.\n3. Understand basic techniques for system programming.\n\nThis course contributes to the following HKIE Graduate Attributes: c, e, l \\*",
+      "assessment_types": {
+        "Classwork": "40",
+        "Short answer test or exam": "60"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2360",
+      "title": "Fourier Analysis with Engineering Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5021)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "William M W Mong Eng Bldg 804",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 704",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6044)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "07/09/2026 - 30/11/2026"
+                },
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Chandrasekhar MADHAVAN NAIR",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers Linear-time Invariant Systems, Convolution, Dirac delta functions, Fourier Analysis of Continuous and Discrete-time Systems, Sampling Theorem, Fast-Fourier Transform, Laplace Transform, Z-Transform, and Fourier uncertainty principle. There will be emphasis on the interplay between mathematical ideas in MATH courses and engineering applications. Ideas such as inner product spaces, Contour integration, Cauchy-Schwartz inequality, Spectral decomposition, etc. will be employed for obtaining various results.",
+      "enrollment_requirement": "Pre-requisite: MATH1510. Not for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or IERG2051 or MIEG2051.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Appreciate the use of linearity and spectral decomposition as analysis tools\n2. Recognize the power of working in transform domains – to take advantage of complementary insights\n3. Recognize the power of mathematical ideas in obtaining engineering applications\n4. Analyze Signals and LTI systems using: Fourier Transform, Laplace Transform, Z-transform\n5. Perform convolution operation\n6. Appreciate the significance of Fast Fourier Transform, Sampling theorem, etc. in engineering applications",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "20",
+        "Short answer test or exam": "30"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2362",
+      "title": "Discrete Structures and Probability",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4820)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "We 8:30AM - 10:15AM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 8:30AM - 10:15AM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 8:30AM - 10:15AM",
+                  "location": "Basic Med Sci Bldg Rm2",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 11:15AM",
+                  "location": "Mong Man Wai Bldg 706",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "15/2, 22/2, 1/3"
+                }
+              ],
+              "availability": {
+                "capacity": "13",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (6305)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor Amin AMINZADEH GOHARI",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "13",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers the following two related topics.\nDiscrete Structures: Graphs, Combinatorics - sums and asymptotics, recurrences, counting\nProbability: Random Variables and Probability density functions, conditional probability, independence, expectations, Markov and Chebychev inequalities, laws of large numbers, Random Walks, basic Markov Chains.",
+      "enrollment_requirement": "Pre-requisite: MATH1050. Not for students who have taken CSCI2110, ENGG2430, ENGG2440, ENGG2450, ENGG2460, ENGG2470, ENGG2760, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2012, ESTR2018, ESTR2308, IERG2470, MATH3280 or MIEG2440.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Appreciate graphical representations and their utility\n2. Appreciate various counting techniques and the power of mathematical induction\n3. Understand probabilistic concepts and laws of large numbers\n4. Use the above tools to estimate and solve problems",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "20",
+        "Short answer test or exam": "30"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2520",
+      "title": "Optimization Methods",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6659)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 10:30AM - 11:15AM",
+                  "location": "Science Centre L2",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (8323)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor WAI Hoi To",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the essentials of optimization methods, including models, solution methods, and programming techniques. Topics cover linear programming, integer linear programming, nonlinear programming, and convex programming. It will highlight applications of these methods in Fintech, such as asset allocation, portfolio management, and data analysis.",
+      "enrollment_requirement": "Not for students who have taken ESTR3500 or FTEC2101 or SEEM2420 or SEEM3440.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the completion of this course, students should\n\n1. Have fundamental knowledge of the art of modeling problems arising from FinTech with linear programming, integer programming, nonlinear programming and convex programming.\n2. Be familiar with solution methods for solving linear programming, integer programming, nonlinear programming and convex programming.\n3. Be able to solve linear programming, integer programming, nonlinear programming and convex programming with the assistance of computer.",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Others": "30"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3100",
+      "title": "Rapid Prototyping of Digital Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (7676)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "William M W Mong Eng Bldg 404",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (8906)",
+              "meetings": [
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 102",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 102",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 102",
+                  "instructor": "Professor YANG Ming Chang",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces digital prototyping techniques such as the use of a hardware description language for hardware system development, and the methods for interfacing field programmable devices to microprocessors, memory systems, and peripheral devices.",
+      "enrollment_requirement": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Students will be able to\n1. use a hardware description language to prototype a digital system.\n2. interface a computer with the outside world using field programmed devices.\n3. build reliable digital systems.",
+      "assessment_types": {
+        "Lab reports": "40",
+        "Project": "50",
+        "Participation": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3106",
+      "title": "Principles of Programming Languages",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6041)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7690)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (6061)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (5844)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor Lauren Marcelyn PICK",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces, analyses and evaluates the important concepts found in current programming languages. The concepts are illustrated by contrasting their appearances in different languages. Major topics include: concepts, paradigms and implementation techniques.",
+      "enrollment_requirement": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "1. Exposure to, and understanding of all major programming paradigms\n2. The ability to assess new paradigms and languages\n3. The understanding of how to describe and read programming language syntax descriptions\n4. Knowledge of how syntax descriptions are processed by programming languages\n5. Understanding of the different kinds of PL semantic analysis approaches\n6. Ability to identify differences in different semantic analysis conventions\n7. Ability to consider how to design new programming languages\n8. Understanding of how to determine which principles drive which programming language, and how to carry those through to PL design.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "60"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3108",
+      "title": "Fundamentals of Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7210)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "Th 11:30AM - 1:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 11:30AM - 1:15PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT1",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7211)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 2:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T02-TUT (7212)",
+              "meetings": [
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (7213)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 803",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T04-TUT (7214)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 10:30AM - 11:15AM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor DOU Qi",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the basic concepts and techniques of artificial intelligence. Knowledge representation: predicate logic and inference, semantic networks, scripts and frames, and object-oriented representation. Searching: such as A\\*, hill-climbing, minimax and alpha-beta pruning. Planning: the frame problem and the STRIPS formalism, representation schemes and planning strategies. Neural networks: learning algorithms, neural architecture and applications. Natural language processing. Knowledge acquisition and expert systems: properties, techniques and tools of expert systems",
+      "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Students will be able to:\n1. Use agents to model AI problems\n2. Use search techniques such as A\\* to search for optimal solutions for AI problems and to play games.\n3. Use various logics to represent knowledge and to do reasoning and build expert systems.\n4. Use computer learning techniques to acquire real life knowledge in an appropriate representation model (e.g. decision tree and neural networks).\n5. Derive learning rules from first principle.\n6. Solve real life problems (e.g.classifications and prediction) by such models.\n7. Estimate complexity of AI algorithms and prove theorems by contradiction and other techniques.\n8. Use computer vison techniques such edge detection to extract features.",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "45"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3114",
+      "title": "Numerical Optimization",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5876)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg LT",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg LT",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5877)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 4:15PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with the analytical and programming skills required for applying standard optimization algorithms to engineering and AI problems. The syllabus covers basic topics on optimization including the theory of unconstrained and constrained optimization, dual optimization tasks, linear programming, convex optimization, line search methods, trust-region methods, gradient descent, and Newton's method.",
+      "enrollment_requirement": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510\nNot for students who have taken AIST3010 or AIST3030 or ESTR3112",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Formulate optimization problems belonging to certain optimization categories for engineering and AI tasks\n2. Apply and analyze optimization algorithms for linear programming, convex optimization, and nonlinear programming tasks\n3. Implement the instructed optimization algorithms in Python",
+      "assessment_types": {
+        "Examination": "65",
+        "Homework or assignment": "30",
+        "Participation": "5"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3306",
+      "title": "Social Media and Human Information Interaction",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4822)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Lady Shaw Bldg LT3",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (4821)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor CHAN Yuen Yan",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Social media is one of the main sources of big data. This course aims to enable students to understand about social media and the interaction between human and information. It (1) examines the social and human dimensions of social media; (2) introduces the theories, models, and analysis techniques related to social media and human information interaction; and (3) discusses how to integrate theories and concepts in social media and human information interaction into the analytics and visualization of big data. Topics include: foundations of social media, human cognition and information behavior, online communities and social interactions, as well as infographic and big data visualization.",
+      "enrollment_requirement": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206.\nNot for students who have taken IERG3320.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon completion of this course, students will:\n1. gain conceptual knowledge in the social and human dimensions of social media;\n2. gain conceptual as well as practical knowledge in social media modeling and analysis;\n3. be able to integrate theories and concepts in human information interaction into the analytics and visualization of large scale social media.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "50"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3310",
+      "title": "Computer Networks",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (5022)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor LEE Yiu Bun",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LEE Yiu Bun",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "23",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7866)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LEE Yiu Bun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LEE Yiu Bun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "23",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "23",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4824)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 2:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 12:30PM - 2:15PM",
+                  "location": "Ho Tim Building B6",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7791)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "OSI reference model. Overview of TCP/IP. Local area networks and wide area networks. Network layer and protocols. Transport layer and protocols. Examples of application layer protocols such as HTTP. Network security: firewall, SSL, and private and public keys encryption systems. One term project on client-server programming to create a web server and proxy.",
+      "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI4430 or ESTR4120 or IERG3310.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. demonstrate knowledge and understanding of the basic principles of computer networks, including local-area networks,\nwide-area networks, and Internet;\n\n2. analyze and compare the performance of simple computer network technologies, protocols and possible application\nconfigurations; and\n\n3. write simple network applications via socket programming.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "40"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3408",
+      "title": "Introduction to Robotics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (6491)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 1:30PM - 2:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-L01-LAB (6494)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LAU Tat Ming",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course covers the basic and fundamentals to the study of robotic manipulators, including: classification of robots, robot sensors and actuators, coordinate frames and homogeneous transformations, Denavit-Hartenberg notation, forwards and inverse kinematics, Jacobians and statics, singularity and workspace analysis, and trajectory generation. The course includes a creative project component for students to apply robot manipulators for a new and innovative application. This requires the students to design a new application for robot manipulators that would be useful to the community and globally. By using the introduction to the state-of-the-art in robotics around the world, and fundamentals learnt in the course, the students have to innovatively design and present the idea as a mock start-up company project.",
+      "enrollment_requirement": "Not for students who have taken MAEG3060 or ELEG3103.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) solve the forward and inverse kinematics problems in robot manipulators;\n(2) generate and analyse the Jacobian matrix, singularities and workspace in robot manipulators;\n(3) perform trajectory generation and motion planning in robot manipulators;\n(4) formulate the dynamics of robot manipulators;\n(5) understand the use and the significance of sensors and actuators in robotics;\n(6) apply fundamental knowledge of kinematics and motion planning on real robot hardware;\n(7) appreciate the significance of robotics to the society.",
+      "assessment_types": {
+        "Classwork": "10",
+        "Essay test or exam": "50",
+        "Project": "30",
+        "Short answer test or exam": "10"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4120",
+      "title": "Data Communication and Computer Networks",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (5334)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor XU Hong",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor XU Hong",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 4:30PM - 5:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor XU Hong",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor XU Hong",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor XU Hong",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 5:30PM - 6:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor XU Hong",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (5333)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 11:30AM - 12:15PM",
+                  "location": "Mong Man Wai Bldg LT2",
+                  "instructor": "Professor XU Hong",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to introduce fundamental concepts and technologies in computer networking. The course adopts a top-down approach introducing the TCP/IP networking stack. The design of the contemporary communication applications will be studied. The fundamental concepts in implementing the reliable transport protocols, such as TCP, will be taught in this course. Design issues of TCP, such as the sliding window protocol and the congestion control, will also be included. This course will also focus on the IP network and the routing algorithms used in the Internet. Last, the design issues in the data link layer (e.g., Ethernet), including the medium access control, will be introduced.",
+      "enrollment_requirement": "Not for students who have taken IERG3310 or CSCI4430 or ESTR3310. Pre-requisite: CSCI3150 or CENG3150 or ESTR3102.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "1. Able to use TPC/UDP to create network applications.\n2. Know how to provide reliable data delivery over communciation channels (e.g., knowledge of stop-and-wait, sliding windows,..etc).\n3. Understand the congestion issues and the end-host adaptation principles.\n4. Understand the medium access and mutli-access resolution protocols in local area networks and wireless networks.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "50"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4140",
+      "title": "Foundation of Applied Deep Learning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (7646)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "Science Centre L4",
+                  "instructor": "Professor LI Yu",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor LI Yu",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 3:30PM - 4:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor LI Yu",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor LI Yu",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor LI Yu",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (7688)",
+              "meetings": [
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor LI Yu",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Professor LI Yu",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers how to use deep learning techniques to resolve real-life computational problems, handling different kinds of data. We start the course by introducing the problem-solving paradigm with deep learning: data preparation, building the model, training the model, model evaluation, and hyper-parameter searching. Then, we fill in the details in the paradigm. Regarding the deep learning\nmodels, we will go from the simplest linear regression model, towards the relatively complicated models. To handle various data types, that is, the structured data, images, text, sequences, signals, and graphs, in our daily life, we would cover CNN/ResNet, RNN/LSTM, Attention, and GNN models. In addition to the above paradigms, we will also cover the commonly used techniques to handle overfitting. We would briefly go through the generative models, VAE, and GAN, at the end of this course.\nAdvisory: Students are expected to have background knowledge on python programming.",
+      "enrollment_requirement": "Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.\nNot for students who have taken AIST4010.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n\n1. Understand the problem-solving paradigm with deep learning to resolve the real-life problems.\n2. Grasp the basic concepts related to deep learning: a) the difference between different flavours of deep learning models and what kind of deep learning model to use when encountering a certain data type; b) how to train the deep learning models, understanding the difference between different deep learning optimizers; c) how to evaluate the deep learning models, judging whether the model is overfitting and handling the overfitting issue in deep learning; d) what the model hyper-parameters are and how to choose and tune the hyper-parameters.\n3. Develop the programming techniques and build various deep learning models, including CNN/ResNet, RNN/LSTM, Attention, and GNN, with existing packages, such as Pytorch, to solve the real-life problems.\n4. Communicate with others and present their work.",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Lab reports": "10",
+        "Presentation": "10",
+        "Test or quiz": "30"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4300",
+      "title": "Web-scale Information Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4835)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "15/1, 22/1, 29/1, 5/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg G18",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "19/3, 26/3, 2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (4836)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "11/01/2027 - 19/04/2027"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LAU Wing Cheong",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course discusses data-intensive analytics, and automated processing of very large amount of structured and unstructured information. We focus on leveraging the MapReduce paradigm to create parallel algorithms that can be scaled up to handle massive data sets such as those collected from the World Wide Web or other Internet systems and applications. We organize the course around a list of large-scale data analytic problems in practice. The required theories and methodologies for tackling each problem will be introduced. As such, the course only expects students to have solid knowledge in probability, statistics, linear algebra and computer programming skills. Topics to be covered include: the MapReduce computational model and its system architecture and realization in practice ; Finding Frequent Item-sets and Association Rules ; Finding Similar Items in high-dimensional data ; Dimensionality Reduction techniques ; Clustering ; Recommendation systems ; Analysis of Massive Graphs and its applications on the World Wide Web ; Large-scale supervised machine learning; Processing and mining of Data Streams and their applications on large-scale network/ online-activity monitoring.\n\nAdvisory: Basic hands-on operating system configuration and software installation skills covered in lab courses like IERG2602 and IERG3800 are required.",
+      "enrollment_requirement": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Model and formulate a wide range of large-scale data analytic problems in practice.\n\n2. Design and implement scalable software to tackle large-scale data analytic problems.",
+      "assessment_types": {
+        "Others": "50",
+        "Short answer test or exam": "50"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4998",
+      "title": "Graduation Thesis I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "ABJ1-PRJ (7912)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ACJ1-PRJ (6614)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ADJ1-PRJ (6615)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AEJ1-PRJ (6616)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Yu",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AFJ1-PRJ (6617)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AGJ1-PRJ (6618)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Shengchao",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AHJ1-PRJ (6613)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Songtao",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AIJ1-PRJ (6612)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LYU Rung Tsong Michael",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AJJ1-PRJ (7988)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Hong",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BAJ1-PRJ (6166)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BBJ1-PRJ (7957)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor REN Hongliang",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CAJ1-PRJ (6451)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Xiaojun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CBJ1-PRJ (8083)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XING Guoliang",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CCJ1-PRJ (7831)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XUE Tianfan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CDJ1-PRJ (8621)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CEJ1-PRJ (8097)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YUE Xiangyu",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DAJ1-PRJ (8098)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Chun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DBJ1-PRJ (8099)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Zhongyu",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EAJ1-PRJ (6452)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor AHN Dohyun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent, systematic and rigorous study with research elements in engineering.",
+      "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the research topic.\n2) Be able to identify research issues and define research objectives.\n3) Be able to develop and execute a research plan for achieving the research objectives.\n4) Develop technical writing skills.",
+      "assessment_types": {
+        "Essays": "75",
+        "Presentation": "25"
+      }
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4999",
+      "title": "Graduation Thesis II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "ABJ1-PRJ (6215)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LO Chi Lik Eric",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ACJ1-PRJ (6789)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "ADJ1-PRJ (6790)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHENG James",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AEJ1-PRJ (6791)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Yu",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AFJ1-PRJ (6792)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AGJ1-PRJ (6214)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Shengchao",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AHJ1-PRJ (6630)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LU Songtao",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AIJ1-PRJ (6610)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LYU Rung Tsong Michael",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AJJ1-PRJ (6611)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XU Hong",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BAJ1-PRJ (6609)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Jizhou",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BBJ1-PRJ (7877)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor REN Hongliang",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CAJ1-PRJ (6365)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Xiaojun",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CBJ1-PRJ (8070)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XING Guoliang",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CCJ1-PRJ (8090)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor XUE Tianfan",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CDJ1-PRJ (8091)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YAN Zhenyu",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CEJ1-PRJ (7768)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YUE Xiangyu",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DAJ1-PRJ (8519)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Chun",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DBJ1-PRJ (8531)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LI Zhongyu",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EAJ1-PRJ (6366)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor AHN Dohyun",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "34",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "34",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with an opportunity to carry out, under the supervision of an academic staff, an independent, systematic and rigorous study with research elements in engineering.",
+      "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998.",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "1) Be able to identify and have a basic understanding of the literature related to the research topic.\n2) Be able to identify research issues and define research objectives.\n3) Be able to develop and execute a research plan for achieving the research objectives.\n4) Develop technical writing skills.",
+      "assessment_types": {
+        "Essays": "75",
+        "Presentation": "25"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T15:03:11.015113+00:00",
+    "subject": "CUMT",
+    "subject_title": "Cultural Management",
+    "total_courses": 2,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "CUMT",
+      "course_code": "4102",
+      "title": "Research Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (6313)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. PANG Ka Wei",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to take either this course or “CUMT4103 Internship” to fulfill the capstone course requirements of the Programme. In this course, students are expected to be able to integrate the knowledge and skills that they learnt into a research project. This course has two specific objectives. First, it aims to allow the students to experience completing a coherent research project either by participating in faculty-directed projects as a research group member or conducting independent research under supervision. Second, it will help students develop the preliminary idea of applying theories to answering research questions. This can be done by adopting a constructivist approach with cultural theories to account for a certain phenomenon pertinent to cultural management, or by identifying resolutions based on positive social science theories for cultural management. A faculty member will be assigned based on the student’s area of interest for the research project.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Cultural Management Pgm Comm",
+      "academic_org": "Cultural Management Pgm Comm",
+      "learning_outcomes": "The students are expected to develop a preliminary perception of academic or applied research, and understand the key steps of research, which include identifying and reviewing the key literature, developing a topic and focus for the research project, and mastering basic methods for data collection, analysis, and application of theories. The process of completing a coherent research will enable students to enrich research skills, such as applying theories, identifying problems, and conducting data collection and analysis.",
+      "assessment_types": {
+        "Essays": "70",
+        "Presentation": "30"
+      }
+    },
+    {
+      "subject": "CUMT",
+      "course_code": "4103",
+      "title": "Internship",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-F01-FLD (6546)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. CHIENG Wei Shieng",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to take either this course or “CUMT4102 Research Project” to fulfill the capstone course requirements of the Programme. This course has two specific objectives. First, it aims to assist the students’ understanding of the way that cultural organizations or institutions operate. Students will acquire the chance to observe the organization’s administrative structure with regard to the external policy environment, its strategies for development, partnership with other organizations, the management styles, approaches and methods and decision-making procedures. Second, it will allow students to gain the experiences through the transition from classroom learning to in-practice learning. Students are expected to reflect their learned knowledge with the live cases during the intern and apply professional norms to assess the functionalities and performances of the organization. Recommendations for improvements based on identified challenges and problems that the organization faces will be included into their final reports. A faculty member will be assigned based on the student’s area of interest for the internship.",
+      "enrollment_requirement": "",
+      "course_attributes": "Capstone Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Cultural Management Pgm Comm",
+      "academic_org": "Cultural Management Pgm Comm",
+      "learning_outcomes": "The internship will prepare students with the direction of career development in cultural management related areas. Upon completion of this internship course, students will have acquired first-person work experiences in his or her interested aspects of cultural management. Students will also deepen the understanding of the classroom knowledge with self-reflection and develop hand-on skills by applying the knowledge to administrative practices.",
+      "assessment_types": {
+        "Essays": "40",
+        "Others": "40",
+        "Presentation": "20"
+      }
+    }
+  ]
+}

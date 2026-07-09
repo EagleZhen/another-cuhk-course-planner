@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T13:01:48.943790+00:00",
+    "subject": "BASA",
+    "subject_title": "General Business Administratio",
+    "total_courses": 2,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "BASA",
+      "course_code": "6001",
+      "title": "Research Methodology in Behavioural Studies I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (1228)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 504",
+                  "instructor": "Professor LI Wendong",
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is divided into two main parts. The first part is focused on the application of the philosophy of science to behavioral research in business. Basic concepts such as explanation, scientific laws, and theory are introduced and discussed. The second part provides an introduction to the various stages of scientific research which include research design, measurement scale and development, sampling design, data collection and statistical analysis. Even though mathematical proofs and statistical derivations will be reduced to a minimum, having the knowledge of basic statistics and matrix manipulations will be helpful.",
+      "enrollment_requirement": "For students in MPhil-PhD Management; or MPhil-PhD Marketing",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After finishing this course, it is expected that students should:\n- Be able to understand and comment on the appropriateness of various methodologies used in survey research\n- Be able to select an appropriate research design independently for their own research\n- Be able to learn new methodologies in the future independently based on what they have learned in this course",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "40",
+        "Participation": "20"
+      }
+    },
+    {
+      "subject": "BASA",
+      "course_code": "6002",
+      "title": "Research Methodology in Behavioural Studies II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2535)",
+              "meetings": [
+                {
+                  "time": "We 1:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 611",
+                  "instructor": "Professor KWONG Yuk Yee Jessica",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "Mo 1:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 611",
+                  "instructor": "Professor KWONG Yuk Yee Jessica",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 1:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 611",
+                  "instructor": "Professor KWONG Yuk Yee Jessica",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is the continuation of BASA6001. The course covers concepts and techniques related to behavioral experiment. In particular, students will learn how to apply various types of behavioral research design and statistical methods, and how to analyze and interpret the results. Sample topics include among others experimental design, significance tests , statistical power, interaction and moderating effects, testing of psychological mechanism. This course does not involve mathematical proofs or statistical derivations. Good knowledge of basic statistics is essential. Prerequisite: BASA6001",
+      "enrollment_requirement": "For students in MPhil-PhD Management; or MPhil-PhD Marketing; Prerequisite: BASA6001",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Course Outcomes\n1. Knowledge of major experimental approaches for studying human behaviors.\n2. Techniques in analyzing data collected from experiments.\n3. Hands-on experience in experimental design, administration, data analysis, and report writing.",
+      "assessment_types": {
+        "Homework or assignment": "35",
+        "Project": "35",
+        "Participation": "30"
+      }
+    }
+  ]
+}
