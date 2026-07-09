@@ -1529,79 +1529,6 @@ function CourseCard({
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
               {course.title}
             </CardDescription>
-            <div className="flex items-center gap-2 mt-2 flex-wrap">
-              {/* Interactive Credits Badge */}
-              <a
-                href="https://www.oalglobal.cuhk.edu.hk/academics/#:~:text=At%20CUHK%2C%20one%20credit%20or,one%20of%20tutorials%20each%20week."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Badge
-                  variant="secondary"
-                  className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                  title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Most 3-unit courses consist of 3 hours of lectures or 2 hours of lectures and 1 hour of tutorials each week."
-                >
-                  {course.credits} credits
-                  <Info className="w-2.5 h-2.5 opacity-60" />
-                </Badge>
-              </a>
-              {course.gradingBasis && (
-                /* Interactive Grading Basis Badge */
-                <a
-                  href="https://www.res.cuhk.edu.hk/general-information/grading-system-of-undergraduate-programmes/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block"
-                >
-                  <Badge
-                    variant="secondary"
-                    className="text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                    title="Click to learn about CUHK grading systems"
-                  >
-                    {course.gradingBasis}
-                    <Info className="w-2.5 h-2.5 opacity-60" />
-                  </Badge>
-                </a>
-              )}
-              {/* Seat Availability Badge */}
-              {(() => {
-                const seatInfo = getAggregateSeatInfo(course, currentTerm)
-                if (!seatInfo) return null
-
-                const { available, total } = seatInfo
-                // Create availability object for styling function
-                const availability = {
-                  availableSeats: available,
-                  capacity: total,
-                  status: available === 0 ? ('Closed' as const) : ('Open' as const),
-                  enrolled: total - available,
-                  waitlistCapacity: 0,
-                  waitlistTotal: 0,
-                }
-                const style = getAvailabilityBadgeStyle(availability)
-
-                return (
-                  <Badge
-                    variant="secondary"
-                    className={`text-xs border ${style.className}`}
-                    title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
-                  >
-                    {available}/{total} Available Seats
-                  </Badge>
-                )
-              })()}
-              {/* Show all instructors as filter toggle buttons */}
-              {instructors.length > 0 && (
-                <InstructorFilters
-                  instructors={instructors}
-                  selectedInstructors={selectedInstructors}
-                  onToggleInstructor={toggleInstructorFilter}
-                  onClearAll={() => setSelectedInstructors(new Set())}
-                  isMobile={false}
-                />
-              )}
-            </div>
           </div>
           <div className="flex items-center gap-2 ml-2">
             {isAdded ? (
@@ -1694,6 +1621,81 @@ function CourseCard({
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </Button>
           </div>
+        </div>
+
+        {/* Desktop: badges + instructor filters - full width, decoupled from action button count */}
+        <div className="hidden sm:flex items-center gap-2 mt-2 flex-wrap">
+          {/* Interactive Credits Badge */}
+          <a
+            href="https://www.oalglobal.cuhk.edu.hk/academics/#:~:text=At%20CUHK%2C%20one%20credit%20or,one%20of%20tutorials%20each%20week."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Badge
+              variant="secondary"
+              className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+              title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Most 3-unit courses consist of 3 hours of lectures or 2 hours of lectures and 1 hour of tutorials each week."
+            >
+              {course.credits} credits
+              <Info className="w-2.5 h-2.5 opacity-60" />
+            </Badge>
+          </a>
+          {course.gradingBasis && (
+            /* Interactive Grading Basis Badge */
+            <a
+              href="https://www.res.cuhk.edu.hk/general-information/grading-system-of-undergraduate-programmes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Badge
+                variant="secondary"
+                className="text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
+                title="Click to learn about CUHK grading systems"
+              >
+                {course.gradingBasis}
+                <Info className="w-2.5 h-2.5 opacity-60" />
+              </Badge>
+            </a>
+          )}
+          {/* Seat Availability Badge */}
+          {(() => {
+            const seatInfo = getAggregateSeatInfo(course, currentTerm)
+            if (!seatInfo) return null
+
+            const { available, total } = seatInfo
+            // Create availability object for styling function
+            const availability = {
+              availableSeats: available,
+              capacity: total,
+              status: available === 0 ? ('Closed' as const) : ('Open' as const),
+              enrolled: total - available,
+              waitlistCapacity: 0,
+              waitlistTotal: 0,
+            }
+            const style = getAvailabilityBadgeStyle(availability)
+
+            return (
+              <Badge
+                variant="secondary"
+                className={`text-xs border ${style.className}`}
+                title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
+              >
+                {available}/{total} Available Seats
+              </Badge>
+            )
+          })()}
+          {/* Show all instructors as filter toggle buttons */}
+          {instructors.length > 0 && (
+            <InstructorFilters
+              instructors={instructors}
+              selectedInstructors={selectedInstructors}
+              onToggleInstructor={toggleInstructorFilter}
+              onClearAll={() => setSelectedInstructors(new Set())}
+              isMobile={false}
+            />
+          )}
         </div>
 
         {/* Mobile Layout: Course header + search buttons below */}
