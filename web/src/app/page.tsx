@@ -26,7 +26,7 @@ import { SCHEDULE_DATA_VERSION, DEFAULT_CURRENT_TERM } from '@/lib/constants'
 
 // Color assignment is now handled in courseUtils.ts
 
-// Interim: terms.ts holds only the live year, so this flattens to that year's terms.
+// All terms across every published year; TermSelector splits them back by year.
 const availableTerms = Object.values(TERMS_BY_YEAR).flat()
 
 export default function Home() {
