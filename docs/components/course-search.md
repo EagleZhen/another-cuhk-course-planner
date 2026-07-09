@@ -8,7 +8,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Data Loading
 
-- All publishable subjects load at startup so search stays local and instant afterwards. On-demand loading is a deliberate non-goal — see [improvements.md](../improvements.md#non-goals-for-now).
+- A year's subjects all load in parallel so search stays local and instant within it. The current year (`CURRENT_ACADEMIC_YEAR`) loads at startup; switching to an archived year fetches that year on demand and merges it in. Each year loads at most once per session, so an archived year costs a fetch only when first opened and the live year never pays for years no one visits.
 - **Mobile first visit:** loading waits for the `NOTICE_IMAGE_LOADED_EVENT` window event so the `MobileDesktopNotice` preview image isn't starved by the course-data download (~4MB compressed on the wire, ~40MB of JSON after decompression). The notice dispatches it on image load, image error, and dismissal — loading must never hang on a missing dispatch. Constants live in [constants.ts](../../web/src/lib/constants.ts).
 - The loading UI deliberately shows no remaining-time estimate: parallel request timing is too noisy to predict honestly.
 

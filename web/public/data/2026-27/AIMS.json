@@ -1,0 +1,810 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T12:36:41.254868+00:00",
+    "subject": "AIMS",
+    "subject_title": "Artificial Intelligence",
+    "total_courses": 14,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "AIMS",
+      "course_code": "5701",
+      "title": "Fundamentals in Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1445)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Professor YUE Xiangyu",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "132",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "18",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "With Artificial Intelligence widely employed across various domains, it is essential to learn the basics of AI and get to know different sub-areas of AI. This course will cover the basics and techniques of artificial intelligence, as well as the introduction, general research landscape and frontier of each sub-field in artificial intelligence.\n\nThis course covers the following topics: Search: uninformed search, informed search and multi-agent search. Machine learning techniques, including linear regression, logistic regression, decision trees, random forests, Bayesian networks, inference and sampling, hidden Markov models and particle filtering; K-nearest neighbors, K-means, support vector machines, gradient boosting. Neural networks and optimization. Introduction to computer vision and natural language processing. Reinforcement learning and recommendation systems. Generative models.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; Not For students who have taken CSCI5150 or ELEG5760 or CSCI3320 or CSCI3230",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand the basic concepts in artificial intelligence\n2. Understand the principles of various machine learning and deep learning techniques\n3. Understand the principles of different types of neural networks and their optimization\n4. Understand the principles of reinforcement learning algorithm and recommendation systems\n5. Apply and evaluate the AI techniques to solve real world problems",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Others": "30",
+        "Project": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5702",
+      "title": "Artificial Intelligence in Practice",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (2423)",
+              "meetings": [
+                {
+                  "time": "Th 7:00PM - 10:00PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 7:00PM - 10:00PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. YIP Kit Sang Danny",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "137",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "With the fast development of artificial intelligence, it is critical to understand how to build an AI system tailored for specific tasks. This course will teach you the general programming and designing practices of AI systems, understanding how to build a neural network, how to collect training data, and how to design a successful AI project.\n\nThis course covers the principles of machine learning, data preparation and loading, basic vector operations, multi-layer perception, convolutional neural networks, sequential prediction, vision recognition, text recognition, model optimization and deployment, and distributed training.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand how to design an AI system for a specific task, including data preparation, model selection, model training, and model deployment;\n2. Develop the programming skills for vector operations and construction of different network structures, including multi-layer perceptron, convolutional neural networks, and recurrent neural networks;\n3. Develop the programming skills for data preparation, data loading, parallelism and optimization, parallel training, and distributed training;\n4. Develop the system design skills to build an AI project, including housing price prediction, visual classification, and text analysis;\n5. Design an AI application using the pretrained large foundational models, including stable diffusion-based image generation, large language models, and image segmentation.",
+      "assessment_types": {
+        "Homework or assignment": "60",
+        "Project": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5703",
+      "title": "Emerging Technologies in Artificial Intelligence",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1544)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 8:30PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor YUAN Yixuan",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 6:30PM - 8:30PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor YUAN Yixuan",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "137",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces emerging and enabling technologies in artificial intelligence to solve real-world problems in a various daily and industrial application. The course will offer a number of research or topical seminars, given by research or industry experts, to let the students keep abreast of the trends of the development in artificial intelligence technologies. Moreover, the course will further discuss the advantages and limitations of the new technologies as well as the ethical issues induced from AI applications.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Pass/Not Pass",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n1. learn the up-to-date research trends and development of artificial intelligence technologies in various daily and industrial applications.\n2. understand the advantages and limitations of the new technologies.\n3. understand the ethical issues of AI applications.",
+      "assessment_types": {
+        "Others": "30",
+        "Project": "30",
+        "Participation": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5704",
+      "title": "Machine Learning Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3974)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor Farzan FARNIA",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "137",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "With machine learning and artificial intelligence now central to many disciplines, it is increasingly important to understand the theoretical tools that make these systems reliable and interpretable in practice. This course focuses on foundational theoretical ideas and analytical derivations that underlie standard machine learning and AI methods. Students will learn to reason about generalization and optimization in machine learning and apply theoretical frameworks to real-world AI workflows through Python-based mini-labs designed to connect theory with practical machine learning.\n\nThe course provides an introduction to key theoretical topics in machine learning, including probability and statistics for machine learning (basic concentration inequalities, maximum likelihood, exponential family models), generalization concepts (empirical versus true risk, VC dimension, and capacity norms), kernel methods and feature maps (Mercer’s theorem, representer theorem, and kernel-based learning), optimization theory (gradient descent and stochastic gradient descent, adaptive step-size methods AdaGrad and Adam), online learning and stochastic bandits (regret formulation, upper confidence bound, and Thompson sampling), and the theoretical foundations of generative modeling and diffusion models (score functions and Langevin dynamics).",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence;Pre-requisites: Linear algebra, probability, statistics; Not for students who have taken CSCI5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "1. Understand the standard theoretical ideas that form the foundation of modern machine learning and AI;\n2. Apply probability, statistics, and optimization tools to analyze how learning algorithms generalize and converge;\n3. Use theoretical frameworks of kernel methods, online learning, and bandits to address machine learning tasks;\n4. Relate theoretical principles to modern generative AI and diffusion models.",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Selected response test or exam": "30"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5710",
+      "title": "Deep Learning Fundamentals and Theories",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1645)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Staff",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an introduction to deep learning. Students taking this course will learn the basics, theories, models, algorithms, implementation, and recent progress of deep learning, and obtain empirical experience on the designing, training, and understanding of deep neural networks. The course starts by establishing the relations between classical machine learning models and deep learning models, followed by the introduction of representative neural network architectures, optimization techniques for training deep neural networks, implementation of large-scale deep learning, multi-task deep learning, transferred deep learning, recurrent neural networks, transformer networks, applications of deep learning to language processing and computer vision, and understanding why deep learning works. The students taking are expected to have basic background knowledge on calculus, linear algebra, probability, statistics, and random process as a prerequisite.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; Not for students who have taken ELEG5491 or ELEG5760 or CMSC5743 or AIST4010",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n1. Understand the fundamental concepts, theories and algorithms of deep learning.\n2. Understand the relations between conventional machine learning models and deep learning models.\n3. Understand the principles of designing different deep neural networks for various applications.\n4. Implement and train deep neural networks with deep learning toolboxes.\nUnderstand why deep learning outperforms other machine learning methods when the training data is in large scale.\n5. Obtain empirical experience of designing and training deep models in practical applications.",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Homework or assignment": "45"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5720",
+      "title": "Computer Vision and Pattern Recognition",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1556)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor OUYANG Wanli",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor OUYANG Wanli",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Computer vision enables computers and systems to derive high-level understanding from digital images, videos and other visual inputs.\n\nThis course will cover fundamental knowledge and advanced topics in image processing, computer vision and pattern recognition, including image acquisition, processing and transformations, feature detection, segmentation, motion estimation, stereo vision, 3D reconstruction and modeling, scene detection and classification, object alignment and tracking, face detection and recognition, color image processing and digital photography. Machine learning and deep learning algorithms for computer vision and their system applications will be discussed.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; Not for students who have taken ENGG5104 or CMSC5711 or CSCI5280 or MAEG5720",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand how mathematical and scientific concepts are applied in image processing and computer vision\n2. Understand how to extract information and features such as point, lines, corners and colour information from images\n3. Understand the process of retrieving 3-D shapes and motions from image data and the methods of object tracking\n4. Perform image transformation in the color and spatial domains\n5. Understand basic knowledge and algorithms in computer vision\n6. Identify, formulate and develop practical and innovative image processing and computer vision applications to solve real world problems.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Others": "30",
+        "Project": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5730",
+      "title": "Natural Language Processing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (2399)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building LT5",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building LT5",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building LT5",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Lee Shau Kee Building LT5",
+                  "instructor": "Professor WANG Liwei",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Natural language processing (NLP) focuses on system development that allows human-computer interaction using linguistic and textual data. This course introduces the main concepts of the natural language processing tasks, such as parsers, syntax, semantics, discourse, language modeling, machine translation, text generation and summarization, multilinguality and multimodality, etc. It also covers the research methods, including statistical and stochastic learning methods, expectation maximization algorithms and deep learning models. It will further discuss the applications and technological advances in large language models.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence;Not for students who have taken CSCI5640",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand the role of NLP in human computer interaction using linguistic and textual data\n2. Understand the textural information processing techniques to meet real-world needs 3. Understand the set of key machine learning and statistical methods which are widely used in NLP\n4. Understand the applications and technological advances in language models\n5. Implement practical applications of NLP using common tools such as NLTK, Pytorch and Dynet",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Others": "30",
+        "Project": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5740",
+      "title": "Generative Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1392)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor CHENG Yu",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor CHENG Yu",
+                  "dates": "17/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "William M W Mong Eng Bldg LT",
+                  "instructor": "Professor CHENG Yu",
+                  "dates": "3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Generative models are widely used in different applications of artificial intelligence. This course covers mathematical and computational foundations of generative modeling, as well as applications in engineering, design, science, and the arts. The topics include foundation models, deep learning models, variational autoencoders, generative adversarial networks, autoregressive models such as Transformers, neural text decoding, prompt programming, and detection of generated content. Applications to language models and multimodality system, as well as social responsibility in generative modeling will also be discussed.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence;Not for students who have taken AIST5030 or SEEM5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand the concepts underlying generative AI\n2. Understand the principles of various generative AI models and applications\n3. Develop the practical skills to design and implement generative models to various domains\n4. Develop the awareness of ethical and social responsibility associated with generative AI",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Others": "20",
+        "Project": "50"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5760",
+      "title": "Technology Commercialization of AI Innovations",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1678)",
+              "meetings": [
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "16/1, 23/1, 30/1"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "13/2, 20/2"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "6/3, 13/3, 20/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "3/4"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Professor CHOI Wai Shan",
+                  "dates": "17/4, 24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Artificial Intelligence has brought significant impact on all facets of human activities, including personal, industrial, and societal. This course aims at challenging the students to unleash their innovative power to create new AI applications and services that may lead to the formation of new startups in the Great Bay Area. The course will introduce a market-oriented model of thinking to complement the technology-oriented model, thus enabling the students to develop an all-rounded thinking pattern and get prepared to join the commercial world.\n\nThe course adopts the Lean Start-Up Approach to Entrepreneurship to guide the students to go through a rigorous business development process, consisting of the following steps.\n1. Define their business idea.\n2. Design their products or services.\n3. Develop their Minimal Viable Products (MVP) to illustrate their designs.\n4. Devise their business strategies to reach their target markets.\n5. Develop the business plan to explain their ideas clearly.\nThis is a highly interactive and hands-on to help project teams to refine their business plans. The students should have the knowledge in machine learning and deep learning.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; or\nFor all MSc Programmes in Faculty of Engineering;Exclusion: CMSC5730 or ENGG3802/3803/5700 or ESTR3502 or FTEC5570 or IEMS5712 or SEEM3450 or IERG5340 or ROSE5790",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Develop a market-oriented model of thinking that will complement their familiar technology-oriented model of thinking in order to better prepare them for entering into the commercial world.\n2. Unleash their innovative power to develop one or more marketable applications (products or services) based on the AI technologies they learned.\n3. Develop execution plans for these potential products/services based on the Lean Start-Up Approach.\n4. Produce slide decks to introduce viable business models for these products/services.\n5. Potentially, form one or more business development team(s) and create real opportunities to launch startups in HKSTP or other incubators in the Great Bay Area.",
+      "assessment_types": {
+        "Classwork": "15",
+        "Homework or assignment": "60",
+        "Presentation": "25"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5761",
+      "title": "From Business Plan to Investable AI Ventures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2450",
+          "term_name": "2026-27 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1061)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Professor CHAU Chi Wai",
+                  "dates": "22/5, 29/5, 5/6, 12/6, 19/6, 26/6, 3/7"
+                },
+                {
+                  "time": "Sa 1:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 503",
+                  "instructor": "Professor CHAU Chi Wai",
+                  "dates": "22/5, 29/5, 5/6, 12/6, 19/6, 26/6, 3/7"
+                },
+                {
+                  "time": "Su 9:30AM - 12:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHAU Chi Wai",
+                  "dates": "23/5, 30/5, 6/6, 13/6, 20/6, 27/6, 4/7"
+                },
+                {
+                  "time": "Su 1:30PM - 5:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHAU Chi Wai",
+                  "dates": "23/5, 30/5, 6/6, 13/6, 20/6, 27/6, 4/7"
+                }
+              ],
+              "availability": {
+                "capacity": "32",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "32",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course offers a unique blend of theory and practical application in transforming business ideas in artificial intelligence (AI) innovations into investable ventures, through holistic experiential learning experience. It empowers students with the strategies and communication skills needed to create compelling investment proposals, to convey their vision, articulate the unique value proposition of their AI solutions, and demonstrate their understanding of market dynamics and competitive landscape. The students will learn the design thinking business remodeling approach and the efficient fundraising strategies to prepare for the compelling investment pitches and formalizing plans to attract funding. The course offers real-world pitching opportunities for the students to pitch their business plans persuasively to the genuine investors in the market, gaining experience that goes beyond traditional academic assessments.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; or \nFor all MSc Programmes in Faculty of Engineering;Pre-requisite: AIMS5760 or IEMS5712 or IERG5340;A team with AI application ideas for commercialization in mind",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Create viable investment proposals for AI-based business ventures.\n2. Understand and apply principles of design thinking for AI applications in business model ideation.\n3. Understand the key considerations and challenges in transforming a business plan into a viable venture.\n4. Analyze and develop corporate strategies in different patent situations.\n5. Understand and apply effective fundraising strategies.\n6. Develop and present persuasive pitches to prospective investors and venture capitalists.",
+      "assessment_types": {
+        "Classwork": "15",
+        "Presentation": "35",
+        "Participation": "30",
+        "Report": "20"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5771",
+      "title": "Advanced Topics in Artificial Intelligence (II)",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3986)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor LI Hongsheng",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor LI Hongsheng",
+                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "T.Y.Wong Hall LT",
+                  "instructor": "Professor LI Hongsheng",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty. This course is independent of AIMS5770. Students can take either course or both.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to understand the advanced topics along the latest development of Artificial Intelligence.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5780",
+      "title": "Artificial Intelligence Internship",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2450",
+          "term_name": "2026-27 Summer Session",
+          "schedule": [
+            {
+              "section": "-P01-PRA (1145)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIN Xiaojun",
+                  "dates": "17/05/2027 - 28/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to allow students to acquire a basic understanding and the skills of the practical aspects of the artificial intelligence area. During the internship, the student must attach to a company in a study-related position for no less than 12 weeks. The student will have an academic supervisor (as primary supervisor) and an industry co-supervisor from the company, both have the expertise to provide advice to the student. The student must submit a report summarizing the internship experience at the end of the internship. Additional presentation may be required by the hosting company.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand the impact of artificial intelligence in a global and societal context。\n2. Use the techniques, skills, and modern engineering tools necessary for engineering practice appropriate to the degree discipline.",
+      "assessment_types": {
+        "Others": "20",
+        "Presentation": "40",
+        "Report": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5790",
+      "title": "Artificial Intelligence Project I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (3688)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The students will design, research and develop projects under the supervision of an academic staff in related area of artificial intelligence. At the end of the course, the students must give presentations to the academic and/or industry supervisors, and submit project reports detailing the findings and deliverables.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Design and prototype a project in artificial intelligence\n2. Understand and carry out basic project management\n3. Give a fluent technical presentation; and\n4. Write a report detailing the findings and deliverables of the project.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5791",
+      "title": "Artificial Intelligence Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (2711)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIEW Soung Chang",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The students will continue and further develop the project designs achieved in AIM5790 to address more functional and practical issues and make the projects more complete and sustainable. The projects will be supervised by an academic staff in related area of artificial intelligence. At the end of the course, the students must give presentations to the academic and/or industry supervisors, and submit project reports detailing the findings and deliverables.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Design and prototype a project in artificial intelligence\n2. Understand and carry out basic project management\n3. Give a fluent technical presentation; and\n4. Write a report detailing the findings and deliverables of the project.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      }
+    }
+  ]
+}

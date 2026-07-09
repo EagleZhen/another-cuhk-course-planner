@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { TermSelector } from '@/components/TermSelector'
 import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download, Undo } from 'lucide-react'
 import {
   groupOverlappingEvents,
@@ -491,6 +492,7 @@ export default function WeeklyCalendar({
                 selectedTerm={selectedTerm}
                 availableTerms={availableTerms}
                 onTermChange={onTermChange}
+                variant="button"
               />
             )}
           </div>
@@ -577,6 +579,7 @@ export default function WeeklyCalendar({
                   selectedTerm={selectedTerm}
                   availableTerms={availableTerms}
                   onTermChange={onTermChange}
+                  variant="button"
                 />
               )}
             </div>
@@ -933,59 +936,6 @@ function DisplayToggleButtons({
           {label}
         </Button>
       ))}
-    </div>
-  )
-}
-
-// Term Selector Component
-function TermSelector({
-  selectedTerm,
-  availableTerms,
-  onTermChange,
-}: {
-  selectedTerm: string
-  availableTerms: string[]
-  onTermChange?: (term: string) => void
-}) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <div className="relative">
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 cursor-pointer ${isOpen ? 'relative z-[60]' : ''}`}
-      >
-        <span className="text-sm">{selectedTerm}</span>
-        <ChevronDown className="w-3 h-3" />
-      </Button>
-
-      {isOpen && (
-        <>
-          <div className="fixed inset-0 z-[55] cursor-pointer" onClick={() => setIsOpen(false)} />
-
-          <div className="absolute right-0 top-full mt-1 z-[60] bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
-            <div className="py-1">
-              {availableTerms.map((term) => (
-                <button
-                  key={term}
-                  type="button"
-                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
-                    term === selectedTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
-                  }`}
-                  onClick={() => {
-                    onTermChange?.(term)
-                    setIsOpen(false)
-                  }}
-                >
-                  {term}
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
     </div>
   )
 }

@@ -34,6 +34,7 @@ import {
   cuhkLibrarySearchAndOpen,
   getDayIndex,
   getAggregateSeatInfo,
+  extractAcademicYearCode,
 } from '@/lib/courseUtils'
 import type {
   InternalCourse,
@@ -54,6 +55,7 @@ import {
   NOTICE_IMAGE_LOADED_EVENT,
   CURRENT_ACADEMIC_YEAR,
 } from '@/lib/constants'
+import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
@@ -172,10 +174,15 @@ export default function CourseSearch({
   })
   const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
-  const [availableSubjects, setAvailableSubjects] = useState<readonly string[]>([])
-  const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
+
+  // Academic year of the selected term; drives which year's data we load and list.
+  const selectedYear = extractAcademicYearCode(currentTerm)
+  const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
+  const availableSubjects = useMemo(() => getSubjectCodesForYear(selectedYear), [selectedYear])
+  // Years whose data is already fetched this session (each loads at most once).
+  const loadedYearsRef = useRef<Set<string>>(new Set())
   const [failedSubjectCount, setFailedSubjectCount] = useState(0)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
 
@@ -313,15 +320,20 @@ export default function CourseSearch({
     )
   }
 
-  // Load course data on component mount and when term changes
+  // Load the selected year's data: eagerly for the current year on mount, then
+  // lazily whenever the user switches to an archived year not yet fetched.
   useEffect(() => {
-    // Skip loading if data is already loaded this session for this term
-    if (hasDataLoaded) {
-      console.log('📦 Course data already loaded this session, skipping reload')
+    // Each year loads at most once per session.
+    if (loadedYearsRef.current.has(selectedYear)) {
+      console.log(`📦 ${selectedYear} data already loaded this session, skipping reload`)
       return
     }
 
     const loadCourseData = async () => {
+      // Claim the year up front so a concurrent re-invocation (e.g. React
+      // StrictMode's double-mounted effect) short-circuits at the guard above
+      // instead of fetching and appending the same year twice.
+      loadedYearsRef.current.add(selectedYear)
       setLoading(true)
 
       // Performance tracking
@@ -339,14 +351,9 @@ export default function CourseSearch({
           currentSubject: 'Preparing complete subject list...',
         })
 
-        const availableSubjects = getSubjectCodesForYear(CURRENT_ACADEMIC_YEAR)
-
         console.log(
           `📂 Complete subject list: ${availableSubjects.length} subjects (excludes exemption codes)`
         )
-
-        // Store all subjects for parent component (they'll filter by current term)
-        setAvailableSubjects(availableSubjects)
 
         setLoadingProgress({
           loaded: 0,
@@ -364,7 +371,7 @@ export default function CourseSearch({
           const subjectStartTime = performance.now()
 
           try {
-            const response = await fetch(`/data/${CURRENT_ACADEMIC_YEAR}/${subject}.json`)
+            const response = await fetch(`/data/${selectedYear}/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
               const subjectEndTime = performance.now()
@@ -512,7 +519,7 @@ export default function CourseSearch({
 
         if (successCount === 0) {
           console.error(
-            `❌ No course data could be loaded - check that /data/${CURRENT_ACADEMIC_YEAR}/ files exist`
+            `❌ No course data could be loaded - check that /data/${selectedYear}/ files exist`
           )
         }
 
@@ -521,8 +528,9 @@ export default function CourseSearch({
           setFailedSubjectCount(failed)
         }
 
-        setAllCourses(allCoursesData)
-        setHasDataLoaded(true) // Mark data as loaded for this session
+        // Accumulate across years so archived years stay loaded once fetched.
+        setAllCourses((prev) => [...prev, ...allCoursesData])
+        setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
         // Find the oldest scraping timestamp and notify parent
@@ -535,6 +543,7 @@ export default function CourseSearch({
         }
       } catch (error) {
         console.error('Failed to load course data:', error)
+        loadedYearsRef.current.delete(selectedYear) // released so the year can retry
         setLoading(false)
       } finally {
         setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
@@ -562,7 +571,7 @@ export default function CourseSearch({
     } else {
       loadCourseData()
     }
-  }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
+  }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
 
   // Async filtering function for non-blocking computation
   const performFiltering = useCallback(
@@ -709,7 +718,9 @@ export default function CourseSearch({
   return (
     <div className="space-y-4">
       {/* Sticky Search Input with Term Filter Hint */}
-      <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
+      <div
+        className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4`}
+      >
         {/* Partial load warning */}
         {failedSubjectCount > 0 && (
           <div
@@ -747,51 +758,11 @@ export default function CourseSearch({
                 <Info className="w-3 h-3" />
               </span>
               <span>Showing courses in</span>
-              {availableTerms.length > 0 && onTermChange ? (
-                <div className="relative">
-                  <button
-                    onClick={() => setIsTermDropdownOpen(!isTermDropdownOpen)}
-                    className={`inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-xs font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors cursor-pointer ${isTermDropdownOpen ? 'relative z-50 bg-blue-50' : ''}`}
-                    title="Click to change term"
-                  >
-                    <span>{currentTerm}</span>
-                    <ChevronDown className="w-3 h-3" />
-                  </button>
-
-                  {isTermDropdownOpen && (
-                    <>
-                      {/* Backdrop */}
-                      <div
-                        className="fixed inset-0 z-40 cursor-pointer"
-                        onClick={() => setIsTermDropdownOpen(false)}
-                      />
-
-                      {/* Dropdown */}
-                      <div className="absolute left-0 top-full mt-1 z-50 bg-white border border-gray-200 rounded-md shadow-lg min-w-[250px]">
-                        <div className="py-1">
-                          {availableTerms.map((term) => (
-                            <button
-                              key={term}
-                              type="button"
-                              className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
-                                term === currentTerm ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
-                              }`}
-                              onClick={() => {
-                                onTermChange?.(term)
-                                setIsTermDropdownOpen(false)
-                              }}
-                            >
-                              {term}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ) : (
-                <strong>{currentTerm}</strong>
-              )}
+              <TermSelector
+                selectedTerm={currentTerm}
+                availableTerms={availableTerms}
+                onTermChange={onTermChange}
+              />
             </div>
             {selectedSubjects.size > 0 && (
               <div className="flex items-center gap-1">

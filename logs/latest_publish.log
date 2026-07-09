@@ -1,13 +1,18 @@
 Scraped data: 263 subjects, 8,925 courses, 0 failed
 [2025-26] source files: 206, selected: 206
 [2025-26] subject list matches subjects.ts (206 subjects)
+[2026-27] source files: 197, selected: 197
+[2026-27] subject list matches subjects.ts (197 subjects)
 
-Publishing 206 files under web/public/data/<year>/
+Publishing 403 files under web/public/data/<year>/
+⚠️  Terms manifest changed:
+   Added: 2026-27 Acad Year (Medicine), 2026-27 Summer Session, 2026-27 Term 1, 2026-27 Term 2
+
 
 Publishing Summary:
-   ✅ Published: 206/206 files
+   ✅ Published: 403/403 files
    Destination: web/public/data/<year>/
 
 Logs saved to:
-   logs/publish/publish_20260708_223952.log
+   logs/publish/publish_20260709_113103.log
    logs/latest_publish.log

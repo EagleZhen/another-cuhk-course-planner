@@ -1272,15 +1272,16 @@ export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
   window.open(url, '_blank', 'noopener,noreferrer')
 }
 
-// === CALENDAR EXPORT UTILITIES ===
+// === ACADEMIC YEAR (TERM PARSING) ===
 
 /**
- * Extracts academic year information from term name
- * @param termName Term name like "2025-26 Term 2"
- * @returns Object with first year and second year of the academic year
+ * Academic-year bounds from a term name, e.g. "2025-26 Term 2" → { firstYear: 2025, secondYear: 2026 }.
+ * The two calendar years let callers place a "day/month" onto the right year.
  */
-export function getAcademicYear(termName: string): { firstYear: number; secondYear: number } {
-  // Extract academic year from term name (e.g., "2025-26 Term 2" → "2025-26")
+export function extractAcademicYearBounds(termName: string): {
+  firstYear: number
+  secondYear: number
+} {
   const academicYearMatch = termName.match(/(\d{4})-(\d{2})/)
 
   if (!academicYearMatch) {
@@ -1294,6 +1295,20 @@ export function getAcademicYear(termName: string): { firstYear: number; secondYe
 }
 
 /**
+ * Academic-year code from a term name, e.g. "2025-26 Term 2" → "2025-26".
+ * This code keys the per-year data manifests and served data directories.
+ */
+export function extractAcademicYearCode(termName: string): string {
+  const match = termName.match(/\d{4}-\d{2}/)
+  if (!match) {
+    throw new Error(`Invalid term name format: ${termName}`)
+  }
+  return match[0]
+}
+
+// === CALENDAR EXPORT UTILITIES ===
+
+/**
  * Parses meeting dates string and converts to actual Date objects
  * @param dates Comma-separated dates like "5/1, 12/1, 19/1"
  * @param termName Term name like "2025-26 Term 2"
@@ -1305,7 +1320,7 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
     return []
   }
 
-  const { firstYear, secondYear } = getAcademicYear(termName)
+  const { firstYear, secondYear } = extractAcademicYearBounds(termName)
 
   return dates
     .split(',')

@@ -104,3 +104,13 @@ Why it fits:
 - no fallback for a stale default: it would hide the mistake and force an arbitrary pick. A test ([constants.test.ts](../web/src/lib/constants.test.ts)) fails if the default isn't a generated term.
 
 Limitation: bump `DEFAULT_CURRENT_TERM` by hand on rollover; the test catches a stale one.
+
+## Eager Current Year, Lazy Archived Years
+
+`CURRENT_ACADEMIC_YEAR` (from `DEFAULT_CURRENT_TERM`) is the single knob for the live year. The app eager-loads it at startup and fetches other years only when selected; a non-live year shows a persistent "archived, for reference only" bar.
+
+Why it fits:
+
+- archived years are worth keeping (last year's catalog predicts next year's, which CUHK hides at rollover) but rarely opened — so fetch on demand, not upfront.
+- the reference bar and one-click return keep a frozen year from being mistaken for the live one and edited by accident.
+- deriving the live year from `DEFAULT_CURRENT_TERM` makes rollover a single edit that flips both the eager year and the archived set.

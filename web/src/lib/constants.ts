@@ -12,7 +12,7 @@ export const NOTICE_IMAGE_LOADED_EVENT = 'mobile-notice-image-loaded'
 export const SCHEDULE_DATA_VERSION = 1
 
 // Default selected term. Bump on rollover manually for now.
-export const DEFAULT_CURRENT_TERM = '2025-26 Summer Session'
+export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
 
 // Academic year the app eager-loads, derived from the default term (a term name
 // is "YYYY-YY <suffix>"). The single current-year knob is DEFAULT_CURRENT_TERM.
