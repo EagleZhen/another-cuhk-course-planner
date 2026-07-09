@@ -330,6 +330,10 @@ export default function CourseSearch({
     }
 
     const loadCourseData = async () => {
+      // Claim the year up front so a concurrent re-invocation (e.g. React
+      // StrictMode's double-mounted effect) short-circuits at the guard above
+      // instead of fetching and appending the same year twice.
+      loadedYearsRef.current.add(selectedYear)
       setLoading(true)
 
       // Performance tracking
@@ -526,7 +530,6 @@ export default function CourseSearch({
 
         // Accumulate across years so archived years stay loaded once fetched.
         setAllCourses((prev) => [...prev, ...allCoursesData])
-        loadedYearsRef.current.add(selectedYear)
         setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
@@ -540,6 +543,7 @@ export default function CourseSearch({
         }
       } catch (error) {
         console.error('Failed to load course data:', error)
+        loadedYearsRef.current.delete(selectedYear) // released so the year can retry
         setLoading(false)
       } finally {
         setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
