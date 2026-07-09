@@ -60,7 +60,9 @@ function SelectMenu({
           title={title}
         >
           <span className="text-sm">{label}</span>
-          <ChevronDown className="w-3 h-3" />
+          <ChevronDown
+            className={`h-3 w-3 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          />
         </Button>
       ) : (
         <button
@@ -69,7 +71,7 @@ function SelectMenu({
           title={title}
         >
           <span>{label}</span>
-          <ChevronDown className="w-3 h-3" />
+          <ChevronDown className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </button>
       )}
 
