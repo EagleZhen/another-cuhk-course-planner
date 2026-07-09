@@ -34,6 +34,7 @@ import {
   cuhkLibrarySearchAndOpen,
   getDayIndex,
   getAggregateSeatInfo,
+  extractAcademicYearCode,
 } from '@/lib/courseUtils'
 import type {
   InternalCourse,
@@ -52,7 +53,6 @@ import {
   NOTICE_STORAGE_KEY,
   NOTICE_VERSION,
   NOTICE_IMAGE_LOADED_EVENT,
-  CURRENT_ACADEMIC_YEAR,
 } from '@/lib/constants'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
@@ -172,10 +172,15 @@ export default function CourseSearch({
   })
   const [loadedBytes, setLoadedBytes] = useState(0)
   const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
-  const [availableSubjects, setAvailableSubjects] = useState<readonly string[]>([])
   const [isTermDropdownOpen, setIsTermDropdownOpen] = useState(false)
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
   const [hasDataLoaded, setHasDataLoaded] = useState(false)
+
+  // Academic year of the selected term; drives which year's data we load and list.
+  const selectedYear = extractAcademicYearCode(currentTerm)
+  const availableSubjects = useMemo(() => getSubjectCodesForYear(selectedYear), [selectedYear])
+  // Years whose data is already fetched this session (each loads at most once).
+  const loadedYearsRef = useRef<Set<string>>(new Set())
   const [failedSubjectCount, setFailedSubjectCount] = useState(0)
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
 
@@ -313,11 +318,12 @@ export default function CourseSearch({
     )
   }
 
-  // Load course data on component mount and when term changes
+  // Load the selected year's data: eagerly for the current year on mount, then
+  // lazily whenever the user switches to an archived year not yet fetched.
   useEffect(() => {
-    // Skip loading if data is already loaded this session for this term
-    if (hasDataLoaded) {
-      console.log('📦 Course data already loaded this session, skipping reload')
+    // Each year loads at most once per session.
+    if (loadedYearsRef.current.has(selectedYear)) {
+      console.log(`📦 ${selectedYear} data already loaded this session, skipping reload`)
       return
     }
 
@@ -339,14 +345,9 @@ export default function CourseSearch({
           currentSubject: 'Preparing complete subject list...',
         })
 
-        const availableSubjects = getSubjectCodesForYear(CURRENT_ACADEMIC_YEAR)
-
         console.log(
           `📂 Complete subject list: ${availableSubjects.length} subjects (excludes exemption codes)`
         )
-
-        // Store all subjects for parent component (they'll filter by current term)
-        setAvailableSubjects(availableSubjects)
 
         setLoadingProgress({
           loaded: 0,
@@ -364,7 +365,7 @@ export default function CourseSearch({
           const subjectStartTime = performance.now()
 
           try {
-            const response = await fetch(`/data/${CURRENT_ACADEMIC_YEAR}/${subject}.json`)
+            const response = await fetch(`/data/${selectedYear}/${subject}.json`)
             if (response.ok) {
               const rawData = await response.json()
               const subjectEndTime = performance.now()
@@ -512,7 +513,7 @@ export default function CourseSearch({
 
         if (successCount === 0) {
           console.error(
-            `❌ No course data could be loaded - check that /data/${CURRENT_ACADEMIC_YEAR}/ files exist`
+            `❌ No course data could be loaded - check that /data/${selectedYear}/ files exist`
           )
         }
 
@@ -521,8 +522,10 @@ export default function CourseSearch({
           setFailedSubjectCount(failed)
         }
 
-        setAllCourses(allCoursesData)
-        setHasDataLoaded(true) // Mark data as loaded for this session
+        // Accumulate across years so archived years stay loaded once fetched.
+        setAllCourses((prev) => [...prev, ...allCoursesData])
+        loadedYearsRef.current.add(selectedYear)
+        setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
         // Find the oldest scraping timestamp and notify parent
@@ -562,7 +565,7 @@ export default function CourseSearch({
     } else {
       loadCourseData()
     }
-  }, [onDataUpdate, currentTerm, hasDataLoaded]) // Re-run when term changes to get term-specific subjects
+  }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
 
   // Async filtering function for non-blocking computation
   const performFiltering = useCallback(
