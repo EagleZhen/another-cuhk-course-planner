@@ -23,5 +23,4 @@ Worth a proper investigation pass (how consistently the code itself uses these t
 
 ## Non-Goals For Now
 
-- **On-demand subject loading**: parallel startup load is fast enough; splitting it would be premature optimization.
 - **Live enrollment updates**: availability is scraped, not real-time, by design. See [decisions.md](decisions.md#frontend-only-static-app).
