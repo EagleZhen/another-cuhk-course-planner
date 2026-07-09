@@ -1466,6 +1466,174 @@ function CourseCard({
       return nameA.localeCompare(nameB)
     })
 
+  // Cart action buttons (Add/Remove/Scroll to Cart/Replace), compact inline layout for desktop
+  const renderCartActionsInline = () => (
+    <>
+      {isAdded ? (
+        <>
+          {/* Remove button for enrolled courses */}
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              onRemoveCourse(courseKey)
+            }}
+            className="min-w-[70px]"
+            title="Remove course from cart"
+          >
+            <Trash2 className="w-3 h-3 mr-1" />
+            Remove
+          </Button>
+
+          {/* Scroll to Cart button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (onScrollToCart && enrolledCourse) {
+                onScrollToCart(enrolledCourse.courseId)
+              }
+            }}
+            className="min-w-[80px]"
+            title="Scroll to course in shopping cart"
+          >
+            <ShoppingCart className="w-3 h-3 mr-1" />
+            Scroll to Cart
+          </Button>
+
+          {/* Replace/Added status button - for courses already in cart */}
+          <Button
+            variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (hasSelectionsChanged && isEnrollmentComplete) {
+                onAddCourse(course, localSelections)
+              }
+            }}
+            disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+            className="min-w-[80px]"
+            title={
+              hasSelectionsChanged && isEnrollmentComplete
+                ? 'Replace course with new section selections'
+                : 'Course already added to cart'
+            }
+          >
+            {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
+          </Button>
+        </>
+      ) : (
+        /* Add button for non-enrolled courses */
+        <Button
+          variant={isEnrollmentComplete ? 'default' : 'secondary'}
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            if (isEnrollmentComplete) {
+              onAddCourse(course, localSelections)
+            }
+          }}
+          disabled={!isEnrollmentComplete}
+          className="min-w-[80px]"
+          title={
+            !isEnrollmentComplete
+              ? 'Select required sections to add course (some types may not have compatible options)'
+              : 'Add course to cart'
+          }
+        >
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+        </Button>
+      )}
+    </>
+  )
+
+  // Cart action buttons, full-width stacked layout (primary action on its own row) for mobile
+  const renderCartActionsStacked = () => (
+    <>
+      {isAdded ? (
+        <>
+          {/* Primary action: Replace/Added status - full width */}
+          <Button
+            variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              if (hasSelectionsChanged && isEnrollmentComplete) {
+                onAddCourse(course, localSelections)
+              }
+            }}
+            disabled={!hasSelectionsChanged || !isEnrollmentComplete}
+            className="w-full"
+            title={
+              hasSelectionsChanged && isEnrollmentComplete
+                ? 'Replace course with new section selections'
+                : 'Course already added to cart'
+            }
+          >
+            {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
+          </Button>
+
+          {/* Secondary actions: Scroll to Cart + Remove - side by side */}
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                if (onScrollToCart && enrolledCourse) {
+                  onScrollToCart(enrolledCourse.courseId)
+                }
+              }}
+              className="flex-1"
+              title="Scroll to course in shopping cart"
+            >
+              <ShoppingCart className="w-3 h-3 mr-1" />
+              Scroll to Cart
+            </Button>
+
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                onRemoveCourse(courseKey)
+              }}
+              className="flex-1"
+              title="Remove course from cart"
+            >
+              <Trash2 className="w-3 h-3 mr-1" />
+              Remove
+            </Button>
+          </div>
+        </>
+      ) : (
+        /* Add button for non-enrolled courses - full width */
+        <Button
+          variant={isEnrollmentComplete ? 'default' : 'secondary'}
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            if (isEnrollmentComplete) {
+              onAddCourse(course, localSelections)
+            }
+          }}
+          disabled={!isEnrollmentComplete}
+          className="w-full"
+          title={
+            !isEnrollmentComplete
+              ? 'Select required sections to add course (some types may not have compatible options)'
+              : 'Add course to cart'
+          }
+        >
+          <Plus className="w-3 h-3 mr-1" />
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+        </Button>
+      )}
+    </>
+  )
+
   return (
     <Card
       className={`py-5 gap-0 transition-all duration-200 ${
@@ -1531,83 +1699,7 @@ function CourseCard({
             </CardDescription>
           </div>
           <div className="flex items-center gap-2 ml-2">
-            {isAdded ? (
-              <>
-                {/* Remove button for enrolled courses */}
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    onRemoveCourse(courseKey)
-                  }}
-                  className="min-w-[70px]"
-                  title="Remove course from cart"
-                >
-                  <Trash2 className="w-3 h-3 mr-1" />
-                  Remove
-                </Button>
-
-                {/* Scroll to Cart button */}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (onScrollToCart && enrolledCourse) {
-                      onScrollToCart(enrolledCourse.courseId)
-                    }
-                  }}
-                  className="min-w-[80px]"
-                  title="Scroll to course in shopping cart"
-                >
-                  <ShoppingCart className="w-3 h-3 mr-1" />
-                  Scroll to Cart
-                </Button>
-
-                {/* Replace/Added status button - for courses already in cart */}
-                <Button
-                  variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (hasSelectionsChanged && isEnrollmentComplete) {
-                      onAddCourse(course, localSelections)
-                    }
-                  }}
-                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="min-w-[80px]"
-                  title={
-                    hasSelectionsChanged && isEnrollmentComplete
-                      ? 'Replace course with new section selections'
-                      : 'Course already added to cart'
-                  }
-                >
-                  {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
-                </Button>
-              </>
-            ) : (
-              /* Add button for non-enrolled courses */
-              <Button
-                variant={isEnrollmentComplete ? 'default' : 'secondary'}
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  if (isEnrollmentComplete) {
-                    onAddCourse(course, localSelections)
-                  }
-                }}
-                disabled={!isEnrollmentComplete}
-                className="min-w-[80px]"
-                title={
-                  !isEnrollmentComplete
-                    ? 'Select required sections to add course (some types may not have compatible options)'
-                    : 'Add course to cart'
-                }
-              >
-                {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
-              </Button>
-            )}
+            {renderCartActionsInline()}
             <Button
               variant="ghost"
               size="sm"
@@ -1833,85 +1925,7 @@ function CourseCard({
 
           {/* Action buttons section - vertical hierarchy */}
           <div className="border-t border-gray-100 pt-3 space-y-2">
-            {isAdded ? (
-              <>
-                {/* Primary action: Replace/Added status - full width */}
-                <Button
-                  variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    if (hasSelectionsChanged && isEnrollmentComplete) {
-                      onAddCourse(course, localSelections)
-                    }
-                  }}
-                  disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-                  className="w-full"
-                  title={
-                    hasSelectionsChanged && isEnrollmentComplete
-                      ? 'Replace course with new section selections'
-                      : 'Course already added to cart'
-                  }
-                >
-                  {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
-                </Button>
-
-                {/* Secondary actions: Scroll to Cart + Remove - side by side */}
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      if (onScrollToCart && enrolledCourse) {
-                        onScrollToCart(enrolledCourse.courseId)
-                      }
-                    }}
-                    className="flex-1"
-                    title="Scroll to course in shopping cart"
-                  >
-                    <ShoppingCart className="w-3 h-3 mr-1" />
-                    Scroll to Cart
-                  </Button>
-
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      onRemoveCourse(courseKey)
-                    }}
-                    className="flex-1"
-                    title="Remove course from cart"
-                  >
-                    <Trash2 className="w-3 h-3 mr-1" />
-                    Remove
-                  </Button>
-                </div>
-              </>
-            ) : (
-              /* Add button for non-enrolled courses - full width */
-              <Button
-                variant={isEnrollmentComplete ? 'default' : 'secondary'}
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  if (isEnrollmentComplete) {
-                    onAddCourse(course, localSelections)
-                  }
-                }}
-                disabled={!isEnrollmentComplete}
-                className="w-full"
-                title={
-                  !isEnrollmentComplete
-                    ? 'Select required sections to add course (some types may not have compatible options)'
-                    : 'Add course to cart'
-                }
-              >
-                <Plus className="w-3 h-3 mr-1" />
-                {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
-              </Button>
-            )}
+            {renderCartActionsStacked()}
 
             {/* Expand button - separate as it's different from cart actions */}
             <Button
