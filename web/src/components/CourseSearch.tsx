@@ -53,6 +53,7 @@ import {
   NOTICE_STORAGE_KEY,
   NOTICE_VERSION,
   NOTICE_IMAGE_LOADED_EVENT,
+  CURRENT_ACADEMIC_YEAR,
 } from '@/lib/constants'
 import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
@@ -178,6 +179,7 @@ export default function CourseSearch({
 
   // Academic year of the selected term; drives which year's data we load and list.
   const selectedYear = extractAcademicYearCode(currentTerm)
+  const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
   const availableSubjects = useMemo(() => getSubjectCodesForYear(selectedYear), [selectedYear])
   // Years whose data is already fetched this session (each loads at most once).
   const loadedYearsRef = useRef<Set<string>>(new Set())
@@ -712,7 +714,9 @@ export default function CourseSearch({
   return (
     <div className="space-y-4">
       {/* Sticky Search Input with Term Filter Hint */}
-      <div className="sticky top-0 z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4">
+      <div
+        className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4`}
+      >
         {/* Partial load warning */}
         {failedSubjectCount > 0 && (
           <div

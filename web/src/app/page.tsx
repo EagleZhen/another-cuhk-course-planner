@@ -534,21 +534,51 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Data source disclaimer — swapped out for the reference-mode bar on archived years */}
+      {!isArchivedYear && (
+        <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
+          <span>Data regularly synced from </span>
+          <a
+            href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-amber-900 font-medium"
+          >
+            the official course catalog
+          </a>
+          <span>. </span>
+          <span className="font-semibold">Always verify in </span>
+          <a
+            href="https://cusis.cuhk.edu.hk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-amber-900 font-bold"
+          >
+            CUSIS
+          </a>
+          <span className="font-semibold"> before enrolling.</span>
+        </div>
+      )}
+
       {/* Reference-mode bar: sticky, global reminder while browsing a frozen, non-live year */}
       {isArchivedYear && (
         <div className="sticky top-0 z-40 border-b border-amber-300 bg-amber-50 text-amber-900 shadow-sm">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-sm">
-            <span className="flex items-center gap-2">
-              <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
-              <span>
-                Viewing <strong className="font-semibold">{currentTerm}</strong> — archived data.
+          <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
+            <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
+            <span className="truncate">
+              <span className="hidden sm:inline">
+                Viewing <strong className="font-semibold">{currentTerm}</strong> — archived, for
+                reference only.
+              </span>
+              <span className="sm:hidden">
+                Archived: <strong className="font-semibold">{currentTerm}</strong>
               </span>
             </span>
             <button
               onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
               className="flex-shrink-0 cursor-pointer rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-amber-700"
             >
-              Back to current term
+              Back to current<span className="hidden sm:inline"> term</span>
             </button>
           </div>
         </div>
@@ -559,7 +589,9 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
-            <div className="h-[800px]">
+            {/* isolate: contain the calendar's internal sticky-header z-index so it
+                can't bleed over the page's sticky reference bar */}
+            <div className="h-[800px] isolate">
               <WeeklyCalendar
                 events={calendarEvents}
                 unscheduledSections={getUnscheduledSections(courseEnrollments)}
