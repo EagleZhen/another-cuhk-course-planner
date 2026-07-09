@@ -1309,6 +1309,37 @@ function CourseCard({
     }
   }, [shouldAutoExpand, searchSequence])
 
+  // Mobile: action buttons dock right below the search/filter bar while expanded, so
+  // measure its live height the same way page.tsx does for scroll-to-cart, rather than
+  // guessing a fixed pixel value.
+  const [stickyOffset, setStickyOffset] = useState(0)
+  useEffect(() => {
+    if (!expanded) return
+    const filterBar = document.querySelector('[data-course-search] .sticky')
+    setStickyOffset(filterBar ? filterBar.getBoundingClientRect().height : 0)
+  }, [expanded])
+
+  // Only look "elevated" (shadow + rounded corners) once actually pinned in place, not
+  // just because the card is expanded - detected via a zero-height sentinel placed right
+  // before the bar, a standard trick for telling "stuck" apart from "in normal flow"
+  const stickySentinelRef = useRef<HTMLDivElement>(null)
+  const [isStuck, setIsStuck] = useState(false)
+  useEffect(() => {
+    if (!expanded) {
+      setIsStuck(false)
+      return
+    }
+    const sentinel = stickySentinelRef.current
+    if (!sentinel) return
+
+    const observer = new IntersectionObserver(([entry]) => setIsStuck(!entry.isIntersecting), {
+      rootMargin: `-${stickyOffset}px 0px 0px 0px`,
+      threshold: 0,
+    })
+    observer.observe(sentinel)
+    return () => observer.disconnect()
+  }, [expanded, stickyOffset])
+
   // Calculate days available for this specific course
   const availableDays = useMemo(() => {
     const daysWithCourses = new Set<number>()
@@ -1922,28 +1953,38 @@ function CourseCard({
               )}
             </div>
           </div>
-
-          {/* Action buttons section - vertical hierarchy */}
-          <div className="border-t border-gray-100 pt-3 space-y-2">
-            {renderCartActionsStacked()}
-
-            {/* Expand button - separate as it's different from cart actions */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleToggle()
-              }}
-              className="w-full cursor-pointer"
-              title={expanded ? 'Hide sections' : 'Show sections'}
-            >
-              {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              <span className="ml-2">{expanded ? 'Hide Sections' : 'Show Sections'}</span>
-            </Button>
-          </div>
         </div>
       </CardHeader>
+
+      {/* Zero-height sentinel: lets the IntersectionObserver above detect the moment
+          this section actually becomes stuck, as opposed to just being expanded */}
+      <div ref={stickySentinelRef} className="sm:hidden" />
+
+      {/* Mobile: action buttons dock below the search bar while expanded, same plain
+          CSS sticky approach as the search bar / archived-year banner itself */}
+      <div
+        className={`sm:hidden border-t border-gray-100 bg-white px-6 pt-3 pb-3 space-y-2 transition-shadow ${
+          expanded ? 'sticky z-10' : ''
+        } ${isStuck ? 'shadow-md rounded-b-lg' : ''}`}
+        style={expanded ? { top: stickyOffset } : undefined}
+      >
+        {renderCartActionsStacked()}
+
+        {/* Expand button - separate as it's different from cart actions */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            handleToggle()
+          }}
+          className="w-full cursor-pointer"
+          title={expanded ? 'Hide sections' : 'Show sections'}
+        >
+          {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          <span className="ml-2">{expanded ? 'Hide Sections' : 'Show Sections'}</span>
+        </Button>
+      </div>
 
       {expanded && (
         <CardContent className="pt-0">
