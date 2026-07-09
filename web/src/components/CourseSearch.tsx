@@ -1316,7 +1316,9 @@ function CourseCard({
   useEffect(() => {
     if (!expanded) return
     const filterBar = document.querySelector('[data-course-search] .sticky')
-    setStickyOffset(filterBar ? filterBar.getBoundingClientRect().height : 0)
+    // Use .bottom, not .height - the filter bar itself sticks at top-[37px] (not
+    // top-0) in archived-year views, and .bottom already reflects that live position
+    setStickyOffset(filterBar ? filterBar.getBoundingClientRect().bottom : 0)
   }, [expanded])
 
   // The "elevated" look (shadow, rounded corners, background) applies unconditionally
