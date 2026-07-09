@@ -1662,7 +1662,7 @@ function CourseCard({
           search bar / archived-year banner itself. Buttons stay exactly where they are
           today - no relocation needed */}
       <CardHeader
-        className={`pb-3 transition-colors duration-200 ${
+        className={`pb-3 transition-[background-color,box-shadow] duration-200 ${
           expanded ? 'sm:sticky sm:z-[5] sm:bg-white sm:shadow-[0_-12px_0_0_white]' : ''
         }`}
         style={expanded ? { top: stickyOffset + 12 } : undefined}
