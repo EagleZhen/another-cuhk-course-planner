@@ -1279,7 +1279,10 @@ export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
  * @param termName Term name like "2025-26 Term 2"
  * @returns Object with first year and second year of the academic year
  */
-export function getAcademicYear(termName: string): { firstYear: number; secondYear: number } {
+export function extractAcademicYearBounds(termName: string): {
+  firstYear: number
+  secondYear: number
+} {
   // Extract academic year from term name (e.g., "2025-26 Term 2" → "2025-26")
   const academicYearMatch = termName.match(/(\d{4})-(\d{2})/)
 
@@ -1305,7 +1308,7 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
     return []
   }
 
-  const { firstYear, secondYear } = getAcademicYear(termName)
+  const { firstYear, secondYear } = extractAcademicYearBounds(termName)
 
   return dates
     .split(',')
