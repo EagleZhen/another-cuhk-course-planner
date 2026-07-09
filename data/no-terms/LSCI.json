@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T17:21:35.509522+00:00",
+    "scraped_at": "2026-07-08T19:01:22.124354+00:00",
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
-    "total_courses": 32,
+    "total_courses": 28,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -622,31 +622,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "6104",
-      "title": "Techniques in Molecular Modelling of Proteins",
-      "credits": "1.00",
-      "terms": [],
-      "description": "This course will provide students with hand-on experiences on using molecular modelling, which enable students to formulate hypotheses to understand structure/functions of proteins.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will learn\n\n1. to perform basic protein sequence analysis such as sequence alignment and secondary structure prediction\n2. to use molecular graphics programs, such as PyMOL and Chimera, to understand biomolecular interactions and to identify structural changes in proteins\n3. to perform homology modelling to predict 3D structures of proteins and use the model to understand the structure/function of a protein\n4. to use docking simulation to predict protein-ligand interactions",
-      "course_syllabus": "Week 1. Sequence Analysis\n\nWeek 2. Molecular Graphics\n\nWeek 3. Homology Modelling\n\nWeek 4. Docking",
-      "assessment_types": {
-        "Attendance": "50",
-        "Homework or assignment": "50"
-      },
-      "feedback_evaluation": "- Course evaluation\n\n- Discussion with students",
-      "required_readings": "YS Nim, S Sun and KB Wong (2017) “Using Homology Modeling to Understand the Structural Basis of Specific Interaction of a Plant-Specific AtSar1a–AtSec23a Pair Involved in Protein ER Export” Methods Mol. Biol. 1662:59-73.",
-      "recommended_readings": "A. Fiser & A. Sali (2013) “Modeller: Generation and Refinement of Homology-Based Protein Structure Models” Method Enzymol, 374:461\n\nForli et al. (2016) “Computational protein-ligand docking and virtual drug screening with the AutoDock suite” Nature Protocol, 11:905-919"
-    },
-    {
-      "subject": "LSCI",
       "course_code": "6105",
       "title": "Techniques in Protein Crystallography",
       "credits": "1.00",
@@ -695,31 +670,6 @@
     },
     {
       "subject": "LSCI",
-      "course_code": "6301",
-      "title": "Techniques in Mammalian Cell Research",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will teach students about basic and advanced techniques on mammalian cell research.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will learn\n1. the theories of mammalian cell growth\n2. the basic techniques involved in mammalian cell culture and gene manipulation of mammalian cells\n3. the techniques for mammalian cell research at cell level\n4. the techniques for mammalian cell research at molecular level\n5. specialized assays for cardiac, neuronal and associated gila research\n6. the ways to establish animal models",
-      "course_syllabus": "* Overview of mammalian cell culture\n* Basic techniques/equipment involved in mammalian cell culture\n* Techniques for measuring cell proliferation, cell differentiation, migration, metastasis\n* Techniques for gene manipulation of mammalian cells\n* Overview of neuronal cell culture\n* Techniques for preparation of primary neurons\n* Techniques for the investigation of neurite development\n* Techniques for studying the interaction of neuronal molecules\n* Overview of glia cell physiology\n* Techniques for preparation of primary embryonic and adult glia cells\n* Techniques for evaluating glia physiology\n* Techniques for establishing animal models of neurodegenerative diseases",
-      "assessment_types": {
-        "Examination": "70",
-        "Test or quiz": "30"
-      },
-      "feedback_evaluation": "* Course Evaluation\n* Discussion with students",
-      "required_readings": "Current and relevant journal articles related to mammalian cell research as selected by instructors.",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "LSCI",
       "course_code": "6304",
       "title": "Techniques in Marine Biological and Ecological Research",
       "credits": "3.00",
@@ -743,59 +693,6 @@
       },
       "feedback_evaluation": "* Course Evaluation\n* Discussion with students",
       "required_readings": "Relevant journal articles and other reading materials to be distributed by instructors.",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6305",
-      "title": "Techniques in Plant Sciences",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course teaches theory and skills used in modern plant physiology, plant cell signaling, and plant cellular and molecular biology researches.",
-      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "Students will learn and master the abilities to:\n1. identify and explain key research methodologies in different areas of plant sciences\n2. design methods and experiments to investigate research questions in plant sciences\n3. apply research methods for sampling and data collection\n4. analyse and present research data",
-      "course_syllabus": "Week 1 (12 hours)\n\n* Overview of transient expression systems in plant cells\n* Techniques for using transient expression systems for studying protein stability and trafficking in plant cells\n\nWeek 2 (12 hours)\n\n* Overview of plant genetic engineering and transgenic plants\n* Molecular techniques for transgenic plant analyses\n\nWeek 3 (12 hours)\n\n* Overview of protein-protein and protein-DNA interaction studies in plants\n* *In vitro* and *in vivo* techniques for studying protein-protein or protein-DNA interaction in plants\n\nWeek 4 (3 hours)\n\n* Presentation of course learning experience and results",
-      "assessment_types": {
-        "Lab performance": "40",
-        "Presentation": "30",
-        "Participation": "10",
-        "Report": "20"
-      },
-      "feedback_evaluation": "* Course Evaluation\n* Discussion with students",
-      "required_readings": "Current and relevant journal articles related to plant sciences as selected by instructors.",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "LSCI",
-      "course_code": "6306",
-      "title": "Techniques in NGS Sequencing Library Preparation",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course contains lectures and laboratory practice sections related to sequencing techniques in genomics, transcriptomics, and epigenetics. This course will focus on molecular biology experiment methods (aka wet lab skills) such as genomic DNA sequencing, RNA-Seq, small RNA-Seq, chromatin immunoprecipitation sequencing (ChIP-Seq), DNaseI-Seq, ATAC-Seq and whole-genome bisulfite sequencing. In addition, a genomic technology known as optical mapping that is complementary to sequencing will also be discussed and performed.",
-      "enrollment_requirement": "For students in MPhil-PhD Biology; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Laboratory",
-      "campus": "Main Campus",
-      "academic_group": "Division of Life Sciences",
-      "academic_org": "Division of Life Sciences",
-      "learning_outcomes": "The students will be able to perform\n\n1. DNA-Seq\n\n2. RNA-Seq and sRNA-Seq\n\n3. ChIP-Seq and DAP-Seq\n\n4. DNaseI-Seq and ATAC-Seq\n\n5. WGBS-Seq\n\n6. Optical mapping analysis",
-      "course_syllabus": "The purpose of this course is to get an in-depth understanding in the molecular basis of current NGS techniques with a special focus on different strategies related Illumina sequencing library preparation. Advantages and disadvantages of current sequencing technologies and their implications on the sequencing result implication will be discussed. The course layout has been adapted to the needs of beginners in the field of NGS. However, molecular biology background is required.",
-      "assessment_types": {
-        "Lab reports": "40",
-        "Lab performance": "50",
-        "Participation": "10"
-      },
-      "feedback_evaluation": "* Course Evaluation\n* Discussion with students",
-      "required_readings": "* Current Protocols in Molecular Biology\n* Molecular Cloning: A Laboratory Manual",
       "recommended_readings": ""
     },
     {

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-04T15:38:39.221500+00:00",
+    "scraped_at": "2026-07-08T16:29:05.132469+00:00",
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 11,
+    "total_courses": 9,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -137,31 +137,6 @@
     },
     {
       "subject": "ENGG",
-      "course_code": "5104",
-      "title": "Image Processing and Computer Vision",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course will cover fundamental knowledge and advanced topics in image processing and computer vision, including feature detection, segmentation, motion estimation, panorama construction, 3D reconstruction, scene detection and classification, color image processing and restoration. Applications in computer graphics will also be introduced, including image transformation, and camera\ncalibration. Basic concepts of related algorithms and mathematic background will be discussed.",
-      "enrollment_requirement": "For students in MSc Computer Science or MPhil-PhD programmes under Faculty of Engineering or UG Computer Science or UG Computer Engineering;Not for students who have taken CMSC5711 or CSCI5280",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand basic knowledge and algorithms in computer vision.\n2. Use Matlab in computer vision programming.\n3. Perform image transformation in the color and spatial domains.",
-      "course_syllabus": "This course will cover fundamental knowledge and advanced topics in image processing and computer vision, including feature detection, segmentation, motion estimation, panorama construction, 3D reconstruction, scene detection and classification, color image processing and restoration. Applications in computer graphics will also be introduced, including image transformation, and camera calibration. Basic concepts of related algorithms and mathematic background will be discussed.",
-      "assessment_types": {
-        "Essay test or exam": "25",
-        "Others": "75"
-      },
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. Computer Vision: A Modern Approach, 2nd Edition, Forsyth & Ponce, Pearson, 2011.\n2. Digital Image Processing, 3rd Edition, Gonzalez and Woods, Prentice Hall, 2008.\n3. Multiple View Geometry in Computer Vision, 2nd Edition, Richard Hartley and Andrew Zisserman, Cambridge University Press, March 2004."
-    },
-    {
-      "subject": "ENGG",
       "course_code": "5204",
       "title": "Introduction to Deep Learning",
       "credits": "3.00",
@@ -239,34 +214,6 @@
       "feedback_evaluation": "Wewelcome students' comments and feedback on the course. There are three mainchannels for collecting students' feedback.\n1. Course evaluation: A formal evaluation questionnaire conducted near the end ofthe course.\n2. Informal online contact\nStudentscan write their comments via email or newsgroup. The course instructor willfollow up with the comments or pass the information to the course instructor ifnecessary.\n3. Individual consulting\nStudents arewelcome to visit the course instructor during office hours. They can exchangeopinions to make the course better suits the students' needs.",
       "required_readings": "To be provided by the course teacher.",
       "recommended_readings": "1. G. P. Agrawal,\"Fiber-Optic Communication Systems\", Wiley, 4th Edition\n2. G. P. Agrawal,\"Nonlinear Fiber Optics\", Academic Press, 5th Edition"
-    },
-    {
-      "subject": "ENGG",
-      "course_code": "5383",
-      "title": "Applied Cryptography",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This is a graduate-level course on cryptography. It focuses on the definitions and constructions of various cryptographic schemes and protocols, as well as their applications. Useful tools for securing practical systems and emerging techniques in the applied research community will be introduced. No prior knowledge of security, cryptography, or number theory is required.\n\n- Introduction: a brief history, applications in distributed systems; basic number theory\n- Symmetric-key encryption: definition, information-theoretic security, Entropy, PRNG\n- Provable security: bounded adversary, random oracle model, basic primitives, reduction\n- Public-key encryption: modelling security, Diffie-Hellman protocol, hybrid encryption\n- Authentication: Hash function, collision-resistance, MAC, unforgeability\n- Public-key infrastructure: certificate management, deployment, and revocation issues\n- More schemes: Fiat-Shamir transformation, Cramer-Shoup encryption, identity-/attribute-based encryption, certificateless encryption, proxy re-encryption , broadcast\n- Privacy-enhancing cryptography: zero-knowledge proof, anonymous credentials\n- Pairing-based cryptography: elliptic curve basic, short signature, searchable encryption",
-      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG5240",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. demonstrate knowledge and understanding of essential concepts, methods, and technologies of cryptography\n\n2. understand various cryptographic primitives, their security properties, and applications\n\n3. apply cryptographic techniques to various security designs, both practical and theoretical\n\n4. demonstrate awareness in latest advances in the field and what are possible to achieve with cryptography",
-      "course_syllabus": "This is a graduate-level course on cryptography. It focuses on the definitions and constructions of various cryptographic schemes and protocols, as well as their applications. Useful tools for securing practical systems and emerging techniques in the applied research community will be introduced. No prior knowledge of security, cryptography, or number theory is required.\n\n- Introduction: a brief history, applications in distributed systems; basic number theory\n\n- Symmetric-key encryption: definition, information-theoretic security, Entropy, PRNG\n\n- Provable security: bounded adversary, random oracle model, basic primitives, reduction\n\n- Public-key encryption: modelling security, Diffie-Hellman protocol, hybrid encryption\n\n- Authentication: Hash function, collision-resistance, MAC, unforgeability\n\n- Public-key infrastructure: certificate management, deployment, and revocation issues\n\n- More schemes: Fiat-Shamir transformation, Cramer-Shoup encryption, identity-/attribute-based encryption, certificateless encryption, proxy re-encryption , broadcast\n\n- Privacy-enhancing cryptography: zero-knowledge proof, anonymous credentials\n\n- Pairing-based cryptography: elliptic curve basic, short signature, searchable encryption\n\nCourse Syllabus will be changed from year to year.",
-      "assessment_types": {
-        "Essays": "35",
-        "Lab reports": "10",
-        "Others": "5",
-        "Presentation": "25",
-        "Selected response test or exam": "25"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\n\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\n\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\n\ninstructor directly.",
-      "required_readings": "Wenbo Mao, \"Modern Cryptography: Theory and Practice\", Prentice Hall",
-      "recommended_readings": "1. Jonathan Katz and Yehuda Lindell, \"Introduction to Modern Cryptography: Principles and Protocols\", CRC Press\n\n2. Niels Ferguson, Bruce Schneier and Tadayoshi Kohno, \"Cryptographiy Engineering: Design Principles and Practical Applications\", Wiley Publishing, Inc.\n\n3. Christof Paar and Jan Pelzl, \"Understanding Cryptography: A Textbook for Students and Practitioners\", Springer"
     },
     {
       "subject": "ENGG",

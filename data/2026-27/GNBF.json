@@ -1,0 +1,858 @@
+{
+  "metadata": {
+    "scraped_at": "2026-07-08T17:34:38.565177+00:00",
+    "subject": "GNBF",
+    "subject_title": "Genomics and Bioinformatics",
+    "total_courses": 8,
+    "scraper_version": "memory-safe-v2.0"
+  },
+  "courses": [
+    {
+      "subject": "GNBF",
+      "course_code": "5010",
+      "title": "Introduction to Programming",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1444)",
+              "meetings": [
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Pi-Ch'iu Building Room 107",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "12/12, 19/12"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Pi-Ch'iu Building Room 102",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "12/12, 19/12"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Pi-Ch'iu Building Room 103",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "12/12, 19/12"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "12/9, 19/9"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "3/10, 10/10"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12, 12/12, 19/12"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (1274)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "18/9"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "2/10"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "16/10"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "30/10"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "13/11"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "27/11"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "80",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces computer programming to students with no previous programming experience. Students learn the fundamentals of python programming and learn how to design, implement, test, debug, and document programs. They also learn how to solve problems using object-oriented programming methodology. Most of the examples and assignments will be related to biological questions in genomics and bioinformatics.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. master key programming concepts such data types, variables, conditions, loops and functions;\n\nb. understand fundamental concepts in object-oriented programming and pattern matching;\n\nc. solve small to medium size programming tasks that arise in bioinformatics; and\n\nd. write well-structured and maintainable programs in Python.",
+      "course_syllabus": "Introduction to computation and programming; Flow controls: conditional; Flow controls: iteration; Python functions; File I/O; Lists, tuples and strings; Dictionaries and sets; Program design; algorithm complexity; recursion; Object-oriented programming; classes and inheritance; Biopython and program development with classes; Regular expressions; common Python packages; Working with databases in Python; UI and Web development in Python.",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "35",
+        "Project": "15"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "5020",
+      "title": "Introduction to Molecular Biology and Genetics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1622)",
+              "meetings": [
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. WONG Kwong Fai",
+                  "dates": "12/9, 19/9"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. WONG Kwong Fai",
+                  "dates": "3/10, 10/10"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. WONG Kwong Fai",
+                  "dates": "24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12, 12/12, 19/12"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "79",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces students to the molecular mechanisms responsible for the transmission, expression and regulation of genetic information in prokaryotic and eukaryotic organisms. Students will also learn the basic concepts of genetics including population genetics, developmental genetics and evolutionary genetics.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. understand basic concepts in biomolecules and cell biology;\n\nb. know how molecular biology can explain the transmission of genetic information; and\n\nc. correlate molecular biology concepts with genetic and phenotypic traits.",
+      "course_syllabus": "Introduction to Biomolecules; Basic Cell Biology; DNA and Chromatin Structure; DNA Replication, Repair and Recombination; Control of Gene Expression; Methods in Molecular Biology; Genomic Applications in Biomedical Research; Molecular Genetics of Menedelian Diseases; Molecular Genetics of Complex Diseases; Population Genetics; Evolutionary Genetics",
+      "assessment_types": {
+        "Examination": "70",
+        "Homework or assignment": "30"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "5030",
+      "title": "Bio-computing and Statistics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1072)",
+              "meetings": [
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "1/12"
+                },
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT7",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "8/12, 15/12"
+                },
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12, 8/12"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "61",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (1273)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "11/9"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "25/9"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "9/10"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "23/10"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "6/11"
+                },
+                {
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "20/11"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "61",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1286)",
+              "meetings": [
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "16/1, 23/1, 30/1"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Dr. HUANG Yongjie",
+                  "dates": "8/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "19",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers several computational technologies in bioinformatics. First, students learn the fundamentals of Linux shell and how to accustom themselves to the Linux computing environment for routine bioinformatics tasks. Students then learn to run and install bioinformatics tools from the command line. In the second half of this course, students learn the basic statistical methods for bioinformatics, and how to explore, visualize, and analyze biological data using R and R packages. Hands-on practice is provided throughout the whole course, whereas a comprehensive genomics project enhances students' learning of this course.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. accustom themselves to Linux computing environment;\n\nb. acquire the usage of common bioinformatics tools;\n\nc. explore, visualize and analyze biological data using R; and\n\nd. employ common statistical methods for bioinformatics problems using R.",
+      "course_syllabus": "Introduction to Linux computational environment; Linux shell commands; Common bioinformatics tools (I); Common bioinformatics tools (II); Common bioinformatics tools (III); Common bioinformatics tools (IV); Introduction to programming with R; Data exploration and visualization using R (I); Data exploration and visualization using R (II); Statistical methods for bioinformatics (I); Statistical methods for bioinformatics(II); Statistical methods for bioinformatics (III).",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "30",
+        "Project": "10"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "5040",
+      "title": "Genomics: Basic Concepts and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1593)",
+              "meetings": [
+                {
+                  "time": "Th 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor SUN Hao",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor SUN Hao",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12, 10/12, 17/12"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "61",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1287)",
+              "meetings": [
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Professor SUN Hao",
+                  "dates": "16/1, 23/1, 30/1"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Professor SUN Hao",
+                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Professor SUN Hao",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Professor SUN Hao",
+                  "dates": "8/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "19",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "41",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the basic concepts of genomics. It covers the structure and organization of human genome, and the strategies that are used to map, sequence, and analyze the genomes. Students can learn how to connect genomic data and the relevant biological questions. They also learn how the genomic information can facilitate the discoveries in drug discovery, disease diagnosis, and the personalized medicine. The course also teaches the basic skills in developing bioinformatics data analysis pipelines and utilizing these pipelines to process the real experimental data in workshops.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. acquire the basic concept of genomics\n\nb. learn the principle, strategies and limitations of genomic technology\n\nc. apply genomics to solve biological and biomedical questions\n\nd. gain the hands-on experience on bioinformatics data analysis pipelines",
+      "course_syllabus": "Introduction to genomics; An overview of large scale genomic projects; Genomic sequencing and data analysis; Genome assembly: a key step towards comprehensive genomic maps; Workshop I (working pipeline for de novo genome assembly), Functional annotation of genomes (genetic variations, transcriptional regulation, epigenetics and epigenomes, transcriptome analysis, single-cell sequencing); Medical genomics; Workshop II (working pipeline for ChIP-seq data analysis)",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "40"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "5050",
+      "title": "Theories and Algorithms in Bioinformatics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1459)",
+              "meetings": [
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
+                  "dates": "12/9, 19/9"
+                },
+                {
+                  "time": "Sa 1:30PM - 3:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
+                  "dates": "3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12, 12/12, 19/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "16",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "44",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1186)",
+              "meetings": [
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Fung King Hey Bldg Swire Hall2",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
+                  "dates": "13/4, 20/4, 27/4"
+                },
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
+                  "dates": "13/4, 20/4, 27/4"
+                },
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Dr. Nandita MULLAPUDI, \nProfessor SUNG Wing Kin",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "61",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the basic concepts underlying the theoretical basis of common bioinformatics algorithms. It covers the topics of sequence alignment, phylogeny, motif finding, assembly, metagenomics and machine learning. Students learn these topics by attending lectures, classroom activities, and getting hands-on experience through assignments.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. describe the related biological problems in mathematical terms such that they can be solved by algorithms;\n\nb. appreciate the computational ideas underlying common bioinformatics algorithms and get familiar with the corresponding software to solve the problems;\n\nc. list and explain the strengths and weaknesses of existing algorithms and interpret their results appropriately; and\n\nd. develop the ability to read and understand the scientific publications on bioinformatics in depth.",
+      "course_syllabus": "Sequence Alignment and searching (Theory); Sequence Alignment and searching (Application & Practice); Molecular phylogenetics (Theory); Molecular phylogenetics (Application & Practice); Motif finding and hidden Markov model (Theory); Motif finding and hidden Markov model (Application & Practice) Part I; Motif finding and hidden Markov model (Application & Practice) Part II; Mapping of next-generation sequencing data (Theory & Application); Strucural Variant Calling (I); Structural Variant Calling (II); Assembly of next-generation sequencing data (Theory & Application); Metagenomics (Theory & Practice).",
+      "assessment_types": {
+        "Examination": "65",
+        "Homework or assignment": "35"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "5060",
+      "title": "Artificial Intelligence for Genomics and Bioinformatics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (1693)",
+              "meetings": [
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Professor CAO Qin",
+                  "dates": "12/9, 19/9"
+                },
+                {
+                  "time": "Sa 4:00PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Professor CAO Qin",
+                  "dates": "3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12, 12/12, 19/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "16",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "44",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1591)",
+              "meetings": [
+                {
+                  "time": "Th 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor CAO Qin",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 7:00PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor CAO Qin",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "61",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "9",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides a principled and practice-oriented introduction to Artificial Intelligence (AI) tailored for students in the MSc in Genomics and Bioinformatics programme. It develops a coherent framework across supervised and unsupervised learning, deep architectures (CNNs, GNNs, Transformers), generative models (VAEs, GANs, diffusion), self-supervised pretraining (BERT-style and contrastive learning), and emerging large language models (LLMs). All examples and assignments focus on genomics and bioinformatics use cases, drawing on general-purpose tasks and open datasets suitable for foundational AI training. Students learn these topics by attending lectures, participating in classroom activities, and gaining hands-on experience through assignments.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing the course, students should be able to:\n\na. Clearly and precisely formulate AI-relevant problems in genomics and bioinformatics.\n\nb. Understand the key computational ideas behind common AI methods and use standard software toolchains to implement and evaluate them.\n\nc. Compare the strengths and limitations fo representative models and interpret results appropriately in research settings.\n\nd. Read, analyze and communicate AI-related scienctific publicaitons with clarity and critical insight.",
+      "course_syllabus": "Foundations of Artificial Intelligence; Supervised Learning: Regularization, Kernel and Ensembles; Unsupervised Learning: Dimensionality Reduction and Clustering; Convolutional Neural Networks; Graph Neural Networks; Model Interpretability and Reliability; Generative Modeling: GANs, VAEs and Diffusion; Transformers; Self-supervised Pretraining: BERT-style and Contrastive Learning; Large Language Models I; Large Language Models II.",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "35",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "5070",
+      "title": "Genome Informatics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (1517)",
+              "meetings": [
+                {
+                  "time": "Sa 1:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LIU Xin",
+                  "dates": "16/1, 23/1, 30/1"
+                },
+                {
+                  "time": "Sa 1:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LIU Xin",
+                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                },
+                {
+                  "time": "Sa 1:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor LIU Xin",
+                  "dates": "3/4, 10/4, 17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "90",
+                "enrolled": "77",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "13",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides a comprehensive introduction to the field of genome informatics. Students will gain knowledge about various aspects of genomics studies, including reference genome studies, population genomic studies, and applications of genomics. The course covers both the fundamental concepts and the latest advancements in each of these categories. In addition to theoretical lectures, students will have the opportunity to engage in hands-on practice using relevant tools. This practical experience will enhance their understanding of genomics and bioinformatics, allowing them to apply their knowledge effectively.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\n\na. understand the fundamental principles and pipelines involved in sequencing and genomic studies;\n\nb. stay updated with the latest advancements and progress in the field of genomic studies;\n\nc. acquire the skills to analyze second-generation sequencing data;\n\nd. gain proficiency in utilizing and applying various bioinformatics tools; and\n\ne. develop the ability to independently conduct a genomic study.",
+      "course_syllabus": "Overview of genome informatics; Sequencing to provide genome information; Genome assembly to obtain the reference genome; Reference genome based studies; Hands-on study on genome assembly; Resequencing to identify genomic variations; Genomic variation based studies; Transcriptome studies; Hands-on study on resequencing analysis; Using genome sequencing as a tool for other research; Using genome sequencing as a tool for applications; Summary of genome informatics",
+      "assessment_types": {
+        "Examination": "55",
+        "Homework or assignment": "45"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    },
+    {
+      "subject": "GNBF",
+      "course_code": "6010",
+      "title": "Research Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (1277)",
+              "meetings": [
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 303",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 404",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 302",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 503",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 401",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 408",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 411",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 511",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 510",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 501",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 11:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 508",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. Nandita MULLAPUDI",
+                  "dates": "16/01/2027 - 01/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "77",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students are required to conduct a research project on a current topic in genomics and bioinformatics under the research supervisors at the Chinese University of Hong Kong. This course gives students an insight into how research is carried out in the fields of bioinformatics, with selected research techniques and data analysis approaches. It will give students the opportunity to develop and enhance their analytical and organizational skills through hands-on research and the opportunity to develop their ability to work independently. This course also provides practice in writing project reports and presenting scientific findings.",
+      "enrollment_requirement": "For students in MSc Genomics and Bioinformatics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Sciences",
+      "academic_org": "Div of Biomedical Sciences",
+      "learning_outcomes": "After finishing this course, students should be able to\na. design the strategy and methodology to solve a research question;\nb. conduct experiments by implementing the research plan;\nc. interpret and integrate experimental results to answer the research question; and\nd. present the research finding in the format of a written report and an oral presentation.",
+      "course_syllabus": "Each student is required to conduct a research project, submit a research proposal and a final report, and also give an oral presentation. Students and supervisors are matched subject to the mutual agreement.",
+      "assessment_types": {
+        "Essays": "15",
+        "Presentation": "25",
+        "Participation": "25",
+        "Report": "35"
+      },
+      "feedback_evaluation": "Course evaluation will be conducted after the end of each term. Finally, a teacher-student consultative meeting will be conducted once a year.",
+      "required_readings": "All required readings (if any) will be listed in the course outline given to students.",
+      "recommended_readings": "All recommended readings (if any) will be listed in the course outline given to students."
+    }
+  ]
+}
