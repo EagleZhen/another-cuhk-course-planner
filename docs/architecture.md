@@ -19,7 +19,7 @@ CUHK catalog
 Key boundaries:
 
 - [scripts/](../scripts/) owns scraping, validation before publish, and generated course JSON.
-- [web/public/data/](../web/public/data/) is the static data boundary consumed by the app.
+- [web/public/data/](../web/public/data/) is the static data boundary consumed by the app — partitioned by year; the app eager-loads the live year and lazy-loads archived ones on demand (see [course-search.md](components/course-search.md#data-loading)).
 - [web/src/lib/validation.ts](../web/src/lib/validation.ts) converts external scraped JSON into internal types.
 - [web/src/lib/types.ts](../web/src/lib/types.ts) defines the internal domain model used by components and utilities.
 - [web/src/app/page.tsx](../web/src/app/page.tsx) is the main browser state hub.
