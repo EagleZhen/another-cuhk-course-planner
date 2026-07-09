@@ -1309,16 +1309,25 @@ function CourseCard({
     }
   }, [shouldAutoExpand, searchSequence])
 
-  // Mobile: action buttons dock right below the search/filter bar while expanded, so
-  // measure its live height the same way page.tsx does for scroll-to-cart, rather than
-  // guessing a fixed pixel value.
+  // Action buttons dock right below the search/filter bar while expanded, so track its
+  // live position the same way page.tsx does for scroll-to-cart, rather than guessing a
+  // fixed pixel value. Kept live via ResizeObserver (matching WeeklyCalendar.tsx's own
+  // use of it) since the filter bar's height isn't fixed - e.g. the partial-load
+  // warning banner can appear/disappear, or filter chips can rewrap on resize.
   const [stickyOffset, setStickyOffset] = useState(0)
   useEffect(() => {
     if (!expanded) return
     const filterBar = document.querySelector('[data-course-search] .sticky')
+    if (!filterBar) return
+
     // Use .bottom, not .height - the filter bar itself sticks at top-[37px] (not
     // top-0) in archived-year views, and .bottom already reflects that live position
-    setStickyOffset(filterBar ? filterBar.getBoundingClientRect().bottom : 0)
+    const updateOffset = () => setStickyOffset(filterBar.getBoundingClientRect().bottom)
+    updateOffset()
+
+    const observer = new ResizeObserver(updateOffset)
+    observer.observe(filterBar)
+    return () => observer.disconnect()
   }, [expanded])
 
   // The "elevated" look (shadow, rounded corners, background) applies unconditionally
