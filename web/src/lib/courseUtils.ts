@@ -1515,7 +1515,7 @@ export function generateICSCalendar(
     const filename = `${termName.replace(/\s+/g, '-')}-Schedule-${dateStr}-${timeStr}.ics`
 
     return {
-      icsContent: value,
+      icsContent: value ?? undefined,
       filename,
     }
   } catch (error) {
