@@ -24,6 +24,7 @@ if (typeof window !== 'undefined' && posthogKey) {
     // Captured manually below, so we can strip UTM right after.
     capture_pageview: false,
     capture_pageleave: true, // Session duration tracking
+
     capture_exceptions: true, // Report unhandled JS errors to Error Tracking
 
     // Disable potentially intrusive features
