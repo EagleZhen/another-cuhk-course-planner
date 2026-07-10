@@ -21,8 +21,11 @@ if (typeof window !== 'undefined' && posthogKey) {
 
     // Privacy-first settings for student users
     person_profiles: 'never', // Don't create user profiles
-    capture_pageview: true, // Automatic page view tracking
+    // Captured manually below, so we can strip UTM right after.
+    capture_pageview: false,
     capture_pageleave: true, // Session duration tracking
+
+    capture_exceptions: true, // Report unhandled JS errors to Error Tracking
 
     // Disable potentially intrusive features
     disable_session_recording: true, // No session recordings
@@ -36,4 +39,24 @@ if (typeof window !== 'undefined' && posthogKey) {
       return properties
     },
   })
+
+  // Capture the pageview (records UTM), then strip utm_* from the URL — else a
+  // lingering ?utm_source=... sticks to bookmarks and re-shares, mis-attributing
+  // later visits.
+  posthog.capture('$pageview', { title: document.title })
+  stripCampaignParams()
+}
+
+function stripCampaignParams() {
+  const url = new URL(window.location.href)
+  let changed = false
+  for (const key of [...url.searchParams.keys()]) {
+    if (key.startsWith('utm_')) {
+      url.searchParams.delete(key)
+      changed = true
+    }
+  }
+  if (changed) {
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash)
+  }
 }
