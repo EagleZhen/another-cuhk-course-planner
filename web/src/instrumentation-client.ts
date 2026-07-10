@@ -42,4 +42,19 @@ if (typeof window !== 'undefined' && posthogKey) {
   // lingering ?utm_source=... sticks to bookmarks and re-shares, mis-attributing
   // later visits.
   posthog.capture('$pageview', { title: document.title })
+  stripCampaignParams()
+}
+
+function stripCampaignParams() {
+  const url = new URL(window.location.href)
+  let changed = false
+  for (const key of [...url.searchParams.keys()]) {
+    if (key.startsWith('utm_')) {
+      url.searchParams.delete(key)
+      changed = true
+    }
+  }
+  if (changed) {
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash)
+  }
 }
