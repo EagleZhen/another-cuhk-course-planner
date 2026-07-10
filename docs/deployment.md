@@ -18,6 +18,8 @@ Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.
 
 The app sends PostHog events through the `/x8m2k` rewrite configured in `web/next.config.ts`. Local development works without analytics when `NEXT_PUBLIC_POSTHOG_KEY` is unset.
 
+The entry pageview is captured manually, then `utm_*` params are stripped from the URL — so inbound links can be tagged (e.g. `?utm_source=dcard`) without the tag lingering in bookmarks or re-shares. Unhandled JS errors are auto-captured to Error Tracking.
+
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
 ## Re-Showing the Mobile Notice
