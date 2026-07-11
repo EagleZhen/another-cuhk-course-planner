@@ -1050,7 +1050,7 @@ export function autoCompleteEnrollmentSections(
       }
     })
 
-  return updatedSections
+  return sortSectionsByPriority(updatedSections, course, termName)
 }
 
 /**
