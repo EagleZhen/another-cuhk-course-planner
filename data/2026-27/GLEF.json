@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-09T15:43:10.299319+00:00",
+    "scraped_at": "2026-07-10T18:43:18.285093+00:00",
     "subject": "GLEF",
     "subject_title": "Global Economics and Finance",
     "total_courses": 6,
@@ -188,25 +188,37 @@
       "credits": "3.00",
       "terms": [
         {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
           "schedule": [
             {
-              "section": "--LEC (9340)",
+              "section": "--LEC (9697)",
               "meetings": [
                 {
-                  "time": "We 12:30PM - 3:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "time": "Tu 1:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
                   "instructor": "Professor LYU Dan",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Professor LYU Dan",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 1:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 706B",
+                  "instructor": "Professor LYU Dan",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
               "availability": {
-                "capacity": "45",
+                "capacity": "40",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -240,37 +252,25 @@
       "credits": "3.00",
       "terms": [
         {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
           "schedule": [
             {
-              "section": "--LEC (7260)",
+              "section": "--LEC (9877)",
               "meetings": [
                 {
                   "time": "Tu 1:30PM - 4:15PM",
-                  "location": "Chen Kou Bun Bldg 706B",
+                  "location": "Hui Yeung Shing Bldg 501",
                   "instructor": "Dr. HO Cheuk Yin",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
-                },
-                {
-                  "time": "Tu 1:30PM - 4:15PM",
-                  "location": "Chen Kou Bun Bldg 706B",
-                  "instructor": "Dr. HO Cheuk Yin",
-                  "dates": "16/2, 23/2, 2/3"
-                },
-                {
-                  "time": "Tu 1:30PM - 4:15PM",
-                  "location": "Chen Kou Bun Bldg 706B",
-                  "instructor": "Dr. HO Cheuk Yin",
-                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                 }
               ],
               "availability": {
-                "capacity": "39",
+                "capacity": "40",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"
