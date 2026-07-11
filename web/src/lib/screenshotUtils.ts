@@ -248,7 +248,6 @@ class ScreenshotStateManager {
   restoreAllElements(): void {
     try {
       this.originalStates.forEach((state) => {
-        console.log(`🔄 Restoring element with original style: "${state.originalStyle}"`)
         state.element.style.cssText = state.originalStyle
 
         // Restore text content
@@ -333,9 +332,6 @@ function applyUnscheduledContainerStyling(container: HTMLElement, calendarWidth?
     const marginRight = parseInt(styling.marginRight)
     const availableWidth = calendarWidth - marginLeft - marginRight
     container.style.width = `${availableWidth}px`
-    console.log(
-      `📏 Set unscheduled container width: ${availableWidth}px during element preparation`
-    )
   }
 }
 
@@ -409,8 +405,6 @@ function prepareUnscheduledElement(
       [{ element: chevron, originalClass }]
     )
     chevron.setAttribute('class', originalClass + ' hidden')
-  } else {
-    console.log('⚠️ ChevronDown icon not found with configured selector')
   }
 
   // Handle content expansion
@@ -420,13 +414,8 @@ function prepareUnscheduledElement(
       getComputedStyle(expandableContent).display !== 'none' &&
       expandableContent.style.display !== 'none'
 
-    console.log(
-      '🔍 EXPERIMENTAL: Not hiding preview cards, relying on CSS expansion to show proper content'
-    )
-
     // If not expanded, use CSS-only expansion for screenshot (don't change React state)
     if (!wasExpandedBefore) {
-      console.log('📸 Using CSS-only expansion to avoid React state changes')
       const originalStyle = expandableContent.style.cssText
       stateManager.storeElementState(expandableContent, originalStyle)
 
@@ -461,9 +450,7 @@ function applyClassReplacements(className: string): string {
  * Uses CSS-only approach to avoid React state changes
  */
 function clearSelectionEffects(element: HTMLElement, stateManager: ScreenshotStateManager): void {
-  console.log('🧹 Clearing selection visual effects for clean screenshot...')
   const selectedCards = findSelectedCards(element)
-  console.log(`Found ${selectedCards.length} cards with selection effects to clear`)
 
   selectedCards.forEach((card) => {
     const cardElement = card as HTMLElement
@@ -601,7 +588,6 @@ function downloadCompositeImage(canvas: HTMLCanvasElement, termName: string): Pr
         document.body.removeChild(link)
         URL.revokeObjectURL(url)
 
-        console.log('✅ Calendar screenshot with unscheduled sections saved successfully!')
         resolve()
       },
       canvasConfig.imageFormat,
@@ -623,8 +609,6 @@ export async function captureCalendarScreenshot(
   const stateManager = new ScreenshotStateManager()
 
   try {
-    console.log('📸 Starting calendar screenshot...')
-
     // Helper to prepare element for screenshot capture with measurements
     const prepareElementForCapture = async (
       element: HTMLElement,
@@ -650,7 +634,6 @@ export async function captureCalendarScreenshot(
     }
 
     // Step 1: Prepare calendar
-    console.log('📏 Preparing calendar...')
     const calendarInfo = await prepareElementForCapture(calendarElement, false)
 
     // Step 2: Prepare unscheduled (if it exists)
@@ -660,7 +643,6 @@ export async function captureCalendarScreenshot(
       actualHeight: number
     } | null = null
     if (unscheduledElement) {
-      console.log('📏 Preparing unscheduled...')
       unscheduledInfo = await prepareElementForCapture(
         unscheduledElement,
         true,
@@ -676,7 +658,6 @@ export async function captureCalendarScreenshot(
     }
 
     // Step 3: Capture images with proper error handling
-    console.log('📷 Capturing images...')
     const calendarDataUrl = await captureElementAsPng(
       calendarInfo.element,
       calendarInfo.actualWidth,
@@ -694,12 +675,6 @@ export async function captureCalendarScreenshot(
 
     // Restore elements immediately after capture
     stateManager.restoreAllElements()
-    console.log('🔄 Elements restored to original state')
-
-    console.log(`📏 Calendar: ${calendarInfo.actualWidth}x${calendarInfo.actualHeight}`)
-    if (unscheduledInfo) {
-      console.log(`📏 Unscheduled: ${unscheduledInfo.actualWidth}x${unscheduledInfo.actualHeight}`)
-    }
 
     // Step 3: Calculate layout using centralized system
     const layout = calculateScreenshotLayout(
@@ -726,8 +701,6 @@ export async function captureCalendarScreenshot(
 
     // Header with consistent typography
     drawScreenshotHeader(ctx, termName, layout)
-
-    console.log(`📏 Final dimensions: ${layout.canvas.width}x${layout.canvas.height}`)
 
     // Load and composite images
     const calendarImage = new Image()
