@@ -325,7 +325,7 @@ export default function CourseSearch({
   useEffect(() => {
     // Each year loads at most once per session.
     if (loadedYearsRef.current.has(selectedYear)) {
-      console.log(`📦 ${selectedYear} data already loaded this session, skipping reload`)
+      console.log(`${selectedYear} data already loaded this session, skipping reload`)
       return
     }
 
@@ -344,16 +344,11 @@ export default function CourseSearch({
       try {
         // 🚀 Load ALL subjects - using single source of truth from lib/generated/subjects.ts
         // Automatically excludes exemption codes (EX_*, X*)
-        console.log(`📂 Loading ALL subjects for complete coverage...`)
         setLoadingProgress({
           loaded: 0,
           total: 1,
           currentSubject: 'Preparing complete subject list...',
         })
-
-        console.log(
-          `📂 Complete subject list: ${availableSubjects.length} subjects (excludes exemption codes)`
-        )
 
         setLoadingProgress({
           loaded: 0,
@@ -364,7 +359,9 @@ export default function CourseSearch({
         const allCoursesData: InternalCourse[] = []
         const scrapingTimestamps: Date[] = []
 
-        console.log(`🚀 Loading ${availableSubjects.length} subjects in PARALLEL...`)
+        console.log(
+          `Loading ${availableSubjects.length} subjects in parallel (exemption codes excluded)...`
+        )
 
         // 🔥 PARALLEL LOADING: Fire ALL requests simultaneously!
         const allPromises = availableSubjects.map(async (subject) => {
@@ -404,8 +401,8 @@ export default function CourseSearch({
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
-                console.log(
-                  `✅ ${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(
+                console.debug(
+                  `${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(
                     dataSize / 1024
                   )
                     .toString()
@@ -438,9 +435,6 @@ export default function CourseSearch({
         })
 
         // Wait for ALL requests to complete
-        console.log(
-          `⏳ Waiting for all ${availableSubjects.length} parallel requests to complete...`
-        )
         const results = await Promise.all(allPromises)
 
         // Process successful results
@@ -467,36 +461,14 @@ export default function CourseSearch({
         const successCount = results.filter((r) => r.success).length
         totalDataSize = subjectLoadTimes.reduce((sum, s) => sum + s.size * 1024, 0)
 
-        // Calculate total load time and log performance summary
+        // Total load time (also reported to analytics below)
         const totalLoadTime = performance.now() - startTime
 
-        console.log(`🎉 PARALLEL LOADING COMPLETE!`)
         console.log(
-          `📚 Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`
-        )
-        console.log(`⚡ Parallel Performance Summary:`)
-        console.log(
-          `   🚀 Total parallel load time: ${Math.round(totalLoadTime)}ms (${(totalLoadTime / 1000).toFixed(1)}s)`
-        )
-        console.log(
-          `   📦 Total data size: ${Math.round(totalDataSize / 1024)}KB (${(totalDataSize / 1024 / 1024).toFixed(1)}MB)`
-        )
-        console.log(`   ⚡ Speedup: ALL subjects loaded simultaneously instead of sequentially!`)
-        console.log(
-          `   🏆 Previous sequential time would have been: ~${Math.round(subjectLoadTimes.reduce((sum, s) => sum + s.time, 0))}ms`
+          `Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`
         )
 
-        // Log fastest and slowest requests for insight
         const validTimes = subjectLoadTimes.filter((s) => s.time > 0)
-        if (validTimes.length > 0) {
-          const fastest = validTimes.reduce((min, s) => (s.time < min.time ? s : min))
-          const slowest = validTimes.reduce((max, s) => (s.time > max.time ? s : max))
-          console.log(`   🏃 Fastest: ${fastest.subject} (${fastest.time}ms, ${fastest.size}KB)`)
-          console.log(`   🐌 Slowest: ${slowest.subject} (${slowest.time}ms, ${slowest.size}KB)`)
-          console.log(
-            `   📊 Average per request: ${Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)}ms`
-          )
-        }
 
         // Send performance metrics to PostHog
         const slowest =
@@ -536,8 +508,8 @@ export default function CourseSearch({
         // Find the oldest scraping timestamp and notify parent
         if (scrapingTimestamps.length > 0 && onDataUpdate) {
           const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map((d) => d.getTime())))
-          console.log(
-            `🕒 Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`
+          console.debug(
+            `Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`
           )
           onDataUpdate(oldestTimestamp, allCoursesData) // Pass both timestamp and fresh course data for sync
         }
@@ -1428,8 +1400,8 @@ function CourseCard({
             if (sectionMatchesFilter) {
               updatedSelections.set(sectionType, sectionId)
             } else {
-              console.log(
-                `🔄 Cleared ${sectionType} selection: ${section.sectionCode} (instructor doesn't match filter)`
+              console.debug(
+                `Cleared ${sectionType} selection: ${section.sectionCode} (instructor doesn't match filter)`
               )
             }
           }
