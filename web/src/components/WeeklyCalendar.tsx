@@ -233,15 +233,12 @@ export default function WeeklyCalendar({
 
     setIsCapturing(true)
     try {
-      console.log('Starting screenshot capture...')
-
       // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector(
         '[data-screenshot="unscheduled"]'
       ) as HTMLElement | null
 
       await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
-      console.log('Screenshot completed successfully')
       analytics.screenshotTaken()
     } catch (error) {
       console.error('Screenshot capture failed:', error)
@@ -294,7 +291,6 @@ export default function WeeklyCalendar({
       document.body.removeChild(link)
       URL.revokeObjectURL(url)
 
-      console.log(`Calendar exported as ${result.filename}`)
       analytics.icsExported()
     }
   }
@@ -365,7 +361,6 @@ export default function WeeklyCalendar({
       document.body.removeChild(link)
       URL.revokeObjectURL(url)
 
-      console.log(`Undo file generated: ${undoFilename}`)
       analytics.icsUndo()
       event.target.value = '' // Reset input for future uploads
     }

@@ -118,6 +118,13 @@ Open <http://localhost:3000>.
 
 The web app reads published course data from `web/public/data/`. If that directory is missing or stale, run the data pipeline commands below.
 
+## Console Logging (web)
+
+- `console.warn`/`console.error` for real failures — keep the ⚠️/❌, it's what makes them stand out.
+- `console.log` for rare events worth seeing by default (e.g. a legacy-data migration).
+- `console.debug` for routine or hot-path tracing (hidden unless DevTools is set to "Verbose").
+- No emoji elsewhere.
+
 ## Test On Another Device
 
 Next.js blocks cross-origin dev-server resources by default. To test from another device on the same network, add the host computer's LAN IP address to `web/.env.local`:

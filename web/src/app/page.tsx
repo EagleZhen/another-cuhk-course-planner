@@ -79,12 +79,12 @@ export default function Home() {
         let parsedSchedule: CourseEnrollment[]
         if (Array.isArray(parsedData)) {
           // Old format - just array of enrollments
-          console.log('📦 Detected old localStorage format, migrating...')
+          console.log('Detected old localStorage format, migrating...')
           parsedSchedule = parsedData
         } else if (parsedData.version === SCHEDULE_DATA_VERSION) {
           // Current format - versioned object
           parsedSchedule = parsedData.enrollments
-          console.log(`✅ Loaded schedule data version ${parsedData.version}`)
+          console.debug(`Loaded schedule data version ${parsedData.version}`)
         } else {
           // Unknown version - clear and start fresh
           console.warn(`⚠️ Unknown schedule data version: ${parsedData.version}, clearing...`)
@@ -106,7 +106,7 @@ export default function Home() {
               enrollment.courseId.includes('_') &&
               enrollment.courseId !== courseKey
             ) {
-              console.log(`🔄 Migrating courseId: ${enrollment.courseId} → ${courseKey}`)
+              console.log(`Migrating courseId: ${enrollment.courseId} → ${courseKey}`)
               migratedCourseId = courseKey
             }
 
@@ -126,7 +126,7 @@ export default function Home() {
           .filter(Boolean) // Remove invalid enrollments
 
         setCourseEnrollments(migratedSchedule as CourseEnrollment[])
-        console.log(`✅ Restored ${migratedSchedule.length} enrollments for ${currentTerm}`)
+        console.debug(`Restored ${migratedSchedule.length} enrollments for ${currentTerm}`)
       } else {
         // No saved schedule for this term, start fresh
         setCourseEnrollments([])
@@ -167,7 +167,7 @@ export default function Home() {
 
       if (migratedEnrollment) {
         console.log(
-          `🔄 Migrating selectedEnrollment: ${selectedEnrollment} → ${migratedEnrollment.courseId}`
+          `Migrating selectedEnrollment: ${selectedEnrollment} → ${migratedEnrollment.courseId}`
         )
         setSelectedEnrollment(migratedEnrollment.courseId)
       } else {
@@ -191,11 +191,11 @@ export default function Home() {
           savedAt: new Date().toISOString(),
         }
         localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
-        console.log(`💾 Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
+        console.debug(`Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
       } else {
         // Only remove if we're sure this is intentional (after hydration)
         localStorage.removeItem(`schedule_${currentTerm}`)
-        console.log(`🗑️ Cleared empty schedule for ${currentTerm}`)
+        console.debug(`Cleared empty schedule for ${currentTerm}`)
       }
     } catch (error) {
       console.error('Failed to save schedule:', error)
@@ -437,7 +437,7 @@ export default function Home() {
   const handleDataUpdate = useCallback(
     (timestamp: Date, allFreshCourses?: InternalCourse[]) => {
       setLastDataUpdate(timestamp)
-      console.log(`📊 Course data loaded from: ${timestamp.toLocaleString()}`)
+      console.debug(`Course data loaded from: ${timestamp.toLocaleString()}`)
 
       // Background sync: Update existing enrollments with fresh data
       // Use callback form to avoid dependency on courseEnrollments
@@ -451,11 +451,11 @@ export default function Home() {
           lastSyncTimestamp &&
           Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000
         ) {
-          console.log('🔄 Skipping duplicate sync (< 1 second apart)')
+          console.debug('Skipping duplicate sync (< 1 second apart)')
           return currentEnrollments
         }
 
-        console.log('🔄 Background syncing shopping cart with fresh course data...')
+        console.debug('Background syncing shopping cart with fresh course data...')
 
         const syncedEnrollments = currentEnrollments.map((enrollment) => {
           const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
@@ -520,7 +520,7 @@ export default function Home() {
         if (invalidCount > 0) {
           console.warn(`⚠️ ${invalidCount} enrollments have invalid data`)
         } else {
-          console.log(`✅ Successfully synced ${syncedEnrollments.length} enrollments`)
+          console.debug(`Successfully synced ${syncedEnrollments.length} enrollments`)
         }
 
         // Update sync timestamp after successful sync

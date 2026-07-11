@@ -81,8 +81,8 @@ export default function ShoppingCart({
     )
 
     if (compatible.length <= 1) {
-      console.log(
-        `🔄 No compatible alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`
+      console.debug(
+        `No compatible alternatives for ${sectionType} in ${enrollment.course.subject}${enrollment.course.courseCode}`
       )
       return // No alternatives to cycle through
     }
@@ -98,11 +98,11 @@ export default function ShoppingCart({
     }
 
     const newSection = compatible[newIndex]
-    console.log(
-      `🔄 Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`
+    console.debug(
+      `Cycling ${enrollment.course.subject}${enrollment.course.courseCode} ${sectionType}: ${currentSection.sectionCode} → ${newSection.sectionCode}`
     )
-    console.log(
-      `🔍 Compatible sections for ${sectionType} (constrained by higher priority only):`,
+    console.debug(
+      `Compatible sections for ${sectionType} (constrained by higher priority only):`,
       compatible.map((s) => s.sectionCode)
     )
 

@@ -911,8 +911,8 @@ export function clearIncompatibleLowerSelections(
         if (currentLowerSection && !areSectionsCompatible(newSection, currentLowerSection)) {
           // Clear the incompatible selection
           newMap.delete(lowerSelectionKey)
-          console.log(
-            `🔄 Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`
+          console.debug(
+            `Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`
           )
         }
       }
@@ -999,8 +999,8 @@ export function autoCompleteEnrollmentSections(
     // Check if this lower-priority section is still compatible with the new section
     const isCompatible = areSectionsCompatible(newSection, section)
     if (!isCompatible) {
-      console.log(
-        `🔄 Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`
+      console.debug(
+        `Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`
       )
     }
     return isCompatible
@@ -1025,8 +1025,8 @@ export function autoCompleteEnrollmentSections(
         if (compatible.length > 0) {
           const firstCompatible = compatible[0]
           updatedSections.push(firstCompatible)
-          console.log(
-            `🔄 Auto-adding compatible ${lowerTypeGroup.type}: ${firstCompatible.sectionCode} (compatible with ${newSection.sectionCode})`
+          console.debug(
+            `Auto-adding compatible ${lowerTypeGroup.type}: ${firstCompatible.sectionCode} (compatible with ${newSection.sectionCode})`
           )
         }
       }
