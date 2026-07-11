@@ -431,6 +431,24 @@ export function updateExistingEnrollment(
 }
 
 /**
+ * Sort sections into section-type priority order (e.g. LEC before TUT).
+ * The cart uses array order for display and the primary section, so callers
+ * that build the array in other orders (user clicks, cycling) run it through here.
+ */
+export function sortSectionsByPriority(
+  sections: InternalSection[],
+  course: InternalCourse,
+  termName: string
+): InternalSection[] {
+  const sectionTypes = parseSectionTypes(course, termName)
+  return [...sections].sort(
+    (a, b) =>
+      getSectionTypePriority(a.sectionType, sectionTypes) -
+      getSectionTypePriority(b.sectionType, sectionTypes)
+  )
+}
+
+/**
  * Get selected sections for a course enrollment
  */
 export function getSelectedSectionsForCourse(
@@ -1032,7 +1050,7 @@ export function autoCompleteEnrollmentSections(
       }
     })
 
-  return updatedSections
+  return sortSectionsByPriority(updatedSections, course, termName)
 }
 
 /**

@@ -16,6 +16,7 @@ import {
   autoCompleteEnrollmentSections,
   getUnscheduledSections,
   parseSectionTypes,
+  sortSectionsByPriority,
   updateExistingEnrollment,
   extractAcademicYearCode,
 } from '@/lib/courseUtils'
@@ -389,6 +390,9 @@ export default function Home() {
       return // No valid sections selected
     }
 
+    // localSelections is keyed in user-click order; canonicalize before storing
+    const orderedSections = sortSectionsByPriority(selectedSectionsForCourse, course, termName)
+
     // Check if course is already enrolled
     const existingEnrollmentIndex = courseEnrollments.findIndex(
       (enrollment) =>
@@ -401,7 +405,7 @@ export default function Home() {
       setCourseEnrollments((prev) =>
         prev.map((enrollment, index) =>
           index === existingEnrollmentIndex
-            ? updateExistingEnrollment(enrollment, course, selectedSectionsForCourse)
+            ? updateExistingEnrollment(enrollment, course, orderedSections)
             : enrollment
         )
       )
@@ -412,7 +416,7 @@ export default function Home() {
       const newEnrollment: CourseEnrollment = {
         courseId: courseKey,
         course,
-        selectedSections: selectedSectionsForCourse,
+        selectedSections: orderedSections,
         color: assignedColor,
         isVisible: true,
       }
@@ -508,7 +512,8 @@ export default function Home() {
           return {
             ...enrollment,
             course: freshCourse, // Always use fresh course data
-            selectedSections: syncedSections,
+            // Canonicalize order so carts stored before this fix self-heal
+            selectedSections: sortSectionsByPriority(syncedSections, freshCourse, currentTerm),
             isInvalid: hasInvalidSections,
             invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
             lastSynced: timestamp, // Track when we last synced this enrollment

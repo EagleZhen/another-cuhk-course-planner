@@ -26,6 +26,6 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 - A course counts as **Open** only when _every_ selected section is open, but as **Waitlisted**/**Closed** when _any_ section is. The asymmetry is deliberate: one problematic section blocks clean enrollment.
 - Credit totals exclude invalid enrollments; all counts split into visible/total when some courses are hidden.
 
-## Known Limitations
+## Section Ordering
 
-- Section rows appear in the order the user clicked them, then jump to priority order after a cycling cascade rebuilds the array (`handleAddCourse` keeps click order; `autoCompleteEnrollmentSections` appends re-added sections). Tracked in [issue #58](https://github.com/EagleZhen/another-cuhk-course-planner/issues/58).
+- Rows render in `selectedSections` order, and the first element is the primary section — so the array must stay in section-type priority order (LEC before TUT). Build paths don't guarantee that order, so they normalize through `sortSectionsByPriority`. Fixes [issue #58](https://github.com/EagleZhen/another-cuhk-course-planner/issues/58).
