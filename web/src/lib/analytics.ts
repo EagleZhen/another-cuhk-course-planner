@@ -112,6 +112,18 @@ export const analytics = {
     track('screenshot_taken')
   },
 
+  // === MOBILE DESKTOP NOTICE ===
+
+  // Track how often the desktop-nudge modal shows → is it engagement or just friction?
+  noticeShown: (version: string) => {
+    track('notice_shown', { version })
+  },
+
+  // Track dismissals by how the notice was closed → tapping outside vs. using a button.
+  noticeDismissed: (version: string, method: 'backdrop' | 'button') => {
+    track('notice_dismissed', { version, method })
+  },
+
   // === PERFORMANCE ===
 
   // Track course data loading performance → identifies real-world load times across user networks

@@ -9,6 +9,7 @@ import {
   NOTICE_VERSION,
   NOTICE_IMAGE_LOADED_EVENT,
 } from '@/lib/constants'
+import { analytics } from '@/lib/analytics'
 
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
@@ -24,11 +25,13 @@ export default function MobileDesktopNotice() {
 
     if (isMobile && seenVersion !== NOTICE_VERSION) {
       setShowNotice(true)
+      analytics.noticeShown(NOTICE_VERSION)
     }
   }, [])
 
-  const dismissNotice = () => {
+  const dismissNotice = (method: 'backdrop' | 'button') => {
     localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
+    analytics.noticeDismissed(NOTICE_VERSION, method)
     setShowNotice(false)
     // Ensure event fires even if image hasn't loaded yet (prevents blocking data load)
     window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
@@ -40,7 +43,7 @@ export default function MobileDesktopNotice() {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgba(0, 0, 0, 0.1)' }}
-      onClick={dismissNotice}
+      onClick={() => dismissNotice('backdrop')}
     >
       <div
         className="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl w-full mx-4 p-6 border border-white/20 relative max-h-[90vh] overflow-y-auto"
@@ -96,13 +99,13 @@ export default function MobileDesktopNotice() {
         {/* Actions */}
         <div className="space-y-2">
           <button
-            onClick={dismissNotice}
+            onClick={() => dismissNotice('button')}
             className="w-full px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
           >
             Continue on mobile anyway
           </button>
           <button
-            onClick={dismissNotice}
+            onClick={() => dismissNotice('button')}
             className="w-full px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors"
           >
             Got it, thanks!
