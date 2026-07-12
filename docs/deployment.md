@@ -4,7 +4,9 @@ The web app is deployed at <https://another-cuhk-course-planner.com/>.
 
 ## Hosting
 
-The app is hosted on Cloudflare Pages as a static export (`output: 'export'` in [web/next.config.ts](../web/next.config.ts)): `npm run build` emits a static site to `web/out/`. Cloudflare build config (root `web`): build command `npm run build`, output directory `out`. Node is pinned via [web/.nvmrc](../web/.nvmrc); Cloudflare ignores `package.json`'s `engines` (see [decisions.md](decisions.md#pin-the-node-version-via-nvmrc)).
+The app is hosted on Cloudflare Pages as a static export (`output: 'export'` in [web/next.config.ts](../web/next.config.ts)): `npm run build` emits a static site to `web/out/`.
+
+Config splits between [web/wrangler.jsonc](../web/wrangler.jsonc) — the source of truth for the output dir and the Functions runtime (compatibility date and flags) — and the Cloudflare dashboard, which owns only the build command (`npm run build`) and root directory (`web`), which Pages has no config-file field for. Node is pinned via [web/.nvmrc](../web/.nvmrc); Cloudflare ignores `package.json`'s `engines` (see [decisions.md](decisions.md#pin-the-node-version-via-nvmrc)).
 
 The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
