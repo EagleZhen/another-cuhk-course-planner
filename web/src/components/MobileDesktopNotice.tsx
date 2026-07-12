@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { Monitor, Share2, Check } from 'lucide-react'
+import { Monitor, Share2, Check, X } from 'lucide-react'
 import {
   MOBILE_BREAKPOINT,
   NOTICE_STORAGE_KEY,
@@ -126,6 +126,14 @@ export default function MobileDesktopNotice() {
         style={{ backdropFilter: 'blur(20px)' }}
         onClick={(e) => e.stopPropagation()}
       >
+        <button
+          onClick={() => dismissNotice('button')}
+          aria-label="Close"
+          className="absolute top-3 right-3 p-1.5 rounded-md text-muted-foreground select-none hover:bg-accent hover:text-foreground active:scale-90 transition-all"
+        >
+          <X className="w-4 h-4" />
+        </button>
+
         {/* Header */}
         <div className="text-center mb-4">
           <div className="flex items-center justify-center gap-2 mb-2">
