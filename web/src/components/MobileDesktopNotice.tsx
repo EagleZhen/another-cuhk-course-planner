@@ -99,8 +99,7 @@ export default function MobileDesktopNotice() {
     }
     try {
       await navigator.share({
-        title: 'CUHK Course Planner',
-        text: 'Open the course planner on your computer',
+        title: 'Another CUHK Course Planner',
         url: window.location.href,
       })
     } catch (err) {
