@@ -18,7 +18,9 @@ Cloudflare serves assets first — HTML, course JSON under [web/public/data/](..
 
 Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.
 
-The app sends PostHog traffic to `/x8m2k`, a same-origin reverse proxy (so ad blockers don't recognize PostHog's domain) that runs as a Pages Function (`web/functions/x8m2k/[[path]].ts`) forwarding to `us.i.posthog.com`. Local development works without analytics when `NEXT_PUBLIC_POSTHOG_KEY` is unset.
+posthog-js sends everything to `/x8m2k` (its `api_host`) — a same-origin path, so ad blockers don't recognize PostHog's domain — and a catch-all Pages Function (`web/functions/x8m2k/[[path]].ts`) forwards it to PostHog's ingest host, `us.i.posthog.com`. The Function runs only at the edge (production or `wrangler pages dev`, not plain `npm run dev`) and is the app's only Function. Local dev works without analytics when `NEXT_PUBLIC_POSTHOG_KEY` is unset.
+
+Don't confuse that with `ui_host` (`us.posthog.com`): that's PostHog's separate dashboard host, referenced only so the SDK can link back to it. No events go there, so it isn't proxied.
 
 The entry pageview is captured manually, then `utm_*` params are stripped from the URL — so inbound links can be tagged (e.g. `?utm_source=dcard`) without the tag lingering in bookmarks or re-shares. Unhandled JS errors are auto-captured to Error Tracking.
 
