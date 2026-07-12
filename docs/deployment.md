@@ -12,7 +12,7 @@ The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
 ### Serving and billing
 
-Cloudflare serves assets first — HTML, course JSON under [web/public/data/](../web/public/data/), and images are free static assets (edge-cached; even `304` revalidations cost nothing). Only the PostHog proxy at `/x8m2k/*` runs as a Pages Function, the sole path billed against the Functions limit (100k/day free) — so eager-loading ~400 course files per session is cheap. Keeping the catalog off the Function path is the point of the hosting choice; see [decisions.md](decisions.md#static-export-over-the-next-on-pages-adapter).
+Cloudflare serves assets first — HTML, course JSON under [web/public/data/](../web/public/data/), and images are free static assets (edge-cached; even `304` revalidations cost nothing). Only the PostHog proxy at `/x8m2k/*` runs as a Pages Function, the sole path billed against the Functions limit (100k/day free) — so eager-loading ~400 course files per session is cheap. Cloudflare bills only requests matched by the auto-generated `_routes.json` `include` (Pages derives it from `functions/`; ours is just `/x8m2k/*`), so adding a `functions/` route is what would re-bill the catalog. See [decisions.md](decisions.md#static-export-over-the-next-on-pages-adapter).
 
 ## Analytics
 
