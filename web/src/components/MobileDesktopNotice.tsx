@@ -130,10 +130,10 @@ export default function MobileDesktopNotice() {
         {/* Header */}
         <div className="text-center mb-4">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Monitor className="w-4 h-4 text-blue-600" />
-            <h2 className="text-base font-bold text-gray-900">Better on Computer</h2>
+            <Monitor className="w-4 h-4 text-muted-foreground" />
+            <h2 className="text-base font-bold text-foreground">Better on Computer</h2>
           </div>
-          <p className="text-gray-600 text-sm">
+          <p className="text-muted-foreground text-sm">
             This tool works best on desktop with side-by-side layout, live preview, and clearer
             display of course information.
           </p>
