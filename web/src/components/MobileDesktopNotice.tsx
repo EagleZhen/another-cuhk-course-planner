@@ -14,6 +14,7 @@ import { analytics } from '@/lib/analytics'
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     // Check if user is on mobile and hasn't seen this version
@@ -29,12 +30,53 @@ export default function MobileDesktopNotice() {
     }
   }, [])
 
-  const dismissNotice = (method: 'backdrop' | 'button') => {
+  // Mark this version seen and close. Fires NOTICE_IMAGE_LOADED_EVENT so course data
+  // loads even if the preview image never did (see CourseSearch's load-order coupling).
+  const closeNotice = () => {
     localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
-    analytics.noticeDismissed(NOTICE_VERSION, method)
     setShowNotice(false)
-    // Ensure event fires even if image hasn't loaded yet (prevents blocking data load)
     window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
+  }
+
+  const dismissNotice = (method: 'backdrop' | 'button') => {
+    analytics.noticeDismissed(NOTICE_VERSION, method)
+    closeNotice()
+  }
+
+  // Copy the link and confirm inline. Used where the native share sheet is unavailable.
+  const copyLinkFallback = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+    } catch {
+      return
+    }
+    setCopied(true)
+    analytics.noticeShared(NOTICE_VERSION, 'copy')
+    localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
+  }
+
+  // Bridge the user to desktop: open the native share sheet so they can send the link
+  // to themselves (AirDrop, Messages, email…). Falls back to copying the link.
+  const shareToDesktop = async () => {
+    if (!navigator.share) {
+      await copyLinkFallback()
+      return
+    }
+    try {
+      await navigator.share({
+        title: 'CUHK Course Planner',
+        text: 'Open the course planner on your computer',
+        url: window.location.href,
+      })
+    } catch (err) {
+      // User cancelled the sheet — leave the notice open so they can retry or dismiss.
+      if (err instanceof Error && err.name === 'AbortError') return
+      // Any other failure — try the clipboard instead.
+      await copyLinkFallback()
+      return
+    }
+    analytics.noticeShared(NOTICE_VERSION, 'share')
+    closeNotice()
   }
 
   if (!showNotice) return null
@@ -99,16 +141,16 @@ export default function MobileDesktopNotice() {
         {/* Actions */}
         <div className="space-y-2">
           <button
-            onClick={() => dismissNotice('button')}
+            onClick={shareToDesktop}
             className="w-full px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
           >
-            Continue on mobile anyway
+            {copied ? 'Link copied!' : 'Send link to my computer'}
           </button>
           <button
             onClick={() => dismissNotice('button')}
             className="w-full px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors"
           >
-            Got it, thanks!
+            Continue on mobile
           </button>
         </div>
       </div>

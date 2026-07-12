@@ -124,6 +124,11 @@ export const analytics = {
     track('notice_dismissed', { version, method })
   },
 
+  // Track the desktop-bridge action → the win we care about, plus Web Share vs. copy reach.
+  noticeShared: (version: string, method: 'share' | 'copy') => {
+    track('notice_shared', { version, method })
+  },
+
   // === PERFORMANCE ===
 
   // Track course data loading performance → identifies real-world load times across user networks
