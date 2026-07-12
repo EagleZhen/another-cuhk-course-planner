@@ -173,36 +173,40 @@ export default function MobileDesktopNotice() {
         </div>
 
         {/* Actions */}
-        <div className="space-y-2">
-          <Button
-            onClick={shareToDesktop}
-            size="lg"
-            className={`w-full select-none active:scale-95 ${
-              copied ? 'bg-emerald-600 text-white hover:bg-emerald-600' : ''
-            }`}
-          >
-            {copied ? <Check /> : <Share2 />}
-            {copied ? 'Link copied!' : 'Send link to my computer'}
-          </Button>
-          <Button
-            variant="ghost"
-            size="lg"
-            onClick={() => dismissNotice('button')}
-            className="w-full text-muted-foreground select-none active:scale-95"
-          >
-            Continue on mobile
-          </Button>
-        </div>
+        <div>
+          <div className="space-y-2">
+            <Button
+              onClick={shareToDesktop}
+              size="lg"
+              className={`w-full select-none active:scale-95 ${
+                copied ? 'bg-emerald-600 text-white hover:bg-emerald-600' : ''
+              }`}
+            >
+              {copied ? <Check /> : <Share2 />}
+              {copied ? 'Link copied!' : 'Send link to my computer'}
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => dismissNotice('button')}
+              className="w-full text-muted-foreground select-none active:scale-95"
+            >
+              Continue on mobile
+            </Button>
+          </div>
 
-        <p className="text-center text-xs text-muted-foreground border-t pt-3 mt-3">
-          Can&apos;t send it now?
-          <br />
-          Just search{' '}
-          <span className="font-medium text-foreground">
-            &ldquo;Another CUHK Course Planner&rdquo;
-          </span>{' '}
-          later.
-        </p>
+          <div className="border-t mt-2 mb-3" />
+
+          <p className="text-center text-xs text-muted-foreground">
+            Can&apos;t send it now?
+            <br />
+            Just search{' '}
+            <span className="font-medium text-foreground">
+              &ldquo;Another CUHK Course Planner&rdquo;
+            </span>{' '}
+            later.
+          </p>
+        </div>
       </div>
     </div>
   )
