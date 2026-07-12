@@ -5,6 +5,12 @@ const allowedDevOrigins = process.env.ALLOWED_DEV_ORIGINS?.split(',')
   .filter(Boolean)
 
 const nextConfig: NextConfig = {
+  // Static export: assets served by Cloudflare's static layer, not a Function.
+  // See docs/decisions.md. The PostHog rewrite moved to functions/x8m2k/[[path]].ts
+  // (rewrites() aren't supported here); next/image needs unoptimized without a server.
+  output: 'export',
+  images: { unoptimized: true },
+
   turbopack: {
     root: process.cwd(),
   },
@@ -12,15 +18,6 @@ const nextConfig: NextConfig = {
   ...(process.env.NODE_ENV === 'development' && allowedDevOrigins?.length
     ? { allowedDevOrigins }
     : {}),
-
-  async rewrites() {
-    return [
-      {
-        source: '/x8m2k/:path*',
-        destination: `${process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com'}/:path*`,
-      },
-    ]
-  },
 }
 
 export default nextConfig
