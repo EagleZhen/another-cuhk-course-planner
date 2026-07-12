@@ -20,6 +20,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     method: request.method,
     headers: request.headers,
     body: request.body,
-    redirect: 'manual',
+    redirect: 'follow', // resolve redirects server-side so the browser never sees PostHog's domain
   })
 }
