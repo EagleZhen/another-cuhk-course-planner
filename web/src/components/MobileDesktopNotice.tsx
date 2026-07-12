@@ -178,7 +178,9 @@ export default function MobileDesktopNotice() {
           <Button
             onClick={shareToDesktop}
             size="lg"
-            className={`w-full ${copied ? 'bg-emerald-600 text-white hover:bg-emerald-600' : ''}`}
+            className={`w-full select-none active:scale-95 ${
+              copied ? 'bg-emerald-600 text-white hover:bg-emerald-600' : ''
+            }`}
           >
             {copied ? <Check /> : <Share2 />}
             {copied ? 'Link copied!' : 'Send link to my computer'}
@@ -187,7 +189,7 @@ export default function MobileDesktopNotice() {
             variant="ghost"
             size="lg"
             onClick={() => dismissNotice('button')}
-            className="w-full text-muted-foreground"
+            className="w-full text-muted-foreground select-none active:scale-95"
           >
             Continue on mobile
           </Button>
