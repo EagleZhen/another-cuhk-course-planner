@@ -11,6 +11,33 @@ import {
 } from '@/lib/constants'
 import { analytics } from '@/lib/analytics'
 
+// Copy text to the clipboard. Tries the async Clipboard API, then a legacy execCommand
+// path that also works on insecure origins (e.g. LAN-IP dev servers) where the Clipboard
+// API is unavailable. Returns whether the copy succeeded.
+async function copyText(text: string): Promise<boolean> {
+  try {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text)
+      return true
+    }
+  } catch {
+    // fall through to the legacy path
+  }
+  try {
+    const textarea = document.createElement('textarea')
+    textarea.value = text
+    textarea.style.position = 'fixed'
+    textarea.style.opacity = '0'
+    document.body.appendChild(textarea)
+    textarea.select()
+    const ok = document.execCommand('copy')
+    document.body.removeChild(textarea)
+    return ok
+  } catch {
+    return false
+  }
+}
+
 export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -45,11 +72,7 @@ export default function MobileDesktopNotice() {
 
   // Copy the link and confirm inline. Used where the native share sheet is unavailable.
   const copyLinkFallback = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href)
-    } catch {
-      return
-    }
+    if (!(await copyText(window.location.href))) return
     setCopied(true)
     analytics.noticeShared(NOTICE_VERSION, 'copy')
     localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
