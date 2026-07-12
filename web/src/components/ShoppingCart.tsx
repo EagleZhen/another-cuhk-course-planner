@@ -315,6 +315,7 @@ export default function ShoppingCart({
                   }}
                 >
                   {/* Course Header */}
+                  {/* Icon buttons are `size-5` (not `h-full aspect-square`) to match this row's `h-5` — Safari resolves stretch+aspect-ratio differently and renders the button past the card's edge. */}
                   <div className="flex h-5 items-stretch justify-between gap-1">
                     <div
                       className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
