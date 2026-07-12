@@ -142,12 +142,10 @@ Create local web env vars in `web/.env.local`.
 ```bash
 ALLOWED_DEV_ORIGINS=
 NEXT_PUBLIC_POSTHOG_KEY=
-NEXT_PUBLIC_POSTHOG_HOST=
 ```
 
 - `ALLOWED_DEV_ORIGINS`: comma-separated dev origins for LAN/mobile testing.
 - `NEXT_PUBLIC_POSTHOG_KEY`: optional PostHog project key. Local development works without it.
-- `NEXT_PUBLIC_POSTHOG_HOST`: optional PostHog ingest host; defaults to `https://us.i.posthog.com`.
 
 ## Data Pipeline
 

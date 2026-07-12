@@ -30,8 +30,29 @@ Decision: host the app on Cloudflare Pages.
 
 Why it fits:
 
-- Cloudflare's static asset request and bandwidth model fits this app better
+- Cloudflare's static-asset request and bandwidth model suits a static frontend, with a generous free tier
 - deployment stays aligned with the frontend-only/static architecture
+
+Caveat (since resolved): this only holds once the site is a true static export. The original `@cloudflare/next-on-pages` setup routed every request through a Worker, so the ~400-file course-data fan-out was billed as Function requests — nearly the opposite of the static-asset model this rationale assumed. See [Static Export Over The next-on-pages Adapter](#static-export-over-the-next-on-pages-adapter).
+
+## Static Export Over The next-on-pages Adapter
+
+`@cloudflare/next-on-pages` (now deprecated) generated a worker-first `_routes.json` (`include: ["/*"]`, excluding only `/_next/static/*`), so nearly every request invoked the Worker. The ~400 `public/data/<year>/*.json` files eager-loaded each session were billed as Function requests, hitting ~78% of the 100k/day free limit during add-drop. Caching didn't help — the quota counts requests, not bytes, so even `304` revalidations were billed.
+
+Decision: migrate to static export (`output: 'export'`). Cloudflare then serves assets first, so HTML, data, and images are free; only the PostHog `/x8m2k/*` proxy stays a Function.
+
+Why it fits:
+
+- makes the [Cloudflare Pages rationale](#cloudflare-pages-over-vercel) true — the catalog is served as static assets, not billed Function requests
+- drops a deprecated dependency and the `legacy-peer-deps` workaround it required
+
+Invariant: never route the course catalog through a Function. A `middleware.ts`, a `rewrites()`/`headers()` rule on data paths, or a dashboard misconfig would silently re-bill it at ~10× cost while the app still works. [#178](https://github.com/EagleZhen/another-cuhk-course-planner/issues/178) tracks automated guards.
+
+Tradeoffs:
+
+- no SSR or middleware (fine — the app is frontend-only anyway)
+- `next/image` ships unoptimized (`images.unoptimized`) without a server
+- the proxy moved from a `next.config` rewrite to a Function (`web/functions/x8m2k/[[path]].ts`), kept single-host (assets-host split is [#177](https://github.com/EagleZhen/another-cuhk-course-planner/issues/177))
 
 ## PostHog Over Vercel Analytics
 

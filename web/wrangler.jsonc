@@ -1,0 +1,14 @@
+{
+  // Pins the Pages runtime and build output in-repo, read by both local
+  // `wrangler pages dev` and Cloudflare's build (so local matches production).
+  // The build command can't live here — Pages runs it from the project's
+  // dashboard settings, and its config file has no field for it.
+  "name": "another-cuhk-course-planner",
+  "compatibility_date": "2025-08-25",
+  // Required even though our proxy uses no Node APIs: Cloudflare compiles
+  // functions/ into one Worker whose runtime shim imports node:stream, so the
+  // publish step fails with "No such module node:stream" without this flag.
+  // (This file is the source of truth, so omitting it disables the flag.)
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": "out"
+}
