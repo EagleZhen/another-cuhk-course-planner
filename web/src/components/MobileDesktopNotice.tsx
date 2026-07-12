@@ -141,12 +141,12 @@ export default function MobileDesktopNotice() {
 
         {/* Desktop Preview Image */}
         <div className="mb-4">
-          <div className="w-full aspect-[8/5] bg-gray-100 rounded-lg border border-gray-200 overflow-hidden relative">
+          <div className="w-full aspect-[8/5] bg-muted rounded-lg border border-border shadow-md overflow-hidden relative">
             {!imageLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-3">
-                  <div className="w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
-                  <span className="text-sm text-gray-500">Loading preview...</span>
+                  <div className="w-8 h-8 border-2 border-muted-foreground/20 border-t-muted-foreground rounded-full animate-spin"></div>
+                  <span className="text-sm text-muted-foreground">Loading preview...</span>
                 </div>
               </div>
             )}
