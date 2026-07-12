@@ -193,6 +193,16 @@ export default function MobileDesktopNotice() {
             Continue on mobile
           </Button>
         </div>
+
+        <p className="text-center text-xs text-muted-foreground border-t pt-3 mt-3">
+          Can&apos;t send it now?
+          <br />
+          Just search{' '}
+          <span className="font-medium text-foreground">
+            &ldquo;Another CUHK Course Planner&rdquo;
+          </span>{' '}
+          later.
+        </p>
       </div>
     </div>
   )
