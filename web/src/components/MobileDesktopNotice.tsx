@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { Monitor } from 'lucide-react'
+import { Monitor, Share2, Check } from 'lucide-react'
 import {
   MOBILE_BREAKPOINT,
   NOTICE_STORAGE_KEY,
@@ -10,6 +10,7 @@ import {
   NOTICE_IMAGE_LOADED_EVENT,
 } from '@/lib/constants'
 import { analytics } from '@/lib/analytics'
+import { Button } from '@/components/ui/button'
 
 // Copy text to the clipboard. Tries the async Clipboard API, then a legacy execCommand
 // path that also works on insecure origins (e.g. LAN-IP dev servers) where the Clipboard
@@ -42,6 +43,15 @@ export default function MobileDesktopNotice() {
   const [showNotice, setShowNotice] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [copied, setCopied] = useState(false)
+  const copyResetRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  // Clear a pending "copied" reset if the notice unmounts mid-timer.
+  useEffect(
+    () => () => {
+      if (copyResetRef.current) clearTimeout(copyResetRef.current)
+    },
+    []
+  )
 
   useEffect(() => {
     // Check if user is on mobile and hasn't seen this version
@@ -74,6 +84,8 @@ export default function MobileDesktopNotice() {
   const copyLinkFallback = async () => {
     if (!(await copyText(window.location.href))) return
     setCopied(true)
+    if (copyResetRef.current) clearTimeout(copyResetRef.current)
+    copyResetRef.current = setTimeout(() => setCopied(false), 2000)
     analytics.noticeShared(NOTICE_VERSION, 'copy')
     localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
   }
@@ -163,18 +175,22 @@ export default function MobileDesktopNotice() {
 
         {/* Actions */}
         <div className="space-y-2">
-          <button
+          <Button
             onClick={shareToDesktop}
-            className="w-full px-4 py-2.5 text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors"
+            size="lg"
+            className={`w-full ${copied ? 'bg-emerald-600 text-white hover:bg-emerald-600' : ''}`}
           >
+            {copied ? <Check /> : <Share2 />}
             {copied ? 'Link copied!' : 'Send link to my computer'}
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="ghost"
+            size="lg"
             onClick={() => dismissNotice('button')}
-            className="w-full px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors"
+            className="w-full text-muted-foreground"
           >
             Continue on mobile
-          </button>
+          </Button>
         </div>
       </div>
     </div>
