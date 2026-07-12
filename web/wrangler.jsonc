@@ -1,0 +1,12 @@
+{
+  // Pins the Pages runtime and build output in-repo, read by both local
+  // `wrangler pages dev` and Cloudflare's build (so local matches production).
+  // The build command can't live here — Pages runs it from the project's
+  // dashboard settings, and its config file has no field for it.
+  "name": "another-cuhk-course-planner",
+  "compatibility_date": "2025-08-25",
+  "pages_build_output_dir": "out"
+  // No compatibility_flags on purpose. The static export leaves only the
+  // /x8m2k PostHog proxy, which uses Web-standard Worker APIs; nodejs_compat
+  // (required by the old next-on-pages runtime) is no longer needed.
+}
