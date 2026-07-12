@@ -315,6 +315,7 @@ export default function ShoppingCart({
                   }}
                 >
                   {/* Course Header */}
+                  {/* Icon buttons are `size-5` (not `h-full aspect-square`) to match this row's `h-5` — Safari resolves stretch+aspect-ratio differently and renders the button past the card's edge. */}
                   <div className="flex h-5 items-stretch justify-between gap-1">
                     <div
                       className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
@@ -336,7 +337,7 @@ export default function ShoppingCart({
                               `${enrollment.course.subject}${enrollment.course.courseCode}`
                             )
                           }}
-                          className="h-full aspect-square p-0 cursor-pointer"
+                          className="size-5 p-0 cursor-pointer"
                           title="View course details"
                         >
                           <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
@@ -344,7 +345,7 @@ export default function ShoppingCart({
                       )}
                       {isInvalid && (
                         <div
-                          className="flex h-full aspect-square items-center justify-center"
+                          className="flex size-5 items-center justify-center"
                           title={enrollment.invalidReason || 'Course data is outdated'}
                         >
                           <AlertTriangle className="size-3.5 text-orange-500" />
@@ -369,7 +370,7 @@ export default function ShoppingCart({
                           // Toggle visibility for this enrollment
                           onToggleVisibility(enrollment.courseId)
                         }}
-                        className="h-full aspect-square p-0 cursor-pointer"
+                        className="size-5 p-0 cursor-pointer"
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
@@ -386,7 +387,7 @@ export default function ShoppingCart({
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="h-full aspect-square p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        className="size-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
                         title="Remove course"
                       >
                         <Trash2 className="size-3" />
