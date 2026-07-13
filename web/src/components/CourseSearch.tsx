@@ -93,6 +93,9 @@ interface CourseSearchProps {
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
+// Shared "no day constraint" set, so the day-chip filter never depends on selectedDays.
+const NO_DAYS: Set<number> = new Set()
+
 export default function CourseSearch({
   courseEnrollments,
   currentTerm,
@@ -224,15 +227,20 @@ export default function CourseSearch({
   )
   const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
-  // Which days still have matching courses — filtered by everything except days, so the day
-  // chips don't disable themselves.
+  // Which days still have matching courses. Filtered with no day constraint so the chips
+  // reflect availability regardless of the day selection — and, deliberately, this does not
+  // depend on selectedDays.
   const availableDays = useMemo(() => {
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
-    const matched = filterCoursesExceptDays(allCourses, filterCriteria, filterContext)
+    const matched = filterCoursesExceptDays(
+      allCourses,
+      { searchTerm: debouncedSearchTerm, subjects: selectedSubjects, days: NO_DAYS },
+      filterContext
+    )
     const daysWithCourses = new Set<number>()
     matched.forEach((course) => {
-      termSectionsOf(course, currentTerm).forEach((section) => {
+      termSectionsOf(course, filterContext.term).forEach((section) => {
         section.meetings.forEach((meeting) => {
           const dayIndex = getDayIndex(meeting.time)
           if (dayIndex !== -1) daysWithCourses.add(dayIndex)
@@ -241,7 +249,7 @@ export default function CourseSearch({
     })
 
     return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
-  }, [allCourses, currentTerm, filterCriteria, filterContext])
+  }, [allCourses, debouncedSearchTerm, selectedSubjects, filterContext])
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
