@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest'
 import {
   filterCourses,
   filterCoursesExcept,
+  availableValues,
+  dayDimension,
   hasActiveFilters,
   courseMatchesKeyword,
   type CourseFilterCriteria,
@@ -154,6 +156,37 @@ describe('filterCoursesExcept', () => {
     const criteria = { ...noFilters, subjects: new Set(['CSCI']), days: new Set([0]) }
     expect(filterCoursesExcept([friday], criteria, ctx, 'day')).toEqual([friday])
     expect(filterCourses([friday], criteria, ctx)).toEqual([])
+  })
+})
+
+describe('availableValues (dayDimension)', () => {
+  const dayCourse = (subject: string, time: string) =>
+    makeCourse({
+      subject,
+      terms: [
+        {
+          termCode: '2510',
+          termName: TERM,
+          sections: [makeSection({ meetings: [makeMeeting({ time })] })],
+        },
+      ],
+    })
+  const mon = dayCourse('CSCI', 'Mo 10:30AM - 12:15PM')
+  const fri = dayCourse('ENGG', 'Fr 2:30PM - 4:15PM')
+
+  it('collects the distinct days present', () => {
+    expect(availableValues(dayDimension, [mon, fri], noFilters, ctx).sort()).toEqual([0, 4])
+  })
+
+  it('reacts to the other active filters', () => {
+    const criteria = { ...noFilters, subjects: new Set(['CSCI']) }
+    expect(availableValues(dayDimension, [mon, fri], criteria, ctx)).toEqual([0])
+  })
+
+  it('keeps a selected value even when no course still has it', () => {
+    // Only a Monday course exists, but Friday (4) is selected — it must stay visible.
+    const selected = new Set([4])
+    expect(availableValues(dayDimension, [mon], noFilters, ctx, selected).sort()).toEqual([0, 4])
   })
 })
 

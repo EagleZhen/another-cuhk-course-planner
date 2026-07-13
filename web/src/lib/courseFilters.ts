@@ -125,6 +125,51 @@ export function filterCourses(
   return filterCoursesExcept(courses, criteria, context)
 }
 
+/**
+ * A chip filter, described by its engine key and how to read its value(s) off a course.
+ * The predicate itself already lives in the engine (keyed by `key`); this adds only the
+ * value extractor that `availableValues` needs.
+ */
+export interface ChipDimension<T> {
+  key: FilterKey
+  valuesOf: (course: InternalCourse, context: CourseFilterContext) => T[]
+}
+
+/**
+ * The values this dimension's chips should offer: those present in the data after every
+ * OTHER filter applies, plus any currently-selected values so a selected chip never
+ * vanishes (which would strand the user with results they can't unfilter).
+ */
+export function availableValues<T>(
+  dimension: ChipDimension<T>,
+  courses: InternalCourse[],
+  criteria: CourseFilterCriteria,
+  context: CourseFilterContext,
+  selected: Iterable<T> = []
+): T[] {
+  const matched = filterCoursesExcept(courses, criteria, context, dimension.key)
+  const values = new Set<T>(selected)
+  for (const course of matched) {
+    for (const value of dimension.valuesOf(course, context)) values.add(value)
+  }
+  return [...values]
+}
+
+/** Day indices (0=Mon..6=Sun) a course meets on, in its current term. */
+export const dayDimension: ChipDimension<number> = {
+  key: 'day',
+  valuesOf: (course, context) => {
+    const indices: number[] = []
+    for (const section of termSectionsOf(course, context.term)) {
+      for (const meeting of section.meetings) {
+        const dayIndex = getDayIndex(meeting.time)
+        if (dayIndex !== -1) indices.push(dayIndex)
+      }
+    }
+    return indices
+  },
+}
+
 /** Has the user narrowed the catalog at all? Drives the default result limit. Excludes `term`, which is always active. */
 export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
   return Boolean(criteria.searchTerm.trim()) || criteria.subjects.size > 0 || criteria.days.size > 0

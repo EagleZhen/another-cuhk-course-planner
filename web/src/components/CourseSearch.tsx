@@ -45,9 +45,9 @@ import type {
 } from '@/lib/types'
 import {
   filterCourses,
-  filterCoursesExcept,
   hasActiveFilters,
-  termSectionsOf,
+  availableValues,
+  dayDimension,
   type CourseFilterCriteria,
   type CourseFilterContext,
 } from '@/lib/courseFilters'
@@ -92,9 +92,6 @@ interface CourseSearchProps {
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
-
-// Shared "no day constraint" set, so the day-chip filter never depends on selectedDays.
-const NO_DAYS: Set<number> = new Set()
 
 /** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
 function shuffledCopy<T>(items: T[]): T[] {
@@ -240,30 +237,16 @@ export default function CourseSearch({
   // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
   const shuffledCatalog = useMemo(() => shuffledCopy(allCourses), [allCourses])
 
-  // Which days still have matching courses. Filtered with no day constraint so the chips
-  // reflect availability regardless of the day selection — and, deliberately, this does not
-  // depend on selectedDays.
+  // Days that still have matching courses (given the other filters), plus any already
+  // selected so a selected chip never disappears.
   const availableDays = useMemo(() => {
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
-    const matched = filterCoursesExcept(
-      allCourses,
-      { searchTerm: debouncedSearchTerm, subjects: selectedSubjects, days: NO_DAYS },
-      filterContext,
-      'day'
+    const present = new Set(
+      availableValues(dayDimension, allCourses, filterCriteria, filterContext, selectedDays)
     )
-    const daysWithCourses = new Set<number>()
-    matched.forEach((course) => {
-      termSectionsOf(course, filterContext.term).forEach((section) => {
-        section.meetings.forEach((meeting) => {
-          const dayIndex = getDayIndex(meeting.time)
-          if (dayIndex !== -1) daysWithCourses.add(dayIndex)
-        })
-      })
-    })
-
-    return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
-  }, [allCourses, debouncedSearchTerm, selectedSubjects, filterContext])
+    return DAY_COMBINATIONS.full.filter((dayKey) => present.has(DAYS[dayKey].index))
+  }, [allCourses, filterCriteria, filterContext, selectedDays])
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
