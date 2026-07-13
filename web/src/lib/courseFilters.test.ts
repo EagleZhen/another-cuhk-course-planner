@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   filterCourses,
-  filterCoursesExceptDays,
+  filterCoursesExcept,
   hasActiveFilters,
   courseMatchesKeyword,
   type CourseFilterCriteria,
@@ -138,8 +138,8 @@ describe('courseMatchesKeyword', () => {
   })
 })
 
-describe('filterCoursesExceptDays', () => {
-  it('ignores the day filter but still applies subject/keyword', () => {
+describe('filterCoursesExcept', () => {
+  it('skips the excluded dimension but still applies the others', () => {
     const friday = makeCourse({
       subject: 'CSCI',
       terms: [
@@ -150,9 +150,9 @@ describe('filterCoursesExceptDays', () => {
         },
       ],
     })
-    // A Monday-only day filter would drop this course in filterCourses, but not here.
+    // A Monday-only day filter would drop this course in filterCourses, but not when days are excluded.
     const criteria = { ...noFilters, subjects: new Set(['CSCI']), days: new Set([0]) }
-    expect(filterCoursesExceptDays([friday], criteria, ctx)).toEqual([friday])
+    expect(filterCoursesExcept([friday], criteria, ctx, 'day')).toEqual([friday])
     expect(filterCourses([friday], criteria, ctx)).toEqual([])
   })
 })

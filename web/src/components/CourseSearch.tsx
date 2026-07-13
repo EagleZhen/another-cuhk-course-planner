@@ -45,7 +45,7 @@ import type {
 } from '@/lib/types'
 import {
   filterCourses,
-  filterCoursesExceptDays,
+  filterCoursesExcept,
   hasActiveFilters,
   termSectionsOf,
   type CourseFilterCriteria,
@@ -246,10 +246,11 @@ export default function CourseSearch({
   const availableDays = useMemo(() => {
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
-    const matched = filterCoursesExceptDays(
+    const matched = filterCoursesExcept(
       allCourses,
       { searchTerm: debouncedSearchTerm, subjects: selectedSubjects, days: NO_DAYS },
-      filterContext
+      filterContext,
+      'day'
     )
     const daysWithCourses = new Set<number>()
     matched.forEach((course) => {

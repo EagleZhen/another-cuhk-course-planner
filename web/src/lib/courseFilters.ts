@@ -80,41 +80,49 @@ const buildDayPredicate: PredicateBuilder = (criteria, context) =>
           sectionMatchesDays(section, criteria.days)
         )
 
-// Every course-level dimension. Adding a filter = append one builder here.
-const ALL_BUILDERS: PredicateBuilder[] = [
-  buildTermPredicate,
-  buildSubjectPredicate,
-  buildKeywordPredicate,
-  buildDayPredicate,
+/** One filterable dimension. Adding a filter = append an entry here. */
+export type FilterKey = 'term' | 'subject' | 'keyword' | 'day'
+
+const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
+  { key: 'term', build: buildTermPredicate },
+  { key: 'subject', build: buildSubjectPredicate },
+  { key: 'keyword', build: buildKeywordPredicate },
+  { key: 'day', build: buildDayPredicate },
 ]
 
 function composePredicates(
-  builders: PredicateBuilder[],
   criteria: CourseFilterCriteria,
-  context: CourseFilterContext
+  context: CourseFilterContext,
+  exclude?: FilterKey
 ): CoursePredicate[] {
-  return builders.map((build) => build(criteria, context)).filter((p) => p !== TRUE)
+  return BUILDERS.filter((b) => b.key !== exclude)
+    .map((b) => b.build(criteria, context))
+    .filter((p) => p !== TRUE)
 }
 
-/** Filter courses by all active criteria. Order-preserving and deterministic. */
+/**
+ * Filter courses by all active criteria, optionally skipping one dimension.
+ * Skipping a dimension powers its "available values" controls (e.g. the day chips filter
+ * by everything except days, so selecting a day can't hide the chips to change it).
+ * Order-preserving and deterministic.
+ */
+export function filterCoursesExcept(
+  courses: InternalCourse[],
+  criteria: CourseFilterCriteria,
+  context: CourseFilterContext,
+  exclude?: FilterKey
+): InternalCourse[] {
+  const predicates = composePredicates(criteria, context, exclude)
+  return courses.filter((course) => predicates.every((p) => p(course)))
+}
+
+/** Filter courses by all active criteria. */
 export function filterCourses(
   courses: InternalCourse[],
   criteria: CourseFilterCriteria,
   context: CourseFilterContext
 ): InternalCourse[] {
-  const predicates = composePredicates(ALL_BUILDERS, criteria, context)
-  return courses.filter((course) => predicates.every((p) => p(course)))
-}
-
-/** Filter by everything except days — used to compute which days still have matches, without the day filter feeding back on itself. */
-export function filterCoursesExceptDays(
-  courses: InternalCourse[],
-  criteria: CourseFilterCriteria,
-  context: CourseFilterContext
-): InternalCourse[] {
-  const builders = ALL_BUILDERS.filter((b) => b !== buildDayPredicate)
-  const predicates = composePredicates(builders, criteria, context)
-  return courses.filter((course) => predicates.every((p) => p(course)))
+  return filterCoursesExcept(courses, criteria, context)
 }
 
 /** Has the user narrowed the catalog at all? Drives the default result limit. Excludes `term`, which is always active. */
