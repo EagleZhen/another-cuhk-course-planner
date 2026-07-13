@@ -252,7 +252,31 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
 
-      <div className="border-t flex-shrink-0" />
+      {sectionChanges && sectionChanges.size > 0 ? (
+        <div
+          className="flex cursor-help items-center justify-between gap-2 border-y border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-800"
+          title={`CUHK updated the teaching timetable for ${Array.from(sectionChanges.keys()).join(', ')}. Re-export your calendar and update any screenshot you saved.`}
+        >
+          <span className="flex items-center gap-1.5">
+            <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
+            <span>
+              {sectionChanges.size} {sectionChanges.size === 1 ? 'course' : 'courses'} changed
+            </span>
+          </span>
+          {onDismissAllChanges && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onDismissAllChanges}
+              className="h-5 shrink-0 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
+            >
+              Dismiss all
+            </Button>
+          )}
+        </div>
+      ) : (
+        <div className="border-t flex-shrink-0" />
+      )}
 
       <CardContent className="flex-1 overflow-hidden px-3">
         {courseEnrollments.length === 0 ? (
@@ -262,394 +286,368 @@ export default function ShoppingCart({
             <p className="text-xs opacity-70">Add courses to get started</p>
           </div>
         ) : (
-          <div className="flex h-full flex-col">
-            {sectionChanges && sectionChanges.size > 0 && (
-              <div className="mb-2 flex-shrink-0 rounded-md border border-amber-400 bg-amber-50 p-2">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-medium text-amber-900">
-                    {sectionChanges.size} {sectionChanges.size === 1 ? 'course' : 'courses'} changed
-                    since you last checked
-                  </span>
-                  {onDismissAllChanges && (
-                    <button
-                      onClick={onDismissAllChanges}
-                      className="shrink-0 text-[10px] text-amber-800 underline cursor-pointer"
-                    >
-                      Dismiss all
-                    </button>
-                  )}
-                </div>
-                <p className="mt-1 text-[10px] text-amber-800">
-                  Re-export your calendar and update any screenshot you saved.
-                </p>
-              </div>
-            )}
-            <div
-              ref={scrollContainerRef}
-              className="flex-1 space-y-3 overflow-y-auto p-1 pr-2 pt-1 pb-2"
-            >
-              {courseEnrollments.map((enrollment) => {
-                const isVisible = enrollment.isVisible // Use enrollment visibility directly
-                const isSelected = selectedEnrollment === enrollment.courseId
-                const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
+          <div
+            ref={scrollContainerRef}
+            className="space-y-3 overflow-y-auto h-full p-1 pr-2 pt-1 pb-2"
+          >
+            {courseEnrollments.map((enrollment) => {
+              const isVisible = enrollment.isVisible // Use enrollment visibility directly
+              const isSelected = selectedEnrollment === enrollment.courseId
+              const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
 
-                return (
-                  <div
-                    key={enrollment.courseId}
-                    ref={(el) => {
-                      if (el) {
-                        itemRefs.current.set(enrollment.courseId, el)
-                      } else {
-                        itemRefs.current.delete(enrollment.courseId)
-                      }
-                    }}
-                    className={`
+              return (
+                <div
+                  key={enrollment.courseId}
+                  ref={(el) => {
+                    if (el) {
+                      itemRefs.current.set(enrollment.courseId, el)
+                    } else {
+                      itemRefs.current.delete(enrollment.courseId)
+                    }
+                  }}
+                  className={`
                     border rounded p-2 transition-all duration-300 relative group space-y-2
                     border-l-4 border-gray-200
                     ${isInvalid ? 'bg-orange-50 opacity-75' : 'bg-white'}
                     ${isSelected && isVisible && !isInvalid ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${!isVisible || isInvalid ? 'cursor-not-allowed' : 'cursor-pointer'}
                   `}
-                    style={{
-                      ...(isInvalid
+                  style={{
+                    ...(isInvalid
+                      ? {
+                          borderLeftColor: '#fb923c', // orange-400 for invalid courses
+                        }
+                      : enrollment.color
                         ? {
-                            borderLeftColor: '#fb923c', // orange-400 for invalid courses
-                          }
-                        : enrollment.color
-                          ? {
-                              borderLeftColor: getComputedBorderColor(enrollment.color), // course color for normal/conflict courses
-                            }
-                          : {}),
-                      // Ring color matches the left border color when selected
-                      ...(isSelected && isVisible && !isInvalid && enrollment.color
-                        ? {
-                            '--tw-ring-color': getComputedBorderColor(enrollment.color),
+                            borderLeftColor: getComputedBorderColor(enrollment.color), // course color for normal/conflict courses
                           }
                         : {}),
-                    }}
-                    title={
-                      !isVisible && !isInvalid
-                        ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
-                        : isInvalid
-                          ? enrollment.invalidReason || 'Course data is outdated'
-                          : undefined
+                    // Ring color matches the left border color when selected
+                    ...(isSelected && isVisible && !isInvalid && enrollment.color
+                      ? {
+                          '--tw-ring-color': getComputedBorderColor(enrollment.color),
+                        }
+                      : {}),
+                  }}
+                  title={
+                    !isVisible && !isInvalid
+                      ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
+                      : isInvalid
+                        ? enrollment.invalidReason || 'Course data is outdated'
+                        : undefined
+                  }
+                  onClick={() => {
+                    // Only allow selection if the enrollment is visible and not invalid
+                    if (isVisible && !isInvalid && onSelectEnrollment) {
+                      const newSelection = isSelected ? null : enrollment.courseId
+                      onSelectEnrollment(newSelection)
                     }
-                    onClick={() => {
-                      // Only allow selection if the enrollment is visible and not invalid
-                      if (isVisible && !isInvalid && onSelectEnrollment) {
-                        const newSelection = isSelected ? null : enrollment.courseId
-                        onSelectEnrollment(newSelection)
-                      }
-                    }}
-                  >
-                    {/* Course Header */}
-                    {/* Icon buttons are `size-5` (not `h-full aspect-square`) to match this row's `h-5` — Safari resolves stretch+aspect-ratio differently and renders the button past the card's edge. */}
-                    <div className="flex h-5 items-stretch justify-between gap-1">
-                      <div
-                        className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
-                      >
-                        <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-5">
-                          {formatCourseCodeWithPrefix(
-                            enrollment.course.subject,
-                            enrollment.course.courseCode,
-                            enrollment.selectedSections[0]?.sectionCode || ''
-                          )}
-                        </span>
-                        {onShowCourseDetails && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              onShowCourseDetails(
-                                `${enrollment.course.subject}${enrollment.course.courseCode}`
-                              )
-                            }}
-                            className="size-5 p-0 cursor-pointer"
-                            title="View course details"
-                          >
-                            <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
-                          </Button>
+                  }}
+                >
+                  {/* Course Header */}
+                  {/* Icon buttons are `size-5` (not `h-full aspect-square`) to match this row's `h-5` — Safari resolves stretch+aspect-ratio differently and renders the button past the card's edge. */}
+                  <div className="flex h-5 items-stretch justify-between gap-1">
+                    <div
+                      className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
+                    >
+                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-5">
+                        {formatCourseCodeWithPrefix(
+                          enrollment.course.subject,
+                          enrollment.course.courseCode,
+                          enrollment.selectedSections[0]?.sectionCode || ''
                         )}
-                        {isInvalid && (
-                          <div
-                            className="flex size-5 items-center justify-center"
-                            title={enrollment.invalidReason || 'Course data is outdated'}
-                          >
-                            <AlertTriangle className="size-3.5 text-orange-500" />
-                          </div>
-                        )}
-                        <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
-                          {enrollment.course.credits} credits
-                        </span>
-                      </div>
-
-                      {/* Quick Actions */}
-                      <div className="flex shrink-0 items-stretch gap-1">
+                      </span>
+                      {onShowCourseDetails && (
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={(e) => {
                             e.stopPropagation()
-                            // If making invisible and currently selected, deselect it
-                            if (isVisible && isSelected && onSelectEnrollment) {
-                              onSelectEnrollment(null)
-                            }
-                            // Toggle visibility for this enrollment
-                            onToggleVisibility(enrollment.courseId)
+                            onShowCourseDetails(
+                              `${enrollment.course.subject}${enrollment.course.courseCode}`
+                            )
                           }}
                           className="size-5 p-0 cursor-pointer"
-                          title={isVisible ? 'Hide course' : 'Show course'}
+                          title="View course details"
                         >
-                          {isVisible ? (
-                            <Eye className="size-3.5 text-gray-600" />
-                          ) : (
-                            <EyeOff className="size-3.5 text-gray-400" />
-                          )}
+                          <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            // Remove this enrollment
-                            onRemoveCourse(enrollment.courseId)
-                          }}
-                          className="size-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
-                          title="Remove course"
+                      )}
+                      {isInvalid && (
+                        <div
+                          className="flex size-5 items-center justify-center"
+                          title={enrollment.invalidReason || 'Course data is outdated'}
                         >
-                          <Trash2 className="size-3" />
-                        </Button>
-                      </div>
+                          <AlertTriangle className="size-3.5 text-orange-500" />
+                        </div>
+                      )}
+                      <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
+                        {enrollment.course.credits} credits
+                      </span>
                     </div>
 
-                    {/* Course Title */}
-                    <p
-                      className={`-mt-1 text-xs leading-4 text-gray-600 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
-                    >
-                      {enrollment.course.title}
-                    </p>
+                    {/* Quick Actions */}
+                    <div className="flex shrink-0 items-stretch gap-1">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          // If making invisible and currently selected, deselect it
+                          if (isVisible && isSelected && onSelectEnrollment) {
+                            onSelectEnrollment(null)
+                          }
+                          // Toggle visibility for this enrollment
+                          onToggleVisibility(enrollment.courseId)
+                        }}
+                        className="size-5 p-0 cursor-pointer"
+                        title={isVisible ? 'Hide course' : 'Show course'}
+                      >
+                        {isVisible ? (
+                          <Eye className="size-3.5 text-gray-600" />
+                        ) : (
+                          <EyeOff className="size-3.5 text-gray-400" />
+                        )}
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          // Remove this enrollment
+                          onRemoveCourse(enrollment.courseId)
+                        }}
+                        className="size-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        title="Remove course"
+                      >
+                        <Trash2 className="size-3" />
+                      </Button>
+                    </div>
+                  </div>
 
-                    {/* Selected Sections - Compact Display or Invalid Message */}
-                    {isInvalid ? (
-                      /* Show simplified invalid state */
-                      <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
-                        <div className="flex items-center gap-2 text-xs text-orange-600">
-                          <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                          <span>{enrollment.invalidReason}</span>
-                        </div>
-                        {enrollment.lastSynced && (
-                          <div className="text-xs text-gray-500 mt-2">Last synced:</div>
-                        )}
-                        {enrollment.lastSynced && (
-                          <div className="text-xs text-gray-500">
-                            {enrollment.lastSynced.toLocaleString()}
-                          </div>
-                        )}
+                  {/* Course Title */}
+                  <p
+                    className={`-mt-1 text-xs leading-4 text-gray-600 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
+                  >
+                    {enrollment.course.title}
+                  </p>
+
+                  {/* Selected Sections - Compact Display or Invalid Message */}
+                  {isInvalid ? (
+                    /* Show simplified invalid state */
+                    <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
+                      <div className="flex items-center gap-2 text-xs text-orange-600">
+                        <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                        <span>{enrollment.invalidReason}</span>
                       </div>
-                    ) : (
-                      /* Show normal section details */
-                      <div className={`space-y-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
-                        {enrollment.selectedSections.map((section) => {
-                          // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
-                          const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
-                          const typeGroup = sectionTypes.find(
-                            (group) => group.type === section.sectionType
+                      {enrollment.lastSynced && (
+                        <div className="text-xs text-gray-500 mt-2">Last synced:</div>
+                      )}
+                      {enrollment.lastSynced && (
+                        <div className="text-xs text-gray-500">
+                          {enrollment.lastSynced.toLocaleString()}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    /* Show normal section details */
+                    <div className={`space-y-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
+                      {enrollment.selectedSections.map((section) => {
+                        // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
+                        const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+                        const typeGroup = sectionTypes.find(
+                          (group) => group.type === section.sectionType
+                        )
+                        if (!typeGroup) return null
+
+                        // Only constrain by HIGHER priority sections (lower priority numbers)
+                        const higherPrioritySelections = enrollment.selectedSections.filter((s) => {
+                          const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
+                          const currentPriority = getSectionTypePriority(
+                            section.sectionType,
+                            sectionTypes
                           )
-                          if (!typeGroup) return null
+                          return sPriority < currentPriority // Higher priority (lower number)
+                        })
 
-                          // Only constrain by HIGHER priority sections (lower priority numbers)
-                          const higherPrioritySelections = enrollment.selectedSections.filter(
-                            (s) => {
-                              const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
-                              const currentPriority = getSectionTypePriority(
-                                section.sectionType,
-                                sectionTypes
-                              )
-                              return sPriority < currentPriority // Higher priority (lower number)
-                            }
-                          )
+                        const { compatible } = categorizeCompatibleSections(
+                          typeGroup.sections,
+                          higherPrioritySelections
+                        )
 
-                          const { compatible } = categorizeCompatibleSections(
-                            typeGroup.sections,
-                            higherPrioritySelections
-                          )
+                        const canCycle = compatible.length > 1
+                        const currentIndex = compatible.findIndex((s) => s.id === section.id)
+                        const sectionPosition = `${currentIndex + 1}/${compatible.length}`
+                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
 
-                          const canCycle = compatible.length > 1
-                          const currentIndex = compatible.findIndex((s) => s.id === section.id)
-                          const sectionPosition = `${currentIndex + 1}/${compatible.length}`
-                          const conflictInfo = checkSectionConflict(section, courseEnrollments)
-
-                          return (
-                            <div
-                              key={section.id}
-                              className={`rounded border px-2 py-2 ${conflictInfo.hasConflict ? 'bg-purple-50 border-purple-300 ring-1 ring-purple-100' : 'bg-gray-50'}`}
-                            >
-                              {/* Section header with cycling buttons */}
-                              <div className="flex items-center justify-between mb-1">
-                                <div className="flex items-center gap-2">
-                                  <div className="text-xs font-mono font-medium text-gray-800">
-                                    {section.sectionCode}
-                                  </div>
-                                  {conflictInfo.hasConflict && (
-                                    <div
-                                      title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
-                                    >
-                                      <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
-                                    </div>
-                                  )}
+                        return (
+                          <div
+                            key={section.id}
+                            className={`rounded border px-2 py-2 ${conflictInfo.hasConflict ? 'bg-purple-50 border-purple-300 ring-1 ring-purple-100' : 'bg-gray-50'}`}
+                          >
+                            {/* Section header with cycling buttons */}
+                            <div className="flex items-center justify-between mb-1">
+                              <div className="flex items-center gap-2">
+                                <div className="text-xs font-mono font-medium text-gray-800">
+                                  {section.sectionCode}
                                 </div>
-
-                                {/* Cycling controls or "only option" badge */}
-                                {canCycle ? (
-                                  <div className="flex items-center gap-1">
-                                    <span className="text-[10px] text-gray-500 mr-1">
-                                      {sectionPosition}
-                                    </span>
-                                    <Button
-                                      variant="ghost"
-                                      size="sm"
-                                      onClick={(e) => {
-                                        e.stopPropagation()
-                                        cycleSection(enrollment, section.sectionType, 'prev')
-                                      }}
-                                      className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
-                                      title="Previous section"
-                                    >
-                                      <ChevronLeft className="w-3 h-3 text-gray-600" />
-                                    </Button>
-                                    <Button
-                                      variant="ghost"
-                                      size="sm"
-                                      onClick={(e) => {
-                                        e.stopPropagation()
-                                        cycleSection(enrollment, section.sectionType, 'next')
-                                      }}
-                                      className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
-                                      title="Next section"
-                                    >
-                                      <ChevronRight className="w-3 h-3 text-gray-600" />
-                                    </Button>
-                                  </div>
-                                ) : (
-                                  <Badge
-                                    variant="outline"
-                                    className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300"
+                                {conflictInfo.hasConflict && (
+                                  <div
+                                    title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
                                   >
-                                    only option
-                                  </Badge>
+                                    <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
+                                  </div>
                                 )}
                               </div>
 
-                              {/* Row 2: Enrollment Badges */}
-                              <div className="flex items-center gap-1 mb-2">
-                                {getAvailabilityBadges(section.availability).map((badge) => (
-                                  <Badge
-                                    key={badge.type}
-                                    className={`text-[9px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
-                                    title={
-                                      badge.type === 'status'
-                                        ? `Course status: ${badge.text}`
-                                        : badge.type === 'availability'
-                                          ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                          : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
-                                    }
-                                  >
-                                    {badge.text}
-                                  </Badge>
-                                ))}
-                              </div>
-
-                              {/* Row 3: Teaching Language */}
-                              {section.classAttributes && (
-                                <div className="flex items-center gap-1 text-gray-500 text-[9px] mb-2">
-                                  <span className="flex-shrink-0">🌐</span>
-                                  <span
-                                    className="truncate"
-                                    title={`Language of instruction: ${section.classAttributes}`}
-                                  >
-                                    {section.classAttributes}
+                              {/* Cycling controls or "only option" badge */}
+                              {canCycle ? (
+                                <div className="flex items-center gap-1">
+                                  <span className="text-[10px] text-gray-500 mr-1">
+                                    {sectionPosition}
                                   </span>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      cycleSection(enrollment, section.sectionType, 'prev')
+                                    }}
+                                    className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                    title="Previous section"
+                                  >
+                                    <ChevronLeft className="w-3 h-3 text-gray-600" />
+                                  </Button>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      cycleSection(enrollment, section.sectionType, 'next')
+                                    }}
+                                    className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                    title="Next section"
+                                  >
+                                    <ChevronRight className="w-3 h-3 text-gray-600" />
+                                  </Button>
                                 </div>
+                              ) : (
+                                <Badge
+                                  variant="outline"
+                                  className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300"
+                                >
+                                  only option
+                                </Badge>
                               )}
+                            </div>
 
-                              {/* Unique meetings for this section - consolidated by time+location+instructor */}
-                              <div className="space-y-1">
-                                {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                                  const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                                  const formattedInstructor = formatInstructorsCompact(
-                                    meeting?.instructors || 'TBA'
-                                  )
-                                  const location = meeting?.location || 'TBA'
+                            {/* Row 2: Enrollment Badges */}
+                            <div className="flex items-center gap-1 mb-2">
+                              {getAvailabilityBadges(section.availability).map((badge) => (
+                                <Badge
+                                  key={badge.type}
+                                  className={`text-[9px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
+                                  title={
+                                    badge.type === 'status'
+                                      ? `Course status: ${badge.text}`
+                                      : badge.type === 'availability'
+                                        ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
+                                        : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                  }
+                                >
+                                  {badge.text}
+                                </Badge>
+                              ))}
+                            </div>
 
-                                  return (
-                                    <div
-                                      key={index}
-                                      className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm"
-                                    >
-                                      {/* Row 1: Time */}
-                                      <div className="flex items-center gap-1 text-[11px]">
-                                        <span>⏰</span>
-                                        <span className="font-mono text-gray-600">
-                                          {formattedTime}
+                            {/* Row 3: Teaching Language */}
+                            {section.classAttributes && (
+                              <div className="flex items-center gap-1 text-gray-500 text-[9px] mb-2">
+                                <span className="flex-shrink-0">🌐</span>
+                                <span
+                                  className="truncate"
+                                  title={`Language of instruction: ${section.classAttributes}`}
+                                >
+                                  {section.classAttributes}
+                                </span>
+                              </div>
+                            )}
+
+                            {/* Unique meetings for this section - consolidated by time+location+instructor */}
+                            <div className="space-y-1">
+                              {getUniqueMeetings(section.meetings).map((meeting, index) => {
+                                const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
+                                const formattedInstructor = formatInstructorsCompact(
+                                  meeting?.instructors || 'TBA'
+                                )
+                                const location = meeting?.location || 'TBA'
+
+                                return (
+                                  <div
+                                    key={index}
+                                    className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm"
+                                  >
+                                    {/* Row 1: Time */}
+                                    <div className="flex items-center gap-1 text-[11px]">
+                                      <span>⏰</span>
+                                      <span className="font-mono text-gray-600">
+                                        {formattedTime}
+                                      </span>
+                                    </div>
+                                    {/* Row 2: Instructor */}
+                                    <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                      <span>🧑🏻‍🏫</span>
+                                      <div className="flex items-center gap-1 min-w-0 flex-1">
+                                        <span className="truncate" title={formattedInstructor}>
+                                          {formattedInstructor}
                                         </span>
-                                      </div>
-                                      {/* Row 2: Instructor */}
-                                      <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                        <span>🧑🏻‍🏫</span>
-                                        <div className="flex items-center gap-1 min-w-0 flex-1">
-                                          <span className="truncate" title={formattedInstructor}>
-                                            {formattedInstructor}
-                                          </span>
-                                          {formattedInstructor !== 'Staff' && (
-                                            <button
-                                              onClick={(e) => {
-                                                e.stopPropagation()
-                                                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                              }}
-                                              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                              title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                            >
-                                              <GoogleIcon className="size-3" />
-                                            </button>
-                                          )}
-                                        </div>
-                                      </div>
-                                      {/* Row 3: Location */}
-                                      <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                        <span>📍</span>
-                                        <div className="flex items-center gap-1 min-w-0 flex-1">
-                                          <span className="truncate" title={location}>
-                                            {location}
-                                          </span>
-                                          {location !== 'TBA' &&
-                                            location !== 'No Room Required' && (
-                                              <button
-                                                onClick={(e) => {
-                                                  e.stopPropagation()
-                                                  googleMapsSearchAndOpen(location)
-                                                }}
-                                                className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                                title={`View "${location}" on Google Maps`}
-                                              >
-                                                <GoogleMapsIcon className="size-3" />
-                                              </button>
-                                            )}
-                                        </div>
+                                        {formattedInstructor !== 'Staff' && (
+                                          <button
+                                            onClick={(e) => {
+                                              e.stopPropagation()
+                                              googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                                            }}
+                                            className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                            title={`Search Google for "CUHK ${formattedInstructor}"`}
+                                          >
+                                            <GoogleIcon className="size-3" />
+                                          </button>
+                                        )}
                                       </div>
                                     </div>
-                                  )
-                                })}
-                              </div>
+                                    {/* Row 3: Location */}
+                                    <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                      <span>📍</span>
+                                      <div className="flex items-center gap-1 min-w-0 flex-1">
+                                        <span className="truncate" title={location}>
+                                          {location}
+                                        </span>
+                                        {location !== 'TBA' && location !== 'No Room Required' && (
+                                          <button
+                                            onClick={(e) => {
+                                              e.stopPropagation()
+                                              googleMapsSearchAndOpen(location)
+                                            }}
+                                            className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+                                            title={`View "${location}" on Google Maps`}
+                                          >
+                                            <GoogleMapsIcon className="size-3" />
+                                          </button>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )
+                              })}
                             </div>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         )}
       </CardContent>
