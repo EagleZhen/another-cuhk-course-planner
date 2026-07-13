@@ -500,6 +500,31 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
+// Which meeting line(s) and whether the language changed vs `before`, for row-level
+// highlighting. Parses our own sectionSignature format apart — a trailing segment is
+// the language unless it contains ' · ' (only meeting lines do).
+export function diffSectionDetail(
+  section: InternalSection,
+  before: string
+): { changedMeetingLines: Set<string>; languageChanged: boolean } {
+  const segments = before ? before.split('  |  ') : []
+  const last = segments[segments.length - 1]
+  const hasLanguageSegment = !!last && !last.includes(' · ')
+  const beforeMeetingLines = new Set(hasLanguageSegment ? segments.slice(0, -1) : segments)
+  const beforeLanguage = hasLanguageSegment ? last : ''
+
+  const changedMeetingLines = new Set<string>()
+  const seen = new Set<string>()
+  for (const m of section.meetings) {
+    const line = [norm(m.time), norm(m.location), norm(m.instructors)].filter(Boolean).join(' · ')
+    if (!line || seen.has(line)) continue
+    seen.add(line)
+    if (!beforeMeetingLines.has(line)) changedMeetingLines.add(line)
+  }
+
+  return { changedMeetingLines, languageChanged: beforeLanguage !== norm(section.classAttributes) }
+}
+
 /**
  * Sort sections into section-type priority order (e.g. LEC before TUT).
  * The cart uses array order for display and the primary section, so callers
