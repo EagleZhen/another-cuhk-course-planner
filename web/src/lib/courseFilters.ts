@@ -1,7 +1,6 @@
-// Course-level filtering: the single source of truth for which courses match the
-// user's active filters. Pure and side-effect-free — no React, no shuffle, no result
-// limiting (those are presentation, handled by the caller). Each filter dimension is a
-// predicate builder, so adding a dimension is one builder + one criteria field.
+// The single source of truth for which courses match the user's filters. Pure: no React,
+// no shuffle, no result limiting (those stay with the caller). Each dimension is a
+// predicate builder, so a new filter is one builder plus one criteria field.
 
 import type { InternalCourse, InternalSection } from './types'
 import { getDayIndex } from './courseUtils'
@@ -107,10 +106,7 @@ export function filterCourses(
   return courses.filter((course) => predicates.every((p) => p(course)))
 }
 
-/**
- * Filter by everything except the day dimension. Used to compute which days still have
- * matching courses, without the day filter feeding back on itself.
- */
+/** Filter by everything except days — used to compute which days still have matches, without the day filter feeding back on itself. */
 export function filterCoursesExceptDays(
   courses: InternalCourse[],
   criteria: CourseFilterCriteria,
@@ -121,10 +117,7 @@ export function filterCoursesExceptDays(
   return courses.filter((course) => predicates.every((p) => p(course)))
 }
 
-/**
- * Whether the user has narrowed the catalog at all. Drives presentation choices such as
- * the default result limit; deliberately independent of `term` (which is always active).
- */
+/** Has the user narrowed the catalog at all? Drives the default result limit. Excludes `term`, which is always active. */
 export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
   return Boolean(criteria.searchTerm.trim()) || criteria.subjects.size > 0 || criteria.days.size > 0
 }
