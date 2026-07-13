@@ -18,6 +18,9 @@ import {
   googleMapsSearchAndOpen,
   formatCourseCodeWithPrefix,
   checkSectionConflict,
+  diffSectionDetail,
+  isChangedMeeting,
+  formatSectionSignature,
 } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType, SectionChange } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
@@ -35,7 +38,6 @@ interface ShoppingCartProps {
   onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
   onShowCourseDetails?: (courseCode: string) => void // Navigate to course search and show details
   sectionChanges?: Map<string, SectionChange[]> // Sections changed since the user last saw them, by courseId
-  onDismissChanges?: (enrollmentId: string) => void
   onDismissAllChanges?: () => void
 }
 
@@ -50,7 +52,6 @@ export default function ShoppingCart({
   onSectionChange,
   onShowCourseDetails,
   sectionChanges,
-  onDismissChanges,
   onDismissAllChanges,
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -294,6 +295,7 @@ export default function ShoppingCart({
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
+              const changes = sectionChanges?.get(enrollment.courseId)
 
               return (
                 <div
@@ -479,6 +481,10 @@ export default function ShoppingCart({
                         const currentIndex = compatible.findIndex((s) => s.id === section.id)
                         const sectionPosition = `${currentIndex + 1}/${compatible.length}`
                         const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        const sectionChange = changes?.find((c) => c.sectionId === section.id)
+                        const changeDetail = sectionChange
+                          ? diffSectionDetail(section, sectionChange.before)
+                          : undefined
 
                         return (
                           <div
@@ -562,14 +568,16 @@ export default function ShoppingCart({
 
                             {/* Row 3: Teaching Language */}
                             {section.classAttributes && (
-                              <div className="flex items-center gap-1 text-gray-500 text-[9px] mb-2">
+                              <div
+                                className={`flex items-center gap-1 text-[9px] mb-2 rounded px-1 ${changeDetail?.languageChanged ? 'bg-amber-50 text-amber-800' : 'text-gray-500'}`}
+                                title={
+                                  changeDetail?.languageChanged && sectionChange
+                                    ? `Previously: ${sectionChange.before.language || 'not specified'}`
+                                    : `Language of instruction: ${section.classAttributes}`
+                                }
+                              >
                                 <span className="flex-shrink-0">🌐</span>
-                                <span
-                                  className="truncate"
-                                  title={`Language of instruction: ${section.classAttributes}`}
-                                >
-                                  {section.classAttributes}
-                                </span>
+                                <span className="truncate">{section.classAttributes}</span>
                               </div>
                             )}
 
@@ -581,11 +589,19 @@ export default function ShoppingCart({
                                   meeting?.instructors || 'TBA'
                                 )
                                 const location = meeting?.location || 'TBA'
+                                const rowChanged =
+                                  !!changeDetail &&
+                                  isChangedMeeting(meeting, changeDetail.changedMeetings)
 
                                 return (
                                   <div
                                     key={index}
-                                    className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm"
+                                    className={`rounded border px-2 py-1.5 shadow-sm ${rowChanged ? 'bg-amber-50 border-amber-300' : 'bg-white border-gray-200'}`}
+                                    title={
+                                      rowChanged && sectionChange
+                                        ? `Previously: ${formatSectionSignature(sectionChange.before)}`
+                                        : undefined
+                                    }
                                   >
                                     {/* Row 1: Time */}
                                     <div className="flex items-center gap-1 text-[11px]">

@@ -7,6 +7,7 @@ import {
   diffEnrollment,
   recordSeenSections,
   diffSectionDetail,
+  isChangedMeeting,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -361,5 +362,23 @@ describe('diffSectionDetail', () => {
     const detail = diffSectionDetail(now, sig(before))
     expect(detail.changedMeetings).toHaveLength(1)
     expect(detail.languageChanged).toBe(true)
+  })
+})
+
+describe('isChangedMeeting', () => {
+  it('matches a raw meeting against a changed signature after normalization', () => {
+    const meeting = mkMeeting({ time: 'We 9AM - 10AM', location: 'Hum  314' }) // double space
+    const changed = [{ time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' }]
+    expect(isChangedMeeting(meeting, changed)).toBe(true)
+  })
+
+  it('does not match a meeting absent from the changed list', () => {
+    const meeting = mkMeeting({ time: 'Mo 9AM - 10AM' })
+    const changed = [{ time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' }]
+    expect(isChangedMeeting(meeting, changed)).toBe(false)
+  })
+
+  it('returns false for an empty changed list', () => {
+    expect(isChangedMeeting(mkMeeting({}), [])).toBe(false)
   })
 })

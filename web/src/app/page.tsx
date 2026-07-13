@@ -376,16 +376,6 @@ export default function Home() {
     )
   }
 
-  const handleDismissChanges = (enrollmentId: string) => {
-    setCourseEnrollments((prev) =>
-      prev.map((enrollment) =>
-        enrollment.courseId === enrollmentId
-          ? recordSeenSections(enrollment, { onlyMissing: false })
-          : enrollment
-      )
-    )
-  }
-
   const handleDismissAllChanges = () => {
     setCourseEnrollments((prev) =>
       prev.map((enrollment) => recordSeenSections(enrollment, { onlyMissing: false }))
@@ -659,7 +649,6 @@ export default function Home() {
               onSectionChange={handleSectionChange}
               onShowCourseDetails={handleShowCourseDetails}
               sectionChanges={sectionChanges}
-              onDismissChanges={handleDismissChanges}
               onDismissAllChanges={handleDismissAllChanges}
             />
           </div>

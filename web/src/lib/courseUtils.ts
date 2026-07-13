@@ -534,6 +534,19 @@ export function diffSectionDetail(
   return { changedMeetings, languageChanged: before.language !== current.language }
 }
 
+// Whether a raw meeting (as rendered) is one of diffSectionDetail's changed meetings.
+export function isChangedMeeting(
+  meeting: InternalMeeting,
+  changedMeetings: SectionMeetingSignature[]
+): boolean {
+  const row = {
+    time: norm(meeting.time),
+    location: norm(meeting.location),
+    instructor: norm(meeting.instructors),
+  }
+  return changedMeetings.some((m) => sameMeeting(m, row))
+}
+
 /**
  * Sort sections into section-type priority order (e.g. LEC before TUT).
  * The cart uses array order for display and the primary section, so callers
