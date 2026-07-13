@@ -180,16 +180,12 @@ function mkEnrollment(
 const sig = (s: InternalSection) => sectionSignature(s)
 
 describe('sectionSignature', () => {
-  it('is deterministic and independent of meeting order', () => {
-    const a = mkSection('1', [
+  it('preserves meeting appearance order (so display and pairing match the source)', () => {
+    const s = mkSection('1', [
       mkMeeting({ time: 'We 9AM - 10AM' }),
       mkMeeting({ time: 'Mo 9AM - 10AM' }),
     ])
-    const b = mkSection('1', [
-      mkMeeting({ time: 'Mo 9AM - 10AM' }),
-      mkMeeting({ time: 'We 9AM - 10AM' }),
-    ])
-    expect(sig(a)).toEqual(sig(b))
+    expect(sig(s).meetings.map((m) => m.time)).toEqual(['We 9AM - 10AM', 'Mo 9AM - 10AM'])
   })
   it('dedups identical rows and collapses whitespace', () => {
     const a = mkSection('1', [

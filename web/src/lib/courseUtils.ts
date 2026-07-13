@@ -454,9 +454,8 @@ const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
   a.time === b.time && a.location === b.location && a.instructor === b.instructor
 
-// A section's deduped/sorted meetings plus language of instruction — the comparison
-// key for change detection. Pure data; ignores `dates`. See formatSectionSignature
-// for the display string.
+// A section's deduped meetings (in source order) plus language — the comparison key for
+// change detection. Pure data; ignores `dates`. See formatSectionSignature for display.
 export function sectionSignature(section: InternalSection): SectionSignature {
   const seen = new Set<string>()
   const meetings: SectionMeetingSignature[] = []
@@ -468,11 +467,6 @@ export function sectionSignature(section: InternalSection): SectionSignature {
       meetings.push(row)
     }
   }
-  meetings.sort((a, b) =>
-    `${a.time}|${a.location}|${a.instructor}`.localeCompare(
-      `${b.time}|${b.location}|${b.instructor}`
-    )
-  )
   return { meetings, language: norm(section.classAttributes) }
 }
 
