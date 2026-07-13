@@ -51,6 +51,7 @@ import {
   type CourseFilterCriteria,
   type CourseFilterContext,
 } from '@/lib/courseFilters'
+import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
@@ -685,55 +686,24 @@ export default function CourseSearch({
             )}
           </div>
 
-          {/* Course-level Day Filters */}
-          <div className="flex items-center gap-2 flex-wrap mt-2">
-            <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
-
-            {/* Day filter buttons - only show days with courses in current results */}
-            {availableDays.length > 0 ? (
-              availableDays.map((dayKey: WeekDay) => {
-                const dayInfo = DAYS[dayKey]
-                const isSelected = selectedDays.has(dayInfo.index)
-                const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
-
-                return (
-                  <Button
-                    key={dayKey}
-                    variant={isSelected ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => toggleDayFilter(dayInfo.index)}
-                    className="h-6 px-2 text-xs font-normal border-1"
-                    title={
-                      isSelected
-                        ? `Remove ${dayInfo.displayName} filter`
-                        : `Show only courses with classes on ${dayInfo.displayName}`
-                    }
-                  >
-                    {shortName}
-                  </Button>
-                )
-              })
-            ) : (
-              <span className="text-xs text-gray-400 italic">
-                No courses available for day filtering
-              </span>
-            )}
-
-            {/* Clear day filters button */}
-            {selectedDays.size > 0 && (
-              <Button
-                variant="destructive"
-                size="sm"
-                onClick={() => {
-                  setSelectedDays(new Set())
-                }}
-                className="h-6 px-2 text-xs font-medium"
-                title="Clear all day filters"
-              >
-                Clear Days
-              </Button>
-            )}
-          </div>
+          {/* Course-level Day Filters — only show days with courses in current results */}
+          <ChipFilterRow<WeekDay>
+            label="Filter by Days:"
+            options={availableDays}
+            getKey={(dayKey) => dayKey}
+            getLabel={(dayKey) => dayKey}
+            isSelected={(dayKey) => selectedDays.has(DAYS[dayKey].index)}
+            onToggle={(dayKey) => toggleDayFilter(DAYS[dayKey].index)}
+            onClear={() => setSelectedDays(new Set())}
+            clearLabel="Clear Days"
+            emptyText="No courses available for day filtering"
+            hasSelection={selectedDays.size > 0}
+            toggleTitle={(dayKey, selected) =>
+              selected
+                ? `Remove ${DAYS[dayKey].displayName} filter`
+                : `Show only courses with classes on ${DAYS[dayKey].displayName}`
+            }
+          />
         </div>
       </div>
 
