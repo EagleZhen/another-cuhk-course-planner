@@ -69,29 +69,23 @@ describe('filterCourses', () => {
     expect(result).toEqual([csci])
   })
 
-  it('filters by day, ignoring TBA meetings', () => {
-    const monday = makeCourse({
-      courseCode: '1000',
-      terms: [
-        {
-          termCode: '2510',
-          termName: TERM,
-          sections: [makeSection({ meetings: [makeMeeting({ time: 'Mo 10:30AM - 12:15PM' })] })],
-        },
-      ],
-    })
-    const friday = makeCourse({
-      courseCode: '2000',
-      terms: [
-        {
-          termCode: '2510',
-          termName: TERM,
-          sections: [makeSection({ meetings: [makeMeeting({ time: 'Fr 2:30PM - 4:15PM' })] })],
-        },
-      ],
-    })
+  it('filters by day, excluding wrong days and undated (TBA) meetings', () => {
+    const dayCourse = (code: string, time: string) =>
+      makeCourse({
+        courseCode: code,
+        terms: [
+          {
+            termCode: '2510',
+            termName: TERM,
+            sections: [makeSection({ meetings: [makeMeeting({ time })] })],
+          },
+        ],
+      })
+    const monday = dayCourse('1000', 'Mo 10:30AM - 12:15PM')
+    const friday = dayCourse('2000', 'Fr 2:30PM - 4:15PM')
+    const tba = dayCourse('3000', 'TBA') // getDayIndex -> -1, must not match any day
     // Mon=0, Fr=4
-    const result = filterCourses([monday, friday], { ...noFilters, days: new Set([0]) }, ctx)
+    const result = filterCourses([monday, friday, tba], { ...noFilters, days: new Set([0]) }, ctx)
     expect(result).toEqual([monday])
   })
 
