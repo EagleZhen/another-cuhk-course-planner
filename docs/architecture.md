@@ -50,6 +50,8 @@ Important invariants:
 
 Schedules are stored per term using `schedule_${currentTerm}` keys. The state is restored only after hydration so browser-only APIs do not create SSR/client mismatches.
 
+Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart.
+
 When fresh course data loads, existing enrollments are synchronized instead of silently deleted. Missing courses or sections are marked invalid so the user can see what changed.
 
 ## Domain Logic
