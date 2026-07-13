@@ -363,6 +363,43 @@ describe('diffSectionDetail', () => {
     expect(detail.changedMeetings).toHaveLength(1)
     expect(detail.languageChanged).toBe(true)
   })
+
+  it('pinpoints which field changed when there is exactly one meeting before and after', () => {
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedFields).toEqual({ time: true, location: false, instructor: false })
+  })
+
+  it('flags every differing field independently on a single meeting', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM', location: 'Hum 314', instructors: 'Staff' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'We 9AM - 10AM', location: 'T.C. Cheng 208', instructors: 'Prof Chen' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedFields).toEqual({ time: true, location: true, instructor: true })
+  })
+
+  it('leaves changedFields undefined when meeting count is ambiguous (multi-meeting)', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'Th 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedFields).toBeUndefined()
+  })
+
+  it('leaves changedFields undefined when the single meeting did not change', () => {
+    const now = mkSection('1', [mkMeeting({})])
+    const detail = diffSectionDetail(now, sig(now))
+    expect(detail.changedFields).toBeUndefined()
+  })
 })
 
 describe('isChangedMeeting', () => {

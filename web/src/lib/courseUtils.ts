@@ -521,17 +521,30 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-// Which of the section's current meetings are new/changed vs `before`, for row-level
-// highlighting — plus whether the language changed.
+// changedFields pinpoints which field changed, but only for the unambiguous
+// single-meeting case; multi-meeting sections leave it undefined (pairing an old
+// slot to a new one is ambiguous) — callers should fall back to whole-row highlighting.
 export function diffSectionDetail(
   section: InternalSection,
   before: SectionSignature
-): { changedMeetings: SectionMeetingSignature[]; languageChanged: boolean } {
+): {
+  changedMeetings: SectionMeetingSignature[]
+  changedFields?: { time: boolean; location: boolean; instructor: boolean }
+  languageChanged: boolean
+} {
   const current = sectionSignature(section)
   const changedMeetings = current.meetings.filter(
     (m) => !before.meetings.some((b) => sameMeeting(b, m))
   )
-  return { changedMeetings, languageChanged: before.language !== current.language }
+  const changedFields =
+    before.meetings.length === 1 && current.meetings.length === 1 && changedMeetings.length === 1
+      ? {
+          time: before.meetings[0].time !== current.meetings[0].time,
+          location: before.meetings[0].location !== current.meetings[0].location,
+          instructor: before.meetings[0].instructor !== current.meetings[0].instructor,
+        }
+      : undefined
+  return { changedMeetings, changedFields, languageChanged: before.language !== current.language }
 }
 
 // Whether a raw meeting (as rendered) is one of diffSectionDetail's changed meetings.
