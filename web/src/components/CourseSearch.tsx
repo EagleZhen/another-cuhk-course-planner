@@ -43,6 +43,14 @@ import type {
   SectionType,
   SearchResults,
 } from '@/lib/types'
+import {
+  filterCourses,
+  filterCoursesExceptDays,
+  hasActiveFilters,
+  termSectionsOf,
+  type CourseFilterCriteria,
+  type CourseFilterContext,
+} from '@/lib/courseFilters'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
@@ -84,6 +92,9 @@ interface CourseSearchProps {
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
+
+// Shared "no day constraint" set, so the day-chip filter never depends on selectedDays.
+const NO_DAYS: Set<number> = new Set()
 
 export default function CourseSearch({
   courseEnrollments,
@@ -205,65 +216,40 @@ export default function CourseSearch({
     return availableSubjects.filter((subject) => subjectsInTerm.has(subject))
   }, [availableSubjects, allCourses, currentTerm])
 
-  // Calculate days available from courses filtered by non-day criteria (avoids self-loop)
+  // Filter criteria (user selections) and context (ambient facts) for the pure engine.
+  const filterCriteria = useMemo<CourseFilterCriteria>(
+    () => ({
+      searchTerm: debouncedSearchTerm,
+      subjects: selectedSubjects,
+      days: selectedDays,
+    }),
+    [debouncedSearchTerm, selectedSubjects, selectedDays]
+  )
+  const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
+
+  // Which days still have matching courses. Filtered with no day constraint so the chips
+  // reflect availability regardless of the day selection — and, deliberately, this does not
+  // depend on selectedDays.
   const availableDays = useMemo(() => {
-    // During initial loading, show all days
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
-    // Filter courses by everything EXCEPT day filters to avoid self-loop
-    const coursesFilteredByNonDayFilters = allCourses.filter((course) => {
-      // Apply term filter
-      const termData = course.terms.find((term) => term.termName === currentTerm)
-      if (!termData) return false
-
-      // Apply subject filter (if any)
-      if (selectedSubjects.size > 0 && !selectedSubjects.has(course.subject)) return false
-
-      // Apply search filter (if any)
-      if (debouncedSearchTerm.trim()) {
-        const searchLower = debouncedSearchTerm.toLowerCase()
-        const courseCode = `${course.subject}${course.courseCode}`.toLowerCase()
-        const title = course.title.toLowerCase()
-        const description = course.description?.toLowerCase() || ''
-
-        // Check if search term matches course code, title, or description
-        if (
-          !courseCode.includes(searchLower) &&
-          !title.includes(searchLower) &&
-          !description.includes(searchLower)
-        ) {
-          // Also check instructor names in current term
-          const hasMatchingInstructor = termData.sections.some((section) =>
-            section.meetings.some((meeting) =>
-              meeting.instructors.toLowerCase().includes(searchLower)
-            )
-          )
-
-          if (!hasMatchingInstructor) return false
-        }
-      }
-
-      // ✅ DON'T apply selectedDays filter here - that would create self-loop
-      return true
-    })
-
-    // Calculate available days from the filtered courses
+    const matched = filterCoursesExceptDays(
+      allCourses,
+      { searchTerm: debouncedSearchTerm, subjects: selectedSubjects, days: NO_DAYS },
+      filterContext
+    )
     const daysWithCourses = new Set<number>()
-    coursesFilteredByNonDayFilters.forEach((course) => {
-      const termData = course.terms.find((term) => term.termName === currentTerm)
-      if (termData) {
-        termData.sections.forEach((section) => {
-          section.meetings.forEach((meeting) => {
-            const dayIndex = getDayIndex(meeting.time)
-            if (dayIndex !== -1) daysWithCourses.add(dayIndex)
-          })
+    matched.forEach((course) => {
+      termSectionsOf(course, filterContext.term).forEach((section) => {
+        section.meetings.forEach((meeting) => {
+          const dayIndex = getDayIndex(meeting.time)
+          if (dayIndex !== -1) daysWithCourses.add(dayIndex)
         })
-      }
+      })
     })
 
-    // Return day keys that have courses in the filtered set
     return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
-  }, [allCourses, currentTerm, selectedSubjects, debouncedSearchTerm]) // ✅ No selectedDays dependency!
+  }, [allCourses, debouncedSearchTerm, selectedSubjects, filterContext])
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
@@ -545,96 +531,40 @@ export default function CourseSearch({
     }
   }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
 
-  // Async filtering function for non-blocking computation
+  // Run the pure filter off the main thread, then apply presentation (shuffle + limit).
   const performFiltering = useCallback(
-    async (
+    (
       courses: InternalCourse[],
-      term: string,
-      searchTerm: string,
-      subjects: Set<string>,
-      days: Set<number>,
+      criteria: CourseFilterCriteria,
+      context: CourseFilterContext,
       shuffle: number
-    ): Promise<SearchResults> => {
-      return new Promise<SearchResults>((resolve) => {
-        // Use setTimeout to defer computation to next frame, preventing UI blocking
+    ): Promise<SearchResults> =>
+      new Promise<SearchResults>((resolve) => {
+        // Defer to the next frame so filtering doesn't block the UI.
         setTimeout(() => {
-          // First filter by term - only show courses available in current term
-          let filteredCourses = courses.filter((course) =>
-            course.terms.some((termData) => termData.termName === term)
-          )
+          const matched = filterCourses(courses, criteria, context)
 
-          // Apply subject filter if any subjects are selected
-          if (subjects.size > 0) {
-            filteredCourses = filteredCourses.filter((course) => subjects.has(course.subject))
-          }
-
-          // Apply day filter if any days are selected
-          if (days.size > 0) {
-            filteredCourses = filteredCourses.filter((course) => {
-              const currentTermData = course.terms.find((termData) => termData.termName === term)
-              if (!currentTermData) return false
-
-              // Check if course has any sections on selected days
-              return currentTermData.sections.some((section) =>
-                section.meetings.some((meeting) => {
-                  const dayIndex = getDayIndex(meeting.time)
-                  return dayIndex !== null && days.has(dayIndex)
-                })
-              )
-            })
-          }
-
-          // Determine if user has applied any filters or search
-          const hasFiltersOrSearch = searchTerm.trim() || subjects.size > 0 || days.size > 0
-
-          // Apply search term filter if provided
-          let finalCourses = filteredCourses
-          if (searchTerm.trim()) {
-            const searchLower = searchTerm.toLowerCase()
-            finalCourses = filteredCourses.filter((course) => {
-              // Create full course code without space for searching
-              const fullCourseCode = `${course.subject}${course.courseCode}`.toLowerCase()
-
-              // Get current term data for instructor search
-              const currentTermData = course.terms.find((termData) => termData.termName === term)
-              if (!currentTermData) return false // Safety check
-
-              return (
-                fullCourseCode.includes(searchLower) ||
-                course.courseCode.toLowerCase().includes(searchLower) ||
-                course.title.toLowerCase().includes(searchLower) ||
-                // FIXED: Only search instructors in current term
-                currentTermData.sections.some((section) =>
-                  section.meetings.some((meeting) =>
-                    meeting.instructors.toLowerCase().includes(searchLower)
-                  )
-                )
-              )
-            })
-          }
-
-          // Apply shuffle if triggered (one-off action based on shuffleTrigger counter)
+          // Shuffle a copy (Fisher-Yates) on the one-off shuffle trigger.
+          let ordered = matched
           if (shuffle > 0) {
-            // Create a copy and shuffle using Fisher-Yates algorithm
-            finalCourses = [...finalCourses]
-            for (let i = finalCourses.length - 1; i > 0; i--) {
+            ordered = [...matched]
+            for (let i = ordered.length - 1; i > 0; i--) {
               const j = Math.floor(Math.random() * (i + 1))
-              ;[finalCourses[i], finalCourses[j]] = [finalCourses[j], finalCourses[i]]
+              ;[ordered[i], ordered[j]] = [ordered[j], ordered[i]]
             }
           }
 
-          // Simple limiting logic based on user intent
-          const limit = hasFiltersOrSearch ? 100 : 10
+          // Show more once the user has narrowed the catalog; otherwise keep it short.
+          const limit = hasActiveFilters(criteria) ? 100 : 10
 
           resolve({
-            courses: finalCourses.slice(0, limit),
-            total: finalCourses.length,
-            isLimited: finalCourses.length > limit,
+            courses: ordered.slice(0, limit),
+            total: matched.length,
+            isLimited: matched.length > limit,
             isShuffled: shuffle > 0,
           })
         }, 0)
-      })
-    },
+      }),
     []
   )
 
@@ -646,26 +576,13 @@ export default function CourseSearch({
     setIsFiltering(true)
 
     // Perform filtering in background
-    performFiltering(
-      allCourses,
-      currentTerm,
-      debouncedSearchTerm,
-      selectedSubjects,
-      selectedDays,
-      shuffleTrigger
-    ).then((results: SearchResults) => {
-      setDisplayResults(results)
-      setIsFiltering(false)
-    })
-  }, [
-    allCourses,
-    currentTerm,
-    debouncedSearchTerm,
-    selectedSubjects,
-    selectedDays,
-    shuffleTrigger,
-    performFiltering,
-  ])
+    performFiltering(allCourses, filterCriteria, filterContext, shuffleTrigger).then(
+      (results: SearchResults) => {
+        setDisplayResults(results)
+        setIsFiltering(false)
+      }
+    )
+  }, [allCourses, filterCriteria, filterContext, shuffleTrigger, performFiltering])
 
   // Track search analytics - only when search is used
   useEffect(() => {
