@@ -6,6 +6,7 @@ import {
   sectionSignature,
   diffEnrollment,
   recordSeenSections,
+  diffSectionDetail,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type { CourseEnrollment, InternalCourse, InternalSection, InternalMeeting } from './types'
@@ -284,5 +285,61 @@ describe('recordSeenSections', () => {
     })
     expect(out.course).toBe(e.course)
     expect(out.selectedSections).toBe(e.selectedSections)
+  })
+})
+
+describe('diffSectionDetail', () => {
+  it('flags no changed lines and no language change when before matches current', () => {
+    const now = mkSection('1', [mkMeeting({})], 'English only')
+    const detail = diffSectionDetail(now, sig(now))
+    expect(detail.changedMeetingLines.size).toBe(0)
+    expect(detail.languageChanged).toBe(false)
+  })
+
+  it('flags the current meeting line when its time differs from before', () => {
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(Array.from(detail.changedMeetingLines)).toEqual(['We 9AM - 10AM · Hum 314 · Staff'])
+  })
+
+  it('flags only the meeting line that actually changed, among several', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'Th 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(Array.from(detail.changedMeetingLines)).toEqual(['Th 9AM - 10AM · Hum 314 · Staff'])
+  })
+
+  it('flags a language-only change without flagging any meeting line', () => {
+    const before = mkSection('1', [mkMeeting({})], 'English only')
+    const now = mkSection('1', [mkMeeting({})], 'Putonghua and English')
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetingLines.size).toBe(0)
+    expect(detail.languageChanged).toBe(true)
+  })
+
+  it('flags both independently when meeting and language change together', () => {
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })], 'English only')
+    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })], 'Putonghua and English')
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetingLines.size).toBe(1)
+    expect(detail.languageChanged).toBe(true)
+  })
+
+  it('does not mistake a meeting-only signature (no language) for a language segment', () => {
+    // Regression guard: a section with no classAttributes has no trailing language
+    // segment, so the last meeting line (which contains ' · ') must still parse as
+    // a meeting line, not be misread as the language.
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })], '')
+    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })], '')
+    const detail = diffSectionDetail(now, sig(before))
+    expect(Array.from(detail.changedMeetingLines)).toEqual(['We 9AM - 10AM · Hum 314 · Staff'])
+    expect(detail.languageChanged).toBe(false)
   })
 })
