@@ -45,7 +45,9 @@ import type {
 } from '@/lib/types'
 import {
   filterCourses,
+  filterCoursesExceptDays,
   hasActiveFilters,
+  termSectionsOf,
   type CourseFilterCriteria,
   type CourseFilterContext,
 } from '@/lib/courseFilters'
@@ -211,65 +213,35 @@ export default function CourseSearch({
     return availableSubjects.filter((subject) => subjectsInTerm.has(subject))
   }, [availableSubjects, allCourses, currentTerm])
 
-  // Calculate days available from courses filtered by non-day criteria (avoids self-loop)
+  // Filter criteria (user selections) and context (ambient facts) for the pure engine.
+  const filterCriteria = useMemo<CourseFilterCriteria>(
+    () => ({
+      searchTerm: debouncedSearchTerm,
+      subjects: selectedSubjects,
+      days: selectedDays,
+    }),
+    [debouncedSearchTerm, selectedSubjects, selectedDays]
+  )
+  const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
+
+  // Which days still have matching courses — filtered by everything except days, so the day
+  // chips don't disable themselves.
   const availableDays = useMemo(() => {
-    // During initial loading, show all days
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
-    // Filter courses by everything EXCEPT day filters to avoid self-loop
-    const coursesFilteredByNonDayFilters = allCourses.filter((course) => {
-      // Apply term filter
-      const termData = course.terms.find((term) => term.termName === currentTerm)
-      if (!termData) return false
-
-      // Apply subject filter (if any)
-      if (selectedSubjects.size > 0 && !selectedSubjects.has(course.subject)) return false
-
-      // Apply search filter (if any)
-      if (debouncedSearchTerm.trim()) {
-        const searchLower = debouncedSearchTerm.toLowerCase()
-        const courseCode = `${course.subject}${course.courseCode}`.toLowerCase()
-        const title = course.title.toLowerCase()
-        const description = course.description?.toLowerCase() || ''
-
-        // Check if search term matches course code, title, or description
-        if (
-          !courseCode.includes(searchLower) &&
-          !title.includes(searchLower) &&
-          !description.includes(searchLower)
-        ) {
-          // Also check instructor names in current term
-          const hasMatchingInstructor = termData.sections.some((section) =>
-            section.meetings.some((meeting) =>
-              meeting.instructors.toLowerCase().includes(searchLower)
-            )
-          )
-
-          if (!hasMatchingInstructor) return false
-        }
-      }
-
-      // ✅ DON'T apply selectedDays filter here - that would create self-loop
-      return true
-    })
-
-    // Calculate available days from the filtered courses
+    const matched = filterCoursesExceptDays(allCourses, filterCriteria, filterContext)
     const daysWithCourses = new Set<number>()
-    coursesFilteredByNonDayFilters.forEach((course) => {
-      const termData = course.terms.find((term) => term.termName === currentTerm)
-      if (termData) {
-        termData.sections.forEach((section) => {
-          section.meetings.forEach((meeting) => {
-            const dayIndex = getDayIndex(meeting.time)
-            if (dayIndex !== -1) daysWithCourses.add(dayIndex)
-          })
+    matched.forEach((course) => {
+      termSectionsOf(course, currentTerm).forEach((section) => {
+        section.meetings.forEach((meeting) => {
+          const dayIndex = getDayIndex(meeting.time)
+          if (dayIndex !== -1) daysWithCourses.add(dayIndex)
         })
-      }
+      })
     })
 
-    // Return day keys that have courses in the filtered set
     return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
-  }, [allCourses, currentTerm, selectedSubjects, debouncedSearchTerm]) // ✅ No selectedDays dependency!
+  }, [allCourses, currentTerm, filterCriteria, filterContext])
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
@@ -550,17 +522,6 @@ export default function CourseSearch({
       loadCourseData()
     }
   }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
-
-  // Filter criteria (user selections) and context (ambient facts) for the pure engine.
-  const filterCriteria = useMemo<CourseFilterCriteria>(
-    () => ({
-      searchTerm: debouncedSearchTerm,
-      subjects: selectedSubjects,
-      days: selectedDays,
-    }),
-    [debouncedSearchTerm, selectedSubjects, selectedDays]
-  )
-  const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
   // Run the pure filter off the main thread, then apply presentation (shuffle + limit).
   const performFiltering = useCallback(
