@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-09T18:47:22.571240+00:00",
+    "scraped_at": "2026-07-12T14:48:26.083172+00:00",
     "subject": "MUSC",
     "subject_title": "Music",
-    "total_courses": 122,
+    "total_courses": 123,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -548,6 +548,26 @@
           "schedule": [
             {
               "section": "--LEC (7813)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-P01-PRA (9692)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -1554,6 +1574,26 @@
           "schedule": [
             {
               "section": "--LEC (7815)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-P01-PRA (9693)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -3051,6 +3091,26 @@
           "schedule": [
             {
               "section": "--LEC (7812)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-P01-PRA (9694)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -4804,6 +4864,26 @@
                   "time": "TBA",
                   "location": "TBA",
                   "instructor": "Staff",
+                  "dates": "TBA"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-P01-PRA (9695)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -5800,6 +5880,51 @@
       "academic_group": "Dept of Music",
       "academic_org": "Dept of Music",
       "learning_outcomes": "1. To develop students’ ability in formulating and delimiting a research topic, producing a cogent argument, selecting an appropriate methodology, and presenting a coherent research proposal.\n2. To train students in the construction of a thorough and pertinent bibliography, in the critique and synthesis of information collected through primary and/or secondary sources, and in the systematic integration of source materials with original thinking and argumentation.\n3. To familiarize students with the styles and formats of academic writing.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MUSC",
+      "course_code": "4623",
+      "title": "Senior Research Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9696)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course forms the second of a two-part course for capstone research projects in Music. Students will complete an extended independent research project under the supervision of a Music faculty member. The topic, contents, and other particulars of the project are to be determined in consultation with the Supervisor.",
+      "enrollment_requirement": "Pre-requisite: MUSC4613",
+      "course_attributes": "Capstone Course\nSTOT Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Music",
+      "academic_org": "Dept of Music",
+      "learning_outcomes": "Completion of an independent research project that:\n\n1. Shows evidence of analytical and critical thinking, clarity of expression, and research organization;\n2. Demonstrates a thorough understanding of issues, concepts and/or repertoire related to the project;\n3. Applies appropriate scholarly methodologies related to the respective project;\n4. Uses an appropriate format to present the research outcomes.",
       "assessment_types": {}
     },
     {

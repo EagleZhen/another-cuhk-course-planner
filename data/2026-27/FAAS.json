@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-10T18:03:04.538059+00:00",
+    "scraped_at": "2026-07-12T11:00:38.969707+00:00",
     "subject": "FAAS",
     "subject_title": "Fine Arts",
     "total_courses": 76,
@@ -368,6 +368,76 @@
               "class_attributes": "Cantonese only"
             }
           ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9704)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "-E01-EXR (9705)",
+              "meetings": [
+                {
+                  "time": "Th 11:30AM - 1:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 11:30AM - 1:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 11:30AM - 1:15PM",
+                  "location": "Cheng Ming Building 204",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
         }
       ],
       "description": "This course is offered for beginners in Chinese calligraphy. It describes the basic concepts and techniques of Chinese calligraphy, the selection and use of materials and tools, and teaches students the regular, clerical and seal scripts. Students will be prepared for more advanced courses of various scripts.",
@@ -395,6 +465,58 @@
       "title": "Principles of Chinese Painting",
       "credits": "2.00",
       "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9882)",
+              "meetings": [
+                {
+                  "time": "Mo 11:30AM - 1:15PM",
+                  "location": "Cheng Ming Building 207",
+                  "instructor": "Miss CHEUNG Fan Fong",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 11:30AM - 1:15PM",
+                  "location": "Cheng Ming Building 207",
+                  "instructor": "Miss CHEUNG Fan Fong",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            },
+            {
+              "section": "-E01-EXR (9883)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Cheng Ming Building 207",
+                  "instructor": "Miss CHEUNG Fan Fong",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only"
+            }
+          ]
+        },
         {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
