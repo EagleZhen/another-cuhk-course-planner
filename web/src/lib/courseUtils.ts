@@ -485,7 +485,7 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
 
 // Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
 // onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
-export function snapshotEnrollment(
+export function recordSeenSections(
   enrollment: CourseEnrollment,
   opts: { onlyMissing: boolean }
 ): CourseEnrollment {

@@ -5,7 +5,7 @@ import {
   readStoredEnrollments,
   sectionSignature,
   diffEnrollment,
-  snapshotEnrollment,
+  recordSeenSections,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type { CourseEnrollment, InternalCourse, InternalSection, InternalMeeting } from './types'
@@ -245,10 +245,10 @@ describe('diffEnrollment', () => {
   })
 })
 
-describe('snapshotEnrollment', () => {
+describe('recordSeenSections', () => {
   it('onlyMissing seeds missing, keeps existing, prunes de-selected ids', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
-    const seeded = snapshotEnrollment(mkEnrollment([now], { '8818': 'kept', '9999': 'gone' }), {
+    const seeded = recordSeenSections(mkEnrollment([now], { '8818': 'kept', '9999': 'gone' }), {
       onlyMissing: true,
     })
     expect(seeded.lastSeenSections!['8818']).toBe('kept')
@@ -257,14 +257,14 @@ describe('snapshotEnrollment', () => {
   it('seeds a section with no snapshot to its current signature', () => {
     const now = mkSection('8818', [mkMeeting({})])
     expect(
-      snapshotEnrollment(mkEnrollment([now]), { onlyMissing: true }).lastSeenSections!['8818']
+      recordSeenSections(mkEnrollment([now]), { onlyMissing: true }).lastSeenSections!['8818']
     ).toBe(sig(now))
   })
   it('acknowledge (onlyMissing:false) overwrites all so diff clears', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })])
     expect(
       diffEnrollment(
-        snapshotEnrollment(mkEnrollment([now], { '8818': 'stale' }), { onlyMissing: false })
+        recordSeenSections(mkEnrollment([now], { '8818': 'stale' }), { onlyMissing: false })
       )
     ).toHaveLength(0)
   })
@@ -275,7 +275,7 @@ describe('snapshotEnrollment', () => {
       invalidReason: 'x',
       color: '#abc',
     }
-    const out = snapshotEnrollment(e, { onlyMissing: true })
+    const out = recordSeenSections(e, { onlyMissing: true })
     expect(out).toMatchObject({
       courseId: e.courseId,
       color: '#abc',
