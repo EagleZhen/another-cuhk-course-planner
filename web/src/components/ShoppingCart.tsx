@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -18,11 +18,17 @@ import {
   googleMapsSearchAndOpen,
   formatCourseCodeWithPrefix,
   checkSectionConflict,
+  diffSectionDetail,
+  matchChangedMeeting,
 } from '@/lib/courseUtils'
-import type { CourseEnrollment, CalendarEvent, SectionType } from '@/lib/types'
+import type { CourseEnrollment, CalendarEvent, SectionType, SectionChange } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
+
+// Shared style for the change-banner's "Show" / "Dismiss all" buttons.
+const bannerButtonClass =
+  'h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -34,6 +40,8 @@ interface ShoppingCartProps {
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onSectionChange?: (enrollmentId: string, sectionType: string, newSectionId: string) => void
   onShowCourseDetails?: (courseCode: string) => void // Navigate to course search and show details
+  sectionChanges?: Map<string, SectionChange[]> // Sections changed since the user last saw them, by courseId
+  onDismissAllChanges?: () => void
 }
 
 export default function ShoppingCart({
@@ -46,6 +54,8 @@ export default function ShoppingCart({
   onSelectEnrollment,
   onSectionChange,
   onShowCourseDetails,
+  sectionChanges,
+  onDismissAllChanges,
 }: ShoppingCartProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
@@ -112,38 +122,38 @@ export default function ShoppingCart({
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
 
-  // Auto-scroll selected course into view within shopping cart container
-  useEffect(() => {
-    if (!selectedEnrollment || !scrollContainerRef.current) return
-
-    const selectedElement = itemRefs.current.get(selectedEnrollment)
-    if (!selectedElement) return
-
+  // Scroll a course card into view within the cart container, if not already fully visible.
+  // Shared by the selection effect and the "Show" button so both scroll reliably.
+  const scrollEnrollmentIntoView = useCallback((enrollmentId: string) => {
     const container = scrollContainerRef.current
+    const element = itemRefs.current.get(enrollmentId)
+    if (!container || !element) return
+
     const containerStyle = window.getComputedStyle(container)
     const containerPaddingTop = parseInt(containerStyle.paddingTop) || 0
 
     // Use getBoundingClientRect for cross-platform reliability
     const containerRect = container.getBoundingClientRect()
-    const elementRect = selectedElement.getBoundingClientRect()
+    const elementRect = element.getBoundingClientRect()
     const elementTopInContainer = elementRect.top - containerRect.top + container.scrollTop
 
     // Position element at top of container with comfortable padding
     const idealScrollTop = elementTopInContainer - containerPaddingTop - 16
 
     // Only scroll if element is not fully visible
-    const elementHeight = selectedElement.offsetHeight
+    const elementBottom = elementTopInContainer + element.offsetHeight
     const visibleTop = container.scrollTop
     const visibleBottom = container.scrollTop + container.clientHeight
-    const elementBottom = elementTopInContainer + elementHeight
 
     if (elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
-      container.scrollTo({
-        top: Math.max(0, idealScrollTop),
-        behavior: 'smooth',
-      })
+      container.scrollTo({ top: Math.max(0, idealScrollTop), behavior: 'smooth' })
     }
-  }, [selectedEnrollment])
+  }, [])
+
+  // Auto-scroll the selected course into view within the shopping cart container.
+  useEffect(() => {
+    if (selectedEnrollment) scrollEnrollmentIntoView(selectedEnrollment)
+  }, [selectedEnrollment, scrollEnrollmentIntoView])
 
   const conflictCount = calendarEvents.filter((event) => event.hasConflict).length
 
@@ -207,6 +217,21 @@ export default function ShoppingCart({
 
   const statusCounts = getStatusCounts()
 
+  // Changed courses in cart order; "Show" selects the next one (reusing the select/scroll
+  // path that clicking a card or calendar event uses) so the user can step through changes.
+  const changedCourseIds = courseEnrollments
+    .filter((e) => sectionChanges?.has(e.courseId))
+    .map((e) => e.courseId)
+  const showNextChange = () => {
+    if (!onSelectEnrollment || changedCourseIds.length === 0) return
+    const current = changedCourseIds.indexOf(selectedEnrollment ?? '')
+    const next = changedCourseIds[(current + 1) % changedCourseIds.length]
+    onSelectEnrollment(next)
+    // Scroll directly too: when next is already the selected course, selectedEnrollment
+    // doesn't change, so the selection effect wouldn't re-fire on its own.
+    scrollEnrollmentIntoView(next)
+  }
+
   return (
     <Card className="h-[800px] flex flex-col gap-1 py-2 pt-4" data-shopping-cart>
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
@@ -246,7 +271,44 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
 
-      <div className="border-t flex-shrink-0" />
+      {sectionChanges && sectionChanges.size > 0 ? (
+        <div
+          className="flex cursor-help items-center justify-between gap-2 border-y border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-800"
+          title={`CUHK updated the teaching timetable for ${Array.from(sectionChanges.keys()).join(', ')}. Re-export your calendar and update any screenshot you saved.`}
+        >
+          <span className="flex items-center gap-1.5">
+            <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
+            <span>
+              {sectionChanges.size} {sectionChanges.size === 1 ? 'course' : 'courses'} changed
+            </span>
+          </span>
+          <span className="flex shrink-0 items-center gap-1.5">
+            {onSelectEnrollment && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={showNextChange}
+                className={bannerButtonClass}
+                title="Scroll to the next changed course"
+              >
+                Show
+              </Button>
+            )}
+            {onDismissAllChanges && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onDismissAllChanges}
+                className={bannerButtonClass}
+              >
+                Dismiss all
+              </Button>
+            )}
+          </span>
+        </div>
+      ) : (
+        <div className="border-t flex-shrink-0" />
+      )}
 
       <CardContent className="flex-1 overflow-hidden px-3">
         {courseEnrollments.length === 0 ? (
@@ -264,6 +326,7 @@ export default function ShoppingCart({
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
+              const changes = sectionChanges?.get(enrollment.courseId)
 
               return (
                 <div
@@ -449,6 +512,13 @@ export default function ShoppingCart({
                         const currentIndex = compatible.findIndex((s) => s.id === section.id)
                         const sectionPosition = `${currentIndex + 1}/${compatible.length}`
                         const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        const sectionChange = changes?.find((c) => c.sectionId === section.id)
+                        const changeDetail = sectionChange
+                          ? diffSectionDetail(section, sectionChange.before)
+                          : undefined
+                        // Amber highlight for a changed value (no border/padding, so the text
+                        // doesn't shift). Same amber family as the summary banner.
+                        const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 
                         return (
                           <div
@@ -532,11 +602,15 @@ export default function ShoppingCart({
 
                             {/* Row 3: Teaching Language */}
                             {section.classAttributes && (
-                              <div className="flex items-center gap-1 text-gray-500 text-[9px] mb-2">
+                              <div className="flex items-center gap-1 text-[9px] mb-2 text-gray-500">
                                 <span className="flex-shrink-0">🌐</span>
                                 <span
-                                  className="truncate"
-                                  title={`Language of instruction: ${section.classAttributes}`}
+                                  className={`truncate ${changeDetail?.languageChanged ? changedText : ''}`}
+                                  title={
+                                    changeDetail?.languageChanged && sectionChange
+                                      ? `Previously ${sectionChange.before.language || 'not specified'}`
+                                      : `Language of instruction: ${section.classAttributes}`
+                                  }
                                 >
                                   {section.classAttributes}
                                 </span>
@@ -551,24 +625,52 @@ export default function ShoppingCart({
                                   meeting?.instructors || 'TBA'
                                 )
                                 const location = meeting?.location || 'TBA'
+                                const meetingChange = changeDetail
+                                  ? matchChangedMeeting(meeting, changeDetail.changedMeetings)
+                                  : undefined
+                                const fields = meetingChange?.fields
+                                const before = meetingChange?.before
+                                // Highlight the whole box only when the meeting changed but can't be
+                                // paired to a previous one (added meeting); otherwise highlight the
+                                // specific field lines that moved.
+                                const isNewMeeting = !!meetingChange && !fields
 
                                 return (
                                   <div
                                     key={index}
-                                    className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm"
+                                    className={`rounded border px-2 py-1.5 shadow-sm ${isNewMeeting ? 'bg-amber-50 border-amber-200 cursor-help' : 'bg-white border-gray-200'}`}
+                                    title={
+                                      isNewMeeting
+                                        ? 'New meeting since you last checked'
+                                        : undefined
+                                    }
                                   >
                                     {/* Row 1: Time */}
                                     <div className="flex items-center gap-1 text-[11px]">
                                       <span>⏰</span>
-                                      <span className="font-mono text-gray-600">
+                                      <span
+                                        className={`font-mono ${fields?.time ? changedText : 'text-gray-600'}`}
+                                        title={
+                                          fields?.time && before
+                                            ? `Previously ${before.time}`
+                                            : undefined
+                                        }
+                                      >
                                         {formattedTime}
                                       </span>
                                     </div>
                                     {/* Row 2: Instructor */}
-                                    <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
                                       <span>🧑🏻‍🏫</span>
                                       <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span className="truncate" title={formattedInstructor}>
+                                        <span
+                                          className={`truncate ${fields?.instructor ? changedText : ''}`}
+                                          title={
+                                            fields?.instructor && before
+                                              ? `Previously ${before.instructor}`
+                                              : formattedInstructor
+                                          }
+                                        >
                                           {formattedInstructor}
                                         </span>
                                         {formattedInstructor !== 'Staff' && (
@@ -586,10 +688,17 @@ export default function ShoppingCart({
                                       </div>
                                     </div>
                                     {/* Row 3: Location */}
-                                    <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
                                       <span>📍</span>
                                       <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span className="truncate" title={location}>
+                                        <span
+                                          className={`truncate ${fields?.location ? changedText : ''}`}
+                                          title={
+                                            fields?.location && before
+                                              ? `Previously ${before.location}`
+                                              : location
+                                          }
+                                        >
                                           {location}
                                         </span>
                                         {location !== 'TBA' && location !== 'No Room Required' && (

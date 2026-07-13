@@ -3,9 +3,20 @@ import {
   updateExistingEnrollment,
   sortSectionsByPriority,
   readStoredEnrollments,
+  sectionSignature,
+  diffEnrollment,
+  recordSeenSections,
+  diffSectionDetail,
+  matchChangedMeeting,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
-import type { CourseEnrollment, InternalCourse, InternalSection } from './types'
+import type {
+  CourseEnrollment,
+  InternalCourse,
+  InternalSection,
+  InternalMeeting,
+  SectionSignature,
+} from './types'
 
 function makeSection(overrides: Partial<InternalSection>): InternalSection {
   return {
@@ -130,5 +141,290 @@ describe('readStoredEnrollments', () => {
   it('wipes (null) for malformed data', () => {
     expect(readStoredEnrollments(null)).toBeNull()
     expect(readStoredEnrollments({ foo: 'bar' })).toBeNull()
+  })
+})
+
+function mkMeeting(p: Partial<InternalMeeting>): InternalMeeting {
+  return { time: 'We 2:30PM - 5:15PM', location: 'Hum 314', instructors: 'Staff', dates: '', ...p }
+}
+function mkSection(id: string, meetings: InternalMeeting[], classAttributes = ''): InternalSection {
+  return {
+    id,
+    sectionCode: `--LEC (${id})`,
+    sectionType: 'LEC',
+    meetings,
+    classAttributes,
+    availability: {
+      capacity: 1,
+      enrolled: 0,
+      status: 'Open',
+      availableSeats: 1,
+      waitlistCapacity: 0,
+      waitlistTotal: 0,
+    },
+  }
+}
+function mkEnrollment(
+  sections: InternalSection[],
+  snaps?: Record<string, SectionSignature>
+): CourseEnrollment {
+  return {
+    courseId: 'COMM1180',
+    color: '#000',
+    isVisible: true,
+    course: { subject: 'COMM', courseCode: '1180', title: 'x', credits: 3, terms: [] },
+    selectedSections: sections,
+    ...(snaps ? { lastSeenSections: snaps } : {}),
+  }
+}
+const sig = (s: InternalSection) => sectionSignature(s)
+
+describe('sectionSignature', () => {
+  it('preserves meeting appearance order (so display and pairing match the source)', () => {
+    const s = mkSection('1', [
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+    ])
+    expect(sig(s).meetings.map((m) => m.time)).toEqual(['We 9AM - 10AM', 'Mo 9AM - 10AM'])
+  })
+  it('dedups identical rows and collapses whitespace', () => {
+    const a = mkSection('1', [
+      mkMeeting({ location: 'Hum  314' }),
+      mkMeeting({ location: 'Hum 314' }),
+    ])
+    expect(sig(a)).toEqual(sig(mkSection('1', [mkMeeting({ location: 'Hum 314' })])))
+  })
+  it('ignores the dates field (no false positives)', () => {
+    const a = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
+    expect(sig(a)).toEqual(sig(mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])))
+  })
+  it('reflects time, location, instructor and language', () => {
+    const base = mkSection('1', [mkMeeting({})], 'English only')
+    expect(sig(base)).not.toEqual(
+      sig(mkSection('1', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })], 'English only'))
+    )
+    expect(sig(base)).not.toEqual(
+      sig(mkSection('1', [mkMeeting({ location: 'T.C. Cheng 208' })], 'English only'))
+    )
+    expect(sig(base)).not.toEqual(
+      sig(mkSection('1', [mkMeeting({ instructors: 'Prof Chen' })], 'English only'))
+    )
+    expect(sig(base)).not.toEqual(sig(mkSection('1', [mkMeeting({})], 'Putonghua and English')))
+  })
+  it('keeps distinct time slots for irregular (non-weekly) schedules', () => {
+    const s = mkSection('1', [
+      mkMeeting({ time: 'Sa 9:30AM - 12:15PM' }),
+      mkMeeting({ time: 'Su 2:00PM - 5:00PM' }),
+    ])
+    expect(sig(s).meetings).toContainEqual({
+      time: 'Sa 9:30AM - 12:15PM',
+      location: 'Hum 314',
+      instructor: 'Staff',
+    })
+    expect(sig(s).meetings).toContainEqual({
+      time: 'Su 2:00PM - 5:00PM',
+      location: 'Hum 314',
+      instructor: 'Staff',
+    })
+  })
+})
+
+describe('diffEnrollment', () => {
+  it('flags a section whose current signature differs from its snapshot', () => {
+    const now = mkSection('8818', [
+      mkMeeting({ time: 'Mo 2:30PM - 5:15PM', location: 'T.C. Cheng 208' }),
+    ])
+    const stale: SectionSignature = {
+      meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+      language: '',
+    }
+    const changes = diffEnrollment(mkEnrollment([now], { '8818': stale }))
+    expect(changes).toHaveLength(1)
+    expect(changes[0]).toMatchObject({
+      sectionId: '8818',
+      before: stale,
+      after: sig(now),
+    })
+  })
+  it('returns nothing with no snapshot (adopt), and when current matches', () => {
+    const now = mkSection('8818', [mkMeeting({})])
+    expect(diffEnrollment(mkEnrollment([now]))).toHaveLength(0)
+    expect(diffEnrollment(mkEnrollment([now], { '8818': sig(now) }))).toHaveLength(0)
+  })
+  it('isolates the changed section among several and does not mutate input', () => {
+    const s1 = mkSection('1', [mkMeeting({})])
+    const s2 = mkSection('2', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const e = mkEnrollment([s1, s2], {
+      '1': sig(s1),
+      '2': { meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }], language: '' },
+    })
+    const before = JSON.stringify(e)
+    expect(diffEnrollment(e).map((c) => c.sectionId)).toEqual(['2'])
+    expect(JSON.stringify(e)).toBe(before)
+  })
+})
+
+describe('recordSeenSections', () => {
+  it('onlyMissing seeds missing, keeps existing, prunes de-selected ids', () => {
+    const now = mkSection('8818', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const kept: SectionSignature = { meetings: [], language: 'kept' }
+    const gone: SectionSignature = { meetings: [], language: 'gone' }
+    const seeded = recordSeenSections(mkEnrollment([now], { '8818': kept, '9999': gone }), {
+      onlyMissing: true,
+    })
+    expect(seeded.lastSeenSections!['8818']).toBe(kept)
+    expect(seeded.lastSeenSections!['9999']).toBeUndefined()
+  })
+  it('seeds a section with no snapshot to its current signature', () => {
+    const now = mkSection('8818', [mkMeeting({})])
+    expect(
+      recordSeenSections(mkEnrollment([now]), { onlyMissing: true }).lastSeenSections!['8818']
+    ).toEqual(sig(now))
+  })
+  it('acknowledge (onlyMissing:false) overwrites all so diff clears', () => {
+    const now = mkSection('8818', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })])
+    const stale: SectionSignature = {
+      meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+      language: '',
+    }
+    expect(
+      diffEnrollment(
+        recordSeenSections(mkEnrollment([now], { '8818': stale }), { onlyMissing: false })
+      )
+    ).toHaveLength(0)
+  })
+  it('preserves every other enrollment field (regression guard for sync/add wrapping)', () => {
+    const e = {
+      ...mkEnrollment([mkSection('1', [mkMeeting({})])]),
+      isInvalid: true,
+      invalidReason: 'x',
+      color: '#abc',
+    }
+    const out = recordSeenSections(e, { onlyMissing: true })
+    expect(out).toMatchObject({
+      courseId: e.courseId,
+      color: '#abc',
+      isInvalid: true,
+      invalidReason: 'x',
+    })
+    expect(out.course).toBe(e.course)
+    expect(out.selectedSections).toBe(e.selectedSections)
+  })
+})
+
+describe('diffSectionDetail', () => {
+  it('reports no changed meetings and no language change when before matches current', () => {
+    const now = mkSection('1', [mkMeeting({})], 'English only')
+    const detail = diffSectionDetail(now, sig(now))
+    expect(detail.changedMeetings).toHaveLength(0)
+    expect(detail.languageChanged).toBe(false)
+  })
+
+  it('pairs a changed meeting with its previous value and pinpoints the field', () => {
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings).toEqual([
+      {
+        current: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        fields: { time: true, location: false, instructor: false },
+      },
+    ])
+  })
+
+  it('flags every differing field on a single changed meeting', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM', location: 'Hum 314', instructors: 'Staff' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'We 9AM - 10AM', location: 'T.C. Cheng 208', instructors: 'Prof Chen' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings[0].fields).toEqual({
+      time: true,
+      location: true,
+      instructor: true,
+    })
+  })
+
+  it('flags only the meeting that changed, among several, leaving the rest alone', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'Th 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings).toHaveLength(1)
+    expect(detail.changedMeetings[0].current.time).toBe('Th 9AM - 10AM')
+    expect(detail.changedMeetings[0].before!.time).toBe('We 9AM - 10AM')
+    expect(detail.changedMeetings[0].fields).toEqual({
+      time: true,
+      location: false,
+      instructor: false,
+    })
+  })
+
+  it('pairs by appearance order when several meetings change at once (same count)', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Tu 9AM - 10AM' }),
+      mkMeeting({ time: 'Th 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings.map((c) => [c.current.time, c.before!.time])).toEqual([
+      ['Tu 9AM - 10AM', 'Mo 9AM - 10AM'],
+      ['Th 9AM - 10AM', 'We 9AM - 10AM'],
+    ])
+  })
+
+  it('leaves before/fields undefined for an added meeting (counts differ, no pairing)', () => {
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings).toHaveLength(1)
+    expect(detail.changedMeetings[0].current.time).toBe('We 9AM - 10AM')
+    expect(detail.changedMeetings[0].before).toBeUndefined()
+    expect(detail.changedMeetings[0].fields).toBeUndefined()
+  })
+
+  it('reports a language-only change with no changed meetings', () => {
+    const before = mkSection('1', [mkMeeting({})], 'English only')
+    const now = mkSection('1', [mkMeeting({})], 'Putonghua and English')
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings).toHaveLength(0)
+    expect(detail.languageChanged).toBe(true)
+  })
+})
+
+describe('matchChangedMeeting', () => {
+  const changed = [
+    {
+      current: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      fields: { time: true, location: false, instructor: false },
+    },
+  ]
+
+  it('matches a raw meeting to its change entry after normalization', () => {
+    const meeting = mkMeeting({ time: 'We 9AM - 10AM', location: 'Hum  314' }) // double space
+    expect(matchChangedMeeting(meeting, changed)).toBe(changed[0])
+  })
+
+  it('returns undefined for a meeting not in the changed list', () => {
+    expect(matchChangedMeeting(mkMeeting({ time: 'Mo 9AM - 10AM' }), changed)).toBeUndefined()
+  })
+
+  it('returns undefined for an empty changed list', () => {
+    expect(matchChangedMeeting(mkMeeting({}), [])).toBeUndefined()
   })
 })

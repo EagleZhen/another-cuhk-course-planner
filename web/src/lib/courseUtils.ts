@@ -12,6 +12,10 @@ import type {
   SectionAvailability,
   SectionType,
   SectionTypeGroup,
+  SectionChange,
+  SectionSignature,
+  SectionMeetingSignature,
+  SectionMeetingChange,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -443,6 +447,121 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
     }
   }
   return null
+}
+
+// Collapses whitespace so formatting noise doesn't look like a change.
+const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
+
+// A meeting's normalized comparable fields (drops `dates`).
+const meetingRow = (m: InternalMeeting): SectionMeetingSignature => ({
+  time: norm(m.time),
+  location: norm(m.location),
+  instructor: norm(m.instructors),
+})
+
+const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
+  a.time === b.time && a.location === b.location && a.instructor === b.instructor
+
+// A section's deduped meetings (in source order) plus language — the comparison key for
+// change detection. Pure data; ignores `dates`. See formatSectionSignature for display.
+export function sectionSignature(section: InternalSection): SectionSignature {
+  const seen = new Set<string>()
+  const meetings: SectionMeetingSignature[] = []
+  for (const m of section.meetings) {
+    const row = meetingRow(m)
+    const key = `${row.time}|${row.location}|${row.instructor}`
+    if ((row.time || row.location || row.instructor) && !seen.has(key)) {
+      seen.add(key)
+      meetings.push(row)
+    }
+  }
+  return { meetings, language: norm(section.classAttributes) }
+}
+
+// Human-readable rendering of a SectionSignature, e.g. for a before/after tooltip.
+export function formatSectionSignature(signature: SectionSignature): string {
+  const lines = signature.meetings.map((m) =>
+    [m.time, m.location, m.instructor].filter(Boolean).join(' · ')
+  )
+  return [...lines, signature.language].filter(Boolean).join('  |  ')
+}
+
+// Compared positionally, which assumes the scraper emits meetings in a stable order (it
+// reads timetable rows in document order, no sort). Verified — no pure reorders across
+// scrape history — so a mere reordering can't falsely flag an unchanged section.
+const sameMeetings = (a: SectionMeetingSignature[], b: SectionMeetingSignature[]): boolean =>
+  a.length === b.length && a.every((m, i) => sameMeeting(m, b[i]))
+
+// Flags selected sections whose signature no longer matches what the user last saw.
+// No snapshot yet => adopt current silently (not a change).
+export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
+  const snaps = enrollment.lastSeenSections
+  if (!snaps) return []
+  const changes: SectionChange[] = []
+  for (const section of enrollment.selectedSections) {
+    const before = snaps[section.id]
+    if (before === undefined) continue
+    const after = sectionSignature(section)
+    if (before.language !== after.language || !sameMeetings(before.meetings, after.meetings)) {
+      changes.push({ sectionId: section.id, sectionCode: section.sectionCode, before, after })
+    }
+  }
+  return changes
+}
+
+// Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
+// onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
+export function recordSeenSections(
+  enrollment: CourseEnrollment,
+  opts: { onlyMissing: boolean }
+): CourseEnrollment {
+  const prev = enrollment.lastSeenSections ?? {}
+  const next: Record<string, SectionSignature> = {}
+  for (const section of enrollment.selectedSections) {
+    next[section.id] =
+      opts.onlyMissing && prev[section.id] !== undefined
+        ? prev[section.id]
+        : sectionSignature(section)
+  }
+  return { ...enrollment, lastSeenSections: next }
+}
+
+// Each changed meeting paired to its previous value, so the cart can highlight the exact
+// field that moved. Meetings are paired positionally only when the count is unchanged
+// (|added| === |removed|); a differing count means one was added/removed outright, so it's
+// left unpaired (before/fields undefined) and the caller highlights the whole row.
+export function diffSectionDetail(
+  section: InternalSection,
+  before: SectionSignature
+): { changedMeetings: SectionMeetingChange[]; languageChanged: boolean } {
+  const current = sectionSignature(section)
+  const added = current.meetings.filter((m) => !before.meetings.some((b) => sameMeeting(b, m)))
+  const removed = before.meetings.filter((b) => !current.meetings.some((m) => sameMeeting(m, b)))
+  const paired = added.length === removed.length
+  const changedMeetings: SectionMeetingChange[] = added.map((meeting, i) => {
+    const previous = paired ? removed[i] : undefined
+    return {
+      current: meeting,
+      before: previous,
+      fields: previous
+        ? {
+            time: previous.time !== meeting.time,
+            location: previous.location !== meeting.location,
+            instructor: previous.instructor !== meeting.instructor,
+          }
+        : undefined,
+    }
+  })
+  return { changedMeetings, languageChanged: before.language !== current.language }
+}
+
+// Finds the change entry for a raw (as-rendered) meeting, or undefined if it didn't change.
+export function matchChangedMeeting(
+  meeting: InternalMeeting,
+  changedMeetings: SectionMeetingChange[]
+): SectionMeetingChange | undefined {
+  const row = meetingRow(meeting)
+  return changedMeetings.find((c) => sameMeeting(c.current, row))
 }
 
 /**
