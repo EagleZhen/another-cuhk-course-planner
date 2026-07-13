@@ -4,6 +4,7 @@ import {
   filterCoursesExcept,
   availableValues,
   dayDimension,
+  creditsDimension,
   hasActiveFilters,
   courseMatchesKeyword,
   type CourseFilterCriteria,
@@ -50,6 +51,7 @@ const noFilters: CourseFilterCriteria = {
   searchTerm: '',
   subjects: new Set(),
   days: new Set(),
+  credits: new Set(),
 }
 const ctx = { term: TERM }
 
@@ -89,6 +91,13 @@ describe('filterCourses', () => {
     // Mon=0, Fr=4
     const result = filterCourses([monday, friday, tba], { ...noFilters, days: new Set([0]) }, ctx)
     expect(result).toEqual([monday])
+  })
+
+  it('filters by credits when credit values are selected', () => {
+    const three = makeCourse({ courseCode: '1000', credits: 3 })
+    const one = makeCourse({ courseCode: '2000', credits: 1 })
+    const result = filterCourses([three, one], { ...noFilters, credits: new Set([3]) }, ctx)
+    expect(result).toEqual([three])
   })
 
   it('composes multiple active dimensions (AND)', () => {
@@ -187,6 +196,29 @@ describe('availableValues (dayDimension)', () => {
     // Only a Monday course exists, but Friday (4) is selected — it must stay visible.
     const selected = new Set([4])
     expect(availableValues(dayDimension, [mon], noFilters, ctx, selected).sort()).toEqual([0, 4])
+  })
+})
+
+describe('availableValues (creditsDimension)', () => {
+  it('collects the distinct credit values present, reacting to other filters', () => {
+    const three = makeCourse({ subject: 'CSCI', courseCode: '1000', credits: 3 })
+    const one = makeCourse({ subject: 'CSCI', courseCode: '2000', credits: 1 })
+    const engg = makeCourse({ subject: 'ENGG', courseCode: '3000', credits: 6 })
+    expect(availableValues(creditsDimension, [three, one, engg], noFilters, ctx).sort()).toEqual([
+      1, 3, 6,
+    ])
+    const criteria = { ...noFilters, subjects: new Set(['CSCI']) }
+    expect(availableValues(creditsDimension, [three, one, engg], criteria, ctx).sort()).toEqual([
+      1, 3,
+    ])
+  })
+
+  it('keeps a selected credit value even when no course still has it', () => {
+    const three = makeCourse({ credits: 3 })
+    const selected = new Set([1])
+    expect(availableValues(creditsDimension, [three], noFilters, ctx, selected).sort()).toEqual([
+      1, 3,
+    ])
   })
 })
 

@@ -10,6 +10,7 @@ export interface CourseFilterCriteria {
   searchTerm: string // raw; trimmed/lowercased here
   subjects: Set<string> // empty = all subjects
   days: Set<number> // 0=Mon..6=Sun; empty = all days
+  credits: Set<number> // empty = all credit values
 }
 
 /** Ambient facts a predicate needs but the user didn't explicitly select. */
@@ -80,14 +81,18 @@ const buildDayPredicate: PredicateBuilder = (criteria, context) =>
           sectionMatchesDays(section, criteria.days)
         )
 
+const buildCreditsPredicate: PredicateBuilder = (criteria) =>
+  criteria.credits.size === 0 ? TRUE : (course) => criteria.credits.has(course.credits)
+
 /** One filterable dimension. Adding a filter = append an entry here. */
-export type FilterKey = 'term' | 'subject' | 'keyword' | 'day'
+export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits'
 
 const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'term', build: buildTermPredicate },
   { key: 'subject', build: buildSubjectPredicate },
   { key: 'keyword', build: buildKeywordPredicate },
   { key: 'day', build: buildDayPredicate },
+  { key: 'credits', build: buildCreditsPredicate },
 ]
 
 function composePredicates(
@@ -155,6 +160,12 @@ export function availableValues<T>(
   return [...values]
 }
 
+/** A course's credit value. */
+export const creditsDimension: ChipDimension<number> = {
+  key: 'credits',
+  valuesOf: (course) => [course.credits],
+}
+
 /** Day indices (0=Mon..6=Sun) a course meets on, in its current term. */
 export const dayDimension: ChipDimension<number> = {
   key: 'day',
@@ -172,5 +183,10 @@ export const dayDimension: ChipDimension<number> = {
 
 /** Has the user narrowed the catalog at all? Drives the default result limit. Excludes `term`, which is always active. */
 export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
-  return Boolean(criteria.searchTerm.trim()) || criteria.subjects.size > 0 || criteria.days.size > 0
+  return (
+    Boolean(criteria.searchTerm.trim()) ||
+    criteria.subjects.size > 0 ||
+    criteria.days.size > 0 ||
+    criteria.credits.size > 0
+  )
 }

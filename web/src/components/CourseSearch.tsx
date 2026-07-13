@@ -48,6 +48,7 @@ import {
   hasActiveFilters,
   availableValues,
   dayDimension,
+  creditsDimension,
   type CourseFilterCriteria,
   type CourseFilterContext,
 } from '@/lib/courseFilters'
@@ -124,6 +125,7 @@ export default function CourseSearch({
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
+  const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
   const [displayResults, setDisplayResults] = useState<SearchResults>({
     courses: [],
     total: 0,
@@ -141,6 +143,19 @@ export default function CourseSearch({
         newSet.delete(dayIndex)
       } else {
         newSet.add(dayIndex)
+      }
+      return newSet
+    })
+  }
+
+  // Credit filter toggle function
+  const toggleCreditFilter = (credits: number) => {
+    setSelectedCredits((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(credits)) {
+        newSet.delete(credits)
+      } else {
+        newSet.add(credits)
       }
       return newSet
     })
@@ -230,8 +245,9 @@ export default function CourseSearch({
       searchTerm: debouncedSearchTerm,
       subjects: selectedSubjects,
       days: selectedDays,
+      credits: selectedCredits,
     }),
-    [debouncedSearchTerm, selectedSubjects, selectedDays]
+    [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits]
   )
   const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
@@ -248,6 +264,20 @@ export default function CourseSearch({
     )
     return DAY_COMBINATIONS.full.filter((dayKey) => present.has(DAYS[dayKey].index))
   }, [allCourses, filterCriteria, filterContext, selectedDays])
+
+  // Credit values that still have matching courses (given the other filters), plus any
+  // already selected, sorted ascending.
+  const availableCredits = useMemo(
+    () =>
+      availableValues(
+        creditsDimension,
+        allCourses,
+        filterCriteria,
+        filterContext,
+        selectedCredits
+      ).sort((a, b) => a - b),
+    [allCourses, filterCriteria, filterContext, selectedCredits]
+  )
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
@@ -702,6 +732,23 @@ export default function CourseSearch({
               selected
                 ? `Remove ${DAYS[dayKey].displayName} filter`
                 : `Show only courses with classes on ${DAYS[dayKey].displayName}`
+            }
+          />
+
+          {/* Course-level Credit Filters — only show credit values present in current results */}
+          <ChipFilterRow<number>
+            label="Filter by Credits:"
+            options={availableCredits}
+            getKey={(credits) => credits}
+            getLabel={(credits) => String(credits)}
+            isSelected={(credits) => selectedCredits.has(credits)}
+            onToggle={(credits) => toggleCreditFilter(credits)}
+            onClear={() => setSelectedCredits(new Set())}
+            clearLabel="Clear Credits"
+            emptyText="No courses available for credit filtering"
+            hasSelection={selectedCredits.size > 0}
+            toggleTitle={(credits, selected) =>
+              selected ? `Remove ${credits}-credit filter` : `Show only ${credits}-credit courses`
             }
           />
         </div>
