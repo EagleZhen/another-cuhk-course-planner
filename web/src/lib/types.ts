@@ -44,8 +44,7 @@ export interface InternalMeeting {
   dates: string
 }
 
-// A detected change to an enrolled section since the user last saw it.
-// `before`/`after` are human-readable signature strings (see sectionSignature).
+// A section whose sectionSignature no longer matches what the user last saw.
 export interface SectionChange {
   sectionId: string
   sectionCode: string
@@ -100,8 +99,8 @@ export interface CourseEnrollment {
   isInvalid?: boolean // True if course/sections no longer exist
   invalidReason?: string // Human-readable reason for invalidity
   lastSynced?: Date // When this enrollment was last synced with fresh data
-  // Invisible per-section signature of what the user last saw, keyed by section id.
-  // Never rendered directly; only used to detect changes. Missing entry = adopt current.
+  // Per-section sectionSignature the user last saw, keyed by section id. Not rendered
+  // directly — only used to detect changes. Missing entry = adopt current section.
   lastSeenSections?: Record<string, string>
 }
 

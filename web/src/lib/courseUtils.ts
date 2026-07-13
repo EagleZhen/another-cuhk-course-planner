@@ -12,6 +12,7 @@ import type {
   SectionAvailability,
   SectionType,
   SectionTypeGroup,
+  SectionChange,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -443,6 +444,60 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
     }
   }
   return null
+}
+
+// Collapses whitespace so formatting noise doesn't look like a change.
+const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
+
+// A section's time+location+instructor+language, normalized and deduped — doubles as
+// both the comparison key and the human-readable before/after text. Ignores `dates`.
+export function sectionSignature(section: InternalSection): string {
+  const seen = new Set<string>()
+  const meetings: string[] = []
+  for (const m of section.meetings) {
+    const line = [norm(m.time), norm(m.location), norm(m.instructors)].filter(Boolean).join(' · ')
+    if (line && !seen.has(line)) {
+      seen.add(line)
+      meetings.push(line)
+    }
+  }
+  meetings.sort()
+  const language = norm(section.classAttributes)
+  return [...meetings, language].filter(Boolean).join('  |  ')
+}
+
+// Flags selected sections whose signature no longer matches what the user last saw.
+// No snapshot yet => adopt current silently (not a change).
+export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
+  const snaps = enrollment.lastSeenSections
+  if (!snaps) return []
+  const changes: SectionChange[] = []
+  for (const section of enrollment.selectedSections) {
+    const before = snaps[section.id]
+    if (before === undefined) continue
+    const after = sectionSignature(section)
+    if (before !== after) {
+      changes.push({ sectionId: section.id, sectionCode: section.sectionCode, before, after })
+    }
+  }
+  return changes
+}
+
+// Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
+// onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
+export function snapshotEnrollment(
+  enrollment: CourseEnrollment,
+  opts: { onlyMissing: boolean }
+): CourseEnrollment {
+  const prev = enrollment.lastSeenSections ?? {}
+  const next: Record<string, string> = {}
+  for (const section of enrollment.selectedSections) {
+    next[section.id] =
+      opts.onlyMissing && prev[section.id] !== undefined
+        ? prev[section.id]
+        : sectionSignature(section)
+  }
+  return { ...enrollment, lastSeenSections: next }
 }
 
 /**
