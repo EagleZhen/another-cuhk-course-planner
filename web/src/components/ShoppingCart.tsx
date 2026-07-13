@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -118,38 +118,38 @@ export default function ShoppingCart({
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
 
-  // Auto-scroll selected course into view within shopping cart container
-  useEffect(() => {
-    if (!selectedEnrollment || !scrollContainerRef.current) return
-
-    const selectedElement = itemRefs.current.get(selectedEnrollment)
-    if (!selectedElement) return
-
+  // Scroll a course card into view within the cart container, if not already fully visible.
+  // Shared by the selection effect and the "Show" button so both scroll reliably.
+  const scrollEnrollmentIntoView = useCallback((enrollmentId: string) => {
     const container = scrollContainerRef.current
+    const element = itemRefs.current.get(enrollmentId)
+    if (!container || !element) return
+
     const containerStyle = window.getComputedStyle(container)
     const containerPaddingTop = parseInt(containerStyle.paddingTop) || 0
 
     // Use getBoundingClientRect for cross-platform reliability
     const containerRect = container.getBoundingClientRect()
-    const elementRect = selectedElement.getBoundingClientRect()
+    const elementRect = element.getBoundingClientRect()
     const elementTopInContainer = elementRect.top - containerRect.top + container.scrollTop
 
     // Position element at top of container with comfortable padding
     const idealScrollTop = elementTopInContainer - containerPaddingTop - 16
 
     // Only scroll if element is not fully visible
-    const elementHeight = selectedElement.offsetHeight
+    const elementBottom = elementTopInContainer + element.offsetHeight
     const visibleTop = container.scrollTop
     const visibleBottom = container.scrollTop + container.clientHeight
-    const elementBottom = elementTopInContainer + elementHeight
 
     if (elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
-      container.scrollTo({
-        top: Math.max(0, idealScrollTop),
-        behavior: 'smooth',
-      })
+      container.scrollTo({ top: Math.max(0, idealScrollTop), behavior: 'smooth' })
     }
-  }, [selectedEnrollment])
+  }, [])
+
+  // Auto-scroll the selected course into view within the shopping cart container.
+  useEffect(() => {
+    if (selectedEnrollment) scrollEnrollmentIntoView(selectedEnrollment)
+  }, [selectedEnrollment, scrollEnrollmentIntoView])
 
   const conflictCount = calendarEvents.filter((event) => event.hasConflict).length
 
@@ -221,7 +221,11 @@ export default function ShoppingCart({
   const showNextChange = () => {
     if (!onSelectEnrollment || changedCourseIds.length === 0) return
     const current = changedCourseIds.indexOf(selectedEnrollment ?? '')
-    onSelectEnrollment(changedCourseIds[(current + 1) % changedCourseIds.length])
+    const next = changedCourseIds[(current + 1) % changedCourseIds.length]
+    onSelectEnrollment(next)
+    // Scroll directly too: when next is already the selected course, selectedEnrollment
+    // doesn't change, so the selection effect wouldn't re-fire on its own.
+    scrollEnrollmentIntoView(next)
   }
 
   return (
