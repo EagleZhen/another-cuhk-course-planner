@@ -452,6 +452,13 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
 // Collapses whitespace so formatting noise doesn't look like a change.
 const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 
+// A meeting's normalized comparable fields (drops `dates`).
+const meetingRow = (m: InternalMeeting): SectionMeetingSignature => ({
+  time: norm(m.time),
+  location: norm(m.location),
+  instructor: norm(m.instructors),
+})
+
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
   a.time === b.time && a.location === b.location && a.instructor === b.instructor
 
@@ -461,7 +468,7 @@ export function sectionSignature(section: InternalSection): SectionSignature {
   const seen = new Set<string>()
   const meetings: SectionMeetingSignature[] = []
   for (const m of section.meetings) {
-    const row = { time: norm(m.time), location: norm(m.location), instructor: norm(m.instructors) }
+    const row = meetingRow(m)
     const key = `${row.time}|${row.location}|${row.instructor}`
     if ((row.time || row.location || row.instructor) && !seen.has(key)) {
       seen.add(key)
@@ -550,11 +557,7 @@ export function matchChangedMeeting(
   meeting: InternalMeeting,
   changedMeetings: SectionMeetingChange[]
 ): SectionMeetingChange | undefined {
-  const row = {
-    time: norm(meeting.time),
-    location: norm(meeting.location),
-    instructor: norm(meeting.instructors),
-  }
+  const row = meetingRow(meeting)
   return changedMeetings.find((c) => sameMeeting(c.current, row))
 }
 

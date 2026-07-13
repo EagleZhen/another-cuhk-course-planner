@@ -26,6 +26,10 @@ import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
+// Shared style for the change-banner's "Show" / "Dismiss all" buttons.
+const bannerButtonClass =
+  'h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer'
+
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
@@ -284,7 +288,7 @@ export default function ShoppingCart({
                 variant="ghost"
                 size="sm"
                 onClick={showNextChange}
-                className="h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
+                className={bannerButtonClass}
                 title="Scroll to the next changed course"
               >
                 Show
@@ -295,7 +299,7 @@ export default function ShoppingCart({
                 variant="ghost"
                 size="sm"
                 onClick={onDismissAllChanges}
-                className="h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
+                className={bannerButtonClass}
               >
                 Dismiss all
               </Button>
