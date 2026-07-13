@@ -268,7 +268,7 @@ export default function ShoppingCart({
               variant="ghost"
               size="sm"
               onClick={onDismissAllChanges}
-              className="h-5 shrink-0 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
+              className="h-5 shrink-0 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
             >
               Dismiss all
             </Button>
