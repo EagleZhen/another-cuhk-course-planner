@@ -20,8 +20,16 @@ import {
   updateExistingEnrollment,
   extractAcademicYearCode,
   readStoredEnrollments,
+  recordSeenSections,
+  diffEnrollment,
 } from '@/lib/courseUtils'
-import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
+import type {
+  InternalCourse,
+  CourseEnrollment,
+  SectionType,
+  InternalSection,
+  SectionChange,
+} from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjectUtils'
 import { TERMS_BY_YEAR } from '@/lib/generated/terms'
@@ -203,6 +211,18 @@ export default function Home() {
     return detectConflicts(events)
   }, [courseEnrollments])
 
+  // Sections that changed (time/location/instructor/language) since the user last saw them.
+  // Cancellations already have their own isInvalid card, so skip those enrollments here.
+  const sectionChanges = useMemo(() => {
+    const map = new Map<string, SectionChange[]>()
+    for (const enrollment of courseEnrollments) {
+      if (enrollment.isInvalid) continue
+      const changes = diffEnrollment(enrollment)
+      if (changes.length > 0) map.set(enrollment.courseId, changes)
+    }
+    return map
+  }, [courseEnrollments])
+
   // Track conflict resolution when conflicts are resolved after user actions
   useEffect(() => {
     const hasConflicts = calendarEvents.some((event) => event.hasConflict)
@@ -348,11 +368,27 @@ export default function Home() {
           currentTerm
         )
 
-        return {
-          ...enrollment,
-          selectedSections: updatedSections,
-        }
+        return recordSeenSections(
+          { ...enrollment, selectedSections: updatedSections },
+          { onlyMissing: true }
+        )
       })
+    )
+  }
+
+  const handleDismissChanges = (enrollmentId: string) => {
+    setCourseEnrollments((prev) =>
+      prev.map((enrollment) =>
+        enrollment.courseId === enrollmentId
+          ? recordSeenSections(enrollment, { onlyMissing: false })
+          : enrollment
+      )
+    )
+  }
+
+  const handleDismissAllChanges = () => {
+    setCourseEnrollments((prev) =>
+      prev.map((enrollment) => recordSeenSections(enrollment, { onlyMissing: false }))
     )
   }
 
@@ -396,7 +432,9 @@ export default function Home() {
       setCourseEnrollments((prev) =>
         prev.map((enrollment, index) =>
           index === existingEnrollmentIndex
-            ? updateExistingEnrollment(enrollment, course, orderedSections)
+            ? recordSeenSections(updateExistingEnrollment(enrollment, course, orderedSections), {
+                onlyMissing: true,
+              })
             : enrollment
         )
       )
@@ -412,7 +450,10 @@ export default function Home() {
         isVisible: true,
       }
 
-      setCourseEnrollments((prev) => [...prev, newEnrollment])
+      setCourseEnrollments((prev) => [
+        ...prev,
+        recordSeenSections(newEnrollment, { onlyMissing: true }),
+      ])
     }
 
     // Track course enrollment for product analytics
@@ -500,15 +541,18 @@ export default function Home() {
           // Check if any sections are invalid
           const hasInvalidSections = syncedSections.some((s) => s.isInvalid)
 
-          return {
-            ...enrollment,
-            course: freshCourse, // Always use fresh course data
-            // Canonicalize order so carts stored before this fix self-heal
-            selectedSections: sortSectionsByPriority(syncedSections, freshCourse, currentTerm),
-            isInvalid: hasInvalidSections,
-            invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
-            lastSynced: timestamp, // Track when we last synced this enrollment
-          }
+          return recordSeenSections(
+            {
+              ...enrollment,
+              course: freshCourse, // Always use fresh course data
+              // Canonicalize order so carts stored before this fix self-heal
+              selectedSections: sortSectionsByPriority(syncedSections, freshCourse, currentTerm),
+              isInvalid: hasInvalidSections,
+              invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
+              lastSynced: timestamp, // Track when we last synced this enrollment
+            },
+            { onlyMissing: true }
+          )
         })
 
         // Log sync results
@@ -614,6 +658,9 @@ export default function Home() {
               onSelectEnrollment={handleSelectEnrollment}
               onSectionChange={handleSectionChange}
               onShowCourseDetails={handleShowCourseDetails}
+              sectionChanges={sectionChanges}
+              onDismissChanges={handleDismissChanges}
+              onDismissAllChanges={handleDismissAllChanges}
             />
           </div>
         </div>

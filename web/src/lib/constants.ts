@@ -9,7 +9,7 @@ export const NOTICE_VERSION = '2' // Bump to re-show notice to all users
 export const NOTICE_IMAGE_LOADED_EVENT = 'mobile-notice-image-loaded'
 
 // Data versioning
-export const SCHEDULE_DATA_VERSION = 1
+export const SCHEDULE_DATA_VERSION = 2
 
 // Default selected term. Bump on rollover manually for now.
 export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
