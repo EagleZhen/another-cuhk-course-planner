@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-10T22:06:06.654915+00:00",
+    "scraped_at": "2026-07-12T15:20:53.247364+00:00",
     "subject": "OVSC",
     "subject_title": "Ophthalmology & Visual Science",
     "total_courses": 11,
@@ -159,16 +159,23 @@
             },
             {
               "section": "IT01-TUT (3303)",
-              "meetings": [],
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Pui Man Poemen",
+                  "dates": "01/09/2025 - 29/12/2025"
+                }
+              ],
               "availability": {
-                "capacity": "",
-                "enrolled": "",
-                "waitlist_capacity": "",
-                "waitlist_total": "",
-                "available_seats": "",
-                "status": "Closed"
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "English only"
             },
             {
               "section": "JT01-TUT (3304)",
