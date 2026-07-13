@@ -44,12 +44,27 @@ export interface InternalMeeting {
   dates: string
 }
 
+// A single meeting's comparable facts (normalized, no `dates`).
+export interface SectionMeetingSignature {
+  time: string
+  location: string
+  instructor: string
+}
+
+// A section's comparable facts: deduped/sorted meetings plus language of instruction.
+// Pure data — display formatting (see formatSectionSignature) is a separate concern,
+// so a future formatting change can't retroactively look like a data change.
+export interface SectionSignature {
+  meetings: SectionMeetingSignature[]
+  language: string
+}
+
 // A section whose sectionSignature no longer matches what the user last saw.
 export interface SectionChange {
   sectionId: string
   sectionCode: string
-  before: string
-  after: string
+  before: SectionSignature
+  after: SectionSignature
 }
 
 export interface SectionAvailability {
@@ -101,7 +116,7 @@ export interface CourseEnrollment {
   lastSynced?: Date // When this enrollment was last synced with fresh data
   // Per-section sectionSignature the user last saw, keyed by section id. Not rendered
   // directly — only used to detect changes. Missing entry = adopt current section.
-  lastSeenSections?: Record<string, string>
+  lastSeenSections?: Record<string, SectionSignature>
 }
 
 // Calendar event using clean internal types

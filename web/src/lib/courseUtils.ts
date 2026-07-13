@@ -13,6 +13,8 @@ import type {
   SectionType,
   SectionTypeGroup,
   SectionChange,
+  SectionSignature,
+  SectionMeetingSignature,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -449,22 +451,41 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
 // Collapses whitespace so formatting noise doesn't look like a change.
 const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 
-// A section's time+location+instructor+language, normalized and deduped — doubles as
-// both the comparison key and the human-readable before/after text. Ignores `dates`.
-export function sectionSignature(section: InternalSection): string {
+const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
+  a.time === b.time && a.location === b.location && a.instructor === b.instructor
+
+// A section's deduped/sorted meetings plus language of instruction — the comparison
+// key for change detection. Pure data; ignores `dates`. See formatSectionSignature
+// for the display string.
+export function sectionSignature(section: InternalSection): SectionSignature {
   const seen = new Set<string>()
-  const meetings: string[] = []
+  const meetings: SectionMeetingSignature[] = []
   for (const m of section.meetings) {
-    const line = [norm(m.time), norm(m.location), norm(m.instructors)].filter(Boolean).join(' · ')
-    if (line && !seen.has(line)) {
-      seen.add(line)
-      meetings.push(line)
+    const row = { time: norm(m.time), location: norm(m.location), instructor: norm(m.instructors) }
+    const key = `${row.time}|${row.location}|${row.instructor}`
+    if ((row.time || row.location || row.instructor) && !seen.has(key)) {
+      seen.add(key)
+      meetings.push(row)
     }
   }
-  meetings.sort()
-  const language = norm(section.classAttributes)
-  return [...meetings, language].filter(Boolean).join('  |  ')
+  meetings.sort((a, b) =>
+    `${a.time}|${a.location}|${a.instructor}`.localeCompare(
+      `${b.time}|${b.location}|${b.instructor}`
+    )
+  )
+  return { meetings, language: norm(section.classAttributes) }
 }
+
+// Human-readable rendering of a SectionSignature, e.g. for a before/after tooltip.
+export function formatSectionSignature(signature: SectionSignature): string {
+  const lines = signature.meetings.map((m) =>
+    [m.time, m.location, m.instructor].filter(Boolean).join(' · ')
+  )
+  return [...lines, signature.language].filter(Boolean).join('  |  ')
+}
+
+const sameMeetings = (a: SectionMeetingSignature[], b: SectionMeetingSignature[]): boolean =>
+  a.length === b.length && a.every((m, i) => sameMeeting(m, b[i]))
 
 // Flags selected sections whose signature no longer matches what the user last saw.
 // No snapshot yet => adopt current silently (not a change).
@@ -476,7 +497,7 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
     const before = snaps[section.id]
     if (before === undefined) continue
     const after = sectionSignature(section)
-    if (before !== after) {
+    if (before.language !== after.language || !sameMeetings(before.meetings, after.meetings)) {
       changes.push({ sectionId: section.id, sectionCode: section.sectionCode, before, after })
     }
   }
@@ -490,7 +511,7 @@ export function recordSeenSections(
   opts: { onlyMissing: boolean }
 ): CourseEnrollment {
   const prev = enrollment.lastSeenSections ?? {}
-  const next: Record<string, string> = {}
+  const next: Record<string, SectionSignature> = {}
   for (const section of enrollment.selectedSections) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
@@ -500,29 +521,17 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-// Which meeting line(s) and whether the language changed vs `before`, for row-level
-// highlighting. Parses our own sectionSignature format apart — a trailing segment is
-// the language unless it contains ' · ' (only meeting lines do).
+// Which of the section's current meetings are new/changed vs `before`, for row-level
+// highlighting — plus whether the language changed.
 export function diffSectionDetail(
   section: InternalSection,
-  before: string
-): { changedMeetingLines: Set<string>; languageChanged: boolean } {
-  const segments = before ? before.split('  |  ') : []
-  const last = segments[segments.length - 1]
-  const hasLanguageSegment = !!last && !last.includes(' · ')
-  const beforeMeetingLines = new Set(hasLanguageSegment ? segments.slice(0, -1) : segments)
-  const beforeLanguage = hasLanguageSegment ? last : ''
-
-  const changedMeetingLines = new Set<string>()
-  const seen = new Set<string>()
-  for (const m of section.meetings) {
-    const line = [norm(m.time), norm(m.location), norm(m.instructors)].filter(Boolean).join(' · ')
-    if (!line || seen.has(line)) continue
-    seen.add(line)
-    if (!beforeMeetingLines.has(line)) changedMeetingLines.add(line)
-  }
-
-  return { changedMeetingLines, languageChanged: beforeLanguage !== norm(section.classAttributes) }
+  before: SectionSignature
+): { changedMeetings: SectionMeetingSignature[]; languageChanged: boolean } {
+  const current = sectionSignature(section)
+  const changedMeetings = current.meetings.filter(
+    (m) => !before.meetings.some((b) => sameMeeting(b, m))
+  )
+  return { changedMeetings, languageChanged: before.language !== current.language }
 }
 
 /**
