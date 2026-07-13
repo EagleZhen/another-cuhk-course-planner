@@ -332,10 +332,7 @@ describe('diffSectionDetail', () => {
     expect(detail.languageChanged).toBe(true)
   })
 
-  it('does not mistake a meeting-only signature (no language) for a language segment', () => {
-    // Regression guard: a section with no classAttributes has no trailing language
-    // segment, so the last meeting line (which contains ' · ') must still parse as
-    // a meeting line, not be misread as the language.
+  it('does not mistake the last meeting line for a language segment when there is no language', () => {
     const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })], '')
     const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })], '')
     const detail = diffSectionDetail(now, sig(before))
