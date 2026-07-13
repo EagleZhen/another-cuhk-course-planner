@@ -486,6 +486,9 @@ export function formatSectionSignature(signature: SectionSignature): string {
   return [...lines, signature.language].filter(Boolean).join('  |  ')
 }
 
+// Compared positionally, which assumes the scraper emits meetings in a stable order (it
+// reads timetable rows in document order, no sort). Verified — no pure reorders across
+// scrape history — so a mere reordering can't falsely flag an unchanged section.
 const sameMeetings = (a: SectionMeetingSignature[], b: SectionMeetingSignature[]): boolean =>
   a.length === b.length && a.every((m, i) => sameMeeting(m, b[i]))
 
