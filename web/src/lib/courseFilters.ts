@@ -42,14 +42,14 @@ export function sectionMatchesDays(section: InternalSection, days: Set<number>):
 
 /**
  * Single source of truth for keyword matching. `query` must already be lowercased.
- * Matches full course code (e.g. "csci1020"), bare course code, title, description,
- * and instructor names in the given term.
+ * Matches course code (e.g. "csci1020" or just "1020"), title, description, and
+ * instructor names in the given term.
  */
 export function courseMatchesKeyword(course: InternalCourse, query: string, term: string): boolean {
+  // `courseCode` is a suffix of `fullCode`, so matching it is covered by fullCode.
   const fullCode = `${course.subject}${course.courseCode}`.toLowerCase()
   if (
     fullCode.includes(query) ||
-    course.courseCode.toLowerCase().includes(query) ||
     course.title.toLowerCase().includes(query) ||
     (course.description?.toLowerCase().includes(query) ?? false)
   ) {
