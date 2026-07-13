@@ -484,6 +484,9 @@ export default function ShoppingCart({
                         const changeDetail = sectionChange
                           ? diffSectionDetail(section, sectionChange.before)
                           : undefined
+                        // Amber highlight for a changed value (no border/padding, so the text
+                        // doesn't shift). Same amber family as the summary banner.
+                        const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 
                         return (
                           <div
@@ -567,16 +570,18 @@ export default function ShoppingCart({
 
                             {/* Row 3: Teaching Language */}
                             {section.classAttributes && (
-                              <div
-                                className={`flex items-center gap-1 text-[9px] mb-2 rounded px-1 ${changeDetail?.languageChanged ? 'bg-amber-100 text-amber-900 cursor-help' : 'text-gray-500'}`}
-                                title={
-                                  changeDetail?.languageChanged && sectionChange
-                                    ? `Previously ${sectionChange.before.language || 'not specified'}`
-                                    : `Language of instruction: ${section.classAttributes}`
-                                }
-                              >
+                              <div className="flex items-center gap-1 text-[9px] mb-2 text-gray-500">
                                 <span className="flex-shrink-0">🌐</span>
-                                <span className="truncate">{section.classAttributes}</span>
+                                <span
+                                  className={`truncate ${changeDetail?.languageChanged ? changedText : ''}`}
+                                  title={
+                                    changeDetail?.languageChanged && sectionChange
+                                      ? `Previously ${sectionChange.before.language || 'not specified'}`
+                                      : `Language of instruction: ${section.classAttributes}`
+                                  }
+                                >
+                                  {section.classAttributes}
+                                </span>
                               </div>
                             )}
 
@@ -597,13 +602,11 @@ export default function ShoppingCart({
                                 // paired to a previous one (added meeting); otherwise highlight the
                                 // specific field lines that moved.
                                 const isNewMeeting = !!meetingChange && !fields
-                                const changedLine =
-                                  'rounded px-1 bg-amber-100 text-amber-900 cursor-help'
 
                                 return (
                                   <div
                                     key={index}
-                                    className={`rounded border px-2 py-1.5 shadow-sm ${isNewMeeting ? 'bg-amber-50 border-amber-300 cursor-help' : 'bg-white border-gray-200'}`}
+                                    className={`rounded border px-2 py-1.5 shadow-sm ${isNewMeeting ? 'bg-amber-50 border-amber-200 cursor-help' : 'bg-white border-gray-200'}`}
                                     title={
                                       isNewMeeting
                                         ? 'New meeting since you last checked'
@@ -611,33 +614,31 @@ export default function ShoppingCart({
                                     }
                                   >
                                     {/* Row 1: Time */}
-                                    <div
-                                      className={`flex items-center gap-1 text-[11px] ${fields?.time ? changedLine : ''}`}
-                                      title={
-                                        fields?.time && before
-                                          ? `Previously ${before.time}`
-                                          : undefined
-                                      }
-                                    >
+                                    <div className="flex items-center gap-1 text-[11px]">
                                       <span>⏰</span>
                                       <span
-                                        className={`font-mono ${fields?.time ? 'text-amber-900' : 'text-gray-600'}`}
+                                        className={`font-mono ${fields?.time ? changedText : 'text-gray-600'}`}
+                                        title={
+                                          fields?.time && before
+                                            ? `Previously ${before.time}`
+                                            : undefined
+                                        }
                                       >
                                         {formattedTime}
                                       </span>
                                     </div>
                                     {/* Row 2: Instructor */}
-                                    <div
-                                      className={`flex items-center gap-1 text-[11px] mt-1 ${fields?.instructor ? changedLine : 'text-gray-600'}`}
-                                      title={
-                                        fields?.instructor && before
-                                          ? `Previously ${before.instructor}`
-                                          : undefined
-                                      }
-                                    >
+                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
                                       <span>🧑🏻‍🏫</span>
                                       <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span className="truncate" title={formattedInstructor}>
+                                        <span
+                                          className={`truncate ${fields?.instructor ? changedText : ''}`}
+                                          title={
+                                            fields?.instructor && before
+                                              ? `Previously ${before.instructor}`
+                                              : formattedInstructor
+                                          }
+                                        >
                                           {formattedInstructor}
                                         </span>
                                         {formattedInstructor !== 'Staff' && (
@@ -655,17 +656,17 @@ export default function ShoppingCart({
                                       </div>
                                     </div>
                                     {/* Row 3: Location */}
-                                    <div
-                                      className={`flex items-center gap-1 text-[11px] mt-1 ${fields?.location ? changedLine : 'text-gray-600'}`}
-                                      title={
-                                        fields?.location && before
-                                          ? `Previously ${before.location}`
-                                          : undefined
-                                      }
-                                    >
+                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
                                       <span>📍</span>
                                       <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span className="truncate" title={location}>
+                                        <span
+                                          className={`truncate ${fields?.location ? changedText : ''}`}
+                                          title={
+                                            fields?.location && before
+                                              ? `Previously ${before.location}`
+                                              : location
+                                          }
+                                        >
                                           {location}
                                         </span>
                                         {location !== 'TBA' && location !== 'No Room Required' && (
