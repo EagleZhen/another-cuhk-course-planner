@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest'
-import { updateExistingEnrollment, sortSectionsByPriority } from './courseUtils'
+import {
+  updateExistingEnrollment,
+  sortSectionsByPriority,
+  readStoredEnrollments,
+} from './courseUtils'
+import { SCHEDULE_DATA_VERSION } from './constants'
 import type { CourseEnrollment, InternalCourse, InternalSection } from './types'
 
 function makeSection(overrides: Partial<InternalSection>): InternalSection {
@@ -102,5 +107,28 @@ describe('updateExistingEnrollment', () => {
     expect(result.lastSynced).not.toEqual(existing.lastSynced)
     expect(result.course).toEqual(freshCourse)
     expect(result.selectedSections).toEqual([freshSection])
+  })
+})
+
+describe('readStoredEnrollments', () => {
+  const enrollments = [{ courseId: 'COMM1180' }] as unknown as CourseEnrollment[]
+
+  it('loads the legacy pre-version array format', () => {
+    expect(readStoredEnrollments(enrollments)).toBe(enrollments)
+  })
+
+  it('loads a known version (1..current) and returns its enrollments', () => {
+    expect(readStoredEnrollments({ version: 1, enrollments })).toBe(enrollments)
+    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments })).toBe(enrollments)
+  })
+
+  it('wipes (null) for an unknown/newer version', () => {
+    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION + 1, enrollments })).toBeNull()
+    expect(readStoredEnrollments({ version: 0, enrollments })).toBeNull()
+  })
+
+  it('wipes (null) for malformed data', () => {
+    expect(readStoredEnrollments(null)).toBeNull()
+    expect(readStoredEnrollments({ foo: 'bar' })).toBeNull()
   })
 })
