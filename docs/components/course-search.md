@@ -14,7 +14,12 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Filtering
 
-- **Day-filter options** are computed from courses filtered by everything _except_ the day filter. Computing them after creates a self-loop: selecting a day hides the controls needed to change it.
+Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilters.ts) as composable predicate builders; `CourseSearch` only supplies state and presentation (shuffle, result limit). Routing every caller through this one engine is the point — the old duplicated predicates had drifted, so results and the day-option chips disagreed on whether search matched `description`.
+
+- **Criteria vs. context.** `criteria` is user selections (empty = no constraint); `context` is the ambient scope (the term, later the timetable for conflict filtering). Keeping the term in `context` lets `hasActiveFilters` stay a pure test of whether the user narrowed anything — which drives the 10-vs-100 result cap.
+- **Keyword search** covers code, title, description, and instructors, via one shared `courseMatchesKeyword`.
+- **Day-filter options** come from `filterCoursesExceptDays` — everything except the day filter. Filtering them by day too would self-loop: selecting a day hides the controls to change it.
+- **Adding a filter** is one predicate builder plus one `criteria` field.
 - **Instructor filter:** applying it clears section selections that no longer match; clearing it keeps existing selections.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
 
