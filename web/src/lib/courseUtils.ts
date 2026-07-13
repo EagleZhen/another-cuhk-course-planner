@@ -14,6 +14,7 @@ import type {
   SectionTypeGroup,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
+import { SCHEDULE_DATA_VERSION } from './constants'
 import { createEvents } from 'ics'
 import moment from 'moment-timezone'
 
@@ -428,6 +429,20 @@ export function updateExistingEnrollment(
     invalidReason: undefined,
     lastSynced: new Date(),
   }
+}
+
+// Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
+// load as-is — schema changes so far are additive — unknown/newer versions don't.
+export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
+  if (Array.isArray(parsed)) return parsed as CourseEnrollment[] // legacy pre-version format
+  if (parsed && typeof parsed === 'object') {
+    const version = (parsed as { version?: unknown }).version
+    if (typeof version === 'number' && version >= 1 && version <= SCHEDULE_DATA_VERSION) {
+      return ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ??
+        []) as CourseEnrollment[]
+    }
+  }
+  return null
 }
 
 /**
