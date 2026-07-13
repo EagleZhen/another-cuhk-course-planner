@@ -213,6 +213,17 @@ export default function ShoppingCart({
 
   const statusCounts = getStatusCounts()
 
+  // Changed courses in cart order; "Show" selects the next one (reusing the select/scroll
+  // path that clicking a card or calendar event uses) so the user can step through changes.
+  const changedCourseIds = courseEnrollments
+    .filter((e) => sectionChanges?.has(e.courseId))
+    .map((e) => e.courseId)
+  const showNextChange = () => {
+    if (!onSelectEnrollment || changedCourseIds.length === 0) return
+    const current = changedCourseIds.indexOf(selectedEnrollment ?? '')
+    onSelectEnrollment(changedCourseIds[(current + 1) % changedCourseIds.length])
+  }
+
   return (
     <Card className="h-[800px] flex flex-col gap-1 py-2 pt-4" data-shopping-cart>
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
@@ -263,16 +274,29 @@ export default function ShoppingCart({
               {sectionChanges.size} {sectionChanges.size === 1 ? 'course' : 'courses'} changed
             </span>
           </span>
-          {onDismissAllChanges && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onDismissAllChanges}
-              className="h-5 shrink-0 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
-            >
-              Dismiss all
-            </Button>
-          )}
+          <span className="flex shrink-0 items-center gap-1.5">
+            {onSelectEnrollment && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={showNextChange}
+                className="h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
+                title="Scroll to the next changed course"
+              >
+                Show
+              </Button>
+            )}
+            {onDismissAllChanges && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onDismissAllChanges}
+                className="h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer"
+              >
+                Dismiss all
+              </Button>
+            )}
+          </span>
         </div>
       ) : (
         <div className="border-t flex-shrink-0" />
