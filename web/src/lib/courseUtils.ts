@@ -15,6 +15,7 @@ import type {
   SectionChange,
   SectionSignature,
   SectionMeetingSignature,
+  SectionMeetingChange,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -515,43 +516,46 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-// changedFields pinpoints which field changed, but only for the unambiguous
-// single-meeting case; multi-meeting sections leave it undefined (pairing an old
-// slot to a new one is ambiguous) — callers should fall back to whole-row highlighting.
+// Each changed meeting paired to its previous value, so the cart can highlight the exact
+// field that moved. Meetings are paired positionally only when the count is unchanged
+// (|added| === |removed|); a differing count means one was added/removed outright, so it's
+// left unpaired (before/fields undefined) and the caller highlights the whole row.
 export function diffSectionDetail(
   section: InternalSection,
   before: SectionSignature
-): {
-  changedMeetings: SectionMeetingSignature[]
-  changedFields?: { time: boolean; location: boolean; instructor: boolean }
-  languageChanged: boolean
-} {
+): { changedMeetings: SectionMeetingChange[]; languageChanged: boolean } {
   const current = sectionSignature(section)
-  const changedMeetings = current.meetings.filter(
-    (m) => !before.meetings.some((b) => sameMeeting(b, m))
-  )
-  const changedFields =
-    before.meetings.length === 1 && current.meetings.length === 1 && changedMeetings.length === 1
-      ? {
-          time: before.meetings[0].time !== current.meetings[0].time,
-          location: before.meetings[0].location !== current.meetings[0].location,
-          instructor: before.meetings[0].instructor !== current.meetings[0].instructor,
-        }
-      : undefined
-  return { changedMeetings, changedFields, languageChanged: before.language !== current.language }
+  const added = current.meetings.filter((m) => !before.meetings.some((b) => sameMeeting(b, m)))
+  const removed = before.meetings.filter((b) => !current.meetings.some((m) => sameMeeting(m, b)))
+  const paired = added.length === removed.length
+  const changedMeetings: SectionMeetingChange[] = added.map((meeting, i) => {
+    const previous = paired ? removed[i] : undefined
+    return {
+      current: meeting,
+      before: previous,
+      fields: previous
+        ? {
+            time: previous.time !== meeting.time,
+            location: previous.location !== meeting.location,
+            instructor: previous.instructor !== meeting.instructor,
+          }
+        : undefined,
+    }
+  })
+  return { changedMeetings, languageChanged: before.language !== current.language }
 }
 
-// Whether a raw meeting (as rendered) is one of diffSectionDetail's changed meetings.
-export function isChangedMeeting(
+// Finds the change entry for a raw (as-rendered) meeting, or undefined if it didn't change.
+export function matchChangedMeeting(
   meeting: InternalMeeting,
-  changedMeetings: SectionMeetingSignature[]
-): boolean {
+  changedMeetings: SectionMeetingChange[]
+): SectionMeetingChange | undefined {
   const row = {
     time: norm(meeting.time),
     location: norm(meeting.location),
     instructor: norm(meeting.instructors),
   }
-  return changedMeetings.some((m) => sameMeeting(m, row))
+  return changedMeetings.find((c) => sameMeeting(c.current, row))
 }
 
 /**

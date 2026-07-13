@@ -19,8 +19,7 @@ import {
   formatCourseCodeWithPrefix,
   checkSectionConflict,
   diffSectionDetail,
-  isChangedMeeting,
-  formatSectionSignature,
+  matchChangedMeeting,
 } from '@/lib/courseUtils'
 import type { CourseEnrollment, CalendarEvent, SectionType, SectionChange } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
@@ -569,10 +568,10 @@ export default function ShoppingCart({
                             {/* Row 3: Teaching Language */}
                             {section.classAttributes && (
                               <div
-                                className={`flex items-center gap-1 text-[9px] mb-2 rounded px-1 ${changeDetail?.languageChanged ? 'bg-amber-50 text-amber-800' : 'text-gray-500'}`}
+                                className={`flex items-center gap-1 text-[9px] mb-2 rounded px-1 ${changeDetail?.languageChanged ? 'bg-amber-100 text-amber-900 cursor-help' : 'text-gray-500'}`}
                                 title={
                                   changeDetail?.languageChanged && sectionChange
-                                    ? `Previously: ${sectionChange.before.language || 'not specified'}`
+                                    ? `Previously ${sectionChange.before.language || 'not specified'}`
                                     : `Language of instruction: ${section.classAttributes}`
                                 }
                               >
@@ -589,29 +588,53 @@ export default function ShoppingCart({
                                   meeting?.instructors || 'TBA'
                                 )
                                 const location = meeting?.location || 'TBA'
-                                const rowChanged =
-                                  !!changeDetail &&
-                                  isChangedMeeting(meeting, changeDetail.changedMeetings)
+                                const meetingChange = changeDetail
+                                  ? matchChangedMeeting(meeting, changeDetail.changedMeetings)
+                                  : undefined
+                                const fields = meetingChange?.fields
+                                const before = meetingChange?.before
+                                // Highlight the whole box only when the meeting changed but can't be
+                                // paired to a previous one (added meeting); otherwise highlight the
+                                // specific field lines that moved.
+                                const isNewMeeting = !!meetingChange && !fields
+                                const changedLine =
+                                  'rounded px-1 bg-amber-100 text-amber-900 cursor-help'
 
                                 return (
                                   <div
                                     key={index}
-                                    className={`rounded border px-2 py-1.5 shadow-sm ${rowChanged ? 'bg-amber-50 border-amber-300' : 'bg-white border-gray-200'}`}
+                                    className={`rounded border px-2 py-1.5 shadow-sm ${isNewMeeting ? 'bg-amber-50 border-amber-300 cursor-help' : 'bg-white border-gray-200'}`}
                                     title={
-                                      rowChanged && sectionChange
-                                        ? `Previously: ${formatSectionSignature(sectionChange.before)}`
+                                      isNewMeeting
+                                        ? 'New meeting since you last checked'
                                         : undefined
                                     }
                                   >
                                     {/* Row 1: Time */}
-                                    <div className="flex items-center gap-1 text-[11px]">
+                                    <div
+                                      className={`flex items-center gap-1 text-[11px] ${fields?.time ? changedLine : ''}`}
+                                      title={
+                                        fields?.time && before
+                                          ? `Previously ${before.time}`
+                                          : undefined
+                                      }
+                                    >
                                       <span>⏰</span>
-                                      <span className="font-mono text-gray-600">
+                                      <span
+                                        className={`font-mono ${fields?.time ? 'text-amber-900' : 'text-gray-600'}`}
+                                      >
                                         {formattedTime}
                                       </span>
                                     </div>
                                     {/* Row 2: Instructor */}
-                                    <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <div
+                                      className={`flex items-center gap-1 text-[11px] mt-1 ${fields?.instructor ? changedLine : 'text-gray-600'}`}
+                                      title={
+                                        fields?.instructor && before
+                                          ? `Previously ${before.instructor}`
+                                          : undefined
+                                      }
+                                    >
                                       <span>🧑🏻‍🏫</span>
                                       <div className="flex items-center gap-1 min-w-0 flex-1">
                                         <span className="truncate" title={formattedInstructor}>
@@ -632,7 +655,14 @@ export default function ShoppingCart({
                                       </div>
                                     </div>
                                     {/* Row 3: Location */}
-                                    <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
+                                    <div
+                                      className={`flex items-center gap-1 text-[11px] mt-1 ${fields?.location ? changedLine : 'text-gray-600'}`}
+                                      title={
+                                        fields?.location && before
+                                          ? `Previously ${before.location}`
+                                          : undefined
+                                      }
+                                    >
                                       <span>📍</span>
                                       <div className="flex items-center gap-1 min-w-0 flex-1">
                                         <span className="truncate" title={location}>

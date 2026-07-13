@@ -51,9 +51,9 @@ export interface SectionMeetingSignature {
   instructor: string
 }
 
-// A section's comparable facts: deduped/sorted meetings plus language of instruction.
-// Pure data — display formatting (see formatSectionSignature) is a separate concern,
-// so a future formatting change can't retroactively look like a data change.
+// A section's comparable facts: deduped meetings (source order) plus language of
+// instruction. Pure data — display formatting (see formatSectionSignature) is a separate
+// concern, so a future formatting change can't retroactively look like a data change.
 export interface SectionSignature {
   meetings: SectionMeetingSignature[]
   language: string
@@ -65,6 +65,15 @@ export interface SectionChange {
   sectionCode: string
   before: SectionSignature
   after: SectionSignature
+}
+
+// One changed meeting, paired to its previous value when meetings can be matched 1:1
+// (see diffSectionDetail). `before`/`fields` are absent when a meeting was added with no
+// counterpart to pair against. `fields` marks which of time/location/instructor differ.
+export interface SectionMeetingChange {
+  current: SectionMeetingSignature
+  before?: SectionMeetingSignature
+  fields?: { time: boolean; location: boolean; instructor: boolean }
 }
 
 export interface SectionAvailability {

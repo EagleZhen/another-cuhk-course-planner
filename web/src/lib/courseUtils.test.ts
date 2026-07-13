@@ -7,7 +7,7 @@ import {
   diffEnrollment,
   recordSeenSections,
   diffSectionDetail,
-  isChangedMeeting,
+  matchChangedMeeting,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -313,61 +313,27 @@ describe('recordSeenSections', () => {
 })
 
 describe('diffSectionDetail', () => {
-  it('flags no changed meetings and no language change when before matches current', () => {
+  it('reports no changed meetings and no language change when before matches current', () => {
     const now = mkSection('1', [mkMeeting({})], 'English only')
     const detail = diffSectionDetail(now, sig(now))
     expect(detail.changedMeetings).toHaveLength(0)
     expect(detail.languageChanged).toBe(false)
   })
 
-  it('flags the current meeting when its time differs from before', () => {
+  it('pairs a changed meeting with its previous value and pinpoints the field', () => {
     const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
     const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })])
     const detail = diffSectionDetail(now, sig(before))
     expect(detail.changedMeetings).toEqual([
-      { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      {
+        current: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        fields: { time: true, location: false, instructor: false },
+      },
     ])
   })
 
-  it('flags only the meeting that actually changed, among several', () => {
-    const before = mkSection('1', [
-      mkMeeting({ time: 'Mo 9AM - 10AM' }),
-      mkMeeting({ time: 'We 9AM - 10AM' }),
-    ])
-    const now = mkSection('1', [
-      mkMeeting({ time: 'Mo 9AM - 10AM' }),
-      mkMeeting({ time: 'Th 9AM - 10AM' }),
-    ])
-    const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toEqual([
-      { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-    ])
-  })
-
-  it('flags a language-only change without flagging any meeting', () => {
-    const before = mkSection('1', [mkMeeting({})], 'English only')
-    const now = mkSection('1', [mkMeeting({})], 'Putonghua and English')
-    const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toHaveLength(0)
-    expect(detail.languageChanged).toBe(true)
-  })
-
-  it('flags both independently when meeting and language change together', () => {
-    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })], 'English only')
-    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })], 'Putonghua and English')
-    const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toHaveLength(1)
-    expect(detail.languageChanged).toBe(true)
-  })
-
-  it('pinpoints which field changed when there is exactly one meeting before and after', () => {
-    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
-    const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })])
-    const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedFields).toEqual({ time: true, location: false, instructor: false })
-  })
-
-  it('flags every differing field independently on a single meeting', () => {
+  it('flags every differing field on a single changed meeting', () => {
     const before = mkSection('1', [
       mkMeeting({ time: 'Mo 9AM - 10AM', location: 'Hum 314', instructors: 'Staff' }),
     ])
@@ -375,10 +341,14 @@ describe('diffSectionDetail', () => {
       mkMeeting({ time: 'We 9AM - 10AM', location: 'T.C. Cheng 208', instructors: 'Prof Chen' }),
     ])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedFields).toEqual({ time: true, location: true, instructor: true })
+    expect(detail.changedMeetings[0].fields).toEqual({
+      time: true,
+      location: true,
+      instructor: true,
+    })
   })
 
-  it('leaves changedFields undefined when meeting count is ambiguous (multi-meeting)', () => {
+  it('flags only the meeting that changed, among several, leaving the rest alone', () => {
     const before = mkSection('1', [
       mkMeeting({ time: 'Mo 9AM - 10AM' }),
       mkMeeting({ time: 'We 9AM - 10AM' }),
@@ -388,30 +358,73 @@ describe('diffSectionDetail', () => {
       mkMeeting({ time: 'Th 9AM - 10AM' }),
     ])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedFields).toBeUndefined()
+    expect(detail.changedMeetings).toHaveLength(1)
+    expect(detail.changedMeetings[0].current.time).toBe('Th 9AM - 10AM')
+    expect(detail.changedMeetings[0].before!.time).toBe('We 9AM - 10AM')
+    expect(detail.changedMeetings[0].fields).toEqual({
+      time: true,
+      location: false,
+      instructor: false,
+    })
   })
 
-  it('leaves changedFields undefined when the single meeting did not change', () => {
-    const now = mkSection('1', [mkMeeting({})])
-    const detail = diffSectionDetail(now, sig(now))
-    expect(detail.changedFields).toBeUndefined()
+  it('pairs by appearance order when several meetings change at once (same count)', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Tu 9AM - 10AM' }),
+      mkMeeting({ time: 'Th 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings.map((c) => [c.current.time, c.before!.time])).toEqual([
+      ['Tu 9AM - 10AM', 'Mo 9AM - 10AM'],
+      ['Th 9AM - 10AM', 'We 9AM - 10AM'],
+    ])
+  })
+
+  it('leaves before/fields undefined for an added meeting (counts differ, no pairing)', () => {
+    const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings).toHaveLength(1)
+    expect(detail.changedMeetings[0].current.time).toBe('We 9AM - 10AM')
+    expect(detail.changedMeetings[0].before).toBeUndefined()
+    expect(detail.changedMeetings[0].fields).toBeUndefined()
+  })
+
+  it('reports a language-only change with no changed meetings', () => {
+    const before = mkSection('1', [mkMeeting({})], 'English only')
+    const now = mkSection('1', [mkMeeting({})], 'Putonghua and English')
+    const detail = diffSectionDetail(now, sig(before))
+    expect(detail.changedMeetings).toHaveLength(0)
+    expect(detail.languageChanged).toBe(true)
   })
 })
 
-describe('isChangedMeeting', () => {
-  it('matches a raw meeting against a changed signature after normalization', () => {
+describe('matchChangedMeeting', () => {
+  const changed = [
+    {
+      current: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      fields: { time: true, location: false, instructor: false },
+    },
+  ]
+
+  it('matches a raw meeting to its change entry after normalization', () => {
     const meeting = mkMeeting({ time: 'We 9AM - 10AM', location: 'Hum  314' }) // double space
-    const changed = [{ time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' }]
-    expect(isChangedMeeting(meeting, changed)).toBe(true)
+    expect(matchChangedMeeting(meeting, changed)).toBe(changed[0])
   })
 
-  it('does not match a meeting absent from the changed list', () => {
-    const meeting = mkMeeting({ time: 'Mo 9AM - 10AM' })
-    const changed = [{ time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' }]
-    expect(isChangedMeeting(meeting, changed)).toBe(false)
+  it('returns undefined for a meeting not in the changed list', () => {
+    expect(matchChangedMeeting(mkMeeting({ time: 'Mo 9AM - 10AM' }), changed)).toBeUndefined()
   })
 
-  it('returns false for an empty changed list', () => {
-    expect(isChangedMeeting(mkMeeting({}), [])).toBe(false)
+  it('returns undefined for an empty changed list', () => {
+    expect(matchChangedMeeting(mkMeeting({}), [])).toBeUndefined()
   })
 })
