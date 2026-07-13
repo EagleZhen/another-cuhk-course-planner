@@ -19,6 +19,7 @@ import {
   sortSectionsByPriority,
   updateExistingEnrollment,
   extractAcademicYearCode,
+  readStoredEnrollments,
 } from '@/lib/courseUtils'
 import type { InternalCourse, CourseEnrollment, SectionType, InternalSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
@@ -76,19 +77,9 @@ export default function Home() {
       if (savedData) {
         const parsedData = JSON.parse(savedData)
 
-        // Handle both old format (array) and new format (versioned object)
-        let parsedSchedule: CourseEnrollment[]
-        if (Array.isArray(parsedData)) {
-          // Old format - just array of enrollments
-          console.log('Detected old localStorage format, migrating...')
-          parsedSchedule = parsedData
-        } else if (parsedData.version === SCHEDULE_DATA_VERSION) {
-          // Current format - versioned object
-          parsedSchedule = parsedData.enrollments
-          console.debug(`Loaded schedule data version ${parsedData.version}`)
-        } else {
-          // Unknown version - clear and start fresh
-          console.warn(`⚠️ Unknown schedule data version: ${parsedData.version}, clearing...`)
+        const parsedSchedule = readStoredEnrollments(parsedData)
+        if (parsedSchedule === null) {
+          console.warn('⚠️ Unloadable schedule data, clearing...')
           localStorage.removeItem(`schedule_${currentTerm}`)
           setCourseEnrollments([])
           setSelectedSections(new Map())
