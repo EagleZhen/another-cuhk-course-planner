@@ -237,6 +237,9 @@ export default function CourseSearch({
   )
   const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
+  // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
+  const shuffledCatalog = useMemo(() => shuffledCopy(allCourses), [allCourses])
+
   // Which days still have matching courses. Filtered with no day constraint so the chips
   // reflect availability regardless of the day selection — and, deliberately, this does not
   // depend on selectedDays.
@@ -554,15 +557,8 @@ export default function CourseSearch({
         setTimeout(() => {
           const matched = filterCourses(courses, criteria, context)
 
-          // Shuffle a copy (Fisher-Yates) on the one-off shuffle trigger.
-          let ordered = matched
-          if (shuffle > 0) {
-            ordered = [...matched]
-            for (let i = ordered.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1))
-              ;[ordered[i], ordered[j]] = [ordered[j], ordered[i]]
-            }
-          }
+          // Reshuffle on the one-off shuffle trigger.
+          const ordered = shuffle > 0 ? shuffledCopy(matched) : matched
 
           // Show more once the user has narrowed the catalog; otherwise keep it short.
           const limit = hasActiveFilters(criteria) ? 100 : 10
@@ -585,14 +581,17 @@ export default function CourseSearch({
     // Immediately show filtering state
     setIsFiltering(true)
 
+    // The default view opens on the shuffled catalog; any active filter uses code order.
+    const source = hasActiveFilters(filterCriteria) ? allCourses : shuffledCatalog
+
     // Perform filtering in background
-    performFiltering(allCourses, filterCriteria, filterContext, shuffleTrigger).then(
+    performFiltering(source, filterCriteria, filterContext, shuffleTrigger).then(
       (results: SearchResults) => {
         setDisplayResults(results)
         setIsFiltering(false)
       }
     )
-  }, [allCourses, filterCriteria, filterContext, shuffleTrigger, performFiltering])
+  }, [allCourses, shuffledCatalog, filterCriteria, filterContext, shuffleTrigger, performFiltering])
 
   // Track search analytics - only when search is used
   useEffect(() => {
