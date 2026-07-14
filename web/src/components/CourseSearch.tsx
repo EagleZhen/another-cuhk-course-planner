@@ -277,6 +277,7 @@ export default function CourseSearch({
       days: selectedDays,
       credits: selectedCredits,
       careers: selectedCareers,
+      noConflictOnly: false,
     }),
     [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits, selectedCareers]
   )
@@ -285,7 +286,10 @@ export default function CourseSearch({
     Number(selectedDays.size > 0) +
     Number(selectedCredits.size > 0) +
     Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate'))
-  const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
+  const filterContext = useMemo<CourseFilterContext>(
+    () => ({ term: currentTerm, enrollments: courseEnrollments }),
+    [currentTerm, courseEnrollments]
+  )
 
   // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
   const shuffledCatalog = useMemo(() => shuffledCopy(allCourses), [allCourses])
