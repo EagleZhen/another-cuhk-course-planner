@@ -17,7 +17,7 @@ interface ChipFilterRowProps<T> {
   toggleTitle?: (value: T, selected: boolean) => string
 }
 
-/** A labelled row of multi-select filter chips with a Clear button — used for day, credit, and career filters. */
+/** A labelled row of multi-select filter chips with a Clear button — used for the day and credit filters. */
 export function ChipFilterRow<T>({
   label,
   options,
