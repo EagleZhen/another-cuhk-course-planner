@@ -30,8 +30,10 @@ export const analytics = {
 
   // Track enrollment → measures conversion from discovery to action (KEEP term for planning analysis)
   // Key decisions: Focus on discovery vs planning features? Which terms get enrollment activity?
-  courseAdded: (course: string, subject: string, termName: string) => {
-    track('course_added', { course, subject, term: termName })
+  // `no_conflict_active` records whether the no-conflict filter was shaping the visible list at add
+  // time — the outcome signal for whether that filter actually influences course choices.
+  courseAdded: (course: string, subject: string, termName: string, noConflictActive: boolean) => {
+    track('course_added', { course, subject, term: termName, no_conflict_active: noConflictActive })
   },
 
   // Track search effectiveness → informs discovery method priority (search vs browse)

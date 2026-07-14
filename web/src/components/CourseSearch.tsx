@@ -85,7 +85,8 @@ interface CourseSearchProps {
   onAddCourse: (
     course: InternalCourse,
     termName: string,
-    localSelections: Map<string, string>
+    localSelections: Map<string, string>,
+    noConflictActive: boolean
   ) => void
   onRemoveCourse: (courseKey: string) => void
   onTermChange?: (term: string) => void
@@ -1249,7 +1250,7 @@ export default function CourseSearch({
                       onSelectedSectionsChange(newMap)
                     }}
                     onAddCourse={(course, localSelections) =>
-                      onAddCourse(course, currentTerm, localSelections)
+                      onAddCourse(course, currentTerm, localSelections, noConflictOnly)
                     }
                     onRemoveCourse={onRemoveCourse}
                     isAdded={isCourseAdded(course)}
