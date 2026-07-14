@@ -135,6 +135,7 @@ export default function CourseSearch({
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
+  const [isMobileFilterPanelExpanded, setIsMobileFilterPanelExpanded] = useState(true)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
   const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
   // Defaults to Undergraduate: most planner users are undergrads, so it's the resting state
@@ -279,6 +280,11 @@ export default function CourseSearch({
     }),
     [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits, selectedCareers]
   )
+  const activeHiddenFilterGroups =
+    Number(selectedSubjects.size > 0) +
+    Number(selectedDays.size > 0) +
+    Number(selectedCredits.size > 0) +
+    Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate'))
   const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
   // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
@@ -707,118 +713,142 @@ export default function CourseSearch({
               placeholder="Search by course code, title, or instructor (e.g., UGFH1000, Nature, YU Bei)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all"
+              className="h-11 w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all sm:h-9"
             />
           </div>
-          <div className="flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-gray-600">
-            <div className="flex items-center gap-1">
-              <span className="w-3 flex justify-center flex-shrink-0">
-                <Info className="w-3 h-3" />
-              </span>
-              <span>Showing courses in</span>
-              <TermSelector
-                selectedTerm={currentTerm}
-                availableTerms={availableTerms}
-                onTermChange={onTermChange}
-              />
-            </div>
-            {selectedSubjects.size > 0 && (
+          <div
+            id="course-filter-panel"
+            data-course-filter-panel
+            className={`${isMobileFilterPanelExpanded ? '' : 'hidden'} space-y-2 sm:block`}
+          >
+            <div className="flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-gray-600">
               <div className="flex items-center gap-1">
-                <span>filtered by</span>
-                <span className="font-semibold text-blue-600">
-                  {Array.from(selectedSubjects).sort().join(', ')}
+                <span className="w-3 flex justify-center flex-shrink-0">
+                  <Info className="w-3 h-3" />
                 </span>
-                <span>
-                  ({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})
-                </span>
+                <span>Showing courses in</span>
+                <TermSelector
+                  selectedTerm={currentTerm}
+                  availableTerms={availableTerms}
+                  onTermChange={onTermChange}
+                />
               </div>
-            )}
-            {lastDataUpdate && (
-              <>
-                <div className="flex items-center gap-1.5">
-                  <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
-                  <span className="whitespace-nowrap">Check CUSIS for real-time course info</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-3 flex justify-center flex-shrink-0">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+              {selectedSubjects.size > 0 && (
+                <div className="flex items-center gap-1">
+                  <span>filtered by</span>
+                  <span className="font-semibold text-blue-600">
+                    {Array.from(selectedSubjects).sort().join(', ')}
                   </span>
-                  <span className="whitespace-nowrap">
-                    Last Data Sync:{' '}
-                    {lastDataUpdate.toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                    })}{' '}
-                    {lastDataUpdate.toLocaleTimeString([], {
-                      hour: '2-digit',
-                      minute: '2-digit',
-                      hour12: false,
-                    })}
+                  <span>
+                    ({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})
                   </span>
                 </div>
-              </>
-            )}
+              )}
+              {lastDataUpdate && (
+                <>
+                  <div className="flex items-center gap-1.5">
+                    <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
+                    <span className="whitespace-nowrap">Check CUSIS for real-time course info</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 flex justify-center flex-shrink-0">
+                      <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                    </span>
+                    <span className="whitespace-nowrap">
+                      Last Data Sync:{' '}
+                      {lastDataUpdate.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}{' '}
+                      {lastDataUpdate.toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false,
+                      })}
+                    </span>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Course-level Day Filters — only show days with courses in current results */}
+            <ChipFilterRow<WeekDay>
+              label="Days:"
+              analyticsKey="day"
+              options={availableDays}
+              getKey={(dayKey) => dayKey}
+              getLabel={(dayKey) => dayKey}
+              getShortLabel={(dayKey) => dayKey.slice(0, 2)}
+              isSelected={(dayKey) => selectedDays.has(DAYS[dayKey].index)}
+              onToggle={(dayKey) => toggleDayFilter(DAYS[dayKey].index)}
+              onClear={() => setSelectedDays(new Set())}
+              clearLabel="Clear Days"
+              emptyText="No courses available for day filtering"
+              hasSelection={selectedDays.size > 0}
+              toggleTitle={(dayKey, selected) =>
+                selected
+                  ? `Remove ${DAYS[dayKey].displayName} filter`
+                  : `Show only courses with classes on ${DAYS[dayKey].displayName}`
+              }
+            />
+
+            {/* Course-level Credit Filters — only show credit values present in current results */}
+            <ChipFilterRow<number>
+              label="Credits:"
+              analyticsKey="credits"
+              options={availableCredits}
+              getKey={(credits) => credits}
+              getLabel={(credits) => String(credits)}
+              isSelected={(credits) => selectedCredits.has(credits)}
+              onToggle={(credits) => toggleCreditFilter(credits)}
+              onClear={() => setSelectedCredits(new Set())}
+              clearLabel="Clear Credits"
+              emptyText="No courses available for credit filtering"
+              hasSelection={selectedCredits.size > 0}
+              toggleTitle={(credits, selected) =>
+                selected ? `Remove ${credits}-credit filter` : `Show only ${credits}-credit courses`
+              }
+            />
+
+            {/* Course-level Career Filters — defaults to Undergraduate; see selectedCareers */}
+            <ChipFilterRow<AcademicCareer>
+              label="Level:"
+              analyticsKey="level"
+              trackRemovals
+              options={availableCareers}
+              getKey={(career) => career}
+              getLabel={(career) => career}
+              getShortLabel={(career) => CAREER_SHORT_LABEL[career]}
+              isSelected={(career) => selectedCareers.has(career)}
+              onToggle={(career) => toggleCareerFilter(career)}
+              onClear={() => setSelectedCareers(new Set())}
+              clearLabel="Clear Level"
+              emptyText="No courses available for level filtering"
+              hasSelection={selectedCareers.size > 0}
+              toggleTitle={(career, selected) =>
+                selected ? `Remove ${career} filter` : `Show only ${career} courses`
+              }
+            />
           </div>
-
-          {/* Course-level Day Filters — only show days with courses in current results */}
-          <ChipFilterRow<WeekDay>
-            label="Days:"
-            analyticsKey="day"
-            options={availableDays}
-            getKey={(dayKey) => dayKey}
-            getLabel={(dayKey) => dayKey}
-            getShortLabel={(dayKey) => dayKey.slice(0, 2)}
-            isSelected={(dayKey) => selectedDays.has(DAYS[dayKey].index)}
-            onToggle={(dayKey) => toggleDayFilter(DAYS[dayKey].index)}
-            onClear={() => setSelectedDays(new Set())}
-            clearLabel="Clear Days"
-            emptyText="No courses available for day filtering"
-            hasSelection={selectedDays.size > 0}
-            toggleTitle={(dayKey, selected) =>
-              selected
-                ? `Remove ${DAYS[dayKey].displayName} filter`
-                : `Show only courses with classes on ${DAYS[dayKey].displayName}`
-            }
-          />
-
-          {/* Course-level Credit Filters — only show credit values present in current results */}
-          <ChipFilterRow<number>
-            label="Credits:"
-            analyticsKey="credits"
-            options={availableCredits}
-            getKey={(credits) => credits}
-            getLabel={(credits) => String(credits)}
-            isSelected={(credits) => selectedCredits.has(credits)}
-            onToggle={(credits) => toggleCreditFilter(credits)}
-            onClear={() => setSelectedCredits(new Set())}
-            clearLabel="Clear Credits"
-            emptyText="No courses available for credit filtering"
-            hasSelection={selectedCredits.size > 0}
-            toggleTitle={(credits, selected) =>
-              selected ? `Remove ${credits}-credit filter` : `Show only ${credits}-credit courses`
-            }
-          />
-
-          {/* Course-level Career Filters — defaults to Undergraduate; see selectedCareers */}
-          <ChipFilterRow<AcademicCareer>
-            label="Level:"
-            analyticsKey="level"
-            trackRemovals
-            options={availableCareers}
-            getKey={(career) => career}
-            getLabel={(career) => career}
-            getShortLabel={(career) => CAREER_SHORT_LABEL[career]}
-            isSelected={(career) => selectedCareers.has(career)}
-            onToggle={(career) => toggleCareerFilter(career)}
-            onClear={() => setSelectedCareers(new Set())}
-            clearLabel="Clear Level"
-            emptyText="No courses available for level filtering"
-            hasSelection={selectedCareers.size > 0}
-            toggleTitle={(career, selected) =>
-              selected ? `Remove ${career} filter` : `Show only ${career} courses`
-            }
-          />
+          <Button
+            type="button"
+            variant="ghost"
+            className="h-8 w-full text-xs text-gray-600 sm:hidden"
+            aria-controls="course-filter-panel"
+            aria-expanded={isMobileFilterPanelExpanded}
+            onClick={() => setIsMobileFilterPanelExpanded((expanded) => !expanded)}
+          >
+            <ChevronDown
+              className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
+            />
+            <span>{isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}</span>
+            {!isMobileFilterPanelExpanded && activeHiddenFilterGroups > 0 && (
+              <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
+                {activeHiddenFilterGroups}
+              </span>
+            )}
+          </Button>
         </div>
       </div>
 
