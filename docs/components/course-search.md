@@ -18,8 +18,8 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 
 - **Criteria vs. context.** `criteria` is user selections (empty = no constraint); `context` is the ambient scope (the term, later the timetable for conflict filtering). Keeping the term in `context` lets `hasActiveFilters` stay a pure test of whether the user narrowed anything — which drives the 10-vs-100 result cap.
 - **Keyword search** covers code, title, description, and instructors, via one shared `courseMatchesKeyword`.
-- **Day-filter options** come from `filterCoursesExceptDays` — everything except the day filter. Filtering them by day too would self-loop: selecting a day hides the controls to change it.
-- **Adding a filter** is one predicate builder plus one `criteria` field.
+- **Chip-filter options** (days, credits) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
+- **Adding a filter** is one predicate builder plus one `criteria` field; a chip filter also declares a `ChipDimension` and renders a `ChipFilterRow`.
 - **Instructor filter:** applying it clears section selections that no longer match; clearing it keeps existing selections.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
 
