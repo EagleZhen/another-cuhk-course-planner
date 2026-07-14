@@ -36,7 +36,9 @@ import {
   getAggregateSeatInfo,
   extractAcademicYearCode,
 } from '@/lib/courseUtils'
+import { ACADEMIC_CAREERS } from '@/lib/types'
 import type {
+  AcademicCareer,
   InternalCourse,
   InternalSection,
   CourseEnrollment,
@@ -49,6 +51,7 @@ import {
   availableValues,
   dayDimension,
   creditsDimension,
+  careerDimension,
   type CourseFilterCriteria,
   type CourseFilterContext,
 } from '@/lib/courseFilters'
@@ -126,6 +129,11 @@ export default function CourseSearch({
   const [isFiltering, setIsFiltering] = useState(false)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
   const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
+  // Defaults to Undergraduate: most planner users are undergrads, so it's the resting state
+  // rather than a narrowing action (see hasActiveFilters). Users can deselect or add PG chips.
+  const [selectedCareers, setSelectedCareers] = useState<Set<AcademicCareer>>(
+    () => new Set(['Undergraduate'])
+  )
   const [displayResults, setDisplayResults] = useState<SearchResults>({
     courses: [],
     total: 0,
@@ -156,6 +164,19 @@ export default function CourseSearch({
         newSet.delete(credits)
       } else {
         newSet.add(credits)
+      }
+      return newSet
+    })
+  }
+
+  // Academic career filter toggle function
+  const toggleCareerFilter = (career: AcademicCareer) => {
+    setSelectedCareers((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(career)) {
+        newSet.delete(career)
+      } else {
+        newSet.add(career)
       }
       return newSet
     })
@@ -246,8 +267,9 @@ export default function CourseSearch({
       subjects: selectedSubjects,
       days: selectedDays,
       credits: selectedCredits,
+      careers: selectedCareers,
     }),
-    [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits]
+    [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits, selectedCareers]
   )
   const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
@@ -277,6 +299,20 @@ export default function CourseSearch({
         selectedCredits
       ).sort((a, b) => a - b),
     [allCourses, filterCriteria, filterContext, selectedCredits]
+  )
+
+  // Academic careers that still have matching courses (given the other filters), plus any
+  // already selected, ordered UG → PG-Taught → PG-Research (declaration order).
+  const availableCareers = useMemo(
+    () =>
+      availableValues(
+        careerDimension,
+        allCourses,
+        filterCriteria,
+        filterContext,
+        selectedCareers
+      ).sort((a, b) => ACADEMIC_CAREERS.indexOf(a) - ACADEMIC_CAREERS.indexOf(b)),
+    [allCourses, filterCriteria, filterContext, selectedCareers]
   )
 
   // Notify parent when available subjects are discovered
@@ -749,6 +785,23 @@ export default function CourseSearch({
             hasSelection={selectedCredits.size > 0}
             toggleTitle={(credits, selected) =>
               selected ? `Remove ${credits}-credit filter` : `Show only ${credits}-credit courses`
+            }
+          />
+
+          {/* Course-level Career Filters — defaults to Undergraduate; see selectedCareers */}
+          <ChipFilterRow<AcademicCareer>
+            label="Filter by Level:"
+            options={availableCareers}
+            getKey={(career) => career}
+            getLabel={(career) => career}
+            isSelected={(career) => selectedCareers.has(career)}
+            onToggle={(career) => toggleCareerFilter(career)}
+            onClear={() => setSelectedCareers(new Set())}
+            clearLabel="Clear Level"
+            emptyText="No courses available for level filtering"
+            hasSelection={selectedCareers.size > 0}
+            toggleTitle={(career, selected) =>
+              selected ? `Remove ${career} filter` : `Show only ${career} courses`
             }
           />
         </div>

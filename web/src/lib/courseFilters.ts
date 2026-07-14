@@ -2,7 +2,7 @@
 // no shuffle, no result limiting (those stay with the caller). Each dimension is a
 // predicate builder, so a new filter is one builder plus one criteria field.
 
-import type { InternalCourse, InternalSection } from './types'
+import type { AcademicCareer, InternalCourse, InternalSection } from './types'
 import { getDayIndex } from './courseUtils'
 
 /** The user's active selections. An empty/blank field means "no constraint". */
@@ -11,6 +11,7 @@ export interface CourseFilterCriteria {
   subjects: Set<string> // empty = all subjects
   days: Set<number> // 0=Mon..6=Sun; empty = all days
   credits: Set<number> // empty = all credit values
+  careers: Set<AcademicCareer> // empty = all academic careers
 }
 
 /** Ambient facts a predicate needs but the user didn't explicitly select. */
@@ -84,8 +85,13 @@ const buildDayPredicate: PredicateBuilder = (criteria, context) =>
 const buildCreditsPredicate: PredicateBuilder = (criteria) =>
   criteria.credits.size === 0 ? TRUE : (course) => criteria.credits.has(course.credits)
 
+const buildCareerPredicate: PredicateBuilder = (criteria) =>
+  criteria.careers.size === 0
+    ? TRUE
+    : (course) => course.career !== undefined && criteria.careers.has(course.career)
+
 /** One filterable dimension. Adding a filter = append an entry here. */
-export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits'
+export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits' | 'career'
 
 const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'term', build: buildTermPredicate },
@@ -93,6 +99,7 @@ const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'keyword', build: buildKeywordPredicate },
   { key: 'day', build: buildDayPredicate },
   { key: 'credits', build: buildCreditsPredicate },
+  { key: 'career', build: buildCareerPredicate },
 ]
 
 function composePredicates(
@@ -166,6 +173,12 @@ export const creditsDimension: ChipDimension<number> = {
   valuesOf: (course) => [course.credits],
 }
 
+/** A course's academic career; courses without one contribute no chip. */
+export const careerDimension: ChipDimension<AcademicCareer> = {
+  key: 'career',
+  valuesOf: (course) => (course.career ? [course.career] : []),
+}
+
 /** Day indices (0=Mon..6=Sun) a course meets on, in its current term. */
 export const dayDimension: ChipDimension<number> = {
   key: 'day',
@@ -181,7 +194,13 @@ export const dayDimension: ChipDimension<number> = {
   },
 }
 
-/** Has the user narrowed the catalog at all? Drives the default result limit. Excludes `term`, which is always active. */
+/**
+ * Has the user narrowed the catalog at all? Drives the default result limit (10 vs 100) and
+ * shuffle-vs-code-order landing. Deliberately excludes `term` (always active) and `careers`:
+ * career is a resting-state population selector (it defaults to Undergraduate), so choosing a
+ * career is "which catalog am I browsing", not "I'm hunting for something specific" — only the
+ * latter should switch off the shuffled 10-course landing.
+ */
 export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
   return (
     Boolean(criteria.searchTerm.trim()) ||
