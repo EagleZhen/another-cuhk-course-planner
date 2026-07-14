@@ -1132,7 +1132,7 @@ export default function CourseSearch({
                   {/* Active-filter summary — pills wrap with the count text, clear of the shuffle button. */}
                   {filterPills.length > 0 && (
                     <span className="inline-flex flex-wrap items-center gap-1.5">
-                      <span className="text-gray-500">Filtered by</span>
+                      <span className="text-gray-500">filtered by</span>
                       {filterPills.map((pill) => (
                         <span
                           key={pill.key}
