@@ -10,6 +10,7 @@ export interface CourseFilterCriteria {
   searchTerm: string // raw; trimmed/lowercased here
   subjects: Set<string> // empty = all subjects
   days: Set<number> // 0=Mon..6=Sun; empty = all days
+  credits: Set<number> // empty = all credit values
 }
 
 /** Ambient facts a predicate needs but the user didn't explicitly select. */
@@ -80,44 +81,112 @@ const buildDayPredicate: PredicateBuilder = (criteria, context) =>
           sectionMatchesDays(section, criteria.days)
         )
 
-// Every course-level dimension. Adding a filter = append one builder here.
-const ALL_BUILDERS: PredicateBuilder[] = [
-  buildTermPredicate,
-  buildSubjectPredicate,
-  buildKeywordPredicate,
-  buildDayPredicate,
+const buildCreditsPredicate: PredicateBuilder = (criteria) =>
+  criteria.credits.size === 0 ? TRUE : (course) => criteria.credits.has(course.credits)
+
+/** One filterable dimension. Adding a filter = append an entry here. */
+export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits'
+
+const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
+  { key: 'term', build: buildTermPredicate },
+  { key: 'subject', build: buildSubjectPredicate },
+  { key: 'keyword', build: buildKeywordPredicate },
+  { key: 'day', build: buildDayPredicate },
+  { key: 'credits', build: buildCreditsPredicate },
 ]
 
 function composePredicates(
-  builders: PredicateBuilder[],
   criteria: CourseFilterCriteria,
-  context: CourseFilterContext
+  context: CourseFilterContext,
+  exclude?: FilterKey
 ): CoursePredicate[] {
-  return builders.map((build) => build(criteria, context)).filter((p) => p !== TRUE)
+  return BUILDERS.filter((b) => b.key !== exclude)
+    .map((b) => b.build(criteria, context))
+    .filter((p) => p !== TRUE)
 }
 
-/** Filter courses by all active criteria. Order-preserving and deterministic. */
+/**
+ * Filter courses by all active criteria, optionally skipping one dimension.
+ * Skipping a dimension powers its "available values" controls (e.g. the day chips filter
+ * by everything except days, so selecting a day can't hide the chips to change it).
+ * Order-preserving and deterministic.
+ */
+export function filterCoursesExcept(
+  courses: InternalCourse[],
+  criteria: CourseFilterCriteria,
+  context: CourseFilterContext,
+  exclude?: FilterKey
+): InternalCourse[] {
+  const predicates = composePredicates(criteria, context, exclude)
+  return courses.filter((course) => predicates.every((p) => p(course)))
+}
+
+/** Filter courses by all active criteria. */
 export function filterCourses(
   courses: InternalCourse[],
   criteria: CourseFilterCriteria,
   context: CourseFilterContext
 ): InternalCourse[] {
-  const predicates = composePredicates(ALL_BUILDERS, criteria, context)
-  return courses.filter((course) => predicates.every((p) => p(course)))
+  return filterCoursesExcept(courses, criteria, context)
 }
 
-/** Filter by everything except days — used to compute which days still have matches, without the day filter feeding back on itself. */
-export function filterCoursesExceptDays(
+/**
+ * A chip filter, described by its engine key and how to read its value(s) off a course.
+ * The predicate itself already lives in the engine (keyed by `key`); this adds only the
+ * value extractor that `availableValues` needs.
+ */
+export interface ChipDimension<T> {
+  key: FilterKey
+  valuesOf: (course: InternalCourse, context: CourseFilterContext) => T[]
+}
+
+/**
+ * The values this dimension's chips should offer: those present in the data after every
+ * OTHER filter applies, plus any currently-selected values so a selected chip never
+ * vanishes (which would strand the user with results they can't unfilter).
+ */
+export function availableValues<T>(
+  dimension: ChipDimension<T>,
   courses: InternalCourse[],
   criteria: CourseFilterCriteria,
-  context: CourseFilterContext
-): InternalCourse[] {
-  const builders = ALL_BUILDERS.filter((b) => b !== buildDayPredicate)
-  const predicates = composePredicates(builders, criteria, context)
-  return courses.filter((course) => predicates.every((p) => p(course)))
+  context: CourseFilterContext,
+  selected: Iterable<T> = []
+): T[] {
+  const matched = filterCoursesExcept(courses, criteria, context, dimension.key)
+  const values = new Set<T>(selected)
+  for (const course of matched) {
+    for (const value of dimension.valuesOf(course, context)) values.add(value)
+  }
+  return [...values]
+}
+
+/** A course's credit value. */
+export const creditsDimension: ChipDimension<number> = {
+  key: 'credits',
+  valuesOf: (course) => [course.credits],
+}
+
+/** Day indices (0=Mon..6=Sun) a course meets on, in its current term. */
+export const dayDimension: ChipDimension<number> = {
+  key: 'day',
+  valuesOf: (course, context) => {
+    const indices: number[] = []
+    for (const section of termSectionsOf(course, context.term)) {
+      for (const meeting of section.meetings) {
+        const dayIndex = getDayIndex(meeting.time)
+        if (dayIndex !== -1) indices.push(dayIndex)
+      }
+    }
+    return indices
+  },
 }
 
 /** Has the user narrowed the catalog at all? Drives the default result limit. Excludes `term`, which is always active. */
 export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
-  return Boolean(criteria.searchTerm.trim()) || criteria.subjects.size > 0 || criteria.days.size > 0
+  return (
+    Boolean(criteria.searchTerm.trim()) ||
+    criteria.subjects.size > 0 ||
+    criteria.days.size > 0 ||
+    criteria.credits.size > 0
+  )
 }

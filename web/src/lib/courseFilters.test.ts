@@ -1,7 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import {
   filterCourses,
-  filterCoursesExceptDays,
+  filterCoursesExcept,
+  availableValues,
+  dayDimension,
+  creditsDimension,
   hasActiveFilters,
   courseMatchesKeyword,
   type CourseFilterCriteria,
@@ -48,6 +51,7 @@ const noFilters: CourseFilterCriteria = {
   searchTerm: '',
   subjects: new Set(),
   days: new Set(),
+  credits: new Set(),
 }
 const ctx = { term: TERM }
 
@@ -87,6 +91,13 @@ describe('filterCourses', () => {
     // Mon=0, Fr=4
     const result = filterCourses([monday, friday, tba], { ...noFilters, days: new Set([0]) }, ctx)
     expect(result).toEqual([monday])
+  })
+
+  it('filters by credits when credit values are selected', () => {
+    const three = makeCourse({ courseCode: '1000', credits: 3 })
+    const one = makeCourse({ courseCode: '2000', credits: 1 })
+    const result = filterCourses([three, one], { ...noFilters, credits: new Set([3]) }, ctx)
+    expect(result).toEqual([three])
   })
 
   it('composes multiple active dimensions (AND)', () => {
@@ -138,8 +149,8 @@ describe('courseMatchesKeyword', () => {
   })
 })
 
-describe('filterCoursesExceptDays', () => {
-  it('ignores the day filter but still applies subject/keyword', () => {
+describe('filterCoursesExcept', () => {
+  it('skips the excluded dimension but still applies the others', () => {
     const friday = makeCourse({
       subject: 'CSCI',
       terms: [
@@ -150,10 +161,64 @@ describe('filterCoursesExceptDays', () => {
         },
       ],
     })
-    // A Monday-only day filter would drop this course in filterCourses, but not here.
+    // A Monday-only day filter would drop this course in filterCourses, but not when days are excluded.
     const criteria = { ...noFilters, subjects: new Set(['CSCI']), days: new Set([0]) }
-    expect(filterCoursesExceptDays([friday], criteria, ctx)).toEqual([friday])
+    expect(filterCoursesExcept([friday], criteria, ctx, 'day')).toEqual([friday])
     expect(filterCourses([friday], criteria, ctx)).toEqual([])
+  })
+})
+
+describe('availableValues (dayDimension)', () => {
+  const dayCourse = (subject: string, time: string) =>
+    makeCourse({
+      subject,
+      terms: [
+        {
+          termCode: '2510',
+          termName: TERM,
+          sections: [makeSection({ meetings: [makeMeeting({ time })] })],
+        },
+      ],
+    })
+  const mon = dayCourse('CSCI', 'Mo 10:30AM - 12:15PM')
+  const fri = dayCourse('ENGG', 'Fr 2:30PM - 4:15PM')
+
+  it('collects the distinct days present', () => {
+    expect(availableValues(dayDimension, [mon, fri], noFilters, ctx).sort()).toEqual([0, 4])
+  })
+
+  it('reacts to the other active filters', () => {
+    const criteria = { ...noFilters, subjects: new Set(['CSCI']) }
+    expect(availableValues(dayDimension, [mon, fri], criteria, ctx)).toEqual([0])
+  })
+
+  it('keeps a selected value even when no course still has it', () => {
+    // Only a Monday course exists, but Friday (4) is selected — it must stay visible.
+    const selected = new Set([4])
+    expect(availableValues(dayDimension, [mon], noFilters, ctx, selected).sort()).toEqual([0, 4])
+  })
+})
+
+describe('availableValues (creditsDimension)', () => {
+  it('collects the distinct credit values present, reacting to other filters', () => {
+    const three = makeCourse({ subject: 'CSCI', courseCode: '1000', credits: 3 })
+    const one = makeCourse({ subject: 'CSCI', courseCode: '2000', credits: 1 })
+    const engg = makeCourse({ subject: 'ENGG', courseCode: '3000', credits: 6 })
+    expect(availableValues(creditsDimension, [three, one, engg], noFilters, ctx).sort()).toEqual([
+      1, 3, 6,
+    ])
+    const criteria = { ...noFilters, subjects: new Set(['CSCI']) }
+    expect(availableValues(creditsDimension, [three, one, engg], criteria, ctx).sort()).toEqual([
+      1, 3,
+    ])
+  })
+
+  it('keeps a selected credit value even when no course still has it', () => {
+    const three = makeCourse({ credits: 3 })
+    const selected = new Set([1])
+    expect(availableValues(creditsDimension, [three], noFilters, ctx, selected).sort()).toEqual([
+      1, 3,
+    ])
   })
 })
 

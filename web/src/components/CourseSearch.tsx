@@ -45,12 +45,14 @@ import type {
 } from '@/lib/types'
 import {
   filterCourses,
-  filterCoursesExceptDays,
   hasActiveFilters,
-  termSectionsOf,
+  availableValues,
+  dayDimension,
+  creditsDimension,
   type CourseFilterCriteria,
   type CourseFilterContext,
 } from '@/lib/courseFilters'
+import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
 import ReactMarkdown from 'react-markdown'
@@ -93,8 +95,15 @@ interface CourseSearchProps {
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
-// Shared "no day constraint" set, so the day-chip filter never depends on selectedDays.
-const NO_DAYS: Set<number> = new Set()
+/** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
+function shuffledCopy<T>(items: T[]): T[] {
+  const copy = [...items]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
 
 export default function CourseSearch({
   courseEnrollments,
@@ -116,6 +125,7 @@ export default function CourseSearch({
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
+  const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
   const [displayResults, setDisplayResults] = useState<SearchResults>({
     courses: [],
     total: 0,
@@ -133,6 +143,19 @@ export default function CourseSearch({
         newSet.delete(dayIndex)
       } else {
         newSet.add(dayIndex)
+      }
+      return newSet
+    })
+  }
+
+  // Credit filter toggle function
+  const toggleCreditFilter = (credits: number) => {
+    setSelectedCredits((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(credits)) {
+        newSet.delete(credits)
+      } else {
+        newSet.add(credits)
       }
       return newSet
     })
@@ -222,34 +245,39 @@ export default function CourseSearch({
       searchTerm: debouncedSearchTerm,
       subjects: selectedSubjects,
       days: selectedDays,
+      credits: selectedCredits,
     }),
-    [debouncedSearchTerm, selectedSubjects, selectedDays]
+    [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits]
   )
   const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
 
-  // Which days still have matching courses. Filtered with no day constraint so the chips
-  // reflect availability regardless of the day selection — and, deliberately, this does not
-  // depend on selectedDays.
+  // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
+  const shuffledCatalog = useMemo(() => shuffledCopy(allCourses), [allCourses])
+
+  // Days that still have matching courses (given the other filters), plus any already
+  // selected so a selected chip never disappears.
   const availableDays = useMemo(() => {
     if (allCourses.length === 0) return DAY_COMBINATIONS.full
 
-    const matched = filterCoursesExceptDays(
-      allCourses,
-      { searchTerm: debouncedSearchTerm, subjects: selectedSubjects, days: NO_DAYS },
-      filterContext
+    const present = new Set(
+      availableValues(dayDimension, allCourses, filterCriteria, filterContext, selectedDays)
     )
-    const daysWithCourses = new Set<number>()
-    matched.forEach((course) => {
-      termSectionsOf(course, filterContext.term).forEach((section) => {
-        section.meetings.forEach((meeting) => {
-          const dayIndex = getDayIndex(meeting.time)
-          if (dayIndex !== -1) daysWithCourses.add(dayIndex)
-        })
-      })
-    })
+    return DAY_COMBINATIONS.full.filter((dayKey) => present.has(DAYS[dayKey].index))
+  }, [allCourses, filterCriteria, filterContext, selectedDays])
 
-    return DAY_COMBINATIONS.full.filter((dayKey) => daysWithCourses.has(DAYS[dayKey].index))
-  }, [allCourses, debouncedSearchTerm, selectedSubjects, filterContext])
+  // Credit values that still have matching courses (given the other filters), plus any
+  // already selected, sorted ascending.
+  const availableCredits = useMemo(
+    () =>
+      availableValues(
+        creditsDimension,
+        allCourses,
+        filterCriteria,
+        filterContext,
+        selectedCredits
+      ).sort((a, b) => a - b),
+    [allCourses, filterCriteria, filterContext, selectedCredits]
+  )
 
   // Notify parent when available subjects are discovered
   useEffect(() => {
@@ -544,15 +572,8 @@ export default function CourseSearch({
         setTimeout(() => {
           const matched = filterCourses(courses, criteria, context)
 
-          // Shuffle a copy (Fisher-Yates) on the one-off shuffle trigger.
-          let ordered = matched
-          if (shuffle > 0) {
-            ordered = [...matched]
-            for (let i = ordered.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1))
-              ;[ordered[i], ordered[j]] = [ordered[j], ordered[i]]
-            }
-          }
+          // Reshuffle on the one-off shuffle trigger.
+          const ordered = shuffle > 0 ? shuffledCopy(matched) : matched
 
           // Show more once the user has narrowed the catalog; otherwise keep it short.
           const limit = hasActiveFilters(criteria) ? 100 : 10
@@ -575,14 +596,17 @@ export default function CourseSearch({
     // Immediately show filtering state
     setIsFiltering(true)
 
+    // The default view opens on the shuffled catalog; any active filter uses code order.
+    const source = hasActiveFilters(filterCriteria) ? allCourses : shuffledCatalog
+
     // Perform filtering in background
-    performFiltering(allCourses, filterCriteria, filterContext, shuffleTrigger).then(
+    performFiltering(source, filterCriteria, filterContext, shuffleTrigger).then(
       (results: SearchResults) => {
         setDisplayResults(results)
         setIsFiltering(false)
       }
     )
-  }, [allCourses, filterCriteria, filterContext, shuffleTrigger, performFiltering])
+  }, [allCourses, shuffledCatalog, filterCriteria, filterContext, shuffleTrigger, performFiltering])
 
   // Track search analytics - only when search is used
   useEffect(() => {
@@ -692,55 +716,41 @@ export default function CourseSearch({
             )}
           </div>
 
-          {/* Course-level Day Filters */}
-          <div className="flex items-center gap-2 flex-wrap mt-2">
-            <span className="text-sm font-medium text-gray-700">Filter by Days:</span>
+          {/* Course-level Day Filters — only show days with courses in current results */}
+          <ChipFilterRow<WeekDay>
+            label="Filter by Days:"
+            options={availableDays}
+            getKey={(dayKey) => dayKey}
+            getLabel={(dayKey) => dayKey}
+            isSelected={(dayKey) => selectedDays.has(DAYS[dayKey].index)}
+            onToggle={(dayKey) => toggleDayFilter(DAYS[dayKey].index)}
+            onClear={() => setSelectedDays(new Set())}
+            clearLabel="Clear Days"
+            emptyText="No courses available for day filtering"
+            hasSelection={selectedDays.size > 0}
+            toggleTitle={(dayKey, selected) =>
+              selected
+                ? `Remove ${DAYS[dayKey].displayName} filter`
+                : `Show only courses with classes on ${DAYS[dayKey].displayName}`
+            }
+          />
 
-            {/* Day filter buttons - only show days with courses in current results */}
-            {availableDays.length > 0 ? (
-              availableDays.map((dayKey: WeekDay) => {
-                const dayInfo = DAYS[dayKey]
-                const isSelected = selectedDays.has(dayInfo.index)
-                const shortName = dayKey // Already short (Mon, Tue, Wed, etc.)
-
-                return (
-                  <Button
-                    key={dayKey}
-                    variant={isSelected ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => toggleDayFilter(dayInfo.index)}
-                    className="h-6 px-2 text-xs font-normal border-1"
-                    title={
-                      isSelected
-                        ? `Remove ${dayInfo.displayName} filter`
-                        : `Show only courses with classes on ${dayInfo.displayName}`
-                    }
-                  >
-                    {shortName}
-                  </Button>
-                )
-              })
-            ) : (
-              <span className="text-xs text-gray-400 italic">
-                No courses available for day filtering
-              </span>
-            )}
-
-            {/* Clear day filters button */}
-            {selectedDays.size > 0 && (
-              <Button
-                variant="destructive"
-                size="sm"
-                onClick={() => {
-                  setSelectedDays(new Set())
-                }}
-                className="h-6 px-2 text-xs font-medium"
-                title="Clear all day filters"
-              >
-                Clear Days
-              </Button>
-            )}
-          </div>
+          {/* Course-level Credit Filters — only show credit values present in current results */}
+          <ChipFilterRow<number>
+            label="Filter by Credits:"
+            options={availableCredits}
+            getKey={(credits) => credits}
+            getLabel={(credits) => String(credits)}
+            isSelected={(credits) => selectedCredits.has(credits)}
+            onToggle={(credits) => toggleCreditFilter(credits)}
+            onClear={() => setSelectedCredits(new Set())}
+            clearLabel="Clear Credits"
+            emptyText="No courses available for credit filtering"
+            hasSelection={selectedCredits.size > 0}
+            toggleTitle={(credits, selected) =>
+              selected ? `Remove ${credits}-credit filter` : `Show only ${credits}-credit courses`
+            }
+          />
         </div>
       </div>
 
