@@ -5,11 +5,12 @@ import {
   availableValues,
   dayDimension,
   creditsDimension,
+  careerDimension,
   hasActiveFilters,
   courseMatchesKeyword,
   type CourseFilterCriteria,
 } from './courseFilters'
-import type { InternalCourse, InternalSection, InternalMeeting } from './types'
+import type { AcademicCareer, InternalCourse, InternalSection, InternalMeeting } from './types'
 
 const TERM = 'Term 1'
 
@@ -52,6 +53,7 @@ const noFilters: CourseFilterCriteria = {
   subjects: new Set(),
   days: new Set(),
   credits: new Set(),
+  careers: new Set(),
 }
 const ctx = { term: TERM }
 
@@ -98,6 +100,18 @@ describe('filterCourses', () => {
     const one = makeCourse({ courseCode: '2000', credits: 1 })
     const result = filterCourses([three, one], { ...noFilters, credits: new Set([3]) }, ctx)
     expect(result).toEqual([three])
+  })
+
+  it('filters by academic career when careers are selected', () => {
+    const ug = makeCourse({ courseCode: '1000', career: 'Undergraduate' })
+    const pg = makeCourse({ courseCode: '5000', career: 'Postgraduate - Taught' })
+    const unknown = makeCourse({ courseCode: '9000', career: undefined })
+    const result = filterCourses(
+      [ug, pg, unknown],
+      { ...noFilters, careers: new Set(['Undergraduate']) },
+      ctx
+    )
+    expect(result).toEqual([ug])
   })
 
   it('composes multiple active dimensions (AND)', () => {
@@ -222,6 +236,29 @@ describe('availableValues (creditsDimension)', () => {
   })
 })
 
+describe('availableValues (careerDimension)', () => {
+  it('collects the distinct careers present, skipping courses without one', () => {
+    const ug = makeCourse({ subject: 'CSCI', courseCode: '1000', career: 'Undergraduate' })
+    const pg = makeCourse({ subject: 'CSCI', courseCode: '5000', career: 'Postgraduate - Taught' })
+    const unknown = makeCourse({ subject: 'ENGG', courseCode: '9000', career: undefined })
+    expect(availableValues(careerDimension, [ug, pg, unknown], noFilters, ctx).sort()).toEqual([
+      'Postgraduate - Taught',
+      'Undergraduate',
+    ])
+    const criteria = { ...noFilters, subjects: new Set(['ENGG']) }
+    expect(availableValues(careerDimension, [ug, pg, unknown], criteria, ctx)).toEqual([])
+  })
+
+  it('keeps a selected career even when no course still has it', () => {
+    const ug = makeCourse({ career: 'Undergraduate' })
+    const selected = new Set<AcademicCareer>(['Postgraduate - Research'])
+    expect(availableValues(careerDimension, [ug], noFilters, ctx, selected).sort()).toEqual([
+      'Postgraduate - Research',
+      'Undergraduate',
+    ])
+  })
+})
+
 describe('hasActiveFilters', () => {
   it('is false with no search, subjects, or days', () => {
     expect(hasActiveFilters(noFilters)).toBe(false)
@@ -231,11 +268,19 @@ describe('hasActiveFilters', () => {
     ['search', { ...noFilters, searchTerm: '  algo ' }],
     ['subjects', { ...noFilters, subjects: new Set(['CSCI']) }],
     ['days', { ...noFilters, days: new Set([0]) }],
+    ['credits', { ...noFilters, credits: new Set([3]) }],
   ])('is true when %s is set', (_label, criteria) => {
     expect(hasActiveFilters(criteria)).toBe(true)
   })
 
   it('ignores blank whitespace search', () => {
     expect(hasActiveFilters({ ...noFilters, searchTerm: '   ' })).toBe(false)
+  })
+
+  // Career is a resting-state population selector, not a narrowing action, so it must not
+  // switch off the shuffled 10-course landing on its own.
+  it('is false when only careers are selected', () => {
+    const criteria = { ...noFilters, careers: new Set<AcademicCareer>(['Undergraduate']) }
+    expect(hasActiveFilters(criteria)).toBe(false)
   })
 })

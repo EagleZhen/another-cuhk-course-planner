@@ -1,10 +1,13 @@
 import { Button } from '@/components/ui/button'
+import { analytics } from '@/lib/analytics'
 
 interface ChipFilterRowProps<T> {
   label: string
   options: T[]
   getKey: (value: T) => string | number
   getLabel: (value: T) => string
+  /** Shorter chip label shown on mobile (< sm); falls back to `getLabel` on wider screens. */
+  getShortLabel?: (value: T) => string
   isSelected: (value: T) => boolean
   onToggle: (value: T) => void
   onClear: () => void
@@ -15,6 +18,10 @@ interface ChipFilterRowProps<T> {
   hasSelection: boolean
   /** Tooltip per chip; `selected` is its current state. */
   toggleTitle?: (value: T, selected: boolean) => string
+  /** When set, adding a chip emits `chip_filter_toggled` under this filter name (value = chip label). */
+  analyticsKey?: string
+  /** Also emit `remove` on deselect (per chip, and per cleared value on Clear). Off by default. */
+  trackRemovals?: boolean
 }
 
 /** A labelled row of multi-select filter chips with a Clear button — used for the day and credit filters. */
@@ -23,6 +30,7 @@ export function ChipFilterRow<T>({
   options,
   getKey,
   getLabel,
+  getShortLabel,
   isSelected,
   onToggle,
   onClear,
@@ -30,6 +38,8 @@ export function ChipFilterRow<T>({
   emptyText,
   hasSelection,
   toggleTitle,
+  analyticsKey,
+  trackRemovals = false,
 }: ChipFilterRowProps<T>) {
   return (
     <div className="flex items-center gap-2 flex-wrap mt-2">
@@ -43,11 +53,27 @@ export function ChipFilterRow<T>({
               key={getKey(value)}
               variant={selected ? 'default' : 'outline'}
               size="sm"
-              onClick={() => onToggle(value)}
+              onClick={() => {
+                if (analyticsKey && (!selected || trackRemovals)) {
+                  analytics.chipFilterToggled(
+                    analyticsKey,
+                    getLabel(value),
+                    selected ? 'remove' : 'add'
+                  )
+                }
+                onToggle(value)
+              }}
               className="h-6 px-2 text-xs font-normal border-1"
               title={toggleTitle?.(value, selected)}
             >
-              {getLabel(value)}
+              {getShortLabel ? (
+                <>
+                  <span className="sm:hidden">{getShortLabel(value)}</span>
+                  <span className="hidden sm:inline">{getLabel(value)}</span>
+                </>
+              ) : (
+                getLabel(value)
+              )}
             </Button>
           )
         })
@@ -59,7 +85,16 @@ export function ChipFilterRow<T>({
         <Button
           variant="destructive"
           size="sm"
-          onClick={onClear}
+          onClick={() => {
+            if (analyticsKey && trackRemovals) {
+              for (const value of options) {
+                if (isSelected(value)) {
+                  analytics.chipFilterToggled(analyticsKey, getLabel(value), 'remove')
+                }
+              }
+            }
+            onClear()
+          }}
           className="h-6 px-2 text-xs font-medium"
           title={clearLabel}
         >
