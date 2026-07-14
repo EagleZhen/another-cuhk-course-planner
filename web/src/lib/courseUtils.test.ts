@@ -10,6 +10,7 @@ import {
   matchChangedMeeting,
   sectionsOverlapInTime,
   checkSectionConflict,
+  hasConflictFreeEnrollment,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -201,6 +202,74 @@ describe('checkSectionConflict', () => {
       hasConflict: true,
       conflictingSections: ['COMM1180 LEC'],
     })
+  })
+})
+
+describe('hasConflictFreeEnrollment', () => {
+  const courseWithSections = (sections: InternalSection[]): InternalCourse => ({
+    subject: 'TEST',
+    courseCode: '1000',
+    title: 'Test Course',
+    credits: 3,
+    terms: [{ termCode: '2510', termName: 'Term 1', sections }],
+  })
+
+  const timedSection = (
+    id: string,
+    sectionType: InternalSection['sectionType'],
+    sectionCode: string,
+    time: string
+  ): InternalSection =>
+    makeSection({
+      id,
+      sectionType,
+      sectionCode,
+      meetings: [mkMeeting({ time })],
+    })
+
+  it('rejects a required section that overlaps the baseline', () => {
+    const course = courseWithSections([timedSection('lec', 'LEC', 'A-LEC', 'Mo 9:00AM - 10:00AM')])
+    const baseline = [timedSection('busy', 'LEC', '--LEC', 'Mo 9:30AM - 10:30AM')]
+
+    expect(hasConflictFreeEnrollment(course, baseline, 'Term 1')).toBe(false)
+  })
+
+  it('backtracks until it finds a jointly compatible, non-overlapping combination', () => {
+    const course = courseWithSections([
+      timedSection('lec-a', 'LEC', 'A-LEC', 'Mo 9:00AM - 10:00AM'),
+      timedSection('lec-b', 'LEC', 'B-LEC', 'Tu 9:00AM - 10:00AM'),
+      timedSection('tut-a', 'TUT', 'AT01-TUT', 'Mo 9:30AM - 10:30AM'),
+      timedSection('tut-b', 'TUT', 'BT01-TUT', 'We 9:00AM - 10:00AM'),
+    ])
+
+    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(true)
+  })
+
+  it('rejects courses whose individually free sections cannot form one valid combination', () => {
+    const course = courseWithSections([
+      timedSection('lec-a', 'LEC', 'A-LEC', 'Mo 9:00AM - 10:00AM'),
+      timedSection('lec-b', 'LEC', 'B-LEC', 'Tu 9:00AM - 10:00AM'),
+      timedSection('tut-a', 'TUT', 'AT01-TUT', 'Mo 9:30AM - 10:30AM'),
+      timedSection('tut-b', 'TUT', 'BT01-TUT', 'Tu 9:30AM - 10:30AM'),
+    ])
+
+    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(false)
+  })
+
+  it('skips a lower-priority type when no section is cohort-compatible', () => {
+    const course = courseWithSections([
+      timedSection('lec-a', 'LEC', 'A-LEC', 'Mo 9:00AM - 10:00AM'),
+      timedSection('tut-b', 'TUT', 'BT01-TUT', 'Tu 9:00AM - 10:00AM'),
+    ])
+
+    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(true)
+  })
+
+  it('treats unscheduled meetings as conflict-free', () => {
+    const course = courseWithSections([timedSection('lec', 'LEC', 'A-LEC', 'TBA')])
+    const baseline = [timedSection('busy', 'LEC', '--LEC', 'Mo 9:00AM - 10:00AM')]
+
+    expect(hasConflictFreeEnrollment(course, baseline, 'Term 1')).toBe(true)
   })
 })
 

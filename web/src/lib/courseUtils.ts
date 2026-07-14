@@ -968,6 +968,42 @@ export function areSectionsCompatible(
 }
 
 /**
+ * Check whether a course has at least one addable enrollment for a term.
+ * Lower-priority section types are skipped only when higher-priority picks leave
+ * them with no cohort-compatible section.
+ */
+export function hasConflictFreeEnrollment(
+  course: InternalCourse,
+  baselineSections: InternalSection[],
+  termName: string
+): boolean {
+  const sectionTypes = parseSectionTypes(course, termName)
+  if (sectionTypes.length === 0) return false
+
+  const search = (typeIndex: number, selectedSections: InternalSection[]): boolean => {
+    if (typeIndex === sectionTypes.length) return true
+
+    const compatibleSections = sectionTypes[typeIndex].sections.filter((candidate) =>
+      selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
+    )
+
+    if (compatibleSections.length === 0) {
+      return search(typeIndex + 1, selectedSections)
+    }
+
+    return compatibleSections.some((candidate) => {
+      const isTimeFree =
+        baselineSections.every((baseline) => !sectionsOverlapInTime(candidate, baseline)) &&
+        selectedSections.every((selected) => !sectionsOverlapInTime(candidate, selected))
+
+      return isTimeFree && search(typeIndex + 1, [...selectedSections, candidate])
+    })
+  }
+
+  return search(0, [])
+}
+
+/**
  * Get compatible and incompatible sections for UI state management
  * Used for enabling/disabling section options based on prior selections
  */
