@@ -302,12 +302,6 @@ export default function CourseSearch({
       noConflictOnly,
     ]
   )
-  const activeHiddenFilterGroups =
-    Number(selectedSubjects.size > 0) +
-    Number(selectedDays.size > 0) +
-    Number(selectedCredits.size > 0) +
-    Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate')) +
-    Number(noConflictOnly)
   // Enrollments only affect results when the no-conflict filter is on. Gating them out otherwise keeps
   // the context stable across cart edits, so adding a course doesn't re-run filtering or flash the spinner.
   const conflictBaseline = noConflictOnly ? courseEnrollments : EMPTY_ENROLLMENTS
@@ -911,11 +905,6 @@ export default function CourseSearch({
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
               />
-              {!isMobileFilterPanelExpanded && activeHiddenFilterGroups > 0 && (
-                <span className="absolute left-1/2 top-0 ml-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
-                  {activeHiddenFilterGroups}
-                </span>
-              )}
             </Button>
           </div>
         </div>
