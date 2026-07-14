@@ -35,6 +35,7 @@ import {
   getDayIndex,
   getAggregateSeatInfo,
   extractAcademicYearCode,
+  isActiveEnrollment,
 } from '@/lib/courseUtils'
 import { ACADEMIC_CAREERS } from '@/lib/types'
 import type {
@@ -85,7 +86,8 @@ interface CourseSearchProps {
   onAddCourse: (
     course: InternalCourse,
     termName: string,
-    localSelections: Map<string, string>
+    localSelections: Map<string, string>,
+    noConflictActive: boolean
   ) => void
   onRemoveCourse: (courseKey: string) => void
   onTermChange?: (term: string) => void
@@ -197,11 +199,9 @@ export default function CourseSearch({
   }
 
   const toggleNoConflictFilter = () => {
-    analytics.chipFilterToggled(
-      'no_conflict',
-      'Hide time conflicts',
-      noConflictOnly ? 'remove' : 'add'
-    )
+    // Count the active cart — the baseline the filter acts on (see buildNoConflictPredicate).
+    const enrolledCount = courseEnrollments.filter(isActiveEnrollment).length
+    analytics.noConflictFilterToggled(noConflictOnly ? 'remove' : 'add', enrolledCount)
     setNoConflictOnly((enabled) => !enabled)
   }
 
@@ -1251,7 +1251,7 @@ export default function CourseSearch({
                       onSelectedSectionsChange(newMap)
                     }}
                     onAddCourse={(course, localSelections) =>
-                      onAddCourse(course, currentTerm, localSelections)
+                      onAddCourse(course, currentTerm, localSelections, noConflictOnly)
                     }
                     onRemoveCourse={onRemoveCourse}
                     isAdded={isCourseAdded(course)}

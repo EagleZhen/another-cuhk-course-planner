@@ -385,7 +385,8 @@ export default function Home() {
   const handleAddCourse = (
     course: InternalCourse,
     termName: string,
-    localSelections: Map<string, string>
+    localSelections: Map<string, string>,
+    noConflictActive: boolean
   ) => {
     const courseKey = `${course.subject}${course.courseCode}`
 
@@ -447,7 +448,12 @@ export default function Home() {
     }
 
     // Track course enrollment for product analytics
-    analytics.courseAdded(`${course.subject}${course.courseCode}`, course.subject, termName)
+    analytics.courseAdded(
+      `${course.subject}${course.courseCode}`,
+      course.subject,
+      termName,
+      noConflictActive
+    )
 
     // Clear global section selections for this course after adding/updating
     const newSectionsMap = new Map(selectedSections)

@@ -30,8 +30,9 @@ export const analytics = {
 
   // Track enrollment → measures conversion from discovery to action (KEEP term for planning analysis)
   // Key decisions: Focus on discovery vs planning features? Which terms get enrollment activity?
-  courseAdded: (course: string, subject: string, termName: string) => {
-    track('course_added', { course, subject, term: termName })
+  // `no_conflict_active`: was the no-conflict filter shaping the list at add time — the outcome signal.
+  courseAdded: (course: string, subject: string, termName: string, noConflictActive: boolean) => {
+    track('course_added', { course, subject, term: termName, no_conflict_active: noConflictActive })
   },
 
   // Track search effectiveness → informs discovery method priority (search vs browse)
@@ -66,6 +67,12 @@ export const analytics = {
   // Key questions: Which levels/credits/days matter? Are the defaults (e.g. UG level) right?
   chipFilterToggled: (filter: string, value: string, action: 'add' | 'remove') => {
     track('chip_filter_toggled', { filter, value, action })
+  },
+
+  // Track the no-conflict filter → is it used when it can help, or toggled on an empty-cart no-op?
+  // `enrolled_count`: the active cart it filters against (0 = no-op).
+  noConflictFilterToggled: (action: 'add' | 'remove', enrolledCount: number) => {
+    track('no_conflict_filter_toggled', { action, enrolled_count: enrolledCount })
   },
 
   // === COURSE MANAGEMENT BEHAVIOR ===

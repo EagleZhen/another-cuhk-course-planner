@@ -163,49 +163,52 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
   })
 }
 
+/** Visible and still valid — the enrollments that count toward the timetable (calendar, conflicts). */
+export function isActiveEnrollment(enrollment: CourseEnrollment): boolean {
+  return enrollment.isVisible && !enrollment.isInvalid
+}
+
 /**
  * Convert course enrollments to calendar events with day/time info
  */
 export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
   const events: CalendarEvent[] = []
 
-  enrollments
-    .filter((enrollment) => enrollment.isVisible && !enrollment.isInvalid)
-    .forEach((enrollment) => {
-      enrollment.selectedSections.forEach((section) => {
-        section.meetings.forEach((meeting) => {
-          const timeRange = parseTimeRange(meeting.time)
-          const dayIndex = getDayIndex(meeting.time)
+  enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+    enrollment.selectedSections.forEach((section) => {
+      section.meetings.forEach((meeting) => {
+        const timeRange = parseTimeRange(meeting.time)
+        const dayIndex = getDayIndex(meeting.time)
 
-          // Skip meetings without scheduled times (TBA, etc.)
-          if (!timeRange || dayIndex === -1) {
-            return
-          }
+        // Skip meetings without scheduled times (TBA, etc.)
+        if (!timeRange || dayIndex === -1) {
+          return
+        }
 
-          events.push({
-            id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
-            subject: enrollment.course.subject,
-            courseCode: enrollment.course.courseCode,
-            title: enrollment.course.title,
-            sectionCode: section.sectionCode,
-            sectionType: section.sectionType,
-            time: meeting.time,
-            location: meeting.location,
-            instructors: meeting.instructors,
-            credits: enrollment.course.credits,
-            color: enrollment.color,
-            isVisible: enrollment.isVisible,
-            hasConflict: false, // Will be computed later
-            enrollmentId: enrollment.courseId,
-            day: dayIndex,
-            startHour: timeRange?.startHour || 9,
-            endHour: timeRange?.endHour || 10,
-            startMinute: timeRange?.startMinute || 0,
-            endMinute: timeRange?.endMinute || 0,
-          })
+        events.push({
+          id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
+          subject: enrollment.course.subject,
+          courseCode: enrollment.course.courseCode,
+          title: enrollment.course.title,
+          sectionCode: section.sectionCode,
+          sectionType: section.sectionType,
+          time: meeting.time,
+          location: meeting.location,
+          instructors: meeting.instructors,
+          credits: enrollment.course.credits,
+          color: enrollment.color,
+          isVisible: enrollment.isVisible,
+          hasConflict: false, // Will be computed later
+          enrollmentId: enrollment.courseId,
+          day: dayIndex,
+          startHour: timeRange?.startHour || 9,
+          endHour: timeRange?.endHour || 10,
+          startMinute: timeRange?.startMinute || 0,
+          endMinute: timeRange?.endMinute || 0,
         })
       })
     })
+  })
 
   return events
 }
@@ -224,25 +227,23 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
     meeting: InternalMeeting
   }> = []
 
-  enrollments
-    .filter((enrollment) => enrollment.isVisible && !enrollment.isInvalid)
-    .forEach((enrollment) => {
-      enrollment.selectedSections.forEach((section) => {
-        section.meetings.forEach((meeting) => {
-          const timeRange = parseTimeRange(meeting.time)
-          const dayIndex = getDayIndex(meeting.time)
+  enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+    enrollment.selectedSections.forEach((section) => {
+      section.meetings.forEach((meeting) => {
+        const timeRange = parseTimeRange(meeting.time)
+        const dayIndex = getDayIndex(meeting.time)
 
-          // Include meetings without scheduled times (TBA, etc.)
-          if (!timeRange || dayIndex === -1) {
-            unscheduledSections.push({
-              enrollment,
-              section,
-              meeting,
-            })
-          }
-        })
+        // Include meetings without scheduled times (TBA, etc.)
+        if (!timeRange || dayIndex === -1) {
+          unscheduledSections.push({
+            enrollment,
+            section,
+            meeting,
+          })
+        }
       })
     })
+  })
 
   return unscheduledSections
 }
@@ -1410,7 +1411,7 @@ export function checkSectionConflict(
 
   // Check against all visible enrolled sections
   for (const enrollment of currentEnrollments) {
-    if (!enrollment.isVisible || enrollment.isInvalid) continue
+    if (!isActiveEnrollment(enrollment)) continue
 
     for (const enrolledSection of enrollment.selectedSections) {
       // Skip itself from checking
@@ -1682,16 +1683,14 @@ export function generateICSCalendar(
 
     // Process each enrollment - only include visible and valid courses
     // Invisible courses (toggled off) should not be exported to calendar
-    enrollments
-      .filter((enrollment) => enrollment.isVisible && !enrollment.isInvalid)
-      .forEach((enrollment) => {
-        enrollment.selectedSections.forEach((section) => {
-          section.meetings.forEach((meeting) => {
-            const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)
-            allEvents.push(...events)
-          })
+    enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+      enrollment.selectedSections.forEach((section) => {
+        section.meetings.forEach((meeting) => {
+          const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)
+          allEvents.push(...events)
         })
       })
+    })
 
     if (allEvents.length === 0) {
       return {
