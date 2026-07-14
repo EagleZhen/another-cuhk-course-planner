@@ -348,6 +348,7 @@ describe('hasActiveFilters', () => {
     ['subjects', { ...noFilters, subjects: new Set(['CSCI']) }],
     ['days', { ...noFilters, days: new Set([0]) }],
     ['credits', { ...noFilters, credits: new Set([3]) }],
+    ['no-conflict', { ...noFilters, noConflictOnly: true }],
   ])('is true when %s is set', (_label, criteria) => {
     expect(hasActiveFilters(criteria)).toBe(true)
   })

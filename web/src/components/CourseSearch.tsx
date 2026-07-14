@@ -138,6 +138,7 @@ export default function CourseSearch({
   const [isMobileFilterPanelExpanded, setIsMobileFilterPanelExpanded] = useState(true)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
   const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
+  const [noConflictOnly, setNoConflictOnly] = useState(false)
   // Defaults to Undergraduate: most planner users are undergrads, so it's the resting state
   // rather than a narrowing action (see hasActiveFilters). Users can deselect or add PG chips.
   const [selectedCareers, setSelectedCareers] = useState<Set<AcademicCareer>>(
@@ -189,6 +190,15 @@ export default function CourseSearch({
       }
       return newSet
     })
+  }
+
+  const toggleNoConflictFilter = () => {
+    analytics.chipFilterToggled(
+      'no_conflict',
+      'Hide time conflicts',
+      noConflictOnly ? 'remove' : 'add'
+    )
+    setNoConflictOnly((enabled) => !enabled)
   }
 
   // Smooth debouncing for search performance
@@ -277,15 +287,23 @@ export default function CourseSearch({
       days: selectedDays,
       credits: selectedCredits,
       careers: selectedCareers,
-      noConflictOnly: false,
+      noConflictOnly,
     }),
-    [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits, selectedCareers]
+    [
+      debouncedSearchTerm,
+      selectedSubjects,
+      selectedDays,
+      selectedCredits,
+      selectedCareers,
+      noConflictOnly,
+    ]
   )
   const activeHiddenFilterGroups =
     Number(selectedSubjects.size > 0) +
     Number(selectedDays.size > 0) +
     Number(selectedCredits.size > 0) +
-    Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate'))
+    Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate')) +
+    Number(noConflictOnly)
   const filterContext = useMemo<CourseFilterContext>(
     () => ({ term: currentTerm, enrollments: courseEnrollments }),
     [currentTerm, courseEnrollments]
@@ -834,6 +852,24 @@ export default function CourseSearch({
                 selected ? `Remove ${career} filter` : `Show only ${career} courses`
               }
             />
+
+            <div className="flex items-center flex-wrap mt-2">
+              <Button
+                type="button"
+                variant={noConflictOnly ? 'default' : 'outline'}
+                size="sm"
+                aria-pressed={noConflictOnly}
+                onClick={toggleNoConflictFilter}
+                className="h-6 px-2 text-xs font-normal border-1"
+                title={
+                  noConflictOnly
+                    ? 'Show courses with time conflicts'
+                    : 'Hide courses that conflict with your timetable'
+                }
+              >
+                Hide time conflicts
+              </Button>
+            </div>
           </div>
           <div className="sm:hidden">
             <Button

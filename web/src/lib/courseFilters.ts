@@ -238,6 +238,7 @@ export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
     Boolean(criteria.searchTerm.trim()) ||
     criteria.subjects.size > 0 ||
     criteria.days.size > 0 ||
-    criteria.credits.size > 0
+    criteria.credits.size > 0 ||
+    criteria.noConflictOnly
   )
 }
