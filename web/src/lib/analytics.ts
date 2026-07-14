@@ -68,6 +68,13 @@ export const analytics = {
     track('chip_filter_toggled', { filter, value, action })
   },
 
+  // Track the no-conflict filter → does it get used when it can actually help?
+  // Key question: is it enabled mid-planning (courses already in the cart) or on an empty timetable,
+  // where it's a no-op? `enrolled_count` is the visible, valid cart it actually filters against.
+  noConflictFilterToggled: (action: 'add' | 'remove', enrolledCount: number) => {
+    track('no_conflict_filter_toggled', { action, enrolled_count: enrolledCount })
+  },
+
   // === COURSE MANAGEMENT BEHAVIOR ===
 
   // Track course visibility toggles → reveals organization patterns

@@ -197,11 +197,9 @@ export default function CourseSearch({
   }
 
   const toggleNoConflictFilter = () => {
-    analytics.chipFilterToggled(
-      'no_conflict',
-      'Hide time conflicts',
-      noConflictOnly ? 'remove' : 'add'
-    )
+    // Count the visible, valid cart — the baseline the filter actually acts on (see buildNoConflictPredicate).
+    const enrolledCount = courseEnrollments.filter((e) => e.isVisible && !e.isInvalid).length
+    analytics.noConflictFilterToggled(noConflictOnly ? 'remove' : 'add', enrolledCount)
     setNoConflictOnly((enabled) => !enabled)
   }
 
