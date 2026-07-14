@@ -16,8 +16,10 @@ interface ChipFilterRowProps<T> {
   hasSelection: boolean
   /** Tooltip per chip; `selected` is its current state. */
   toggleTitle?: (value: T, selected: boolean) => string
-  /** When set, each toggle emits `chip_filter_toggled` under this filter name (value = chip label). */
+  /** When set, adding a chip emits `chip_filter_toggled` under this filter name (value = chip label). */
   analyticsKey?: string
+  /** Also emit `remove` on deselect (per chip, and per cleared value on Clear). Off by default. */
+  trackRemovals?: boolean
 }
 
 /** A labelled row of multi-select filter chips with a Clear button — used for the day and credit filters. */
@@ -34,6 +36,7 @@ export function ChipFilterRow<T>({
   hasSelection,
   toggleTitle,
   analyticsKey,
+  trackRemovals = false,
 }: ChipFilterRowProps<T>) {
   return (
     <div className="flex items-center gap-2 flex-wrap mt-2">
@@ -48,7 +51,7 @@ export function ChipFilterRow<T>({
               variant={selected ? 'default' : 'outline'}
               size="sm"
               onClick={() => {
-                if (analyticsKey) {
+                if (analyticsKey && (!selected || trackRemovals)) {
                   analytics.chipFilterToggled(
                     analyticsKey,
                     getLabel(value),
@@ -72,7 +75,16 @@ export function ChipFilterRow<T>({
         <Button
           variant="destructive"
           size="sm"
-          onClick={onClear}
+          onClick={() => {
+            if (analyticsKey && trackRemovals) {
+              for (const value of options) {
+                if (isSelected(value)) {
+                  analytics.chipFilterToggled(analyticsKey, getLabel(value), 'remove')
+                }
+              }
+            }
+            onClear()
+          }}
           className="h-6 px-2 text-xs font-medium"
           title={clearLabel}
         >

@@ -794,6 +794,7 @@ export default function CourseSearch({
           <ChipFilterRow<AcademicCareer>
             label="Filter by Level:"
             analyticsKey="level"
+            trackRemovals
             options={availableCareers}
             getKey={(career) => career}
             getLabel={(career) => career}
