@@ -742,10 +742,9 @@ export default function CourseSearch({
       .join(', ')
     filterPills.push({ key: 'credits', label: `${credits} credits` })
   }
-  // Level narrows only when a non-default career is chosen; the default Undergraduate and an empty
-  // (all-levels) selection are both "no constraint", so neither gets a pill.
-  const isDefaultLevel = selectedCareers.size === 1 && selectedCareers.has('Undergraduate')
-  if (selectedCareers.size > 0 && !isDefaultLevel) {
+  // Level shows the chosen career(s), including the default Undergraduate — consistent with every
+  // other pill. Only an empty selection is "no constraint", so only that gets no pill.
+  if (selectedCareers.size > 0) {
     const levels = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
     filterPills.push({ key: 'level', label: levels.join(', ') })
   }
