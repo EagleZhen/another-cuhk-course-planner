@@ -749,7 +749,7 @@ export default function CourseSearch({
     filterPills.push({ key: 'level', label: levels.join(', ') })
   }
   if (noConflictOnly) {
-    filterPills.push({ key: 'no-conflict', label: 'No conflicts' })
+    filterPills.push({ key: 'no-conflict', label: 'No time conflicts' })
   }
 
   return (
@@ -905,7 +905,8 @@ export default function CourseSearch({
               }
             />
 
-            <div className="flex items-center flex-wrap mt-2">
+            <div className="flex items-center gap-2 flex-wrap mt-2">
+              <span className="text-sm font-medium text-gray-700">Timetable:</span>
               <Button
                 type="button"
                 variant={noConflictOnly ? 'default' : 'outline'}
@@ -916,10 +917,10 @@ export default function CourseSearch({
                 title={
                   noConflictOnly
                     ? 'Show courses with time conflicts'
-                    : 'Hide courses that conflict with your timetable'
+                    : 'Show only courses with no time conflicts'
                 }
               >
-                Hide time conflicts
+                No time conflicts
               </Button>
             </div>
           </div>
