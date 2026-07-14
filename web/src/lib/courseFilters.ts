@@ -2,8 +2,8 @@
 // no shuffle, no result limiting (those stay with the caller). Each dimension is a
 // predicate builder, so a new filter is one builder plus one criteria field.
 
-import type { AcademicCareer, InternalCourse, InternalSection } from './types'
-import { getDayIndex } from './courseUtils'
+import type { AcademicCareer, CourseEnrollment, InternalCourse, InternalSection } from './types'
+import { getDayIndex, hasConflictFreeEnrollment } from './courseUtils'
 
 /** The user's active selections. An empty/blank field means "no constraint". */
 export interface CourseFilterCriteria {
@@ -12,12 +12,13 @@ export interface CourseFilterCriteria {
   days: Set<number> // 0=Mon..6=Sun; empty = all days
   credits: Set<number> // empty = all credit values
   careers: Set<AcademicCareer> // empty = all academic careers
+  noConflictOnly: boolean
 }
 
 /** Ambient facts a predicate needs but the user didn't explicitly select. */
 export interface CourseFilterContext {
   term: string
-  // enrollments: CourseEnrollment[]  // added by the #188 no-conflict filter later
+  enrollments: CourseEnrollment[]
 }
 
 type CoursePredicate = (course: InternalCourse) => boolean
@@ -90,8 +91,38 @@ const buildCareerPredicate: PredicateBuilder = (criteria) =>
     ? TRUE
     : (course) => course.career !== undefined && criteria.careers.has(course.career)
 
+const buildNoConflictPredicate: PredicateBuilder = (criteria, context) => {
+  if (!criteria.noConflictOnly) return TRUE
+
+  const baselineSections: InternalSection[] = []
+  const sectionsByCourseId = new Map<string, Set<InternalSection>>()
+
+  for (const enrollment of context.enrollments) {
+    if (!enrollment.isVisible || enrollment.isInvalid) continue
+
+    const courseId = `${enrollment.course.subject}${enrollment.course.courseCode}`
+    const ownSections = sectionsByCourseId.get(courseId) ?? new Set<InternalSection>()
+    sectionsByCourseId.set(courseId, ownSections)
+
+    for (const section of enrollment.selectedSections) {
+      baselineSections.push(section)
+      ownSections.add(section)
+    }
+  }
+
+  return (course) => {
+    const courseId = `${course.subject}${course.courseCode}`
+    const ownSections = sectionsByCourseId.get(courseId)
+    const baselineWithoutCourse = ownSections
+      ? baselineSections.filter((section) => !ownSections.has(section))
+      : baselineSections
+
+    return hasConflictFreeEnrollment(course, baselineWithoutCourse, context.term)
+  }
+}
+
 /** One filterable dimension. Adding a filter = append an entry here. */
-export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits' | 'career'
+export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits' | 'career' | 'noConflict'
 
 const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'term', build: buildTermPredicate },
@@ -100,6 +131,7 @@ const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'day', build: buildDayPredicate },
   { key: 'credits', build: buildCreditsPredicate },
   { key: 'career', build: buildCareerPredicate },
+  { key: 'noConflict', build: buildNoConflictPredicate },
 ]
 
 function composePredicates(
@@ -206,6 +238,7 @@ export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
     Boolean(criteria.searchTerm.trim()) ||
     criteria.subjects.size > 0 ||
     criteria.days.size > 0 ||
-    criteria.credits.size > 0
+    criteria.credits.size > 0 ||
+    criteria.noConflictOnly
   )
 }

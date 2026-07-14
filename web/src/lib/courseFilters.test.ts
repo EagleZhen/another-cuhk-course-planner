@@ -10,7 +10,13 @@ import {
   courseMatchesKeyword,
   type CourseFilterCriteria,
 } from './courseFilters'
-import type { AcademicCareer, InternalCourse, InternalSection, InternalMeeting } from './types'
+import type {
+  AcademicCareer,
+  CourseEnrollment,
+  InternalCourse,
+  InternalSection,
+  InternalMeeting,
+} from './types'
 
 const TERM = 'Term 1'
 
@@ -48,14 +54,30 @@ function makeCourse(overrides: Partial<InternalCourse> = {}): InternalCourse {
   }
 }
 
+function makeEnrollment(
+  course: InternalCourse,
+  selectedSections: InternalSection[],
+  overrides: Partial<CourseEnrollment> = {}
+): CourseEnrollment {
+  return {
+    courseId: `${course.subject}${course.courseCode}`,
+    course,
+    selectedSections,
+    color: 'bg-blue-500',
+    isVisible: true,
+    ...overrides,
+  }
+}
+
 const noFilters: CourseFilterCriteria = {
   searchTerm: '',
   subjects: new Set(),
   days: new Set(),
   credits: new Set(),
   careers: new Set(),
+  noConflictOnly: false,
 }
-const ctx = { term: TERM }
+const ctx = { term: TERM, enrollments: [] }
 
 describe('filterCourses', () => {
   it('keeps only courses offered in the term', () => {
@@ -130,6 +152,63 @@ describe('filterCourses', () => {
     const a = makeCourse({ courseCode: '1000' })
     const b = makeCourse({ courseCode: '2000' })
     expect(filterCourses([a, b], noFilters, ctx)).toEqual([a, b])
+  })
+
+  describe('no-conflict filter', () => {
+    const criteria = { ...noFilters, noConflictOnly: true }
+
+    it('keeps courses when the filter is off', () => {
+      const course = makeCourse()
+      const busyCourse = makeCourse({ subject: 'MATH', courseCode: '1000' })
+      const enrollment = makeEnrollment(busyCourse, [makeSection({ id: 'busy' })])
+
+      expect(
+        filterCourses(
+          [course],
+          { ...noFilters, noConflictOnly: false },
+          { term: TERM, enrollments: [enrollment] }
+        )
+      ).toEqual([course])
+    })
+
+    it('keeps courses when there are no enrollments', () => {
+      const course = makeCourse()
+
+      expect(filterCourses([course], criteria, { term: TERM, enrollments: [] })).toEqual([course])
+    })
+
+    it('removes a course with no conflict-free enrollment', () => {
+      const course = makeCourse()
+      const busyCourse = makeCourse({ subject: 'MATH', courseCode: '1000' })
+      const enrollment = makeEnrollment(busyCourse, [makeSection({ id: 'busy' })])
+
+      expect(filterCourses([course], criteria, { term: TERM, enrollments: [enrollment] })).toEqual(
+        []
+      )
+    })
+
+    it.each([
+      ['hidden', { isVisible: false }],
+      ['invalid', { isInvalid: true }],
+    ])('ignores %s enrollments', (_label, overrides) => {
+      const course = makeCourse()
+      const busyCourse = makeCourse({ subject: 'MATH', courseCode: '1000' })
+      const enrollment = makeEnrollment(busyCourse, [makeSection({ id: 'busy' })], overrides)
+
+      expect(filterCourses([course], criteria, { term: TERM, enrollments: [enrollment] })).toEqual([
+        course,
+      ])
+    })
+
+    it('excludes the course under test from its own baseline', () => {
+      const course = makeCourse()
+      const ownSection = course.terms[0].sections[0]
+      const enrollment = makeEnrollment(course, [ownSection])
+
+      expect(filterCourses([course], criteria, { term: TERM, enrollments: [enrollment] })).toEqual([
+        course,
+      ])
+    })
   })
 })
 
@@ -269,6 +348,7 @@ describe('hasActiveFilters', () => {
     ['subjects', { ...noFilters, subjects: new Set(['CSCI']) }],
     ['days', { ...noFilters, days: new Set([0]) }],
     ['credits', { ...noFilters, credits: new Set([3]) }],
+    ['no-conflict', { ...noFilters, noConflictOnly: true }],
   ])('is true when %s is set', (_label, criteria) => {
     expect(hasActiveFilters(criteria)).toBe(true)
   })

@@ -106,6 +106,10 @@ const CAREER_SHORT_LABEL: Record<AcademicCareer, string> = {
   'Postgraduate - Research': 'PG-Research',
 }
 
+// Stable reference for "no conflict baseline", so gating enrollments out of the filter context
+// doesn't churn the context identity on every render.
+const EMPTY_ENROLLMENTS: CourseEnrollment[] = []
+
 /** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
 function shuffledCopy<T>(items: T[]): T[] {
   const copy = [...items]
@@ -138,6 +142,7 @@ export default function CourseSearch({
   const [isMobileFilterPanelExpanded, setIsMobileFilterPanelExpanded] = useState(true)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
   const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
+  const [noConflictOnly, setNoConflictOnly] = useState(false)
   // Defaults to Undergraduate: most planner users are undergrads, so it's the resting state
   // rather than a narrowing action (see hasActiveFilters). Users can deselect or add PG chips.
   const [selectedCareers, setSelectedCareers] = useState<Set<AcademicCareer>>(
@@ -189,6 +194,15 @@ export default function CourseSearch({
       }
       return newSet
     })
+  }
+
+  const toggleNoConflictFilter = () => {
+    analytics.chipFilterToggled(
+      'no_conflict',
+      'Hide time conflicts',
+      noConflictOnly ? 'remove' : 'add'
+    )
+    setNoConflictOnly((enabled) => !enabled)
   }
 
   // Smooth debouncing for search performance
@@ -277,18 +291,32 @@ export default function CourseSearch({
       days: selectedDays,
       credits: selectedCredits,
       careers: selectedCareers,
+      noConflictOnly,
     }),
-    [debouncedSearchTerm, selectedSubjects, selectedDays, selectedCredits, selectedCareers]
+    [
+      debouncedSearchTerm,
+      selectedSubjects,
+      selectedDays,
+      selectedCredits,
+      selectedCareers,
+      noConflictOnly,
+    ]
   )
-  const activeHiddenFilterGroups =
-    Number(selectedSubjects.size > 0) +
-    Number(selectedDays.size > 0) +
-    Number(selectedCredits.size > 0) +
-    Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate'))
-  const filterContext = useMemo<CourseFilterContext>(() => ({ term: currentTerm }), [currentTerm])
+  // Enrollments only affect results when the no-conflict filter is on. Gating them out otherwise keeps
+  // the context stable across cart edits, so adding a course doesn't re-run filtering or flash the spinner.
+  const conflictBaseline = noConflictOnly ? courseEnrollments : EMPTY_ENROLLMENTS
+  const filterContext = useMemo<CourseFilterContext>(
+    () => ({ term: currentTerm, enrollments: conflictBaseline }),
+    [currentTerm, conflictBaseline]
+  )
 
   // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
+  // Stable across re-filters (only re-shuffles on data reload), so it's also the "original order" Reset returns to.
   const shuffledCatalog = useMemo(() => shuffledCopy(allCourses), [allCourses])
+  // A fresh permutation per explicit Shuffle click. Keyed on shuffleTrigger so filtering it yields a
+  // stable shuffled order that changes ONLY when the user shuffles again — not on every unrelated
+  // re-filter (e.g. adding a course to the cart, which changes the filter context).
+  const shuffledOnDemand = useMemo(() => shuffledCopy(allCourses), [allCourses, shuffleTrigger])
 
   // Days that still have matching courses (given the other filters), plus any already
   // selected so a selected chip never disappears.
@@ -609,30 +637,29 @@ export default function CourseSearch({
     }
   }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
 
-  // Run the pure filter off the main thread, then apply presentation (shuffle + limit).
+  // Run the pure filter off the main thread, then apply presentation (limit).
+  // Order comes from `courses` (filtering preserves it), so the caller controls shuffle by
+  // choosing a pre-shuffled source — no reshuffle here, so unrelated re-filters keep the order stable.
   const performFiltering = useCallback(
     (
       courses: InternalCourse[],
       criteria: CourseFilterCriteria,
       context: CourseFilterContext,
-      shuffle: number
+      isShuffled: boolean
     ): Promise<SearchResults> =>
       new Promise<SearchResults>((resolve) => {
         // Defer to the next frame so filtering doesn't block the UI.
         setTimeout(() => {
           const matched = filterCourses(courses, criteria, context)
 
-          // Reshuffle on the one-off shuffle trigger.
-          const ordered = shuffle > 0 ? shuffledCopy(matched) : matched
-
           // Show more once the user has narrowed the catalog; otherwise keep it short.
           const limit = hasActiveFilters(criteria) ? 100 : 10
 
           resolve({
-            courses: ordered.slice(0, limit),
+            courses: matched.slice(0, limit),
             total: matched.length,
             isLimited: matched.length > limit,
-            isShuffled: shuffle > 0,
+            isShuffled,
           })
         }, 0)
       }),
@@ -646,17 +673,31 @@ export default function CourseSearch({
     // Immediately show filtering state
     setIsFiltering(true)
 
-    // The default view opens on the shuffled catalog; any active filter uses code order.
-    const source = hasActiveFilters(filterCriteria) ? allCourses : shuffledCatalog
+    // An explicit Shuffle click orders from a fresh permutation; otherwise the default view opens on
+    // the stable shuffled catalog and any active filter uses code order. Filtering preserves source order.
+    const isShuffled = shuffleTrigger > 0
+    const source = isShuffled
+      ? shuffledOnDemand
+      : hasActiveFilters(filterCriteria)
+        ? allCourses
+        : shuffledCatalog
 
     // Perform filtering in background
-    performFiltering(source, filterCriteria, filterContext, shuffleTrigger).then(
+    performFiltering(source, filterCriteria, filterContext, isShuffled).then(
       (results: SearchResults) => {
         setDisplayResults(results)
         setIsFiltering(false)
       }
     )
-  }, [allCourses, shuffledCatalog, filterCriteria, filterContext, shuffleTrigger, performFiltering])
+  }, [
+    allCourses,
+    shuffledCatalog,
+    shuffledOnDemand,
+    filterCriteria,
+    filterContext,
+    shuffleTrigger,
+    performFiltering,
+  ])
 
   // Track search analytics - only when search is used
   useEffect(() => {
@@ -677,6 +718,39 @@ export default function CourseSearch({
     const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
     return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
   })
+
+  // A compact summary of every active filter, shown as a wrapping pill row under the result count
+  // (also the only active-filter cue once the mobile filter panel is collapsed). Search stays inline
+  // in the count line; level appears only when it deviates from the default Undergraduate.
+  const filterPills: { key: string; label: string }[] = []
+  if (selectedSubjects.size > 0) {
+    filterPills.push({ key: 'subjects', label: selectedSubjectList.join(', ') })
+  }
+  if (selectedDays.size > 0) {
+    const days = Array.from(selectedDays)
+      .sort()
+      .map((dayIndex) => {
+        const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0]
+        return dayKey ?? `Day ${dayIndex}`
+      })
+      .join(', ')
+    filterPills.push({ key: 'days', label: days })
+  }
+  if (selectedCredits.size > 0) {
+    const credits = Array.from(selectedCredits)
+      .sort((a, b) => a - b)
+      .join(', ')
+    filterPills.push({ key: 'credits', label: `${credits} credits` })
+  }
+  // Level shows the chosen career(s), including the default Undergraduate — consistent with every
+  // other pill. Only an empty selection is "no constraint", so only that gets no pill.
+  if (selectedCareers.size > 0) {
+    const levels = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
+    filterPills.push({ key: 'level', label: levels.join(', ') })
+  }
+  if (noConflictOnly) {
+    filterPills.push({ key: 'no-conflict', label: 'No time conflicts' })
+  }
 
   return (
     <div className="space-y-4">
@@ -830,6 +904,25 @@ export default function CourseSearch({
                 selected ? `Remove ${career} filter` : `Show only ${career} courses`
               }
             />
+
+            <div className="flex items-center gap-2 flex-wrap mt-2">
+              <span className="text-sm font-medium text-gray-700">Timetable:</span>
+              <Button
+                type="button"
+                variant={noConflictOnly ? 'default' : 'outline'}
+                size="sm"
+                aria-pressed={noConflictOnly}
+                onClick={toggleNoConflictFilter}
+                className="h-6 px-2 text-xs font-normal border-1"
+                title={
+                  noConflictOnly
+                    ? 'Show courses with time conflicts'
+                    : 'Show only courses with no time conflicts'
+                }
+              >
+                No time conflicts
+              </Button>
+            </div>
           </div>
           <div className="sm:hidden">
             <Button
@@ -846,11 +939,6 @@ export default function CourseSearch({
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
               />
-              {!isMobileFilterPanelExpanded && activeHiddenFilterGroups > 0 && (
-                <span className="absolute left-1/2 top-0 ml-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
-                  {activeHiddenFilterGroups}
-                </span>
-              )}
             </Button>
           </div>
         </div>
@@ -1034,8 +1122,8 @@ export default function CourseSearch({
           </div>
         ) : (
           <>
-            <div className="flex items-center justify-between mb-3">
-              <div className="text-sm text-gray-600 flex items-center gap-2">
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
                 <>
                   {/* Always show current status */}
                   Showing {displayResults.courses.length} course
@@ -1044,26 +1132,16 @@ export default function CourseSearch({
                     <span className="font-medium"> of {displayResults.total} total</span>
                   )}
                   {searchTerm && ` matching "${searchTerm}"`}
-                  {/* Show day filtering status similar to subject filtering */}
-                  {selectedDays.size > 0 && (
-                    <>
-                      <span> filtered by </span>
-                      <span className="font-semibold text-blue-600">
-                        {Array.from(selectedDays)
-                          .sort()
-                          .map((dayIndex) => {
-                            const dayKey = Object.entries(DAYS).find(
-                              ([_, info]) => info.index === dayIndex
-                            )?.[0] as WeekDay
-                            return dayKey || `Day${dayIndex}`
-                          })
-                          .join(', ')}
-                      </span>
-                      <span>
-                        {' '}
-                        ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})
-                      </span>
-                    </>
+                  {/* Active-filter summary — pills wrap with the count text, clear of the shuffle button. */}
+                  {filterPills.length > 0 && (
+                    <span className="inline-flex flex-wrap items-center gap-1.5">
+                      <span className="text-gray-500">filtered by</span>
+                      {filterPills.map((pill) => (
+                        <Badge key={pill.key} variant="secondary">
+                          {pill.label}
+                        </Badge>
+                      ))}
+                    </span>
                   )}
                   {/* Add loading indicator as pill badge */}
                   {isFiltering && (
