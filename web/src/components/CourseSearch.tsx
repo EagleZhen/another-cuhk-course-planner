@@ -1119,8 +1119,8 @@ export default function CourseSearch({
           </div>
         ) : (
           <>
-            <div className="flex items-center justify-between mb-3">
-              <div className="text-sm text-gray-600 flex items-center gap-2">
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
                 <>
                   {/* Always show current status */}
                   Showing {displayResults.courses.length} course
@@ -1129,6 +1129,20 @@ export default function CourseSearch({
                     <span className="font-medium"> of {displayResults.total} total</span>
                   )}
                   {searchTerm && ` matching "${searchTerm}"`}
+                  {/* Active-filter summary — pills wrap with the count text, clear of the shuffle button. */}
+                  {filterPills.length > 0 && (
+                    <span className="inline-flex flex-wrap items-center gap-1.5">
+                      <span className="text-gray-500">Filtered by</span>
+                      {filterPills.map((pill) => (
+                        <span
+                          key={pill.key}
+                          className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
+                        >
+                          {pill.label}
+                        </span>
+                      ))}
+                    </span>
+                  )}
                   {/* Add loading indicator as pill badge */}
                   {isFiltering && (
                     <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
@@ -1173,21 +1187,6 @@ export default function CourseSearch({
                 </Button>
               )}
             </div>
-
-            {/* Active-filter summary — wraps freely on its own line, clear of the shuffle button. */}
-            {filterPills.length > 0 && (
-              <div className="flex flex-wrap items-center gap-1.5 mb-3 text-sm">
-                <span className="text-gray-500">Filtered by</span>
-                {filterPills.map((pill) => (
-                  <span
-                    key={pill.key}
-                    className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
-                  >
-                    {pill.label}
-                  </span>
-                ))}
-              </div>
-            )}
 
             {/* Show helpful message when results are limited */}
             {displayResults.isLimited && (
