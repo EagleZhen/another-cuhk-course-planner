@@ -2,7 +2,9 @@
 // Isolated boundary between external data and internal types
 
 import { z } from 'zod'
+import { ACADEMIC_CAREERS } from './types'
 import type {
+  AcademicCareer,
   InternalCourse,
   InternalTerm,
   InternalSection,
@@ -54,6 +56,7 @@ const ExternalCourseSchema = z.object({
   course_code: z.string(),
   title: z.string(),
   credits: z.string().optional(),
+  academic_career: z.string().optional(),
   description: z.string().optional(),
   enrollment_requirement: z.string().optional(),
   course_attributes: z.string().optional(),
@@ -202,11 +205,17 @@ export function transformExternalCourse(external: unknown): InternalCourse {
       }
     }
 
+    // Narrow the free-form career string to a known value; drop anything unexpected
+    const career = ACADEMIC_CAREERS.includes(validated.academic_career as AcademicCareer)
+      ? (validated.academic_career as AcademicCareer)
+      : undefined
+
     return {
       subject: validated.subject,
       courseCode: validated.course_code,
       title: validated.title,
       credits,
+      career,
       description: validated.description,
       enrollmentRequirement: validated.enrollment_requirement,
       courseAttributes: validated.course_attributes,

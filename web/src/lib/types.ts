@@ -1,11 +1,20 @@
 // Clean internal type definitions separated from external scraped data
 // These types represent our application's domain model
 
+/** Academic career levels as scraped; a course belongs to exactly one. */
+export const ACADEMIC_CAREERS = [
+  'Undergraduate',
+  'Postgraduate - Taught',
+  'Postgraduate - Research',
+] as const
+export type AcademicCareer = (typeof ACADEMIC_CAREERS)[number]
+
 export interface InternalCourse {
   subject: string
   courseCode: string
   title: string
   credits: number
+  career?: AcademicCareer // absent when the source value is missing or unrecognized
   description?: string
   enrollmentRequirement?: string
   courseAttributes?: string
