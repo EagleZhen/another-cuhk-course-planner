@@ -5,6 +5,7 @@
 export const ACADEMIC_CAREERS = [
   'Undergraduate',
   'Postgraduate - Taught',
+  'Postgraduate - PGDE',
   'Postgraduate - Research',
 ] as const
 export type AcademicCareer = (typeof ACADEMIC_CAREERS)[number]

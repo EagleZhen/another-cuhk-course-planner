@@ -1,7 +1,53 @@
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, it, expect } from 'vitest'
+import { ACADEMIC_CAREERS } from './types'
 import { transformExternalCourseData } from './validation'
 
+function publishedCareerValues(): Set<string> {
+  const careers = new Set<string>()
+  const dataDirectory = join(process.cwd(), 'public', 'data')
+
+  for (const year of readdirSync(dataDirectory, { withFileTypes: true })) {
+    if (!year.isDirectory()) continue
+
+    for (const file of readdirSync(join(dataDirectory, year.name), { withFileTypes: true })) {
+      if (!file.isFile() || !file.name.endsWith('.json')) continue
+
+      const { courses = [] } = JSON.parse(
+        readFileSync(join(dataDirectory, year.name, file.name), 'utf8')
+      ) as { courses?: Array<{ academic_career?: unknown }> }
+      for (const course of courses) {
+        if (typeof course.academic_career === 'string') careers.add(course.academic_career)
+      }
+    }
+  }
+
+  return careers
+}
+
 describe('transformExternalCourseData', () => {
+  it('supports every academic career in published data', () => {
+    expect(ACADEMIC_CAREERS).toEqual(expect.arrayContaining([...publishedCareerValues()]))
+  })
+
+  it('preserves the PGDE career', () => {
+    const result = transformExternalCourseData({
+      metadata: { subject: 'PGDC', total_courses: 1 },
+      courses: [
+        {
+          subject: 'PGDC',
+          course_code: '5001',
+          title: 'Education Studies',
+          credits: '3.00',
+          academic_career: 'Postgraduate - PGDE',
+        },
+      ],
+    })
+
+    expect(result.courses[0].career).toBe('Postgraduate - PGDE')
+  })
+
   it('accepts published course data with stripped fields absent', () => {
     // Publish removes fields the app never renders (STRIPPED_COURSE_FIELDS in
     // scripts/publish_course_data.py): course_syllabus, required_readings,
