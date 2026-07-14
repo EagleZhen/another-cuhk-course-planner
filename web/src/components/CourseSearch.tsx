@@ -742,9 +742,12 @@ export default function CourseSearch({
       .join(', ')
     filterPills.push({ key: 'credits', label: `${credits} credits` })
   }
-  if (selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate')) {
+  // Level narrows only when a non-default career is chosen; the default Undergraduate and an empty
+  // (all-levels) selection are both "no constraint", so neither gets a pill.
+  const isDefaultLevel = selectedCareers.size === 1 && selectedCareers.has('Undergraduate')
+  if (selectedCareers.size > 0 && !isDefaultLevel) {
     const levels = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
-    filterPills.push({ key: 'level', label: levels.length > 0 ? levels.join(', ') : 'All levels' })
+    filterPills.push({ key: 'level', label: levels.join(', ') })
   }
   if (noConflictOnly) {
     filterPills.push({ key: 'no-conflict', label: 'No conflicts' })
