@@ -676,6 +676,7 @@ export default function CourseSearch({
     <div className="space-y-4">
       {/* Sticky Search Input with Term Filter Hint */}
       <div
+        data-course-search-header
         className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4`}
       >
         {/* Partial load warning */}
@@ -1283,7 +1284,7 @@ function CourseCard({
   const [stickyOffset, setStickyOffset] = useState(0)
   useEffect(() => {
     if (!expanded) return
-    const filterBar = document.querySelector('[data-course-search] .sticky')
+    const filterBar = document.querySelector('[data-course-search-header]')
     if (!filterBar) return
 
     // Reconstruct where the filter bar sits once actually stuck, rather than reading

@@ -304,7 +304,7 @@ export default function Home() {
       )
       if (firstCourseCard) {
         // Get the sticky header height to offset scroll position
-        const stickyHeader = document.querySelector('[data-course-search] .sticky')
+        const stickyHeader = document.querySelector('[data-course-search-header]')
         const headerHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0
         const additionalPadding = 16 // Add some breathing room
 
