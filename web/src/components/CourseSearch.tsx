@@ -834,20 +834,20 @@ export default function CourseSearch({
           <Button
             type="button"
             variant="ghost"
-            className="h-8 w-full text-xs text-gray-600 sm:hidden"
+            className="relative h-10 w-full text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 sm:hidden"
             aria-controls="course-filter-panel"
             aria-expanded={isMobileFilterPanelExpanded}
             onClick={() => setIsMobileFilterPanelExpanded((expanded) => !expanded)}
           >
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
-            />
             <span>{isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}</span>
             {!isMobileFilterPanelExpanded && activeHiddenFilterGroups > 0 && (
-              <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
+              <span className="absolute right-10 flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
                 {activeHiddenFilterGroups}
               </span>
             )}
+            <ChevronDown
+              className={`absolute right-3 h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
+            />
           </Button>
         </div>
       </div>
