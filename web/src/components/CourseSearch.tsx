@@ -106,6 +106,10 @@ const CAREER_SHORT_LABEL: Record<AcademicCareer, string> = {
   'Postgraduate - Research': 'PG-Research',
 }
 
+// Stable reference for "no conflict baseline", so gating enrollments out of the filter context
+// doesn't churn the context identity on every render.
+const EMPTY_ENROLLMENTS: CourseEnrollment[] = []
+
 /** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
 function shuffledCopy<T>(items: T[]): T[] {
   const copy = [...items]
@@ -304,13 +308,21 @@ export default function CourseSearch({
     Number(selectedCredits.size > 0) +
     Number(selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate')) +
     Number(noConflictOnly)
+  // Enrollments only affect results when the no-conflict filter is on. Gating them out otherwise keeps
+  // the context stable across cart edits, so adding a course doesn't re-run filtering or flash the spinner.
+  const conflictBaseline = noConflictOnly ? courseEnrollments : EMPTY_ENROLLMENTS
   const filterContext = useMemo<CourseFilterContext>(
-    () => ({ term: currentTerm, enrollments: courseEnrollments }),
-    [currentTerm, courseEnrollments]
+    () => ({ term: currentTerm, enrollments: conflictBaseline }),
+    [currentTerm, conflictBaseline]
   )
 
   // The unfiltered default view opens on this, so it's not always the first subject alphabetically.
+  // Stable across re-filters (only re-shuffles on data reload), so it's also the "original order" Reset returns to.
   const shuffledCatalog = useMemo(() => shuffledCopy(allCourses), [allCourses])
+  // A fresh permutation per explicit Shuffle click. Keyed on shuffleTrigger so filtering it yields a
+  // stable shuffled order that changes ONLY when the user shuffles again — not on every unrelated
+  // re-filter (e.g. adding a course to the cart, which changes the filter context).
+  const shuffledOnDemand = useMemo(() => shuffledCopy(allCourses), [allCourses, shuffleTrigger])
 
   // Days that still have matching courses (given the other filters), plus any already
   // selected so a selected chip never disappears.
@@ -631,30 +643,29 @@ export default function CourseSearch({
     }
   }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
 
-  // Run the pure filter off the main thread, then apply presentation (shuffle + limit).
+  // Run the pure filter off the main thread, then apply presentation (limit).
+  // Order comes from `courses` (filtering preserves it), so the caller controls shuffle by
+  // choosing a pre-shuffled source — no reshuffle here, so unrelated re-filters keep the order stable.
   const performFiltering = useCallback(
     (
       courses: InternalCourse[],
       criteria: CourseFilterCriteria,
       context: CourseFilterContext,
-      shuffle: number
+      isShuffled: boolean
     ): Promise<SearchResults> =>
       new Promise<SearchResults>((resolve) => {
         // Defer to the next frame so filtering doesn't block the UI.
         setTimeout(() => {
           const matched = filterCourses(courses, criteria, context)
 
-          // Reshuffle on the one-off shuffle trigger.
-          const ordered = shuffle > 0 ? shuffledCopy(matched) : matched
-
           // Show more once the user has narrowed the catalog; otherwise keep it short.
           const limit = hasActiveFilters(criteria) ? 100 : 10
 
           resolve({
-            courses: ordered.slice(0, limit),
+            courses: matched.slice(0, limit),
             total: matched.length,
             isLimited: matched.length > limit,
-            isShuffled: shuffle > 0,
+            isShuffled,
           })
         }, 0)
       }),
@@ -668,17 +679,31 @@ export default function CourseSearch({
     // Immediately show filtering state
     setIsFiltering(true)
 
-    // The default view opens on the shuffled catalog; any active filter uses code order.
-    const source = hasActiveFilters(filterCriteria) ? allCourses : shuffledCatalog
+    // An explicit Shuffle click orders from a fresh permutation; otherwise the default view opens on
+    // the stable shuffled catalog and any active filter uses code order. Filtering preserves source order.
+    const isShuffled = shuffleTrigger > 0
+    const source = isShuffled
+      ? shuffledOnDemand
+      : hasActiveFilters(filterCriteria)
+        ? allCourses
+        : shuffledCatalog
 
     // Perform filtering in background
-    performFiltering(source, filterCriteria, filterContext, shuffleTrigger).then(
+    performFiltering(source, filterCriteria, filterContext, isShuffled).then(
       (results: SearchResults) => {
         setDisplayResults(results)
         setIsFiltering(false)
       }
     )
-  }, [allCourses, shuffledCatalog, filterCriteria, filterContext, shuffleTrigger, performFiltering])
+  }, [
+    allCourses,
+    shuffledCatalog,
+    shuffledOnDemand,
+    filterCriteria,
+    filterContext,
+    shuffleTrigger,
+    performFiltering,
+  ])
 
   // Track search analytics - only when search is used
   useEffect(() => {
