@@ -116,6 +116,25 @@ export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
 }
 
 /**
+ * Check whether any scheduled meetings in two sections overlap.
+ * Meetings without a real time are ignored.
+ */
+export function sectionsOverlapInTime(
+  section1: InternalSection,
+  section2: InternalSection
+): boolean {
+  return section1.meetings.some((meeting1) => {
+    const time1 = parseTimeRange(meeting1.time)
+    if (!time1) return false
+
+    return section2.meetings.some((meeting2) => {
+      const time2 = parseTimeRange(meeting2.time)
+      return time2 !== null && doTimesOverlap(time1, time2)
+    })
+  })
+}
+
+/**
  * Detect conflicts among calendar events and return events with hasConflict flag
  */
 export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
@@ -1353,29 +1372,22 @@ export function checkSectionConflict(
 } {
   const conflictingSections: string[] = []
 
-  // Get all meetings from the candidate section
-  for (const candidateMeeting of candidateSection.meetings) {
-    const candidateTime = parseTimeRange(candidateMeeting.time)
-    if (!candidateTime) continue // Skip TBA meetings
+  // Check against all visible enrolled sections
+  for (const enrollment of currentEnrollments) {
+    if (!enrollment.isVisible || enrollment.isInvalid) continue
 
-    // Check against all visible enrolled sections
-    for (const enrollment of currentEnrollments) {
-      if (!enrollment.isVisible || enrollment.isInvalid) continue
+    for (const enrolledSection of enrollment.selectedSections) {
+      // Skip itself from checking
+      if (
+        enrolledSection.id === candidateSection.id ||
+        !sectionsOverlapInTime(candidateSection, enrolledSection)
+      ) {
+        continue
+      }
 
-      for (const enrolledSection of enrollment.selectedSections) {
-        for (const enrolledMeeting of enrolledSection.meetings) {
-          const enrolledTime = parseTimeRange(enrolledMeeting.time)
-          // Skip itself from checking
-          if (!enrolledTime || enrolledSection.id === candidateSection.id) continue
-
-          // Check for time overlap
-          if (doTimesOverlap(candidateTime, enrolledTime)) {
-            const courseWithSection = `${enrollment.course.subject}${enrollment.course.courseCode} ${enrolledSection.sectionType}`
-            if (!conflictingSections.includes(courseWithSection)) {
-              conflictingSections.push(courseWithSection)
-            }
-          }
-        }
+      const courseWithSection = `${enrollment.course.subject}${enrollment.course.courseCode} ${enrolledSection.sectionType}`
+      if (!conflictingSections.includes(courseWithSection)) {
+        conflictingSections.push(courseWithSection)
       }
     }
   }

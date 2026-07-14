@@ -8,6 +8,8 @@ import {
   recordSeenSections,
   diffSectionDetail,
   matchChangedMeeting,
+  sectionsOverlapInTime,
+  checkSectionConflict,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -178,6 +180,29 @@ function mkEnrollment(
   }
 }
 const sig = (s: InternalSection) => sectionSignature(s)
+
+describe('sectionsOverlapInTime', () => {
+  it('reports only real meeting overlaps', () => {
+    const scheduled = mkSection('scheduled', [mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })])
+    const overlapping = mkSection('overlapping', [mkMeeting({ time: 'Mo 9:30AM - 10:30AM' })])
+    const unscheduled = mkSection('unscheduled', [mkMeeting({ time: 'TBA' })])
+
+    expect(sectionsOverlapInTime(scheduled, overlapping)).toBe(true)
+    expect(sectionsOverlapInTime(scheduled, unscheduled)).toBe(false)
+  })
+})
+
+describe('checkSectionConflict', () => {
+  it('reports the enrolled course and section type for an overlap', () => {
+    const candidate = mkSection('candidate', [mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })])
+    const enrolled = mkSection('enrolled', [mkMeeting({ time: 'Mo 9:30AM - 10:30AM' })])
+
+    expect(checkSectionConflict(candidate, [mkEnrollment([enrolled])])).toEqual({
+      hasConflict: true,
+      conflictingSections: ['COMM1180 LEC'],
+    })
+  })
+})
 
 describe('sectionSignature', () => {
   it('preserves meeting appearance order (so display and pairing match the source)', () => {
