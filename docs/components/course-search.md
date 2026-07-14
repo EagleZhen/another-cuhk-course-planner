@@ -20,6 +20,7 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 - **Keyword search** covers code, title, description, and instructors, via one shared `courseMatchesKeyword`.
 - **Chip-filter options** (days, credits, level) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
 - **Level (academic career)** defaults to `Undergraduate` and is the one chip excluded from `hasActiveFilters`: it picks _which_ catalog you browse, not how you narrow it, so it must not switch off the shuffled 10-course landing.
+- The supported level list is explicit. A Vitest contract test ensures it covers every value in published course data, so a new source level requires an intentional UI decision.
 - **Adding a filter** (see credits for the full pattern):
   - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — level is the exception), and — for a chip filter — a `ChipDimension`.
   - _Component_ (`CourseSearch`): state + toggle, the `filterCriteria` field, an `availableValues` memo, and a `ChipFilterRow`.

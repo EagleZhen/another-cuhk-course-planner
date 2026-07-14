@@ -102,6 +102,7 @@ interface CourseSearchProps {
 const CAREER_SHORT_LABEL: Record<AcademicCareer, string> = {
   Undergraduate: 'UG',
   'Postgraduate - Taught': 'PG-Taught',
+  'Postgraduate - PGDE': 'PGDE',
   'Postgraduate - Research': 'PG-Research',
 }
 
