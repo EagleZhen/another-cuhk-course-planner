@@ -18,9 +18,10 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 
 - **Criteria vs. context.** `criteria` is user selections (empty = no constraint); `context` is the ambient scope (the term, later the timetable for conflict filtering). Keeping the term in `context` lets `hasActiveFilters` stay a pure test of whether the user narrowed anything — which drives the 10-vs-100 result cap.
 - **Keyword search** covers code, title, description, and instructors, via one shared `courseMatchesKeyword`.
-- **Chip-filter options** (days, credits) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
+- **Chip-filter options** (days, credits, level) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
+- **Level (academic career)** defaults to `Undergraduate` and is the one chip excluded from `hasActiveFilters`: it picks _which_ catalog you browse, not how you narrow it, so it must not switch off the shuffled 10-course landing.
 - **Adding a filter** (see credits for the full pattern):
-  - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (also add to `hasActiveFilters`), and — for a chip filter — a `ChipDimension`.
+  - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — level is the exception), and — for a chip filter — a `ChipDimension`.
   - _Component_ (`CourseSearch`): state + toggle, the `filterCriteria` field, an `availableValues` memo, and a `ChipFilterRow`.
 - **Instructor filter:** applying it clears section selections that no longer match; clearing it keeps existing selections.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
