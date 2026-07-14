@@ -98,6 +98,13 @@ interface CourseSearchProps {
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
 }
 
+/** Compact level chip labels for mobile, where the full career names wrap several lines. */
+const CAREER_SHORT_LABEL: Record<AcademicCareer, string> = {
+  Undergraduate: 'UG',
+  'Postgraduate - Taught': 'PG-Taught',
+  'Postgraduate - Research': 'PG-Research',
+}
+
 /** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
 function shuffledCopy<T>(items: T[]): T[] {
   const copy = [...items]
@@ -754,11 +761,12 @@ export default function CourseSearch({
 
           {/* Course-level Day Filters — only show days with courses in current results */}
           <ChipFilterRow<WeekDay>
-            label="Filter by Days:"
+            label="Days:"
             analyticsKey="day"
             options={availableDays}
             getKey={(dayKey) => dayKey}
             getLabel={(dayKey) => dayKey}
+            getShortLabel={(dayKey) => dayKey.slice(0, 2)}
             isSelected={(dayKey) => selectedDays.has(DAYS[dayKey].index)}
             onToggle={(dayKey) => toggleDayFilter(DAYS[dayKey].index)}
             onClear={() => setSelectedDays(new Set())}
@@ -774,7 +782,7 @@ export default function CourseSearch({
 
           {/* Course-level Credit Filters — only show credit values present in current results */}
           <ChipFilterRow<number>
-            label="Filter by Credits:"
+            label="Credits:"
             analyticsKey="credits"
             options={availableCredits}
             getKey={(credits) => credits}
@@ -792,12 +800,13 @@ export default function CourseSearch({
 
           {/* Course-level Career Filters — defaults to Undergraduate; see selectedCareers */}
           <ChipFilterRow<AcademicCareer>
-            label="Filter by Level:"
+            label="Level:"
             analyticsKey="level"
             trackRemovals
             options={availableCareers}
             getKey={(career) => career}
             getLabel={(career) => career}
+            getShortLabel={(career) => CAREER_SHORT_LABEL[career]}
             isSelected={(career) => selectedCareers.has(career)}
             onToggle={(career) => toggleCareerFilter(career)}
             onClear={() => setSelectedCareers(new Set())}

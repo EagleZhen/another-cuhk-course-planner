@@ -6,6 +6,8 @@ interface ChipFilterRowProps<T> {
   options: T[]
   getKey: (value: T) => string | number
   getLabel: (value: T) => string
+  /** Shorter chip label shown on mobile (< sm); falls back to `getLabel` on wider screens. */
+  getShortLabel?: (value: T) => string
   isSelected: (value: T) => boolean
   onToggle: (value: T) => void
   onClear: () => void
@@ -28,6 +30,7 @@ export function ChipFilterRow<T>({
   options,
   getKey,
   getLabel,
+  getShortLabel,
   isSelected,
   onToggle,
   onClear,
@@ -63,7 +66,14 @@ export function ChipFilterRow<T>({
               className="h-6 px-2 text-xs font-normal border-1"
               title={toggleTitle?.(value, selected)}
             >
-              {getLabel(value)}
+              {getShortLabel ? (
+                <>
+                  <span className="sm:hidden">{getShortLabel(value)}</span>
+                  <span className="hidden sm:inline">{getLabel(value)}</span>
+                </>
+              ) : (
+                getLabel(value)
+              )}
             </Button>
           )
         })
