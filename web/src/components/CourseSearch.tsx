@@ -683,7 +683,7 @@ export default function CourseSearch({
       {/* Sticky Search Input with Term Filter Hint */}
       <div
         data-course-search-header
-        className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 pb-4 -mx-4 px-4 pt-4`}
+        className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 pb-2 sm:pb-4 -mx-4 px-4 pt-4`}
       >
         {/* Partial load warning */}
         {failedSubjectCount > 0 && (
@@ -831,24 +831,28 @@ export default function CourseSearch({
               }
             />
           </div>
-          <Button
-            type="button"
-            variant="ghost"
-            className="relative h-10 w-full text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 sm:hidden"
-            aria-controls="course-filter-panel"
-            aria-expanded={isMobileFilterPanelExpanded}
-            onClick={() => setIsMobileFilterPanelExpanded((expanded) => !expanded)}
-          >
-            <span>{isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}</span>
-            {!isMobileFilterPanelExpanded && activeHiddenFilterGroups > 0 && (
-              <span className="absolute right-10 flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
-                {activeHiddenFilterGroups}
-              </span>
-            )}
-            <ChevronDown
-              className={`absolute right-3 h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
-            />
-          </Button>
+          <div className="sm:hidden">
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="relative h-6 w-full rounded-md p-0 text-gray-500 hover:bg-gray-50 active:bg-gray-100"
+              aria-controls="course-filter-panel"
+              aria-expanded={isMobileFilterPanelExpanded}
+              aria-label={isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
+              title={isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
+              onClick={() => setIsMobileFilterPanelExpanded((expanded) => !expanded)}
+            >
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
+              />
+              {!isMobileFilterPanelExpanded && activeHiddenFilterGroups > 0 && (
+                <span className="absolute left-1/2 top-0 ml-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-blue-600 px-1 text-[10px] leading-none text-white">
+                  {activeHiddenFilterGroups}
+                </span>
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 
