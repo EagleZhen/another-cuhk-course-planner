@@ -719,6 +719,37 @@ export default function CourseSearch({
     return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
   })
 
+  // A compact summary of every active filter, shown as a wrapping pill row under the result count
+  // (also the only active-filter cue once the mobile filter panel is collapsed). Search stays inline
+  // in the count line; level appears only when it deviates from the default Undergraduate.
+  const filterPills: { key: string; label: string }[] = []
+  if (selectedSubjects.size > 0) {
+    filterPills.push({ key: 'subjects', label: selectedSubjectList.join(', ') })
+  }
+  if (selectedDays.size > 0) {
+    const days = Array.from(selectedDays)
+      .sort()
+      .map((dayIndex) => {
+        const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0]
+        return dayKey ?? `Day ${dayIndex}`
+      })
+      .join(', ')
+    filterPills.push({ key: 'days', label: days })
+  }
+  if (selectedCredits.size > 0) {
+    const credits = Array.from(selectedCredits)
+      .sort((a, b) => a - b)
+      .join(', ')
+    filterPills.push({ key: 'credits', label: `${credits} credits` })
+  }
+  if (selectedCareers.size !== 1 || !selectedCareers.has('Undergraduate')) {
+    const levels = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
+    filterPills.push({ key: 'level', label: levels.length > 0 ? levels.join(', ') : 'All levels' })
+  }
+  if (noConflictOnly) {
+    filterPills.push({ key: 'no-conflict', label: 'No conflicts' })
+  }
+
   return (
     <div className="space-y-4">
       {/* Sticky Search Input with Term Filter Hint */}
@@ -1098,27 +1129,6 @@ export default function CourseSearch({
                     <span className="font-medium"> of {displayResults.total} total</span>
                   )}
                   {searchTerm && ` matching "${searchTerm}"`}
-                  {/* Show day filtering status similar to subject filtering */}
-                  {selectedDays.size > 0 && (
-                    <>
-                      <span> filtered by </span>
-                      <span className="font-semibold text-blue-600">
-                        {Array.from(selectedDays)
-                          .sort()
-                          .map((dayIndex) => {
-                            const dayKey = Object.entries(DAYS).find(
-                              ([_, info]) => info.index === dayIndex
-                            )?.[0] as WeekDay
-                            return dayKey || `Day${dayIndex}`
-                          })
-                          .join(', ')}
-                      </span>
-                      <span>
-                        {' '}
-                        ({selectedDays.size} day{selectedDays.size !== 1 ? 's' : ''})
-                      </span>
-                    </>
-                  )}
                   {/* Add loading indicator as pill badge */}
                   {isFiltering && (
                     <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
@@ -1163,6 +1173,21 @@ export default function CourseSearch({
                 </Button>
               )}
             </div>
+
+            {/* Active-filter summary — wraps freely on its own line, clear of the shuffle button. */}
+            {filterPills.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5 mb-3 text-sm">
+                <span className="text-gray-500">Filtered by</span>
+                {filterPills.map((pill) => (
+                  <span
+                    key={pill.key}
+                    className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
+                  >
+                    {pill.label}
+                  </span>
+                ))}
+              </div>
+            )}
 
             {/* Show helpful message when results are limited */}
             {displayResults.isLimited && (
