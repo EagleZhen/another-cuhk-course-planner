@@ -62,6 +62,12 @@ export const analytics = {
     track('subject_toggled', { subject })
   },
 
+  // Track chip-filter usage (day / credits / level) → which catalog facets students narrow by
+  // Key questions: Which levels/credits/days matter? Are the defaults (e.g. UG level) right?
+  chipFilterToggled: (filter: string, value: string, action: 'add' | 'remove') => {
+    track('chip_filter_toggled', { filter, value, action })
+  },
+
   // === COURSE MANAGEMENT BEHAVIOR ===
 
   // Track course visibility toggles → reveals organization patterns

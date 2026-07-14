@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { analytics } from '@/lib/analytics'
 
 interface ChipFilterRowProps<T> {
   label: string
@@ -15,6 +16,8 @@ interface ChipFilterRowProps<T> {
   hasSelection: boolean
   /** Tooltip per chip; `selected` is its current state. */
   toggleTitle?: (value: T, selected: boolean) => string
+  /** When set, each toggle emits `chip_filter_toggled` under this filter name (value = chip label). */
+  analyticsKey?: string
 }
 
 /** A labelled row of multi-select filter chips with a Clear button — used for the day and credit filters. */
@@ -30,6 +33,7 @@ export function ChipFilterRow<T>({
   emptyText,
   hasSelection,
   toggleTitle,
+  analyticsKey,
 }: ChipFilterRowProps<T>) {
   return (
     <div className="flex items-center gap-2 flex-wrap mt-2">
@@ -43,7 +47,16 @@ export function ChipFilterRow<T>({
               key={getKey(value)}
               variant={selected ? 'default' : 'outline'}
               size="sm"
-              onClick={() => onToggle(value)}
+              onClick={() => {
+                if (analyticsKey) {
+                  analytics.chipFilterToggled(
+                    analyticsKey,
+                    getLabel(value),
+                    selected ? 'remove' : 'add'
+                  )
+                }
+                onToggle(value)
+              }}
               className="h-6 px-2 text-xs font-normal border-1"
               title={toggleTitle?.(value, selected)}
             >

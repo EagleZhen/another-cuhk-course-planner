@@ -755,6 +755,7 @@ export default function CourseSearch({
           {/* Course-level Day Filters — only show days with courses in current results */}
           <ChipFilterRow<WeekDay>
             label="Filter by Days:"
+            analyticsKey="day"
             options={availableDays}
             getKey={(dayKey) => dayKey}
             getLabel={(dayKey) => dayKey}
@@ -774,6 +775,7 @@ export default function CourseSearch({
           {/* Course-level Credit Filters — only show credit values present in current results */}
           <ChipFilterRow<number>
             label="Filter by Credits:"
+            analyticsKey="credits"
             options={availableCredits}
             getKey={(credits) => credits}
             getLabel={(credits) => String(credits)}
@@ -791,6 +793,7 @@ export default function CourseSearch({
           {/* Course-level Career Filters — defaults to Undergraduate; see selectedCareers */}
           <ChipFilterRow<AcademicCareer>
             label="Filter by Level:"
+            analyticsKey="level"
             options={availableCareers}
             getKey={(career) => career}
             getLabel={(career) => career}
