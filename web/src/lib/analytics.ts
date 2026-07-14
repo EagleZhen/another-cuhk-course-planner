@@ -30,8 +30,7 @@ export const analytics = {
 
   // Track enrollment → measures conversion from discovery to action (KEEP term for planning analysis)
   // Key decisions: Focus on discovery vs planning features? Which terms get enrollment activity?
-  // `no_conflict_active` records whether the no-conflict filter was shaping the visible list at add
-  // time — the outcome signal for whether that filter actually influences course choices.
+  // `no_conflict_active`: was the no-conflict filter shaping the list at add time — the outcome signal.
   courseAdded: (course: string, subject: string, termName: string, noConflictActive: boolean) => {
     track('course_added', { course, subject, term: termName, no_conflict_active: noConflictActive })
   },
@@ -70,9 +69,8 @@ export const analytics = {
     track('chip_filter_toggled', { filter, value, action })
   },
 
-  // Track the no-conflict filter → does it get used when it can actually help?
-  // Key question: is it enabled mid-planning (courses already in the cart) or on an empty timetable,
-  // where it's a no-op? `enrolled_count` is the visible, valid cart it actually filters against.
+  // Track the no-conflict filter → is it used when it can help, or toggled on an empty-cart no-op?
+  // `enrolled_count`: the active cart it filters against (0 = no-op).
   noConflictFilterToggled: (action: 'add' | 'remove', enrolledCount: number) => {
     track('no_conflict_filter_toggled', { action, enrolled_count: enrolledCount })
   },
