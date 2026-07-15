@@ -2,11 +2,13 @@
 """
 Generate web/src/lib/generated/subjects.ts from the scraped course data.
 
-subjects.ts is the single source of truth for subject data:
+Standalone regenerator for the subject manifest; publishing
+(scripts/publish_course_data.py) regenerates the same file from validated data.
+The scraped yearly data is authoritative and subjects.ts is a derived manifest:
 - SUBJECTS_BY_YEAR: which subjects each academic year offers (year -> codes)
 - SUBJECT_TITLES: code -> title, unioned across years (newest year wins on conflict)
 
-Run when the scraped subject set changes, then review the git diff and commit:
+Run to refresh the manifest on its own, then review the git diff and commit:
     uv run python scripts/generate_subjects.py
 """
 
