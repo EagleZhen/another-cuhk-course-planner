@@ -929,7 +929,7 @@ export default function CourseSearch({
               analyticsKey="level"
               options={availableLevels}
               getKey={(level) => level}
-              getLabel={(level) => `${level}xxx`}
+              getLabel={(level) => `${level}XXX`}
               getShortLabel={(level) => String(level)}
               isSelected={(level) => selectedLevels.has(level)}
               onToggle={(level) => toggleLevelFilter(level)}
