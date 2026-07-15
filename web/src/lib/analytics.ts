@@ -63,8 +63,9 @@ export const analytics = {
     track('subject_toggled', { subject })
   },
 
-  // Track chip-filter usage (day / credits / level) → which catalog facets students narrow by
-  // Key questions: Which levels/credits/days matter? Are the defaults (e.g. UG level) right?
+  // Track chip-filter usage (day / credits / level / career) → which catalog facets students narrow by.
+  // `level` = numeric course level (code's first digit); `career` = UG/PG. (Pre-#203, `level` carried career values, since split into `career`.)
+  // Key questions: which levels/credits/days matter? Is the default career (UG) right?
   chipFilterToggled: (filter: string, value: string, action: 'add' | 'remove') => {
     track('chip_filter_toggled', { filter, value, action })
   },

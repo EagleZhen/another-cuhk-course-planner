@@ -751,7 +751,7 @@ export default function CourseSearch({
   })
 
   // A compact summary of every active filter, shown as a wrapping pill row under the result count
-  // (also the only active-filter cue once the mobile filter panel is collapsed). Search stays inline
+  // (also the only active-filter cue once the filter panel is collapsed). Search stays inline
   // in the count line; career appears whenever its selection is non-empty.
   const filterPills: { key: string; label: string }[] = []
   if (selectedSubjects.size > 0) {
