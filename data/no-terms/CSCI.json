@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T09:09:28.818077+00:00",
+    "scraped_at": "2026-07-14T15:53:54.636068+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 18,
+    "total_courses": 16,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -255,56 +255,6 @@
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "1. Anthony A. Apodaca & Larry Gritz, “Advanced RenderMan: Creating CGI for Motion Pictures”, Morgan Kaufmann Publishers (2000)\n2. Steve Upstill, “The RenderMan Companion: A Programmer's Guide to Realistic Computer Graphics”, Addison Wesley, 1990.\n3. David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley, “Texturing & Modeling: A Procedural Approach”, Third Edition, Morgan Kaufmann, 2002.\n4. Randima Fernando, “GPU Gems: Programming Techniques, Tips and Tricks for Real-Time Graphics”, Addison Wesley, 2004.\n5. Matt Pharr & Randima Fernando, “GPU Gems 2: Programming Techniques for High-Performance Graphics and General-Purpose Computation”, Addison Wesley, 2005.\n6. Hubert Nguyen, “GPU Gems 3”, Addison Wesley, 2007.\nTo keep the course materials updated, part of the lecture materials will also be compiled from the web or from difference sources."
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5440",
-      "title": "Theory of Cryptography",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course provides an in-depth exploration of the theoretical foundation behind modern cryptography. A distinguishing feature of this course is its intentional focus on the connection between cryptography and other theoretical computer science areas, such as:\n\n• Quantum Computing: Analyze the dual role of cryptography in quantum computing, both as a catalyst for advancing quantum technology and as a crucial field for developing quantum-resistant security protocols.\n\n• Computational Complexity: Delve into how cryptographic challenges enrich computational complexity research, introducing concepts such as hardness amplification, average-case complexity, black-box separation, and more, highlighting cryptography's influence on computational theory.\n\n• Theory of Consensus Mechanisms: Explore how cryptography theories underpin consensus protocols like Byzantine Fault Tolerance (BFT) and Proof of Work (PoW), illustrating the critical role of cryptography in achieving reliable consensus in decentralized environments.",
-      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or\nArtificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Develop a thorough understanding of advanced cryptographic techniques and principles;\n2. Acquire the capability to comprehend and discuss new research papers on the frontier of cryptography, effectively communicating complex ideas to collaborators and peers; and\n3. Critically analyze and develop advanced cryptographic solutions that address challenges in related fields such as quantum computing, computational complexity, and blockchain technology.",
-      "course_syllabus": "The goal of this course is to help students establish a solid theoretical foundation of cryptography, while also acquainting them with its applications in the related fields mentioned previously. As a result, students will acquire the essential thinking models and technical skills required to succeed in those areas, whether they aim to pursue academic careers or opportunities in industry.\n\nTentative topics include:\nPseudo-randomness, seeded and seedless extractors, various notions of entropy, de-randomization\nObfuscation and connections with advanced encryptions (e.g., ABE, FH, FHE)\nInteractive proofs, zero-knowledge, witness indistinguishable/hiding protocols\nDelegation of computation\nSuccinct arguments and their non-interactive variants (SNARGs, SNARKs)\nSecret-sharing schemes and variants (verifiable SS, homomorphic SS)\nSecure Multi-Party Computation\nNon-malleability, non-malleable codes and extractors, split-state model\nConsensus protocols\nImpossibilities, black-box separation, average-case complexity, hardness amplification\nSelected topics on post-quantum and quantum cryptography\n\nWeek 1: Course overview, recap crypto basics: OWF/PRG/PRF/CRHF/Signature/MAC, Yao's XOR lemma, Goldreich-Levin, IND-CCA\nWeek 2: Obfuscation and variants (indistinguishable obf., compute-and-compare obf., point-function Obf.), connection with other advanced encryption tools (e.g., attribute-based encryption, functional encryption)\nWeek 3: Interactive proofs/arguments, Zero-knowledge protocols, simulation-based security, sequential and parallel repetition\nWeek 4: Randomness extractors, computational entropy, left-over hash lemma, Nisan-Wigderson PRG, de-randomization\nWeek 5: SNARG and SNARK I: overview, Kilian-Micali CS proofs, Fiat-Shamir transform, Gentry-Wichs impossibility, Sum-Check protocol, GKR protocol\nWeek 6: SNARG and SNARK II: batch arguments (BARGs), polynomial commitments, interactive oracle proofs, selected real-world systems (Bulletproof, Libra, Pinocchio, Ligero, Plonk, etc.)\nWeek 7: Lattice Cryptography I: shortest vector problems (SVP), short integer solution (SIS), Learning with Errors (LWE), signature/CRHF/PKE from LWE\nWeek 8: Lattice Cryptography II: lattice trapdoors, FHE, homomorphic commitments and signatures\nWeek 9: Black-box separation, average-case complexity, hardness amplification\nWeek 10: Byzantine agreement, fault-tolerance, consensus\nWeek 11: Secure Multi-Party Computation (MPC), garbled circuits, oblivious transfer, secret sharing, and more\nWeek 12: Non-malleable commitments/zero-knowledge, concurrent MPC, non-malleable codes, split-state model, two-source extractors\nWeek 13: Selected topics in quantum cryptography (e.g., quantum one-time pad, quantum key distribution, proof of quantumness, pseudorandom states)",
-      "assessment_types": {
-        "Homework or assignment": "50",
-        "Project": "50"
-      },
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "- A Course in Cryptography, by Rafael Pass and Abhi Shelat\n- Introduction to Modern Cryptography, by Jonathan Katz and Yehuda Lindell\n- Foundations of Cryptography I & II, by Oded Goldreich\n- Proofs, Arguments, and Zero-Knowledge, by Justin Thaler\n- How To Simulate It --- A Tutorial on the Simulation Proof Technique, by Yehuda Lindell\n- A Pragmatic Introduction to Secure Multi-Party Computation, by David Evans, Vladimir Kolesnikov, Mike Rosulek\n- A Decade of Lattice Cryptography, by Chris Peikert\n- Foundations of Distributed Consensus and Blockchains, by Elaine Shi\n- Theoretical Toys, by Xiao Liang"
-    },
-    {
-      "subject": "CSCI",
-      "course_code": "5610",
-      "title": "Advanced Data Structures",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course introduces advanced techniques for designing data structures with strong theoretical guarantees. Topics to be covered include (i) generic methods such as partial persistence, logarithmic rebuilding, weight balancing, filtering, independent sampling, bit twiddling, tabulating, etc., and (ii) specific structures such as the interval tree, the priority search tree, cuckoo hashing, the van Emde Boas structure, range min structures, locality sensitive hashing, the suffix tree, the count-min sketch, etc.\n\nAdvisory: Students are expected to have taken CSCI2100 or ESTR2102",
-      "enrollment_requirement": "For students in MSc Computer Science or Mphil - PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand the theory behind the techniques covered;\n2. Utilize those techniques to design new data structures for solving other related problems.",
-      "course_syllabus": "This course introduces advanced techniques for designing data structures with strong theoretical guarantees. Topics to be covered include (i) generic methods such as partial persistence, logarithmic rebuilding, weight balancing, filtering, independent sampling, bit twiddling, tabulating, etc., and (ii) specific structures such as the interval tree, the priority search tree, cuckoo hashing, the van Emde Boas structure, range min structures, locality sensitive hashing, the suffix tree, the count-min sketch, etc.",
-      "assessment_types": {
-        "Essay test or exam": "75",
-        "Homework or assignment": "25"
-      },
-      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "[1] Peter Brass: Advanced Data Structures. Cambridge University Press, 2008, ISBN-13: 978-0521880374.\n[2] Bernard Chazelle: Filtering Search: A New Approach to Query-Answering. SIAM J. Comput. 15(3): 703-724 (1986).\n[3] Bernard Chazelle: A Functional Approach to Data Structures and Its Use in Multidimensional Searching. SIAM J. Comput. 17(3): 427-462 (1988).\n[4] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein: Introduction to Algorithms, 3rd Edition, MIT Press, ISBN: 978-0-262-03384-8.\n[5] Graham Cormode, S. Muthukrishnan: An improved data stream summary: the count-min sketch and its applications. J. Algorithms 55(1): 58-75 (2005).\n[6] James R. Driscoll, Neil Sarnak, Daniel Dominic Sleator, Robert Endre Tarjan: Making Data Structures Persistent. J. Comput. Syst. Sci. 38(1): 86-124 (1989).\n[7] Jacob Holm, Kristian de Lichtenberg, Mikkel Thorup: Poly-logarithmic deterministic fully-dynamic algorithms for connectivity, minimum spanning tree, 2-edge, and biconnectivity. J. ACM 48(4): 723-760 (2001).\n[8] Piotr Indyk, Rajeev Motwani, Prabhakar Raghavan, Santosh Vempala:Locality-Preserving Hashing in Multidimensional Spaces. STOC 1997: 618-625.\n[9] Robert Krauthgamer, James R. Lee: Navigating nets: simple algorithms for proximity search. SODA 2004: 798-807.\nJürg Nievergelt, Edward M. Reingold: Binary Search Trees of Bounded Balance. SIAM J. Comput. 2(1): 33-43 (1973).\n[10] Mark H. Overmars: The Design of Dynamic Data Structures. Lecture Notes in Computer Science 156, Springer 1983, ISBN 3-540-12330-X.\n[11] Rasmus Pagh, Flemming Friche Rodler: Cuckoo hashing. J. Algorithms 51(2): 122-144 (2004)."
     },
     {
       "subject": "CSCI",

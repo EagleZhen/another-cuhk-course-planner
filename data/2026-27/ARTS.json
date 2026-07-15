@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T07:17:50.840554+00:00",
+    "scraped_at": "2026-07-14T13:57:27.143365+00:00",
     "subject": "ARTS",
     "subject_title": "Courses offered by Arts Fac",
-    "total_courses": 1,
+    "total_courses": 2,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -71,6 +71,87 @@
       "feedback_evaluation": "Students may raise questions or offer comments during class sessions, as well as via email or during individual office hours.\n\nAt the end of the course, students will be asked to complete Course Evaluations for both the lectures and tutorials for the course. Both the instructors and the Faculty value this information highly, as it allows us to understand what we are doing well and how we can improve. We use your feedback to revise our teaching methods and course content.",
       "required_readings": "Bender, et al., “On the Dangers of Stochastic Parrots,” Association for Computing Machinery FaccT, 2021.",
       "recommended_readings": "Inioluwa Deborah Raji, Elizabeth Kumar, Aaron Horowitz, Andrew Selbst, “The Fallacy of AI Functionality.” Association for Computing Machinery FaccT, 2022.\n\nVaswan, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, et al. 2017. “Attention Is All You Need.” In 31st Conference on Neural Information Processing Systems, edited by Ulrike von Luxburg, Isabelle Guyon, Samy Bengio, Hanna Wallach, and Rob Fergus, 6000-6010. New York: Curran Associates.\n\nOpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, et al. 2023. “GPT-4 Technical Report.” Preprint, submitted in 2023. https://arxiv.org/abs/2303.08774.\n\nNature Editorial. 2024. “Why Scientists Trust AI Too Much — And What To Do About It.” Nature 627.\n\nPublications on creativity from creative disciplines:\n\nBaron, Naomi. Who Wrote This? How AI and the Lure of Efficiency Threaten Human Writing. Stanford UP, 2023.\n\nChiang, Ted. 2023. “ChatGPT Is a Blurry JPEG of the Web.” The New Yorker, February 9, 2023.\n\nD’Erasmo, Stacy. The Long Run: A Creative Inquiry. Graywolf, 2024.\n\nMoss, Adam. The Work of Art: How Something Comes from Nothing. Penguin, 2024.\n\nAndrew Sullivan, “I used to be a human being,” New Yorker, September 2016."
+    },
+    {
+      "subject": "ARTS",
+      "course_code": "6002",
+      "title": "Advanced Studies in the Humanities",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9893)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Fung King Hey Bldg 101",
+                  "instructor": "Staff",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9720)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Fung King Hey Bldg 101",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Fung King Hey Bldg 101",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an opportunity for students to be exposed to current developments in specific areas of the Humanities. The topics vary according to the research expertise of the staff or visiting academics.\n\nCourse content and format is determined by the instructor(s).\n\nStudents are allowed to take the above course more than once and gain the units each time they pass the course. However, students cannot take courses with the same course code more than once in a single term.",
+      "enrollment_requirement": "For students in Research Postgraduate Programmes under Faculty of Arts",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Faculty Office of Arts (PG)",
+      "academic_org": "Faculty Office of Arts (PG)",
+      "learning_outcomes": "1. Acquire critical familiarity with the issues discussed.\n2. Analyze and critically interpret some significant primary texts in the Humanities chosen by the course instructor.",
+      "course_syllabus": "The syllabus and assessment type may vary according to the teaching staff and the topic selected. Please refer to the course outline for details.",
+      "assessment_types": {},
+      "feedback_evaluation": "To be provided by the instructor concerned.",
+      "required_readings": "To be provided by the instructor concerned. The reading list varies depending of the course teacher and the topics selected.",
+      "recommended_readings": "To be provided by the instructor concerned. The reading list varies depending of the course teacher and the topics selected."
     }
   ]
 }

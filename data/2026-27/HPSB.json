@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:08:55.903975+00:00",
+    "scraped_at": "2026-07-14T18:59:51.471066+00:00",
     "subject": "HPSB",
     "subject_title": "Master of Public Health",
-    "total_courses": 2,
+    "total_courses": 4,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -150,6 +150,119 @@
       "feedback_evaluation": "CTE",
       "required_readings": "Kotler P, Lee NR. Social marketing: influencing behaviors for good. 4th edition. Thousand Oaks, CA: Sage. 2011.",
       "recommended_readings": ""
+    },
+    {
+      "subject": "HPSB",
+      "course_code": "5003",
+      "title": "Health Promotion Programme Evaluation and Monitoring",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1210)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WANG Zixin",
+                  "dates": "19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to provide a practical course in the monitoring and evaluation of health promotion programmes. It describes the various methods of evaluation and the latest advances in this field.",
+      "enrollment_requirement": "For TPg student in: \n- Master of Public Health / Postgraduate Diploma in Public Health; - MSc/PgD in Epidemiology and Biostatistics; - MSc/PgD in Health Services Management; - MSc/PgD in Health Promotion and Behavioural Health programme.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to\n- Detail and apply the intervention mapping framework for the developing health promotion programmes\n- To come up with concrete, logistically-feasible, theory-based health interventions\n- Understand the components of health program planning and implementation",
+      "course_syllabus": "| An overview of program evaluation |\n| --- |\n| Evaluation designs |\n| Formative and process evaluation |\n| Outcome evaluation |\n| Impact evaluation |\n| Analysis and interpretation of program evaluation data |\n| Program Evaluation Case Study |",
+      "assessment_types": {
+        "Classwork": "5",
+        "Essays": "25",
+        "Essay test or exam": "70"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Please refer to the course outline provided by course teacher.",
+      "recommended_readings": "McKenzie, J, Neiger, B, Smeltzer, J. (2013) Planning, implementing and evaluating health promotion programs: A primer. 6th Edition. Pearson Education, Inc."
+    },
+    {
+      "subject": "HPSB",
+      "course_code": "5005",
+      "title": "Health Communications",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1205)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor DONG Dong, \nProfessor YEUNG Chun Yiu",
+                  "dates": "14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor DONG Dong, \nProfessor YEUNG Chun Yiu",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to integrate health promotion with the creation and development of health messages. The Course will cover the theories related to interpersonal and public health communications, principles and techniques for designing and disseminating effective health messages, plus class activities facilitating applications of the knowledge in real-life health settings.\n\n(pre-requisite: HSPB5001 or HSOC5001)",
+      "enrollment_requirement": "For TPg students under School of Public Health:\n- Master of Public Health / Postgraduate Diploma in Public Health;- MSc/PgD in Epidemiology and Biostatistics;- MSc/PgD in Health Services Management.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. Understand key communication theories that explain how people process health communication messages;\n2. Understand how to plan a health communication campaign;\n3. Develop health messages based on audience research.",
+      "course_syllabus": "| Introduction of the course Brief overview on Health Communication |\n| --- |\n| Interpersonal Health Communication (In-class exercise) |\n| Public Health Communication (In-class exercise) |\n| Health Literacy (In-class exercise) |\n| Exam (1.5 hours) |\n| Discussion of Group Project (1.5 hours) |\n| Planning and Development of Health Communication Strategies (In-class exercise) |\n| Use of media in health communication (In-class exercise) |\n| Group Project Presentation |",
+      "assessment_types": {
+        "Classwork": "20",
+        "Essay test or exam": "40",
+        "Project": "35",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Please refer to the course outline provided by course teacher.",
+      "recommended_readings": "1. Schiavo, R. (2014). *Health Communication: From Theory to Practice.* San Francisco, CA: Jossey-Bass.\n\nU.S. Department of Health & Human Services. (2004). *Making Health Communication Programs Work.* Bethesda, MD: National Cancer Institute. Retrieved from <http://www.cancer.gov/publications/health-communication/pink-book.pdf>"
     }
   ]
 }

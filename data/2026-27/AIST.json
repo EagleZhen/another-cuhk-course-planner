@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T06:57:01.019665+00:00",
+    "scraped_at": "2026-07-14T13:32:51.438917+00:00",
     "subject": "AIST",
     "subject_title": "AI: Systems & Tech",
-    "total_courses": 18,
+    "total_courses": 19,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -3187,6 +3187,66 @@
       "feedback_evaluation": "1) Email feedback\n2) Review meeting",
       "required_readings": "Literature review materials will be recommended by the project supervisor.",
       "recommended_readings": ""
+    },
+    {
+      "subject": "AIST",
+      "course_code": "5030",
+      "title": "Generative Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9718)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 2:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Weiyang",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 2:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Weiyang",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course aims at equipping students with an overview of latest generative AI (GenAI) technologies that generate various types of data, e.g., images, videos, audios, text, code, music and molecules, etc. that are profoundly impacting the industry and society. The course will provide a comprehensive understanding of the fundamental concepts and techniques behind GenAI, including generative models, probabilistic models, deep learning architectures, and self-supervised/unsupervised learning, etc. The advanced topics of large language models, conversational AI and mutli-modality generative AI will be further explored. Applications on speech and conversational data will be introduced to illustrate the concepts and techniques of GenAI. The ethical and social implications of GenAI will also be discussed in the course, so that students can critically analyze the impact of GenAI on society and propose ethical guidelines for its development and deployment. Ample opportunities will be provided to students to apply what they have learned in class through hands-on implementation and research paper on course projects. The course is suitable for students who have some background in machine learning, probability, statistics, and linear algebra .",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science and Engineering;Not for students who have taken SEEM5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "Upon completion of this course, students would be able to:\n\n* Acquire a solid understanding of the principles and concepts underlying GenAI technologies that are profoundly impacting the industry and society;\n* Develop a strong foundation in GenAI, with practical skills for implementing and applying generative models to various domains;\n* Develop an awareness of the ethical and social implications associated with GenAI. Students will be able to critically analyze issues such as bias, fairness, privacy, and the responsible deployment of generative models;\n* Gain practical experience in planning and delivering a group project based on latest technologies.",
+      "course_syllabus": "1 - Introduction to generative AI\n2 - Deep learning for generative AI (Transformer, self-supervised learning, contrastive learning)\n3 - Fundamentals of generative models (I) (Autoregressive models, seq2seq models)\n4 - Fundamentals of generative models (II) (VAEs, GANs)\n5 - Fundamentals of generative models (III) (Flow-based models, diffusion models)\n6 - Language models and prompt engineering\n7 - ChatGPT and conversational AI\n8 - Generative AI in expressive speech generation\n9 - Generative AI in audio generation and music composition\n10 - Generative AI in image and video generation\n11 - Ethical and socail implications of generative AI\n12 - Group presentation (I)\n13 - Group presentation (II)",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Presentation": "20",
+        "Project": "15",
+        "Report": "35"
+      },
+      "feedback_evaluation": "1. Result of homework and assignments.\n2. Course evaluation and questionnaire.\n3. Reflection of teachers.\n4. Question-and-answer sessions during class.\n5. Student consulation during office hours or online.",
+      "required_readings": "1. Aditya Grover and Stefano Ermon, (2018), Tutorial on Deep Generative Models, IJCAI-ECAI\n2. Jun-Yan Zhu, Taesung Park, Mihaela Rosca, Phillip Isola, and Ian Goodfellow, (2018), Tutorial on GANs. CVPR\n3. Shakir Mohamed and Danilo Rezende, (2017), Tutorial on Deep Generative Models. UAI",
+      "recommended_readings": "1. Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016), Deep Learning, MIT Press\n2. Jurafsky Daniel, Martin James, Norvig Peter, Russell Stuart (2014), Speech and Language Processing, Pearson\n3. Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin (2017), Attention Is All You Need, Advances in Neural Information Processing Systems\n4. Jacob Einstein (2019), Introduction to Natural Language Processing, MIT Press\n5. Long Ouyang, et al., (2022), Training language models to follow instructions with human feedback, Advances in Neural Information Processing Systems\n6. Yang Song et. al., (2021), Score-Based Generative Modeling through Stochastic Differential Equations, International Conference on Learning Representation"
     },
     {
       "subject": "AIST",

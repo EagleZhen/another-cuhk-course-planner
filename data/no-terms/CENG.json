@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T07:50:07.691644+00:00",
+    "scraped_at": "2026-07-14T14:30:09.648065+00:00",
     "subject": "CENG",
     "subject_title": "Computer Engineering",
-    "total_courses": 3,
+    "total_courses": 2,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -58,33 +58,6 @@
       "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Question-and-answer sessions during class\n3. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "1. Algorithms for VLSI Physical Design Automation, 3rd edition. Nareed Sherwani. Kluwer Academic Publishers, 1999."
-    },
-    {
-      "subject": "CENG",
-      "course_code": "5280",
-      "title": "Quantum Computer Systems",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course delves into topics in the design of quantum computer systems. We will begin by developing the mathematical foundations of quantum computation and information, followed by an in-depth exploration of powerful techniques in quantum application and architecture design. Students will gain hands-on experience using quantum computing software tools to write quantum programs. Key topics covered include quantum programming, quantum algorithms, quantum compilation, quantum memory, quantum error mitigation and correction.\n\nAdvisory: Students are expected to have taken CSCI2510 or CSCI3120 or equivalent.",
-      "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Div of Computer Science & Engg",
-      "academic_org": "Div of Computer Science & Engg",
-      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Synthesis and optimize the quantum circuit for the resource saving purpose.\n2. Compile quantum algorithms to hardware execution.\n3. Build their own quantum circuit via the quantum programming platforms and play on simulators.",
-      "course_syllabus": "Week 1: Math Basics of Quantum gates and circuits\nWeek 2: Introduction to the Quantum Noise\nWeek 3: Introduction to the Quantum Programming Language\nWeek 4: Introduction to the Quantum Algorithms\nWeek 5: Introduction to the Compilation of Quantum Computing\nWeek 6: Quiz I\nWeek 7: Advanced Quantum Compilation: Scheduling and Synthesis\nWeek 8: Special Topic in Quantum Compilation\nWeek 9: Closed and Open Quantum System Control\nWeek 10: Introduction to the Quantum Error Correction\nWeek 11: Quantum Teleportation and InterChip Distributed Quantum Computing\nWeek 12: Introduction to the Quantum Memory\nWeek 13: Presentation I",
-      "assessment_types": {
-        "Homework or assignment": "25",
-        "Presentation": "15",
-        "Project": "35",
-        "Test or quiz": "25"
-      },
-      "feedback_evaluation": "1. Test or quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
-      "required_readings": "To be provided by course teacher.",
-      "recommended_readings": "1. Quantum Computing Architecture and Hardware for Engineers, Hiu Yung Wong\n2. Quantum computer systems: Research for noisy intermediate-scale quantum computers, Yongshan Ding, Frederic T Chong"
     }
   ]
 }

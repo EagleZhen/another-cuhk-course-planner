@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:27:19.279652+00:00",
+    "scraped_at": "2026-07-14T19:21:10.159757+00:00",
     "subject": "IERG",
     "subject_title": "Information Engineering",
-    "total_courses": 60,
+    "total_courses": 59,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -5525,60 +5525,6 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
       "recommended_readings": "• Bommasani R. et al, On the Opportunities and Risks of Foundation Models, Stanford CRFM, HAI report (2021), https://crfm.stanford.edu/assets/report.pdf ; arxiv archive: https://arxiv.org/abs/2108.07258 ;\n• Bubeck S. et al, Sparks of Artificial General Intelligence: Early experiments with GPT-4 (2023). arXiv:2303.12712\n• OpenAI, GPT-4 Technical Report (2023). arXiv:2303.08774\n• OpenAI, GPT-4 System Card (2023). https://cdn.openai.com/papers/gpt-4-system-card.pdf\n• Samuel R. Bowman, (2023) Eight Things to Know about Large Language Models. arXiv:2304.00612\n• Rajbhandari S. et al, ZeRO: Memory Optimizations Toward Training Trillion Parameter Models (2020). arXiv:1910.02054.\n• Jared Kaplan et al, Scaling Laws for Neural Language Models (2020). arXiv:2001.08361\n• Tom Henighan et al, Scaling Laws for Autoregressive Generative Models (2020). arXiv:2010.14701\n• Brown, T.B., et al, (2020). Language Models are Few-Shot Learners. arXiv:2005.14165\n• Vaswani, A., et al, (2017). Attention is All You Need. arXiv:1706.03762\n• Jason Wei et al, Emergent Abilities of Large Language Models. arXiv:2206.07682\n• Sang Michael Xie et al, An Explanation of In-context Learning as Implicit Bayesiam Inference. arXiv:2111.02080\n• Sherry Yang et al, (2023) Foundation Models for Decision Making: Problems, Methods, and Opportunities. arXiv:2303.04129\n• Maithra Raghu, Matei Zaharia, Eric Schmidt, Does One Large Model Rule Them All ? - Prediction on the Future AI Ecosystem, April 2023, https://maithraraghu.com/blog/2023/does-one-model-rule-them-all/\n• Cregoire Mialon et al, (2023). Augmented Language Models: a Survey. https://arxiv.org/abs/2302.07842\n• Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.\n• Sutton, R.S., & Barto, A.G. (2018). Reinforcement Learning: An Introduction. MIT Press\n\nAdditional readings and resources will be provided throughout the course."
-    },
-    {
-      "subject": "IERG",
-      "course_code": "5130",
-      "title": "Probabilistic Models and Inference Algorithms for Machine Learning",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (1474)",
-              "meetings": [
-                {
-                  "time": "Tu 3:30PM - 6:15PM",
-                  "location": "Ho Sin-Hang Engg Bldg 801",
-                  "instructor": "Staff",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                }
-              ],
-              "availability": {
-                "capacity": "70",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "70",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "This course is a graduate level introduction to probabilistic models and inference algorithms, which constitute a common foundation for many methodologies in machine learning and related fields (e.g. computer vision, natural language processing, and data mining).\n\nThe course begins with a detailed exposition of probabilistic graphical models, then proceeds with various inference methods, including variational inference, belief propagation, and Markov Chain Monte Carlo (MCMC). In the second part of the course, we then discuss the connections between probabilistic models and risk minimization, as well as how optimization-based methods can be used in\nlarge-scale model estimation. Finally, the course will briefly discuss nonparametric models, e.g. Gaussian processes, and their use in practical applications.\n\nAdvisory: Basic knowledge on linear algebra, probability theory, optimization are required.",
-      "enrollment_requirement": "For all students in Engineering Faculty",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Understand the concepts of probabilistic graphical models\n2. Understand representative techniques for probabilistic inference (MCMC, Belief propagation and variational inference) as well as the theoretical justification of these methods.\n3. Devise graphical models for a given practical problem.\n4. Choose an appropriate technique to perform probabilistic inference given a model.\n5. Understand the challenges of Big Data, and can apply the techniques learned from the course to address some of these challenges.",
-      "course_syllabus": "This course is a graduate level introduction to probabilistic models and inference algorithms, which constitute a common foundation for many methodologies in machine learning and related fields (e.g. computer vision, natural language processing, and data mining).\n\nThe course begins with a detailed exposition of probabilistic graphical models, then proceeds with various inference methods, including variational inference, belief propagation, and Markov Chain Monte Carlo (MCMC). In the second part of the course, we then discuss the connections between probabilistic models and risk minimization, as well as how optimization-based methods can be used in large-scale model estimation. Finally, the course will briefly discuss nonparametric models, e.g. Gaussian processes, and their use in practical applications.\n\nThe course syllabus may be updated from year to year.",
-      "assessment_types": {
-        "Essays": "45",
-        "Others": "30",
-        "Presentation": "15",
-        "Short answer test or exam": "10"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
-      "required_readings": "Daphne Koller and Nir Friedman. “Probabilistic Graphical Models: Principles and Techniques.” The MIT Press, 2009.",
-      "recommended_readings": "Christopher M. Bishop. “Pattern Recognition and Machine Learning.” Springer, 2007."
     },
     {
       "subject": "IERG",
