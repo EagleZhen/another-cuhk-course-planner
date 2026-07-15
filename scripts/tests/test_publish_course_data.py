@@ -33,13 +33,15 @@ def _configure_publisher(tmp_path, monkeypatch, *, dry_run=False):
     return source_dir, published_dir, generated_dir
 
 
-def _write_course_file(source_dir, *, filename="AAAA.json", subject="AAAA"):
+def _write_course_file(
+    source_dir, *, filename="AAAA.json", subject="AAAA", subject_title="Subject A"
+):
     year_dir = source_dir / "2025-26"
     year_dir.mkdir(parents=True)
     data = {
         "metadata": {
             "subject": subject,
-            "subject_title": "Subject A",
+            "subject_title": subject_title,
             "total_courses": 1,
         },
         "courses": [
@@ -117,8 +119,42 @@ def test_publish_regenerates_changed_manifests(tmp_path, monkeypatch, capsys):
     assert (published_dir / "2025-26" / "AAAA.json").exists()
     output = capsys.readouterr().out
     assert "Subjects manifest changed" in output
+    assert "[2025-26] Added (1): AAAA" in output
     assert "Terms manifest changed" in output
     assert "Review the Git diff" in output
+
+
+def test_publish_reports_removed_subject_by_year(tmp_path, monkeypatch, capsys):
+    source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    (generated_dir / "subjects.ts").write_text(
+        render_subjects_module(
+            {"2025-26": ["AAAA", "BAMS"]},
+            {"AAAA": "Subject A", "BAMS": "Subject B"},
+        )
+    )
+    (generated_dir / "terms.ts").write_text(render_terms_module({"2025-26": ["2025-26 Term 1"]}))
+
+    publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert "[2025-26] Removed (1): BAMS" in output
+
+
+def test_publish_reports_changed_subject_titles(tmp_path, monkeypatch, capsys):
+    source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, subject_title="New title")
+    (generated_dir / "subjects.ts").write_text(
+        render_subjects_module({"2025-26": ["AAAA"]}, {"AAAA": "Old title"})
+    )
+    (generated_dir / "terms.ts").write_text(render_terms_module({"2025-26": ["2025-26 Term 1"]}))
+
+    publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert "Titles changed (1): AAAA" in output
+    assert "[2025-26] Added" not in output
+    assert "[2025-26] Removed" not in output
 
 
 def test_validation_failure_leaves_manifests_untouched(tmp_path, monkeypatch):
@@ -154,5 +190,6 @@ def test_dry_run_reports_manifest_changes_without_writing(tmp_path, monkeypatch,
     assert not published_dir.exists()
     output = capsys.readouterr().out
     assert "Subjects manifest changed" in output
+    assert "Details unavailable; review the generated diff." in output
     assert "Terms manifest changed" in output
     assert "Would publish: 1/1 files" in output

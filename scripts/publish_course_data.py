@@ -25,6 +25,7 @@ from zoneinfo import ZoneInfo
 from data_utils import (
     collect_subjects,
     collect_terms_by_year,
+    diff_subject_manifest,
     diff_term_names,
     render_subjects_module,
     render_terms_module,
@@ -446,9 +447,32 @@ def main():
             terms_by_year.update(collect_terms_by_year(year_path))
         new_terms_content = render_terms_module(terms_by_year)
 
-        _, subjects_changed = update_generated_file(SUBJECTS_FILE, new_subjects_content, dry_run)
+        old_subjects_content, subjects_changed = update_generated_file(
+            SUBJECTS_FILE, new_subjects_content, dry_run
+        )
         if subjects_changed:
             print("⚠️  Subjects manifest changed:")
+            subject_changes = diff_subject_manifest(old_subjects_content, new_subjects_content)
+            if subject_changes is None:
+                print("   Details unavailable; review the generated diff.")
+            else:
+                for year in sorted(subject_changes.by_year):
+                    year_changes = subject_changes.by_year[year]
+                    if year_changes.added:
+                        print(
+                            f"   [{year}] Added ({len(year_changes.added)}): "
+                            f"{', '.join(sorted(year_changes.added))}"
+                        )
+                    if year_changes.removed:
+                        print(
+                            f"   [{year}] Removed ({len(year_changes.removed)}): "
+                            f"{', '.join(sorted(year_changes.removed))}"
+                        )
+                if subject_changes.changed_titles:
+                    print(
+                        f"   Titles changed ({len(subject_changes.changed_titles)}): "
+                        f"{', '.join(sorted(subject_changes.changed_titles))}"
+                    )
             print(f"   Review the Git diff and commit {Path(SUBJECTS_FILE).as_posix()}.")
             print()
 
