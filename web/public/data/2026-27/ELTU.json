@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T10:21:25.537664+00:00",
+    "scraped_at": "2026-07-14T17:04:57.390102+00:00",
     "subject": "ELTU",
     "subject_title": "English Language Teaching Unit",
-    "total_courses": 41,
+    "total_courses": 42,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -22682,6 +22682,60 @@
         "Essays": "60",
         "Presentation": "35",
         "Participation": "5"
+      }
+    },
+    {
+      "subject": "ELTU",
+      "course_code": "5501",
+      "title": "Postgraduate Presentation Skills",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "CC01-CLW (9723)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Tsang Shiu Tim Bldg 312",
+                  "instructor": "Mr Dean William FISHER",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Tsang Shiu Tim Bldg 312",
+                  "instructor": "Mr Dean William FISHER",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for postgraduate students who want to upgrade their spoken English and presentation skills for academic purposes. Specifically, it focuses on developing effective communication skills for tutorials, proposals/protocols, seminars, conferences and oral defence. Students will be introduced to key concepts and strategies, such as audience-awareness, the power of summary, vocal advantage, and effective delivery of well-organized content materials using visual aids. Coursework consists of oral presentations and discussion of a wide variety of academic output.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Classwork\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "English Language Teaching Unit",
+      "academic_org": "English Language Teaching Unit",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n1. develop an ability to plan and organize ideas logically in a formal setting;\n2. develop an appreciation of the importance of English presentation skills;\n3. build confidence step by step in presenting academic outputs in formal settings;\n4. present the gist of a research study, thesis, or statement of purpose concisely;\n5. speak with clarity (in lay language) on their chosen area of special interest and adequately answer questions from at the audience;\n6. strike a balance between the audience, the speaker, and content; and\n\n7. self-evaluate and give feedback to peers on various presentations.",
+      "assessment_types": {
+        "Others": "70",
+        "Presentation": "30"
       }
     }
   ]

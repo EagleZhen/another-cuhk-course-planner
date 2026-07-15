@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T07:35:37.597212+00:00",
+    "scraped_at": "2026-07-14T14:15:45.909457+00:00",
     "subject": "BIOS",
     "subject_title": "Biostatistics",
-    "total_courses": 6,
+    "total_courses": 10,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -310,6 +310,55 @@
     },
     {
       "subject": "BIOS",
+      "course_code": "6001",
+      "title": "Topics in Linear Models",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1216)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai, \nProfessor CAO Lirong, \nProfessor WANG Haitian",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                }
+              ],
+              "availability": {
+                "capacity": "100",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "100",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover advanced statistical modeling techniques for use with complex datasets. Topics will include Poisson and Negative Binomial regression for count outcomes, repeated measures ANOVA, GEE models and multilevel models for longitudinal data, multilevel models for clustered data.",
+      "enrollment_requirement": "For students in MSc/PgD in Epidemiology and Biostatistics, MPhil in Public Health, PhD in Public Health, Master of Public Health, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Upon completion of this course students will understand the reasons that more complex statistical models need to be used for datasets for which the assumptions of linear or logistic regression are not valid, such as datasets with ordinal or count outcomes, longitudinal or clustered data, and data with non-linear associations between variables. They will understand which models should be used for each of these situations, how to fit and interpret these models, and how to check the assumptions of these models.\n\n課程結束後，學生們將理解在處理不滿足線性或logistic回歸前提假設的資料時，使用更多複雜的統計模型的必要性。這類資料包括二分類或分類變數、縱向資料或聚類資料，以及包含非線性相關變數的資料。學生將會懂得如何針對不同資料類型選擇不同的模型，如何對模型進行解釋及擬合度檢測，及怎樣對模型前提假設進行檢驗。",
+      "assessment_types": {
+        "Examination": "70",
+        "Homework or assignment": "15",
+        "Test or quiz": "15"
+      }
+    },
+    {
+      "subject": "BIOS",
       "course_code": "6002",
       "title": "Topics in Multivariate Analysis",
       "credits": "1.50",
@@ -355,6 +404,144 @@
         "Examination": "60",
         "Homework or assignment": "20",
         "Test or quiz": "20"
+      }
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6003",
+      "title": "Quantitative Methods for Medical Decision Making",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1186)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor WANG Kailu, \nProfessor WEI Yuchen, \nProfessor WU Yushan",
+                  "dates": "16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of this course is to provide students with a theoretical and practical knowledge of quantitative methods for medical decision-making. We will discuss the basic concepts of real-world evidence, health preferences research, infectious disease modelling methods, and health economics for informing decisions of health policy making. Practical sessions will be provided to equip students with technical skills for solving real-world questions.",
+      "enrollment_requirement": "For students in Master of Public Health and MSc Epidemiology and Biostatistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n\n1. apply common methods in analyzing real-world data.\n2. understand the concept of health preference research and apply the methods for preference elicitation\n3. interpret the common epidemic quantities and apply modelling skills for epidemic control.\n4. apply health economic methods for medical decision making",
+      "assessment_types": {}
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6005",
+      "title": "Pharmaceutical Bioinformatics",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1220)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor WANG Haitian, \nProfessor WANG Xin",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will provide a broad overview and introduction to bioinformatics and its applications in pharmaceutical industry. Topics will cover (1) basic bioinformatics methods: hierarchical clustering, lasso, random forest, LDA, PCA, boosting, bootstrapping, etc. (2) data sequencing and management: microarray data, GWAS data, the raw data treatment and analysis method, batch effect and normalization, parallel programming in R; (3) phylogenic analysis; (4) Chemobioinformatics modeling, 3D structure, chemical - protein relation leading to drug discovery.",
+      "enrollment_requirement": "Pre-requisites: BIOS5001, BIOS5002 \nFor students in MSc/PgD in Epidemiology and Biostatistics, MPhil/PhD/PgD in Public Health, Master of Public Heath, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "1. Understand the basic bioinformatics methods\n2. Know how to use the software of conducting bioinformatics analysis\n3. Know when to apply the methods under different scenarios and conduct exploratory research\n4. Interpret data analysis output, and use graphical representations",
+      "assessment_types": {}
+    },
+    {
+      "subject": "BIOS",
+      "course_code": "6006",
+      "title": "Artificial Intelligence Methods for Medical Research and Pharmaceutical Science",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1211)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr LEE Jock Wai, \nDr. LAI Xin, \nProfessor LAM Ching Yu, \nProfessor SUN Rui, \nProfessor WANG Haitian, \nProfessor WEI Yuchen",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is an advanced module for students who are interested to understand how various artificial intelligence approaches including machine-learning and deep-learning can be used on top of traditional biostatistics methods. It emphasizes on practical knowledge and skills needed for doing this kind of research leveraging on our experience and proprietary development of the Automatic Retinal Image Analysis (ARIA) and the Bioinformatics and Genomic research with significant machine-learning and deep-learning components. On top of sharing of the real life experience other important research areas in medical and pharmaceutical science would also be discussed.",
+      "enrollment_requirement": "-For students of Master of Public Health Programme\n-For students of Master of Science in Epidemiology and Biostatistics Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "By the end of this module, student are expected to be able to:\n1. Understand the strengths and weaknesses of artificial intelligence (AI) related methods including machine-learning and deep-learning approaches\n2. Able to formulate problems with advantages when using AI approaches in addition to traditional biostatistics methods\n3. Able to have hands-on experience using a cloud-based platform such as Azure to carry out some of the standard AI methods\n4. Students will be equipped with knowledge to critically appraise literature that apply AI methods in their analysis",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Presentation": "60"
       }
     }
   ]

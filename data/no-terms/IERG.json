@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:27:19.279652+00:00",
+    "scraped_at": "2026-07-14T19:21:10.159757+00:00",
     "subject": "IERG",
     "subject_title": "Information Engineering",
-    "total_courses": 16,
+    "total_courses": 17,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -208,6 +208,33 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
       "recommended_readings": "1. Introduction to Wireless Digital Communication: A Signal Processing Perspective by Robert Heath Jr. (2017)\n2. Wireless Communication Signals: A Laboratory-based Approach by Huseyin Arslan (2021)\n3. MIMO‐OFDM Wireless Communications with MATLAB by Yong Soo Cho et al. (2010)\n4. IEEE 802.11-2016. IEEE Standard for Information technology--Telecommunications and information exchange between systems Local and metropolitan area networks--Specific requirements - Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications\n5. Smart Wireless Sensing: From IoT to¬ AIoT by Zheng Yang et al. (2021)"
+    },
+    {
+      "subject": "IERG",
+      "course_code": "5130",
+      "title": "Probabilistic Models and Inference Algorithms for Machine Learning",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is a graduate level introduction to probabilistic models and inference algorithms, which constitute a common foundation for many methodologies in machine learning and related fields (e.g. computer vision, natural language processing, and data mining).\n\nThe course begins with a detailed exposition of probabilistic graphical models, then proceeds with various inference methods, including variational inference, belief propagation, and Markov Chain Monte Carlo (MCMC). In the second part of the course, we then discuss the connections between probabilistic models and risk minimization, as well as how optimization-based methods can be used in\nlarge-scale model estimation. Finally, the course will briefly discuss nonparametric models, e.g. Gaussian processes, and their use in practical applications.\n\nAdvisory: Basic knowledge on linear algebra, probability theory, optimization are required.",
+      "enrollment_requirement": "For all students in Engineering Faculty",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Understand the concepts of probabilistic graphical models\n2. Understand representative techniques for probabilistic inference (MCMC, Belief propagation and variational inference) as well as the theoretical justification of these methods.\n3. Devise graphical models for a given practical problem.\n4. Choose an appropriate technique to perform probabilistic inference given a model.\n5. Understand the challenges of Big Data, and can apply the techniques learned from the course to address some of these challenges.",
+      "course_syllabus": "This course is a graduate level introduction to probabilistic models and inference algorithms, which constitute a common foundation for many methodologies in machine learning and related fields (e.g. computer vision, natural language processing, and data mining).\n\nThe course begins with a detailed exposition of probabilistic graphical models, then proceeds with various inference methods, including variational inference, belief propagation, and Markov Chain Monte Carlo (MCMC). In the second part of the course, we then discuss the connections between probabilistic models and risk minimization, as well as how optimization-based methods can be used in large-scale model estimation. Finally, the course will briefly discuss nonparametric models, e.g. Gaussian processes, and their use in practical applications.\n\nThe course syllabus may be updated from year to year.",
+      "assessment_types": {
+        "Essays": "45",
+        "Others": "30",
+        "Presentation": "15",
+        "Short answer test or exam": "10"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "Daphne Koller and Nir Friedman. “Probabilistic Graphical Models: Principles and Techniques.” The MIT Press, 2009.",
+      "recommended_readings": "Christopher M. Bishop. “Pattern Recognition and Machine Learning.” Springer, 2007."
     },
     {
       "subject": "IERG",

@@ -1,12 +1,66 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:09:08.544426+00:00",
+    "scraped_at": "2026-07-14T19:00:08.337791+00:00",
     "subject": "HSOC",
     "subject_title": "Health Sociomedical Sciences",
-    "total_courses": 1,
+    "total_courses": 2,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
+    {
+      "subject": "HSOC",
+      "course_code": "5006",
+      "title": "Medical Sociology",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1209)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. CHENG Yeung Hung",
+                  "dates": "1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. CHENG Yeung Hung",
+                  "dates": "20/5, 27/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course provides an opportunity to students to understand issues of health care in society from sociological perspectives. Individuals are social beings who are subject to the influence of social forces and interpersonal relationships. Concerning health and illness, other than the pathological elements, the sick person is inevitably affected by a wide range of social variables and personal behaviour. The macroscopic and microscopic perspectives in understanding the issues of health and illness in context are important in the course of service delivery and policy making.",
+      "enrollment_requirement": "For TPg student in –\nMaster of Public Health\nMSc/PgD in Epidemiology and Biostatistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. analyse concepts and ideas about health and illness in context\n2. suggest effects of human agency, social groups and social institutions in shaping individuals' health and illness behaviour\n3. synthesize sociological perspectives in understanding issues of health and health care delivery in society",
+      "assessment_types": {
+        "Discussion": "20",
+        "Essay test or exam": "80"
+      }
+    },
     {
       "subject": "HSOC",
       "course_code": "5103",

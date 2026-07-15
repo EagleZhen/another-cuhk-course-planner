@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T09:09:28.818077+00:00",
+    "scraped_at": "2026-07-14T15:53:54.636068+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 50,
+    "total_courses": 55,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -7034,6 +7034,113 @@
     },
     {
       "subject": "CSCI",
+      "course_code": "5120",
+      "title": "Advanced Topics in Database Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9889)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHENG James",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will introduce to students advanced topics in database systems including advanced data structures, concurrency control, deadlock resolutions, recovery schemes, distributed database systems, multimedia database indexing techniques, and data mining, data on the web and network data analysis.\n\nAdvisory: Students are expected to have taken CSCI3170",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering; Exclusion: CMSC5705 and SEEM5010",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. learn about some advanced topics in database systems. They include some classical topics such as distributed database systems, concurrency control in transaction management, and data replication in a distributed environment, and some special datatypes such as multimedia databases, where indexing mechanisms are studied. We also cover important topics of data mining and data on the web. We would revise the content and include new important topics from time to time. We have added the study of massive network data, and introduced algorithms for handling and analysis of such data. We also have included the road network data querying which has become very useful in our daily life.\n2. study research papers related to the topics covered.\n3. summarize the major ideas from a study of a topic and give a presentation on the topic\n4. possibly come up with innovative ideas and touch on the research of related topics.",
+      "course_syllabus": "This course will introduce to students advanced topics in database systems including advanced data structures, concurrency control, deadlock resolutions, recovery schemes, distributed database systems, multimedia database indexing techniques, and data mining, data on the web and network data analysis.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "40",
+        "Others": "20",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. R. Agrawal, R. Srikant, Fast Algorithms for Mining Association Rules, Proceedings of the 20th VLDB Conference, 1994. (ps) (pdf)\n2. J. Han, J. Pei, Y. Yin, Mining Frequent Patterns without Candidate Generation, SIGMOD 2000.\n3. R. Agrawal, J. Gehrke, D. Gunopulos, P Raghavan, Automatic Subspace Clustering of High Dimensional Data for Data Mining Applications , Proceedings of the ACM SIGMOD, 1998\n4. T. Chiueh, Content-Based Image Indexing VLDB 1994. (Skip Section 3.2 on Optimization)\n5. Guttman, R-tree: A Dynamic Index Structure for Spatial Searching ACM SIGMOD, 1984.\n6. N. Roussopoulos et al, Nearest Neighbor Queries, ACM SIGMOD, 1995.\n7. K. Mehlhor et al., External-Memory Breadth-First Search with Sublinear I/O ? ESA 2002.\n8. K. Munagala et al., I/O Complexities of Graph Algorithms SODA 1999.\n9. S. Chu et al., Triangle Listing in Massive Networks and Its Applications KDD 2011.\n10. J. Cheng et al., Efficient Core Decomposition in Massive Networks ICDE 2011.\n11. S. J. van Schaik et al., A Memory Efficient Reachability Data Structure Through Bit Vector Compression SIGMOD 2011.\n12. Abraham et al., A Hub-Based Labeling Algorithm for Shortest Paths on Road Networks SEA 2011.\n13. Abraham et al., VC-Dimension and Shortest Path Algorithms ICALP 2011.\n14. A.V. Goldberg et al., Computing the Shortest Path: A∗ Search Meets Graph Theory SODA 2005.\n15. R. Geisberger et al., Contraction Hierarchies: Faster and Simpler Hierarchical Routing in Road Networks WEA 2008.\n16. A.V. Goldberg et al., Reach for A∗: Efficient Point-to-Point Shortest Path Algorithms ALENEX 2006.\n17. E. Cohen et al., Reachability and distance queries via 2-hop labels SODA 2002.\n18. I. Abraham et al., Highway Dimension, Shortest Paths, and Provably Efficient Algorithms SODA 2010"
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5150",
+      "title": "Machine Learning Algorithms and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9888)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces a dozen of machine learning algorithms and typical applications in business intelligence, natural language processing, computer vision, and sensor-based data analyses, including four topics that consist of (1) supervised learning algorithms induced by structural risk minimization for classification and regression problems (decision trees, logistic regression, support vector machines, regularized linear regression, kernel machines, etc.), and their applications in sensor-based indoor localization, business intelligence; (2) supervised learning algorithms based on deep learning (CNN, RNN, etc.), and their applications to natural language processing and computer vision; (3) unsupervised learning algorithms for clustering and representation learning (K-means, spectral clustering, autoencoder, etc.); (4) introductions of other learning algorithms and applications, such as transfer learning, recommender systems, sensor-based activity recognition, etc.",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering;Exclusion: FTEC5580",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Apply appropriate machine learning algorithms to solve specific real-world applications.\n2. Revise or design new machine learning algorithms based on specific requirements.",
+      "course_syllabus": "Week 1: Introduction of machine learning and supervised learning algorithms induced by structural risk minimization I\nWeek 2: Introduction of machine learning and supervised learning algorithms induced by structural risk minimization II\nWeek 3: Introduction of machine learning and supervised learning algorithms induced by structural risk minimization III\nWeek 4: Introduction of machine learning and supervised learning algorithms induced by structural risk minimization IV\nWeek 5: Supervised learning algorithms based on deep learning I\nWeek 6: Supervised learning algorithms based on deep learning II\nWeek 7: Supervised learning algorithms based on deep learning III\nWeek 8: Supervised learning algorithms based on deep learning IV\nWeek 9: Unsupervised learning algorithms I\nWeek 10: Unsupervised learning algorithms II\nWeek 11: Unsupervised learning algorithms III\nWeek 12: Other topics I\nWeek 13: Other topics II",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Presentation": "10",
+        "Project": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Introduction to Machine Learning (2nd Ed.), by EthemAlpaydin, The MIT Press, 2010.\n2. Introduction to Data Mining, by Pang-Ning Tan, Michael Steinbach, and Vipin Kumar, Addison Wesley, 2005.\n3. Deep Learning, by Ian Goodfellow, Yoshua Bengio, and Aaron Courville, The MIT Press, 2016. https://www.deeplearningbook.org/\n4. Learning with Kernel, by Bernhard Scholkopfand and Alex Smola, The MIT Press, 2002."
+    },
+    {
+      "subject": "CSCI",
       "course_code": "5210",
       "title": "Advanced Computer Graphics and Visualization",
       "credits": "3.00",
@@ -7046,19 +7153,19 @@
               "section": "--LEC (2540)",
               "meetings": [
                 {
-                  "time": "Fr 10:30AM - 12:15PM",
+                  "time": "Fr 10:30AM - 1:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "15/1, 22/1, 29/1"
                 },
                 {
-                  "time": "Fr 10:30AM - 12:15PM",
+                  "time": "Fr 10:30AM - 1:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
                 },
                 {
-                  "time": "Fr 10:30AM - 12:15PM",
+                  "time": "Fr 10:30AM - 1:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "2/4, 9/4, 16/4, 23/4"
@@ -7078,19 +7185,19 @@
               "section": "-T01-TUT (2541)",
               "meetings": [
                 {
-                  "time": "Fr 12:30PM - 1:15PM",
+                  "time": "Fr 1:30PM - 2:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "15/1, 22/1, 29/1"
                 },
                 {
-                  "time": "Fr 12:30PM - 1:15PM",
+                  "time": "Fr 1:30PM - 2:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
                 },
                 {
-                  "time": "Fr 12:30PM - 1:15PM",
+                  "time": "Fr 1:30PM - 2:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "2/4, 9/4, 16/4, 23/4"
@@ -7124,6 +7231,122 @@
       "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Reflection of teachers\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "1. Radiosity and Global Illumination, By Francois X. Sillion and Claude Puech, Morgan Kaufmann, 1994.\n2. Realistic Ray Tracing, By Peter Shirley, A K Peters, 2000."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5350",
+      "title": "Advanced Topics in Game Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9715)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Hanrui",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Hanrui",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers fundamental concepts in game theory. The course starts with pure strategy and mixed strategy Nash equilibrium in strategic games. It then discusses some specific types of games, including zero-sum games, Bayesian games, and introduces other types of equilibriums including correlated equilibrium and evolutionary equilibrium. Extensive games, subgame perfect equilibrium, sequential equilibrium, framing effects, behavioural strategies will then be discussed. Finally, coalitional games and the core will be discussed.\nAdvisory: Students are expected to have taken CSCI2110 or ENGG2440 or ESTR2004, ENGG2040 or ENGG2430 or ESTR2002.",
+      "enrollment_requirement": "For students in MSc Computer Science or MPhil-PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering;Exclusion: CMSC5728",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Discussion\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand pure strategy and mixed strategy Nash equilibrium in strategic games;\n2. understand zero-sum games, Bayesian games, correlated equilibrium and evolutionary equilibrium;\n3. understand extensive games, subgame perfect equilibrium;\n4. understand sequential equilibrium, framing effects, behavioural strategies, perfect Bayesian equilibrium and trembling hand perfect equilibrium.\n5. understand coalitional games and the core.",
+      "course_syllabus": "This course covers fundamental concepts in game theory. The course starts with pure strategy and mixed strategy Nash equilibrium in strategic games. It then discusses some specific types of games, including zero-sum games, Bayesian games, and introduces other types of equilibriums including correlated equilibrium and evolutionary equilibrium. Extensive games, subgame perfect equilibrium, sequential equilibrium, framing effects, behavioural strategies will then be discussed. Finally, coalitional games and the core will be discussed.",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "45"
+      },
+      "feedback_evaluation": "1. Examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "1. Osborne and Rubinstein, A Course in Game Theory. The MIT Press, 1994.\n2. Osborne, An Introduction to Game Theory. Oxford University Press, 2003."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5440",
+      "title": "Theory of Cryptography",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9716)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an in-depth exploration of the theoretical foundation behind modern cryptography. A distinguishing feature of this course is its intentional focus on the connection between cryptography and other theoretical computer science areas, such as:\n\n• Quantum Computing: Analyze the dual role of cryptography in quantum computing, both as a catalyst for advancing quantum technology and as a crucial field for developing quantum-resistant security protocols.\n\n• Computational Complexity: Delve into how cryptographic challenges enrich computational complexity research, introducing concepts such as hardness amplification, average-case complexity, black-box separation, and more, highlighting cryptography's influence on computational theory.\n\n• Theory of Consensus Mechanisms: Explore how cryptography theories underpin consensus protocols like Byzantine Fault Tolerance (BFT) and Proof of Work (PoW), illustrating the critical role of cryptography in achieving reliable consensus in decentralized environments.",
+      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or\nArtificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Develop a thorough understanding of advanced cryptographic techniques and principles;\n2. Acquire the capability to comprehend and discuss new research papers on the frontier of cryptography, effectively communicating complex ideas to collaborators and peers; and\n3. Critically analyze and develop advanced cryptographic solutions that address challenges in related fields such as quantum computing, computational complexity, and blockchain technology.",
+      "course_syllabus": "The goal of this course is to help students establish a solid theoretical foundation of cryptography, while also acquainting them with its applications in the related fields mentioned previously. As a result, students will acquire the essential thinking models and technical skills required to succeed in those areas, whether they aim to pursue academic careers or opportunities in industry.\n\nTentative topics include:\nPseudo-randomness, seeded and seedless extractors, various notions of entropy, de-randomization\nObfuscation and connections with advanced encryptions (e.g., ABE, FH, FHE)\nInteractive proofs, zero-knowledge, witness indistinguishable/hiding protocols\nDelegation of computation\nSuccinct arguments and their non-interactive variants (SNARGs, SNARKs)\nSecret-sharing schemes and variants (verifiable SS, homomorphic SS)\nSecure Multi-Party Computation\nNon-malleability, non-malleable codes and extractors, split-state model\nConsensus protocols\nImpossibilities, black-box separation, average-case complexity, hardness amplification\nSelected topics on post-quantum and quantum cryptography\n\nWeek 1: Course overview, recap crypto basics: OWF/PRG/PRF/CRHF/Signature/MAC, Yao's XOR lemma, Goldreich-Levin, IND-CCA\nWeek 2: Obfuscation and variants (indistinguishable obf., compute-and-compare obf., point-function Obf.), connection with other advanced encryption tools (e.g., attribute-based encryption, functional encryption)\nWeek 3: Interactive proofs/arguments, Zero-knowledge protocols, simulation-based security, sequential and parallel repetition\nWeek 4: Randomness extractors, computational entropy, left-over hash lemma, Nisan-Wigderson PRG, de-randomization\nWeek 5: SNARG and SNARK I: overview, Kilian-Micali CS proofs, Fiat-Shamir transform, Gentry-Wichs impossibility, Sum-Check protocol, GKR protocol\nWeek 6: SNARG and SNARK II: batch arguments (BARGs), polynomial commitments, interactive oracle proofs, selected real-world systems (Bulletproof, Libra, Pinocchio, Ligero, Plonk, etc.)\nWeek 7: Lattice Cryptography I: shortest vector problems (SVP), short integer solution (SIS), Learning with Errors (LWE), signature/CRHF/PKE from LWE\nWeek 8: Lattice Cryptography II: lattice trapdoors, FHE, homomorphic commitments and signatures\nWeek 9: Black-box separation, average-case complexity, hardness amplification\nWeek 10: Byzantine agreement, fault-tolerance, consensus\nWeek 11: Secure Multi-Party Computation (MPC), garbled circuits, oblivious transfer, secret sharing, and more\nWeek 12: Non-malleable commitments/zero-knowledge, concurrent MPC, non-malleable codes, split-state model, two-source extractors\nWeek 13: Selected topics in quantum cryptography (e.g., quantum one-time pad, quantum key distribution, proof of quantumness, pseudorandom states)",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Project": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "- A Course in Cryptography, by Rafael Pass and Abhi Shelat\n- Introduction to Modern Cryptography, by Jonathan Katz and Yehuda Lindell\n- Foundations of Cryptography I & II, by Oded Goldreich\n- Proofs, Arguments, and Zero-Knowledge, by Justin Thaler\n- How To Simulate It --- A Tutorial on the Simulation Proof Technique, by Yehuda Lindell\n- A Pragmatic Introduction to Secure Multi-Party Computation, by David Evans, Vladimir Kolesnikov, Mike Rosulek\n- A Decade of Lattice Cryptography, by Chris Peikert\n- Foundations of Distributed Consensus and Blockchains, by Elaine Shi\n- Theoretical Toys, by Xiao Liang"
     },
     {
       "subject": "CSCI",
@@ -7208,6 +7431,70 @@
       "feedback_evaluation": "* Homework, and project\n* Course evaluation and questionnaire\n* Question-and-answer sessions during class\n* Student consultation during office hours and online",
       "required_readings": "* Duan, Jiangfei, et al. \"Efficient Training of Large Language Models on Distributed Infrastructures: A Survey.\" \\*arXiv preprint arXiv:2407.20018\\* (2024).\n* Kwon, Woosuk, et al. \"Efficient memory management for large language model serving with pagedattention.\" \\*Proceedings of the 29th Symposium on Operating Systems Principles\\*. 2023.\n* Narayanan, Deepak, et al. \"PipeDream: Generalized pipeline parallelism for DNN training\". \\*Proceedings of the 27th ACM symposium on operating systems principles\\*. 2019.\n* Chen, Tianqi, et al. \"{TVM}: An automated {End-to-End} optimizing compiler for deep learning\" \\*13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)\\*. 2018.",
       "recommended_readings": "* Machine Learning Systems: Design and Implementation, https://openmlsys.github.io/\n* Machine Learning Systems, [https://mlsysbook.ai/](https://mlsysbook.ai/)\n* Pouyanfar, Samira, et al. \"A survey on deep learning: Algorithms, techniques, and applications.\" \\*ACM computing surveys (CSUR)\\* 51.5 (2018): 1-36.\n* Paszke, Adam, et al. \"Pytorch: An imperative style, high-performance deep learning library.\" \\*Advances in neural information processing systems\\* 32 (2019).\n* Abadi, Martín, et al. \"{TensorFlow}: a system for {Large-Scale} machine learning.\" \\*12th USENIX symposium on operating systems design and implementation (OSDI 16)\\*. 2016.\n* Sergeev, Alexander, and Mike Del Balso. \"Horovod: fast and easy distributed deep learning in TensorFlow.\" \\*arXiv preprint arXiv:1802.05799\\* (2018)\n* Rasley, Jeff, et al. \"Deepspeed: System optimizations enable training deep learning models with over 100 billion parameters.\" \\*Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining\\*. 2020\n* Peng, Yanghua, et al. \"A generic communication scheduler for distributed DNN training acceleration.\" \\*Proceedings of the 27th ACM Symposium on Operating Systems Principles\\*. 2019.\n* Huang, Yanping, et al. \"Gpipe: Efficient training of giant neural networks using pipeline parallelism.\" \\*Advances in neural information processing systems\\* 32 (2019).\n* Xiao, Wencong, et al. \"Gandiva: Introspective cluster scheduling for deep learning.\" \\*13th USENIX Symposium on Operating Systems Design and Implementation (OSDI 18)\\*. 2018.\n* Dao, Tri, et al. \"Flashattention: Fast and memory-efficient exact attention with io-awareness.\" \\*Advances in Neural Information Processing Systems\\* 35 (2022): 16344-16359\n* Ren, Jie, et al. \"{Zero-offload}: Democratizing {billion-scale} model training.\" \\*2021 USENIX Annual Technical Conference (USENIX ATC 21)\\*. 2021\n* Fang, Jiarui, and Shangchun Zhao. \"A Unified Sequence Parallelism Approach for Long Context Generative AI.\" \\*arXiv preprint arXiv:2405.07719\\* (2024)\n* Gu, Diandian, et al. \"Loongtrain: Efficient training of long-sequence llms with head-context parallelism.\" \\*arXiv preprint arXiv:2406.18485\\* (2024)\n* Zhong, Yinmin, et al. \"{DistServe}: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving.\" \\*18th USENIX Symposium on Operating Systems Design and Implementation (OSDI 24)\\*. 2024."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5610",
+      "title": "Advanced Data Structures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9717)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces advanced techniques for designing data structures with strong theoretical guarantees. Topics to be covered include (i) generic methods such as partial persistence, logarithmic rebuilding, weight balancing, filtering, independent sampling, bit twiddling, tabulating, etc., and (ii) specific structures such as the interval tree, the priority search tree, cuckoo hashing, the van Emde Boas structure, range min structures, locality sensitive hashing, the suffix tree, the count-min sketch, etc.\n\nAdvisory: Students are expected to have taken CSCI2100 or ESTR2102",
+      "enrollment_requirement": "For students in MSc Computer Science or Mphil - PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand the theory behind the techniques covered;\n2. Utilize those techniques to design new data structures for solving other related problems.",
+      "course_syllabus": "This course introduces advanced techniques for designing data structures with strong theoretical guarantees. Topics to be covered include (i) generic methods such as partial persistence, logarithmic rebuilding, weight balancing, filtering, independent sampling, bit twiddling, tabulating, etc., and (ii) specific structures such as the interval tree, the priority search tree, cuckoo hashing, the van Emde Boas structure, range min structures, locality sensitive hashing, the suffix tree, the count-min sketch, etc.",
+      "assessment_types": {
+        "Essay test or exam": "75",
+        "Homework or assignment": "25"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "[1] Peter Brass: Advanced Data Structures. Cambridge University Press, 2008, ISBN-13: 978-0521880374.\n[2] Bernard Chazelle: Filtering Search: A New Approach to Query-Answering. SIAM J. Comput. 15(3): 703-724 (1986).\n[3] Bernard Chazelle: A Functional Approach to Data Structures and Its Use in Multidimensional Searching. SIAM J. Comput. 17(3): 427-462 (1988).\n[4] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein: Introduction to Algorithms, 3rd Edition, MIT Press, ISBN: 978-0-262-03384-8.\n[5] Graham Cormode, S. Muthukrishnan: An improved data stream summary: the count-min sketch and its applications. J. Algorithms 55(1): 58-75 (2005).\n[6] James R. Driscoll, Neil Sarnak, Daniel Dominic Sleator, Robert Endre Tarjan: Making Data Structures Persistent. J. Comput. Syst. Sci. 38(1): 86-124 (1989).\n[7] Jacob Holm, Kristian de Lichtenberg, Mikkel Thorup: Poly-logarithmic deterministic fully-dynamic algorithms for connectivity, minimum spanning tree, 2-edge, and biconnectivity. J. ACM 48(4): 723-760 (2001).\n[8] Piotr Indyk, Rajeev Motwani, Prabhakar Raghavan, Santosh Vempala:Locality-Preserving Hashing in Multidimensional Spaces. STOC 1997: 618-625.\n[9] Robert Krauthgamer, James R. Lee: Navigating nets: simple algorithms for proximity search. SODA 2004: 798-807.\nJürg Nievergelt, Edward M. Reingold: Binary Search Trees of Bounded Balance. SIAM J. Comput. 2(1): 33-43 (1973).\n[10] Mark H. Overmars: The Design of Dynamic Data Structures. Lecture Notes in Computer Science 156, Springer 1983, ISBN 3-540-12330-X.\n[11] Rasmus Pagh, Flemming Friche Rodler: Cuckoo hashing. J. Algorithms 51(2): 122-144 (2004)."
     },
     {
       "subject": "CSCI",
@@ -7477,10 +7764,10 @@
               ],
               "availability": {
                 "capacity": "350",
-                "enrolled": "325",
+                "enrolled": "324",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7503,10 +7790,10 @@
               ],
               "availability": {
                 "capacity": "350",
-                "enrolled": "330",
+                "enrolled": "329",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -10608,10 +10895,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "3",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11254,10 +11541,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "3",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"

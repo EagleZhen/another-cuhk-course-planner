@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T09:22:42.693397+00:00",
+    "scraped_at": "2026-07-14T16:07:51.674912+00:00",
     "subject": "DBAC",
     "subject_title": "DBA (Chinese) Programme",
-    "total_courses": 10,
+    "total_courses": 12,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -239,6 +239,50 @@
               "class_attributes": "PTH, change to Eng if needed"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "LS01-SEM (1157)",
+              "meetings": [
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "14/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "12/3"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "13/3"
+                },
+                {
+                  "time": "Th 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "11/3"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            }
+          ]
         }
       ],
       "description": "This course provides surveys on frontier applied business management research issues in various fields of business management. The course will cover relevant topics in selected economics and business disciplines such as Accounting, Finance and Managerial Economics.",
@@ -314,6 +358,172 @@
       "academic_group": "Div of Business Administration",
       "academic_org": "Div of Business Administration",
       "learning_outcomes": "Students should be able to gain insights on various aspects of applied business management issues related to management, marketing, operations, technology and innovation. Students should be able to understand relevant concepts for their doctoral thesis proposal writing.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "DBAC",
+      "course_code": "7106",
+      "title": "Workshop for Thesis Proposal",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "LAW1-WKS (1222)",
+              "meetings": [
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            },
+            {
+              "section": "LBW1-WKS (1195)",
+              "meetings": [
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            },
+            {
+              "section": "LW01-WKS (1223)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "23/4"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor YANG Haibin",
+                  "dates": "24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to help students with their preparation for DBA thesis proposals. Through a research workshop-style learning process that includes presentation and interaction between participating students and teachers, students are expected to gain valuable insights and guidance that will lead to the enhanced development of their DBA thesis proposals.",
+      "enrollment_requirement": "For students in DBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Workshop",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students are expected to gain valuable insights and guidance that will lead to the enhanced development of their DBA thesis proposals.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "DBAC",
+      "course_code": "7116",
+      "title": "Fintech and Transformation of Financial Services",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "L-LEC (1158)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "4/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "5/3"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "7/3"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "6/3"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an introduction to FinTech such as blockchain, alternative lending, machine learning, and robo-advising. Students are expected to develop a broad understanding of the recent FinTech development and its impact in the financial industries. Students will also have hands-on and problem solving experiences that can be useful in FinTech applications and innovation. Topics may include but are not limited to: blockchain, bitcoins, smart contracts, decentralized applications, markets for smart contracts, alternative and P2P lending and crowdfunding, machine learning and its applications in FinTech such as robo-advising, AI and quantitative trading, legal issues in FinTech.",
+      "enrollment_requirement": "For students in DBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students will be able to:\n1. have a broad understanding of the recent FinTech development;\n2. have hands-on and problem solving experiences on FinTech applications and innovation.",
       "assessment_types": {}
     },
     {
@@ -664,6 +874,72 @@
                   "location": "No Room Required",
                   "instructor": "Staff",
                   "dates": "07/12/2026 - 01/03/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "LAM1-TMC (1110)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            },
+            {
+              "section": "LBM1-TMC (1111)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed"
+            },
+            {
+              "section": "LM01-TMC (1193)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
                 }
               ],
               "availability": {

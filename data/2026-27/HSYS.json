@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:10:28.899193+00:00",
+    "scraped_at": "2026-07-14T19:02:44.427699+00:00",
     "subject": "HSYS",
     "subject_title": "Health Systems",
-    "total_courses": 15,
+    "total_courses": 24,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -186,6 +186,65 @@
     },
     {
       "subject": "HSYS",
+      "course_code": "5002",
+      "title": "Healthcare Organisation and Management",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1207)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "20/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to equip students with a broad base of knowledge and concepts in health services management, as well as to develop their competency in applying the knowledge and learning to appraise day-to-day management and operational problems in healthcare organisations. Basic financial management concept is also introduced in the course. The course emphasizes on learning through reflection and practical application of key concepts in organisation and management supported by real case examples. This course is designed to meet most of the Basic Specialist Training and Part I Examination curriculum in Administrative Medicine of the HK College of Community Medicine.",
+      "enrollment_requirement": "For students in Master of Public Health, MSc Health Services Management, PgD in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n\n1. Understand the broad base of knowledge and key concepts in healthcare organisations and health services management\n2. Apply the knowledge and learning to appraise the problems the student faces in day-to-day management and operations in healthcare organisations",
+      "course_syllabus": "| Introduction to the Course/ Organisational management | |\n| --- | --- |\n| |\n| Managing human resources and change | |\n| |\n| Healthcare leadership | |\n| |\n| |\n| Governance and accountability | |\n| |\n| |\n| Resource allocation and performance management | |\n| |\n| |\n| Quality management | |\n| |\n| Financial management I | |\n| |\n| Financial management II | |\n| |\n| HSYS6900 Introduction | |\n| Project planning & evaluation | |\n| |",
+      "assessment_types": {
+        "Essays": "30",
+        "Examination": "60",
+        "Homework or assignment": "10"
+      },
+      "feedback_evaluation": "Course Teaching Evaluation Form",
+      "required_readings": "Reading list will be announced when the course started.",
+      "recommended_readings": "Reading list will be announced when the course started."
+    },
+    {
+      "subject": "HSYS",
       "course_code": "5003",
       "title": "Health Economics: Economic Evaluation",
       "credits": "1.00",
@@ -244,6 +303,71 @@
     },
     {
       "subject": "HSYS",
+      "course_code": "5004",
+      "title": "Health Systems and Policies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1014)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAM Ho Kwan, \nDr. YAU Zi May Susan, \nProfessor FUNG Hong, \nProfessor WANG Kailu, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "7/5"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAM Ho Kwan, \nDr. YAU Zi May Susan, \nProfessor FUNG Hong, \nProfessor WANG Kailu, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAM Ho Kwan, \nDr. YAU Zi May Susan, \nProfessor FUNG Hong, \nProfessor WANG Kailu, \nProfessor WU Yushan, \nProfessor YEOH Eng Kiong",
+                  "dates": "18/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will build on the content of HSYS5001, and students will gain advanced understanding on the structural and functional characteristics of health systems and policy framework. Through in- class interactive discussions and group presentation, students will acquire competency in analyzing factors which impact on health service delivery and health policy making process. Students will also be exposed to basic methodology in health policy research & analysis.",
+      "enrollment_requirement": "For TPg student under: \n- Master of Public Health / Postgraduate Diploma in Public Health;- MSc/PgD in Epidemiology and Biostatistics;- MSc/PgD in Health Services Management; - MSc/PgD in Health Promotion and Behavioural Health Programme.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Through studying this course students will be able to :\n1. Apply systems thinking in analyzing healthcare systems and policy within and between countries.\n2. Understand the influence of the global and political context in policy making process.\n3. Articulate current issues in health system reforms in different health systems.\n4. Understand the role of theory in framing health policy questions, and apply using case study methodology in conducting policy analysis.",
+      "course_syllabus": "| * Healthcare Delivery System * Service delivery models * Role of person-centred, primary and integrated care * Transitions between health and long-term care |\n| --- |\n| * Pluralistic Health Systems for Universal Health Coverage (UHC) * Roles of government, private sector and civil society * Public private engagement, interfaces and partnership * District health system |\n| * Policy System and Structure (1) * Political system * Policy institutions * Case study (1) |\n| * Evidence-based Public Health Policy and Practice |\n| * Policy System and Structure (2) * Policy actors * Policy instruments |\n| * Policy Process: An Overview * Agenda Setting |\n| * Policy Formulation and Decision Making * Case Study (2) |\n| * Policy Implementation |\n| * Policy Evaluation & Learning * Policy Studies * Revision on Policy |\n| * Student Case Study Presentation & Discussion (1) |\n| * Student Case Study Presentation & Discussion (2) |\n| * Health System Challenges and Strategies for UHC * Functioning, performance, strengthening & reform in pluralistic health system * Revision on Systems |",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "15",
+        "Presentation": "25"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Please refer to the course outline provided by course teacher",
+      "recommended_readings": "* Griffiths SM, Tang JL, & Yeoh EK (2014), eds. Routledge Handbook of Global Public Health in Asia. Oxford: Routledge publisher. ISBN 978-0-415-64382-5.\n* Harding, April. (2003). Introduction to the Private Participation in Health Services Handbook. Chapter 1 in Harding A & Preker A (Eds.), Private Participation in Health Services. World Bank: Health, Nutrition and Population Department.\n* Lucy Gilson (2012). Health Policy and Systems Research: A methodology reader. Alliance for Health Policy and Systems Research and World Health Organizaton.\n* Howlett M & Ramesh M (2009). Studying public policy: policy cycles and policy subsystems. Don Mills, Ont.: Oxford University Press.\n* Our Hong Kong Foundation (2018). Fit for Purpose: A Health System for the 21st Century. (2018-11-30)\n* Gillian W (1994). Health policy: An introduction to process and power. Johannesburg: Witwatersrand University Press; London; Atlantic Highlands, N.J.: Zed Books.\n* Wong ELY, Yeoh EK, Chau PYK, Yam CHK, Cheung AWL, Fung H. How shall we examine and learn about public-private partnerships (PPPs) in the health sector? Realist evaluation of PPPs in Hong Kong Special Administrative Region. Social Sciences & Medicine 2015, 147: 261–269.\n* World Health Organization (2000). The World Health Report - Health systems: improving performance.\n* World Health Organization (2007). Everybody’s business: Strengthening health systems to improve health outcomes: WHO’s framework for action.\n* World Health Organization (2015). WHO Global strategy on people-centred and integrated health services.\n\nWorld Health Organization and The World Bank (2017). Tracking Universal Health Coverage: 2017 Global Monitoring Report"
+    },
+    {
+      "subject": "HSYS",
       "course_code": "5005",
       "title": "Healthcare Financing",
       "credits": "1.00",
@@ -293,6 +417,66 @@
     },
     {
       "subject": "HSYS",
+      "course_code": "5006",
+      "title": "Health Management in Practice",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1208)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor FUNG Shu Yan Anthony",
+                  "dates": "22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor FUNG Shu Yan Anthony",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on the practical aspects of management, and supplements the theories presented in HSYS5001, HSYS5002 and HSYS5012, to further the training in healthcare management. Teaching will include lectures, case studies and small-group discussions, as well as exercises and interactive games to enhance management insights.\n\n(Pre-requisite: preferably have at least two years working experience, though not necessarily in the healthcare field.)",
+      "enrollment_requirement": "For students in Master of Public Health and MSc in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. Acquire knowledge, skills and tools in the day-to-day management in healthcare disciplines;\n2. Have the basic capabilities to run a healthcare team together with other management concentrations;\n3. Apply these capabilities in their positions with action plans to improve their service(s);\n4. Have the means to develop them and attain further management insights.",
+      "course_syllabus": "| Course Introduction Healthcare Management & Customer Concept |\n| --- |\n| In class case-study discussion |\n| Lecture: Service & Marketing |\n| In class case-study discussion |\n| Lecture: People Management |\n| In class case-study discussion |\n| Lecture: Teams dynamics & Learning; Change & Stability |\n| In class case-study discussion |\n| Lecture: Conflict management & Negotiation Project Management |\n| In class case-study discussion |\n| Lecture: Communication |\n| In class case-study discussion |\n| Lecture: Decision making |\n| In class case-study discussion |\n| Lecture: Self-management |",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Others": "20",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Please refer to the course outline provided by course teacher",
+      "recommended_readings": "* Drucker P. (2001) *The Essential Drucker.* New York: Collins\n* Fisher R., Ury W. & Patton B.. (1991) *Getting to Yes.* New York: Penguin\n* Covey S. (1990) *7 Habits of Highly Effective People.* New York: Simon & Schuster\n\nLecture notes and additional papers will be posted on the *Blackboard*."
+    },
+    {
+      "subject": "HSYS",
       "course_code": "5011",
       "title": "Health Informatics",
       "credits": "1.00",
@@ -336,6 +520,132 @@
       "learning_outcomes": "Student should be able to:\n1. understand the roles and importance of health informatics in the healthcare industry;\n2. understand and appreciate how health IT is applied to advance quality healthcare delivery;\n3. understand the current development of health IT and the challenges ahead.",
       "course_syllabus": "This course introduces the principles of healthcare information systems, role of informatics in risk management, quality improvement and basic understanding of technical aspects.",
       "assessment_types": {},
+      "feedback_evaluation": "Course Teaching Evaluation Form",
+      "required_readings": "Reading list will be announced when the course started.",
+      "recommended_readings": "Reading list will be announced when the course started."
+    },
+    {
+      "subject": "HSYS",
+      "course_code": "5012",
+      "title": "Human Resource Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1087)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "17/3, 24/3"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Most health services managers find people management difficult to master. This course covers the key aspects of human resource management in healthcare including basic understanding of the behavior of health professionals.",
+      "enrollment_requirement": "The pre-requisites: HSYS5001 and HSYS5002 \nFor student in Master of Public Health and MSc in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. Understand the significance, scope and dimensions of human resources management in healthcare\n2. Understand the nature and characteristics of professionalism, and professional behaviours in healthcare\n3. Understand the key concepts and practices in generic HR management\n4. Understand the application of HR management principles and special features of HR management in healthcare",
+      "course_syllabus": "Most health services managers find people management difficult to master. This course covers the key aspects of human resource management in healthcare including basic understanding of the behavior of health professionals.",
+      "assessment_types": {
+        "Examination": "50",
+        "Others": "5",
+        "Presentation": "20",
+        "Report": "25"
+      },
+      "feedback_evaluation": "Course Teaching Evaluation Form",
+      "required_readings": "Reading list will be announced when the course started.",
+      "recommended_readings": "Reading list will be announced when the course started."
+    },
+    {
+      "subject": "HSYS",
+      "course_code": "5013",
+      "title": "Financial Management",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1086)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor TSE Sau Ling",
+                  "dates": "1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor TSE Sau Ling",
+                  "dates": "12/4, 19/4, 26/4, 3/5"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on essential competencies of health services managers to understand, interpret and manage financial resources. It covers the basic knowledge and concepts in Management Accounting and Financial Management. Topics include understanding of accounting principles and standards, financial statements, financial performance and budgeting, revenue generation and financial decision making.",
+      "enrollment_requirement": "For students in Master of Public Health and MSc in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. develop sufficient familiarity and understanding of basic concepts of financial management in health care organizations\n2. be cognizant of the need for competent financial management in managing health care services\n3. be aware of tools and techniques that can be used for financial management\n4. have a good understanding of the role of finance managers in the health care organization and be able to evaluate the performances",
+      "course_syllabus": "This course focuses on essential competencies of health services managers to understand, interpret and manage financial resources. It covers the basic knowledge and concepts in Management Accounting and Financial Management. Topics include understanding of accounting principles and standards, financial statements, financial performance and budgeting, revenue generation and financial decision making.",
+      "assessment_types": {
+        "Essays": "20",
+        "Homework or assignment": "30",
+        "Presentation": "40",
+        "Participation": "10"
+      },
       "feedback_evaluation": "Course Teaching Evaluation Form",
       "required_readings": "Reading list will be announced when the course started.",
       "recommended_readings": "Reading list will be announced when the course started."
@@ -779,6 +1089,58 @@
     },
     {
       "subject": "HSYS",
+      "course_code": "5023",
+      "title": "Local Visits",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-O01-OTH (1079)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to give students a broader and deeper exposure to service management through observing management in action in both healthcare and non-healthcare settings. Management in non-healthcare settings can often shed useful insights to healthcare management. The ability to observe and identify good practices or rooms for improvement, and to evaluate different practices are important skills for health service managers and the group interactions would help to sharpen these skills. These local visits supplement the classroom teaching. The work of summarising and presenting their observations would help to consolidate the learning from visiting these organisations.\nTo satisfy the requirement for this course, the student needs to participate in one local visit to healthcare organization, and one local visit to a non-healthcare organization, participate in one presentation session and submit a reflective essay.",
+      "enrollment_requirement": "For students in Master of Public Health, Master of Science in Health Services Management and Postgraduate diploma in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Others",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n\n1. Sharpen their skills in observation\n2. Learn good management practices from visiting different organisations",
+      "course_syllabus": "This course aims to give students a broader and deeper exposure to service management through observing management in action in both healthcare and non-healthcare settings. Management in non-healthcare settings can often shed useful insights to healthcare management. The ability to observe and identify good practices or rooms for improvement, and to evaluate different practices are important skills for health service managers and the group interactions would help to sharpen these skills. These local visits supplement the classroom teaching. The work of summarising and presenting their observations would help to consolidate the learnings from visiting these organisations.\nTo satisfy the requirement for this course, the student needs to participate in one local visit to healthcare organization, and one local visit to a non-healthcare organization, participate in one presentation session and submit a reflective essay.",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "Course Teaching Evaluation Form",
+      "required_readings": "Reading list will be announced to students before the course starts.",
+      "recommended_readings": "Reading list will be announced to students before the course starts."
+    },
+    {
+      "subject": "HSYS",
       "course_code": "5024",
       "title": "Driving Healthcare Improvement with Data",
       "credits": "1.00",
@@ -889,6 +1251,113 @@
     },
     {
       "subject": "HSYS",
+      "course_code": "5027",
+      "title": "Clinical Governance",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1098)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. YAU Zi May Susan, \nProfessor HUNG Chi Tim",
+                  "dates": "21/5, 28/5, 4/6, 11/6"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course helps students understand the concept and tools of clinical governance and enhances their skills in application.",
+      "enrollment_requirement": "For students in Master of Public Health and MSc Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Students should be able to:\n\n1. Understand what is clinical governance and the elements involved in ensuring clinical governance\n2. Appreciate and manage the inter-related elements of clinical governance.\n3. Engage other stakeholders as well as applying the skills to enhance clinical governance in most clinical settings.",
+      "course_syllabus": "1. Clinical Governance: definition, pillars and framework. Patient-centredness.\n2. Clinical effectiveness and audit. Professional development and performance monitoring.\n3. Patient safety, quality improvement and risk management.\n4. Monitoring, benchmarking and evaluation.",
+      "assessment_types": {
+        "Essays": "60",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "Course Teaching Evaluation",
+      "required_readings": "Textbooks:\n\nClinical Governance: Improving the Quality of Healthcare for Patients and Service Users. Part of: UK Higher Education OUP Humanities & Social Sciences Education OUP, by Mary Gottwald and Gail Lansdown, Sep 14, 2021\n\nThe Practice of Clinical Governance: A practical Guide for Healthcare Leaders. by Luis Prado and Sidney Chandrasiri. Apr 27, 2025\n\nAn Introduction to Clinical Governance and Patient Safety. by Elizabeth Haxby, David Hunter, et al. | Dec 2, 2010",
+      "recommended_readings": "Buetow SA, Roland M. Clinical governance: bridging the gap between managerial and clinical approaches to quality of care. Qual Health Care. 1999 Sep;8(3):184-90. doi: 10.1136/qshc.8.3.184. PMID: 10847876; PMCID: PMC2483653.\n\nNicholls S, Cullen R, O'Neill S, Halligan A. Clinical governance: its origins and its foundations. Clin Perform Qual Health Care. 2000;8(3):172-8. PMID: 11142803.\n\nScally G, Donaldson LJ. The NHS's 50 anniversary. Clinical governance and the drive for quality improvement in the new NHS in England. BMJ. 1998 Jul 4;317(7150):61-5. doi: 10.1136/bmj.317.7150.61. PMID: 9651278; PMCID: PMC1113460.\n\nSom, C. (2009). Sense making of clinical governance at different levels in NHS hospital trusts. Clinical Governance, 14(2), 98-112. doi:https://doi.org/10.1108/14777270910952252\n\nTaylor L, Jones S. Clinical governance in practice: closing the loop with integrated audit systems. J Psychiatr Ment Health Nurs. 2006 Apr;13(2):228-33. doi: 10.1111/j.1365-2850.2006.00945.x. PMID: 16608479."
+    },
+    {
+      "subject": "HSYS",
+      "course_code": "5028",
+      "title": "Advanced Healthcare Financing",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1085)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor FUNG Hong, \nProfessor WU Yushan",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor FUNG Hong, \nProfessor WU Yushan",
+                  "dates": "2/4, 9/4, 16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This advanced course in healthcare financing is an extension of HSYS5005 (Healthcare Financing). It provides an in-depth focus on specialized topics, including: financing for primary care, cancer care, ageing populations, and innovative models, with practical case studies and future-focused strategies.",
+      "enrollment_requirement": "For students in Master of Public Health and MSc Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Students should be able to:\n1. Understand advanced healthcare financing models for primary care, cancer care, and ageing populations.\n2. Analyze challenges and opportunities in financing healthcare systems with a focus on equity and efficiency.\n3. Explore innovative financing methods, including digital payment systems, telemedicine, and AI applications.",
+      "course_syllabus": "1. Healthcare financing for primary care and multi-morbidity\n2. Healthcare financing for cancer care and critical illnesses\n3. Healthcare financing for ageing population\n4. Health financing objectives and innovations",
+      "assessment_types": {},
+      "feedback_evaluation": "Course Teaching Evaluation",
+      "required_readings": "McPake, Barbara, Charles Normand, and Samantha Smith. Health Economics: An International Perspective. 3rd ed., Routledge, 2013.",
+      "recommended_readings": "Recommended readings or resources\n\n1. The Lancet Global Health Commission. \"The Lancet Global Health Commission on Financing Primary Health Care: Putting People at Centre.\" The Lancet Global Health, vol. 10, no. 7, 2022, pp. e715-e772. doi:10.1016/S2214-109X(22)00120-8.\n2. WHO Western Pacific Regional Office. Universal Health Coverage: Moving Towards Better Health – Action Framework for the Western Pacific Region. WHO, 2016. Available at: https://www.who.int/publications/i/item/9789290617563.\n3. WHO and World Bank. Health Systems for Universal Health Coverage: A Joint Vision for Healthy Lives. WHO and World Bank Group, 2017. Available at: https://documents.worldbank.org/en/publication/documents-reports/documentdetail/537411516633303159/healthy-systems-for-universal-health-coverage-a-joint-vision-for-healthy-lives.\n4. WHO Europe Regional Office. Sustainable Health Financing with an Ageing Population: Implications of Different Revenue Raising Mechanisms and Policy Options. WHO, 2019. Available at: https://wkc.who.int/resources/projects/item/sustainable-health-financing-with-an-ageing-population\n5. WHO Western Pacific Regional Office. The Implications of Population Ageing for Health Financing in the Western Pacific Region: Exploring Future Scenarios and Policy Options for Selected Countries Using PASH Simulator. WHO, 2022. Available at: https://eurohealthobservatory.who.int/publications/i/the-implications-of-population-ageing-for-health-financing-in-the-western-pacific-region-exploring-future-scenarios-and-policy-options-for-selected-countries-using-the-pash-simulator.\n6. WHO Europe Regional Office. Private Health Insurance: History, Politics, and Performance. European Observatory on Health Systems and Policies, WHO, 2020. Available at: https://eurohealthobservatory.who.int/publications/m/private-health-insurance-history-politics-and-performance.\n7. WHO Europe Regional Office. How to Strengthen Financing Mechanisms to Promote Care for People with Multimorbidity in Europe. WHO, 2016. Available at: https://eurohealthobservatory.who.int/publications/i/how-to-strengthen-financing-mechanisms-to-promote-care-for-people-with-multimorbidity-in-europe\n\nOthers：\nCountry references provided on Blackboard as references for the Group Presentation and Assignment.\nCase study readings\n\nRecommended Links:\n\n1. Hong Kong Food and Health Bureau. Domestic health account, http://www.fhb.gov.hk/statistics/en/dha.htm.\n2. World Bank. Health Systems Development: Resources and Documents,\n\nGeneral References\n\nhttp://web.worldbank.org/WBSITE/EXTERNAL/TOPICS/EXTHEALTHNUTRITIONANDPOPULATION/EXTHSD/0,,contentMDK:22523961~menuPK:376799~pagePK:148956~piPK:216618~theSitePK:376793~isCURL:Y,00.html.\n1. Jamison, Dean T., Lawrence H. Summers, et al. \"Global Health 2035: A World Converging Within a Generation.\" The Lancet, vol. 382, 2013, pp. 1898-1955.\n2. Jamison, Dean T., Gavin Yamey, Nicole Beyeler, and Hilary Wadge. Investing in Health: The Economic Case. Report of the WISH Investing in Health Forum, 2016.\n3. Lu, Jui R., Gabriel M. Leung, Soonman Kwon, Ka-Yee K. Tin, Eddy Van Doorslaer, and Owen O’Donnell. \"Horizontal Equity in Health Care Utilization: Evidence from Three High-Income Asian Economies.\" Social Science and Medicine, vol. 64, no. 1, 2007, pp. 199-212.\n4. Rannan-Eliya, Ravi, S. Amarasnghe, and A. Nilamudeen. Universal Health Coverage: The Potential Contribution of Hybrid Funding Strategies – Review of Commonwealth Mix Public Private Funding Models. Institute of Health Policy, Sri Lanka, 2015.\n5. Saltman, Richard B., Reinhard Busse, and Josep Figueras. Social Health Insurance Systems in Western Europe. European Observatory on Health Systems and Policies Series, Open University Press, 2004.\n6. Sagan, Anna, and Sarah Thomson. Voluntary Health Insurance in Europe: Role and Regulation. European Observatory on Health Systems and Policies, WHO, 2016.\n7. Savedoff, William. Tax-Based Financing for Health Systems: Options and Experiences. WHO Discussion Paper, 2004.\n10. Wagstaff, Adam. Social Health Insurance vs. Tax-Financed Health Systems: Evidence from the OECD. Policy Research Working Paper 4821, The World Bank, 2009."
+    },
+    {
+      "subject": "HSYS",
       "course_code": "5029",
       "title": "Digital Transformation: Strategic Leadership in the Age of AI",
       "credits": "1.00",
@@ -938,6 +1407,64 @@
       "feedback_evaluation": "Course Teaching Evaluation",
       "required_readings": "Reading list will be provided before the class begins.",
       "recommended_readings": "Reading list will be provided before the class begins."
+    },
+    {
+      "subject": "HSYS",
+      "course_code": "6900",
+      "title": "Master-Level Guided Case Study",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-T01-TUT (1099)",
+              "meetings": [
+                {
+                  "time": "Sa 8:30AM - 1:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor FUNG Hong, \nProfessor HUNG Chi Tim, \nProfessor LEE Koon Hung, \nProfessor LO Su Vui",
+                  "dates": "14/11"
+                },
+                {
+                  "time": "Sa 8:30AM - 1:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor FUNG Hong, \nProfessor HUNG Chi Tim, \nProfessor LEE Koon Hung, \nProfessor LO Su Vui",
+                  "dates": "15/5"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Each student is required to develop and complete an individual project of a healthcare services problem, under the direction of a supervisor at the School of Public Health and Primary Care.",
+      "enrollment_requirement": "For student in MSc in Health Services Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Interactive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Each student is required to develop and complete an individual project of a healthcare services problem, under the direction of a supervisor at the School of Public Health and Primary Care.",
+      "course_syllabus": "Each student is required to develop and complete an individual project of a healthcare services problem, under the direction of a supervisor at the School of Public Health and Primary Care.",
+      "assessment_types": {
+        "Presentation": "30",
+        "Report": "70"
+      },
+      "feedback_evaluation": "Course Teaching Evaluation Form",
+      "required_readings": "Reading list will be announced when the course started.",
+      "recommended_readings": "Reading list will be announced when the course started."
     }
   ]
 }

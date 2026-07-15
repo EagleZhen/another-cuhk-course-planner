@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T09:09:28.818077+00:00",
+    "scraped_at": "2026-07-14T15:53:54.636068+00:00",
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 50,
+    "total_courses": 55,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -6870,6 +6870,105 @@
     },
     {
       "subject": "CSCI",
+      "course_code": "5120",
+      "title": "Advanced Topics in Database Systems",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9889)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHENG James",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will introduce to students advanced topics in database systems including advanced data structures, concurrency control, deadlock resolutions, recovery schemes, distributed database systems, multimedia database indexing techniques, and data mining, data on the web and network data analysis.\n\nAdvisory: Students are expected to have taken CSCI3170",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering; Exclusion: CMSC5705 and SEEM5010",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. learn about some advanced topics in database systems. They include some classical topics such as distributed database systems, concurrency control in transaction management, and data replication in a distributed environment, and some special datatypes such as multimedia databases, where indexing mechanisms are studied. We also cover important topics of data mining and data on the web. We would revise the content and include new important topics from time to time. We have added the study of massive network data, and introduced algorithms for handling and analysis of such data. We also have included the road network data querying which has become very useful in our daily life.\n2. study research papers related to the topics covered.\n3. summarize the major ideas from a study of a topic and give a presentation on the topic\n4. possibly come up with innovative ideas and touch on the research of related topics.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "40",
+        "Others": "20",
+        "Presentation": "20"
+      }
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5150",
+      "title": "Machine Learning Algorithms and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9888)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces a dozen of machine learning algorithms and typical applications in business intelligence, natural language processing, computer vision, and sensor-based data analyses, including four topics that consist of (1) supervised learning algorithms induced by structural risk minimization for classification and regression problems (decision trees, logistic regression, support vector machines, regularized linear regression, kernel machines, etc.), and their applications in sensor-based indoor localization, business intelligence; (2) supervised learning algorithms based on deep learning (CNN, RNN, etc.), and their applications to natural language processing and computer vision; (3) unsupervised learning algorithms for clustering and representation learning (K-means, spectral clustering, autoencoder, etc.); (4) introductions of other learning algorithms and applications, such as transfer learning, recommender systems, sensor-based activity recognition, etc.",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or \nFor students in UG Computer Science; or \nFor students in UG Computer Engineering;Exclusion: FTEC5580",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Apply appropriate machine learning algorithms to solve specific real-world applications.\n2. Revise or design new machine learning algorithms based on specific requirements.",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Presentation": "10",
+        "Project": "50"
+      }
+    },
+    {
+      "subject": "CSCI",
       "course_code": "5210",
       "title": "Advanced Computer Graphics and Visualization",
       "credits": "3.00",
@@ -6882,19 +6981,19 @@
               "section": "--LEC (2540)",
               "meetings": [
                 {
-                  "time": "Fr 10:30AM - 12:15PM",
+                  "time": "Fr 10:30AM - 1:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "15/1, 22/1, 29/1"
                 },
                 {
-                  "time": "Fr 10:30AM - 12:15PM",
+                  "time": "Fr 10:30AM - 1:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
                 },
                 {
-                  "time": "Fr 10:30AM - 12:15PM",
+                  "time": "Fr 10:30AM - 1:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "2/4, 9/4, 16/4, 23/4"
@@ -6914,19 +7013,19 @@
               "section": "-T01-TUT (2541)",
               "meetings": [
                 {
-                  "time": "Fr 12:30PM - 1:15PM",
+                  "time": "Fr 1:30PM - 2:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "15/1, 22/1, 29/1"
                 },
                 {
-                  "time": "Fr 12:30PM - 1:15PM",
+                  "time": "Fr 1:30PM - 2:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
                 },
                 {
-                  "time": "Fr 12:30PM - 1:15PM",
+                  "time": "Fr 1:30PM - 2:15PM",
                   "location": "TBA",
                   "instructor": "Professor HENG Pheng Ann",
                   "dates": "2/4, 9/4, 16/4, 23/4"
@@ -6956,6 +7055,114 @@
       "academic_org": "Div of Computer Science & Engg",
       "learning_outcomes": "At the end of this course, students will have acquired the ability to\n1. design, implement and evaluate customized graphics and visualization applications.\n2. process and analyze data for scientific visualization applications.\n3. carry out research in global illumination, image-based rendering and modeling.\n4. carry out research in GPU-based volume visualization and large data visualization.",
       "assessment_types": {}
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5350",
+      "title": "Advanced Topics in Game Theory",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9715)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Hanrui",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Hanrui",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers fundamental concepts in game theory. The course starts with pure strategy and mixed strategy Nash equilibrium in strategic games. It then discusses some specific types of games, including zero-sum games, Bayesian games, and introduces other types of equilibriums including correlated equilibrium and evolutionary equilibrium. Extensive games, subgame perfect equilibrium, sequential equilibrium, framing effects, behavioural strategies will then be discussed. Finally, coalitional games and the core will be discussed.\nAdvisory: Students are expected to have taken CSCI2110 or ENGG2440 or ESTR2004, ENGG2040 or ENGG2430 or ESTR2002.",
+      "enrollment_requirement": "For students in MSc Computer Science or MPhil-PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering;Exclusion: CMSC5728",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Discussion\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. understand pure strategy and mixed strategy Nash equilibrium in strategic games;\n2. understand zero-sum games, Bayesian games, correlated equilibrium and evolutionary equilibrium;\n3. understand extensive games, subgame perfect equilibrium;\n4. understand sequential equilibrium, framing effects, behavioural strategies, perfect Bayesian equilibrium and trembling hand perfect equilibrium.\n5. understand coalitional games and the core.",
+      "assessment_types": {
+        "Essay test or exam": "55",
+        "Others": "45"
+      }
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5440",
+      "title": "Theory of Cryptography",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9716)",
+              "meetings": [
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 3:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIANG Xiao",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an in-depth exploration of the theoretical foundation behind modern cryptography. A distinguishing feature of this course is its intentional focus on the connection between cryptography and other theoretical computer science areas, such as:\n\n• Quantum Computing: Analyze the dual role of cryptography in quantum computing, both as a catalyst for advancing quantum technology and as a crucial field for developing quantum-resistant security protocols.\n\n• Computational Complexity: Delve into how cryptographic challenges enrich computational complexity research, introducing concepts such as hardness amplification, average-case complexity, black-box separation, and more, highlighting cryptography's influence on computational theory.\n\n• Theory of Consensus Mechanisms: Explore how cryptography theories underpin consensus protocols like Byzantine Fault Tolerance (BFT) and Proof of Work (PoW), illustrating the critical role of cryptography in achieving reliable consensus in decentralized environments.",
+      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or\nArtificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Develop a thorough understanding of advanced cryptographic techniques and principles;\n2. Acquire the capability to comprehend and discuss new research papers on the frontier of cryptography, effectively communicating complex ideas to collaborators and peers; and\n3. Critically analyze and develop advanced cryptographic solutions that address challenges in related fields such as quantum computing, computational complexity, and blockchain technology.",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Project": "50"
+      }
     },
     {
       "subject": "CSCI",
@@ -7035,6 +7242,66 @@
       "assessment_types": {
         "Homework or assignment": "30",
         "Project": "70"
+      }
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5610",
+      "title": "Advanced Data Structures",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9717)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor TAO Yufei",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces advanced techniques for designing data structures with strong theoretical guarantees. Topics to be covered include (i) generic methods such as partial persistence, logarithmic rebuilding, weight balancing, filtering, independent sampling, bit twiddling, tabulating, etc., and (ii) specific structures such as the interval tree, the priority search tree, cuckoo hashing, the van Emde Boas structure, range min structures, locality sensitive hashing, the suffix tree, the count-min sketch, etc.\n\nAdvisory: Students are expected to have taken CSCI2100 or ESTR2102",
+      "enrollment_requirement": "For students in MSc Computer Science or Mphil - PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand the theory behind the techniques covered;\n2. Utilize those techniques to design new data structures for solving other related problems.",
+      "assessment_types": {
+        "Essay test or exam": "75",
+        "Homework or assignment": "25"
       }
     },
     {
@@ -7293,10 +7560,10 @@
               ],
               "availability": {
                 "capacity": "350",
-                "enrolled": "325",
+                "enrolled": "324",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7319,10 +7586,10 @@
               ],
               "availability": {
                 "capacity": "350",
-                "enrolled": "330",
+                "enrolled": "329",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -10412,10 +10679,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "3",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -11058,10 +11325,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "3",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"

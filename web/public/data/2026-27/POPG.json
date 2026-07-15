@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T16:18:08.688963+00:00",
+    "scraped_at": "2026-07-14T23:05:07.965808+00:00",
     "subject": "POPG",
     "subject_title": "Public Heatlh (TPg)",
-    "total_courses": 4,
+    "total_courses": 5,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -242,6 +242,61 @@
       "assessment_types": {
         "Presentation": "40",
         "Test or quiz": "60"
+      }
+    },
+    {
+      "subject": "POPG",
+      "course_code": "5011",
+      "title": "Food Security from the Public Health Perspective",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1069)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. TAM-DIERS Daisy Dic Sze, \nDr. YUNG Ka Chun, \nMs. CHAN May Ling Patsy",
+                  "dates": "14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. TAM-DIERS Daisy Dic Sze, \nDr. YUNG Ka Chun, \nMs. CHAN May Ling Patsy",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Despite the advancement in economic development and food technology, there are people living without the basic supply of sufficient and clean foods require for their physiological well-being. The World Food Summit of 1996 defined food security as existing “when all people at all times have access to sufficient, safe, nutritious food to maintain a healthy and active life”. This course introduces the factors affecting the sustainability of the contemporary food systems at both local and global perspectives. Areas including technological advancement, economic drive, political stability, as well as socio-cultural influences will be analyzed critically as insights to tackle the challenge of future food crisis.",
+      "enrollment_requirement": "For students in Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "After completing this course, students should be able to:\n1. Understand in detail the definition and scope of food security\n2. Apply the understanding of food security to the analysis of global and local situations of food and nutrition supply\n3. Realise the global and local efforts tackling food insecurity\n4. Understand the role and importance of food safety as an element of food security",
+      "assessment_types": {
+        "Essays": "30",
+        "Presentation": "30",
+        "Test or quiz": "40"
       }
     }
   ]

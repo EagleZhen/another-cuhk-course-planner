@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T10:39:27.381614+00:00",
+    "scraped_at": "2026-07-14T17:24:31.692164+00:00",
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 32,
+    "total_courses": 33,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -9301,6 +9301,62 @@
         "Essay test or exam": "65",
         "Homework or assignment": "25",
         "Others": "10"
+      }
+    },
+    {
+      "subject": "ENGG",
+      "course_code": "5101",
+      "title": "Advanced Computer Architecture",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9890)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WANG Zhengrong",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WANG Zhengrong",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to present an overview of some advanced computer architectures and their underlying design principles. Issues discussed will include scalability and performance evaluation. The underlying technologies such as processor and memory hierarchy, cache and shared memory, and advanced pipelining techniques will be presented. Examples of high performance vector\nprocessors, multicomputers and massive parallel processors will be compared. Some novel architectures such as VLIW, fault tolerant systems and data flow machines will also be elaborated.\nAdvisory: Students are expected to have taken CENG3420 or having background knowledge in computer organization.",
+      "enrollment_requirement": "For students in MSc Computer Science or MPhil-PhD programmes under Faculty of Engineering or UG Computer Science or UG Computer Engineering;Exclusion: CENG5410",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand different processor architectures and system-level design processes\n2. Understand the organization and operation of parallel computer systems\n3. Understand memory hierarchy and its implication on system performance\n4. Understand power and reliability of computer systems\n5. Read and evaluate research papers",
+      "assessment_types": {
+        "Essays": "40",
+        "Essay test or exam": "20",
+        "Others": "20",
+        "Presentation": "20"
       }
     },
     {

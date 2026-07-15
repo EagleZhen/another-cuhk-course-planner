@@ -1,12 +1,78 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T13:33:24.407804+00:00",
+    "scraped_at": "2026-07-14T20:25:07.924451+00:00",
     "subject": "MBAC",
     "subject_title": "MBA Programmes",
-    "total_courses": 7,
+    "total_courses": 11,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
+    {
+      "subject": "MBAC",
+      "course_code": "6050",
+      "title": "Directed Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "PJ01-PRJ (1018)",
+              "meetings": [
+                {
+                  "time": "Th 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "10/6"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "11/6"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "12/6"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "13/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "Independent research on an individual work basis under the general supervision of a business administration faculty member, in any of the following areas: accounting, business economics, business law, finance, insurance, international business, management, management information systems, marketing, personnel and industrial relations, production and operations management, or real estate. Prerequisite: consent of an instructor after examination of a written research proposal outlining the research subject, objectives, and proposed methodology. The student may submit his proposal to the instructor of his choice, but with the understanding that no faculty member is obliged to accept research students. The course may be taken more than once, but total units for this course may not exceed 6 units, and students cannot take 2 directed research courses in a term.",
+      "enrollment_requirement": "For students in MBA; or EMBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nProject",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing the directed research, students should be capable of analysing issues in any of the following areas: accounting, business economics, business law, finance, insurance, international business, management, management information systems, marketing, personnel and industrial relations, production and operations management, or real estate.",
+      "assessment_types": {
+        "Essays": "60",
+        "Presentation": "40"
+      }
+    },
     {
       "subject": "MBAC",
       "course_code": "6060",
@@ -21,10 +87,52 @@
               "section": "W-LEC (3936)",
               "meetings": [
                 {
-                  "time": "Mo 12:00AM - 12:00AM",
+                  "time": "Sa 8:45AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "15/8"
+                },
+                {
+                  "time": "Sa 8:45AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building 209B",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "15/8"
+                },
+                {
+                  "time": "Su 8:45AM - 6:00PM",
                   "location": "TBA",
                   "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
-                  "dates": "7/9"
+                  "dates": "16/8"
+                },
+                {
+                  "time": "Sa 8:45AM - 12:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "29/8"
+                },
+                {
+                  "time": "Su 8:45AM - 6:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "30/8"
+                },
+                {
+                  "time": "Sa 8:45AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "5/9"
+                },
+                {
+                  "time": "Sa 8:45AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building 209B",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "5/9"
+                },
+                {
+                  "time": "Sa 6:30PM - 9:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "5/9"
                 }
               ],
               "availability": {
@@ -126,6 +234,164 @@
     },
     {
       "subject": "MBAC",
+      "course_code": "6070",
+      "title": "Business Practicum",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FJ01-PRJ (1076)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 1:30PM",
+                  "location": "Town Centre Diamond Room",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 1:30PM",
+                  "location": "Town Centre Diamond Room",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 1:30PM",
+                  "location": "Town Centre Diamond Room",
+                  "instructor": "Staff",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "35",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "35",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an opportunity for the MBA students to apply what they have learned in the classroom to solving real-world business problems. A minimum of three and a maximum of five students are required to form a project team, under the supervision of a BA faculty member. A project proposal outlining the work to be undertaken by the project team must be approved by the supervising faculty member and endorsed by the Director of MBA Programmes or his/her representative within 10 calendar days from the start of the term. The project must be sponsored by a company in Hong Kong and approved by the Director. The sponsorship includes joint supervision of the project by an appointed senior staff of the company, pledge of assistance and support to ensure the successful completion of the project, and possible remuneration to members of the project team, other than the supervising faculty member, for the work undertaken. Students are expected to spend, on the average, one day a week throughout the duration of the project. The project duration must cover the term time as published by the University calendar, but should not exceed four months in duration. A final report of the project to be submitted to the supervising faculty member and an oral presentation of the results to the management of the sponsor is part of the requirements of the course. The final grades of the students will be determined by the supervising faculty member, in which the evaluation of the project by the sponsoring body should be reflected.",
+      "enrollment_requirement": "For students in MBA; or JD/MBA Double Degree Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip\nProject",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students completed this course are expected to apply their newly acquired business knowledge and skills to real-life situations. They should also be able to prove their capability and performance to the business community, paving the way to create more work opportunities with the sponsoring company in the future when they move on.",
+      "assessment_types": {
+        "Presentation": "30",
+        "Report": "70"
+      }
+    },
+    {
+      "subject": "MBAC",
+      "course_code": "6082",
+      "title": "Business Field Study - Europe",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FF01-FLD (1018)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 5:45PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "12/3"
+                },
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "08/03/2027 - 26/04/2027"
+                },
+                {
+                  "time": "We 9:30AM - 5:45PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "10/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 5:45PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "8/3"
+                },
+                {
+                  "time": "Th 9:30AM - 5:45PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "11/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 5:45PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor SHI Weilei",
+                  "dates": "9/3"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course consists of preparatory reading assignments followed by a week-long residential program in Europe, concluding with a written report and oral presentation or other assignments. The goal in taking classroom sessions in Europe is to provide MBA students first-hand exposure to some of the issues related to doing business in the EU, European business practices, and the influence of culture. This course may also focus on a particular business topic of relevance to the location such as marketing, entrepreneurship, or globalization. Course learning activities include lectures provided by top academic partner schools, seminars and discussions with local business professionals and/or government officials, and site visits to European enterprises.\n(Eligible for recognition toward concentration requirements depending on course content)",
+      "enrollment_requirement": "For students in MBA; or JD/MBA Double Degree Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, students will be able to understand the concepts and instruments for international marketing and brand management in the global marketplace.",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Presentation": "30",
+        "Participation": "20",
+        "Report": "30"
+      }
+    },
+    {
+      "subject": "MBAC",
       "course_code": "6083",
       "title": "Business Field Study - North America",
       "credits": "3.00",
@@ -191,6 +457,56 @@
       "academic_group": "Div of Business Administration",
       "academic_org": "Div of Business Administration",
       "learning_outcomes": "Upon completion of the business field study, students will be able to receive first-hand exposure to some of the issues (e.g. new product management) related to doing business in North America, local business practices, and the influence of culture.",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Presentation": "30",
+        "Participation": "20",
+        "Report": "30"
+      }
+    },
+    {
+      "subject": "MBAC",
+      "course_code": "6084",
+      "title": "Business Field Study - Overseas",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FF01-FLD (1179)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course includes preparatory reading assignments, followed by a week-long residential programme in an overseas country/region, and concludes with a written report, oral presentation, or other assignments.\n\nThe primary objective of conducting classroom sessions overseas is to provide MBA students with first-hand exposure to issues related to doing business in the host country or region, local business practices, and the influence of culture. The course may also focus on a specific business topic relevant to the location, such as marketing, entrepreneurship, or globalisation.\n\nLearning activities include lectures delivered by faculty from top academic partner schools, seminars and discussions with local business professionals and/or government officials, and site visits to local enterprises.\n\n(Eligible for recognition toward concentration requirements depending on course content)",
+      "enrollment_requirement": "For students in MBA; or JD/MBA Double Degree Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the business field study, students will be able to receive first-hand exposure to some of the\nissues related to doing business in an overseas country/region, local business practices, and the\ninfluence of culture.",
       "assessment_types": {
         "Homework or assignment": "20",
         "Presentation": "30",
@@ -339,6 +655,44 @@
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "XA-LEC (1103)",
+              "meetings": [
+                {
+                  "time": "Fr 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "23/4"
+                },
+                {
+                  "time": "Fr 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "29/1"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando, \nProfessor CHEW Seen Meng, \nProfessor Wan Tay Tat WONG SUN-WAI",
+                  "dates": "30/10"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -550,6 +904,56 @@
                   "location": "TBA",
                   "instructor": "Professor GU Zhaoyang",
                   "dates": "18/9"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "SAF1-FLD (1150)",
+              "meetings": [
+                {
+                  "time": "Mo 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "12/4"
+                },
+                {
+                  "time": "Tu 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "We 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "14/4"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "16/4"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "15/4"
                 }
               ],
               "availability": {

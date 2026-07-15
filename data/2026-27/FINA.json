@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T11:11:48.058564+00:00",
+    "scraped_at": "2026-07-14T17:59:33.004745+00:00",
     "subject": "FINA",
     "subject_title": "Finance",
-    "total_courses": 93,
+    "total_courses": 110,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -4166,11 +4166,11 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "69",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4204,12 +4204,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "10",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -4236,6 +4236,162 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "Corporate Finance by Ross, Westerfield and Jordon, McGraw Hill\nCorporate Finance by Berk and DeMarzo, Pearson",
       "recommended_readings": "Cases from Harvard Business School\nFinancial Times and academic articles"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "5012",
+      "title": "Fundamentals of Sustainable Finance",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "G-LEC (1123)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Mr. LIU Chun Wai",
+                  "dates": "22/4"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Mr. LIU Chun Wai",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Mr. LIU Chun Wai",
+                  "dates": "29/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course aims to provide students with the knowledge and understanding of climate change risks and opportunities and their impact on capital markets. Topics will cover circular economy, core climate-economic theory and the role of central banks and supervisory authorities, climate change and equity investment opportunities, climate change risk management. An in-depth understanding of the impact of climate risks on asset allocation and the practical skills of portfolio alignment to a low-carbon economy will also be included.",
+      "enrollment_requirement": "For students in MSc in Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students are expected to:\n\n1. understand management issues relating to trends in sustainability, digitalisation and innovation\n\n2. gain deeper insights about the management of ESG/climate risks and opportunities",
+      "course_syllabus": "- Ecosystem of Sustainable Finance\n\n- Policy Framework for Sustainable Finance\n\n- The State and Trends of Global Climate & ESG Practices\n\n- Sustainability Integration in Business Models\n\n- Technology and Innovation that Enhance Sustainability\n\n- Sustainable & Responsible Investing\n\n- ESG Equities and Sustainable Banking\n\n- ‘Green’ instruments – Green Bonds, Notes and Debt, Carbon Credits, Public-Private Partnerships\n\n\\*Actual choice of topics will depend on individual course teachers",
+      "assessment_types": {
+        "Attendance": "25",
+        "Homework or assignment": "40",
+        "Project": "35"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course instructor",
+      "recommended_readings": "To be assigned by course instructor"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "5015",
+      "title": "Corporate Financial Analysis & Decision-Making",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "AE-LEC (1014)",
+              "meetings": [
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "16/5"
+                },
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "30/5"
+                },
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "13/6"
+                },
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "27/6"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "15/5"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "29/5"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "12/6"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "26/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course offers a framework for analyzing a firm’s major financial decision choices. Pertinent decision areas include assessment of the following: capital budgeting, investment selection and appraisal, risk analysis, financial planning, dividend policy, cash and working capital management, external fund raising and determination of corporate leverage.",
+      "enrollment_requirement": "For students in EMBA",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, students will be able to understand the essential characteristics of equity and fixed-income securities, the structure of local equity markets, and the importance of Chinese enterprises (both State-owned and non-State-controlled companies) to the global economy. Students will be able to appreciate external fund-raising activities through equity and debt markets, as well as corporate dividend and gearing (leverage) policies. Students will also gain familiarity with the properties of derivative securities and their role in hedging risk within a corporate/ financial decision-making context.",
+      "course_syllabus": "To be assigned by course teacher",
+      "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
     },
     {
       "subject": "FINA",
@@ -4338,6 +4494,32 @@
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "G-LEC (1036)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 203",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -4724,6 +4906,50 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "PA-LEC (1056)",
+              "meetings": [
+                {
+                  "time": "Th 12:00AM - 12:00AM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "26/2"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "28/2"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
             }
           ]
         }
@@ -5228,6 +5454,88 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "SA-LEC (1161)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "15/4"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "17/4"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "18/4, 25/4"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "16/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "SB-LEC (1162)",
+              "meetings": [
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "16/5"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "30/5"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "15/5"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LIU Ming",
+                  "dates": "29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
         }
       ],
       "description": "The foundations underpinning investment decisions are examined alongside portfolio management in this course. Topics include the risk-return tradeoff, the capital asset pricing model, the arbitrage pricing model, security analysis, portfolio selection, performance evaluation, hedging strategies, bond analysis, and an introduction of the uses of derivative securities in portfolio management. A delicate balance will be maintained between theory and practical applications.",
@@ -5473,6 +5781,286 @@
     },
     {
       "subject": "FINA",
+      "course_code": "6132",
+      "title": "Derivatives Markets",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1048)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 11:00AM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Professor SU Yang",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "We 9:30AM - 11:00AM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor SU Yang",
+                  "dates": "24/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor SU Yang",
+                  "dates": "27/4, 4/5, 11/5, 18/5, 25/5, 1/6"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:45PM",
+                  "location": "TBA",
+                  "instructor": "Professor SU Yang",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FB-LEC (1047)",
+              "meetings": [
+                {
+                  "time": "Fr 11:00AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Professor SU Yang",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "We 11:00AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor SU Yang",
+                  "dates": "24/3"
+                },
+                {
+                  "time": "Tu 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT1B",
+                  "instructor": "Professor SU Yang",
+                  "dates": "27/4, 4/5, 11/5, 18/5, 25/5, 1/6"
+                },
+                {
+                  "time": "Tu 2:00PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor SU Yang",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FC-LEC (1044)",
+              "meetings": [
+                {
+                  "time": "We 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor SU Yang",
+                  "dates": "7/4"
+                },
+                {
+                  "time": "Fr 2:00PM - 3:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Professor SU Yang",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "We 2:00PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor SU Yang",
+                  "dates": "24/3"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor SU Yang",
+                  "dates": "26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor SU Yang",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:15PM",
+                  "location": "Li Koon Chun Hall LT1",
+                  "instructor": "Professor SU Yang",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FD-LEC (1045)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "7/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "19/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "31/5"
+                },
+                {
+                  "time": "Fr 3:30PM - 5:00PM",
+                  "location": "Wu Ho Man Yuen Bldg 403",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "We 3:30PM - 5:00PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "24/3"
+                },
+                {
+                  "time": "We 3:30PM - 5:00PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "28/4"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor GAO Zhenyu",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FE-LEC (1113)",
+              "meetings": [
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "29/5"
+                },
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 409",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 409",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 409",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6"
+                },
+                {
+                  "time": "Sa 12:15PM - 1:45PM",
+                  "location": "Cheng Yu Tung Building 409",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 12:15PM - 1:45PM",
+                  "location": "Cheng Yu Tung Building 409",
+                  "instructor": "Dr. MOK Ka Ming",
+                  "dates": "8/5, 15/5, 22/5, 29/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course examines the valuation and market structure of derivative securities. Topics include the role of derivative securities, the determination of forward and futures prices, hedging strategies using futures, trading strategies with futures, properties of options, the pricing of stock options, options on indices, currencies and futures contracts, risk analysis, applications of option pricing models, biases in the Black-Scholes model, interest rate options, exotic options, risk management with options, and trading strategies with options. The course involves extensive and intensive use of computer and relevant software packages.",
+      "enrollment_requirement": "For students in MSc Finance; or MBA in Finance (40324)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students should have a good grasp of the economic concepts and quantitative skills for understanding and valuing derivative securities. Students should be able to interpret some economic phenomenon related to the derivatives. It is important for students to fully appreciate the economic underpinnings of various derivative pricing frameworks rather than the mechanical formulas. Students could apply the knowledge learnt from the course to potentially develop trading strategies in a rapidly changing market environment.",
+      "course_syllabus": "1. Credit derivatives\n2. Interest rate derivatives\n3. Equity derivatives\n4. Commodity derivatives\n5. Exotic options\n6. Employee stock options\n7. Real options\n8. Volatility\n9. Derivatives markets in Hong Kong\n10. Derivatives markets in Mainland China\n11. Impact of COVID-19 on derivatives markets",
+      "assessment_types": {
+        "Examination": "35",
+        "Homework or assignment": "10",
+        "Others": "5",
+        "Project": "25",
+        "Participation": "5",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "McDonald, Robert, Derivatives Markets. Pearson. 3rd edition.",
+      "recommended_readings": "Duffie, Darrell and Kenneth Singleton, Credit Risk. Princeton University Press. (optional)\nGeman, Helyette, Commodities and Commodity Derivatives. Wiley. (optional)\nHull, C. John, Options, Futures and Other Derivatives (Eighth edition), Pearson. (optional)"
+    },
+    {
+      "subject": "FINA",
       "course_code": "6142",
       "title": "Global Finance",
       "credits": "3.00",
@@ -5621,6 +6209,50 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "S-LEC (1163)",
+              "meetings": [
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. DONG Dezhi",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. DONG Dezhi",
+                  "dates": "10/4"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. DONG Dezhi",
+                  "dates": "21/3"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. DONG Dezhi",
+                  "dates": "11/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
         }
       ],
       "description": "The focus of this course is on the valuation of fixed-income securities and investment techniques in managing fixed income portfolios. Topics include the term structures of interest rates and forward rates; bond pricing, interest rate and reinvestment risks; risk and hedging in bond portfolio management; duration, convexity and portfolio immunization; corporate bonds, emerging-market bonds and default risks; fixed-income securities with embedded options; callable and convertible bonds, mortgage-backed securities; interest rate derivatives; and interest rate futures, swaps, caps and floors.",
@@ -5692,6 +6324,56 @@
                   "location": "TBA",
                   "instructor": "Professor XIE Wensi",
                   "dates": "19/12"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1114)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Ms. HSU Shirley Sui Wei",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Ms. HSU Shirley Sui Wei",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Ms. HSU Shirley Sui Wei",
+                  "dates": "9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "Sa 10:00AM - 1:00PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Ms. HSU Shirley Sui Wei",
+                  "dates": "15/5"
+                },
+                {
+                  "time": "Sa 10:00AM - 1:00PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Ms. HSU Shirley Sui Wei",
+                  "dates": "29/5"
                 }
               ],
               "availability": {
@@ -6074,6 +6756,44 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FC-LEC (1016)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. HO Ho Ming",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 403",
+                  "instructor": "Dr. HO Ho Ming",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                },
+                {
+                  "time": "Su 9:30AM - 12:45PM",
+                  "location": "TBA",
+                  "instructor": "Dr. HO Ho Ming",
+                  "dates": "23/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "Students taking this course will dive into the latest and most advanced topics in finance subfields, as selected by the expert finance faculty. By staying up-to-date with the latest trends and issues in finance, students will be well-equipped to excel in their careers in this professional field. Students are advised to contact MSc in Finance Programme Office for current offerings and prerequisites.",
@@ -6337,6 +7057,58 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FC-LEC (1178)",
+              "meetings": [
+                {
+                  "time": "Tu 2:00PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Staff",
+                  "dates": "27/4, 4/5, 11/5, 18/5, 25/5, 1/6"
+                },
+                {
+                  "time": "Tu 2:00PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FD-LEC (1181)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building 201",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "Contemporary topics and issues in subfields in finance, to be selected by the finance faculty, are addressed in this course. Students are advised to contact the department for current offerings and prerequisites.",
@@ -6354,6 +7126,73 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be assigned by course teacher",
       "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6212",
+      "title": "Monetary Policy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1032)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. David Glenn FERNANDEZ, \nDr. Michael George SPENCER, \nProfessor MATSUI Martin Kaoru",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg 303",
+                  "instructor": "Dr. David Glenn FERNANDEZ, \nDr. Michael George SPENCER, \nProfessor MATSUI Martin Kaoru",
+                  "dates": "20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT1A",
+                  "instructor": "Dr. David Glenn FERNANDEZ, \nDr. Michael George SPENCER, \nProfessor MATSUI Martin Kaoru",
+                  "dates": "29/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The objective of this course is to integrate various subfields of finance for the formulation of monetary policies. The focus is on the application of financial theory to real-world business decisions, financing and restructuring strategies. The course also emphasizes the impact of institutional constraints on managers' financial decision-making and the implementation of financial strategies.",
+      "enrollment_requirement": "For students in MSc Finance",
+      "course_attributes": "Part-Time Course",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "By the end of this course, students will be able to:\n- describe and characterize various advanced theories on firms’ financing policies\n- evaluate tradeoffs in the choice of an optimal capital structure\n- understand the interactions between investment, payout and financing policies\n- perform data analysis regarding firms’ capital structure and interpret observed data patterns",
+      "course_syllabus": "1. Review of fundamental theories and bond pricing\n2. Review of stock pricing, asset pricing theories, and options\n3. Corporate ownership, governance, and debt financing\n4. Cost of capital, payout policies, and review for mid-term\n5. Trade-off debt theory, and debt financing\n6. Different types of debt financing and agency conflicts\n7. Pecking order theory and leverage puzzles\n8. Venture capital and IPO\n9. Risk-shifting evidence and review for the final exam\n10. Case presentations",
+      "assessment_types": {
+        "Examination": "35",
+        "Homework or assignment": "15",
+        "Project": "10",
+        "Participation": "15",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "Principles of Corporate Finance, 12th edition, Richard Brealey, Stewart Myers, Franklin Allen, McGraw-Hill/Irwin.",
+      "recommended_readings": "Options, Futures and Other Derivatives, 8th edition, by John Hull, Pearson Education."
     },
     {
       "subject": "FINA",
@@ -6632,6 +7471,56 @@
           ]
         },
         {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FC-LEC (1115)",
+              "meetings": [
+                {
+                  "time": "Sa 10:00AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. JEN Marshall Hong",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Sa 10:00AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. JEN Marshall Hong",
+                  "dates": "10/4, 17/4"
+                },
+                {
+                  "time": "Sa 10:00AM - 5:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Mr. JEN Marshall Hong",
+                  "dates": "8/5"
+                },
+                {
+                  "time": "Su 10:00AM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Mr. JEN Marshall Hong",
+                  "dates": "21/3"
+                },
+                {
+                  "time": "Su 10:00AM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Mr. JEN Marshall Hong",
+                  "dates": "18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
           "term_code": "2450",
           "term_name": "2026-27 Summer Session",
           "schedule": [
@@ -6754,10 +7643,113 @@
     },
     {
       "subject": "FINA",
+      "course_code": "6229",
+      "title": "Machine Learning in Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1184)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LI Gang",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course explores the intersection of Machine Learning (ML) and Finance (FinTech), equipping students with high-value skills to solve modern financial challenges. We cover core ML techniques—including Neural Networks, Large Language Models (LLMs), and traditional methods—and their application in algorithmic trading, risk management, and portfolio optimization. The course emphasizes Python programming practice and the analysis of large, alternative data sets, preparing students to implement and critically evaluate advanced ML solutions in real-world financial contexts.",
+      "enrollment_requirement": "For students in MSc Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon successful completion of this course, students are expected to master the fundamental Python programming language and possess a solid knowledge of various machine learning methodologies. They will be able to design robust data pipelines for assessing the predictive value of alternative data sources, such as image, blockchain, and unstructured text data. Students will learn to diagnose common pitfalls in financial ML and critically compare traditional econometric approaches with modern ML techniques, enabling them to justify model selection effectively. The core application skills include the ability to implement state-of-the-art ML models to solve complex financial problems like asset pricing, risk assessment, and algorithmic trading. Furthermore, students will develop the capacity for innovation by learning to design an end-to-end ML system that tackles frontier challenges—such as synthetic data for backtesting or adversarial robustness—and to propose novel applications of emerging ML paradigms to unsolved finance problems. Finally, students will enhance their critical thinking by being able to critique recent research papers and industry case studies through both technical and business lenses, thereby accumulating substantial project experience in applying machine learning to practical financial problems.",
+      "course_syllabus": "Lecture 1 Introduction to Machine Learning\nLecture 2 Linear Methods for Regression and Classification\nLecture 3 Nonlinear Methods for Regression and Classification\nLecture 4 Support Vector Machine and Unsupervised Learning\nLecture 5 Neural Networks, Large Language Model, and Other AI Applications\nLecture 6 Introduction: Machine Learning and Big Data in Finance\nLecture 7 Machine Learning Applications in Asset Pricing I\nLecture 8 Machine Learning Applications in Asset Pricing II\nLecture 9 Machine Learning Applications in Corporate Finance\nLecture 10 Natural Language Processing and Its Implications in Finance\nLecture 11 Final Project Presentation\nLecture 12 Final Exam",
+      "assessment_types": {
+        "Examination": "45",
+        "Project": "50",
+        "Participation": "5"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "The Elements of Statistical Learning, Data Mining, Inference and Prediction, by Trevor Hastie, Robert Tibshirani, and Jerome Friedman. Springer, 2nd Edition.",
+      "recommended_readings": "- Machine Learning in Business: An Introduction to the World of Data Science, by John C. Hull, Amazon.\n- Hands-on Machine learning with Scikit-Learn & TensorFlow, by Aurelien Geron, 1st Edition, O’Reilly.\n- An Introduction to Statistical Learning with Applications in R, by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani, 7th Edition."
+    },
+    {
+      "subject": "FINA",
       "course_code": "6230",
       "title": "Venture Capital & Private Equity",
       "credits": "3.00",
       "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1035)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor MIU Hon Kit",
+                  "dates": "31/5"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor MIU Hon Kit",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "Lady Shaw Bldg LT4",
+                  "instructor": "Professor MIU Hon Kit",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5"
+                },
+                {
+                  "time": "Su 2:30PM - 5:45PM",
+                  "location": "TBA",
+                  "instructor": "Professor MIU Hon Kit",
+                  "dates": "23/5"
+                },
+                {
+                  "time": "Su 9:30AM - 12:45PM",
+                  "location": "TBA",
+                  "instructor": "Professor MIU Hon Kit",
+                  "dates": "23/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
         {
           "term_code": "2450",
           "term_name": "2026-27 Summer Session",
@@ -7013,6 +8005,38 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1031)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. LAM Full Yet Eric Campbell",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. LAM Full Yet Eric Campbell",
+                  "dates": "20/5, 27/5, 3/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7613,6 +8637,60 @@
     },
     {
       "subject": "FINA",
+      "course_code": "6352",
+      "title": "Credit & Financing: Flow, Structured and Risk Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1182)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. SUN Pengfei",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This elective course aims to teach the fundamental concepts underlying general and advanced analytical tools in credit risk modelling, credit rating methodology, counterparty credit risk and credit derivatives. Course contents will also relate to latest market regulations and capital requirements.",
+      "enrollment_requirement": "For students in MSc Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After the course, students should gain fundamental knowledge about counterparty credit risk exposures, risk correlations, systemic risks and the impact of regulatory controls through the imposition of capital requirements on the financial system.",
+      "course_syllabus": "Session 1: Introduction\n- Course Overview\n- Principles of Credit Risk Management\n- Credit as an Asset Class\n- What are market practitioners doing?\n- What do you need to know?\n\nSession 2: Credit Approval / Credit Risk Management\n- Overview of Credit Approval Process\n- Segmentation\n- Steps\n- Decisions\n- Monitoring\n- Functions of Risk Management\n- Risk-bearing Capacity\n- Calculation of Risks\n- Economic Capital\n- Regulatory Capital\n- Risk Strategy\n\nSession 3: Credit Scoring & Rating Agency\n- Overview of Credit Scoring\n- Credit Score Cards\n- Models\n- Scorecard Construction\n- Business Objective\n- Application\n- Moody’s / S&P / Fitch\n- Rating Methodology\n\nSession 4: Counterparty Credit Risk Management I\n- Counterparty Credit Risk Management / Credit Valuation Adjustment\n- Why should we hedge credit risk on derivatives?\n- Credit Exposure Measures\n- Credit Valuation\n\nSession 5: Counterparty Credit Risk Management II\n- Credit Hedging\n- PE Framework\n- Monte-Carlo Roadmap\n- Collateral Management\n- Basel III Impact\n- How financial firms manage under Basel III\n\nSession 6: Credit as an Asset Class\n- Bond Basics\n- Credit Derivatives Basics\n- Credit Derivatives Definition\n- Basis & Skew\n- Market Evolution\n\nSession 7: Credit Derivatives - Advanced\n- Credit Linked Notes\n- Securitization\n- Collateralized Loan Obligations\n- Collateralized Debt Obligations\n- Will these ever come back? - CDO^2 / CDO^3 / CPDO\n- Modelling\n\nSession 8: Credit Derivatives - What do they do post Lehman crisis?\n- Secured Funding Trades\n- Repo\n- Total Return Swap\n- Loan\n- How to price Secured Funding Trades?\n- Market evolution globally and in Asia\n\nSession 9: Regulatory Impact\n- Basel 2 / 2.5 / 3\n- Solvency 2\n- Liquidity\n- NSFR\n- Impact on Credit Markets\n\nSession 10: Credit Portfolio Management\n- Current Market Themes\n- Capital Management\n- Hedging Illiquid Credits\n- Income Generation\n\nSession 11: Documentation\n- ISDA\n- GMRA\n- GMSLA\n- Loan\n- Confirm\n- Termsheet\n\nSession 12: Current Credit Markets in China & Asia\n- China\n- Domestic Bond Market\n- Domestic Credit Derivatives Market\n- Offshore CNH bond market\n- Real Estate Loans\n- Mezzanine Loans\n- How institutions raise loan from “offshore”\n- Asia\n- Onshore/Offshore - all about regulations\n- India / Korea / Indonesia / Taiwan / Malaysia\n- Funding Needs due to Regulatory Capital and Liquidity\n- Global Interests on Emerging Market Credit\n- Fast Rewind - Briefly discussing the content from the previous sessions\n- Q&A",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "a. Janet Tavakoli, Credit Derivatives & Synthetic Structures, Wiley Finance\nb. Joetta Colquitt, Credit Risk Management, McGraw Hill\nc. John Hull, Options, Futures and Other Derivatives, Prentice Hall\nd. Paul Wilmott, Derivatives The Theory and Practice of Financial Engineering, John Wiley & Sons",
+      "recommended_readings": "a. Izzi: Basel III credit rating systems: an applied guide to quantitative and qualitative models\nb. Loffler and Posch: Credit risk modeling using Excel and VBA, 2nd edition\nc. Cesari: Modeling, pricing and hedging counterparty credit exposure\nd. Gregory: Counterparty credit risk\ne. Chaplin: Credit derivatives: trading, investing and risk management\nf. Mays: Credit scoring for risk managers: the handbook for lenders"
+    },
+    {
+      "subject": "FINA",
       "course_code": "6362",
       "title": "Foreign Exchange in Theory and Practice",
       "credits": "3.00",
@@ -7673,6 +8751,131 @@
     },
     {
       "subject": "FINA",
+      "course_code": "6372",
+      "title": "Behavioral Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1185)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor CEN Ling",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Traditional finance seeks to understand financial markets assuming that investors are \"rational\". Rationality means that investors can access to and have the ability to process information correctly and that competition between investors ensures that securities are correctly priced to reflect all available information. That is, the market is efficient. However, recent studies suggest that markets are not efficient and that investors are not fully rational. For example, particular trading strategies based on past information such as past returns and accounting information are able to outperform the markets. In addition, studies find that investors are committed to certain heuristic-based biases and frame dependent such as overconfidence, optimism, self-attribution, illusion of control, loss aversion, representativeness heuristic, anchoring, availability, ambiguity aversion, hindsight, flaming, etc. Behavioral biases combined with limits to arbitrage may result in securities not to be correctly priced.\n\nThis course will help students understand how individuals’ attitudes and behaviors affect their financial decisions and financial markets. In the practical side, this course will emphasize the role of investors’ psychological biases on various types of market inefficiency and show that how sophisticated investors can take advantage of these behavioral biases. This is a research oriented course with emphasis on both psychology theories and data analysis skills.",
+      "enrollment_requirement": "For students in MSc Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After taking this course, students should be able to:\n1) Understand the weakness of utility functions in neo-classical economics in describing behaviors and choices of rational agents;\n2) Establish a good foundation in psychology in understanding major behavioral biases and human natures that systematically affect decision making;\n3) Understand the origin of market inefficiency, financial market bubbles and crashes, and return predictabilities;\n4) Carry out trading strategies to take advantage of behavioral biases of irrational investors;\n5) Carry out quantitative analyses of individual corporate events that are significantly affected by behavioral biases of investors and managers.\n6) Understand the role and economic incentives of financial analysts in financial markets.",
+      "course_syllabus": "I. Introduction\nFoundation I: Expected Utility Theory and its Violations\n(Group Formation)\n\nII. Foundation II: Investor Psychology and Behavioral Biases\n- Heuristics Biases\n- Frame Dependence\n- Overconfidence and Attribution Biases\n- Inattention\n- Mood\n\nIII. Foundation III: Market Efficiency and Challenge to Market Efficiency\n- Efficient Market Hypothesis Revisited\n- Asset Pricing Anomalies Driven by Psychological Biases\n- Limits to Arbitrage\n- Disagreement\nCase Study: Behavioral Finance at JP Morgan (HBS Case: 9-207-084)\n\nIV. Financial Market Bubble and Crisis\nCase Study: Financial Crisis in Asia: 1997-1998 (HBS Case: 9-709-004)\n\nV. Data Mining Workshop I: Programming with Trading Strategies\n\nVI. Behavioral Corporate Finance I: Mergers and Acquisitions\n\nVII. Data Mining Workshop II: Event Studies of Corporate Events & Search Techniques of Corporate Information\n\nVIII. Behavioral Corporate Finance II: IPOs and SEOs\n\nIX. Behavioral Corporate Finance III: Financial Analysts\n\nX. Presentation of Group Projects\n\nXI. Final Project Submission",
+      "assessment_types": {
+        "Homework or assignment": "75",
+        "Participation": "5",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "There will be two anonymous evaluations within the semester to collect feedback from students.\nMandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "The following three main reference books are very useful for this course.\n1. Lucy F. Ackert & Richard Deaves, 2010, Behavioral Finance: Psychology, Decision-Making, and Markets, South-Western Cengage Learning: USA\n2. Hersh Shefrin, 2002, Beyond Greed and Fear, Oxford University Press: UK\n3. Daniel Kaheman, 2013, Thinking Fast and Slow, Farrar, Straus and Giroux: USA",
+      "recommended_readings": "Psychology-focused:\n1. David Kahneman, Paul Slovic and Amos Tversky (Ed.), Judgement under Uncertainty: Heuristics and Biases, Cambridge University Press: USA\n2. Thomas Gilovich, Dale W. Griffin, and Daniel Kahneman (Ed.), Heuristics and Biases: The Psychology of Intuitive Judgment, Cambridge University Press: USA\n3. John R. Nofsinger, The Psychology of Investing, Prentice Hall Press: USA\n\nFinance-focused:\n4. Robert Shiller, 2005, Irrational Exuberance, Broadway Books: USA (original version was published by the Princeton University Press)\n5. George Akerlof and Robert Shiller, 2010, Animal Spirit, Princeton University Press: USA\n6. Andrew Shleifer, 2000, Inefficient Markets: An Introduction to Behavioral Finance, Oxford University Press: USA\n7. James Montier, 2007, Behavioral Finance: Insights into Irrational Minds and Markets, John Wiley & Sons, Ltd.: UK\n8. Charles P. Kindleberger and Robert Aliber, Manias, Panics and Crashes, John Wiley & Sons, Ltd.: UK"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6504",
+      "title": "Corporate Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "C-LEC (1031)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Hua",
+                  "dates": "17/05/2027 - 26/07/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "D-LEC (1032)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Hua",
+                  "dates": "17/05/2027 - 26/07/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "This course discusses the financial management decisions of a corporation in depth. Specific topics include capital budgeting analysis under perfect and non-perfect competitive setups; theories of agency costs and asymmetric information that underlie financial decisions; capital structure; dividend policy; raising equity capital and long-term debt; warrants and convertibles; and corporate risk management.",
+      "enrollment_requirement": "For students in Executive Master of Professional Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students will understand how companies raise and use funds in the modern financial system, and will know how to analyze cases and solve problems from the real business world in China.",
+      "course_syllabus": "* Financing and investment behavior of firms in the modern capital market focusing on the development of China’s financial system\n* How companies use various financing tools and introduce major empirical findings, especially evidence from the Chinese capital market and firms\n* How companies raise and use funds in the modern financial system\n* How to analyze cases and solve problems from the real business world in China​",
+      "assessment_types": {
+        "Attendance": "20",
+        "Project": "80"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
       "course_code": "6508",
       "title": "Commercial Banking",
       "credits": "3.00",
@@ -7712,6 +8915,50 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "S-LEC (1166)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Zuji",
+                  "dates": "18/3"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Zuji",
+                  "dates": "8/4"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Zuji",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Zuji",
+                  "dates": "9/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
             }
           ]
         }
@@ -7955,6 +9202,70 @@
               "class_attributes": "Putonghua only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "PA-LEC (1066)",
+              "meetings": [
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor CAO Quanwei",
+                  "dates": "17/4"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor CAO Quanwei",
+                  "dates": "18/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "P-LEC (1023)",
+              "meetings": [
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LI Jiange",
+                  "dates": "29/5"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LI Jiange",
+                  "dates": "30/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
         }
       ],
       "description": "Topics and issues in subfields of finance are addressed in this course.\nThe experiential learning components such as field trip/company visit etc. may be offered as course components if deemed necessary by course instructor.",
@@ -7969,6 +9280,185 @@
       "learning_outcomes": "To broaden students’ perspective on the many contemporary issues in current financial development. To help students gain practical insights in the latest trends of corporate finance and investment management.",
       "course_syllabus": "To be assigned by course teacher",
       "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6522",
+      "title": "Law and the Securities Markets",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1183)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor HUANG Hui",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor HUANG Hui",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to introduce students already familiar with the economics of securities markets to the law that governs those markets and the transactions in securities they are designed to execute. The course will closely examine actual legal documentation to show its basic structure and purpose. Further, the course will analyze basic legal principles that shape the law and regulation of corporate finance and securities markets, such as legal strategies to overcome asymmetric information, moral hazard and agency problems, as well as techniques to secure prior claims against assets held in the possession of another entity in any bankruptcy proceedings regarding that entity.",
+      "enrollment_requirement": "For students in MSc Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After the course, students shall:\n- be able to read legal documents relevant for financial decision making\n- have a thorough understanding of the underlying legal principles related to regulation and outside regulation and critically evaluate relevant theories and frameworks\n- be able to appreciate the importance of legal dimensions in corporate finance\n- be able to integrate the legal principles with other disciplinary knowledge (e.g., economics and accounting) in developing financing strategies for their own firms and solving financial management problems\n- be able to communicate issues involving law and securities market in a professional manner with co-workers and/or relevant experts",
+      "course_syllabus": "1. Legal issues other than regulation\n1. 1. Creating securities\n1. 1.1. Contract law issues: the terms of the notes and the role of standard agreements\n1. 1.2. Property law issues: payment for shares\n1. 1.3. Company law issues: issuing shares of stock\n1. 1.4. The legal nature of derivatives and the standardization of their terms\n\n2. Selling securities\n2. 1. The underwriting agreement: contracting to distribute risk\n2. 2. Taking collateral\n2. 3. Risk management transactions, in particular repo transactions\n\n3. Legal issues of regulation\n3. 1. Regulation of the Primary Market\n3. 1.1. Public offers, documentation and approvals\n3. 1.2. Private offers, prerequisites to quality as a private offer\n3. 1.3. Liability for false or misleading disclosures\n3. 2. The activities and supervision of market participants\n3. 2.1. Exchanges\n3. 2.2. Trading platforms\n3. 2.3. Brokers\n3. 3. Laws against market abuse\n3. 3.1. Insider trading\n3. 3.2. Market manipulation",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "Recommended Texts:\n- Capital markets, derivatives and the law / Alan N. Rechtschaffen. Oxford ; New York : Oxford University Press, c2009.\n- Securities law / Alastair Hudson. London : Sweet & Maxwell, 2008.\n- Financial markets in Hong Kong : law and practice / Berry Fong-Chung Hsu, Laurence Lu-Jen Li, Paul Lejot. Oxford ; New York : Oxford University Press, 2006.\n\nRecommended Journal(s):\n- Capital Markets Law Journal"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6524",
+      "title": "Securitization and Structured Finance",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "S-LEC (1002)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 405",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "5/6"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "3/6"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "3/6"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 203",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "3/6"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "6/6"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "6/6"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "6/6"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "5/6"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. CHEN Raymond Lei",
+                  "dates": "5/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces students to fundamental concepts of securitization and the wide array of structured products in the financial market, especially in the context of China. Topics include exotic derivatives and credit derivative, followed by detailed discussions on popular structured products in different asset classes, structuring rationales of the products, and the typical transaction cycle in banks.",
+      "enrollment_requirement": "For students in EMBA (Chinese); or MBA in Finance (40087); or MBA in Finance (40324)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After the course, students should:\n- have a thorough understanding of securitization and related products in financial markets;\n- be able to critically evaluate relevant frameworks and integrate with other disciplinary knowledge in developing financing strategies in the context of China.",
+      "course_syllabus": "1. Corporate Credit Rating\nIssuer default rating, recovery rating, S-REIT credit analysis, profit manipulation, early warning signals\n2. Securitization Rating\nSecuritization process and participants, legal structure, financial structure, credit enhancement, residential mortgage backed securities\n3. CDS, CLN, CDO\n4. Recent development of structured finance in China",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "50",
+        "Participation": "10"
+      },
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be assigned by course teacher",
       "recommended_readings": "To be assigned by course teacher"
@@ -8231,6 +9721,98 @@
     },
     {
       "subject": "FINA",
+      "course_code": "6533",
+      "title": "Finance Field Study",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FAF1-FLD (1192)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Paul Brian MCGUINNESS",
+                  "dates": "15/03/2027 - 31/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FBF1-FLD (1148)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEW Seen Meng",
+                  "dates": "15/03/2027 - 31/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FCF1-FLD (1149)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Paul Brian MCGUINNESS",
+                  "dates": "15/03/2027 - 31/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course consists of assignments, case reports and/or presentations along with a week-long residential programme in various countries arranged by the MSc Programme in Finance. The goal in taking classroom sessions abroad is to expose our students to a wide spectrum of finance related issues, such as capital markets, derivative markets, venture capital, economics, politics, social issues, business functions and financial systems of the host country. Site visits to multi-national financial institutions, joint ventures and regulatory bodies might be included.",
+      "enrollment_requirement": "For students in MSc Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, students will gain a basic understanding of the current finance practices and related issues in the corresponding country.",
+      "course_syllabus": "This course consists of a week-long residential programme in selected countries along with assignments. The goal in taking classroom sessions abroad is to expose our students to a wide spectrum of finance related issues, such as capital markets, financial innovation, economic and social environment, business activities and financial systems of the host country. Site visits focus on financial institutions and startup companies complemented by cultural experiences.",
+      "assessment_types": {
+        "Homework or assignment": "70",
+        "Participation": "30"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
       "course_code": "6542",
       "title": "Quantitative Risk Management",
       "credits": "3.00",
@@ -8330,6 +9912,72 @@
       "feedback_evaluation": "A course-end evaluation and reflection of teachers, including evidence from assessment, will be conducted.",
       "required_readings": "There is not a single textbook that covers all the topics and the course would be based on a set of lecture notes.",
       "recommended_readings": "Recommended Texts:\n- Quantitative risk management : concepts, techniques and tools / Alexander J. McNeil, Rüdiger Frey, Paul Embrechts. Princeton, N.J. : Princeton University Press, c2005.\n- Quantitative financial risk management: fundamentals, models and techniques / Stephen E. Satchell. (Ed.) London : Henry Steward Talks, c2006.\n- Risk management and financial institutions / John Hull. Upper Saddle River, NJ : Pearson/Prentice Hall, c2010.\n\nRecommended Journals:\n- Journal of risk management in financial institutions\n- Credit risk management report\n- The journal of risk finance\n- Risk\n- Risk management"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6572",
+      "title": "Mathematical Financial Modeling and Structured Solutions",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "FA-LEC (1164)",
+              "meetings": [
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 615",
+                  "instructor": "Professor LAW Ka Fai",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 615",
+                  "instructor": "Professor LAW Ka Fai",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 615",
+                  "instructor": "Professor LAW Ka Fai",
+                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course introduces mathematical modeling concepts and techniques for financial applications. The classic Black-Scholes Model, local volatility, stochastic volatility are critically evaluated. Interest rate models such as Ho-Lee, Hull-White, Heath-Jarrow-Morton (HJM), Libor Market Model are discussed. Cross currency models for foreign exchanges and modeling for commodity are also covered.",
+      "enrollment_requirement": "For Students in MSc Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After the course, students should:\n- have an applied understanding of mathematical finance modeling and appreciate their importance in analyzing, structuring, trading, and investing as quantitative analysts\n- have the mathematical / technical skills for developing mathematical finance models under guidance\n- be able to adopt the modeling techniques in developing financing strategies for their own firms and solving financial management problems",
+      "course_syllabus": "Mathematical financial modeling\n- Problems of classic Black-Scholes Model\n- Local volatility\n- Stochastic volatility\n\nInterest rate models\n- Ho-Lee\n- Hull-White\n- Heath-Jarrow-Morton (HJM)\n- Libor Market Model\n\nOther models\n- Cross currency models for foreign exchanges\n- Modeling for commodity",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "10",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "No required textbook. Lecture notes will be provided in each class.",
+      "recommended_readings": "Recommended Texts:\n- Modelling financial derivatives with Mathematica : mathematical models and benchmark algorithms / William T. Shaw. Cambridge ; New York : Cambridge University Press, 1998.\n- Modelling financial time series / Stephen J Taylor. Singapore : World Scientific, c2008.\n- Martingale Methods in Financial Modelling / Marek Musiela, Marek Rutkowski. Berlin, Heidelberg : Springer-Verlag Berlin Heidelberg, 2005.\n- Risk management and financial institutions / John Hull. Upper Saddle River, NJ : Pearson/Prentice Hall, c2010."
     },
     {
       "subject": "FINA",
@@ -9021,6 +10669,237 @@
     },
     {
       "subject": "FINA",
+      "course_code": "6608",
+      "title": "Derivatives for Actuaries",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1043)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "18/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "20/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "25/5"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "20/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "25/5"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 209B",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "27/4, 4/5, 11/5, 18/5"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "65",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide students with knowledge in derivatives and their applications in pricing and reserving insurance products. Topics include financial forwards, futures, swaps, options; basic insurance strategies; parity relation; binominal option pricing models; the fundamental theorem of asset pricing; foundation of the Black-Scholes model; Brownian motion and stochastic calculus; derivation of Black-Scholes-Merton partial differential equation and Black-Scholes formula; volatility surface.",
+      "enrollment_requirement": "For students in MSc Actuarial Science & Insurance Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be familiar with the following about derivative securities:\n• stocks, foreign exchange and futures as underlying assets\n• the cash flow characteristics relating to various options and option strategies\n• the binomial tree model, and be able to apply it to price European and American options\n• the Black-Scholes model, and risk-neutral valuation methodology in continuous-time\n• the principles of dynamic replication and hedging of financial derivatives\n• risk analysis including decision trees, real options, and risk measures\n• application of ordinary and exotic options in the context of actuarial-specific risk management",
+      "course_syllabus": "Topics to be covered:\n1. Introductory Derivatives- Underlying assets, forward and prepaid forward, options and related strategies\n2. Binomial Option Pricing- One-period and multi-period trees\n3. Black-Scholes Option Pricing- The Black-Scholes framework, properties of lognormal distribution, Greeks, dynamic hedging\n4. Further Topics on Option Pricing- Exotic options, general properties of options\n5. Actuarial Applications- Risk analysis including real options and risk measures; investment guarantees, other actuarial-related applications",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "20",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "• Course Teaching Evaluation. To be conducted during the last two weeks of lectures.\n• E-mail communications with the instructor.\n• Performance in test/examination/essay/presentation. Assessment of what has been achieved by the students.",
+      "required_readings": "Robert L. McDonald (2012). Derivatives Markets. 3rd Ed., Addison Wesley.",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6609",
+      "title": "Data Science for Insurance Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1029)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "2/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "2/6"
+                },
+                {
+                  "time": "We 6:45PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "65",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course provides an overview of data science and insurance analytics, covering a broad selection of key challenges in and methodologies for working with big data. Topics include data collection, integration, management, modeling, analysis, visualization, prediction and informed decision making, as well as data security and data privacy. Students will acquire a working knowledge of insurance analytics through hands-on projects and case studies using R and Python (programme languages) with real financial and insurance datasets.",
+      "enrollment_requirement": "For students in MSc Actuarial Science & Insurance Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing the course, students would be able to use statistical packages to fit, interpret and select various statistical models, and use these models for forecasting and prediction.",
+      "course_syllabus": "Regarding to working with data:\n• Identify structured, unstructured and semi-structured data types\n• Identify the types of variables and terminology used in predictive modeling\n• Evaluate the quality of appropriate data sources for a problem\n• Identify the regulations, standards, and ethics surrounding predictive modeling and data collection\n\nModels covered will include:\n• Time Series Models\n• Principal Component Analysis\n• Cluster Analysis\n• Tree-based Models",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Project": "30"
+      },
+      "feedback_evaluation": "• Course Teaching Evaluation. To be conducted during the last two weeks of lectures.\n• E-mail communications with the instructor.\n• Performance in test/examination/essay/presentation. Assessment of what has been achieved by the students.",
+      "required_readings": "Witten, Hastie and Tibshirani (2013) An Introduction to Statistical Learning, with Applications in R, Springer.",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6610",
+      "title": "Statistical Modelling for Insurance Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1030)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "4/6"
+                },
+                {
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Chen Kou Bun Bldg LT3",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Chen Kou Bun Bldg LT3",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "Fr 2:30PM - 9:30PM",
+                  "location": "Science Centre L3",
+                  "instructor": "Professor LIM Hong Beng",
+                  "dates": "19/3"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "65",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is devoted to insurance analytics by covering key concepts of statistical learning using R and Python programming languages. It provides the transition from mathematical statistics to insurance analytics and its applications. It covers the linear regression, generalized linear models and generalized additive models.",
+      "enrollment_requirement": "For students in MSc Actuarial Science & Insurance Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "The goal of this course is to build on the training of students by developing the fundamentals of predictive modeling and providing corresponding applications in actuarial science, risk management and insurance. After completing this course, students should be able to apply the current statistical methodologies that prevail in actuarial science today.",
+      "course_syllabus": "Models covered will include:\n• Regression Model\n• Generalized Linear Models",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Project": "30"
+      },
+      "feedback_evaluation": "• Course Teaching Evaluation. To be conducted during the last two weeks of lectures.\n• E-mail communications with the instructor.\n• Performance in test/examination/essay/presentation. Assessment of what has been achieved by the students.",
+      "required_readings": "Regression Modeling with Actuarial and Financial Applications, Edward W. Frees, 2010, New York: Cambridge.\nAn Introduction to Statistical Learning, with Applications in R, James, Witten, Hastie, Tibshirani, 2013, New York: Springer.",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
       "course_code": "6611",
       "title": "Insurance and Risk Management",
       "credits": "3.00",
@@ -9123,11 +11002,11 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "50",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9230,6 +11109,130 @@
       },
       "feedback_evaluation": "• Course Teaching Evaluation. To be conducted during the last two weeks of lectures.\n• E-mail communications with the instructor.\n• Performance in test/examination/essay/presentation. Assessment of what has been achieved by the students.",
       "required_readings": "Property and Liability Insurance Principles, by Mary Ann Cook, Ann E. Myhr, 7th edition, The Institutes (January 1, 2019).",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6616",
+      "title": "Advanced Life Contingencies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1028)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 202",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "1/6"
+                },
+                {
+                  "time": "Tu 6:45PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building 202",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers advanced concepts in long-term actuarial mathematics. Topics include determination of benefit premium and benefit reserves for life insurance and annuities; analysis of insurance loss random variables; theory of life contingencies for multiple lives.",
+      "enrollment_requirement": "For students in MSc Actuarial Science & Insurance Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students are expected to be familiar with multiple decrement models, multiple state models, and multiple life models, and be able to perform pricing, valuation and profit calculation for these models. Students would be able to apply these models to a wide range of contemporary life insurance products. Students are expected to use spreadsheet programme to implement the models being studied.",
+      "course_syllabus": "(1) Further analysis of reserve, including interim reserve, modified reserve, Hattendorf’s theorem and Thiele’s differential equation\n(2) Multiple decrement models, with applications in the valuation and funding of pension plans\n(3) Multiple state models, with relation disability and health products\n(4) Multiple life models for independent and also dependent lives\n(5) Premium, reserve and profit calculation for models in the above",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "20",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "• Course Teaching Evaluation. To be conducted during the last two weeks of lectures.\n• E-mail communications with the instructor.\n• Performance in test/examination/essay/presentation. Assessment of what has been achieved by the students.",
+      "required_readings": "D. C. M. Dickson, M. H. Hardy and H. R. Waters (2020). Actuarial Mathematics for Life Contingent Risks. 3rd Ed. Cambridge University Press. (Chapters 7 to 11, 13)",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "FINA",
+      "course_code": "6617",
+      "title": "Loss and Survival Models",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1033)",
+              "meetings": [
+                {
+                  "time": "Th 6:45PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:45PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "20/5, 27/5, 3/6"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor ZHU Xiao Bai",
+                  "dates": "17/3"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers advanced concepts in short-term actuarial mathematics. Topics include credibility theory; limited fluctuation; Bayesian; Buhlmann; Buhlmann-Straub; empirical Bayes parameter estimation; statistical inference for loss models; maximum likelihood estimation; effect of policy modifications; model selection.",
+      "enrollment_requirement": "For students in MSc Actuarial Science & Insurance Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students are expected to be familiar with the statistical estimation and model selection principle of actuarial models used in general insurance. They would understand the framework of both classical and modern credibility theory as an approximation of Bayesian theory in insurance ratemaking. Students are expected to use spreadsheet programme and/or statistical packages to perform estimation of the models being studied.",
+      "course_syllabus": "(1) Likelihood principle, including MLE, information matrix, confidence interval and confidence region\n(2) Estimation, validation and selection of parametric loss models and frequency models for complete and incomplete data (due to policy modifications)\n(3) Classical limited fluctuation credibility theory and its failure\n(4) Concepts in Bayesian estimation\n(5) Greatest accuracy credibility theory (including both Buhlmann and Buhlmann-Straub) and empirical Bayes estimation of credibility factors",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "20",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "• Course Teaching Evaluation. To be conducted during the last two weeks of lectures.\n• E-mail communications with the instructor.\n• Performance in test/examination/essay/presentation. Assessment of what has been achieved by the students.",
+      "required_readings": "S. A. Klugman, H. H. Panjer and G. E. Willmot (2019). Loss Models: From Data to Decisions. 5th Ed., Wiley Interscience. (Chapters 11 - 13, 15 - 18)",
       "recommended_readings": "To be assigned by course teacher"
     }
   ]

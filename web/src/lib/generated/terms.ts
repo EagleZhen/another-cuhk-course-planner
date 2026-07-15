@@ -14,6 +14,8 @@ export const TERMS_BY_YEAR: Record<string, readonly string[]> = {
   '2026-27': [
     '2026-27 Term 1',
     '2026-27 Term 2',
+    '2026-27 Term 3',
+    '2026-27 Term 4',
     '2026-27 Summer Session',
     '2026-27 Acad Year (Medicine)',
   ],

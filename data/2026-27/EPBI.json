@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T10:41:35.328653+00:00",
+    "scraped_at": "2026-07-14T17:26:43.972703+00:00",
     "subject": "EPBI",
     "subject_title": "Epidemiology & Biostatistics",
-    "total_courses": 3,
+    "total_courses": 4,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -119,6 +119,32 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "PJ01-PRJ (1219)",
+              "meetings": [
+                {
+                  "time": "We 12:00AM - 12:00AM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor TSOI Kam Fai, \nProfessor WANG Zixin",
+                  "dates": "7/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course continues the process of guiding the students in the development of their research protocol through individual discussions between the students and their supervisors and student presentations to their fellow students and supervisors. The presentation groups will be formed consisting of about 6-9 students and 3 supervisors. The supervisors will provide feedback and advice to the students on the development of their protocol.",
@@ -219,6 +245,104 @@
       "feedback_evaluation": "Course Evaluation will be conducted in the last session.",
       "required_readings": "None",
       "recommended_readings": ""
+    },
+    {
+      "subject": "EPBI",
+      "course_code": "6901",
+      "title": "Research Thesis II",
+      "credits": "5.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "F-LEC (1217)",
+              "meetings": [
+                {
+                  "time": "Tu 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor KIM Jean Hee, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
+                  "dates": "18/5"
+                },
+                {
+                  "time": "Tu 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor KIM Jean Hee, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
+                  "dates": "15/6"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor KIM Jean Hee, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
+                  "dates": "17/5"
+                },
+                {
+                  "time": "Mo 2:00PM - 5:00PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor KIM Jean Hee, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
+                  "dates": "14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "55",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "55",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "P-LEC (1078)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
+                  "dates": "26/5"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor CHONG Ka Chun, \nProfessor WANG Haitian, \nProfessor YANG Zuyao",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students will continue conducting and complete the data analysis and complete the writing up of the thesis. They need to apply the skills of scientific writing learnt in the research thesis.",
+      "enrollment_requirement": "For students in MSc in Epidemiology & Biostatistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Students will continue conducting and complete the data analysis and complete the writing up of the thesis. They need to apply the skills of scientific writing learnt in the research thesis.",
+      "course_syllabus": "1. Review Session of Thesis\n\n2. Thesis Presentation\n\n3. Thesis Writing",
+      "assessment_types": {
+        "Classwork": "20",
+        "Discussion": "30",
+        "Essays": "30",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Course Evaluation will be conducted in the last session.",
+      "required_readings": "None",
+      "recommended_readings": "None"
     }
   ]
 }

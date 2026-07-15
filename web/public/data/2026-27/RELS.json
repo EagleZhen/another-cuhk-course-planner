@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T16:32:29.183044+00:00",
+    "scraped_at": "2026-07-14T23:19:28.332154+00:00",
     "subject": "RELS",
     "subject_title": "Religious Studies & Theology",
-    "total_courses": 20,
+    "total_courses": 24,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -114,6 +114,55 @@
       "assessment_types": {
         "Essays": "70",
         "Presentation": "30"
+      }
+    },
+    {
+      "subject": "RELS",
+      "course_code": "5115",
+      "title": "Reading on Chinese Religious Texts",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9897)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAI Tsz Pang",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course centres on the study of the literature of the Han Dynasty which is formative of the chief religious concepts such as cosmology, anthropology and soteriology, with the aim of understanding of the principles of religious theory construction in traditional China.",
+      "enrollment_requirement": "For students in MPhil-PhD Religious Studies or Master of Divinity",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Religious Studies",
+      "academic_org": "Div of Religious Studies",
+      "learning_outcomes": "- Engage in reading and analysis of Chinese religious texts and images;\n- Develop a critical yet sympathetic attitude in discussing religious phenomena on Chinese religious texts",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "30",
+        "Participation": "20"
       }
     },
     {
@@ -788,6 +837,102 @@
     },
     {
       "subject": "RELS",
+      "course_code": "6115",
+      "title": "Buddhist Studies: Seminar I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9896)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This seminar examines Buddhism as a dynamic process of borrowing, conflict and interaction between and within traditions that have been identified as Buddhist. We will begin by studying some representative works of both primary and secondary source (such as those put together by Donald Lopez in his Buddhism in Practice). Specific themes and topics will then be chosen in accordance with students’ interest for in-depth examination. The specific content will be designed by the teacher who offers the courses.",
+      "enrollment_requirement": "For students in MPhil-PhD Religious Studies",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Religious Studies",
+      "academic_org": "Div of Religious Studies",
+      "learning_outcomes": "- Acquire basic knowledge of Buddhist studies;\n- Develop skills in analytical reading, formal writing and critical thinking;\n- Relate Buddhist concepts and persuasions to their ethical cultivation and views of life as well as to their coexistence with the nature.",
+      "assessment_types": {
+        "Essays": "60",
+        "Presentation": "40"
+      }
+    },
+    {
+      "subject": "RELS",
+      "course_code": "6116",
+      "title": "Buddhist Studies: Seminar II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9722)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This seminar examines Buddhism as a dynamic process of borrowing, conflict and interaction between and within traditions that have been identified as Buddhist. We will begin by studying some representative works of both primary and secondary source (such as those put together by Donald Lopez in his Buddhism in Practice). Specific themes and topics will then be chosen in accordance with students’ interest for in-depth examination. The specific content will be designed by the teacher who offers the courses.",
+      "enrollment_requirement": "For students in MPhil-PhD Religious Studies",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Religious Studies",
+      "academic_org": "Div of Religious Studies",
+      "learning_outcomes": "- Acquire basic knowledge of Buddhist studies;\n- Develop skills in analytical reading, formal writing and critical thinking;\n- Relate Buddhist concepts and persuasions to their ethical cultivation and views of life as well as to their coexistence with the nature.",
+      "assessment_types": {
+        "Essays": "60",
+        "Presentation": "40"
+      }
+    },
+    {
+      "subject": "RELS",
       "course_code": "6121",
       "title": "Taoist Studies: Seminar I",
       "credits": "3.00",
@@ -829,6 +974,54 @@
       "academic_group": "Div of Religious Studies",
       "academic_org": "Div of Religious Studies",
       "learning_outcomes": "- Acquire basic knowledge of Taoist studies;\n- Develop skills in analytical reading, formal writing and critical thinking;\n- Relate Taoist concepts and persuasions to their ethical cultivation and views of life as well as to their coexistence with the nature",
+      "assessment_types": {
+        "Essays": "60",
+        "Presentation": "40"
+      }
+    },
+    {
+      "subject": "RELS",
+      "course_code": "6131",
+      "title": "Biblical Studies: Seminar I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9898)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WONG Sonia Kwok",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "5",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Discussion in seminar setting on special issues related to biblical studies. Students are allowed to take these courses for more than once, and gain the units each time they pass the course.",
+      "enrollment_requirement": "For students in MPhil-PhD Religious Studies",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Religious Studies",
+      "academic_org": "Div of Religious Studies",
+      "learning_outcomes": "- Acquire basic knowledge of Biblical studies;\n- Develop skills in analytical reading, formal writing and critical thinking",
       "assessment_types": {
         "Essays": "60",
         "Presentation": "40"

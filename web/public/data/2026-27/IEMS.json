@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:19:34.698902+00:00",
+    "scraped_at": "2026-07-14T19:12:50.356903+00:00",
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
     "total_courses": 21,
@@ -226,6 +226,44 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "B-LEC (1130)",
+              "meetings": [
+                {
+                  "time": "Sa 10:00AM - 12:45PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "13/3, 20/3"
+                },
+                {
+                  "time": "Sa 10:00AM - 12:45PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 10:00AM - 12:45PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor ZAO John Kar Kin",
+                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6, 12/6, 19/6"
+                }
+              ],
+              "availability": {
+                "capacity": "24",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "24",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course will introduce to the students emerging topics in information engineering. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty. Course assessment is at the discretion of course teacher.",
@@ -270,6 +308,38 @@
                 "waitlist_capacity": "10",
                 "waitlist_total": "0",
                 "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "B-LEC (1134)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Lee Shau Kee Building 308",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 7:15PM",
+                  "location": "Lee Shau Kee Building 308",
+                  "instructor": "Professor CHOW Sze Ming",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -490,13 +560,7 @@
                   "time": "Mo 4:30PM - 7:15PM",
                   "location": "Sino Building 239",
                   "instructor": "Dr. MA Pui Kit",
-                  "dates": "7/12, 14/12"
-                },
-                {
-                  "time": "Mo 4:30PM - 7:15PM",
-                  "location": "Sino Building 239",
-                  "instructor": "Dr. MA Pui Kit",
-                  "dates": "4/1, 11/1, 18/1, 25/1, 1/2"
+                  "dates": "7/12, 14/12, 21/12, 28/12, 4/1, 11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 4:30PM - 7:15PM",
@@ -1147,11 +1211,11 @@
                 }
               ],
               "availability": {
-                "capacity": "72",
+                "capacity": "100",
                 "enrolled": "0",
                 "waitlist_capacity": "10",
                 "waitlist_total": "0",
-                "available_seats": "72",
+                "available_seats": "100",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1266,19 +1330,19 @@
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Shaw College LT",
+                  "location": "Lee Shau Kee Building LT3",
                   "instructor": "Professor ZHANG Yingjun",
                   "dates": "17/12"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Shaw College LT",
+                  "location": "Lee Shau Kee Building LT3",
                   "instructor": "Professor ZHANG Yingjun",
                   "dates": "7/1, 14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Shaw College LT",
+                  "location": "Lee Shau Kee Building LT3",
                   "instructor": "Professor ZHANG Yingjun",
                   "dates": "18/2, 25/2, 4/3"
                 }

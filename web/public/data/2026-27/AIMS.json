@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T06:55:04.326654+00:00",
+    "scraped_at": "2026-07-14T13:30:35.973350+00:00",
     "subject": "AIMS",
     "subject_title": "Artificial Intelligence",
-    "total_courses": 14,
+    "total_courses": 15,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -412,19 +412,19 @@
                 {
                   "time": "We 6:30PM - 9:30PM",
                   "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Professor CHENG Yu",
+                  "instructor": "Staff",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 6:30PM - 9:30PM",
                   "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Professor CHENG Yu",
+                  "instructor": "Staff",
                   "dates": "17/2"
                 },
                 {
                   "time": "We 6:30PM - 9:30PM",
                   "location": "William M W Mong Eng Bldg LT",
-                  "instructor": "Professor CHENG Yu",
+                  "instructor": "Staff",
                   "dates": "3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -596,6 +596,61 @@
         "Presentation": "35",
         "Participation": "30",
         "Report": "20"
+      }
+    },
+    {
+      "subject": "AIMS",
+      "course_code": "5770",
+      "title": "Advanced Topics in Artificial Intelligence (I)",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9721)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 8:30PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor YUAN Yixuan",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 6:30PM - 8:30PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor YUAN Yixuan",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "150",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "150",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will introduce to the students advanced topics in Artificial Intelligence. The detailed course contents may be changed from year to year depending on the current development and the teacher specialty.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to understand the advanced topics along the latest development of Artificial Intelligence.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Report": "30"
       }
     },
     {

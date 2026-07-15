@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T07:45:10.055591+00:00",
+    "scraped_at": "2026-07-14T14:25:22.271030+00:00",
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
     "total_courses": 50,
@@ -4743,6 +4743,38 @@
       "credits": "3.00",
       "terms": [
         {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9709)",
+              "meetings": [
+                {
+                  "time": "Th 6:45PM - 9:30PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Mr. WONG Lung",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 6:45PM - 9:30PM",
+                  "location": "Y.C. Liang Hall 104",
+                  "instructor": "Mr. WONG Lung",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
           "term_code": "2450",
           "term_name": "2026-27 Summer Session",
           "schedule": [
@@ -6494,7 +6526,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor WONG Ho Wai",
                   "dates": "07/09/2026 - 14/12/2026"
                 }
               ],

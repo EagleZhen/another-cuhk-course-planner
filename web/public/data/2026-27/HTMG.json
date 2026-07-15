@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T12:17:02.009759+00:00",
+    "scraped_at": "2026-07-14T19:09:58.569930+00:00",
     "subject": "HTMG",
     "subject_title": "Hotel And Tourism Management",
-    "total_courses": 55,
+    "total_courses": 67,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -2726,6 +2726,72 @@
     },
     {
       "subject": "HTMG",
+      "course_code": "5015",
+      "title": "Global Real Estate Asset Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1061)",
+              "meetings": [
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Professor WONG Chi Fai Nelson",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Professor WONG Chi Fai Nelson",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor WONG Chi Fai Nelson",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor WONG Chi Fai Nelson",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Real estate is largely known as an alternative investment in a portfolio. It is primarily viewed as return-enhancing and risk-reducing portfolio investments. It is thus important to understand the performance of real estate in an investment portfolio. This course provides theoretical foundation for real estate asset allocation with applications to private and public real estate investments globally. Topics include real estate as an alternative investment, private real estate investments, publicly traded real estate securities, private equity funds, different types of asset allocation, capital asset pricing model (CAPM) and modern portfolio theory (MPT). To take this course, students are required to have completed the relevant prerequisite courses in real estate finance and investment. After taking this course, students will be able to choose the best performance assets in the investment portfolio.",
+      "enrollment_requirement": "For students in MSc Real Estate; Pre-requisite: HTMG5001 and HTMG5002",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, the students should be able to:\n• Understand the considerations of asset allocation for individual and institutional investors\n• Determine the value of real estate securities\n• Apply international CAPM and MPT in real estate asset allocation analysis\n• Discuss basic strategic and tactical strategies of real estate portfolio\n• Discuss basic features of real estate derivatives and their applications in investment portfolio",
+      "assessment_types": {
+        "Examination": "70",
+        "Project": "30"
+      }
+    },
+    {
+      "subject": "HTMG",
       "course_code": "5017",
       "title": "Real Estate Valuation",
       "credits": "3.00",
@@ -2790,6 +2856,196 @@
         "Essay test or exam": "40",
         "Lab reports": "30",
         "Others": "10"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5018",
+      "title": "Corporate Real Estate and Facilities Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1062)",
+              "meetings": [
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Staff",
+                  "dates": "10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Staff",
+                  "dates": "16/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Staff",
+                  "dates": "10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Staff",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Corporate real estate strategies are the approaches organizations adopt to manage their property assets in ways to support their overall business objectives. Corporate real estate comprises the physical assets, such as offices, manufacturing plants, and retail facilities, that an organization owns or leases to support its business operations. These assets, while managed by the organization, may not be part of its core business. Rather, they function as essential infrastructure and facilities that enable the company to carry out its primary operations. Such strategies extend beyond the basic task of owning or leasing buildings. They involve aligning real estate decisions with the organization’s long-term vision, operational requirements, and financial goals.\n\nThis course introduces the fundamental knowledge and analytical frameworks of both Corporate Real Estate (CRE) – which focuses on a strategic level – and Facilities Management (FM) – which functions at an operational level. Students will learn how to establish strategic direction and ensure that the organization’s assets and facilities effectively support its business strategy. Effective facilities management not only benefits the organization itself, but also enhance the experience of its stakeholders, including staff, clients, and tenants.\n\nThis course is designed to facilitate students to:\n1) develop a comprehensive understanding of the roles of CRE and FM within the real estate life cycle; 2) cultivate critical thinking skills across the various dimensions of FM; 3) acquire in-depth knowledge of facilities management at both strategic and operational levels.",
+      "enrollment_requirement": "For students in MSc in Leadership for Experience Economy; or MSc in Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of this course, students should be able to:\n\n* *Understand and articulate the role of Corporate Real Estate and Facilities Management profession in the overall competitive strategy of the organization in the context of when, where, what type and on what terms real estate services will be demanded*\n* *Recognize the impact of the workplace on organizational productivity*\n* *Assess the performance of real estate assets across a wide range of performance criteria with their knowledge of facilities management*\n* *Apply the key competencies of a facility manager through problem solving and decision making in various business*",
+      "assessment_types": {
+        "Examination": "25",
+        "Homework or assignment": "25",
+        "Project": "30",
+        "Participation": "20"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5021",
+      "title": "Shopping Mall Development and Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1059)",
+              "meetings": [
+                {
+                  "time": "Fr 3:00PM - 5:45PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Dr. Ervi LIUSMAN",
+                  "dates": "12/3, 19/3"
+                },
+                {
+                  "time": "Fr 3:00PM - 5:45PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Dr. Ervi LIUSMAN",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                },
+                {
+                  "time": "Fr 3:00PM - 5:45PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Dr. Ervi LIUSMAN",
+                  "dates": "12/3, 19/3"
+                },
+                {
+                  "time": "Fr 3:00PM - 5:45PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Dr. Ervi LIUSMAN",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Shopping mall is a dynamic business and has been one of the important assets in the investment portfolio. Unlike other real estate assets focusing only on the rental income paid by the tenants, the shopping mall predominantly concerns about the business of the tenants and how to increase their revenue. The shopping mall business thus requires thorough management to attract more customers and to increase the traffic flow. Despite the significance of site selection and financial feasibility, other important factors determining the success of a shopping mall include tenant mix, marketing and promotion, operation and maintenance, as well as asset enhancement. This course introduces theoretical knowledge and concepts affecting the development and management of the shopping mall. After taking this course, students should have a good understanding of the shopping mall business which allows them to work in the shopping mall development and management field.",
+      "enrollment_requirement": "For students in MSc in Leadership for Experience Economy; or MSc in Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of this course, students should be able to:\n• Describe the fundamental importance of shopping mall business in terms of development and management\n• Apply theoretical framework to shopping mall business in Hong Kong\n• Identify underperformed shopping mall and suggest its improvements\n• Develop creative thinking, self-managed ability, team work spirit, analytical and communication skills through class discussion and project presentation",
+      "assessment_types": {
+        "Others": "10",
+        "Presentation": "60",
+        "Selected response test or exam": "30"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5022",
+      "title": "Revitalisation of Historic Buildings",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1060)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Ms. CHAN Pak Wai",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                },
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Ms. CHAN Pak Wai",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Historic buildings bear witness to the development of a city and they are valuable and unique assets of urban community. In recent years, people have grown increasingly aware of the issue of the demolition and redevelopment of historic buildings. New generations are shouldering the responsibilities of inheriting and maintaining the culture of the city in a sustainable manner. This course focuses on historic buildings and sites in relations to their settings and aims to introduce the revitalisation theories, revitalisation policies and revitalisation process. Case studies are used to illustrate revitalisation projects in Hong Kong, Chinese Mainland, Macau and Singapore.",
+      "enrollment_requirement": "For students in MSc in Leadership for Experience Economy; or MSc in Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, the students will be able to:\n• Understand the core concepts and theories of revitalisation;\n• Understand the value of historic buildings, including their historic value, architectural value and social value;\n• Understand the reasons behind and benefits of revitalising historic buildings;\n• Analyze and evaluate the historic building revitalisation approach and process; and\n• Generate their own perspectives and interest in the subject of historic building revitalisation.",
+      "assessment_types": {
+        "Others": "20",
+        "Presentation": "50",
+        "Selected response test or exam": "30"
       }
     },
     {
@@ -2896,24 +3152,48 @@
                 "status": "Open"
               },
               "class_attributes": "English only"
-            },
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
             {
-              "section": "H-LEC (1410)",
+              "section": "H-LEC (1224)",
               "meetings": [
                 {
-                  "time": "TBA",
-                  "location": "TBA",
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 609",
                   "instructor": "Staff",
-                  "dates": "TBA"
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Staff",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Staff",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Staff",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
                 }
               ],
               "availability": {
-                "capacity": "85",
-                "enrolled": "0",
+                "capacity": "80",
+                "enrolled": "82",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "85",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -3006,6 +3286,112 @@
     },
     {
       "subject": "HTMG",
+      "course_code": "5029",
+      "title": "Selected Topics in Real Estate",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1071)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor CHAN Ka Yan Elisa",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 3:30PM - 6:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor CHAN Ka Yan Elisa",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to investigate and to discuss selected topics of current interests in the area of real estate.",
+      "enrollment_requirement": "For students in MSc Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completion of the course, student should be able to gain the latest perspective on different real estate issues and topics.",
+      "assessment_types": {
+        "Attendance": "5",
+        "Others": "90",
+        "Participation": "5"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5030",
+      "title": "Real Estate Field Study",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1015)",
+              "meetings": [
+                {
+                  "time": "We 5:30PM - 8:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor WONG Chi Fai Nelson",
+                  "dates": "10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 5:30PM - 8:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor WONG Chi Fai Nelson",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Experiential learning is a crucial element of real estate study. Since the real estate industry involves complex work practices and diverse professional fields, it is necessary for students to learn first-hand knowledge of real estate planning, development, management, and investment through site visits and field trips, local or overseas. This course is designed to extend students’ real estate learning beyond the classroom. The course combines classroom lectures / workshops on chosen real estate topics with a field trip to a location typically outside Hong Kong. Students are expected to apply theoretical concepts and tools to analyze real-world cases, conduct market research, and/or solve problems in a specific real estate area. The topics of this course will vary depending on different instructors, field trip locations, and project tasks.",
+      "enrollment_requirement": "For students in MSc Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, students will\n\n* learn to apply relevant theories and tools to address real-world real estate issues;\n* gain a deeper understanding of current real estate practices and challenges in the destination location;\n* develop research and problem-solving skills;\n* develop a global mindset and cultural sensitivity; and\n* improve teamwork skills.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "HTMG",
       "course_code": "5031",
       "title": "PropTech: Emerging Trends and Opportunities",
       "credits": "3.00",
@@ -3083,6 +3469,69 @@
         "Presentation": "20",
         "Report": "20"
       }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5032",
+      "title": "Real Estate Securitization",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "H-LEC (1187)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor LIU Yunbo",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor LIU Yunbo",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Professor LIU Yunbo",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Professor LIU Yunbo",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This applied course utilizes advanced data analytics and AI models to understand securitized real estate asset markets, including their structural risks. The curriculum advances fixed-income and credit risk analysis through specialized study of residential and commercial mortgage-backed securities (MBS/CMBS), extending to diverse real estate-backed securities. Students gain practical experience with cutting-edge big data, AI models and analytical tools central to modern real estate securitization markets. Coursework emphasizes hands-on Big Data analytics for processing extensive loan-level datasets, Monte Carlo simulation, options-based valuation, and risk management approaches in loan pooling, tranching, and rating processes.",
+      "enrollment_requirement": "For students in MSc in Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, students should be able to:\n\n1. **Understand securitization fundamentals**: Comprehend the unique features of asset-backed securities and the economic rationale for securitization in real estate markets\n2. **Apply advanced valuation techniques**: Utilize options-based models to value mortgage-backed securities and structured products\n3. **Master big data analytics**: Process and analyze extensive loan-level datasets using modern data analytics tools\n4. **Evaluate credit risk**: Apply empirical hazard models and competing risk frameworks to assess prepayment and default behavior\n5. **Analyze market structures**: Understand the mechanics of TBA markets, repo agreements, and credit risk transfer mechanisms\n6. **Assess rating methodologies**: Evaluate how rating agencies approach structured products and understand stress-testing techniques",
+      "assessment_types": {}
     },
     {
       "subject": "HTMG",
@@ -3438,6 +3887,180 @@
     },
     {
       "subject": "HTMG",
+      "course_code": "5108",
+      "title": "Hospitality Business Reporting and Analysis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "EA-LEC (1189)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor TSANG Tak Ming Desmond",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Hospitality business entities encounter various reporting issues that affect their performance measurement. In the hospitality and tourism industry, business entities follow specific industry key performance indicators in financial reporting. Moreover, sustainability and ESG reporting bears particular significance. This course covers the financial reporting practices adopted by the hospitality industry and applies the financial statement analysis techniques in the performance measurement and valuation of these entities. In addition, the course analyses entities across the ESG reporting framework and evaluates their sustainability performances. After taking this course, students are expected to have an in-depth understanding of the financial and ESG reporting standards required and to be able to apply these standards in the performance evaluation of hospitality business entities.",
+      "enrollment_requirement": "For students in MSc Leadership for Experience Economy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "1. Understand the principles of financial reporting required for hospitality entities.\n2. Assess the reporting and specific measurement of revenue, expenses, and property-related assets, including hotel property, plant & equipment, and intangible assets possessed by hospitality businesses.\n3. Comprehend sustainability and ESG reporting for hospitality entities.\n4. Apply the principles of financial and sustainability reporting to conduct analysis for hospitality entities.\n5. Analyze the performance of hospitality entities in Hong Kong, Chinese Mainland, and globally.",
+      "assessment_types": {
+        "Examination": "40",
+        "Others": "10",
+        "Presentation": "30",
+        "Project": "20"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5109",
+      "title": "Design Thinking and Business Model Innovation in Experience Economy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "EA-LEC (1190)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Dr. TIAN Jie Jenny",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 607",
+                  "instructor": "Dr. TIAN Jie Jenny",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                },
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Dr. TIAN Jie Jenny",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Dr. TIAN Jie Jenny",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Design Thinking is a process for creatively and systematically solving problems by prioritizing people and their needs. It emphasizes a deep understanding of user experiences and employs empathetic, iterative, and non-linear processes for imagination and idea generation. In this course, students will learn the fundamental principles and tools of design thinking and apply them to practical projects aimed at incorporating human-centred design into business model innovation within experience industries.\n\nStudents will be guided through the processes of understanding customer needs, building empathy with customers, identifying problems, collecting and analysing data, generating solutions, and testing those solutions. By doing so, they are expected to develop a deeper understanding of how to generate creative business ideas and implement them within well-designed business models. These models will involve detailed considerations such as competitor analysis, value proposition, cost and revenue analysis, activity design, and partnership formation. By exploring the intersection of design thinking and business model innovation in the context of experience-driven industries—such as hospitality, tourism, events, healthcare, sports, and retail—students will develop skills in strategic thinking, creative problem-solving, team collaboration, communication, and storytelling. Through a combination of lectures, creativity exercises, games, and hands-on problem-solving challenges, this course equips students with the tools to address complex challenges and drive innovation in dynamic, experience-based markets.",
+      "enrollment_requirement": "For students in MSc Leadership for Experience Economy; or MSc Real Estate",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "1. Understand and apply fundamental design thinking processes and tools.\n2. Understand key concepts, theories, and analytical frameworks related to business model innovation in the experience economy.\n3. Demonstrate ability to translate broadly defined opportunities into actionable business model solutions for experience-driven organizations.\n4. Demonstrate ability to identify customer/employee needs, generate creative ideas, and develop innovative solutions for real-world business problems.\n5. Develop teamwork skills in design-based problem solving.\n6. Understand and apply ethical principles in research, design, and business model building.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "35",
+        "Participation": "15",
+        "Test or quiz": "20"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5110",
+      "title": "Current Issues in Global Tourism, Hospitality, and Events",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "EA-LEC (1191)",
+              "meetings": [
+                {
+                  "time": "Fr 12:00PM - 2:45PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor LI Xiang",
+                  "dates": "12/3, 19/3"
+                },
+                {
+                  "time": "Fr 12:00PM - 2:45PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor LI Xiang",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This graduate-level seminar provides an in-depth examination of emerging trends and critical challenges in global tourism, hospitality, and events. Students will explore contemporary and pressing issues in the dynamic and evolving landscape of the global tourism, hospitality, event, and related industries. Through case studies, discussions, guest speeches by industry leaders, and field trips, students will critically assess how these trends shape the future of the field and formulate strategic responses to address emerging challenges. Through an interdisciplinary lens, this course is designed to cultivate critical thinking, analytical reasoning, strategic decision-making, and a global perspective.",
+      "enrollment_requirement": "For students in MSc Leadership for Experience Economy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "* Critically identify and evaluate emerging trends and challenges in the global tourism, hospitality, and event industries using interdisciplinary frameworks.\n* Examine the implications of contemporary issues on industry growth and their impact on broader societal development.\n* Formulate effective strategies to address challenges and capitalize on opportunities within these industries.\n* Demonstrate a global/cross-cultural perspective, showcase critical thinking and analytical skills to evaluate emerging industry trends from a global standpoint.\n* Utilize theoretical concepts in practical contexts through effective communication, research, and problem-solving skills.",
+      "assessment_types": {
+        "Essays": "30",
+        "Fieldwork or field study": "30",
+        "Project": "30",
+        "Participation": "10"
+      }
+    },
+    {
+      "subject": "HTMG",
       "course_code": "5111",
       "title": "ESG in Action: Learn from Experience Industry Practices",
       "credits": "1.50",
@@ -3552,6 +4175,118 @@
         "Project": "30",
         "Participation": "20",
         "Report": "25"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5115",
+      "title": "Field Study on the Experience Economy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "EAF1-FLD (1176)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor CHAN Ka Yan Elisa",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor CHAN Ka Yan Elisa",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This field study course offers students an immersive learning experience in the global experience economy. The course combines academic inquiry with experiential learning, enabling students to observe, analyze, compare, and evaluate business practices in experience design, investment, and management across diverse industries and geographical contexts. Working in teams, students will conduct a project addressing a real-world business challenge, applying theoretical frameworks to develop practical and culturally informed policy recommendations or business solutions. Through site visits, field observations, and intercultural collaboration, students will gain deeper insights into the current practices, issues, challenges, and opportunities facing organizations operating in various experience-driven industries.",
+      "enrollment_requirement": "For students in MSc Leadership for Experience Economy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "* Gain an in-depth understanding of business practices in the experience-driven industries.\n* Compare and evaluate experience design and management issues / practices across different cultural contexts.\n* Synthesize insights from company visits, cultural immersion, and academic interactions to formulate actionable recommendations for industry practitioners.\n* Improve research and problem-solving skills.\n* Collaborate effectively in cross-cultural teams to investigate business challenges and develop solutions for enhancing experience.\n* Reflect critically on the influence of cultural and contextual factors on experience and managerial decision-making in global markets.",
+      "assessment_types": {
+        "Essay test or exam": "45",
+        "Project": "45",
+        "Participation": "10"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "5201",
+      "title": "Aviation Experience Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "VM-LEC (1180)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WAN Chun Ying",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WAN Chun Ying",
+                  "dates": "20/5, 27/5, 3/6, 10/6"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Effective management of service experiences in aviation not only enhances customer satisfaction but also drives operational efficiency and fosters brand loyalty. Modern aviation services encompass a diverse range of interactions, from check-in and boarding to in-flight experiences. This course is designed to explore the principles of designing, delivering, and managing exceptional service experiences within the aviation industry. It aims to equip students with the knowledge and critical skills needed to optimize customer interactions and ensure a seamless, end-to-end journey.\n\nKey topics include:\n• Marketing strategies in aviation.\n• Service design and innovation.\n• Customer relationship management.\n• Quality assurance in service delivery.\n\nThe course emphasizes strategies to create a holistic, memorable customer experience, ensuring passengers feel valued at every step of their journey.",
+      "enrollment_requirement": "For students in MSc Aviation Management; or MSc Leadership for Experience Economy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "* Understand the key principles of marketing and how they apply to the aviation industry.\n* Analyze consumer behavior in air travel and the factors influencing passenger satisfaction.\n* Evaluate airline branding, positioning, and customer engagement strategies.\n* Examine loyalty programs and CRM (Customer Relationship Management) in aviation.\n* Apply marketing theories to real-world airline cases and develop recommendations for improving customer experience.",
+      "assessment_types": {
+        "Attendance": "5",
+        "Homework or assignment": "30",
+        "Presentation": "20",
+        "Project": "35",
+        "Participation": "10"
       }
     },
     {

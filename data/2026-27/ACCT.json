@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T06:51:42.695561+00:00",
+    "scraped_at": "2026-07-14T13:27:10.392025+00:00",
     "subject": "ACCT",
     "subject_title": "Accountancy",
-    "total_courses": 59,
+    "total_courses": 67,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -3516,6 +3516,44 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CA-LEC (1091)",
+              "meetings": [
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "13/3, 20/3"
+                },
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 9:00AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6, 12/6, 19/6"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "75",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course deals with advanced aspects of financial accounting. Topics covered include the financial reporting environment in Hong Kong, fair value accounting, intangible assets, contingent liabilities, deferred income taxes, accounting for post-retirement benefits, equity and cost methods of accounting for long-term investments, business combinations (purchase and pooling), consolidation of parent/subsidiary financial statements, and interpretation of financial statements. Students will be required to critically evaluate various accounting valuation, reporting and disclosure issues.",
@@ -3617,13 +3655,13 @@
                   "dates": "27/11"
                 },
                 {
-                  "time": "Fr 2:00PM - 5:15PM",
+                  "time": "Fr 2:00PM - 5:30PM",
                   "location": "TBA",
                   "instructor": "Professor Wan Tay Tat WONG SUN-WAI",
                   "dates": "11/9"
                 },
                 {
-                  "time": "Fr 2:00PM - 5:15PM",
+                  "time": "Fr 2:00PM - 5:30PM",
                   "location": "TBA",
                   "instructor": "Professor Wan Tay Tat WONG SUN-WAI",
                   "dates": "16/10"
@@ -4043,11 +4081,11 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "69",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4069,12 +4107,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "10",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -4205,6 +4243,44 @@
                   "location": "Institute of Chin Studies L1",
                   "instructor": "Dr. WONG Ka Lok",
                   "dates": "12/2, 19/2, 26/2, 5/3"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CA-LEC (1090)",
+              "meetings": [
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. WONG Ka Lok",
+                  "dates": "8/5, 15/5, 22/5, 29/5, 5/6, 12/6, 19/6"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. WONG Ka Lok",
+                  "dates": "13/3, 20/3"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. WONG Ka Lok",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
                 }
               ],
               "availability": {
@@ -4537,6 +4613,38 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CC-LEC (1094)",
+              "meetings": [
+                {
+                  "time": "Fr 9:00AM - 12:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Dr. BUTT Yiu Yu",
+                  "dates": "12/3, 19/3"
+                },
+                {
+                  "time": "Fr 9:00AM - 12:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Dr. BUTT Yiu Yu",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "75",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course covers the basic elements and statutes of Hong Kong taxation system, including salaries tax, property tax, profits tax, personal assessment, depreciation allowances, and tax administration. After this basic knowledge, the course will introduce advanced concepts of tax planning, problem solving with practical examples and the inter-relationships between different types of taxes. Local tax cases will be discussed extensively.",
@@ -4574,7 +4682,7 @@
               "meetings": [
                 {
                   "time": "Sa 9:00AM - 6:00PM",
-                  "location": "Basic Med Sci Bldg LT",
+                  "location": "TBA",
                   "instructor": "Professor YANG Yong",
                   "dates": "17/10"
                 },
@@ -4583,6 +4691,18 @@
                   "location": "TBA",
                   "instructor": "Professor YANG Yong",
                   "dates": "18/10"
+                },
+                {
+                  "time": "Th 9:00AM - 6:00PM",
+                  "location": "TBA",
+                  "instructor": "Professor YANG Yong",
+                  "dates": "15/10"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "TBA",
+                  "instructor": "Professor YANG Yong",
+                  "dates": "16/10"
                 }
               ],
               "availability": {
@@ -4708,6 +4828,73 @@
       "feedback_evaluation": "Students are welcomed to send their comments/feedback to the course instructor. Formal CTE exercise to collect students' feedback will be done at the end of the term.",
       "required_readings": "Accounting: What the Numbers Mean, latest edition, by Marshall, McManus, and Viele, McGraw Hills, ISBN: 987-0-07-122102-3",
       "recommended_readings": "Optional internet resources as reference readings: http://www.accountingcoach.com/"
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "5550",
+      "title": "Corporate and Financial Law",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "P-LEC (1020)",
+              "meetings": [
+                {
+                  "time": "Th 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Guiguo, \nProfessor YAN Xuan",
+                  "dates": "24/6"
+                },
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Guiguo, \nProfessor YAN Xuan",
+                  "dates": "25/6"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Guiguo, \nProfessor YAN Xuan",
+                  "dates": "26/6"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Guiguo, \nProfessor YAN Xuan",
+                  "dates": "27/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to provide students with an opportunity to obtain essential legal knowledge and skills in relation to companies and financial markets. Its primary objective is to develop a contextual and practical understanding of key issues in the areas of corporate and financial law. Principal topics include financial regulatory framework, incorporation, corporate governance issues, shareholder remedies, securities offering and listing, market misconduct, takeover of listed companies and internet finance.",
+      "enrollment_requirement": "For students in EMBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students who have successfully completed this course will be able to:\n• demonstrate knowledge and understanding of the corporate and financial law relevant to the topics covered in the subject;\n• make use of rules and regulations issued by the regulatory bodies when assessing the state of the law;\n• identify and analyze the legal issues that typically arise in the subject area.",
+      "course_syllabus": "To be assigned by course teacher",
+      "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
     },
     {
       "subject": "ACCT",
@@ -4894,6 +5081,160 @@
     },
     {
       "subject": "ACCT",
+      "course_code": "6001",
+      "title": "Accounting Field Study",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CAF1-FLD (1100)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CBF1-FLD (1152)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CCF1-FLD (1170)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to expose students to a wide spectrum of global accounting related issues in a non-local business environment. Students will take a week-long residential programme in various countries or regions. Course learning activities include lectures at universities, case projects, seminars and discussions with local accounting professionals and/or government officials, and site visits to enterprises.",
+      "enrollment_requirement": "For students in Master of Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completion of this course, students are expected to be able to:\n1. understand accounting practice in different countries and regions\n2. understand business models of different enterprises and the supporting role of accounting\n3. communicate effectively and efficiently in a professional way",
+      "course_syllabus": "1: Classroom lectures\nStudents will take classroom lectures at universities in the visiting countries and regions. The purpose of classroom lectures is to help students understand local accounting practice.\n\n2: Group case project\nStudents will be required to study business models of the enterprises they will visit and present their findings to the class. The purpose of the group case project is to help students better understand the enterprises and relevant industries, and learn more about the supporting role of accounting from the visits.\n\n3: Visits to enterprises\nVisits to enterprises will be arranged. Through these visits, students have chances to know about operating process and accounting practice of real-world enterprises. They also have chances to talk to management of those enterprises to understand how accounting helps enterprises implement their business models.",
+      "assessment_types": {
+        "Presentation": "20",
+        "Project": "30",
+        "Participation": "20",
+        "Report": "30"
+      },
+      "feedback_evaluation": "1. Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.\n2. Students are warmly welcomed to provide comments/feedback on the course by sending e-mails to the course instructor and/or making appointments with the course instructor.",
+      "required_readings": "Students will be required to study business models of the enterprises before the firm visit and present their findings to the class.",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "6003",
+      "title": "Topics in Accounting and Business",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CA-LEC (1177)",
+              "meetings": [
+                {
+                  "time": "Mo 7:00PM - 9:30PM",
+                  "location": "Esther Lee Bldg 205",
+                  "instructor": "Professor TSENG Chun Kai",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 7:00PM - 9:30PM",
+                  "location": "Esther Lee Bldg 205",
+                  "instructor": "Professor TSENG Chun Kai",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course discusses selected contemporary issues in accounting, financial markets, management practices, and business environments.",
+      "enrollment_requirement": "For students in Master of Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the course, students will be able to:\n\n* Gain a deeper understanding of the development and practices related to accounting, financial markets, management, and economic environment.",
+      "course_syllabus": "To be formulated by course teacher.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Presentation": "20",
+        "Project": "20",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher.",
+      "recommended_readings": "To be assigned by course teacher."
+    },
+    {
+      "subject": "ACCT",
       "course_code": "6040",
       "title": "Python Essentials for Accounting Analytics",
       "credits": "3.00",
@@ -5073,6 +5414,88 @@
               "class_attributes": "Putonghua only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CA-LEC (1008)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "E-LEC (1013)",
+              "meetings": [
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "16/3, 23/3"
+                },
+                {
+                  "time": "Tu 7:00PM - 10:00PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "We 7:00PM - 10:00PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "31/3"
+                },
+                {
+                  "time": "Th 7:00PM - 10:00PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "25/3"
+                },
+                {
+                  "time": "Fr 7:00PM - 10:00PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 7:00PM - 10:00PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor ZHOU Xiaolu",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course introduces a framework for business valuation analysis using corporate disclosure and financial statement data. The framework identifies four key components of valuation: business strategy analysis, accounting analysis, financial analysis, and prospective analysis. Employing a case methodology, applications of this framework in a variety of decision-making contexts including securities analysis, credit analysis, and merger and acquisition decisions are examined.",
@@ -5184,6 +5607,32 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "D-LEC (1028)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor YOUNG Danqing Xu",
+                  "dates": "17/05/2027 - 26/07/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
         }
       ],
       "description": "This course examines the evolution of accounting under different political and economic systems and explores current theory and research on the impact of local institutional features on financial reporting and disclosure practices. In so doing, it provides students with a conceptual framework for analyzing the economic causes and consequences of differences in reporting and disclosure practices and their impact on international commerce, finance, and investment. The course includes discussion of recent and proposed changes in reporting standards with a focus on the local and Mainland reporting environment.",
@@ -5206,6 +5655,58 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "Course materials include lecture notes and cases.",
       "recommended_readings": "Publications from IASB, FASB, PWC, KPMG, Deloitte, and EY for topics that students are interested in."
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "6113",
+      "title": "Comprehensive Budget Management",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "C-LEC (1145)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "22/02/2027 - 10/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "The course introduces to students a systematic and scientific budget management system. Through case studies, students can understand how to prepare a reasonable budget, how to promote communication between enterprise and departments, how to clear and quantify the company's business objectives, how to develop and continuously adjust the business plan and use the budget to regulate the management of the company, and finally how the financial budget becomes a comprehensive budget that can guarantee the success of the company.",
+      "enrollment_requirement": "For students in Executive Master of Professional Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completion of this course, students are expected to be able to:\n(1) understand the importance of a comprehensive budget for a company to achieve its strategic goals\n(2) understand the key points of an efficient and comprehensive budget management system\n(3) understand the building ideas for a company's budget management system\n(4) understand the processes, tools and methods of budgeting\n(5) master an effective way to monitor and evaluate business operations through budget management",
+      "course_syllabus": "Topics include:\n- budget management\n- budget, strategy and goals\n- process and method of budget preparation\n- effective implementation and control of the overall budget\n- comprehensive budget tracking and analysis\n- comprehensive budget assessment\n- promotion strategy and function positioning of budget management\n- common analysis of the difficulty of budget management",
+      "assessment_types": {
+        "Project": "70",
+        "Participation": "30"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be provided by the course teacher.",
+      "recommended_readings": ""
     },
     {
       "subject": "ACCT",
@@ -5549,6 +6050,111 @@
     },
     {
       "subject": "ACCT",
+      "course_code": "6145",
+      "title": "Big Data and Quantamental Investing",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "C-LEC (1147)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. ZHANG Ran",
+                  "dates": "22/02/2027 - 10/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "From a long-term perspective, Quantamental Investing in capital markets, especially in the A-share market, has vast development prospects. This course focuses on equity quantitative investment starting from company fundamentals, emphasizing quantitative investment strategies based on financial analysis. The goal is to provide students with a theoretical framework and practical guidance for fundamental quantitative investment, contributing to the cultivation of investment talent in the Chinese capital market.\nSpecifically, this course will be divided into three parts. The first part introduces the basic methods and logic of financial analysis. Grounded in fundamental principles, quantitative investment models differ from models based on statistical arbitrage or high-frequency trading, with a crucial emphasis on understanding fundamentals. The second part introduces the main alpha factors: value factor, quality factor, and momentum factor etc. The value factor exploits investors' cognitive biases to identify undervalued stocks, the quality factor evaluates company performance to find stocks expected to generate value appreciation, while the momentum factor identifies stocks with continued price increases due to insufficient investor reactions to information. Both the value and quality factors require a rigorous foundation in fundamental analysis, reflecting the modern concept of value investing (value + quality), while the momentum factor serves as an effective measure of investor sentiment. The third part introduces the basic methods of fundamental quantification, including factor evaluation in multi-factor models, backtesting, weight allocation, risk control, and dynamic adjustments—these are at the forefront of both theoretical and practical aspects. Additionally, this part will demonstrate how to implement and test these alpha strategies using professional software.",
+      "enrollment_requirement": "For students in Executive Master of Professional Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "This course focuses on the theory and practice of Quantamental Investing, integrating the accounting and financial theory knowledge that students have acquired to enhance their understanding of financial information and capital market. The unique feature of this course lies in the close integration of theory and practice. Through the study of this course, students should be able to:\n\n(1) Proficiently use relevant software and database to search for and analyze financial data;\n\n(2) Proficiently conduct valuation of individual companies and identify pricing errors;\n\n(3) Proficiently apply financial analysis methods to evaluate company performance;\n\n(4) Gain a deep understanding of the principles of quantitative investment and develop a theoretical intuition for quantitative investment;\n\n(5) Proficiently and flexibly employ methods to construct investment portfolios, efficiently building quantitative investment strategies.",
+      "course_syllabus": "1. Quantamental Investing: Theoretical Framework\n2. Utilizing Big Data for Financial Statement Analysis (Datayes)\n3. Residual Income Model – One-click Calculation of Company Value (RIM Model)\nEarnings Characteristics and Earnings Quality (M-score)\n4. Classic Investment Strategies on Wall Street (WWOW)\nQuantamental Investing (Alpha Research): Theory and Methods\n5. Group Project Presentation (Part One)\n\"The Magic Formula\" and Portfolio Construction (Portfolio123)\n6. Investment Practice: Alpha Research Using Uqer Quant\nValue Investing: The Perfect Integration of Theory and Practice\n7. Hybrid Strategies: Comprehensive Implementation of the Stock Selection Strategies in Quantitative Investment Systems (Barra)\nFundamental Quantitative Investment and Its Practice in China (Inviting industry experts as the guest speaker)\n8. Group Project Presentation (Part Two)",
+      "assessment_types": {
+        "Examination": "50",
+        "Project": "40",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "张然，汪荣飞，2022，《基本面量化投资（第二版）》，北京大学出版社。",
+      "recommended_readings": "* Lee, C. and E. So著，张然译，《阿尔法经济学》，北京大学出版社，2019年5月。\n* Active Portfolio Management, Richard C. Grinold and Ronald N. Kahn (McGraw-Hill, 2000).\n* Quantitative Value, Wesley R. Gray and Tobias E. Carlisle (Wiley, 2013)."
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "6150",
+      "title": "Legal and Regulatory Environment of Business",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "D-LEC (1029)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "17/05/2027 - 26/07/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "This course equips students with a basic understanding of how the law, public policy and the political process affect business decision making in China and abroad. In addition to introduction to business law details, it intends to provide a conceptual framework that helps students manage more effectively in a business world heavily influenced by public sector and governmental forces.",
+      "enrollment_requirement": "For students in Executive Master of Professional Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon completion of the subject, students will be able to:\na) Understand the commercial laws system of China and the principles behind\nb) Understand how commercial laws govern business entities\nc) Have a general understanding of Corporate Law, Bankruptcy Law, Security Law, Contract Law, and Bill Law of China which are related to business",
+      "course_syllabus": "1. Introduction to Commercial Law\n2. Corporate Securities Law\n3. Bankruptcy Law\n4. Trust Law and Bill Law",
+      "assessment_types": {
+        "Examination": "80",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "1. 范健：《商法》，高等教育出版社\n2. 王保树：《商法》，北京大学出版社\n3. 颜延：《金融衍生工具卖方义务研究》，法律出版社",
+      "recommended_readings": "1、范宏瑞，《顺利、可靠、安全——从商事法的发展历程诠释商事法的基本精神》，http://www.law-lib.com/\n2、史际春、陈岳琴著，《论商法》，载《中国法学》2001年第4期\n3、刘凯湘，《论商法的性质、依据与特征》，载《现代法学》1997年第5期\n4、闫海，《自由、秩序、效益——论商法价值体系的建构》，摘自北大法律信息网\n5、钱玉林，《商法的价值、功能及其定位——兼于史际春、陈岳琴商榷》，载《中国法学》2001年第5期\n6、胡颖廉，《商法的精神——从商人法到现代商法的转变析商法存在的意义》， http://www.law-lib.com/\n7、雷兴虎，《论商法的概念和特征》、《略论我国商法的基本原则》、《商法的独立与独立的商法》，摘自中国商法网\n8、徐学鹿，《论我国商法的现代化》，http://freelaw.myrice.com/lunwen/029.htm\n9、范健，《中国商法的发展与法律继承》，《法律继承与法典编纂国际学术研讨会论文集》，1999.10\n10、高在敏，《简议商法的三大基本原则》、《民商合伙区分与合伙的法律地位》、《商法的理念与理念的商法》，陕西人民出版社2000年\n11、徐学鹿，《我在学习商法中碰到的几个问题》，摘自《民商法纵论》，中国法制出版社2000年"
+    },
+    {
+      "subject": "ACCT",
       "course_code": "6160",
       "title": "Taxation in China",
       "credits": "3.00",
@@ -5565,6 +6171,38 @@
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. GUAN Yanling",
                   "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CA-LEC (1089)",
+              "meetings": [
+                {
+                  "time": "Mo 7:00PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. GUAN Yanling",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 7:00PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. GUAN Yanling",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
                 }
               ],
               "availability": {
@@ -5599,6 +6237,111 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "1. 中國註冊會計師協會編，稅法\n2. Deloitte, China Master Tax Guide 2016/17 (13th ed. CCH 2016)",
       "recommended_readings": "1. Crowe Horwath, International Master Tax Guide 2009/10 (6th ed. CCH 2009)\n2. Reuven Avi-Yonah, et al., U.S. International Taxation, Cases and Materials (3rd ed. Foundation Press 2010)\n3. Richard L. Doernberg, International Taxation in a Nutshell (West 2012)\n4. Brian Dooley, International Taxation in America, 2012 Edition (Create Space Independent Publishing Platform 2011)\n5. Charles H. Gustafson, Taxation of International Transactions: Materials, Texts and Problems (American Casebook) (West 2010)\n6. Charles I. Kingson & Cynthia A. Blum, International Taxation (originally published by Aspen Publishers, Inc.; reprint Citic Publishing House 2003) (focusing on US international taxation)\n7. Samuel C. Thompson, Jr., U.S. International Tax Planning and Policy (Carolina Academic Press 2007) (focusing on US international taxation)\n8. John Dixon & Malcolm Finney, eds, International Personal Tax Planning (Tottel Publishing Ltd. 2002) (focusing on UK and European tax planning)\n9. Martin Palmer & John Dewhurst, International Tax Planning Using UK Companies (Jordans 2010)\n10. Richard L. Doernberg, International Taxation in a Nutshell (2004)\n11. Roy Rohatgi, Basic International Taxation (2005) (two volumes)\n12. Lynne Oats, Principles of International Taxation (2012)"
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "6161",
+      "title": "International Taxation Planning and Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "CA-LEC (1054)",
+              "meetings": [
+                {
+                  "time": "Tu 7:00PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. BUTT Yiu Yu",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the tax concern of cross-border economic activities. It introduces the key concepts of international taxation, such as the tax jurisdiction of residence and source, international double taxation, relief from double taxation under domestic law and double taxation agreements. It also examines measures to prevent international tax avoidance, procedural mechanisms by which international tax issues are resolved, and bilateral administrative issues.",
+      "enrollment_requirement": "For students in Master of Accountancy\nPrerequisite: ACCT5160 Taxation and Tax Planning",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to:\n(1) Identify and assess the tax risks of cross-border activities.\n(2) Understand the policies for taxing international transactions and the principles of company and personal taxation applicable to the taxation of inbound and outbound transactions.\n(3) Understand the relief from double taxation under domestic law and double taxation agreements.\n(4) Identify and apply common types of anti-avoidance provisions designed to counter specified forms of international tax planning.",
+      "course_syllabus": "• Basic principles of international taxation\n• Rules for determining residence and source\n• Taxation of residents\n• Taxation of non-residents\n• Relief from double taxation under domestic law and double taxation agreements\n• Relief from double taxation under double taxation agreements\n• International tax planning\n• International anti-tax avoidance measures\n• Thin capitalisation regulations\n• Controlled foreign corporation rules\n• Foreign investment fund rules\n• Transfer pricing\n• Current issues in international taxation",
+      "assessment_types": {
+        "Examination": "65",
+        "Project": "25",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "1. Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.\n2. Students are warmly welcomed to provide comments/feedback on the course by sending e-mails to the course instructor and/or making appointments with the course instructor.",
+      "required_readings": "Arnold B J, International Tax Primer (The Netherlands, Kluwer Law International BV 2019).",
+      "recommended_readings": "1. Amatucci A, International Tax Law (The Netherlands, Kluwer Law International 2012).\n2. Chaisse J, International Taxation: Law and Practice in Hong Kong and China, (Hong Kong, Wolters Kluwer Hong Kong Limited 2015).\n3. Holmes K, International Tax Policy and Double Tax Treaties: An Introduction to Principles and Application (Amsterdam, IBFD 2014).\n4. Johansson A, Anti-Avoidance Rules against International Tax Planning: A Classification, Economic Department Working Papers No. 1356 (Organisation for Economic Co-operation and Development, 2016).\n5. Miller A and Oats L, Principles of International Taxation (Hampshire, Bloomsbury Professional Ltd 2019).\n6. Sorbe S, International Tax Planning and Fixed Investment, Economic Department Working Papers No. 1361 (Organisation for Economic Co-operation and Development, 2017).\n7. Financial Services and the Treasury Bureau, ‘Consultation Paper on Measures to Counter Base Erosion & Profit Shifting’ (Hong Kong, Hong Kong SAR Government, 2016).\n8. Macpherson Lau A and Pearce Justin, Hong Kong Taxation: Law and Practice, (Hong Kong, The Chinese University Press 2019).\n9. Ho P, Hong Kong Taxation and Tax Planning, (Hong Kong, Pilot Publishing Co Ltd 2010).\n10. Hong Kong Inland Revenue Ordinance (Chapter 112).\n11. Hong Kong Inland Revenue Rules.\n12. Hong Kong Inland Revenue Departmental Interpretation and Practice Notes."
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "6162",
+      "title": "Corporate Tax Planning and Risk Management",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "C-LEC (1027)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "17/05/2027 - 26/07/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed for students to learn the evolution of the tax system from a historical perspective, and its relation with the political and economic systems. Topics include: 1) measuring daily tax compliance, 2) controlling for tax risk, 3) maximizing shareholder benefits and corporate after-tax profits, 4) minimizing tax burden through organizational structure, business model, and operating model, 5) using BEPS in cross-border investment and business processes, 6) maximizing corporate value and personal wealth by circumventing CRS constraints.",
+      "enrollment_requirement": "For students in Executive Master of Professional Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completion of this course, students are expected to be able to:\n(1) understand the tax system and its relation with the political and economic systems\n(2) understand tax operations, tax compliance and tax risk control\n(3) understand how to maximize shareholder benefits and corporate value by minimizing tax burden of the organization",
+      "course_syllabus": "Course syllabus:\n(1) Historical perspective\n- History of the US tax system\n- Evolution of the tax system in the Han, Song and Ming dynasties, and New China\n(2) Corporate tax compliance and risk control\n- Requirement of \"five-in-one\" model\n- Specific requirements for compliance\n- Establishment of risk control system\n- Construction of tax risk model\n(3) Tax planning measures\n- Construction of organizational structure\n- Choice of business model\n- Operation mode processing\n- Use of financial means\n- Cross-border tax planning",
+      "assessment_types": {
+        "Project": "70",
+        "Participation": "30"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be provided by the course instructor.",
+      "recommended_readings": ""
     },
     {
       "subject": "ACCT",
@@ -5677,6 +6420,52 @@
                   "location": "Science Centre L5",
                   "instructor": "Professor CAO Ying",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "C-LEC (1146)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CAO Ying",
+                  "dates": "22/02/2027 - 10/05/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            },
+            {
+              "section": "CB-LEC (1039)",
+              "meetings": [
+                {
+                  "time": "Tu 9:00AM - 12:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Professor CAO Ying",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
                 }
               ],
               "availability": {
@@ -5922,6 +6711,32 @@
                   "location": "No Room Required",
                   "instructor": "Staff",
                   "dates": "16/11/2026 - 15/02/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "C-LEC (1030)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "17/05/2027 - 26/07/2027"
                 }
               ],
               "availability": {
