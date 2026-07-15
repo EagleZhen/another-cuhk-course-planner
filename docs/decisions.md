@@ -120,7 +120,7 @@ Decision: after source validation, publish generates `subjects.ts` and `terms.ts
 
 Why it fits:
 
-- validated yearly data is authoritative; parsing an older generated file would only duplicate state and block expected additions
+- validated yearly data is authoritative; using an older generated file as a validation gate would duplicate state and block expected additions
 - generation runs after validation, and dry runs do not write manifests
 - publish warns when either manifest changes so its Git diff remains part of data review
 - which term is "current" isn't in the data — the terms aren't a timeline (Term 3/4 postgraduate; Summer, Medicine special) — so it stays a human call.
