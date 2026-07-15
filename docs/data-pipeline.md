@@ -75,7 +75,7 @@ Publishing generates both app manifests from validated yearly data:
 
 If either changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed.
 
-The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; a test blocks it from drifting off the generated list.
+The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; [constants.test.ts](../web/src/lib/constants.test.ts) verifies it remains in the generated term list.
 
 ## Scraper Model
 
