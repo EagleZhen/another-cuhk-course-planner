@@ -63,6 +63,21 @@ SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
 TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
 
 
+def update_generated_file(
+    file_path: str | Path, new_content: str, dry_run: bool
+) -> Tuple[str, bool]:
+    """Return the previous content and whether it changed, writing only when needed."""
+    path = Path(file_path)
+    old_content = path.read_text("utf-8") if path.exists() else ""
+    changed = old_content != new_content
+
+    if changed and not dry_run:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(new_content, "utf-8")
+
+    return old_content, changed
+
+
 def load_scraping_progress() -> Optional[Dict]:
     """Load scraping progress data for validation"""
     if not os.path.exists(SCRAPING_PROGRESS_FILE):
@@ -505,11 +520,10 @@ def main():
         for year_path in source_years:
             terms_by_year.update(collect_terms_by_year(year_path))
         new_terms_content = render_terms_module(terms_by_year)
-        old_terms_content = ""
-        if os.path.exists(TERMS_FILE):
-            with open(TERMS_FILE, "r", encoding="utf-8") as f:
-                old_terms_content = f.read()
-        if old_terms_content and old_terms_content != new_terms_content:
+        old_terms_content, terms_changed = update_generated_file(
+            TERMS_FILE, new_terms_content, dry_run
+        )
+        if old_terms_content and terms_changed:
             added, removed = diff_term_names(old_terms_content, new_terms_content)
             print("⚠️  Terms manifest changed:")
             if added:
@@ -517,10 +531,6 @@ def main():
             if removed:
                 print(f"   Removed: {', '.join(sorted(removed))}")
             print()
-        if not dry_run:
-            os.makedirs(os.path.dirname(TERMS_FILE), exist_ok=True)
-            with open(TERMS_FILE, "w", encoding="utf-8") as f:
-                f.write(new_terms_content)
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()
