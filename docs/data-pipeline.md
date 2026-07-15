@@ -55,6 +55,8 @@ The publish script checks:
 - scraping progress metadata
 - zero-course subjects and structural issues
 
+These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
+
 After validation succeeds, publishing regenerates the app's subject and term manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave both manifests unchanged.
 
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
@@ -72,6 +74,8 @@ Publishing generates both app manifests from validated yearly data:
 
 - [subjects.ts](../web/src/lib/generated/subjects.ts): subject codes per academic year and code-to-title mappings
 - [terms.ts](../web/src/lib/generated/terms.ts): available terms per academic year
+
+Both manifests are derived from the same publishable files copied into the web app, so skipped files cannot enter an index that the app uses for fetching.
 
 If either changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed.
 
