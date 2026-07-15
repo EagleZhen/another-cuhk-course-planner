@@ -15,7 +15,6 @@ Usage: python publish_course_data.py [--dry-run]
 import glob
 import json
 import os
-import re
 import shutil
 import sys
 from datetime import datetime
@@ -24,8 +23,10 @@ from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from data_utils import (
+    collect_subjects,
     collect_terms_by_year,
     diff_term_names,
+    render_subjects_module,
     render_terms_module,
     save_json_with_newline,
     year_dirs,
@@ -55,11 +56,8 @@ STRIPPED_COURSE_FIELDS = (
     "feedback_evaluation",
 )
 
-# Frontend source files used for validation
+# Generated frontend manifests
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
-
-# Auto-written on every publish (no manual-copy gate like SUBJECTS_FILE - term
-# names are mechanical, not a judgment call).
 TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
 
 
@@ -210,71 +208,6 @@ def find_course_files(year_dir: str) -> Tuple[List[str], List[str], int]:
             unexpected_files.append(filename)
 
     return sorted(course_files), sorted(unexpected_files), len(all_files)
-
-
-def load_expected_subjects_by_year() -> Optional[Dict[str, set]]:
-    """Parse SUBJECTS_BY_YEAR from lib/generated/subjects.ts (the single source of
-    truth) into {year: set(codes)}. Returns None if it can't be read, which blocks
-    publishing.
-    """
-    if not os.path.exists(SUBJECTS_FILE):
-        print("❌ Could not find lib/generated/subjects.ts - publishing blocked")
-        print()
-        return None
-
-    try:
-        with open(SUBJECTS_FILE, "r", encoding="utf-8") as f:
-            content = f.read()
-
-        # Scope to the SUBJECTS_BY_YEAR object (the first `} as const`) so the
-        # SUBJECT_TITLES block below it is not matched.
-        block = re.search(r"SUBJECTS_BY_YEAR[^{]*\{([\s\S]*?)\}\s*as const", content)
-        if not block:
-            print("❌ Could not find SUBJECTS_BY_YEAR in subjects.ts - publishing blocked")
-            print()
-            return None
-
-        # Each entry is `'YYYY-YY': ['ACCT', 'AIST', ...],`.
-        expected: Dict[str, set] = {}
-        for year, body in re.findall(r"'(\d{4}-\d{2})':\s*\[([^\]]*)\]", block.group(1)):
-            expected[year] = set(re.findall(r"'([^']+)'", body))
-
-        if not expected:
-            print("❌ Could not parse SUBJECTS_BY_YEAR entries - publishing blocked")
-            print("   Re-run scripts/generate_subjects.py to regenerate subjects.ts.")
-            print()
-            return None
-
-        return expected
-
-    except Exception as e:
-        print(f"❌ Error reading subjects.ts: {e}")
-        print("   Publishing blocked due to validation error")
-        print()
-        return None
-
-
-def validate_year_subjects(year: str, found_subjects: List[str], expected: Optional[set]) -> bool:
-    """Check a year's scraped subject set exactly matches SUBJECTS_BY_YEAR[year].
-    Returns False (blocks publishing) on any mismatch.
-    """
-    found_set = set(found_subjects)
-    expected_set = expected or set()
-    added = found_set - expected_set
-    removed = expected_set - found_set
-
-    if added or removed:
-        print(f"❌ [{year}] SUBJECT LIST MISMATCH vs subjects.ts - PUBLISHING BLOCKED")
-        if added:
-            print(f"   In data, not in subjects.ts ({len(added)}): {', '.join(sorted(added))}")
-        if removed:
-            print(f"   In subjects.ts, not in data ({len(removed)}): {', '.join(sorted(removed))}")
-        print("   Fix: run `uv run python scripts/generate_subjects.py`, review the diff, re-run.")
-        print()
-        return False
-
-    print(f"[{year}] subject list matches subjects.ts ({len(found_set)} subjects)")
-    return True
 
 
 def categorize_year_files(
@@ -443,19 +376,15 @@ def main():
                         f"Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
                     )
 
-        # Discover source years and the subjects each should contain.
+        # Discover and validate every source year before changing any output.
         source_years = year_dirs(Path(SOURCE_DATA_DIR))
         if not source_years:
             print("❌ No source year directories (data/<year>/) found")
             return
 
-        expected_by_year = load_expected_subjects_by_year()
-        if expected_by_year is None:
-            sys.exit(1)
-
         # Validate each year, building a (source, destination) copy plan. Abort if
-        # any year has a subject mismatch or a file with blocking issues, but check
-        # every year first so all problems are reported in one run.
+        # any file has blocking issues, but check every year first so all problems
+        # are reported in one run.
         copy_plan: List[Tuple[str, str]] = []  # (source_path, dest_path)
         blocked = False
 
@@ -468,11 +397,6 @@ def main():
                 print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
             if not course_files:
                 print(f"❌ [{year}] no course files found")
-                blocked = True
-                continue
-
-            found_subjects = [os.path.splitext(os.path.basename(f))[0] for f in course_files]
-            if not validate_year_subjects(year, found_subjects, expected_by_year.get(year)):
                 blocked = True
                 continue
 
@@ -499,7 +423,7 @@ def main():
         print()
         if blocked:
             print("❌ Publishing aborted due to validation issues.")
-            print("   Fix the source data (or regenerate subjects.ts), then run this script again.")
+            print("   Fix the source data, then run this script again.")
             sys.exit(1)
 
         if not copy_plan:
@@ -512,24 +436,34 @@ def main():
         else:
             print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
 
-        # Regenerate the years->terms manifest across all source years (auto-written,
-        # no manual-copy gate like subjects.ts - see TERMS_FILE). Warn if it changed
-        # so a term-name change doesn't silently slip through. Done here, past the
-        # abort gates, so a failed publish leaves the manifest untouched.
+        # Render both manifests before writing either one. This runs after every
+        # validation gate so failed publishes leave generated files untouched.
+        subjects_by_year, subject_titles = collect_subjects(Path(SOURCE_DATA_DIR))
+        new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
+
         terms_by_year: Dict[str, List[str]] = {}
         for year_path in source_years:
             terms_by_year.update(collect_terms_by_year(year_path))
         new_terms_content = render_terms_module(terms_by_year)
+
+        _, subjects_changed = update_generated_file(SUBJECTS_FILE, new_subjects_content, dry_run)
+        if subjects_changed:
+            print("⚠️  Subjects manifest changed:")
+            print(f"   Review the Git diff and commit {Path(SUBJECTS_FILE).as_posix()}.")
+            print()
+
         old_terms_content, terms_changed = update_generated_file(
             TERMS_FILE, new_terms_content, dry_run
         )
-        if old_terms_content and terms_changed:
-            added, removed = diff_term_names(old_terms_content, new_terms_content)
+        if terms_changed:
             print("⚠️  Terms manifest changed:")
-            if added:
-                print(f"   Added: {', '.join(sorted(added))}")
-            if removed:
-                print(f"   Removed: {', '.join(sorted(removed))}")
+            if old_terms_content:
+                added, removed = diff_term_names(old_terms_content, new_terms_content)
+                if added:
+                    print(f"   Added: {', '.join(sorted(added))}")
+                if removed:
+                    print(f"   Removed: {', '.join(sorted(removed))}")
+            print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
             print()
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
