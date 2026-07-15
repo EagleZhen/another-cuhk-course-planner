@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T18:23:50.549460+00:00",
+    "scraped_at": "2026-07-15T01:08:56.697583+00:00",
     "subject": "URBD",
     "subject_title": "Urban Design",
     "total_courses": 10,
@@ -28,11 +28,11 @@
                 }
               ],
               "availability": {
-                "capacity": "35",
+                "capacity": "40",
                 "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -48,11 +48,11 @@
                 }
               ],
               "availability": {
-                "capacity": "35",
+                "capacity": "40",
                 "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -514,6 +514,72 @@
       "credits": "3.00",
       "terms": [
         {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (9713)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "ARC Bldg Exhibition Zone A",
+                  "instructor": "Ms. CHEUNG Tin Yan, \nProfessor LAU Sing Yeung Sunnie",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AF01-FLD (9712)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "ARC Bldg Exhibition Zone A",
+                  "instructor": "Ms. CHEUNG Tin Yan, \nProfessor LAU Sing Yeung Sunnie",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AU01-STD (9714)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "ARC Bldg Exhibition Zone A",
+                  "instructor": "Ms. CHEUNG Tin Yan, \nProfessor LAU Sing Yeung Sunnie",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
           "term_code": "2450",
           "term_name": "2026-27 Summer Session",
           "schedule": [
@@ -522,9 +588,9 @@
               "meetings": [
                 {
                   "time": "TBA",
-                  "location": "ARC Bldg Exhibition Zone A",
-                  "instructor": "Professor Hendrik TIEBEN",
-                  "dates": "17/05/2027 - 28/06/2027"
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
                 }
               ],
               "availability": {
@@ -542,9 +608,9 @@
               "meetings": [
                 {
                   "time": "TBA",
-                  "location": "ARC Bldg Exhibition Zone A",
-                  "instructor": "Professor Hendrik TIEBEN",
-                  "dates": "17/05/2027 - 28/06/2027"
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
                 }
               ],
               "availability": {
@@ -562,6 +628,26 @@
               "meetings": [
                 {
                   "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "B-LEC (1198)",
+              "meetings": [
+                {
+                  "time": "TBA",
                   "location": "ARC Bldg Exhibition Zone A",
                   "instructor": "Professor Hendrik TIEBEN",
                   "dates": "17/05/2027 - 28/06/2027"
@@ -578,13 +664,13 @@
               "class_attributes": "English only"
             },
             {
-              "section": "A-LEC (1194)",
+              "section": "BF01-FLD (1199)",
               "meetings": [
                 {
                   "time": "TBA",
                   "location": "ARC Bldg Exhibition Zone A",
-                  "instructor": "Ms. CHEUNG Tin Yan, \nProfessor LAU Sing Yeung Sunnie",
-                  "dates": "11/01/2027 - 19/04/2027"
+                  "instructor": "Professor Hendrik TIEBEN",
+                  "dates": "17/05/2027 - 28/06/2027"
                 }
               ],
               "availability": {
@@ -598,33 +684,13 @@
               "class_attributes": "English only"
             },
             {
-              "section": "AF01-FLD (1196)",
+              "section": "BU01-STD (1200)",
               "meetings": [
                 {
                   "time": "TBA",
                   "location": "ARC Bldg Exhibition Zone A",
-                  "instructor": "Ms. CHEUNG Tin Yan, \nProfessor LAU Sing Yeung Sunnie",
-                  "dates": "11/01/2027 - 19/04/2027"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "20",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "AU01-STD (1195)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "ARC Bldg Exhibition Zone A",
-                  "instructor": "Ms. CHEUNG Tin Yan, \nProfessor LAU Sing Yeung Sunnie",
-                  "dates": "11/01/2027 - 19/04/2027"
+                  "instructor": "Professor Hendrik TIEBEN",
+                  "dates": "17/05/2027 - 28/06/2027"
                 }
               ],
               "availability": {

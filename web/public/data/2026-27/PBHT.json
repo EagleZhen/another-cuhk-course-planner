@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T15:21:32.286590+00:00",
+    "scraped_at": "2026-07-14T22:11:36.860769+00:00",
     "subject": "PBHT",
     "subject_title": "Public Heatlh (TPg)",
-    "total_courses": 7,
+    "total_courses": 8,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -433,6 +433,71 @@
       "academic_group": "Div of Public Health",
       "academic_org": "Div of Public Health",
       "learning_outcomes": "After the course, students will be able to\n1. describe the NCD burden globally, regionally, and locally, and factors influencing the patterns and trajectories in different population settings.\n2. explain common risk factors and determinants of NCDs, and interactions among biological, social, environmental, and modifiable behavioral factors.\n3. identify public health strategies, including population and targeted interventions, to address NCDs and risk factors in various populations.\n4. discuss success factors and lessons from case studies of population interventions for preventing and controlling high-burden NCDs.\n5. demonstrate understanding of common NCD surveillance and research methods, and design a research study proposal for NCD surveillance in a population.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "PBHT",
+      "course_code": "6900",
+      "title": "Master Capstone Project & Report",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "F-LEC (1175)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor YIP Hon Kei",
+                  "dates": "12/04/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "P-LEC (1174)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Professor YIP Hon Kei",
+                  "dates": "12/04/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "99",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "99",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Each student is required to develop and complete an individual project of a public health problem, under the direction of a supervisor in their chosen concentrations. The topic of each project should be relevant to the concentration selected. Students will be assigned a supervisor and are required to do presentations and to submit a final written report.",
+      "enrollment_requirement": "For students in Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nProject\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Upon satisfactory completion of the Capstone Project, all the students should be able to:\n• conduct a proper literature review on a public health issue;\n• develop a research protocol or practicum-based project plan;\n• have practical, hands-on experience in the form of research or public health practice;\n• perform data analysis or a systematic evaluation of a public health issue;\n• write a manuscript using standard journal format or an official report using institutional format;\n• orally present their work at a professional level; and\n• create a professional poster for presentation at public health conferences.",
       "assessment_types": {}
     }
   ]

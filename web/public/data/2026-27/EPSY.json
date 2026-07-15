@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T10:44:00.541850+00:00",
+    "scraped_at": "2026-07-14T17:29:21.904806+00:00",
     "subject": "EPSY",
     "subject_title": "Prof Educational Psychology",
-    "total_courses": 7,
+    "total_courses": 9,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -439,6 +439,51 @@
     },
     {
       "subject": "EPSY",
+      "course_code": "6403",
+      "title": "Dissertation Research (II)",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1169)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAM Yu Hin, \nProfessor LUK Sau Ha, \nProfessor WONG Pak Ho",
+                  "dates": "10/05/2027 - 21/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "40",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "959",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This seminar is the second course in a two-course dissertation sequence. Tutorial is conducted on an individual or small group basis to guide EP Trainees toward the completion of their dissertations.",
+      "enrollment_requirement": "For students in MA Professional Educational Psychology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Education",
+      "academic_org": "Div of Education",
+      "learning_outcomes": "At the end of the course, EP Trainees will demonstrate ability to:\n1. Conduct and complete an independent and ethically sound piece of research on one area in educational psychology.\n2. Make an original contribution to Educational Psychology literature.\n\n(Individual course teachers may update the learning outcome as and whenever necessary.)",
+      "assessment_types": {}
+    },
+    {
+      "subject": "EPSY",
       "course_code": "6502",
       "title": "Practicum (II)",
       "credits": "3.00",
@@ -475,6 +520,71 @@
                   "location": "No Room Required",
                   "instructor": "Dr. LAM Wing Chi, \nDr. LUI Wan Hap, \nDr. WONG Kathy, \nMr. NGAN Wai Lam, \nMs. LEE Man Wai",
                   "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "20",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "979",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "Practicum provides opportunities for students to develop their abilities and competence in integrating theory and practice under professional supervision. Each EP Trainee is expected to have fieldwork training of a minimum of 1200 hours, with at least 600 hours in educational settings, for the whole practicum. The first practicum provides hands-on experience in relation to individual work and group work. It should include experiences in working with students, families and/ or teachers. The placement sites/ collaborating parties can include, but not limited to, the educational psychology service unit of the Faculty, and mentorship scheme under the MA(EP) program. In the second and third practicum, EP Trainees are supervised closely and regularly by qualified educational/ clinical psychologists in the field. The placements provide hands-on experience in relation to individual work, group work, and systems work, encompassing a wide range of student/ school needs, and they should include experiences in working with students, families, teachers, and improving the school system. The practicum settings include, but not limited to, preschools, primary schools, secondary schools, tertiary institutions and government departments.",
+      "enrollment_requirement": "For students in MA Professional Educational Psychology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Education",
+      "academic_org": "Div of Education",
+      "learning_outcomes": "At the end of the course, EP Trainees will be able to:\n1. Demonstrate adequate professional knowledge, abilities and skills in a broad array of assessment and intervention activities to facilitate individual or systems changes.\n2. Provide educational psychological services consistent with legal and professional standards.\n3. Effectively engage in home-school-community collaboration to promote students’ well-being.\n4. Polish skills in professional report writing and record keeping for inform service and intervention decision.\n\n(Individual course teachers may update the learning outcome as and whenever necessary.)",
+      "assessment_types": {}
+    },
+    {
+      "subject": "EPSY",
+      "course_code": "6503",
+      "title": "Practicum (III)",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "AP01-PRA (1159)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LAM Wing Chi, \nDr. LUI Wan Hap, \nDr. WONG Kathy, \nMr. NGAN Wai Lam, \nMs. LEE Man Wai",
+                  "dates": "10/05/2027 - 21/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "19",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "980",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "BP01-PRA (1151)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LAM Wing Chi, \nDr. LUI Wan Hap, \nDr. WONG Kathy, \nMr. NGAN Wai Lam, \nMs. LEE Man Wai",
+                  "dates": "10/05/2027 - 21/06/2027"
                 }
               ],
               "availability": {

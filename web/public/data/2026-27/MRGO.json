@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T14:34:29.146870+00:00",
+    "scraped_at": "2026-07-14T21:25:36.082688+00:00",
     "subject": "MRGO",
     "subject_title": "Musculo Med, Rehab & Ger Orth",
-    "total_courses": 7,
+    "total_courses": 19,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -210,6 +210,66 @@
     },
     {
       "subject": "MRGO",
+      "course_code": "5201",
+      "title": "Guided Clinical Case Studies – Geriatric Orthopaedics or Musculoskeletal Rehabilitation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-S01-SEM (1194)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr. WONG Kam Man, \nProfessor LEUNG Siu Man, \nProfessor LI Kar Lam Michelle, \nProfessor LIU Wing Hong, \nProfessor MAK Wang Fung Rex, \nProfessor NG Jonathan Patrick, \nProfessor NG Wai Kit Raymond, \nProfessor ONG Michael Tim Yun, \nProfessor TANG Ning, \nProfessor WONG Yu Chung",
+                  "dates": "31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr. WONG Kam Man, \nProfessor LEUNG Siu Man, \nProfessor LI Kar Lam Michelle, \nProfessor LIU Wing Hong, \nProfessor MAK Wang Fung Rex, \nProfessor NG Jonathan Patrick, \nProfessor NG Wai Kit Raymond, \nProfessor ONG Michael Tim Yun, \nProfessor TANG Ning, \nProfessor WONG Yu Chung",
+                  "dates": "26/4, 3/5, 10/5"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr NG Chi Chung, \nMr. WONG Kam Man, \nProfessor LEUNG Siu Man, \nProfessor LI Kar Lam Michelle, \nProfessor LIU Wing Hong, \nProfessor MAK Wang Fung Rex, \nProfessor NG Jonathan Patrick, \nProfessor NG Wai Kit Raymond, \nProfessor ONG Michael Tim Yun, \nProfessor TANG Ning, \nProfessor WONG Yu Chung",
+                  "dates": "16/3, 23/3"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "45",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "954",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "In this course participants will have opportunity to present and discuss management of rehabilitation problems with interdisciplinary/ multidisciplinary approaches.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students should be able to understand and apply:\nPrinciple of rehabilitation problems in geriatric orthopaedics and musculoskeletal rehabilitation.",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Presentation": "50"
+      }
+    },
+    {
+      "subject": "MRGO",
       "course_code": "6101",
       "title": "Exercises for Old Age Populations",
       "credits": "1.00",
@@ -312,6 +372,183 @@
     },
     {
       "subject": "MRGO",
+      "course_code": "6103",
+      "title": "Surgical Management and peri-operative care",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1198)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Miss LAI Wing Kun, \nMs WONG Man Wah, \nProfessor MAK Chu Kay, \nProfessor ONG Michael Tim Yun, \nProfessor TANG Ning, \nProfessor WONG Yu Chung",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Miss LAI Wing Kun, \nMr NG Chi Chung, \nMs WONG Man Wah, \nProfessor MAK Chu Kay, \nProfessor ONG Michael Tim Yun, \nProfessor TANG Ning, \nProfessor WONG Yu Chung",
+                  "dates": "1/4, 8/4, 15/4"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "990",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "Introduction to surgical treatments to various degenerative orthopaedic conditions such as total joint replacement, fragility fracture fixation and spinal surgery etc.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Knowledge of general principles of operative management of degenerative orthopaedic conditions and introduction of the latest technologies.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6104",
+      "title": "Geriatric Care and Clinical Management of Musculoskeletal System",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1221)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LOO Chi Wah, \nProfessor CHAN Chun Man Jones, \nProfessor IP Yiu Ming Bonaventure, \nProfessor KONG Tak Kwan, \nProfessor LUM Chor Ming Christopher, \nProfessor MA Ka Yan, \nProfessor SIT Wing Shan",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LOO Chi Wah, \nProfessor CHAN Chun Man Jones, \nProfessor IP Yiu Ming Bonaventure, \nProfessor KONG Tak Kwan, \nProfessor LUM Chor Ming Christopher, \nProfessor MA Ka Yan, \nProfessor SIT Wing Shan",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LOO Chi Wah, \nMr NG Chi Chung, \nProfessor CHAN Chun Man Jones, \nProfessor IP Yiu Ming Bonaventure, \nProfessor KONG Tak Kwan, \nProfessor LUM Chor Ming Christopher, \nProfessor MA Ka Yan, \nProfessor SIT Wing Shan",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "997",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "Introduce the geriatric care of musculoskeletal system including assessment of the functional, cognitive, and affective status of older patients, and evaluating their needs for better management. Common medical diseases will also be deliberated with case studies specifically in metabolic bone and joint diseases.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "1) To learn some common geriatric diseases and problems, including assessment and management;\n2) To learn some pre/post-operative management, clinical management for hip fracture patients, and traditional Chinese medicine therapy for geriatric patients; and\n3) To understand some other health care and related issues, including nutrition, pharmacotherapy, exercises and abuse in elderly care.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6202",
+      "title": "Rehabilitation Technology in Orthopedics: Spinal Cord Injuries, Amputation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1204)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr LAU Hong Yin Ajax, \nProfessor LEUNG Siu Man, \nProfessor LIU Wing Hong, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Ronald Man Yeung, \nProfessor WONG Yu Chung",
+                  "dates": "26/2, 5/3, 12/3, 19/3"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr LAU Hong Yin Ajax, \nProfessor LEUNG Siu Man, \nProfessor LIU Wing Hong, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Ronald Man Yeung, \nProfessor WONG Yu Chung",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                },
+                {
+                  "time": "Sa 2:00PM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Mr LAU Hong Yin Ajax, \nProfessor LEUNG Siu Man, \nProfessor LIU Wing Hong, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Ronald Man Yeung, \nProfessor WONG Yu Chung",
+                  "dates": "10/4"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr LAU Hong Yin Ajax, \nProfessor LEUNG Siu Man, \nProfessor LIU Wing Hong, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Ronald Man Yeung, \nProfessor WONG Yu Chung",
+                  "dates": "13/4"
+                },
+                {
+                  "time": "Sa 10:00AM - 4:00PM",
+                  "location": "TBA",
+                  "instructor": "Mr LAU Hong Yin Ajax, \nMr NG Chi Chung, \nProfessor LEUNG Siu Man, \nProfessor LIU Wing Hong, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Ronald Man Yeung, \nProfessor WONG Yu Chung",
+                  "dates": "24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "2",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "997",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "The applications of rehabilitation technology in spinal cord injury and amputation for musculoskeletal disorders.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students should be able to understand and apply:\n1. Advances and developments of assistive devices for ambulation and daily activities;\n2. Environmental design and modifications;\n3. Causes and management of Spinal Cord Injury;\n4. Causes of amputation and prosthetic needs.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
       "course_code": "6203",
       "title": "Musculoskeletal Rehabilitation: Special Problems & Management Issues",
       "credits": "2.00",
@@ -365,6 +602,420 @@
       "academic_group": "Div of Orthopaedics & Trauma",
       "academic_org": "Div of Orthopaedics & Trauma",
       "learning_outcomes": "Students should be able to understand and apply:\n1. Spinal problems: lower limbs arthritis, lower limb injuries, upper limb injuries and upper limb non-injury disorders\n2. Nerve injury rehabilitation, major trauma, multiple trauma, overuse syndromes, ankylosing spondylitis and rheumatoid arthritis\n3. Osteoporotic fracture\n4. Burn management and plastic surgery\n5. Musculoskeletal problems in growing children and elderly",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6301",
+      "title": "Musculoskeletal Rehabilitation: Musculoskeletal Ultrasound",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1214)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Ching Fan Carina",
+                  "dates": "25/5, 1/6"
+                },
+                {
+                  "time": "Su 11:00AM - 5:00PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Ching Fan Carina",
+                  "dates": "13/6"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Ching Fan Carina",
+                  "dates": "28/5, 4/6"
+                },
+                {
+                  "time": "Th 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Dr. LI Ching Fan Carina, \nMr NG Chi Chung",
+                  "dates": "27/5, 3/6"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "996",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "This course aims to provide basic knowledge of Musculoskeletal Ultrasound and the application.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students will understand:\n1. Basic principles of ultrasound\n2. Basic medical imaging and interventional radiology for soft tissue disorders\n3. Basic anatomy of upper limb, lower limb, and neck & spine regions\n4. Other applications on musculoskeletal ultrasound:",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6302",
+      "title": "Musculoskeletal Conference and Workshop (Occupational Rehabilitation)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-E01-EXR (1199)",
+              "meetings": [
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Mr NG Chi Chung",
+                  "dates": "27/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This module enables students to participate in musculoskeletal conferences / workshops to expand their perspectives and understanding in occupation rehabilitation issues.\n(Enrolment to this module will be subject to prior approval by the Programme Director)",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Exercise",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students should be able to:\nExpand their perspectives and understanding in occupational rehabilitation issues by participation in musculoskeletal conferences / workshops.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6303",
+      "title": "Musculoskeletal Conference and Workshop (Osteoporosis and Sarcopenia)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-E01-EXR (1200)",
+              "meetings": [
+                {
+                  "time": "Mo 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Mr NG Chi Chung",
+                  "dates": "21/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This module enables students to participate in musculoskeletal conferences / workshops to expand their perspectives and understanding in osteoporosis and sarcopenia issues\n(Enrolment to this module will be subject to prior approval by the Programme Director)",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Exercise",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students should be able to:\nExpand their perspectives and understanding in osteoporosis and sarcopenia issues by participation in musculoskeletal conferences / workshops.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6304",
+      "title": "Musculoskeletal Conference and Workshop (Musculoskeletal Rehabilitation)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-E01-EXR (1201)",
+              "meetings": [
+                {
+                  "time": "Tu 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Mr NG Chi Chung",
+                  "dates": "22/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This module enables students to participate in musculoskeletal conferences / workshops to expand their perspectives and understanding in musculoskeletal medicine and rehabilitation issues\n(Enrolment to this module will be subject to prior approval by the Programme Director)",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Exercise",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students should be able to:\nExpand their perspectives and understanding in musculoskeletal medicine and rehabilitation issues by participation in musculoskeletal conferences / workshops.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6305",
+      "title": "Musculoskeletal Conference and Workshop (Integrated Medicine)",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-E01-EXR (1202)",
+              "meetings": [
+                {
+                  "time": "We 9:00AM - 6:00PM",
+                  "location": "No Room Required",
+                  "instructor": "Mr NG Chi Chung",
+                  "dates": "23/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This module enables students to participate in musculoskeletal conferences / workshops to expand their perspectives and understanding in integrated medicine issues\n(Enrolment to this module will be subject to prior approval by the Programme Director)",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Exercise",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students should be able to:\nExpand their perspectives and understanding in integrated medicine issues by participation in musculoskeletal conferences / workshops.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6306",
+      "title": "Robotic Rehabilitation Therapy",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1197)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor WONG Ronald Man Yeung",
+                  "dates": "7/5, 14/5, 21/5"
+                },
+                {
+                  "time": "Sa 10:00AM - 4:00PM",
+                  "location": "TBA",
+                  "instructor": "Professor WONG Ronald Man Yeung",
+                  "dates": "29/5, 5/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr NG Chi Chung, \nProfessor WONG Ronald Man Yeung",
+                  "dates": "26/5"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "998",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "Introduction of Robotic Rehabilitation for Neuroplasticity Rehabilitation and therapeutic application of exoskeleton for rehabilitation",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "Cantonese and English\nAll Face-to-Face Teaching",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students will understanding the followings:\n\n1. Principles Neuroplasticity and Rehabilitation;\n2. Principles of Robotic Rehabilitation and its application;\n3. Updated with the Latest information of Robotic Rehabilitation Technology",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6307",
+      "title": "Musculoskeletal Rehabilitation: Occupational Rehabilitation and Work Disability",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1213)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr. WOO Chuen Hau Alexander, \nProfessor FOK Pui Chu Joan, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Mong Sze",
+                  "dates": "17/3, 24/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr. WOO Chuen Hau Alexander, \nProfessor FOK Pui Chu Joan, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Mong Sze",
+                  "dates": "2/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr. WOO Chuen Hau Alexander, \nProfessor FOK Pui Chu Joan, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Mong Sze",
+                  "dates": "16/2, 23/2, 2/3, 9/3"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Mr NG Chi Chung, \nMr. WOO Chuen Hau Alexander, \nProfessor FOK Pui Chu Joan, \nProfessor NG Wai Kit Raymond, \nProfessor WONG Mong Sze",
+                  "dates": "30/3"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "1",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "998",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese, English and Putonghua"
+            }
+          ]
+        }
+      ],
+      "description": "This is an introduction to principles of occupational orthopaedics and vocational rehabilitation; assessment of work capacity and impairment; medico-legal issues of work injuries, Return to work programmes and barriers.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "Cantonese and English\nAll Face-to-Face Teaching",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "Students will understanding the followings:\n\n1. Principles of occupational orthopaedics and vocational rehabilitation;\n2. Assessment of work capacity and impairment;\n3. Medico-legal issues of work injuries; and\n4. Return to work programmes and barrier",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MRGO",
+      "course_code": "6401",
+      "title": "Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (1206)",
+              "meetings": [
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHEUNG Wing Hoi, \nProfessor LAU Yiu Chung Adam, \nProfessor LEE Yuk Wai, \nProfessor LING Ka Kin Samuel, \nProfessor LUM Chor Ming Christopher, \nProfessor NG Wai Kit Raymond, \nProfessor ONG Michael Tim Yun, \nProfessor TONG Wenxue, \nProfessor WONG Ronald Man Yeung, \nProfessor XU Jiankun, \nProfessor ZHANG Ning",
+                  "dates": "17/10, 24/10"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "TBA",
+                  "instructor": "Mr NG Chi Chung, \nProfessor CHEUNG Wing Hoi, \nProfessor LAU Yiu Chung Adam, \nProfessor LEE Yuk Wai, \nProfessor LING Ka Kin Samuel, \nProfessor LUM Chor Ming Christopher, \nProfessor NG Wai Kit Raymond, \nProfessor ONG Michael Tim Yun, \nProfessor TONG Wenxue, \nProfessor WONG Ronald Man Yeung, \nProfessor XU Jiankun, \nProfessor ZHANG Ning",
+                  "dates": "15/5, 22/5"
+                }
+              ],
+              "availability": {
+                "capacity": "999",
+                "enrolled": "53",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "946",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will require students to conduct a review/project of a musculoskeletal problem in rehabilitation or geriatric orthopaedics. Students have to write up a dissertation on the literature review or project. The review or project will be done under the supervision of a faculty member.",
+      "enrollment_requirement": "For students in MSc Musculoskeletal Medicine, Rehabilitation and Geriatric Orthopaedics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Orthopaedics & Trauma",
+      "academic_org": "Div of Orthopaedics & Trauma",
+      "learning_outcomes": "The students should be able to (1) conduct a research project, (2) understand the knowledge of a specific topic, and (3) submit a review or project report.",
       "assessment_types": {}
     }
   ]

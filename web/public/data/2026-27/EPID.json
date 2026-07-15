@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T10:42:06.321696+00:00",
+    "scraped_at": "2026-07-14T17:27:21.585092+00:00",
     "subject": "EPID",
     "subject_title": "Epidemiology of Infectious Dis",
-    "total_courses": 5,
+    "total_courses": 9,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -185,6 +185,109 @@
     },
     {
       "subject": "EPID",
+      "course_code": "5003",
+      "title": "Epidemiology III",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1084)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:30PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. WANG Jingxuan, \nProfessor KIM Jean Hee, \nProfessor LAM Yuen Tung, \nProfessor WANG Zixin, \nProfessor YANG Xue, \nProfessor YANG Zuyao",
+                  "dates": "23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "120",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students shall learn how to conduct common statistical analyses of epidemiological data by using SPSS or other statistical software and to prepare scientific reports for publication. Sessions will consist of brief introduction of the concepts, computer demonstration and data analysis practicum. The session on reporting will be introduce international guidelines for drafting publications for systematic reviews and randomized trials.",
+      "enrollment_requirement": "For students in Master of Public Health, PgD in Epidemiology & Biostatistics or MSc in Epidemiology & Biostatistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "1. Conduct data cleaning, data management and analysis for an epidemiological study using statistical software\n2. Compare pros and cons of different analytical methods\n3. Be able to present data in tables and figures in proper format for publishing in peer-reviewed journal\n4. Acquire skills in using reporting guidelines for systematic reviews and randomized trials",
+      "assessment_types": {
+        "Examination": "60",
+        "Test or quiz": "40"
+      }
+    },
+    {
+      "subject": "EPID",
+      "course_code": "6001",
+      "title": "Appraisal of the Methods of Epidemiological Studies",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1218)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. WANG Jingxuan, \nProfessor CHAN Yan Chim, \nProfessor TSOI Kam Fai, \nProfessor WANG Zixin, \nProfessor WONG Tze Wai, \nProfessor YANG Zuyao",
+                  "dates": "14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. WANG Jingxuan, \nProfessor CHAN Yan Chim, \nProfessor TSOI Kam Fai, \nProfessor WANG Zixin, \nProfessor WONG Tze Wai, \nProfessor YANG Zuyao",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course will include a series of tutorials for appraising the methods of commonly used epidemiological study designs. In each tutorial, a published study of a specific design (e.g., randomized controlled trial) will be selected and presented and questions regarding the methods of the study will be asked. Students need to carefully read and discuss the questions beforehand and further discuss with the tutor and peers in the class.",
+      "enrollment_requirement": "For students in MSc/PgD in Epidemiology and Biostatistics, MPhil in Public Health, PhD in Public Health, Master of Public Health, PgD in Public Health, MSc/PgD in Health Services Management, MSc/PgD in Health Promotion and Behavioural Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "After these tutorials, students are expected to:\n1. have a good idea of what a real epidemiological study is like;\n2. know how the methods are implemented in real setting;\n3. appreciate compromises in the methods in real studies;\n4. know how to appraise the results, validity and generalizability of a study.",
+      "assessment_types": {
+        "Examination": "60",
+        "Homework or assignment": "30",
+        "Participation": "10"
+      }
+    },
+    {
+      "subject": "EPID",
       "course_code": "6002",
       "title": "Selected Topics in Epidemiology",
       "credits": "1.50",
@@ -236,6 +339,62 @@
         "Examination": "45",
         "Participation": "5",
         "Test or quiz": "50"
+      }
+    },
+    {
+      "subject": "EPID",
+      "course_code": "6003",
+      "title": "Nutritional Epidemiology",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1215)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. LO Ka Hei Kenneth",
+                  "dates": "23/4, 30/4"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Prince of Wales Hospital",
+                  "instructor": "Dr. LO Ka Hei Kenneth",
+                  "dates": "14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course, you will learn about the methods used to assess dietary intakes and how to overcome limitations in assessing such a complex ‘exposure’. Nutrient intakes and dietary patterns in different population groups will be illustrated and key diet-disease associations will be presented. Finally, some of the challenges in interpreting nutritional epidemiology evidence and practical issues in communicating findings will be covered.",
+      "enrollment_requirement": "For students in Master of Public Health, MSc in Epidemiology & Biostatistics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n1. understand the different methods that are used to examine dietary intake\n2. describe key limitations in estimating dietary intake and how these may be minimised in practice\n3. explain current evidence relating to how dietary choices impact obesity, CVD and malnutrition\n4. apply knowledge to design either an observational assessment of diet or a dietary intervention study\n\n學院本課程之後，學生應該能夠：\n1. 理解飲食攝入量的不同評估方法\n2. 描述飲食攝入量評估的主要問題以及如何在實際研究中減少此類問題\n3. 解釋現有的關於飲食選擇與肥胖、心血管疾病及營養不良的關係的證據\n4. 運用所學知識設計一個有關飲食的的觀察性研究或干預研究",
+      "assessment_types": {
+        "Homework or assignment": "10",
+        "Project": "40",
+        "Participation": "10",
+        "Report": "40"
       }
     },
     {
@@ -292,6 +451,57 @@
         "Presentation": "40",
         "Participation": "5"
       }
+    },
+    {
+      "subject": "EPID",
+      "course_code": "6006",
+      "title": "Advanced Infectious Disease Epidemiology",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "--LEC (1168)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor KWOK Kin On",
+                  "dates": "3/5, 10/5, 17/5, 24/5"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor KWOK Kin On",
+                  "dates": "7/6, 14/6, 21/6, 28/6"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to enable post-graduate students who have a background in infectious diseases epidemiology to practice their skills in the real-life problem in infectious disease epidemiology. Contemporary statistical and mathematical methods will be introduced for the study of infectious disease epidemiological data. The course is illustrated with many topical examples including COVID-19, SARS, and influenza.",
+      "enrollment_requirement": "For students in MSc Epidemiology and Biostatistics and Master of Public Health\nPre-requisite: EPID5001",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Student should be able to:\n\n1. To acquire knowledge on infectious disease epidemiology\n2. To distinguish different modes of infectious disease transmission from the epidemiological data collected, and, interpret their findings and confirm their hypothesis;\n3. To apply intermediate statistical and mathematical model to real life practical problems in infectious disease epidemiology.\n4. To evaluate the control measures implemented",
+      "assessment_types": {}
     }
   ]
 }

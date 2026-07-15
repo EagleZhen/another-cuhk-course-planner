@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-12T09:30:54.303696+00:00",
+    "scraped_at": "2026-07-14T16:16:39.383009+00:00",
     "subject": "DOTE",
     "subject_title": "Dept of Decis, Oper & Tech",
-    "total_courses": 67,
+    "total_courses": 78,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -3143,6 +3143,271 @@
     },
     {
       "subject": "DOTE",
+      "course_code": "5012",
+      "title": "Macroeconomics for Business Executives",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "F-LEC (1017)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "7/5, 14/5, 21/5, 28/5"
+                },
+                {
+                  "time": "Th 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "20/5, 27/5"
+                }
+              ],
+              "availability": {
+                "capacity": "75",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "75",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "W-LEC (1024)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Lee Shau Kee Archi Bldg G04",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "22/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "3/4, 10/4, 17/4"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "8/5, 15/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "29/5"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "12/6"
+                },
+                {
+                  "time": "Su 9:30AM - 12:45PM",
+                  "location": "TBA",
+                  "instructor": "Dr. YUEN Chi Lok",
+                  "dates": "13/6"
+                }
+              ],
+              "availability": {
+                "capacity": "47",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "47",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides students with a basic understanding of the state of the global economy and macroeconomic policy. Topics include national income accounting, unemployment, inflation, monetary and fiscal policies, and international economic interactions. Applications of economic theories to current macroeconomic phenomena will be emphasized.",
+      "enrollment_requirement": "For students in MBA; or JD/MBA Double Degree Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to understand, explain and apply:\n1. Economic variables such as gross domestic product (GDP), consumer price index (CPI), unemployment rate, and economic growth rate.\n2. Economic models that explain the business cycles.\n3. The role of banking sector, the creation of money, the role of central bank and its impacts on monetary policy.\n4. The role of government and effects of fiscal policy.\n5. The international economy in the context of foreign exchanges and balance of payments (BOP).",
+      "assessment_types": {
+        "Homework or assignment": "25",
+        "Project": "30",
+        "Participation": "5",
+        "Test or quiz": "40"
+      }
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5021",
+      "title": "Business Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "AE-LEC (1072)",
+              "meetings": [
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "28/2"
+                },
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "14/3"
+                },
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "4/4"
+                },
+                {
+                  "time": "Su 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "18/4"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "13/3"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "3/4"
+                },
+                {
+                  "time": "Sa 8:45AM - 1:15PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "17/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2445",
+          "term_name": "2026-27 Term 4",
+          "schedule": [
+            {
+              "section": "P-LEC (1022)",
+              "meetings": [
+                {
+                  "time": "Fr 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor ZHANG Renyu",
+                  "dates": "21/5"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor ZHANG Renyu",
+                  "dates": "22/5"
+                },
+                {
+                  "time": "Su 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor ZHANG Renyu",
+                  "dates": "23/5"
+                },
+                {
+                  "time": "Th 9:00AM - 6:00PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor ZHANG Renyu",
+                  "dates": "20/5"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "The major objective of this course is to provide students with real life examples of the application of quantitative methods, such as business statistics and operations research, to help business executives solve problems in competitive business environments.",
+      "enrollment_requirement": "For students in EMBA; or EMBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "The major objective of this course is to provide students with basic understanding on the most important quantitative techniques used in business analysis. Although the course is quantitative in nature, we will try to avoid dealing with complicated mathematical theories whenever possible and, instead, stress on the intuition and logic behind the mathematical models and their managerial implications. Except for some illustrative examples in which problems may be solved manually, we will make heavy use of the popular Microsoft Excel and some of its add-in programs (e.g., Solver and StatTools) to solve most of the problems. It is our hope that, by the end of the term, you will feel comfortable about using Excel to analyse data and solve many of your business problems. More importantly, after completing this course, we hope you will develop a habit of thinking your problems in logical ways.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "50",
+        "Others": "10"
+      }
+    },
+    {
+      "subject": "DOTE",
       "course_code": "5031",
       "title": "Strategic Value of Innovation and Technology",
       "credits": "3.00",
@@ -3627,24 +3892,120 @@
                   "time": "Fr 6:45PM - 9:30PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor Prasanna Purushottam KARHADE",
-                  "dates": "8/1, 15/1, 22/1, 29/1, 5/2"
+                  "dates": "8/1, 15/1, 22/1, 29/1"
                 },
                 {
                   "time": "Fr 6:45PM - 9:30PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor Prasanna Purushottam KARHADE",
-                  "dates": "19/2, 26/2, 5/3"
+                  "dates": "12/2, 19/2, 26/2, 5/3"
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "75",
                 "enrolled": "74",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "IS-LEC (1038)",
+              "meetings": [
+                {
+                  "time": "Fr 10:30AM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor WANG Weiquan",
+                  "dates": "12/3, 19/3"
+                },
+                {
+                  "time": "Fr 10:30AM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor WANG Weiquan",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IT-LEC (1052)",
+              "meetings": [
+                {
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor WANG Weiquan",
+                  "dates": "12/3, 19/3"
+                },
+                {
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor WANG Weiquan",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6, 18/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "P-LEC (1065)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Professor XU Yeren",
+                  "dates": "25/2"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor XU Yeren",
+                  "dates": "28/2"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Professor XU Yeren",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Professor XU Yeren",
+                  "dates": "26/2"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
             }
           ]
         }
@@ -3688,11 +4049,11 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "69",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3714,12 +4075,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "10",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -3973,11 +4334,11 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "69",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3993,12 +4354,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "80",
                 "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "10",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -4071,6 +4432,55 @@
         "Homework or assignment": "20",
         "Project": "30",
         "Participation": "10"
+      }
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "5820",
+      "title": "Aviation Capstone Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "VMP1-PRA (1188)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "67",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This project-based capstone course provides students with the opportunity to apply their knowledge to real-world business challenges. In collaboration with industry practitioners, students will work on pressing issues in aviation, such as airline operations, airport management, air transport policy, sustainability, and emerging technologies. Students will engage in hands-on research and problem-solving, using empirical methods to analyse industry challenges and develop practical, evidence-based recommendations.",
+      "enrollment_requirement": "For students in MSc Aviation Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Upon successful completion of this course, students should be able to:\n\n(1) formulate the topic of a project that address a complex aviation management issue;\n\n(2) apply empirical methods to analyze industry challenges;\n\n(3) integrate data and knowledge to provide evidence-based recommendations; and\n\n(4) communicate effectively in the problem, process, results and recommendations of the project in a professional manner, using written report and oral presentation.",
+      "assessment_types": {
+        "Others": "20",
+        "Presentation": "20",
+        "Report": "60"
       }
     },
     {
@@ -4416,6 +4826,73 @@
     },
     {
       "subject": "DOTE",
+      "course_code": "6010",
+      "title": "Managerial Economics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "P-LEC (1156)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Jian",
+                  "dates": "9/4"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Jian",
+                  "dates": "10/4"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Jian",
+                  "dates": "11/4"
+                },
+                {
+                  "time": "Th 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor WANG Jian, \nProfessor WANG Jian",
+                  "dates": "8/4"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "In this course economic analysis is applied to the management decision-making process. Topics to be treated include management decision-making under different situations, demand measurement and forecasting, production and cost, pricing, and capital budgeting. The course consists of lectures, exercises and discussions, and student group presentations of assigned problems and cases.",
+      "enrollment_requirement": "For students in MBA; or JD/MBA Double Degree Programme; or EMBA (Chinese); or MBA in Technology and Innovation",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Course Learning Objectives\n• The students are expected to understand topics such as demand and supply, consumption and production, market structures, game theory, etc.\n• The students are expected to apply the theories learnt to real world managerial practices.\n• The students are expected to provide in-depth analyses of the development of the Chinese economy and the world economy.",
+      "assessment_types": {
+        "Examination": "35",
+        "Homework or assignment": "40",
+        "Presentation": "25"
+      }
+    },
+    {
+      "subject": "DOTE",
       "course_code": "6040",
       "title": "Business Analytics and Digital Innovation",
       "credits": "3.00",
@@ -4437,39 +4914,21 @@
                   "time": "Fr 2:30PM - 6:15PM",
                   "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor HUANG Junfei",
-                  "dates": "8/1"
-                },
-                {
-                  "time": "Fr 2:30PM - 6:15PM",
-                  "location": "Cheng Yu Tung Building 410",
-                  "instructor": "Professor HUANG Junfei",
-                  "dates": "22/1"
+                  "dates": "8/1, 15/1, 22/1, 29/1"
                 },
                 {
                   "time": "Fr 2:30PM - 6:15PM",
                   "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor HUANG Junfei",
                   "dates": "12/2, 19/2, 26/2, 5/3"
-                },
-                {
-                  "time": "Fr 2:30PM - 6:15PM",
-                  "location": "TBA",
-                  "instructor": "Professor HUANG Junfei",
-                  "dates": "15/1"
-                },
-                {
-                  "time": "Fr 2:30PM - 6:15PM",
-                  "location": "TBA",
-                  "instructor": "Professor HUANG Junfei",
-                  "dates": "29/1"
                 }
               ],
               "availability": {
-                "capacity": "65",
+                "capacity": "70",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "65",
+                "available_seats": "70",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4558,37 +5017,37 @@
               "section": "N-LEC (1054)",
               "meetings": [
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Wu Ho Man Yuen Bldg 407",
                   "instructor": "Professor ZHOU Xiang",
                   "dates": "8/12, 15/12, 22/12, 29/12, 5/1"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 209B",
                   "instructor": "Professor ZHOU Xiang",
                   "dates": "19/1, 26/1, 2/2"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 209B",
                   "instructor": "Professor ZHOU Xiang",
                   "dates": "16/2"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 209B",
                   "instructor": "Professor ZHOU Xiang",
                   "dates": "2/3"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Y.C. Liang Hall G04",
                   "instructor": "Professor ZHOU Xiang",
                   "dates": "12/1"
                 },
                 {
-                  "time": "Tu 6:30PM - 9:15PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Y.C. Liang Hall G04",
                   "instructor": "Professor ZHOU Xiang",
                   "dates": "23/2"
@@ -5554,6 +6013,60 @@
     },
     {
       "subject": "DOTE",
+      "course_code": "6654",
+      "title": "Business Process Analysis and Simulation",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BA-LEC (1088)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LIN Yunduan",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LIN Yunduan",
+                  "dates": "20/5, 27/5, 3/6, 10/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces knowledge used to model and analyze business processes, with an emphasis on quantitative skills. A simulation package will be introduced and will be utilized to evaluate business process performance and to facilitate the decision making on business process improvement. The knowledge learnt from the course can equip students with scientific competence and help them solve practical problems in various settings related to business process management.",
+      "enrollment_requirement": "For students in MSc Information & Technology Management; or MSc Business Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to:\n(1) understand fundamental relationship of business processes;\n(2) use scientific tools to model and analyze business processes and deliver managerial insights based on the analysis;\n(3) have the ability to construct business process simulation models and use the models to facilitate decision makings on business process improvement;\n(4) speak the language of business process management in communicating and interacting with non-specialists and discussing related issues.",
+      "assessment_types": {
+        "Examination": "90",
+        "Homework or assignment": "10"
+      }
+    },
+    {
+      "subject": "DOTE",
       "course_code": "6671",
       "title": "China in Global Economy",
       "credits": "3.00",
@@ -5758,6 +6271,62 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BA-LEC (1121)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor WU Jing",
+                  "dates": "23/3, 30/3, 6/4, 13/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor WU Jing",
+                  "dates": "4/5, 11/5, 18/5"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor WU Jing",
+                  "dates": "1/6, 8/6"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WU Jing",
+                  "dates": "20/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor WU Jing",
+                  "dates": "27/4"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor WU Jing",
+                  "dates": "25/5"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "Advance in information technology has already started a revolution in the financial industry. Every part of the financial service system is affected, from daily payment to long-term investment, from efficiency gain to logic transformation. The pace of change is fast. Too fast to catch, yet too critical to miss. Institutions which can leverage the new technologies gain superior market insights, create new business models, and will become the future leaders of the financial service industry. Individuals who can understand and work with FinTech open new gates for investment and career development.\n\nThis course introduces FinTech and examines opportunities and challenges. It seeks to equip students with both a deep and practical understanding of emerging technology in the FinTech arena as well as the necessary coding skills to tackle future demand. We are going to cover topics such as the fundamentals of the financial service system, technology disruption, data management and visualization, financial data mining (Python), quantitative trading and artificial intelligence, crowdfunding, blockchain technology, and RegTech.\n\nApplications on practical FinTech problems are emphasized with case discussions and programming assignments. While we will work with computer codes, this course does NOT assume any programming background from students.",
@@ -5824,6 +6393,64 @@
                 "status": "Open"
               },
               "class_attributes": "Putonghua only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "I-LEC (1097)",
+              "meetings": [
+                {
+                  "time": "Th 6:45PM - 9:30PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 6:45PM - 9:30PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IS-LEC (1108)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor KIM Keong Tae",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -5953,6 +6580,58 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "EA-LEC (1055)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor LIAO Ming",
+                  "dates": "11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4, 29/4, 6/5"
+                },
+                {
+                  "time": "Th 12:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 609",
+                  "instructor": "Professor LIAO Ming",
+                  "dates": "20/5, 27/5, 3/6, 10/6, 17/6"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "IS-LEC (1050)",
+              "meetings": [
+                {
+                  "time": "Tu 6:45PM - 9:30PM",
+                  "location": "Cheng Yu Tung Building 209B",
+                  "instructor": "Staff",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                }
+              ],
+              "availability": {
+                "capacity": "78",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "78",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course introduces generative artificial intelligence (AI) and its applications in business contexts. It covers key generative AI techniques, including deep learning, text generation, image generation, and other AI-driven solutions. The course also discusses opportunities for applying these techniques in business areas such as customer engagement, product design, and personalized marketing, as well as the associated challenges.",
@@ -5968,6 +6647,110 @@
       "assessment_types": {
         "Essay test or exam": "50",
         "Others": "50"
+      }
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6686",
+      "title": "Advanced Information Systems Practicum",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "ISP1-PRA (1196)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor CHEUNG Wai Man",
+                  "dates": "9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4, 27/4, 4/5, 11/5, 18/5, 25/5, 1/6, 8/6, 15/6"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course bridges the gap between classroom and real world. It requires students to complete a real-world information systems project, in collaboration with a company or organization. Students are required to form a project team, under the joint supervision of a teacher and an executive of the sponsoring company.",
+      "enrollment_requirement": "For students in MSc Information & Technology Management; or MSc in Info Sci and Tech Mgt",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to: (1) understand the most current IT issues/management/trend in the commercial sector; (2) understand how real-world projects are managed and executed in a group setting; (3) improve their knowledge of real-world project development; (4) develop the skills (communication and leadership) required to complete IT projects.",
+      "assessment_types": {
+        "Others": "80",
+        "Presentation": "20"
+      }
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6688",
+      "title": "Technology Startup-From Idea to Reality",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "I-LEC (1138)",
+              "meetings": [
+                {
+                  "time": "Mo 6:45PM - 9:30PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor CHARM Ka Ieong",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:45PM - 9:30PM",
+                  "location": "Town Centre Emerald Room",
+                  "instructor": "Professor CHARM Ka Ieong",
+                  "dates": "12/4, 19/4, 26/4, 3/5, 10/5, 17/5, 24/5, 31/5, 7/6, 14/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This is a practical course on entrepreneurial business management as a living skill to start, build and grow a technology enterprise. Learn by creating a new business based on the know-how and wisdom from Silicon Valley to Asia, including evaluating business opportunities, innovation, generating business model, business plan, team building, competition analysis, IP, financing, growth, Silicon Valley and Asian business culture.",
+      "enrollment_requirement": "For students in MSc Information & Technology Management; or MSc Business Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to:\n1. Understand the basic criteria for identifying a real business opportunity;\n2. Understand the process of creating a start-up company;\n3. Know the nuts and bolts of running a startup and the issues with it;\n4. Apply the entrepreneurial process to many different activities.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Project": "40",
+        "Participation": "10",
+        "Report": "20"
       }
     },
     {
@@ -6020,6 +6803,147 @@
     },
     {
       "subject": "DOTE",
+      "course_code": "6690",
+      "title": "Selected Topics of Business Analytics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BA-LEC (1012)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Staff",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Staff",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to investigate and to discuss selected topics of current interests in the area of business analytics.",
+      "enrollment_requirement": "For students in MSc Business Analytics; or MBA; or JD/MBA Double Degree Programme",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "To broaden students’ perspective on the contemporary issues in business analytics",
+      "assessment_types": {
+        "Attendance": "10",
+        "Essay test or exam": "40",
+        "Homework or assignment": "20",
+        "Project": "30"
+      }
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6696",
+      "title": "Advanced Business Analytics Practicum",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BAP1-PRA (1172)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ZHANG Renyu",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "66",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "66",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BBP1-PRA (1173)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIAO Ming",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "66",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "66",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BCP1-PRA (1155)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHARM Ka Ieong",
+                  "dates": "08/03/2027 - 14/06/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "66",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "66",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course bridges the gap between classroom and real world. It requires students to complete a real-world business analytics project, in collaboration with a company or organization. Students are required to form a project team, under the joint supervision of a teacher and an executive of the sponsoring company.",
+      "enrollment_requirement": "For students in MSc Business Analytics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to: (1) understand the most current BA issues/ management/ trend in the commercial sector; (2) understand how real-world projects are managed and executed in a group setting; (3) improve their knowledge of real-world project development; (4) develop the skills (communication and leadership) required to complete BA projects.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "DOTE",
       "course_code": "6698",
       "title": "Machine Learning for Business II",
       "credits": "3.00",
@@ -6035,7 +6959,13 @@
                   "time": "Tu 6:45PM - 9:30PM",
                   "location": "TBA",
                   "instructor": "Professor ZHANG Dongcheng",
-                  "dates": "8/12, 15/12, 22/12, 29/12, 5/1, 12/1, 19/1, 26/1, 2/2, 9/2, 16/2, 23/2, 2/3"
+                  "dates": "8/12, 15/12, 22/12, 29/12, 5/1, 12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 6:45PM - 9:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor ZHANG Dongcheng",
+                  "dates": "16/2, 23/2, 2/3"
                 }
               ],
               "availability": {
@@ -6070,6 +7000,90 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "75",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BA-LEC (1095)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Professor ZHU Kaijie",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BB-LEC (1051)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor ZHU Kaijie",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "VM-LEC (1107)",
+              "meetings": [
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor ZHU Kaijie",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor ZHU Kaijie",
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor ZHU Kaijie",
+                  "dates": "20/3"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 305",
+                  "instructor": "Professor ZHU Kaijie",
+                  "dates": "13/3"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6393,11 +7407,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "48",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6419,11 +7433,11 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "105",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "100",
+                "available_seats": "105",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6613,6 +7627,32 @@
       "credits": "3.00",
       "terms": [
         {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BAF1-FLD (1212)",
+              "meetings": [
+                {
+                  "time": "Mo 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Professor YEUNG Hoi Yan Jeff",
+                  "dates": "5/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
           "term_code": "2450",
           "term_name": "2026-27 Summer Session",
           "schedule": [
@@ -6650,6 +7690,187 @@
       "academic_org": "Div of Business Administration",
       "learning_outcomes": "1. Students will recognize the reasons of the success of IT businesses in Silicon Valley or similar Science Parks.\n2. Students will be able to learn the strategies adopted by the firms we visited.",
       "assessment_types": {}
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6930",
+      "title": "Supply Chain and Logistics Management",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "BA-LEC (1122)",
+              "meetings": [
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LI Anran",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4"
+                },
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LI Anran",
+                  "dates": "29/4, 6/5"
+                },
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LI Anran",
+                  "dates": "27/5"
+                },
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LI Anran",
+                  "dates": "10/6"
+                },
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Professor LI Anran",
+                  "dates": "22/4"
+                },
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Professor LI Anran",
+                  "dates": "20/5"
+                },
+                {
+                  "time": "Th 10:00AM - 12:45PM",
+                  "location": "Wu Ho Man Yuen Bldg 407",
+                  "instructor": "Professor LI Anran",
+                  "dates": "3/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "S-LEC (1041)",
+              "meetings": [
+                {
+                  "time": "Fr 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor WU Jing",
+                  "dates": "23/4"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor WU Jing",
+                  "dates": "24/4"
+                },
+                {
+                  "time": "Th 8:30AM - 6:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor WU Jing",
+                  "dates": "22/4"
+                },
+                {
+                  "time": "Su 8:30AM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WU Jing",
+                  "dates": "25/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the concepts, insights, practical tools, and decision support systems for the effective management of the supply chain. This course will convey both the intuitions behind many key supply chain and logistics management concepts and to provide simple techniques that can be used to analyze various aspects of the supply chain and logistics management. The role of supply chain and logistics management in the age of eBusiness will be addressed. Through readings and case studies, we will identify the current and prospective supply chain practices.",
+      "enrollment_requirement": "For students in MSc Information & Technology Management; or MSc Business Analytics; or MBA in Finance",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should be able to:\n(1) understand the concepts and the insights of supply chain and logistics management;\n(2) analyze various aspects of supply chain and logistics management by using practical tools;\n(3) address the role of supply chain and logistics management in eBusiness;\n(4) identify the current and prospective practices of supply chain and logistics management.",
+      "assessment_types": {
+        "Homework or assignment": "14",
+        "Project": "27",
+        "Report": "50",
+        "Test or quiz": "9"
+      }
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6940",
+      "title": "Enterprise Resource Planning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "I-LEC (1096)",
+              "meetings": [
+                {
+                  "time": "We 6:45PM - 9:30PM",
+                  "location": "Town Centre Sapphire Room",
+                  "instructor": "Mr. WONG Kwan Hoi",
+                  "dates": "10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4, 28/4, 5/5, 12/5, 19/5, 26/5, 2/6"
+                },
+                {
+                  "time": "We 6:45PM - 9:30PM",
+                  "location": "Town Centre Sapphire Room",
+                  "instructor": "Mr. WONG Kwan Hoi",
+                  "dates": "16/6"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Enterprise Resource Planning (ERP) is an integrated information technology to manage company-wide business processes. The topics include two aspects: enterprise resource planning system and the ERP project implementation issues. This course will also introduce the evolution of ERP, concepts and applications of ERP. The topics of enterprise systems will mainly brief on the core modules along the value chain such as product development, order fulfillment, production and others. Finally, the \"ERP and beyond\" will address how the latest developments of ERP can be extended to fulfill the new demand of more enterprise initiatives. Students will be requested to work on a group project.",
+      "enrollment_requirement": "For students in MSc Information & Technology Management; or MSc in Info Sci and Tech Mgt",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing the course, the students are expected to\n1. comprehend the concept / theory of enterprise resource planning\n2. be familiar with an enterprise system, particularly the ERP suite\n3. understand the issues for an ERP implementation\n4. apprehend the future trends of ERP",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Presentation": "20",
+        "Project": "20",
+        "Participation": "10",
+        "Report": "10"
+      }
     },
     {
       "subject": "DOTE",
