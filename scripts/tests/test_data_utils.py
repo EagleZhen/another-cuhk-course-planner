@@ -1,5 +1,6 @@
 import json
 
+import data_utils
 import pytest
 from data_utils import (
     collect_subjects,
@@ -83,6 +84,72 @@ export const SUBJECT_TITLES: Record<string, string> = {
 } as const
 """
     )
+
+
+def test_diff_subject_manifest_reports_changes_by_year():
+    old = render_subjects_module(
+        {
+            "2025-26": ["AAAA", "BBBB"],
+            "2026-27": ["BBBB", "DDDD"],
+            "2027-28": ["FFFF"],
+        },
+        {
+            "AAAA": "Subject A",
+            "BBBB": "Subject B",
+            "DDDD": "Subject D",
+            "FFFF": "Subject F",
+        },
+    )
+    new = render_subjects_module(
+        {
+            "2025-26": ["BBBB", "CCCC"],
+            "2026-27": ["BBBB", "EEEE"],
+            "2027-28": ["FFFF"],
+        },
+        {
+            "BBBB": "Subject B",
+            "CCCC": "Subject C",
+            "EEEE": "Subject E",
+            "FFFF": "Subject F",
+        },
+    )
+
+    changes = data_utils.diff_subject_manifest(old, new)
+
+    assert changes is not None
+    assert changes.by_year == {
+        "2025-26": data_utils.SubjectYearChanges(added={"CCCC"}, removed={"AAAA"}),
+        "2026-27": data_utils.SubjectYearChanges(added={"EEEE"}, removed={"DDDD"}),
+    }
+    assert changes.changed_titles == set()
+
+
+def test_diff_subject_manifest_reports_changed_existing_titles():
+    old = render_subjects_module({"2025-26": ["AAAA"]}, {"AAAA": "Old title"})
+    new = render_subjects_module({"2025-26": ["AAAA"]}, {"AAAA": "New title"})
+
+    changes = data_utils.diff_subject_manifest(old, new)
+
+    assert changes is not None
+    assert changes.by_year == {}
+    assert changes.changed_titles == {"AAAA"}
+
+
+def test_diff_subject_manifest_reports_no_changes_for_identical_content():
+    content = render_subjects_module({"2025-26": ["AAAA"]}, {"AAAA": "Subject A"})
+
+    changes = data_utils.diff_subject_manifest(content, content)
+
+    assert changes == data_utils.SubjectManifestChanges(by_year={}, changed_titles=set())
+
+
+@pytest.mark.parametrize("malformed_side", ["old", "new"])
+def test_diff_subject_manifest_returns_none_for_malformed_content(malformed_side):
+    valid = render_subjects_module({"2025-26": ["AAAA"]}, {"AAAA": "Subject A"})
+    old = "not a subjects module" if malformed_side == "old" else valid
+    new = "not a subjects module" if malformed_side == "new" else valid
+
+    assert data_utils.diff_subject_manifest(old, new) is None
 
 
 def test_partition_splits_a_multi_year_course_into_each_year():

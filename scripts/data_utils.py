@@ -9,6 +9,7 @@ This module has no external dependencies beyond BeautifulSoup and optional markd
 
 import json
 import re
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional, Tuple
@@ -598,6 +599,89 @@ def render_subjects_module(
         lines.append(f"  {subject}: {format_ts_string(subject_titles[subject])},")
     lines.append("} as const")
     return "\n".join(lines) + "\n"
+
+
+@dataclass
+class SubjectYearChanges:
+    added: set[str]
+    removed: set[str]
+
+
+@dataclass
+class SubjectManifestChanges:
+    by_year: dict[str, SubjectYearChanges]
+    changed_titles: set[str]
+
+
+def _parse_subject_manifest(
+    content: str,
+) -> Optional[Tuple[dict[str, set[str]], dict[str, str]]]:
+    """Parse the deterministic subject module for non-blocking change diagnostics."""
+
+    def object_body(export_name: str) -> Optional[str]:
+        match = re.search(
+            rf"export const {export_name}:[^=]+=\s*{{(?P<body>.*?)\n}} as const",
+            content,
+            re.DOTALL,
+        )
+        return match.group("body") if match else None
+
+    years_body = object_body("SUBJECTS_BY_YEAR")
+    titles_body = object_body("SUBJECT_TITLES")
+    if years_body is None or titles_body is None:
+        return None
+
+    subjects_by_year: dict[str, set[str]] = {}
+    for line in years_body.splitlines():
+        if not line.strip():
+            continue
+        match = re.fullmatch(r"\s*'(\d{4}-\d{2})':\s*\[(.*)],\s*", line)
+        if not match:
+            return None
+
+        codes_text = match.group(2)
+        codes = re.findall(r"'([A-Z][A-Z0-9_]*)'", codes_text)
+        if codes_text != ", ".join(f"'{code}'" for code in codes):
+            return None
+        subjects_by_year[match.group(1)] = set(codes)
+
+    if not subjects_by_year:
+        return None
+
+    subject_titles: dict[str, str] = {}
+    for line in titles_body.splitlines():
+        if not line.strip():
+            continue
+        match = re.fullmatch(r"\s*([A-Z][A-Z0-9_]*):\s*(.+),\s*", line)
+        if not match:
+            return None
+        subject_titles[match.group(1)] = match.group(2)
+
+    return subjects_by_year, subject_titles
+
+
+def diff_subject_manifest(old_content: str, new_content: str) -> Optional[SubjectManifestChanges]:
+    """Return structured subject changes, or None when either manifest is unreadable."""
+    old_manifest = _parse_subject_manifest(old_content)
+    new_manifest = _parse_subject_manifest(new_content)
+    if old_manifest is None or new_manifest is None:
+        return None
+
+    old_by_year, old_titles = old_manifest
+    new_by_year, new_titles = new_manifest
+    by_year = {}
+    for year in old_by_year.keys() | new_by_year.keys():
+        added = new_by_year.get(year, set()) - old_by_year.get(year, set())
+        removed = old_by_year.get(year, set()) - new_by_year.get(year, set())
+        if added or removed:
+            by_year[year] = SubjectYearChanges(added=added, removed=removed)
+
+    changed_titles = {
+        subject
+        for subject in old_titles.keys() & new_titles.keys()
+        if old_titles[subject] != new_titles[subject]
+    }
+    return SubjectManifestChanges(by_year=by_year, changed_titles=changed_titles)
 
 
 def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
