@@ -34,10 +34,15 @@ def _configure_publisher(tmp_path, monkeypatch, *, dry_run=False):
 
 
 def _write_course_file(
-    source_dir, *, filename="AAAA.json", subject="AAAA", subject_title="Subject A"
+    source_dir,
+    *,
+    filename="AAAA.json",
+    subject="AAAA",
+    subject_title="Subject A",
+    term_name="2025-26 Term 1",
 ):
     year_dir = source_dir / "2025-26"
-    year_dir.mkdir(parents=True)
+    year_dir.mkdir(parents=True, exist_ok=True)
     data = {
         "metadata": {
             "subject": subject,
@@ -50,7 +55,7 @@ def _write_course_file(
                 "course_code": "1000",
                 "title": "Course A",
                 "credits": "3.00",
-                "terms": [{"term_name": "2025-26 Term 1"}],
+                "terms": [{"term_name": term_name}],
             }
         ],
     }
@@ -122,6 +127,29 @@ def test_publish_regenerates_changed_manifests(tmp_path, monkeypatch, capsys):
     assert "[2025-26] Added (1): AAAA" in output
     assert "Terms manifest changed" in output
     assert "Review the Git diff" in output
+
+
+def test_publish_manifests_exclude_unexpected_files(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, generated_dir = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    _write_course_file(
+        source_dir,
+        filename="ABCDE.json",
+        subject="ABCDE",
+        subject_title="Unexpected subject",
+        term_name="2025-26 Term 2",
+    )
+
+    publish_course_data.main()
+
+    assert (generated_dir / "subjects.ts").read_text() == render_subjects_module(
+        {"2025-26": ["AAAA"]}, {"AAAA": "Subject A"}
+    )
+    assert (generated_dir / "terms.ts").read_text() == render_terms_module(
+        {"2025-26": ["2025-26 Term 1"]}
+    )
+    assert not (published_dir / "2025-26" / "ABCDE.json").exists()
+    assert "Skipped unexpected filenames: ABCDE.json" in capsys.readouterr().out
 
 
 def test_publish_reports_removed_subject_by_year(tmp_path, monkeypatch, capsys):

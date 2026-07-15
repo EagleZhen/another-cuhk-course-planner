@@ -23,8 +23,8 @@ from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from data_utils import (
-    collect_subjects,
-    collect_terms_by_year,
+    collect_subjects_from_files,
+    collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
     render_subjects_module,
@@ -387,6 +387,7 @@ def main():
         # any file has blocking issues, but check every year first so all problems
         # are reported in one run.
         copy_plan: List[Tuple[str, str]] = []  # (source_path, dest_path)
+        publishable_files_by_year: Dict[str, List[Path]] = {}
         blocked = False
 
         for year_path in source_years:
@@ -417,6 +418,7 @@ def main():
                 blocked = True
                 continue
 
+            publishable_files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
             dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
             for file_path in files_to_copy:
                 copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
@@ -439,12 +441,12 @@ def main():
 
         # Render both manifests before writing either one. This runs after every
         # validation gate so failed publishes leave generated files untouched.
-        subjects_by_year, subject_titles = collect_subjects(Path(SOURCE_DATA_DIR))
+        subjects_by_year, subject_titles = collect_subjects_from_files(publishable_files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
-        terms_by_year: Dict[str, List[str]] = {}
-        for year_path in source_years:
-            terms_by_year.update(collect_terms_by_year(year_path))
+        terms_by_year = collect_terms_from_files(
+            filepath for filepaths in publishable_files_by_year.values() for filepath in filepaths
+        )
         new_terms_content = render_terms_module(terms_by_year)
 
         old_subjects_content, subjects_changed = update_generated_file(
