@@ -11,6 +11,7 @@ export interface CourseFilterCriteria {
   subjects: Set<string> // empty = all subjects
   days: Set<number> // 0=Mon..6=Sun; empty = all days
   credits: Set<number> // empty = all credit values
+  levels: Set<number> // leading course-code digit; empty = all levels
   careers: Set<AcademicCareer> // empty = all academic careers
   noConflictOnly: boolean
 }
@@ -86,6 +87,14 @@ const buildDayPredicate: PredicateBuilder = (criteria, context) =>
 const buildCreditsPredicate: PredicateBuilder = (criteria) =>
   criteria.credits.size === 0 ? TRUE : (course) => criteria.credits.has(course.credits)
 
+const buildLevelPredicate: PredicateBuilder = (criteria) =>
+  criteria.levels.size === 0
+    ? TRUE
+    : (course) => {
+        const level = courseLevel(course)
+        return level !== undefined && criteria.levels.has(level)
+      }
+
 const buildCareerPredicate: PredicateBuilder = (criteria) =>
   criteria.careers.size === 0
     ? TRUE
@@ -122,7 +131,8 @@ const buildNoConflictPredicate: PredicateBuilder = (criteria, context) => {
 }
 
 /** One filterable dimension. Adding a filter = append an entry here. */
-export type FilterKey = 'term' | 'subject' | 'keyword' | 'day' | 'credits' | 'career' | 'noConflict'
+export type FilterKey =
+  'term' | 'subject' | 'keyword' | 'day' | 'credits' | 'level' | 'career' | 'noConflict'
 
 const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'term', build: buildTermPredicate },
@@ -130,6 +140,7 @@ const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'keyword', build: buildKeywordPredicate },
   { key: 'day', build: buildDayPredicate },
   { key: 'credits', build: buildCreditsPredicate },
+  { key: 'level', build: buildLevelPredicate },
   { key: 'career', build: buildCareerPredicate },
   { key: 'noConflict', build: buildNoConflictPredicate },
 ]
@@ -205,6 +216,21 @@ export const creditsDimension: ChipDimension<number> = {
   valuesOf: (course) => [course.credits],
 }
 
+/** A course's level, derived from the leading digit of its code. */
+export function courseLevel(course: InternalCourse): number | undefined {
+  const level = Number(course.courseCode[0])
+  return Number.isInteger(level) && level >= 1 && level <= 9 ? level : undefined
+}
+
+/** A course's numeric level; courses without a leading digit contribute no chip. */
+export const levelDimension: ChipDimension<number> = {
+  key: 'level',
+  valuesOf: (course) => {
+    const level = courseLevel(course)
+    return level !== undefined ? [level] : []
+  },
+}
+
 /** A course's academic career; courses without one contribute no chip. */
 export const careerDimension: ChipDimension<AcademicCareer> = {
   key: 'career',
@@ -239,6 +265,7 @@ export function hasActiveFilters(criteria: CourseFilterCriteria): boolean {
     criteria.subjects.size > 0 ||
     criteria.days.size > 0 ||
     criteria.credits.size > 0 ||
+    criteria.levels.size > 0 ||
     criteria.noConflictOnly
   )
 }

@@ -111,6 +111,7 @@ const CAREER_SHORT_LABEL: Record<AcademicCareer, string> = {
 // Stable reference for "no conflict baseline", so gating enrollments out of the filter context
 // doesn't churn the context identity on every render.
 const EMPTY_ENROLLMENTS: CourseEnrollment[] = []
+const EMPTY_LEVELS = new Set<number>()
 
 /** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
 function shuffledCopy<T>(items: T[]): T[] {
@@ -290,6 +291,7 @@ export default function CourseSearch({
       subjects: selectedSubjects,
       days: selectedDays,
       credits: selectedCredits,
+      levels: EMPTY_LEVELS,
       careers: selectedCareers,
       noConflictOnly,
     }),
