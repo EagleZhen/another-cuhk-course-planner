@@ -3,6 +3,8 @@ import { analytics } from '@/lib/analytics'
 
 interface ChipFilterRowProps<T> {
   label: string
+  /** Tooltip shown on the row label. */
+  labelTitle?: string
   options: T[]
   getKey: (value: T) => string | number
   getLabel: (value: T) => string
@@ -24,9 +26,10 @@ interface ChipFilterRowProps<T> {
   trackRemovals?: boolean
 }
 
-/** A labelled row of multi-select filter chips with a Clear button — used for the day and credit filters. */
+/** A labelled row of multi-select filter chips with a Clear button. */
 export function ChipFilterRow<T>({
   label,
+  labelTitle,
   options,
   getKey,
   getLabel,
@@ -43,7 +46,9 @@ export function ChipFilterRow<T>({
 }: ChipFilterRowProps<T>) {
   return (
     <div className="flex items-center gap-2 flex-wrap mt-2">
-      <span className="text-sm font-medium text-gray-700">{label}</span>
+      <span className="text-sm font-medium text-gray-700" title={labelTitle}>
+        {label}
+      </span>
 
       {options.length > 0 ? (
         options.map((value) => {

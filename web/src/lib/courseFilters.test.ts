@@ -5,8 +5,10 @@ import {
   availableValues,
   dayDimension,
   creditsDimension,
+  levelDimension,
   careerDimension,
   hasActiveFilters,
+  courseLevel,
   courseMatchesKeyword,
   type CourseFilterCriteria,
 } from './courseFilters'
@@ -74,6 +76,7 @@ const noFilters: CourseFilterCriteria = {
   subjects: new Set(),
   days: new Set(),
   credits: new Set(),
+  levels: new Set(),
   careers: new Set(),
   noConflictOnly: false,
 }
@@ -122,6 +125,18 @@ describe('filterCourses', () => {
     const one = makeCourse({ courseCode: '2000', credits: 1 })
     const result = filterCourses([three, one], { ...noFilters, credits: new Set([3]) }, ctx)
     expect(result).toEqual([three])
+  })
+
+  it('filters by course level when levels are selected', () => {
+    const levelOne = makeCourse({ courseCode: '1130' })
+    const levelFive = makeCourse({ courseCode: '5001' })
+    const nonNumeric = makeCourse({ courseCode: 'ABCD' })
+    const result = filterCourses(
+      [levelOne, levelFive, nonNumeric],
+      { ...noFilters, levels: new Set([1]) },
+      ctx
+    )
+    expect(result).toEqual([levelOne])
   })
 
   it('filters by academic career when careers are selected', () => {
@@ -242,6 +257,17 @@ describe('courseMatchesKeyword', () => {
   })
 })
 
+describe('courseLevel', () => {
+  it.each([
+    ['1xxx course', '1130', 1],
+    ['9xxx course', '9999', 9],
+    ['non-numeric code', 'ABCD', undefined],
+    ['zero-prefixed code', '0123', undefined],
+  ])('parses a %s', (_label, courseCode, expected) => {
+    expect(courseLevel(makeCourse({ courseCode }))).toBe(expected)
+  })
+})
+
 describe('filterCoursesExcept', () => {
   it('skips the excluded dimension but still applies the others', () => {
     const friday = makeCourse({
@@ -315,6 +341,30 @@ describe('availableValues (creditsDimension)', () => {
   })
 })
 
+describe('availableValues (levelDimension)', () => {
+  it('collects levels present after career filtering and skips non-numeric codes', () => {
+    const levelOne = makeCourse({ courseCode: '1130', career: 'Undergraduate' })
+    const levelFour = makeCourse({ courseCode: '4999', career: 'Undergraduate' })
+    const levelFive = makeCourse({ courseCode: '5001', career: 'Postgraduate - Taught' })
+    const nonNumeric = makeCourse({ courseCode: 'ABCD', career: 'Undergraduate' })
+    const criteria = {
+      ...noFilters,
+      careers: new Set<AcademicCareer>(['Undergraduate']),
+    }
+
+    expect(
+      availableValues(
+        levelDimension,
+        [levelOne, levelFour, levelFive, nonNumeric],
+        criteria,
+        ctx
+      ).sort()
+    ).toEqual([1, 4])
+    expect(levelDimension.valuesOf(levelOne, ctx)).toEqual([1])
+    expect(levelDimension.valuesOf(nonNumeric, ctx)).toEqual([])
+  })
+})
+
 describe('availableValues (careerDimension)', () => {
   it('collects the distinct careers present, skipping courses without one', () => {
     const ug = makeCourse({ subject: 'CSCI', courseCode: '1000', career: 'Undergraduate' })
@@ -348,6 +398,7 @@ describe('hasActiveFilters', () => {
     ['subjects', { ...noFilters, subjects: new Set(['CSCI']) }],
     ['days', { ...noFilters, days: new Set([0]) }],
     ['credits', { ...noFilters, credits: new Set([3]) }],
+    ['levels', { ...noFilters, levels: new Set([2]) }],
     ['no-conflict', { ...noFilters, noConflictOnly: true }],
   ])('is true when %s is set', (_label, criteria) => {
     expect(hasActiveFilters(criteria)).toBe(true)
