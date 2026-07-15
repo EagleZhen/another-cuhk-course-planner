@@ -52,6 +52,7 @@ import {
   availableValues,
   dayDimension,
   creditsDimension,
+  levelDimension,
   careerDimension,
   type CourseFilterCriteria,
   type CourseFilterContext,
@@ -111,7 +112,6 @@ const CAREER_SHORT_LABEL: Record<AcademicCareer, string> = {
 // Stable reference for "no conflict baseline", so gating enrollments out of the filter context
 // doesn't churn the context identity on every render.
 const EMPTY_ENROLLMENTS: CourseEnrollment[] = []
-const EMPTY_LEVELS = new Set<number>()
 
 /** Return a shuffled copy (Fisher-Yates), leaving the input untouched. */
 function shuffledCopy<T>(items: T[]): T[] {
@@ -145,6 +145,7 @@ export default function CourseSearch({
   const [isMobileFilterPanelExpanded, setIsMobileFilterPanelExpanded] = useState(true)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
   const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
+  const [selectedLevels, setSelectedLevels] = useState<Set<number>>(new Set())
   const [noConflictOnly, setNoConflictOnly] = useState(false)
   // Defaults to Undergraduate: most planner users are undergrads, so it's the resting state
   // rather than a narrowing action (see hasActiveFilters). Users can deselect or add PG chips.
@@ -181,6 +182,19 @@ export default function CourseSearch({
         newSet.delete(credits)
       } else {
         newSet.add(credits)
+      }
+      return newSet
+    })
+  }
+
+  // Numeric course-level filter toggle function
+  const toggleLevelFilter = (level: number) => {
+    setSelectedLevels((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(level)) {
+        newSet.delete(level)
+      } else {
+        newSet.add(level)
       }
       return newSet
     })
@@ -291,7 +305,7 @@ export default function CourseSearch({
       subjects: selectedSubjects,
       days: selectedDays,
       credits: selectedCredits,
-      levels: EMPTY_LEVELS,
+      levels: selectedLevels,
       careers: selectedCareers,
       noConflictOnly,
     }),
@@ -300,6 +314,7 @@ export default function CourseSearch({
       selectedSubjects,
       selectedDays,
       selectedCredits,
+      selectedLevels,
       selectedCareers,
       noConflictOnly,
     ]
@@ -343,6 +358,20 @@ export default function CourseSearch({
         selectedCredits
       ).sort((a, b) => a - b),
     [allCourses, filterCriteria, filterContext, selectedCredits]
+  )
+
+  // Numeric levels that still have matching courses (given the other filters), plus any
+  // already selected, sorted ascending.
+  const availableLevels = useMemo(
+    () =>
+      availableValues(
+        levelDimension,
+        allCourses,
+        filterCriteria,
+        filterContext,
+        selectedLevels
+      ).sort((a, b) => a - b),
+    [allCourses, filterCriteria, filterContext, selectedLevels]
   )
 
   // Academic careers that still have matching courses (given the other filters), plus any
@@ -723,7 +752,7 @@ export default function CourseSearch({
 
   // A compact summary of every active filter, shown as a wrapping pill row under the result count
   // (also the only active-filter cue once the mobile filter panel is collapsed). Search stays inline
-  // in the count line; level appears only when it deviates from the default Undergraduate.
+  // in the count line; career appears whenever its selection is non-empty.
   const filterPills: { key: string; label: string }[] = []
   if (selectedSubjects.size > 0) {
     filterPills.push({ key: 'subjects', label: selectedSubjectList.join(', ') })
@@ -744,11 +773,17 @@ export default function CourseSearch({
       .join(', ')
     filterPills.push({ key: 'credits', label: `${credits} credits` })
   }
-  // Level shows the chosen career(s), including the default Undergraduate — consistent with every
+  if (selectedLevels.size > 0) {
+    const levels = Array.from(selectedLevels)
+      .sort((a, b) => a - b)
+      .map((level) => `L${level}`)
+    filterPills.push({ key: 'level', label: levels.join(', ') })
+  }
+  // Career shows the chosen value(s), including the default Undergraduate — consistent with every
   // other pill. Only an empty selection is "no constraint", so only that gets no pill.
   if (selectedCareers.size > 0) {
-    const levels = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
-    filterPills.push({ key: 'level', label: levels.join(', ') })
+    const careers = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
+    filterPills.push({ key: 'career', label: careers.join(', ') })
   }
   if (noConflictOnly) {
     filterPills.push({ key: 'no-conflict', label: 'No time conflicts' })
@@ -887,10 +922,32 @@ export default function CourseSearch({
               }
             />
 
+            {/* Numeric Course-level Filters — derived from the leading course-code digit */}
+            <ChipFilterRow<number>
+              label="Level:"
+              labelTitle="The first numeral is the level of study. Undergraduate courses are coded 1–4, postgraduate courses 5–9."
+              analyticsKey="level"
+              options={availableLevels}
+              getKey={(level) => level}
+              getLabel={(level) => `${level}xxx`}
+              getShortLabel={(level) => String(level)}
+              isSelected={(level) => selectedLevels.has(level)}
+              onToggle={(level) => toggleLevelFilter(level)}
+              onClear={() => setSelectedLevels(new Set())}
+              clearLabel="Clear Level"
+              emptyText="No courses available for level filtering"
+              hasSelection={selectedLevels.size > 0}
+              toggleTitle={(level, selected) =>
+                selected
+                  ? `Remove level-${level} filter`
+                  : `Show only level-${level} courses (codes starting with ${level})`
+              }
+            />
+
             {/* Course-level Career Filters — defaults to Undergraduate; see selectedCareers */}
             <ChipFilterRow<AcademicCareer>
-              label="Level:"
-              analyticsKey="level"
+              label="Career:"
+              analyticsKey="career"
               trackRemovals
               options={availableCareers}
               getKey={(career) => career}
@@ -899,8 +956,8 @@ export default function CourseSearch({
               isSelected={(career) => selectedCareers.has(career)}
               onToggle={(career) => toggleCareerFilter(career)}
               onClear={() => setSelectedCareers(new Set())}
-              clearLabel="Clear Level"
-              emptyText="No courses available for level filtering"
+              clearLabel="Clear Career"
+              emptyText="No courses available for career filtering"
               hasSelection={selectedCareers.size > 0}
               toggleTitle={(career, selected) =>
                 selected ? `Remove ${career} filter` : `Show only ${career} courses`
