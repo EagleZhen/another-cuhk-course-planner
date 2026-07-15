@@ -7,7 +7,8 @@ CUHK course catalog
     -> scripts/scrape_all_subjects.py
     -> data/<year>/*.json (+ data/no-terms/*.json for courses with no scheduled terms)
     -> scripts/publish_course_data.py
-    -> web/public/data/<year>/*.json
+        -> web/public/data/<year>/*.json
+        -> web/src/lib/generated/{subjects,terms}.ts
 ```
 
 ## Quick Start
@@ -25,7 +26,7 @@ uv run python scripts/scrape_all_subjects.py CSCI,UGFN
 # Validate and copy publishable data into the web app
 uv run python scripts/publish_course_data.py
 
-# Inspect publish validation without copying files
+# Inspect publish validation without changing publish outputs
 uv run python scripts/publish_course_data.py --dry-run
 ```
 
@@ -50,11 +51,11 @@ Publishing validates scraped data and copies publishable files to a per-year dir
 The publish script checks:
 
 - JSON structure and per-course subject consistency
-- each year's scraped subjects against `SUBJECTS_BY_YEAR` in [web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts)
+- filename subject codes against `metadata.subject`
 - scraping progress metadata
 - zero-course subjects and structural issues
 
-It also regenerates the term manifest ([web/src/lib/generated/terms.ts](../web/src/lib/generated/terms.ts), see [Term List](#term-list)).
+After validation succeeds, publishing regenerates the app's subject and term manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave both manifests unchanged.
 
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
 
@@ -65,19 +66,14 @@ Read the publish count summary per source year (`data/<year>/`) as:
 - source JSON files found in that year's directory
 - files selected and copied for publishing
 
-## Subject List Changes
+## Generated Manifests
 
-[web/src/lib/generated/subjects.ts](../web/src/lib/generated/subjects.ts) is the web app's subject list: `SUBJECTS_BY_YEAR` (codes per academic year) and `SUBJECT_TITLES` (code to title). If CUHK adds or removes subjects, publishing blocks until it is regenerated.
+Publishing generates both app manifests from validated yearly data:
 
-Regenerate it (the script writes the file directly), then review the diff and run publish again:
+- [subjects.ts](../web/src/lib/generated/subjects.ts): subject codes per academic year and code-to-title mappings
+- [terms.ts](../web/src/lib/generated/terms.ts): available terms per academic year
 
-```bash
-uv run python scripts/generate_subjects.py
-```
-
-## Term List
-
-[web/src/lib/generated/terms.ts](../web/src/lib/generated/terms.ts) lists the app's available terms per academic year. Unlike subjects.ts, publish regenerates it automatically and only warns if it changed — term names need no human review. Commit the change with the published data.
+If either changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed.
 
 The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; a test blocks it from drifting off the generated list.
 
@@ -166,5 +162,5 @@ Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/
 - [scripts/scrape_all_subjects.py](../scripts/scrape_all_subjects.py) - production scrape entry point
 - [scripts/cuhk_scraper.py](../scripts/cuhk_scraper.py) - core scraper implementation
 - [scripts/publish_course_data.py](../scripts/publish_course_data.py) - validation and publishing
-- [scripts/generate_subjects.py](../scripts/generate_subjects.py) - subject list generation
+- [scripts/generate_subjects.py](../scripts/generate_subjects.py) - standalone subject-manifest generation
 - [scripts/data_utils.py](../scripts/data_utils.py) - HTML utilities and JSON output helpers
