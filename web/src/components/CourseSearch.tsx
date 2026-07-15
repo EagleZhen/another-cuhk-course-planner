@@ -142,7 +142,7 @@ export default function CourseSearch({
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
-  const [isMobileFilterPanelExpanded, setIsMobileFilterPanelExpanded] = useState(true)
+  const [isFilterPanelExpanded, setIsFilterPanelExpanded] = useState(true)
   const [selectedDays, setSelectedDays] = useState<Set<number>>(new Set())
   const [selectedCredits, setSelectedCredits] = useState<Set<number>>(new Set())
   const [selectedLevels, setSelectedLevels] = useState<Set<number>>(new Set())
@@ -790,11 +790,11 @@ export default function CourseSearch({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       {/* Sticky Search Input with Term Filter Hint */}
       <div
         data-course-search-header
-        className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 pb-2 sm:pb-4 -mx-4 px-4 pt-4`}
+        className={`sticky ${isArchivedYear ? 'top-[37px]' : 'top-0'} z-10 bg-white border-b border-gray-200 -mx-4 px-4 pt-4`}
       >
         {/* Partial load warning */}
         {failedSubjectCount > 0 && (
@@ -830,7 +830,7 @@ export default function CourseSearch({
           <div
             id="course-filter-panel"
             data-course-filter-panel
-            className={`${isMobileFilterPanelExpanded ? '' : 'hidden'} space-y-2 sm:block`}
+            className={`${isFilterPanelExpanded ? '' : 'hidden'} space-y-2`}
           >
             <div className="flex items-center gap-x-3 gap-y-1 flex-wrap text-xs text-gray-600">
               <div className="flex items-center gap-1">
@@ -983,20 +983,20 @@ export default function CourseSearch({
               </Button>
             </div>
           </div>
-          <div className="sm:hidden">
+          <div>
             <Button
               type="button"
               variant="ghost"
               size="sm"
               className="relative h-6 w-full rounded-md p-0 text-gray-500 hover:bg-gray-50 active:bg-gray-100"
               aria-controls="course-filter-panel"
-              aria-expanded={isMobileFilterPanelExpanded}
-              aria-label={isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
-              title={isMobileFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
-              onClick={() => setIsMobileFilterPanelExpanded((expanded) => !expanded)}
+              aria-expanded={isFilterPanelExpanded}
+              aria-label={isFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
+              title={isFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
+              onClick={() => setIsFilterPanelExpanded((expanded) => !expanded)}
             >
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isMobileFilterPanelExpanded ? 'rotate-180' : ''}`}
+                className={`h-4 w-4 transition-transform duration-200 motion-reduce:transition-none ${isFilterPanelExpanded ? 'rotate-180' : ''}`}
               />
             </Button>
           </div>
