@@ -12,7 +12,7 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Optional, Tuple
+from typing import Any, Iterable, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup, Comment, Tag
@@ -544,15 +544,17 @@ def year_dirs(data_root: Path) -> list[Path]:
     return sorted(p for p in Path(data_root).iterdir() if p.is_dir() and get_academic_year(p.name))
 
 
-def collect_subjects(data_root: Path) -> Tuple[dict[str, list[str]], dict[str, str]]:
-    """Collect year-scoped subject codes and their latest titles from scraped data."""
+def collect_subjects_from_files(
+    files_by_year: dict[str, Iterable[Path]],
+) -> Tuple[dict[str, list[str]], dict[str, str]]:
+    """Collect year-scoped subjects from an explicit set of course files."""
     subjects_by_year: dict[str, list[str]] = {}
     subject_titles: dict[str, str] = {}
 
     # Ascending year order means a newer year's title overwrites an older one.
-    for year_dir in year_dirs(data_root):
+    for year, filepaths in sorted(files_by_year.items()):
         codes = []
-        for filepath in sorted(year_dir.glob("*.json")):
+        for filepath in sorted(filepaths):
             with open(filepath, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
@@ -566,9 +568,17 @@ def collect_subjects(data_root: Path) -> Tuple[dict[str, list[str]], dict[str, s
             codes.append(subject)
             subject_titles[subject] = data["metadata"]["subject_title"]
 
-        subjects_by_year[year_dir.name] = sorted(codes)
+        subjects_by_year[year] = sorted(codes)
 
     return subjects_by_year, subject_titles
+
+
+def collect_subjects(data_root: Path) -> Tuple[dict[str, list[str]], dict[str, str]]:
+    """Collect year-scoped subject codes and their latest titles from scraped data."""
+    files_by_year = {
+        year_dir.name: sorted(year_dir.glob("*.json")) for year_dir in year_dirs(data_root)
+    }
+    return collect_subjects_from_files(files_by_year)
 
 
 def render_subjects_module(
@@ -728,13 +738,10 @@ TERM_SUFFIX_ORDER = (
 )
 
 
-def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
-    """Collect every distinct term name found under a year directory (data/<year>/),
-    grouped by academic year and sorted per TERM_SUFFIX_ORDER. Term names not shaped
-    like "YYYY-YY <suffix>" (e.g. "TBA") are skipped.
-    """
+def collect_terms_from_files(filepaths: Iterable[Path]) -> dict[str, list[str]]:
+    """Collect distinct term names from explicit course files, grouped by year."""
     names_by_year: dict[str, set] = {}
-    for filepath in sorted(Path(year_dir).glob("*.json")):
+    for filepath in sorted(filepaths):
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
         for course in data.get("courses", []):
@@ -749,6 +756,11 @@ def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
         return TERM_SUFFIX_ORDER.index(match.group(2))
 
     return {year: sorted(names, key=suffix_rank) for year, names in sorted(names_by_year.items())}
+
+
+def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
+    """Collect terms found under a year directory, grouped by academic year."""
+    return collect_terms_from_files(sorted(Path(year_dir).glob("*.json")))
 
 
 def render_terms_module(terms_by_year: dict[str, list[str]]) -> str:

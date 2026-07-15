@@ -4,7 +4,9 @@ import data_utils
 import pytest
 from data_utils import (
     collect_subjects,
+    collect_subjects_from_files,
     collect_terms_by_year,
+    collect_terms_from_files,
     diff_term_names,
     get_academic_year,
     partition_subject_by_year,
@@ -51,6 +53,18 @@ def test_collect_subjects_groups_codes_by_year_and_prefers_newest_title(tmp_path
         "2026-27": ["BBBB"],
     }
     assert subject_titles == {"AAAA": "Subject A", "BBBB": "New B"}
+
+
+def test_collect_subjects_from_files_excludes_unselected_files(tmp_path):
+    _write_subject_manifest_file(tmp_path, "2025-26", "AAAA", "Subject A")
+    _write_subject_manifest_file(tmp_path, "2025-26", "SKIP", "Skipped subject")
+
+    subjects_by_year, subject_titles = collect_subjects_from_files(
+        {"2025-26": [tmp_path / "2025-26" / "AAAA.json"]}
+    )
+
+    assert subjects_by_year == {"2025-26": ["AAAA"]}
+    assert subject_titles == {"AAAA": "Subject A"}
 
 
 def test_collect_subjects_rejects_filename_metadata_mismatch(tmp_path):
@@ -221,6 +235,15 @@ def test_collect_terms_sorts_by_teaching_calendar_order(tmp_path):
             "2025-26 Acad Year (Medicine)",
         ]
     }
+
+
+def test_collect_terms_from_files_excludes_unselected_files(tmp_path):
+    _write_subject_file(tmp_path, "AAAA", ["2025-26 Term 1"])
+    _write_subject_file(tmp_path, "SKIP", ["2025-26 Term 2"])
+
+    result = collect_terms_from_files([tmp_path / "AAAA.json"])
+
+    assert result == {"2025-26": ["2025-26 Term 1"]}
 
 
 def test_collect_terms_dedupes_across_subjects(tmp_path):
