@@ -18,13 +18,14 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 
 - **Criteria vs. context.** `criteria` is user selections (empty = no constraint); `context` is the ambient scope (the term and current enrollments). Keeping ambient data in `context` lets `hasActiveFilters` stay a pure test of whether the user narrowed anything — which drives the 10-vs-100 result cap.
 - **Keyword search** covers code, title, description, and instructors, via one shared `courseMatchesKeyword`.
-- **Chip-filter options** (days, credits, level) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
-- **Level (academic career)** defaults to `Undergraduate` and is the one chip excluded from `hasActiveFilters`: it picks _which_ catalog you browse, not how you narrow it, so it must not switch off the shuffled 10-course landing.
+- **Chip-filter options** (days, credits, numeric level, and career) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
+- **Numeric level** comes from the course code's first digit (1–9) and counts as an active filter. Codes without a valid leading digit contribute no level chip.
+- **Career** defaults to `Undergraduate` and is excluded from `hasActiveFilters`: it picks _which_ catalog you browse, so it does not switch off the shuffled 10-course landing.
 - **No-conflict filtering** keeps a course when at least one complete, cohort-compatible section combination avoids both internal clashes and the visible, valid planner baseline. The course under test is removed from its own baseline; hidden and invalid enrollments do not block it.
-- **Active-filter summary.** A pill row under the result count lists the active filters, and is the only such cue once the mobile filter panel collapses. Unlike `hasActiveFilters` (which ignores career), the level pill always shows the chosen career — including the default `Undergraduate` — so the pills stay consistent. An empty (all-levels) career selection shows nothing.
-- The supported level list is explicit. A Vitest contract test ensures it covers every value in published course data, so a new source level requires an intentional UI decision.
+- **Active-filter summary.** A pill row under the result count lists the active filters, and is the only such cue once the mobile filter panel collapses. Unlike `hasActiveFilters` (which ignores career), the career pill shows any chosen career, including the default `Undergraduate`.
+- The supported career list is explicit. A Vitest contract test ensures it covers every value in published course data, so a new source value requires an intentional UI decision.
 - **Adding a filter** (see credits for the full pattern):
-  - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — level is the exception), and — for a chip filter — a `ChipDimension`.
+  - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — career is the exception), and — for a chip filter — a `ChipDimension`.
   - _Component_ (`CourseSearch`): state + toggle, the `filterCriteria` field, an `availableValues` memo, and a `ChipFilterRow`.
 - **Instructor filter:** applying it clears section selections that no longer match; clearing it keeps existing selections.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
