@@ -783,6 +783,7 @@ export default function Home() {
                 }} // Callback to get search control
                 onDataUpdate={handleDataUpdate} // Data freshness callback
                 selectedSubjects={selectedSubjects} // Subject filter state
+                onClearSubjects={() => setSelectedSubjects(new Set())}
                 onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
                 lastDataUpdate={lastDataUpdate} // Last data sync timestamp
               />

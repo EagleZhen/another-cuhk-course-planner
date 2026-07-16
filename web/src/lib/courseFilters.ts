@@ -134,6 +134,9 @@ const buildNoConflictPredicate: PredicateBuilder = (criteria, context) => {
 export type FilterKey =
   'term' | 'subject' | 'keyword' | 'day' | 'credits' | 'level' | 'career' | 'noConflict'
 
+/** Dimensions a user can clear from the UI (excludes the ambient `term` and free-text `keyword`). */
+export type UserFilterKey = Exclude<FilterKey, 'term' | 'keyword'>
+
 const BUILDERS: ReadonlyArray<{ key: FilterKey; build: PredicateBuilder }> = [
   { key: 'term', build: buildTermPredicate },
   { key: 'subject', build: buildSubjectPredicate },
